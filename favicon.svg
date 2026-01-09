@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    text { font-family: sans-serif; font-weight: 900; fill: #0f172a; }
+    .cursor { fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #ffffff; }
+      .cursor { fill: #3b82f6; }
+    }
+  </style>
+  <text x="10" y="75" font-size="70">ID</text>
+  <rect x="85" y="20" width="12" height="60" rx="2" transform="skewX(-5)" class="cursor" />
+</svg>
