@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Eatery | Taste the City</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      body { font-family: 'Inter', sans-serif; background-color: #0c0a09; color: #e7e5e4; }
+      h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+      
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      
+      .text-gold { color: #d4af37; }
+      .border-gold { border-color: #d4af37; }
+      .bg-gold { background-color: #d4af37; }
+
+      /* TYDELIGERE TILBAKE-KNAPP */
+      .dev-badge {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #ffffff; /* Hvit bakgrunn */
+        color: #000000; /* Svart tekst */
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        z-index: 9999;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        border: 2px solid #d4af37; /* Gullkant */
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dev-badge:hover {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      }
+    </style>
+  </head>
+  <body class="antialiased overflow-x-hidden">
+
+    <nav class="absolute w-full z-50 py-8 px-6">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold serif tracking-widest text-white uppercase">Urban<span class="text-gold">.</span></a>
+        <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-stone-300">
+          <a href="#menu" class="hover:text-gold transition">MENY</a>
+          <a href="#about" class="hover:text-gold transition">OM OSS</a>
+          <a href="#book" class="px-6 py-2 border border-stone-600 rounded-full hover:border-gold hover:text-gold transition">BOOK BORD</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center text-center px-6 parallax" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1920&q=80');">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
+        <p class="text-gold tracking-[0.3em] text-sm uppercase mb-4">Established 2025</p>
+        <h1 class="text-6xl md:text-8xl font-black text-white mb-8 leading-tight italic">
+          Taste the <br/> <span class="text-gold not-italic">Urban Life</span>
+        </h1>
+        <p class="text-stone-300 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light">
+          En kulinarisk reise midt i hjertet av byen. Nordiske råvarer, fransk teknikk, urban sjel.
+        </p>
+        <a href="#book" class="inline-block bg-gold text-black px-10 py-4 rounded-sm font-bold tracking-widest hover:bg-white transition duration-300">
+          RESERVER BORD
+        </a>
+      </div>
+    </header>
+
+    <section id="menu" class="py-32 bg-stone-950 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-20" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 serif">Kveldens Utvalgte</h2>
+          <div class="w-24 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+          <div class="flex justify-between items-baseline border-b border-stone-800 pb-4 group" data-aos="fade-up" data-aos-delay="100">
+            <div>
+              <h3 class="text-2xl text-white serif mb-1 group-hover:text-gold transition">Oksetartar</h3>
+              <p class="text-stone-500 text-sm italic">Eggeplomme, kapers, sjalottløk, rugbrød</p>
+            </div>
+            <span class="text-gold font-bold text-xl">185,-</span>
+          </div>
+          <div class="flex justify-between items-baseline border-b border-stone-800 pb-4 group" data-aos="fade-up" data-aos-delay="200">
+            <div>
+              <h3 class="text-2xl text-white serif mb-1 group-hover:text-gold transition">Kamskjell</h3>
+              <p class="text-stone-500 text-sm italic">Blomkålpuré, brunet smør, hasselnøtter</p>
+            </div>
+            <span class="text-gold font-bold text-xl">210,-</span>
+          </div>
+          <div class="flex justify-between items-baseline border-b border-stone-800 pb-4 group" data-aos="fade-up" data-aos-delay="300">
+            <div>
+              <h3 class="text-2xl text-white serif mb-1 group-hover:text-gold transition">Reinsdyrfilet</h3>
+              <p class="text-stone-500 text-sm italic">Rotgrønnsaker, viltsaus, tyttebær</p>
+            </div>
+            <span class="text-gold font-bold text-xl">395,-</span>
+          </div>
+          <div class="flex justify-between items-baseline border-b border-stone-800 pb-4 group" data-aos="fade-up" data-aos-delay="400">
+            <div>
+              <h3 class="text-2xl text-white serif mb-1 group-hover:text-gold transition">Villkveite</h3>
+              <p class="text-stone-500 text-sm italic">Asparges, hollandaise, potetkrem</p>
+            </div>
+            <span class="text-gold font-bold text-xl">375,-</span>
+          </div>
+        </div>
+        
+        <div class="text-center mt-16">
+          <a href="#" class="text-stone-400 hover:text-gold border-b border-stone-400 hover:border-gold transition pb-1">Se full meny</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 h-[600px]">
+      <div class="bg-cover bg-center h-full" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80');"></div>
+      <div class="bg-stone-900 flex items-center justify-center p-12 text-center">
+        <div data-aos="fade-left">
+          <h2 class="text-4xl text-white serif mb-6">Atmosfæren</h2>
+          <p class="text-stone-400 leading-relaxed max-w-md mx-auto">
+            Vi tror at måltidet starter med øynene. Vårt lokale er designet for å gi deg en pause fra hverdagen – mørkt, intimt og levende. Perfekt for dates, forretningsmiddager eller en kveld med venner.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="book" class="py-32 bg-stone-950 px-6 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gold rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+
+      <div class="max-w-xl mx-auto relative z-10 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 serif">Reserver Bord</h2>
+        <p class="text-stone-400 mb-10">Sikre deg en plass i kveld.</p>
+
+        <form class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" placeholder="Dato" class="w-full bg-stone-900 border border-stone-800 p-4 text-white focus:border-gold outline-none transition">
+            <input type="text" placeholder="Tidspunkt" class="w-full bg-stone-900 border border-stone-800 p-4 text-white focus:border-gold outline-none transition">
+          </div>
+          <input type="number" placeholder="Antall gjester" class="w-full bg-stone-900 border border-stone-800 p-4 text-white focus:border-gold outline-none transition">
+          <input type="email" placeholder="Din e-post" class="w-full bg-stone-900 border border-stone-800 p-4 text-white focus:border-gold outline-none transition">
+          
+          <button type="button" onclick="alert('Dette er en demo-side laget av Index Development.')" class="w-full bg-gold text-black font-bold py-4 hover:bg-white transition uppercase tracking-widest mt-4">
+            Bekreft Booking
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-stone-900 text-center">
+      <h3 class="text-2xl text-white serif mb-4">Urban<span class="text-gold">.</span></h3>
+      <p class="text-stone-500 text-sm mb-8">Oslo, Norway • +47 99 99 99 99</p>
+      <div class="flex justify-center gap-6 text-stone-400 text-sm">
+        <a href="#" class="hover:text-white transition">Instagram</a>
+        <a href="#" class="hover:text-white transition">Facebook</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, offset: 50 });
+    </script>
+
+    <a href="prosjekter.html" class="dev-badge">
+      <span>←</span> Tilbake til Portefølje
+    </a>
+
+  </body>
+</html>

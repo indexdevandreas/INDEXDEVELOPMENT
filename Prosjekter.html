@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Prosjekter | Index Development</title>
+    <meta name="description" content="Se utvalgte prosjekter fra Index Development. Skreddersydde nettsider for bedrifter som krever kvalitet.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  </head>
+  <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
+    
+    <nav class="absolute w-full z-50 glass transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="logo-container group">
+            <div class="logo-symbol">
+              <span class="logo-id">ID</span>
+              <div class="logo-cursor"></div>
+            </div>
+            <div class="logo-text flex">
+              <span class="logo-title">Index</span>
+              <span class="logo-subtitle">Development</span>
+            </div>
+          </a>
+
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="index.html#tjenester"
+              class="text-sm font-medium text-slate-600 hover:text-black transition"
+              >Tjenester</a
+            >
+            <a
+              href="prosjekter.html"
+              class="text-sm font-bold text-black border-b-2 border-black pb-0.5 transition"
+              >Prosjekter</a
+            >
+            <a
+              href="prosess.html"
+              class="text-sm font-medium text-slate-600 hover:text-black transition"
+              >Prosess</a
+            >
+            <a
+              href="index.html#kontakt"
+              class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200"
+              >Start Nå</a
+            >
+          </div>
+
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-slate-900 focus:outline-none"
+            >
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4">
+        <a href="index.html#tjenester" class="block text-base font-medium text-slate-600">Tjenester</a>
+        <a href="prosjekter.html" class="block text-base font-bold text-black">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
+        <a href="index.html#kontakt" class="block text-base font-bold text-blue-600">Start Nå</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+          <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight" data-aos="fade-up">
+            Utvalgte <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Prosjekter.</span>
+          </h1>
+          <p class="text-xl text-slate-500 max-w-2xl font-light" data-aos="fade-up" data-aos-delay="100">
+            Kvalitet handler om detaljer. Her er et utvalg nettsider jeg har bygget for hastighet, estetikk og konvertering.
+          </p>
+        </div>
+      </section>
+
+      <section class="pb-32 px-6">
+        <div class="max-w-7xl mx-auto space-y-24">
+          
+          <article class="group relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+            <div class="order-2 md:order-1 relative">
+              <div class="absolute -inset-4 bg-gradient-to-r from-orange-100 to-amber-50 rounded-[2.5rem] transform -rotate-2 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <a href="urban-eatery.html" class="relative block overflow-hidden rounded-3xl shadow-2xl transition transform group-hover:scale-[1.02] duration-500">
+                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=80" 
+                  alt="Urban Eatery Nettside" 
+                  class="w-full h-[400px] object-cover"
+                >
+              </a>
+            </div>
+            <div class="order-1 md:order-2">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold uppercase tracking-wide">Restaurant</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase tracking-wide">2025</span>
+              </div>
+              <h2 class="text-4xl font-bold mb-4 group-hover:text-orange-600 transition">Urban Eatery</h2>
+              <p class="text-slate-500 text-lg mb-8 leading-relaxed">
+                En moderne bistro som trengte en like moderne nettside. Jeg bygget en løsning med integrert booking, lynrask menyvisning og et design som får vann i munnen.
+              </p>
+              <a href="urban-eatery.html" class="inline-flex items-center gap-2 font-bold text-lg text-slate-900 group-hover:gap-4 transition-all duration-300">
+                Se prosjektet <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+            <div class="order-2 md:order-2 relative">
+              <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-cyan-50 rounded-[2.5rem] transform rotate-2 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <a href="vann-varme.html" class="relative block overflow-hidden rounded-3xl shadow-2xl transition transform group-hover:scale-[1.02] duration-500">
+                <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1600&q=80" 
+                  alt="Vann & Varme AS" 
+                  class="w-full h-[400px] object-cover"
+                >
+              </a>
+            </div>
+            <div class="order-1 md:order-1 md:text-right">
+              <div class="flex items-center gap-3 mb-4 justify-start md:justify-end">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wide">VVS</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase tracking-wide">Totalrenovering</span>
+              </div>
+              <h2 class="text-4xl font-bold mb-4 group-hover:text-blue-600 transition">Vann & Varme AS</h2>
+              <p class="text-slate-500 text-lg mb-8 leading-relaxed">
+                Når kunder skal renovere badet, kreves det tillit. Jeg designet en nettside som utstråler profesjonalitet, med fokus på referansebilder og trygghet som konverterer besøkende til store prosjekter.
+              </p>
+              <a href="vann-varme.html" class="inline-flex items-center gap-2 font-bold text-lg text-slate-900 group-hover:gap-4 transition-all duration-300">
+                Se prosjektet <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+            <div class="order-2 md:order-1 relative">
+              <div class="absolute -inset-4 bg-gradient-to-r from-slate-200 to-gray-50 rounded-[2.5rem] transform -rotate-2 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div class="relative block overflow-hidden rounded-3xl shadow-2xl grayscale group-hover:grayscale-0 transition transform group-hover:scale-[1.02] duration-500">
+                <img 
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" 
+                  alt="Advokatene AS" 
+                  class="w-full h-[400px] object-cover"
+                >
+              </div>
+            </div>
+            <div class="order-1 md:order-2">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-bold uppercase tracking-wide">Bedrift</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase tracking-wide">SEO</span>
+              </div>
+              <h2 class="text-4xl font-bold mb-4 group-hover:text-slate-600 transition">Advokatene AS</h2>
+              <p class="text-slate-500 text-lg mb-8 leading-relaxed">
+                Fokus på tillit og profesjonalitet. En stilren nettside strippet for unødvendig støy, optimalisert for å rangere øverst på "Forretningsjus Oslo".
+              </p>
+              <span class="inline-flex items-center gap-2 font-bold text-lg text-slate-400 cursor-not-allowed">
+                Kommer snart
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+          <h2 class="text-4xl font-bold mb-6">Likte du det du så?</h2>
+          <p class="text-slate-500 mb-10 text-xl">Ditt prosjekt kan bli det neste på listen. La oss skape noe unikt sammen.</p>
+          <a
+            href="index.html#kontakt"
+            class="inline-block bg-black text-white px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition shadow-2xl transform"
+            >Start ditt prosjekt</a
+          >
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-slate-200 py-12 border-t border-slate-300">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="index.html" class="logo-container group">
+          <div class="logo-symbol">
+            <span class="logo-id">ID</span>
+            <div class="logo-cursor"></div>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Index</span>
+            <span class="logo-subtitle">Development</span>
+          </div>
+        </a>
+        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
+          <span>© 2026 Index Development Melheim</span>
+          <span>Org. nr. 936 933 661</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      AOS.init({ once: true, offset: 100, duration: 800 });
+    </script>
+  </body>
+</html>
