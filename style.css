@@ -265,3 +265,30 @@ footer {
   background: white;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
+
+/* CTA Pulse Animation */
+@keyframes pulse-blue {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); /* Blå start-glød */
+  }
+  70% {
+    transform: scale(1.03); /* Vokser litt */
+    box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); /* Gløden fader ut */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+.btn-pulse {
+  animation: pulse-blue 2s infinite;
+  border-color: #2563eb !important; /* Gjør kanten blå for ekstra synlighet */
+  color: #2563eb !important; /* Gjør teksten blå */
+}
+
+/* Stopper animasjonen når man holder over, så den ikke "hopper" mens man prøver å klikke */
+.btn-pulse:hover {
+  animation: none;
+}
