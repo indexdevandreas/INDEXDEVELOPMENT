@@ -16,40 +16,37 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <a href="index.html" class="logo-container group">
-            <div class="logo-symbol">
-              <span class="logo-id">ID</span>
-              <div class="logo-cursor"></div>
-            </div>
-            <div class="logo-text flex">
-              <span class="logo-title">Index</span>
-              <span class="logo-subtitle">Development</span>
-            </div>
+            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+            <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
           </a>
-
           <div class="hidden md:flex space-x-8 items-center">
             <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Hjem</a>
             <a href="prosjekter.html" class="text-sm font-bold text-black transition">Prosjekter</a>
             <a href="prosess.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Prosess</a>
             <a href="index.html#kontakt" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
           </div>
-
           <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
           </div>
         </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
+        <a href="index.html" class="block text-base font-medium text-slate-600">Hjem</a>
+        <a href="prosjekter.html" class="block text-base font-bold text-black">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
+        <a href="index.html#kontakt" class="block text-base font-bold text-blue-600">Start Nå</a>
       </div>
     </nav>
 
     <main>
       <section class="pt-32 pb-12 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        
         <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight" data-aos="fade-up">
           Utvalgte <span class="text-blue-600">Prosjekter.</span>
         </h1>
         <p class="text-lg md:text-2xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-          En samling av våre nyeste demoer. Her viser vi bredden i hva vi kan bygge for din bedrift.
+          En samling av våre nyeste demoer. Vi bygger løsninger som kombinerer estetikk med ekstrem ytelse.
         </p>
       </section>
 
@@ -62,6 +59,9 @@
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Restaurant</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Urban Eatery</h2>
               <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Eksklusiv restaurant-opplevelse med integrert meny og booking.</p>
+              <div class="mt-8 inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
+                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
             <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Urban Eatery" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
@@ -72,33 +72,49 @@
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Håndverker</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Vann & Varme</h2>
               <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Optimalisert for raske henvendelser og lokal synlighet.</p>
+              <div class="mt-8 inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
+                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
             <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" alt="Vann & Varme" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
-          <a href="bilpleie.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80"></div>
+          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c1220] via-[#0c1220]/40 to-transparent z-10 opacity-90"></div>
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
-              <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Bilpleie</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Obsidian Detailing</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Maskulint og moderne design med før/etter-fokus.</p>
+              <span class="bg-[#c4a484] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Advokat</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Advokat Justitia</h2>
+              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Klassisk og autoritær nettside som bygger tillit.</p>
+              <div class="mt-8 inline-flex items-center text-[#c4a484] font-bold uppercase tracking-widest text-sm border-b border-[#c4a484]/30 pb-1 group-hover:border-[#c4a484] transition-all">
+                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1603584173870-7f3ca9128351?auto=format&fit=crop&w=1200&q=80" alt="Bilpleie" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Advokatfirma" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
-          <div class="group relative block rounded-[2.5rem] overflow-hidden shadow-xl h-[450px] md:h-[600px] bg-slate-200 cursor-default" data-aos="fade-up" data-aos-delay="300">
-            <div class="absolute inset-0 bg-black/60 z-10"></div>
-            <div class="absolute inset-0 flex items-center justify-center z-20">
-              <span class="bg-yellow-500 text-black px-6 py-2 rounded-full font-bold uppercase tracking-widest text-sm">Under utvikling</span>
+          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
+              <span class="bg-[#fbbf24] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Kjøreskole</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Apex Trafikkskole</h2>
+              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">
+                Moderne og mobilvennlig side med fokus på pakker og enkel booking.
+              </p>
+              <div class="mt-8 inline-flex items-center text-[#fbbf24] font-bold uppercase tracking-widest text-sm border-b border-[#fbbf24]/30 pb-1 group-hover:border-[#fbbf24] transition-all">
+                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Kjøreskole" class="absolute inset-0 w-full h-full object-cover grayscale">
-          </div>
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Apex Trafikkskole" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+          </a>
+
         </div>
       </section>
 
       <section class="py-24 px-6 bg-white border-t border-slate-200">
         <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
           <div class="bg-black rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+            
             <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10">La oss realisere din idé.</h2>
             <a href="index.html#kontakt" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition transform shadow-xl relative z-10">
               Start en samtale →
@@ -106,6 +122,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="bg-slate-200 py-12 border-t border-slate-300">
@@ -126,6 +143,11 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true, offset: 50, duration: 800 });</script>
+    <script>
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
   </body>
 </html>

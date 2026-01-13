@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Trafikkskole | Din vei til lappen</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, .font-display { font-family: 'Oswald', sans-serif; }
+      
+      /* Trafikkskole-farger (L-skilt gul) */
+      .bg-traffic { background-color: #fbbf24; } /* Amber-400 ish */
+      .text-traffic { color: #fbbf24; }
+      .bg-dark { background-color: #111827; }
+    </style>
+  </head>
+  <body class="bg-white text-slate-900 antialiased overflow-x-hidden">
+    
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b-4 border-traffic transition-all duration-300 shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-1 group">
+          <div class="bg-traffic text-black w-8 h-8 rounded flex items-center justify-center font-display font-bold text-xl transform -skew-x-12">L</div>
+          <span class="text-2xl font-display font-bold tracking-tight text-slate-900 italic">APEX</span>
+        </a>
+
+        <a href="prosjekter.html" class="group flex items-center gap-2 bg-dark text-white px-4 py-2 rounded-md font-bold uppercase tracking-wider text-xs hover:bg-traffic hover:text-black transition">
+          <span>←</span>
+          <span class="hidden md:inline">Tilbake</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      
+      <section class="relative h-[80vh] md:h-[90vh] flex items-end md:items-center overflow-hidden bg-dark">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=2000&q=80" alt="Driving Lesson" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pb-20 md:pb-0">
+          <div class="inline-block bg-traffic text-black px-3 py-1 text-xs font-bold uppercase tracking-widest mb-4 transform -skew-x-12" data-aos="fade-down">
+            Ledige plasser denne uken
+          </div>
+          <h1 class="text-5xl md:text-8xl text-white font-display font-bold uppercase leading-[0.9] mb-6" data-aos="fade-up">
+            Lær å kjøre <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-traffic to-yellow-200">Trygt & Effektivt.</span>
+          </h1>
+          <p class="text-slate-300 text-lg md:text-xl max-w-md mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
+            Moderne biler, tålmodige lærere og fullt fokus på at du skal bestå. Start veien mot lappen i dag.
+          </p>
+          
+          <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto" data-aos="fade-up" data-aos-delay="200">
+            <a href="#pakker" class="bg-traffic text-black px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-white transition text-center shadow-lg hover:shadow-traffic/50">
+              Se Priser
+            </a>
+            <a href="#kontakt" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-white hover:text-black transition text-center">
+              Bestill Time
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl font-display font-bold text-slate-900 mb-10 text-center uppercase">Slik tar du lappen</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-traffic" data-aos="fade-up">
+              <span class="text-4xl font-display font-bold text-slate-200 block mb-2">01</span>
+              <h3 class="font-bold text-lg mb-2">Trafikalt Grunnkurs</h3>
+              <p class="text-sm text-slate-500">Obligatorisk før du kan øvelseskjøre. Vi har kurs hver uke.</p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-300" data-aos="fade-up" data-aos-delay="100">
+              <span class="text-4xl font-display font-bold text-slate-200 block mb-2">02</span>
+              <h3 class="font-bold text-lg mb-2">Kjøretimer</h3>
+              <p class="text-sm text-slate-500">Mengdetrening med lærer. Vi tilpasser nivået til deg.</p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-300" data-aos="fade-up" data-aos-delay="200">
+              <span class="text-4xl font-display font-bold text-slate-200 block mb-2">03</span>
+              <h3 class="font-bold text-lg mb-2">Sikkerhetskurs</h3>
+              <p class="text-sm text-slate-500">Glatkjøring og langkjøring på vei. Lær å håndtere risiko.</p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-300" data-aos="fade-up" data-aos-delay="300">
+              <span class="text-4xl font-display font-bold text-slate-200 block mb-2">04</span>
+              <h3 class="font-bold text-lg mb-2">Oppkjøring</h3>
+              <p class="text-sm text-slate-500">Leie av bil til førerprøve og oppvarmingstime inkludert.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pakker" class="py-24 px-6 bg-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold uppercase mb-4">Våre Pakker</h2>
+            <p class="text-slate-400">Vi har ingen skjulte kostnader. Prisen du ser er prisen du betaler.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300" data-aos="fade-up">
+              <h3 class="text-xl font-bold uppercase mb-2 text-traffic">Grunnkurs</h3>
+              <div class="text-3xl font-bold mb-6">1.990,-</div>
+              <ul class="space-y-4 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3">✓ Trafikalt grunnkurs (17t)</li>
+                <li class="flex items-center gap-3">✓ Mørkekjøringsdemo</li>
+                <li class="flex items-center gap-3">✓ Førstehjelp</li>
+              </ul>
+              <button class="w-full py-3 border border-traffic text-traffic font-bold uppercase tracking-wider rounded hover:bg-traffic hover:text-black transition">Velg</button>
+            </div>
+
+            <div class="bg-traffic text-black p-8 rounded-2xl shadow-xl transform md:-translate-y-4 relative" data-aos="fade-up" data-aos-delay="100">
+              <div class="absolute top-0 right-0 bg-black text-white text-[10px] font-bold uppercase px-3 py-1 rounded-bl-lg">Bestselger</div>
+              <h3 class="text-2xl font-bold uppercase mb-2">Startpakke</h3>
+              <div class="text-4xl font-bold mb-6">14.500,-</div>
+              <p class="text-xs font-bold opacity-80 mb-6 uppercase">Alt det obligatoriske</p>
+              <ul class="space-y-4 text-sm font-medium mb-8">
+                <li class="flex items-center gap-3">✓ 10 Kjøretimer</li>
+                <li class="flex items-center gap-3">✓ Sikkerhetskurs bane</li>
+                <li class="flex items-center gap-3">✓ Sikkerhetskurs vei</li>
+                <li class="flex items-center gap-3">✓ Leie av bil til prøve</li>
+              </ul>
+              <button class="w-full py-3 bg-black text-white font-bold uppercase tracking-wider rounded hover:bg-gray-800 transition shadow-lg">Velg Pakke</button>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="text-xl font-bold uppercase mb-2 text-traffic">Enkeltime</h3>
+              <div class="text-3xl font-bold mb-6">850,-</div>
+              <ul class="space-y-4 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3">✓ 45 minutter kjøring</li>
+                <li class="flex items-center gap-3">✓ Tilbakemelding</li>
+                <li class="flex items-center gap-3">✓ Fleksibel tid</li>
+              </ul>
+              <button class="w-full py-3 border border-traffic text-traffic font-bold uppercase tracking-wider rounded hover:bg-traffic hover:text-black transition">Velg</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="py-20 px-6 bg-white">
+        <div class="max-w-lg mx-auto text-center">
+          <h2 class="text-3xl font-display font-bold text-slate-900 mb-6 uppercase">Kom i gang</h2>
+          <p class="text-slate-600 mb-8">Send oss ditt nummer, så ringer vi deg opp for å avtale første time.</p>
+          
+          <form class="space-y-4">
+            <div class="relative">
+              <input type="text" placeholder="Ditt telefonnummer" class="w-full p-4 pl-4 bg-slate-50 border border-slate-200 rounded-lg text-lg focus:outline-none focus:border-traffic transition">
+            </div>
+            <button type="button" class="w-full bg-black text-white py-4 text-lg font-bold uppercase tracking-widest rounded-lg hover:bg-traffic hover:text-black transition shadow-xl">
+              Ring meg opp
+            </button>
+          </form>
+          
+          <p class="mt-8 text-xs text-slate-400">
+            Eller ring oss direkte på <span class="text-slate-900 font-bold">22 33 44 55</span>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-dark text-slate-500 py-12 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+        <div class="font-display font-bold text-white text-lg tracking-wider">APEX</div>
+        <div class="flex gap-6 uppercase text-xs font-bold tracking-widest">
+          <a href="#" class="hover:text-traffic transition">Prisliste</a>
+          <a href="#" class="hover:text-traffic transition">App</a>
+          <a href="prosjekter.html" class="text-traffic hover:text-white transition">← Tilbake til Index</a>
+        </div>
+        <div class="text-xs">© 2026 Apex Demo</div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+  </body>
+</html>

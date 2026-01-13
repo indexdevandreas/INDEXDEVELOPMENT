@@ -11,17 +11,29 @@
   --accent-color: #2563eb;
   --text-main: #0f172a;
   --text-sub: #64748b;
-  --bg-color: #f5f5f7;
   --card-bg: #ffffff;
 }
 
 html,
 body {
-  font-family: "Inter", sans-serif; /* Denne fjerner Word-looken */
-  background-color: var(--bg-color);
+  font-family: "Inter", sans-serif;
+  
+  /* NY BAKGRUNN: Blått fra sidene, grått i bunn */
+  background-color: #F5F5F7;
+  background-image: 
+    /* Venstre side blå glød */
+    radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+    /* Høyre side blå glød */
+    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+    /* Bunn fade til mørkere grå */
+    linear-gradient(180deg, transparent 60%, #cbd5e1 100%);
+    
+  background-attachment: fixed; /* Gjør at bakgrunnen står stille (premium følelse) */
   color: var(--text-main);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 /* --- 2. LOGO --- */
@@ -45,7 +57,7 @@ body {
 
 .logo-id {
   font-weight: 900;
-  font-size: 32px; /* Justert for å passe mobil/desktop */
+  font-size: 32px;
   letter-spacing: -0.08em;
   color: var(--text-main);
 }
@@ -61,16 +73,16 @@ body {
   border-radius: 2px;
   margin-left: 4px;
   transform: skewX(-5deg);
-  animation: blink 1s infinite;
+  animation: breathe 2.5s infinite ease-in-out;
 }
 
 @media (min-width: 768px) {
   .logo-cursor { width: 12px; height: 34px; }
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: skewX(-5deg) scaleY(1); }
+  50% { opacity: 0.3; transform: skewX(-5deg) scaleY(0.9); }
 }
 
 .logo-text {
@@ -97,40 +109,62 @@ body {
 
 /* --- 3. COMPONENTS --- */
 .glass {
-  background: rgba(245, 245, 247, 0.85);
+  background: rgba(255, 255, 255, 0.6); /* Mer transparent for å se bakgrunnen */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.apple-card {
-  background: var(--card-bg);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(0, 0, 0, 0.03);
+.hover-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-.apple-card:hover {
+.hover-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
 }
 
-.glow-effect {
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-  filter: blur(60px);
-  pointer-events: none;
+/* Footer transparent for å vise body-gradient */
+footer {
+  background-color: transparent !important;
 }
 
-/* --- 4. COMPARE GRID --- */
+/* --- NAVIGASJON ANIMASJON (PC KUN) --- */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #000;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* --- SAMMENLIGNING GRID --- */
 .compare-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
   .compare-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin-top: 3rem;
   }
 }
@@ -141,16 +175,18 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 @media (min-width: 768px) {
-  .compare-card { padding: 3rem; }
+  .compare-card { padding: 3rem; gap: 1.5rem; }
 }
 
 .compare-card h3 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
   font-weight: 800;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -160,14 +196,20 @@ body {
 .sub-text {
   font-size: 0.9rem;
   color: var(--text-sub);
-  margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0;
 }
 
-.compare-card ul { list-style: none; }
+.compare-card ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
 .compare-card li {
-  margin-bottom: 1rem;
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -178,21 +220,19 @@ body {
 .compare-card.bad {
   background: #e5e7eb;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #6b7280;
 }
 
 .compare-card.good {
   background: white;
   border: 2px solid var(--accent-color);
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
-  order: -1; /* Viser det gode kortet først på mobil */
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+  transform: scale(1.02);
+  z-index: 10;
 }
 
 @media (min-width: 768px) {
-  .compare-card.good {
-    transform: scale(1.05);
-    z-index: 2;
-    order: 0; /* Normal rekkefølge på desktop */
-  }
+  .compare-card.good { transform: scale(1.05); }
 }
 
 .badge {
@@ -206,28 +246,22 @@ body {
   font-size: 0.7rem;
   font-weight: 900;
   text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
 }
 
-/* --- 5. CONTACT FORM --- */
+/* --- KONTAKTSKJEMA --- */
 .contact-section { position: relative; overflow: hidden; }
-.contact-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.6;
-  z-index: 0;
-}
-.blob-1 { top: -10%; left: -10%; width: 300px; height: 300px; background: #bfdbfe; }
-.blob-2 { bottom: -10%; right: -10%; width: 300px; height: 300px; background: #e9d5ff; }
-
-.contact-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
 
 .input-premium {
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 16px; /* Hindrer zoom på iPhone */
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-premium:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }

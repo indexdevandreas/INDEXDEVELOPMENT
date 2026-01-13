@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prosessen | Index Development</title>
+    <title>Slik jobber vi | Index Development</title>
+    <meta name="description" content="En ryddig og forutsigbar prosess fra start til mål. Ingen overraskelser, bare kvalitet.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   </head>
-  <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
+  <body class="text-slate-900 antialiased overflow-x-hidden">
     
-    <nav class="absolute w-full z-50 glass transition-all duration-300">
+    <nav class="fixed w-full z-50 glass transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <a href="index.html" class="logo-container group">
@@ -26,243 +28,121 @@
           </a>
 
           <div class="hidden md:flex space-x-8 items-center">
-            <a
-              href="index.html#tjenester"
-              class="text-sm font-medium text-slate-600 hover:text-black transition"
-              >Tjenester</a
-            >
-            <a
-              href="prosjekter.html"
-              class="text-sm font-medium text-slate-600 hover:text-black transition"
-              >Prosjekter</a
-            >
-            <a
-              href="prosess.html"
-              class="text-sm font-bold text-black transition"
-              >Prosess</a
-            >
-            <a
-              href="index.html#kontakt"
-              class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200"
-              >Start Nå</a
-            >
+            <a href="index.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Hjem</a>
+            <a href="prosjekter.html" class="nav-link text-sm font-bold text-black transition-colors">Prosjekter</a>
+            <a href="prosess.html" class="nav-link text-sm font-bold text-black transition-colors">Prosess</a>
+            <a href="index.html#kontakt" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
           </div>
 
           <div class="md:hidden">
-            <button
-              id="mobile-menu-button"
-              class="text-slate-900 focus:outline-none"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
+            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
           </div>
         </div>
       </div>
-
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4"
-      >
-        <a href="index.html#tjenester" class="block text-base font-medium text-slate-600">Tjenester</a>
-        <a href="prosjekter.html" class="block text-base font-medium text-slate-600">Prosjekter</a>
-        <a href="prosess.html" class="block text-base font-bold text-black">Prosess</a>
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
+        <a href="index.html" class="block text-base font-medium text-slate-600">Hjem</a>
+        <a href="prosjekter.html" class="block text-base font-bold text-black">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
         <a href="index.html#kontakt" class="block text-base font-bold text-blue-600">Start Nå</a>
       </div>
     </nav>
 
-    <section class="pt-40 pb-16 px-6 relative overflow-hidden">
-      <div
-        class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full glow-effect"
-      ></div>
-      <div
-        class="max-w-4xl mx-auto text-center relative z-10"
-        data-aos="fade-up"
-      >
-        <h1
-          class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-slate-900"
-        >
-          Veien til din nye <br />
-          <span class="text-blue-600">digitale hverdag.</span>
-        </h1>
-        <p class="text-xl text-slate-500 max-w-2xl mx-auto">
-          Ingen kompliserte faguttrykk. En ryddig og forutsigbar prosess fra
-          start til mål med Index Development.
-        </p>
-      </div>
-    </section>
+    <main>
+      <section class="pt-32 pb-20 md:pt-48 md:pb-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+          <div class="inline-block mb-6 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500" data-aos="fade-down">
+            Slik jobber vi
+          </div>
+          
+          <h1 class="text-4xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-slate-900" data-aos="fade-up">
+            En forutsigbar <br/>
+            <span class="text-blue-600">vei til mål.</span>
+          </h1>
+          
+          <p class="text-lg md:text-2xl text-slate-500 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            Ingen kompliserte faguttrykk eller skjulte kostnader. Bare en ryddig prosess fra første kaffekopp til lansering.
+          </p>
+        </div>
+      </section>
 
-    <section class="pb-24 px-6">
-      <div class="max-w-3xl mx-auto space-y-8">
-        <div
-          class="apple-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div
-            class="absolute top-0 right-0 p-8 opacity-5 text-9xl font-bold step-number select-none"
-          >
-            1
-          </div>
-          <div
-            class="w-16 h-16 bg-blue-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-blue-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-8 h-8"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.186.06-2.131 1.022-2.175 2.206l-.253 6.758Q5.32 17.5 5.32 17.5l-3 3v-3.09c-.34-.02-.68-.045-1.02-.07C.207 17.295-.64 16.332-.64 15.196v-4.286c0-.969.617-1.813 1.5-2.097 0 0 16.035-5.118 19.39-1.998z"
-              />
-            </svg>
-          </div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold mb-3">Kartlegging & Fastpris</h3>
-            <p class="text-slate-500 leading-relaxed">
-              Jeg starter alltid med en prat for å forstå dine behov. Hva skal
-              nettsiden oppnå? Basert på dette gir jeg deg en fast pris med en
-              gang. Ingen overraskende fakturaer i ettertid.
+      <section class="pb-32 px-6">
+        <div class="max-w-4xl mx-auto space-y-8">
+            
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 hover:border-blue-200 transition duration-500 relative overflow-hidden group" data-aos="fade-up">
+                <div class="absolute top-0 right-0 p-8 text-9xl font-black text-slate-200 group-hover:text-blue-100 transition duration-500 select-none pointer-events-none">01</div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-blue-600 text-2xl group-hover:scale-110 transition duration-300">
+                        ☕️
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Kartlegging & Fastpris</h3>
+                        <p class="text-slate-500 leading-relaxed text-lg">
+                            Vi starter med en prat for å forstå din bedrift. Hva trenger du egentlig? Basert på dette får du et tilbud med en <strong>fast pris</strong>. Ingen overraskende fakturaer i ettertid.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 hover:border-blue-200 transition duration-500 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                 <div class="absolute top-0 right-0 p-8 text-9xl font-black text-slate-200 group-hover:text-blue-100 transition duration-500 select-none pointer-events-none">02</div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-blue-600 text-2xl group-hover:scale-110 transition duration-300">
+                        🎨
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Design & Utvikling</h3>
+                        <p class="text-slate-500 leading-relaxed text-lg">
+                            Jeg designer nettsiden basert på din logo og dine farger. Deretter håndkoder jeg siden linje for linje for å sikre at den blir lynrask og fungerer perfekt på mobil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 hover:border-blue-200 transition duration-500 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                 <div class="absolute top-0 right-0 p-8 text-9xl font-black text-slate-200 group-hover:text-blue-100 transition duration-500 select-none pointer-events-none">03</div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-blue-600 text-2xl group-hover:scale-110 transition duration-300">
+                        🚀
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Lansering & Drift</h3>
+                        <p class="text-slate-500 leading-relaxed text-lg">
+                            Når du er fornøyd, kobler jeg siden til domenet ditt. Jeg sørger for sikkerhet (SSL) og hosting på raske servere, slik at du slipper å tenke på det tekniske.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </section>
+
+      <section class="py-24 px-6 border-t border-slate-200/50">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+          <div class="bg-black rounded-[2.5rem] p-10 md:p-20 relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+            
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10">Klar for å starte?</h2>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg mx-auto relative z-10 font-light">
+              Send meg en melding i dag, så tar vi en uforpliktende prat om hva du trenger.
             </p>
+            <a href="index.html#kontakt" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition transform shadow-xl relative z-10">
+              Start en samtale →
+            </a>
           </div>
         </div>
+      </section>
 
-        <div
-          class="apple-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div
-            class="absolute top-0 right-0 p-8 opacity-5 text-9xl font-bold step-number select-none"
-          >
-            2
-          </div>
-          <div
-            class="w-16 h-16 bg-purple-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-purple-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-8 h-8"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.077-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.048 4.025a3 3 0 01-4.172-4.172 3 3 0 014.172 4.172zm7.5-8.79l-7.682 7.682a4.5 4.5 0 00-6.364-6.364L12.068 8.95m5.364-5.364l-1.06 1.06a4.5 4.5 0 006.364 6.364l1.06-1.06a4.5 4.5 0 00-6.364-6.364z"
-              />
-            </svg>
-          </div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold mb-3">Design & Tilpasning</h3>
-            <p class="text-slate-500 leading-relaxed">
-              Jeg implementerer din logo, dine farger og bilder slik at
-              nettsiden føles unik og profesjonell. Du får se utkast underveis
-              og har direkte kontakt med meg for justeringer.
-            </p>
-          </div>
-        </div>
+    </main>
 
-        <div
-          class="apple-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div
-            class="absolute top-0 right-0 p-8 opacity-5 text-9xl font-bold step-number select-none"
-          >
-            3
-          </div>
-          <div
-            class="w-16 h-16 bg-green-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-green-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-8 h-8"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-              />
-            </svg>
-          </div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold mb-3">Teknisk Utvikling</h3>
-            <p class="text-slate-500 leading-relaxed">
-              Jeg skriver koden for hånd (HTML/CSS) for å sikre at siden scorer
-              100/100 på hastighet. Dette sikrer at siden fungerer perfekt på
-              mobil og rangerer høyere i Google.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="apple-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <div
-            class="absolute top-0 right-0 p-8 opacity-5 text-9xl font-bold step-number select-none"
-          >
-            4
-          </div>
-          <div
-            class="w-16 h-16 bg-orange-50 rounded-2xl flex-shrink-0 flex items-center justify-center text-orange-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-8 h-8"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.072 0 2.041.518 2.7 1.35l3.712 4.95a4.5 4.5 0 01.9 2.7"
-              />
-            </svg>
-          </div>
-          <div class="relative z-10">
-            <h3 class="text-2xl font-bold mb-3">Lansering & Hosting</h3>
-            <p class="text-slate-500 leading-relaxed">
-              Når du er fornøyd, kobler jeg nettsiden til ditt domene og sikrer
-              den med SSL (hengelås). Jeg sørger for hosting på lynraske servere
-              så du slipper å tenke på drift.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-slate-200 py-12 border-t border-slate-300">
-      <div
-        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
-      >
+    <footer class="py-12 border-t border-slate-300">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <a href="index.html" class="logo-container group">
           <div class="logo-symbol">
             <span class="logo-id">ID</span>
@@ -273,32 +153,22 @@
             <span class="logo-subtitle">Development</span>
           </div>
         </a>
-
-        <div
-          class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium"
-        >
-          <a
-            href="mailto:indexdevandreas@gmail.com"
-            class="hover:text-black transition"
-            >indexdevandreas@gmail.com</a
-          >
+        <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
+          <a href="mailto:indexdevandreas@gmail.com" class="hover:text-black transition">indexdevandreas@gmail.com</a>
+          <a href="om-meg.html" class="hover:text-black transition opacity-70 hover:opacity-100">Om Andreas</a>
         </div>
-
-        <div
-          class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1"
-        >
+        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
           <span>© 2026 Index Development Melheim</span>
           <span>Org. nr. 936 933 661</span>
         </div>
       </div>
     </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       const btn = document.getElementById("mobile-menu-button");
       const menu = document.getElementById("mobile-menu");
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
+      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
       AOS.init({ once: true, offset: 50, duration: 800 });
     </script>
   </body>
