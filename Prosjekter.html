@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Våre Prosjekter | Index Development</title>
+    <meta name="description" content="Se demoer av nettsider for restauranter, håndverkere og bedrifter. Raske og mobilvennlige løsninger.">
     
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
@@ -12,27 +20,27 @@
   </head>
   <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
     
-    <nav class="fixed w-full z-50 glass transition-all duration-300">
+    <nav class="fixed w-full z-50 glass transition-all duration-300" role="navigation" aria-label="Hovedmeny">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
-          <a href="index.html" class="logo-container group">
-            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+          <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
+            <div class="logo-symbol" aria-hidden="true"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
             <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
           </a>
           <div class="hidden md:flex space-x-8 items-center">
             <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Hjem</a>
-            <a href="prosjekter.html" class="text-sm font-bold text-black transition">Prosjekter</a>
+            <a href="prosjekter.html" class="text-sm font-bold text-black transition" aria-current="page">Prosjekter</a>
             <a href="prosess.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Prosess</a>
             <a href="index.html#kontakt" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
           </div>
           <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none" aria-label="Åpne meny" aria-expanded="false"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
           </div>
         </div>
       </div>
       <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
         <a href="index.html" class="block text-base font-medium text-slate-600">Hjem</a>
-        <a href="prosjekter.html" class="block text-base font-bold text-black">Prosjekter</a>
+        <a href="prosjekter.html" class="block text-base font-bold text-black" aria-current="page">Prosjekter</a>
         <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
         <a href="index.html#kontakt" class="block text-base font-bold text-blue-600">Start Nå</a>
       </div>
@@ -42,69 +50,130 @@
       <section class="pt-32 pb-12 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
         
+        <div class="inline-block mb-6 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500" data-aos="fade-down">
+            Portefølje
+        </div>
+
         <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight" data-aos="fade-up">
           Utvalgte <span class="text-blue-600">Prosjekter.</span>
         </h1>
+        
         <p class="text-lg md:text-2xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-          En samling av våre nyeste demoer. Vi bygger løsninger som kombinerer estetikk med ekstrem ytelse.
+          En samling av utvalgte demoer. Løsninger som kombinerer estetikk med ekstrem ytelse.
         </p>
       </section>
 
       <section class="pb-32 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           
-          <a href="urban-eatery.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up">
+          <a href="urban-eatery.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" aria-label="Se demo av Urban Eatery">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-green-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                100 Ytelse
+            </div>
+
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Restaurant</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Urban Eatery</h2>
               <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Eksklusiv restaurant-opplevelse med integrert meny og booking.</p>
+              
               <div class="mt-8 inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
-                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                <span class="relative flex h-2 w-2 mr-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Se Live Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" alt="Urban Eatery" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Bilde av Urban Eatery nettside" 
+                 width="800" height="450" loading="eager"
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
           </a>
 
-          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="100">
+          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="100" aria-label="Se demo av Vann & Varme">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-green-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                100 Ytelse
+            </div>
+
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Håndverker</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Vann & Varme</h2>
               <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Optimalisert for raske henvendelser og lokal synlighet.</p>
+              
               <div class="mt-8 inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
-                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                <span class="relative flex h-2 w-2 mr-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Se Live Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" alt="Vann & Varme" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Bilde av Vann & Varme nettside"
+                 width="800" height="450" loading="eager" 
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
-          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="200">
+          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="200" aria-label="Se demo av Advokatfirma">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0c1220] via-[#0c1220]/40 to-transparent z-10 opacity-90"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-green-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                100 Ytelse
+            </div>
+
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
               <span class="bg-[#c4a484] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Advokat</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Advokat Justitia</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Klassisk og autoritær nettside som bygger tillit.</p>
+              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Klassisk og solid nettside som bygger tillit.</p>
+              
               <div class="mt-8 inline-flex items-center text-[#c4a484] font-bold uppercase tracking-widest text-sm border-b border-[#c4a484]/30 pb-1 group-hover:border-[#c4a484] transition-all">
-                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                <span class="relative flex h-2 w-2 mr-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c4a484] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-[#c4a484]"></span>
+                </span>
+                Se Live Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Advokatfirma" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Bilde av Advokatfirma nettside"
+                 width="800" height="450" loading="lazy" 
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
-          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="300">
+          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="300" aria-label="Se demo av Apex Trafikkskole">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10 opacity-80"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-green-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                100 Ytelse
+            </div>
+
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
               <span class="bg-[#fbbf24] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Kjøreskole</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Apex Trafikkskole</h2>
               <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">
                 Moderne og mobilvennlig side med fokus på pakker og enkel booking.
               </p>
+              
               <div class="mt-8 inline-flex items-center text-[#fbbf24] font-bold uppercase tracking-widest text-sm border-b border-[#fbbf24]/30 pb-1 group-hover:border-[#fbbf24] transition-all">
-                Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                <span class="relative flex h-2 w-2 mr-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fbbf24] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-[#fbbf24]"></span>
+                </span>
+                Se Live Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Apex Trafikkskole" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Bilde av Apex Trafikkskole nettside"
+                 width="800" height="450" loading="lazy" 
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
         </div>
@@ -127,8 +196,8 @@
 
     <footer class="bg-slate-200 py-12 border-t border-slate-300">
       <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="index.html" class="logo-container group">
-          <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+        <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
+          <div class="logo-symbol" aria-hidden="true"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
           <div class="logo-text"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
         </a>
         <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
@@ -137,6 +206,10 @@
         <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
           <span>© 2026 Index Development Melheim</span>
           <span>Org. nr. 936 933 661</span>
+          <div class="mt-2 flex flex-col md:flex-row gap-2 md:gap-4 justify-end">
+            <a href="personvern.html" class="hover:text-black underline transition">Personvern</a>
+            <a href="vilkar.html" class="hover:text-black underline transition">Salgsbetingelser</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -145,7 +218,10 @@
     <script>
       const btn = document.getElementById("mobile-menu-button");
       const menu = document.getElementById("mobile-menu");
-      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      btn.addEventListener("click", () => {
+          const isHidden = menu.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", !isHidden);
+      });
       AOS.init({ once: true, offset: 50, duration: 800 });
     </script>
   </body>
