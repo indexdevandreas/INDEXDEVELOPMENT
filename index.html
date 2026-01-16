@@ -18,13 +18,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
+
     <link rel="stylesheet" href="style.css" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
     <style>
-      /* Sikrer at tekst er synlig mens fonten laster (Bedre score) */
-      body { font-display: swap; }
+      /* Sikrer synlig tekst umiddelbart */
+      body { font-family: 'Inter', sans-serif; font-display: swap; }
     </style>
   </head>
   <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
@@ -119,7 +127,7 @@
             </div>
             <div data-aos="fade-left">
                 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 0121 12z" /></svg>
                 </div>
                 <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">Slipp teknisk <br/><span class="text-blue-600">hodepine.</span></h2>
                 <p class="text-lg text-slate-500 mb-8 leading-relaxed">
@@ -336,49 +344,59 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-      const btn = document.getElementById("mobile-menu-button");
-      const menu = document.getElementById("mobile-menu");
-      btn.addEventListener("click", () => {
-          const isHidden = menu.classList.toggle("hidden");
-          btn.setAttribute("aria-expanded", !isHidden);
-      });
-      AOS.init({ once: true, offset: 50, duration: 800 });
+      // Siden scriptet er deferred, venter vi på at DOM er klar
+      document.addEventListener("DOMContentLoaded", function() {
+        // Mobilmeny
+        const btn = document.getElementById("mobile-menu-button");
+        const menu = document.getElementById("mobile-menu");
+        btn.addEventListener("click", () => {
+            const isHidden = menu.classList.toggle("hidden");
+            btn.setAttribute("aria-expanded", !isHidden);
+        });
+        
+        // Skjema
+        const form = document.getElementById('contact-form');
+        const result = document.getElementById('success-message');
+        const container = document.getElementById('form-container');
+        const submitBtn = document.getElementById('submit-btn');
 
-      // Skjema-håndtering
-      const form = document.getElementById('contact-form');
-      const result = document.getElementById('success-message');
-      const container = document.getElementById('form-container');
-      const submitBtn = document.getElementById('submit-btn');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.innerText = "Sender...";
+            submitBtn.disabled = true;
 
-      form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          submitBtn.innerText = "Sender...";
-          submitBtn.disabled = true;
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
 
-          const formData = new FormData(form);
-          const object = Object.fromEntries(formData);
-          const json = JSON.stringify(object);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    container.style.display = "none";
+                    result.classList.remove("hidden");
+                } else {
+                    submitBtn.innerText = "Noe gikk galt. Prøv igjen.";
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                submitBtn.innerText = "Feil ved sending.";
+                submitBtn.disabled = false;
+            });
+        });
 
-          fetch('https://api.web3forms.com/submit', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: json
-          })
-          .then(async (response) => {
-              if (response.status == 200) {
-                  container.style.display = "none";
-                  result.classList.remove("hidden");
-              } else {
-                  submitBtn.innerText = "Noe gikk galt. Prøv igjen.";
-                  submitBtn.disabled = false;
-              }
-          })
-          .catch(error => {
-              submitBtn.innerText = "Feil ved sending.";
-              submitBtn.disabled = false;
-          });
+        // Start AOS når scriptet er lastet
+        setTimeout(() => {
+          if(typeof AOS !== 'undefined') {
+            AOS.init({ once: true, offset: 50, duration: 800 });
+          }
+        }, 100);
       });
     </script>
   </body>
