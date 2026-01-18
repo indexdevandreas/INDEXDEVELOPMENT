@@ -31,8 +31,17 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
     <style>
-      /* Sikrer synlig tekst umiddelbart */
       body { font-family: 'Inter', sans-serif; font-display: swap; }
+      
+      /* En rolig puls for å trekke oppmerksomhet uten å skrike */
+      .pulse-soft {
+        animation: pulse-blue 3s infinite;
+      }
+      @keyframes pulse-blue {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+        70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+      }
     </style>
   </head>
   <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
@@ -226,46 +235,63 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
             
-            <div class="p-10 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition duration-500" data-aos="fade-right">
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Eie</h3>
-                <div class="flex items-baseline gap-2 mb-6">
-                <span class="text-4xl font-black text-slate-900">19.990,-</span>
-                <span class="text-sm font-medium text-slate-500">engangssum</span>
+            <div class="pulse-soft p-10 rounded-[2.5rem] bg-white border-2 border-blue-100 shadow-2xl relative overflow-hidden z-10 transform md:scale-105" data-aos="fade-right">
+                
+                <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-bl-2xl rounded-tr-[2.5rem] shadow-lg">
+                    POPULÆR
                 </div>
+
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Eie</h3>
+                
+                <div class="flex flex-col mb-6">
+                    <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Introduksjonspris</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-5xl font-black text-slate-900">9.990,-</span>
+                        <span class="text-sm font-medium text-slate-500">engangssum</span>
+                    </div>
+                </div>
+
                 <p class="text-slate-500 mb-8 leading-relaxed text-sm">
-                Perfekt for deg som vil eie nettsiden selv og har egne rutiner for drift og hosting.
+                For deg som vil eie nettsiden selv. En komplett nettside uten faste månedsavgifter til meg. Du betaler én gang, og siden er din for alltid.
                 </p>
                 <ul class="space-y-4 mb-10 text-sm">
-                <li class="flex items-center gap-3"><span class="text-slate-800 font-bold" aria-hidden="true">✓</span> Opptil 5 undersider</li>
-                <li class="flex items-center gap-3"><span class="text-slate-800 font-bold" aria-hidden="true">✓</span> Fullt eierskap til koden</li>
-                <li class="flex items-center gap-3"><span class="text-slate-800 font-bold" aria-hidden="true">✓</span> Ingen faste månedskostnader til meg</li>
-                <li class="flex items-center gap-3"><span class="text-slate-800 font-bold" aria-hidden="true">✓</span> Ferdig oppsatt ved overlevering</li>
+                <li class="flex items-center gap-3"><span class="text-blue-600 font-bold" aria-hidden="true">✓</span> Opptil 5 undersider</li>
+                <li class="flex items-center gap-3"><span class="text-blue-600 font-bold" aria-hidden="true">✓</span> Fullt eierskap til koden</li>
+                <li class="flex items-center gap-3"><span class="text-blue-600 font-bold" aria-hidden="true">✓</span> <strong>Ingen</strong> faste månedskostnader</li>
+                <li class="flex items-center gap-3"><span class="text-blue-600 font-bold" aria-hidden="true">✓</span> Ferdig oppsatt ved overlevering</li>
                 </ul>
-                <a href="#kontakt" class="block text-center w-full py-4 rounded-xl border-2 border-slate-100 font-bold text-slate-900 hover:border-black transition">
-                Jeg vil eie
+                <a href="#kontakt" class="block text-center w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
+                Bestill nå
                 </a>
             </div>
 
-            <div class="p-10 rounded-[2.5rem] bg-[#0f172a] text-white shadow-2xl relative overflow-hidden transform md:scale-105 border-4 border-blue-600 z-10" data-aos="fade-left">
+            <div class="p-10 rounded-[2.5rem] bg-[#0f172a] text-white shadow-xl relative overflow-hidden border border-slate-700" data-aos="fade-left">
                 
-                <h3 class="text-xl font-bold text-blue-400 mb-2">Leie (WaaS)</h3>
-                <div class="flex items-baseline gap-2 mb-2">
-                <span class="text-6xl font-black text-white">1.490,-</span>
-                <span class="text-slate-400 font-medium">/mnd</span>
+                <h3 class="text-xl font-bold text-blue-400 mb-4">Leie (Driftsavtale)</h3>
+                
+                <div class="mb-6">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-5xl font-black text-white">999,-</span>
+                        <span class="text-slate-400 font-medium">/mnd</span>
+                    </div>
+                    <p class="text-yellow-400 text-xs font-bold mt-2 uppercase tracking-wide">De første 3 mnd</p>
+                    <p class="text-slate-500 text-xs mt-1">Deretter 1.499,- /mnd</p>
                 </div>
-                <p class="text-blue-200 text-sm font-bold mb-6 uppercase tracking-wider">0,- i oppstart</p>
+
+                <div class="inline-block bg-blue-600/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-8">
+                    0,- i oppstart
+                </div>
                 
-                <p class="text-slate-300 mb-8 leading-relaxed">
+                <p class="text-slate-300 mb-8 leading-relaxed text-sm">
                 Jeg fungerer som din tekniske avdeling. Jeg tar kostnaden for utvikling og drift. Du får en ferdig nettside uten risiko.
                 </p>
-                <ul class="space-y-4 mb-10">
-                <li class="flex items-center gap-3 text-white font-medium"><span class="text-blue-500 bg-blue-500/10 p-1 rounded-full" aria-hidden="true">✓</span> <strong>Opptil 5 undersider</strong></li>
+                <ul class="space-y-4 mb-10 text-sm">
                 <li class="flex items-center gap-3 text-white font-medium"><span class="text-blue-500 bg-blue-500/10 p-1 rounded-full" aria-hidden="true">✓</span> Hosting & Drift inkludert</li>
                 <li class="flex items-center gap-3 text-white font-medium"><span class="text-blue-500 bg-blue-500/10 p-1 rounded-full" aria-hidden="true">✓</span> <strong>Fri endring</strong> av innhold</li>
                 <li class="flex items-center gap-3 text-white font-medium"><span class="text-blue-500 bg-blue-500/10 p-1 rounded-full" aria-hidden="true">✓</span> Ingen bindingstid etter år 1</li>
                 </ul>
-                <a href="#kontakt" class="block text-center w-full py-5 rounded-xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-500 transition shadow-lg shadow-blue-600/30 transform hover:-translate-y-1">
-                Start nå →
+                <a href="#kontakt" class="block text-center w-full py-5 rounded-xl border border-slate-600 text-white font-bold text-lg hover:bg-slate-800 transition hover:-translate-y-1">
+                Start leieavtale →
                 </a>
             </div>
 
@@ -400,4 +426,4 @@
       });
     </script>
   </body>
-</html> 
+</html>
