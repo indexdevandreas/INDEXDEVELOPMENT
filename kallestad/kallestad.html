@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tømrer O. Kallestad | Solid håndverk</title>
+    <meta name="description" content="Din lokale tømrer. Nybygg, tilbygg og rehabilitering utført med yrkesstolthet.">
+    
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      body { 
+          font-family: 'Plus Jakarta Sans', sans-serif; 
+          background-color: #FAFAFA;
+      }
+      
+      /* Wood accent colors */
+      .text-wood { color: #A05A2C; }
+      .bg-wood { background-color: #A05A2C; }
+      .border-wood { border-color: #A05A2C; }
+      
+      .hover-wood:hover { background-color: #8A4B22; }
+
+      /* Hero Overlay */
+      .hero-gradient {
+        background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%);
+      }
+    </style>
+  </head>
+  <body class="text-slate-800 antialiased overflow-x-hidden">
+    
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-wood rounded flex items-center justify-center text-white text-xl font-bold">K</div>
+          <div class="flex flex-col">
+            <span class="font-bold text-slate-900 leading-none">Tømrer</span>
+            <span class="text-sm font-medium text-slate-500">O. Kallestad</span>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+          <a href="#tjenester" class="hover:text-wood transition">Tjenester</a>
+          <a href="#om" class="hover:text-wood transition">Om bedriften</a>
+          <a href="#kontakt" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-wood transition shadow-lg">
+            Be om befaring
+          </a>
+        </div>
+
+        <div class="md:hidden">
+            <button class="text-slate-900 p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      
+      <section class="relative h-[600px] md:h-[750px] flex items-center">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" 
+             class="absolute inset-0 w-full h-full object-cover" 
+             alt="Tømrerarbeid på bolig">
+        
+        <div class="absolute inset-0 hero-gradient"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+            <div class="max-w-2xl" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-wood/20 backdrop-blur border border-wood/50 text-orange-100 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                    Tilgjengelig for oppdrag
+                </div>
+                
+                <h1 class="text-4xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
+                    Solid håndverk <br/>
+                    <span class="text-orange-200">som varer.</span>
+                </h1>
+                
+                <p class="text-lg text-slate-300 mb-10 leading-relaxed max-w-lg font-medium">
+                    Din lokale tømrer for små og store prosjekter. Vi leverer kvalitet i alle ledd, fra planlegging til ferdig resultat.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#kontakt" class="bg-wood text-white px-8 py-4 rounded-lg font-bold text-center hover:bg-[#8A4B22] transition shadow-xl">
+                        Kontakt oss
+                    </a>
+                    <a href="#tjenester" class="bg-white/10 backdrop-blur text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-center hover:bg-white hover:text-slate-900 transition">
+                        Våre tjenester
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="tjenester" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Hva kan vi hjelpe deg med?</h2>
+                <p class="text-slate-500">Enten du skal bygge nytt, pusse opp eller bygge på – vi har kompetansen som trengs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group p-8 rounded-2xl bg-[#FAFAFA] border border-slate-100 hover:border-wood/30 transition duration-300 hover:shadow-xl" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-wood text-3xl mb-6 group-hover:scale-110 transition">
+                        🏠
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Rehabilitering</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Oppussing av eldre boliger. Vi skifter kledning, etterisolerer og bytter vinduer for bedre energieffektivitet og utseende.
+                    </p>
+                </div>
+
+                <div class="group p-8 rounded-2xl bg-[#FAFAFA] border border-slate-100 hover:border-wood/30 transition duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-wood text-3xl mb-6 group-hover:scale-110 transition">
+                        🔨
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Tilbygg & Påbygg</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Trenger du mer plass? Vi hjelper deg med å utvide boligen. Garasje, terrasse eller et ekstra soverom – vi løser det.
+                    </p>
+                </div>
+
+                <div class="group p-8 rounded-2xl bg-[#FAFAFA] border border-slate-100 hover:border-wood/30 transition duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-wood text-3xl mb-6 group-hover:scale-110 transition">
+                        📐
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Generelt Tømrerarbeid</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Alt fra listing og gulvlegging til mindre reparasjoner. Ingen jobb er for liten, vi legger yrkesstolthet i detaljene.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="om" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <div class="inline-block bg-wood/20 text-wood px-3 py-1 rounded border border-wood/30 text-xs font-bold uppercase tracking-widest mb-6">
+                    Kvalitetsgaranti
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Yrkesstolthet i hver spiker.</h2>
+                <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                    Som lokal tømrer lever vi av ryktet vårt. Derfor er vi opptatt av å levere til avtalt tid og pris. Vi rydder etter oss og sørger for at du er fornøyd før vi drar.
+                </p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4">
+                        <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-xs">✓</div>
+                        <span class="font-medium">Punktlig og pålitelig</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-xs">✓</div>
+                        <span class="font-medium">Konkurransedyktige priser</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-xs">✓</div>
+                        <span class="font-medium">Fagmessig utførelse</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute -inset-4 bg-wood/20 rounded-2xl rotate-3"></div>
+                <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1000&auto=format&fit=crop" 
+                     alt="Tømrer verktøy" 
+                     class="relative rounded-2xl shadow-2xl">
+            </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="py-24 px-6 bg-[#FAFAFA]">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100" data-aos="zoom-in">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Ta kontakt for befaring</h2>
+                <p class="text-slate-500">
+                    Har du et prosjekt på gang? Send en e-post eller ring, så ser vi på det sammen.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <a href="mailto:tomrerokallestad@lifi.no" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-xl hover:bg-wood hover:text-white group transition border border-slate-100">
+                    <span class="text-3xl mb-2 group-hover:scale-110 transition">✉️</span>
+                    <span class="text-xs uppercase font-bold text-slate-400 group-hover:text-orange-200 mb-1">Send e-post</span>
+                    <span class="font-bold break-all">tomrerokallestad@lifi.no</span>
+                </a>
+                
+                <div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-xl border border-slate-100">
+                    <span class="text-3xl mb-2">📍</span>
+                    <span class="text-xs uppercase font-bold text-slate-400 mb-1">Område</span>
+                    <span class="font-bold text-slate-900">Drammen & Lier</span>
+                </div>
+            </div>
+
+            <div class="text-center border-t border-slate-100 pt-8">
+                <p class="text-sm text-slate-400">Vi svarer vanligvis innen 24 timer.</p>
+            </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-white py-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-8 h-8 bg-wood rounded flex items-center justify-center text-white font-bold">K</div>
+                <span class="font-bold text-slate-900">Tømrer O. Kallestad</span>
+            </div>
+            <p class="text-slate-400 text-sm">© 2026 Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+  </body>
+</html>
