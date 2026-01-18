@@ -3,59 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Drammen & Lier Trafikkskole</title>
+    <title>Apex Trafikkskole | Din vei til lappen</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
-      body { font-family: 'DM Sans', sans-serif; background-color: #F8F9FC; }
+      body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8F9FA; }
       
-      /* Fargepalett: Tillitvekkende blå + Premium mørk */
-      .text-dark { color: #0F172A; }
-      .bg-accent { background-color: #2563EB; } /* Royal Blue */
-      .text-accent { color: #2563EB; }
+      /* Fargepalett: Apex Yellow + Asphalt Black */
+      .text-dark { color: #111111; }
+      .bg-accent { background-color: #FACC15; } /* Traffic Yellow */
+      .text-accent { color: #EAB308; }
       
+      .btn-primary {
+        background-color: #111111;
+        color: #ffffff;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #FACC15;
+        color: #111111;
+        transform: translateY(-2px);
+      }
+
       /* Bento Grid Cards */
       .bento-card {
         background: white;
         border-radius: 24px;
-        border: 1px solid rgba(0,0,0,0.04);
+        border: 1px solid rgba(0,0,0,0.05);
         transition: all 0.3s ease;
       }
       .bento-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+        border-color: #FACC15;
       }
     </style>
   </head>
   <body class="text-slate-600 antialiased overflow-x-hidden">
     
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         <a href="#" class="flex items-center gap-2 group">
-          <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-lg">
-            D
+          <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-black font-black text-xl transform -skew-x-12">
+            A
           </div>
           <div class="flex flex-col leading-none">
-            <span class="font-bold text-dark text-lg tracking-tight">Drammen & Lier</span>
-            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Trafikkskole</span>
+            <span class="font-black text-dark text-xl tracking-tight uppercase">Apex</span>
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Trafikkskole</span>
           </div>
         </a>
 
-        <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-500">
-          <a href="#biler" class="hover:text-accent transition">Bilparken</a>
-          <a href="#priser" class="hover:text-accent transition">Priser</a>
-          <a href="#kontakt" class="hover:text-accent transition">Kontakt</a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+          <a href="#biler" class="hover:text-black transition">Bilparken</a>
+          <a href="#priser" class="hover:text-black transition">Priser</a>
+          <a href="#kontakt" class="hover:text-black transition">Kontakt</a>
           <a href="prosjekter.html" class="text-slate-400 hover:text-dark transition">← Tilbake</a>
         </div>
 
-        <a href="#kontakt" class="hidden md:block bg-dark text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-accent transition shadow-lg hover:shadow-blue-500/30">
+        <a href="#kontakt" class="hidden md:block bg-accent text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-black hover:text-white transition shadow-lg hover:shadow-yellow-400/30">
           Bestill time
         </a>
       </div>
@@ -63,45 +75,54 @@
 
     <main>
       
-      <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
             
             <div data-aos="fade-up">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-accent rounded-full text-xs font-bold mb-8">
-                    <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                    Nå med Porsche Macan i bilparken
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold mb-8 border border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                    Ledige plasser denne uken
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-bold text-dark mb-6 leading-[1.1] tracking-tight">
-                    Din lokale vei til <br/>
-                    <span class="text-accent">førerkortet.</span>
+                <h1 class="text-5xl md:text-7xl font-black text-dark mb-6 leading-[1.05] tracking-tight">
+                    Ta lappen. <br/>
+                    <span class="relative">
+                        Uten stress.
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-accent" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                        </svg>
+                    </span>
                 </h1>
                 
-                <p class="text-lg text-slate-500 mb-10 leading-relaxed max-w-md">
-                    Vi gjør kjøreopplæringen trygg, effektiv og litt morsommere. Lær å kjøre i biler du faktisk har lyst til å kjøre.
+                <p class="text-lg text-slate-500 mb-10 leading-relaxed max-w-md font-medium">
+                    Moderne biler, unge lærere og en app som gir deg full oversikt. Vi får deg trygt ut på veien – raskere enn du tror.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#kontakt" class="bg-accent text-white px-8 py-4 rounded-2xl font-bold text-center hover:bg-blue-700 transition shadow-xl shadow-blue-500/20">
+                    <a href="#kontakt" class="btn-primary px-8 py-4 rounded-2xl font-bold text-center shadow-xl">
                         Start her
                     </a>
-                    <a href="#priser" class="bg-white text-dark border border-slate-200 px-8 py-4 rounded-2xl font-bold text-center hover:border-slate-400 transition">
-                        Se pakker
+                    <a href="#priser" class="bg-white text-dark border-2 border-slate-100 px-8 py-4 rounded-2xl font-bold text-center hover:border-black transition">
+                        Se priser
                     </a>
                 </div>
             </div>
 
             <div class="relative" data-aos="fade-left">
-                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
-                    <img src="https://images.unsplash.com/photo-1605218427306-633ba87c9759?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1600&auto=format&fit=crop" 
+                         alt="Elev i bil" 
+                         class="w-full h-full object-cover">
                     
-                    <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-6 py-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4">
-                        <div class="bg-green-100 text-green-600 p-2 rounded-full">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-6 py-4 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-4 max-w-xs">
+                        <div class="bg-black text-white p-3 rounded-full">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
                         <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold">Bestått-garanti</p>
-                            <p class="text-dark font-bold">Vi gir oss ikke før du består.</p>
+                            <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Apex Garanti</p>
+                            <p class="text-dark font-bold leading-tight">Vi gir oss ikke før du består.</p>
                         </div>
                     </div>
                 </div>
@@ -110,117 +131,125 @@
         </div>
       </section>
 
-      <section id="biler" class="py-20 px-6">
+      <section id="biler" class="py-20 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-dark">Hvorfor velge oss?</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-dark">Hvorfor velge Apex?</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bento-card col-span-1 md:col-span-2 p-8 md:p-12 relative overflow-hidden group" data-aos="fade-up">
                     <div class="relative z-10 max-w-sm">
+                        <div class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">PREMIUM</div>
                         <h3 class="text-2xl font-bold text-dark mb-4">Lær i en Porsche.</h3>
-                        <p class="text-slate-500 mb-6">
-                            Hvorfor lære i en kjedelig bil? Hos oss kan du velge å kjøre opp i en Porsche Macan. Topp sikkerhet, firehjulstrekk og en kjøreopplevelse som gir mestring.
+                        <p class="text-slate-500 mb-6 font-medium">
+                            Hvorfor lære i en kjedelig bil? Hos Apex kan du velge å kjøre opp i en Porsche Macan. Topp sikkerhet, firehjulstrekk og en kjøreopplevelse som gir mestring.
                         </p>
-                        <span class="inline-block text-accent font-bold text-sm border-b-2 border-accent/20 pb-1">Les om bilparken →</span>
+                        <span class="inline-flex items-center gap-2 text-dark font-bold text-sm border-b-2 border-accent pb-1">
+                            Les om bilparken 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&w=800&q=80" class="absolute right-0 top-0 w-1/2 h-full object-cover opacity-10 group-hover:opacity-20 transition duration-500 grayscale">
+                    <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&w=800&q=80" 
+                         class="absolute right-0 top-0 w-3/5 h-full object-cover opacity-80 group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-0"></div>
                 </div>
 
-                <div class="bento-card p-8 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl mb-6">😌</div>
+                <div class="bento-card p-8 flex flex-col justify-center border-l-4 border-l-accent" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-2xl mb-6">😌</div>
                     <h3 class="text-xl font-bold text-dark mb-2">Ingen stress.</h3>
-                    <p class="text-slate-500 text-sm">
+                    <p class="text-slate-500 text-sm font-medium">
                         Vi vet at det kan være skummelt i starten. Våre lærere er rolige, tålmodige og vant til nybegynnere.
                     </p>
                 </div>
 
                 <div class="bento-card p-8 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-2xl mb-6">📱</div>
-                    <h3 class="text-xl font-bold text-dark mb-2">Enkel booking.</h3>
-                    <p class="text-slate-500 text-sm">
-                        Full oversikt i appen. Book timer når det passer deg – morgen, kveld eller helg.
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-2xl mb-6">📱</div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Alt i appen.</h3>
+                    <p class="text-slate-500 text-sm font-medium">
+                        Full oversikt over fremdrift, betaling og booking. Bestill timer når det passer deg.
                     </p>
                 </div>
 
-                <div class="bento-card col-span-1 md:col-span-2 p-8 flex items-center justify-between bg-dark text-white" data-aos="fade-up" data-aos-delay="300">
+                <div class="bento-card col-span-1 md:col-span-2 p-8 flex items-center justify-between bg-[#111] text-white border-none" data-aos="fade-up" data-aos-delay="300">
                     <div>
-                        <h3 class="text-xl font-bold mb-1">Student?</h3>
-                        <p class="text-slate-400 text-sm">Vi gir deg rabatt på startpakken.</p>
+                        <h3 class="text-xl font-bold mb-1">Er du student?</h3>
+                        <p class="text-slate-400 text-sm">Vi gir deg rabatt på startpakken ved fremvisning av bevis.</p>
                     </div>
-                    <div class="text-3xl font-bold text-accent">-15%</div>
+                    <div class="text-4xl font-black text-accent">-15%</div>
                 </div>
             </div>
         </div>
       </section>
 
-      <section id="priser" class="py-20 px-6">
+      <section id="priser" class="py-20 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <h2 class="text-3xl font-bold text-dark">Priser & Pakker</h2>
-                <p class="text-slate-500 text-sm">Ingen skjulte kostnader. Del opp betalingen med Klarna.</p>
+                <h2 class="text-3xl font-black text-dark">Priser & Pakker</h2>
+                <p class="text-slate-500 text-sm font-medium">Ingen skjulte kostnader. Del opp med Klarna.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-blue-200 transition duration-300">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-accent transition duration-300">
                     <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Starten</span>
                     <h3 class="text-xl font-bold text-dark mt-2">Grunnkurs</h3>
-                    <div class="text-3xl font-bold text-accent mt-4 mb-6">1 990,-</div>
-                    <ul class="space-y-3 text-sm text-slate-600 mb-8">
-                        <li class="flex items-center gap-2">✓ Trafikalt grunnkurs</li>
-                        <li class="flex items-center gap-2">✓ Mørkekjøring</li>
-                        <li class="flex items-center gap-2">✓ Førstehjelp</li>
+                    <div class="text-3xl font-bold text-dark mt-4 mb-6">1 990,-</div>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 font-medium">
+                        <li class="flex items-center gap-2 text-dark"><span class="text-accent">✓</span> Trafikalt grunnkurs</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Mørkekjøring inkludert</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Førstehjelpskurs</li>
                     </ul>
-                    <a href="#kontakt" class="block w-full py-3 text-center border border-slate-200 rounded-xl font-bold hover:bg-slate-50 text-dark transition">Bestill</a>
+                    <a href="#kontakt" class="block w-full py-3 text-center border-2 border-slate-100 rounded-xl font-bold hover:border-black hover:bg-white text-dark transition">Bestill</a>
                 </div>
 
-                <div class="bg-dark text-white p-8 rounded-3xl shadow-xl relative transform md:-translate-y-4">
-                    <div class="absolute top-0 right-0 bg-accent text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">MEST VALGT</div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Totalpakke</span>
+                <div class="bg-black text-white p-8 rounded-3xl shadow-2xl relative transform md:-translate-y-4 border border-slate-800">
+                    <div class="absolute top-0 right-0 bg-accent text-black text-[10px] font-black px-4 py-2 rounded-bl-2xl rounded-tr-2xl tracking-widest">MEST VALGT</div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent">Totalpakke</span>
                     <h3 class="text-xl font-bold text-white mt-2">Førerkortet</h3>
                     <div class="text-4xl font-bold text-white mt-4 mb-2">14 500,-</div>
                     <p class="text-xs text-slate-400 mb-6">Alt obligatorisk + 10 kjøretimer</p>
-                    <ul class="space-y-3 text-sm text-slate-300 mb-8">
-                        <li class="flex items-center gap-2">✓ 10 kjøretimer (Porsche mulig)</li>
-                        <li class="flex items-center gap-2">✓ Sikkerhetskurs bane</li>
-                        <li class="flex items-center gap-2">✓ Sikkerhetskurs vei</li>
-                        <li class="flex items-center gap-2">✓ Leie av bil til prøve</li>
+                    <ul class="space-y-3 text-sm text-slate-300 mb-8 font-medium">
+                        <li class="flex items-center gap-2 text-white"><span class="text-accent">✓</span> 10 kjøretimer (Porsche mulig)</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Sikkerhetskurs bane</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Sikkerhetskurs vei</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Leie av bil til oppkjøring</li>
                     </ul>
-                    <a href="#kontakt" class="block w-full py-3 text-center bg-accent text-white rounded-xl font-bold hover:bg-blue-600 transition">Velg pakke</a>
+                    <a href="#kontakt" class="block w-full py-4 text-center bg-accent text-black rounded-xl font-bold hover:bg-white transition shadow-[0_0_20px_rgba(250,204,21,0.3)]">Velg pakke</a>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-blue-200 transition duration-300">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-accent transition duration-300">
                     <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Fleksibel</span>
                     <h3 class="text-xl font-bold text-dark mt-2">Enkelttime</h3>
-                    <div class="text-3xl font-bold text-accent mt-4 mb-6">850,-</div>
-                    <ul class="space-y-3 text-sm text-slate-600 mb-8">
-                        <li class="flex items-center gap-2">✓ 45 min kjøring</li>
-                        <li class="flex items-center gap-2">✓ Tilbakemelding</li>
-                        <li class="flex items-center gap-2">✓ Henting i Drammen/Lier</li>
+                    <div class="text-3xl font-bold text-dark mt-4 mb-6">850,-</div>
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 font-medium">
+                        <li class="flex items-center gap-2 text-dark"><span class="text-accent">✓</span> 45 min kjøring</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Direkte tilbakemelding</li>
+                        <li class="flex items-center gap-2"><span class="text-accent">✓</span> Henting på skolen/jobb</li>
                     </ul>
-                    <a href="#kontakt" class="block w-full py-3 text-center border border-slate-200 rounded-xl font-bold hover:bg-slate-50 text-dark transition">Bestill</a>
+                    <a href="#kontakt" class="block w-full py-3 text-center border-2 border-slate-100 rounded-xl font-bold hover:border-black hover:bg-white text-dark transition">Bestill</a>
                 </div>
             </div>
         </div>
       </section>
 
-      <section id="kontakt" class="py-20 px-6 bg-white border-t border-slate-100">
-        <div class="max-w-4xl mx-auto bg-blue-50 rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden">
+      <section id="kontakt" class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto bg-black rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-accent rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+            
             <div class="relative z-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Klar for å starte?</h2>
-                <p class="text-slate-600 mb-10 max-w-lg mx-auto">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Klar for lappen?</h2>
+                <p class="text-slate-400 mb-10 max-w-lg mx-auto text-lg">
                     Legg igjen nummeret ditt, så tar vi en uforpliktende prat. Vi finner en plan som passer deg og din kalender.
                 </p>
                 
                 <form class="max-w-md mx-auto flex flex-col gap-4">
-                    <input type="text" placeholder="Ditt telefonnummer" class="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100 text-center text-lg font-medium focus:outline-none focus:ring-2 focus:ring-accent transition shadow-sm">
-                    <button type="button" class="w-full px-6 py-4 rounded-2xl bg-dark text-white font-bold hover:bg-accent transition shadow-lg transform hover:scale-[1.01]">
+                    <input type="text" placeholder="Ditt telefonnummer" class="w-full px-6 py-5 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-500 text-center text-lg font-medium focus:outline-none focus:bg-white focus:text-black focus:placeholder-slate-400 transition shadow-sm">
+                    <button type="button" class="w-full px-6 py-5 rounded-2xl bg-accent text-black font-bold text-lg hover:bg-white transition shadow-lg transform hover:scale-[1.01]">
                         Ring meg opp
                     </button>
                 </form>
                 
-                <div class="mt-12 flex justify-center gap-8 text-sm font-bold text-slate-400 uppercase tracking-wider">
+                <div class="mt-12 flex justify-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest">
                     <span>Tlf: 32 80 80 80</span>
                     <span>•</span>
                     <span>Drammen Sentrum</span>
@@ -231,14 +260,14 @@
 
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-100">
+    <footer class="bg-slate-50 py-12 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2 opacity-50">
-                <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white text-xs font-bold">D</div>
-                <span class="font-bold text-slate-900">Drammen & Lier</span>
+            <div class="flex items-center gap-3 opacity-80">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-accent text-sm font-black transform -skew-x-12">A</div>
+                <span class="font-bold text-slate-900 tracking-tight">Apex Trafikkskole</span>
             </div>
-            <div class="text-xs text-slate-400">
-                © 2026 Design by <a href="index.html" class="hover:text-dark">Index Development</a>
+            <div class="text-xs text-slate-400 font-medium">
+                © 2026 Konsept av <a href="index.html" class="hover:text-black transition">Index Development</a>
             </div>
         </div>
     </footer>
