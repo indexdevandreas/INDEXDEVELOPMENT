@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VBD Bygg AS | Eksklusivt Håndverk</title>
+    <meta name="description" content="Spesialister på byggrehabilitering og ombygging. Sentral godkjenning og våtromssertifikat.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .font-serif { font-family: 'Cinzel', serif; }
+      
+      /* FIKSET GULL-TEKST */
+      .text-gold {
+        color: #D4AF37; /* Fallback for eldre nettlesere */
+        background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #B8860B 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block; /* Sikrer at gradienten følger teksten */
+      }
+
+      .bg-gold { 
+        background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #B8860B 100%); 
+      }
+      
+      .border-gold { border-color: #D4AF37; }
+      .bg-anthracite { background-color: #1A1C1E; }
+
+      .hero-image {
+        background: linear-gradient(rgba(26, 28, 30, 0.95), rgba(26, 28, 30, 0.7)), 
+                    url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2000&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F4F4F4] text-slate-900 antialiased overflow-x-hidden">
+    
+    <nav class="fixed w-full z-50 bg-anthracite/95 backdrop-blur-sm border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-gold flex items-center justify-center text-[#1A1C1E] font-bold text-xl rounded-sm shadow-lg">VBD</div>
+            <div class="flex flex-col">
+                <span class="font-serif text-xl tracking-widest text-white leading-none">VBD BYGG</span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-bold">Entreprenør</span>
+            </div>
+        </div>
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.3em] text-white/70">
+          <a href="#om" class="hover:text-white transition">Om oss</a>
+          <a href="#tjenester" class="hover:text-white transition">Tjenester</a>
+          <a href="#kontakt" class="bg-gold text-[#1A1C1E] px-8 py-3 rounded-sm hover:brightness-110 transition shadow-lg">Kontakt</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="relative min-h-[90vh] flex items-center hero-image text-white px-6">
+        <div class="max-w-7xl mx-auto w-full pt-20">
+            <div class="max-w-3xl" data-aos="fade-up">
+                <p class="text-[#D4AF37] font-bold uppercase tracking-[0.5em] text-xs mb-6">Sentralt Godkjent Entreprenør</p>
+                <h1 class="text-5xl md:text-8xl font-serif mb-8 leading-tight">Bygg med <br><span class="text-gold">Presisjon.</span></h1>
+                <p class="text-lg text-white/60 mb-12 leading-relaxed max-w-xl font-light italic">
+                    Spesialister på byggrehabilitering og ombygging. Vi kombinerer polsk håndverkstradisjon med norsk sertifisering for å levere eksklusive resultater.
+                </p>
+                <a href="#kontakt" class="inline-block border border-gold text-[#D4AF37] px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-black transition duration-500">
+                    Be om privat konsultasjon
+                </a>
+            </div>
+        </div>
+      </section>
+
+      <section class="bg-anthracite py-16 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-12 text-center md:text-left">
+            <div class="flex flex-col">
+                <span class="text-gold font-serif text-2xl mb-1 italic">BVN</span>
+                <span class="text-[10px] uppercase tracking-widest text-white/40">Sertifisert Våtrom</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-gold font-serif text-2xl mb-1 italic">Sentralt</span>
+                <span class="text-[10px] uppercase tracking-widest text-white/40">Godkjent Bedrift</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-gold font-serif text-2xl mb-1 italic">20+ År</span>
+                <span class="text-[10px] uppercase tracking-widest text-white/40">Erfaring i Norge</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-gold font-serif text-2xl mb-1 italic">Garanti</span>
+                <span class="text-[10px] uppercase tracking-widest text-white/40">Fagmessig Utførelse</span>
+            </div>
+        </div>
+      </section>
+
+      <section id="om" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl md:text-5xl font-serif text-[#1A1C1E] mb-8 leading-tight">En bro mellom <br><span class="text-gold">Polen og Norge.</span></h2>
+                <p class="text-slate-600 mb-8 leading-relaxed font-light text-lg">
+                    Vi er et team av erfarne håndverkere som har spesialisert seg innen byggrehabilitering og ombyggingsarbeid. Med mange års erfaring fra begge land, bringer vi en unik arbeidskapasitet og teknisk innsikt til hvert prosjekt.
+                </p>
+                <div class="border-l-2 border-[#D4AF37] pl-8 my-10">
+                    <p class="text-[#1A1C1E] italic font-medium text-xl">
+                        "Vårt mål er å bistå deg som kunde på en best mulig måte med vår kompetanse og utføre arbeidet med høy håndverksmessig kvalitet."
+                    </p>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute -top-10 -left-10 w-40 h-40 border-t-2 border-l-2 border-[#D4AF37] opacity-30"></div>
+                <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=1000&auto=format&fit=crop" class="shadow-2xl grayscale" alt="Eksklusivt bygg">
+            </div>
+        </div>
+      </section>
+
+      <section id="tjenester" class="py-32 px-6 bg-anthracite text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20">
+                <p class="text-[#D4AF37] font-bold uppercase tracking-widest text-xs mb-4">Ekspertise</p>
+                <h2 class="text-4xl md:text-6xl font-serif uppercase tracking-tight">Våre Tjenester.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">01.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Tømring & Snekker</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Alt fra reisverk til eksklusiv listverk og finish.</p>
+                </div>
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">02.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Våtrom & VVS</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Sertifiserte baderomsløsninger med Fagrådets godkjenning.</p>
+                </div>
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">03.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Maling & Flis</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Overflatebehandling som tåler tidens tann med perfekt resultat.</p>
+                </div>
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">04.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Ombygging</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Optimalisering av planløsning for private og bedrifter.</p>
+                </div>
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">05.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Elektro</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Gjennom våre partnere leverer vi komplette el-installasjoner.</p>
+                </div>
+                <div class="group border-b border-white/10 pb-10 hover:border-[#D4AF37] transition duration-500">
+                    <span class="text-gold font-serif text-3xl mb-6 block">06.</span>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">Rehabilitering</h3>
+                    <p class="text-white/40 group-hover:text-white/80 transition font-light">Totalfornyelse av byggmasse med fokus på energi og estetikk.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="py-32 px-6 bg-[#EBEBEB]">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <h2 class="text-5xl md:text-7xl font-serif text-[#1A1C1E] mb-8">La oss planlegge.</h2>
+            <p class="text-slate-500 text-lg mb-16 font-light italic">Vi garanterer tjenester av høy kvalitet basert på dine unike ønsker.</p>
+            
+            <div class="grid md:grid-cols-2 gap-4 mb-16 text-center">
+                <div class="p-12 bg-white shadow-sm border border-black/5">
+                    <p class="text-[10px] uppercase font-bold text-[#D4AF37] tracking-widest mb-4">Ring direkte</p>
+                    <p class="text-2xl font-bold text-[#1A1C1E] tracking-tighter">40 05 91 14</p>
+                </div>
+                <div class="p-12 bg-white shadow-sm border border-black/5">
+                    <p class="text-[10px] uppercase font-bold text-[#D4AF37] tracking-widest mb-4">Digital post</p>
+                    <p class="text-2xl font-bold text-[#1A1C1E] tracking-tighter break-all underline decoration-[#D4AF37]">vbdbygg@gmail.com</p>
+                </div>
+            </div>
+            
+            <a href="mailto:vbdbygg@gmail.com" class="bg-[#1A1C1E] text-white px-16 py-6 font-bold uppercase tracking-widest text-xs hover:bg-[#D4AF37] hover:text-black transition duration-500 shadow-2xl">
+                Send forespørsel om befaring
+            </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-16 px-6 bg-anthracite text-white/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start leading-tight">
+                <span class="font-serif text-white tracking-widest uppercase text-lg">VBD BYGG AS</span>
+                <span class="text-[9px] uppercase tracking-widest text-[#D4AF37] font-bold">Entreprenørtjenester</span>
+            </div>
+            <div class="text-[10px] uppercase tracking-[0.3em]">
+                © 2026 Crafted by <a href="https://indexdevelopment.no" class="text-white hover:text-gold transition underline">Index Development</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 1000, offset: 100 });
+    </script>
+  </body>
+</html>
