@@ -5,25 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salgsbetingelser | Index Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-[#F5F5F7] text-slate-900 antialiased">
 
-    <nav class="w-full bg-white border-b border-slate-200 h-20 flex items-center">
-        <div class="max-w-4xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html" class="font-bold text-xl tracking-tight flex items-center gap-2 group">
-                <span class="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-xs group-hover:bg-blue-600 transition">ID</span>
-                <span>Index Development</span>
-            </a>
-            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-black transition">
-                ← Tilbake til forsiden
-            </a>
-        </div>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="index.html" class="logo-container group flex items-center text-slate-900 no-underline cursor-pointer">
+            <div class="logo-symbol flex items-center transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3">
+              <span class="logo-id font-black text-3xl md:text-4xl -tracking-[0.08em]">ID</span>
+              <div class="logo-cursor w-2.5 h-7 md:w-3 md:h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-sm ml-1 -skew-x-6 animate-pulse"></div>
+            </div>
+            <div class="logo-text flex flex-col ml-3">
+              <span class="logo-title font-extrabold text-base uppercase leading-[1.1]">Index</span>
+              <span class="logo-subtitle font-semibold text-[10px] text-slate-500 uppercase tracking-[0.15em]">Development</span>
+            </div>
+        </a>
+
+        <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-black transition flex items-center gap-2">
+            <span>←</span> Tilbake til forsiden
+        </a>
+      </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-6 py-16">
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
         
-        <h1 class="text-3xl md:text-4xl font-black mb-8">Salgsbetingelser</h1>
+        <h1 class="text-3xl md:text-5xl font-black mb-8">Salgsbetingelser</h1>
         <p class="text-slate-500 mb-12 text-lg leading-relaxed">
             Disse vilkårene gjelder for alle tjenester levert av <strong>Index Development</strong> (org.nr. 936 933 661). Ved å bestille en nettside aksepterer kunden disse vilkårene.
         </p>
@@ -31,59 +41,74 @@
         <div class="space-y-12">
             
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     1. Tjenesten
                 </h2>
                 <p class="text-slate-600 leading-relaxed">
-                    Index Development leverer utvikling, design og drift av nettsider. Tjenesten inkluderer hosting (serverplass), SSL-sertifikat og teknisk vedlikehold så lenge avtalen løper.
+                    Index Development leverer utvikling, design og drift av nettsider. Avtalen anses som inngått når kunden har godkjent tilbudet skriftlig (e-post eller melding).
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     2. Pris og Betaling
                 </h2>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-slate-600 space-y-4">
-                    <p><strong>Driftsavtale (Leie):</strong> Faktureres månedlig forskuddsvis eller etter avtale. Prisen er fastlåst i avtaleperioden.</p>
-                    <p><strong>Engangskjøp:</strong> 50% faktureres ved oppstart, resterende 50% ved lansering.</p>
-                    <p>Betalingsfrist er 14 dager. Ved forsinket betaling påløper purregebyr og forsinkelsesrenter iht. norsk lov.</p>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200 text-slate-600 space-y-4">
+                    <p><strong>Engangskjøp (Utvikling):</strong> Faktureres med 14 dagers forfall etter at nettsiden er lansert/overlevert.</p>
+                    <p><strong>Drift & Hosting:</strong> Faktureres forskuddsvis (kvartalsvis eller årlig).</p>
+                    <p class="text-sm text-slate-500">Ved forsinket betaling påløper purregebyr og forsinkelsesrenter iht. norsk lov.</p>
                 </div>
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    3. Bindingstid og Oppsigelse
+                    3. Driftsavtale (Hosting)
                 </h2>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    For driftsavtaler (månedspris) gjelder en bindingstid på <strong>12 måneder</strong> fra bestillingsdato, med mindre annet er skriftlig avtalt. Dette dekker oppstartskostnaden som er satt til kr 0,-.
+                    For å sikre at nettsiden alltid er på nett, sikker og rask, tilbyr Index Development en driftsavtale.
                 </p>
+                <ul class="list-disc pl-5 space-y-2 text-slate-600">
+                    <li><strong>Pris:</strong> 399,- per måned (eks. mva).</li>
+                    <li><strong>Inkluderer:</strong> Serverleie, SSL-sertifikat (hengelås), domene-administrasjon og teknisk overvåkning.</li>
+                    <li><strong>Oppsigelse:</strong> Avtalen løper til den sies opp. Oppsigelsestid er 1 måned regnet fra den 1. i påfølgende måned.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
+                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
+                    4. Endringer etter lansering
+                </h2>
+                <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl">
+                    <p class="text-slate-700 leading-relaxed font-medium">
+                        Fastprisen dekker utvikling av nettsiden frem til lansering.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mt-4">
+                        Endringer i innhold (tekst/bilder), designjusteringer eller nye funksjoner som bestilles <em>etter</em> at siden er overlevert, faktureres etter medgått tid. Minstepris per oppdrag er 30 minutter.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
+                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
+                    5. Rettigheter og Eierskap
+                </h2>
                 <p class="text-slate-600 leading-relaxed">
-                    Etter utløp av bindingstiden løper avtalen videre med 1 måneds oppsigelsestid. Oppsigelse skal skje skriftlig per e-post.
+                    Kunden får full bruksrett til nettsiden når faktura for utvikling er betalt i sin helhet. Kunden eier alt innhold (tekst og bilder) de selv har levert. Index Development beholder retten til å vise frem nettsiden i egen portefølje.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    4. Rettigheter og Eierskap
+                    6. Ansvar
                 </h2>
                 <p class="text-slate-600 leading-relaxed">
-                    Kunden eier alt innhold (tekst og bilder) de selv leverer. 
-                    <br><br>
-                    Ved <strong>leie (driftsavtale)</strong> beholder Index Development eiendomsretten til kildekoden frem til eventuell utkjøpssum er betalt. Ved <strong>engangskjøp</strong> overføres alle rettigheter til koden til kunden når fakturaen er fullt innbetalt.
-                </p>
-            </section>
-
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    5. Ansvar
-                </h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Index Development jobber for at nettsiden skal være tilgjengelig 24/7 (oppetid). Vi er likevel ikke økonomisk ansvarlige for tap som følge av nedetid forårsaket av tredjeparter (f.eks. serverleverandør), hackerangrep eller force majeure.
+                    Index Development står ansvarlig for at nettsiden fungerer teknisk ved overlevering. Vi er ikke økonomisk ansvarlige for tap av omsetning som følge av nedetid hos tredjeparts serverleverandører, hackerangrep eller andre uforutsette hendelser (force majeure).
                 </p>
             </section>
 
@@ -94,6 +119,23 @@
         </div>
 
     </main>
+
+    <footer class="bg-slate-200 py-12 border-t border-slate-300">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
+          <span class="font-bold text-black">Index Development</span>
+          <a href="mailto:andreas@indexdevelopment.no" class="hover:text-black transition">andreas@indexdevelopment.no</a>
+        </div>
+        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
+          <span>© 2026 Index Development Melheim</span>
+          <span>Org. nr. 936 933 661</span>
+          <div class="mt-2 flex gap-4 justify-center md:justify-end">
+            <a href="personvern.html" class="hover:text-black underline transition">Personvern</a>
+            <a href="vilkar.html" class="text-black underline">Salgsbetingelser</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 </body>
 </html>

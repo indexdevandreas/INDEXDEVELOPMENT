@@ -5,25 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personvern | Index Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-[#F5F5F7] text-slate-900 antialiased">
 
-    <nav class="w-full bg-white border-b border-slate-200 h-20 flex items-center">
-        <div class="max-w-4xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html" class="font-bold text-xl tracking-tight flex items-center gap-2 group">
-                <span class="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-xs group-hover:bg-blue-600 transition">ID</span>
-                <span>Index Development</span>
-            </a>
-            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-black transition">
-                ← Tilbake til forsiden
-            </a>
-        </div>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="index.html" class="logo-container group flex items-center text-slate-900 no-underline cursor-pointer">
+            <div class="logo-symbol flex items-center transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3">
+              <span class="logo-id font-black text-3xl md:text-4xl -tracking-[0.08em]">ID</span>
+              <div class="logo-cursor w-2.5 h-7 md:w-3 md:h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-sm ml-1 -skew-x-6 animate-pulse"></div>
+            </div>
+            <div class="logo-text flex flex-col ml-3">
+              <span class="logo-title font-extrabold text-base uppercase leading-[1.1]">Index</span>
+              <span class="logo-subtitle font-semibold text-[10px] text-slate-500 uppercase tracking-[0.15em]">Development</span>
+            </div>
+        </a>
+
+        <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-black transition flex items-center gap-2">
+            <span>←</span> Tilbake til forsiden
+        </a>
+      </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-6 py-16">
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
         
-        <h1 class="text-3xl md:text-4xl font-black mb-8">Personvernerklæring</h1>
+        <h1 class="text-3xl md:text-5xl font-black mb-8">Personvernerklæring</h1>
         <p class="text-slate-500 mb-12 text-lg leading-relaxed">
             Denne personvernerklæringen beskriver hvordan <strong>Index Development</strong> (org.nr. 936 933 661) samler inn og bruker personopplysninger. Jeg tar personvern på alvor, både for besøkende på denne siden og for mine bedriftskunder.
         </p>
@@ -31,27 +41,27 @@
         <div class="space-y-12">
             
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     1. Behandlingsansvarlig
                 </h2>
                 <p class="text-slate-600 leading-relaxed">
-                    Andreas Melheim (Index Development) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Har du spørsmål, kan du kontakte meg på <a href="mailto:andreas@indexdevelopment.no" class="text-blue-600 underline">andreas@indexdevelopment.no</a>.
+                    Andreas Melheim (Index Development) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Har du spørsmål, kan du kontakte meg på <a href="mailto:andreas@indexdevelopment.no" class="text-blue-600 underline hover:text-black">andreas@indexdevelopment.no</a>.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     2. Hva slags informasjon samler jeg inn?
                 </h2>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
                     <ul class="space-y-4 text-slate-600">
-                        <li class="flex gap-3">
+                        <li class="flex flex-col md:flex-row gap-2 md:gap-4">
                             <span class="font-bold text-slate-900 min-w-[120px]">Kontaktskjema:</span>
                             <span>Når du sender en forespørsel, lagrer jeg navn, e-post og meldingen din for å kunne svare deg og gi deg et tilbud.</span>
                         </li>
-                        <li class="flex gap-3">
+                        <li class="flex flex-col md:flex-row gap-2 md:gap-4">
                             <span class="font-bold text-slate-900 min-w-[120px]">Kundeforhold:</span>
                             <span>Hvis du inngår en avtale (kjøp eller leie av nettside), lagrer jeg nødvendig kontaktinfo og fakturainformasjon for å oppfylle kontrakten.</span>
                         </li>
@@ -60,7 +70,7 @@
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     3. Informasjonskapsler (Cookies) og Sporing
                 </h2>
@@ -73,7 +83,7 @@
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     4. Deling av opplysninger
                 </h2>
@@ -83,7 +93,7 @@
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     5. Sikkerhet og Drift
                 </h2>
@@ -93,7 +103,7 @@
             </section>
 
             <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
                     <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
                     6. Dine rettigheter
                 </h2>
@@ -109,6 +119,23 @@
         </div>
 
     </main>
+
+    <footer class="bg-slate-200 py-12 border-t border-slate-300">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
+          <span class="font-bold text-black">Index Development</span>
+          <a href="mailto:andreas@indexdevelopment.no" class="hover:text-black transition">andreas@indexdevelopment.no</a>
+        </div>
+        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
+          <span>© 2026 Index Development Melheim</span>
+          <span>Org. nr. 936 933 661</span>
+          <div class="mt-2 flex gap-4 justify-center md:justify-end">
+            <a href="personvern.html" class="text-black underline">Personvern</a>
+            <a href="vilkar.html" class="hover:text-black underline transition">Salgsbetingelser</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 </body>
 </html>
