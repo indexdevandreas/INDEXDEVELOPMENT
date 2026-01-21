@@ -200,11 +200,60 @@ body {
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 0;
+    padding: 1rem 0; /* Litt mindre padding på mobil */
     overflow: hidden;
     z-index: 20;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-track {
+    display: flex;
+    gap: 2rem; /* Mindre avstand på mobil ser bedre ut */
+    width: max-content;
+    animation: streamScroll 30s linear infinite; /* Litt raskere på mobil */
+}
+
+/* Større avstand på PC-skjermer */
+@media (min-width: 768px) {
+    .tech-track {
+        gap: 4rem;
+        animation: streamScroll 40s linear infinite;
+        padding: 0.5rem 0;
+    }
+}
+
+.tech-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; /* Litt mindre tekst på mobil */
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap; /* VIKTIG: Hindrer at tekst brekker */
+}
+
+@media (min-width: 768px) {
+    .tech-item {
+        font-size: 0.85rem;
+        gap: 0.8rem;
+    }
+}
+
+.tech-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+@keyframes streamScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .tech-track {
