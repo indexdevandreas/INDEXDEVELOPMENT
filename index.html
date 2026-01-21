@@ -4,53 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index Development | Nettsider for lokale bedrifter</title>
-    <meta name="description" content="Jeg lager profesjonelle, raske nettsider for små og mellomstore bedrifter.">
+    <meta name="description" content="Profesjonelle nettsider som konverterer besøkende til kunder. Skreddersydd webutvikling.">
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://indexdevelopment.no/">
-    <meta property="og:title" content="Index Development | Nettsider for lokale bedrifter">
-    <meta property="og:description" content="Profesjonelle nettsider. Velg mellom engangskjøp eller fast lav månedspris.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
-
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css" />
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-    <style>
-      body { font-family: 'Inter', sans-serif; font-display: swap; }
-      
-      /* En rolig puls for å trekke oppmerksomhet uten å skrike */
-      .pulse-soft {
-        animation: pulse-blue 3s infinite;
-      }
-      @keyframes pulse-blue {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-        70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-      }
-    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 7s ease-in-out infinite',
+                        'fade-cycle-1': 'fadeCycle1 8s infinite', // Viser bilde 1
+                        'fade-cycle-2': 'fadeCycle2 8s infinite', // Viser bilde 2
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        // Animasjon for første bildet (Urban Eatery)
+                        fadeCycle1: {
+                            '0%, 45%': { opacity: '1', zIndex: '10' }, // Synlig
+                            '50%, 95%': { opacity: '0', zIndex: '0' }, // Skjult
+                            '100%': { opacity: '1', zIndex: '10' }
+                        },
+                        // Animasjon for andre bildet (Apex / Annet)
+                        fadeCycle2: {
+                            '0%, 45%': { opacity: '0', zIndex: '0' }, // Skjult
+                            '50%, 95%': { opacity: '1', zIndex: '10' }, // Synlig
+                            '100%': { opacity: '0', zIndex: '0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
   </head>
-  <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
+  <body class="text-slate-900 antialiased overflow-x-hidden">
     
-    <nav class="fixed w-full z-50 glass transition-all duration-300" role="navigation" aria-label="Hovedmeny">
+    <nav class="fixed w-full z-50 glass transition-all duration-300" role="navigation">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
-          <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
-            <div class="logo-symbol" aria-hidden="true">
+          <a href="index.html" class="logo-container group">
+            <div class="logo-symbol">
               <span class="logo-id">ID</span>
               <div class="logo-cursor"></div>
             </div>
@@ -61,91 +70,194 @@
           </a>
 
           <div class="hidden md:flex space-x-8 items-center">
-            <a href="index.html" class="nav-link text-sm font-bold text-black transition-colors" aria-current="page">Hjem</a>
+            <a href="index.html" class="nav-link text-sm font-bold text-black transition-colors">Hjem</a>
             <a href="prosjekter.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosjekter</a>
             <a href="prosess.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosess</a>
-            <a href="#pris" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Se priser</a>
+            <a href="kontakt.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Prosjekt</a>
           </div>
 
           <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none" aria-label="Åpne meny" aria-expanded="false">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none">
+              <i class="fa-solid fa-bars text-2xl"></i>
             </button>
           </div>
         </div>
       </div>
       <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
-        <a href="index.html" class="block text-base font-bold text-black" aria-current="page">Hjem</a>
+        <a href="index.html" class="block text-base font-bold text-black">Hjem</a>
         <a href="prosjekter.html" class="block text-base font-medium text-slate-600">Prosjekter</a>
         <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
-        <a href="#pris" class="block text-base font-bold text-blue-600">Se priser</a>
+        <a href="kontakt.html" class="block text-base font-bold text-blue-600">Start Prosjekt</a>
       </div>
     </nav>
 
     <main>
-      <section class="pt-32 pb-20 md:pt-48 md:pb-24 px-6 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-          <div class="inline-block mb-6 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500" data-aos="fade-down">
-            Din personlige webutvikler
-          </div>
-          
-          <h1 class="text-4xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-slate-900" data-aos="fade-up">
-            Nettsider for <br/>
-            <span class="text-blue-600">lokale bedrifter</span>
-          </h1>
-          
-          <p class="text-lg md:text-2xl text-slate-500 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-            Her kodes resultater. Jeg bygger skreddersydde nettsider som faktisk virker. Velg pakken som passer din bedrift best.
-          </p>
-          
-          <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-            <a href="prosjekter.html" class="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-slate-800 transition transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
-              Se mitt arbeid <span class="text-xl" aria-hidden="true">→</span>
-            </a>
-            <a href="#pris" class="btn-pulse bg-white text-slate-900 border border-slate-200 px-10 py-5 rounded-full font-bold text-lg hover:bg-slate-50 transition flex items-center justify-center">
-              Se priser
-            </a>
-          </div>
+      
+      <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 relative overflow-hidden">
+        
+        <div class="hero-mesh">
+            <div class="hero-blob blob-1"></div>
+            <div class="hero-blob blob-2"></div>
+            <div class="hero-blob blob-3"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            
+            <div data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-white text-xs font-bold uppercase tracking-widest mb-8 shadow-xl">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Ledig for nye oppdrag
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-6 tracking-tight">
+                    Vi bygger din <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">digitale vekst.</span>
+                </h1>
+                
+                <p class="text-xl text-slate-500 mb-10 leading-relaxed font-light max-w-lg">
+                    Fra usynlig til uunnværlig. Jeg lager nettsider som ikke bare ser bra ut, men som jobber for deg døgnet rundt.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#pris" class="btn-primary px-8 py-4 rounded-full font-bold text-lg text-center bg-slate-900 text-white hover:bg-blue-600 transition shadow-xl">
+                        Se pakker
+                    </a>
+                    <a href="kontakt.html" class="px-8 py-4 rounded-full font-bold text-lg text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition text-center flex items-center justify-center gap-2">
+                        Start nå <span class="text-xl">→</span>
+                    </a>
+                </div>
+
+                <div class="mt-12 flex items-center gap-6 text-slate-400 text-sm font-medium grayscale opacity-70">
+                   <div class="flex items-center gap-2"><i class="fa-brands fa-google text-lg"></i> SEO-Klar</div>
+                   <div class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-lg"></i> Mobilvennlig</div>
+                   <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-lg"></i> Lynrask</div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center lg:justify-end h-[600px] items-center" data-aos="fade-left" data-aos-delay="200">
+                
+                <div class="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full pointer-events-none"></div>
+
+                <div class="absolute top-20 -right-4 lg:right-0 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/60 flex items-center gap-3 animate-float-delayed z-30 w-48">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase">Google</p>
+                        <p class="text-sm font-bold text-slate-900">Rank #1</p>
+                    </div>
+                </div>
+
+                <div class="relative w-[280px] h-[560px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden z-10 animate-float">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-xl z-30"></div>
+                    
+                    <div class="w-full h-full bg-white relative">
+                        
+                        <div class="absolute inset-0 w-full h-full animate-fade-cycle-1">
+                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=600&q=80" 
+                                 class="w-full h-full object-cover" 
+                                 alt="Urban Eatery Demo">
+                        </div>
+
+                        <div class="absolute inset-0 w-full h-full animate-fade-cycle-2 opacity-0">
+                            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80" 
+                                 class="w-full h-full object-cover" 
+                                 alt="Apex Demo">
+                        </div>
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-20"></div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-32 -left-4 lg:left-10 bg-slate-900 p-4 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 animate-float z-30 w-56">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase">Ny Henvendelse</p>
+                        <p class="text-sm font-bold text-white">"Hei, jeg vil bestille..."</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
       </section>
 
-      <section class="py-24 px-6 bg-white border-y border-slate-100">
+      <div class="tech-stream-wrapper">
+        <div class="tech-track">
+            <div class="tech-item"><span class="tech-dot"></span>Google Verifisert</div>
+            <div class="tech-item"><i class="fa-brands fa-react text-blue-400"></i>Moderne Kode</div>
+            <div class="tech-item"><span class="tech-dot"></span>99.9% Oppetid</div>
+            <div class="tech-item"><i class="fa-brands fa-aws text-orange-400"></i>Lynrask Server</div>
+            <div class="tech-item"><span class="tech-dot"></span>SSL Sikret</div>
+            <div class="tech-item"><i class="fa-solid fa-mobile-screen text-purple-500"></i>Mobiloptimalisert</div>
+            <div class="tech-item"><span class="tech-dot"></span>SEO Klar</div>
+            <div class="tech-item"><i class="fa-solid fa-shield-halved text-yellow-400"></i>Høy Sikkerhet</div>
+            
+            <div class="tech-item"><span class="tech-dot"></span>Google Verifisert</div>
+            <div class="tech-item"><i class="fa-brands fa-react text-blue-400"></i>Moderne Kode</div>
+            <div class="tech-item"><span class="tech-dot"></span>99.9% Oppetid</div>
+            <div class="tech-item"><i class="fa-brands fa-aws text-orange-400"></i>Lynrask Server</div>
+            <div class="tech-item"><span class="tech-dot"></span>SSL Sikret</div>
+            <div class="tech-item"><i class="fa-solid fa-mobile-screen text-purple-500"></i>Mobiloptimalisert</div>
+            <div class="tech-item"><span class="tech-dot"></span>SEO Klar</div>
+            <div class="tech-item"><i class="fa-solid fa-shield-halved text-yellow-400"></i>Høy Sikkerhet</div>
+
+            <div class="tech-item"><span class="tech-dot"></span>Google Verifisert</div>
+            <div class="tech-item"><i class="fa-brands fa-react text-blue-400"></i>Moderne Kode</div>
+            <div class="tech-item"><span class="tech-dot"></span>99.9% Oppetid</div>
+            <div class="tech-item"><i class="fa-brands fa-aws text-orange-400"></i>Lynrask Server</div>
+            <div class="tech-item"><span class="tech-dot"></span>SSL Sikret</div>
+            <div class="tech-item"><i class="fa-solid fa-mobile-screen text-purple-500"></i>Mobiloptimalisert</div>
+            <div class="tech-item"><span class="tech-dot"></span>SEO Klar</div>
+            <div class="tech-item"><i class="fa-solid fa-shield-halved text-yellow-400"></i>Høy Sikkerhet</div>
+        </div>
+      </div>
+
+      <section class="py-24 px-6 bg-white/50 backdrop-blur-sm border-y border-slate-100">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl bg-[#1E293B] border border-slate-700 p-6 md:p-8 transform hover:scale-[1.01] transition duration-500" data-aos="fade-right" aria-hidden="true">
-                <div class="flex gap-2 mb-6">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="font-mono text-sm md:text-base leading-relaxed text-slate-300">
-                    <p><span class="text-purple-400">const</span> <span class="text-blue-400">dinBedrift</span> = <span class="text-yellow-300">{</span></p>
-                    <p class="pl-4">navn: <span class="text-green-400">"Suksess AS"</span>,</p>
-                    <p class="pl-4">status: <span class="text-green-400">"Online 24/7"</span>,</p>
-                    <p class="pl-4">hastighet: <span class="text-orange-400">100</span>,</p>
-                    <p class="pl-4">vedlikehold: <span class="text-blue-400">false</span> <span class="text-slate-500">// Jeg fikser alt</span></p>
-                    <p><span class="text-yellow-300">}</span>;</p>
-                    <br>
-                    <p><span class="text-purple-400">function</span> <span class="text-blue-400">boostSales</span>() <span class="text-yellow-300">{</span></p>
-                    <p class="pl-4"><span class="text-blue-400">return</span> <span class="text-green-400">"Flere kunder"</span>;</p>
-                    <p><span class="text-yellow-300">}</span></p>
-                </div>
-                <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">
-                    <span class="text-xs font-bold text-white uppercase tracking-wider">Clean Code</span>
+            
+            <div class="relative" data-aos="fade-right">
+                <div class="future-glow"></div>
+
+                <div class="scan-container relative rounded-[2rem] overflow-hidden bg-[#0F172A] border border-slate-700 p-6 md:p-8 transform hover:scale-[1.01] transition duration-500 shadow-2xl">
+                    <div class="scan-line"></div>
+
+                    <div class="flex gap-2 mb-6">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="font-mono text-sm md:text-base leading-relaxed text-slate-300 relative z-0">
+                        <p><span class="text-purple-400">const</span> <span class="text-blue-400">dinBedrift</span> = <span class="text-yellow-300">{</span></p>
+                        <p class="pl-4">navn: <span class="text-green-400">"Suksess AS"</span>,</p>
+                        <p class="pl-4">status: <span class="text-green-400">"Online 24/7"</span>,</p>
+                        <p class="pl-4">hastighet: <span class="text-orange-400">100%</span>,</p>
+                        <p class="pl-4">vedlikehold: <span class="text-blue-400">false</span> <span class="text-slate-500">// Jeg fikser alt</span></p>
+                        <p><span class="text-yellow-300">}</span>;</p>
+                        <br>
+                        <p><span class="text-purple-400">function</span> <span class="text-blue-400">boostSales</span>() <span class="text-yellow-300">{</span></p>
+                        <p class="pl-4"><span class="text-purple-400">return</span> <span class="text-green-400">"Flere kunder"</span>;</p>
+                        <p><span class="text-yellow-300">}</span></p>
+                    </div>
+                    <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 z-10">
+                        <span class="text-xs font-bold text-white uppercase tracking-wider">Clean Code</span>
+                    </div>
                 </div>
             </div>
+            
             <div data-aos="fade-left">
-                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 0121 12z" /></svg>
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                    <i class="fa-solid fa-code text-xl"></i>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">Slipp teknisk <br/><span class="text-blue-600">hodepine.</span></h2>
+                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight text-slate-900">Slipp teknisk <br/><span class="text-blue-600">hodepine.</span></h2>
                 <p class="text-lg text-slate-500 mb-8 leading-relaxed">
                     Du er ekspert på din bedrift, ikke på webutvikling. Som din faste utvikler bygger jeg siden din solid fra grunnen av. Det betyr en nettside som er ekstremt stabil, lynrask og som "bare virker".
                 </p>
                 <ul class="space-y-4 mb-8">
-                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500" aria-hidden="true">✓</span> Ingen unødvendig kode som bremser</li>
-                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500" aria-hidden="true">✓</span> Rask serverplassering</li>
-                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500" aria-hidden="true">✓</span> Jeg er din faste kontaktperson</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500">✓</span> Ingen unødvendig kode som bremser</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500">✓</span> Rask serverplassering</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium"><span class="text-blue-500">✓</span> Jeg er din faste kontaktperson</li>
                 </ul>
                 <a href="#pris" class="text-slate-900 font-bold border-b-2 border-slate-900 pb-1 hover:text-blue-600 hover:border-blue-600 transition">Se prismodeller →</a>
             </div>
@@ -160,30 +272,27 @@
                         <span class="bg-blue-600/10 text-blue-600 px-3 py-1 rounded-full font-bold uppercase tracking-widest text-xs mb-4 inline-block">Portefølje</span>
                         <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">Se hva jeg <br/>kan bygge.</h2>
                         <p class="text-slate-500 text-lg leading-relaxed">
-                            Dette er eksempler på standarden jeg leverer. Ta en titt på hvordan jeg kan løfte din bedrift på nett med skreddersydd design.
+                            Dette er eksempler på standarden jeg leverer. Ta en titt på hvordan jeg kan løfte din bedrift på nett.
                         </p>
                     </div>
                     <a href="prosjekter.html" class="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-blue-600 transition shadow-lg whitespace-nowrap">
-                        Se alle demoer <span class="text-xl" aria-hidden="true">→</span>
+                        Se alle demoer <span class="text-xl">→</span>
                     </a>
                 </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                    <a href="urban-eatery.html" class="group relative block rounded-3xl overflow-hidden h-[300px] md:h-[450px] shadow-lg hover:shadow-2xl transition-all duration-500" aria-label="Se demo av Urban Eatery">
+                    <a href="urban-eatery.html" class="group relative block rounded-3xl overflow-hidden h-[300px] md:h-[450px] shadow-lg hover:shadow-2xl transition-all duration-500">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition z-10"></div>
                         <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" 
-                             alt="Urban Eatery nettside" 
-                             width="800" height="450" loading="lazy"
                              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute bottom-8 left-8 text-white z-20">
                             <span class="bg-blue-600 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">Restaurant</span>
                             <h3 class="text-3xl font-black leading-tight">Urban Eatery</h3>
                         </div>
                     </a>
-                    <a href="trafikkskole.html" class="group relative block rounded-3xl overflow-hidden h-[300px] md:h-[450px] shadow-lg hover:shadow-2xl transition-all duration-500" aria-label="Se demo av Apex Trafikkskole">
+                    <a href="trafikkskole.html" class="group relative block rounded-3xl overflow-hidden h-[300px] md:h-[450px] shadow-lg hover:shadow-2xl transition-all duration-500">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition z-10"></div>
                         <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" 
-                             alt="Apex Trafikkskole nettside" 
-                             width="800" height="450" loading="lazy"
                              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute bottom-8 left-8 text-white z-20">
                             <span class="bg-[#FACC15] text-black px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">Kjøreskole</span>
@@ -195,31 +304,46 @@
         </div>
       </section>
 
-      <section id="fordeler" class="py-24 px-6 bg-[#F5F5F7]">
+      <section id="fordeler" class="py-24 px-6 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-16">Hvorfor velge meg?</h2>
+            <h2 class="text-3xl md:text-4xl font-black mb-16">Hvorfor velge <span class="text-blue-600">meg</span>?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="p-10 rounded-[2rem] bg-white shadow-xl hover:-translate-y-1 transition duration-500" data-aos="fade-up">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                
+                <div class="relative p-[2px] rounded-[2rem] overflow-hidden h-full transform hover:-translate-y-2 transition duration-300" data-aos="fade-up">
+                    <div class="absolute inset-[-50%] bg-[conic-gradient(transparent_180deg,#2563eb_220deg,transparent_260deg)] animate-spin-slow"></div>
+                    <div class="relative bg-white p-10 rounded-[calc(2rem-2px)] h-full shadow-xl">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                            <i class="fa-solid fa-bolt text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Laster lynraskt</h3>
+                        <p class="text-slate-500">Kunder hater å vente. Jeg lager nettsider som laster umiddelbart.</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Laster lynraskt</h3>
-                    <p class="text-slate-500">Kunder hater å vente. Jeg lager nettsider som laster umiddelbart.</p>
                 </div>
-                <div class="p-10 rounded-[2rem] bg-white shadow-xl hover:-translate-y-1 transition duration-500" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+
+                <div class="relative p-[2px] rounded-[2rem] overflow-hidden h-full transform hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-[-50%] bg-[conic-gradient(transparent_180deg,#2563eb_220deg,transparent_260deg)] animate-spin-slow" style="animation-delay: -4s;"></div>
+                    <div class="relative bg-white p-10 rounded-[calc(2rem-2px)] h-full shadow-xl">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                            <i class="fa-solid fa-mobile-screen text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Mobilvennlig</h3>
+                        <p class="text-slate-500">Siden din ser perfekt ut enten kunden bruker mobil, nettbrett eller PC.</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Mobilvennlig</h3>
-                    <p class="text-slate-500">Siden din ser perfekt ut enten kunden bruker mobil, nettbrett eller PC.</p>
                 </div>
-                <div class="p-10 rounded-[2rem] bg-white shadow-xl hover:-translate-y-1 transition duration-500" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+
+                <div class="relative p-[2px] rounded-[2rem] overflow-hidden h-full transform hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-[-50%] bg-[conic-gradient(transparent_180deg,#2563eb_220deg,transparent_260deg)] animate-spin-slow" style="animation-delay: -8s;"></div>
+                    <div class="relative bg-white p-10 rounded-[calc(2rem-2px)] h-full shadow-xl">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                            <i class="fa-solid fa-headset text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Alt inkludert</h3>
+                        <p class="text-slate-500">Jeg setter opp alt teknisk, kontaktskjema og domene. Du trenger kun å fortelle meg hva du driver med.</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Alt inkludert</h3>
-                    <p class="text-slate-500">Jeg setter opp alt teknisk, kontaktskjema og domene. Du trenger kun å fortelle meg hva du driver med.</p>
                 </div>
+
             </div>
         </div>
       </section>
@@ -234,14 +358,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            
-                <div class="relative p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="0">
-                    
+                <div class="relative p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-slate-900">Start</h3>
                         <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Småbedrift</span>
                     </div>
-
                     <div class="flex items-baseline gap-1 mb-6">
                         <span class="text-4xl font-black text-slate-900">4.999,-</span>
                         <span class="text-sm font-medium text-slate-500">engangs</span>
@@ -249,22 +370,14 @@
                     <p class="text-slate-500 mb-6 text-sm leading-relaxed">
                         Det perfekte digitale visittkortet. Alt du trenger for å være synlig på nett.
                     </p>
-
-                    <a href="#kontakt" class="block w-full py-4 text-center rounded-xl bg-slate-900 text-white font-bold hover:bg-blue-600 transition shadow-lg mb-2">
+                    <a href="kontakt.html" class="block w-full py-4 text-center rounded-xl bg-slate-900 text-white font-bold hover:bg-blue-600 transition shadow-lg mb-2">
                         Be om gratis utkast →
                     </a>
-             
-
                     <div class="mt-auto space-y-4 text-sm border-t border-slate-100 pt-6">
                          <div class="flex justify-between text-xs text-slate-500 mb-1">
                             <span>Drift & hosting:</span>
                             <span class="font-bold text-slate-900">399,-/mnd</span>
                         </div>
-                         <div class="flex justify-between text-xs text-slate-500 mb-4">
-                            <span>Endringer:</span>
-                            <span class="font-bold text-slate-900">Per time</span>
-                        </div>
-                        
                         <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Inkludert:</p>
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3"><span class="text-blue-600 font-bold">✓</span> <span><strong>1 Landingsside</strong> (Alt på én side)</span></li>
@@ -275,11 +388,9 @@
                 </div>
 
                 <div class="relative p-6 rounded-[2.5rem] bg-slate-900 text-white shadow-2xl transform md:-translate-y-4 md:scale-105 border-2 border-blue-600 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
-                    
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                         Anbefalt
                     </div>
-
                     <h3 class="text-xl font-bold text-white mb-2 mt-2">Medium</h3>
                     <div class="flex items-baseline gap-1 mb-6">
                         <span class="text-4xl font-black text-white">9.999,-</span>
@@ -288,21 +399,14 @@
                     <p class="text-slate-300 mb-6 text-sm leading-relaxed">
                         For bedrifter som vil vise frem mer. Flere undersider og rom for å vokse.
                     </p>
-                    
-                    <a href="#kontakt" class="block text-center w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/50 mb-8">
+                    <a href="kontakt.html" class="block text-center w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/50 mb-8">
                         Velg Medium
                     </a>
-
                     <div class="mt-auto space-y-4 text-sm border-t border-slate-800 pt-6">
                         <div class="flex justify-between text-xs text-slate-400 mb-1">
                             <span>Drift & hosting:</span>
                             <span class="font-bold text-white">399,-/mnd</span>
                         </div>
-                        <div class="flex justify-between text-xs text-slate-400 mb-4">
-                            <span>Endringer:</span>
-                            <span class="font-bold text-white">Per time</span>
-                        </div>
-
                         <p class="font-bold text-slate-400 text-xs uppercase tracking-wider">Alt i Start, pluss:</p>
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3"><span class="text-blue-400 font-bold">✓</span> <span>Opptil <strong>5 undersider</strong></span></li>
@@ -313,12 +417,10 @@
                 </div>
 
                 <div class="relative p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
-                    
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-slate-900">Stor</h3>
                         <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Totalpakke</span>
                     </div>
-
                     <div class="flex items-baseline gap-1 mb-6">
                         <span class="text-4xl font-black text-slate-900">19.999,-</span>
                         <span class="text-sm font-medium text-slate-500">engangs</span>
@@ -326,24 +428,17 @@
                     <p class="text-slate-500 mb-6 text-sm leading-relaxed">
                         Totalpakken for deg som vil ha det beste. Design fra øverste hylle og hjelp med innhold.
                     </p>
-
-                    <a href="#kontakt" class="block text-center w-full py-3 rounded-xl border-2 border-slate-900 text-slate-900 font-bold hover:bg-slate-900 hover:text-white transition mb-8">
+                    <a href="kontakt.html" class="block text-center w-full py-3 rounded-xl border-2 border-slate-900 text-slate-900 font-bold hover:bg-slate-900 hover:text-white transition mb-8">
                         Velg Stor
                     </a>
-                    
                     <div class="mt-auto space-y-4 text-sm border-t border-slate-100 pt-6">
                          <div class="flex justify-between text-xs text-slate-500 mb-1">
                             <span>Drift & hosting:</span>
                             <span class="font-bold text-slate-900">399,-/mnd</span>
                         </div>
-                        <div class="flex justify-between text-xs text-slate-500 mb-4">
-                            <span>Endringer:</span>
-                            <span class="font-bold text-slate-900">Per time</span>
-                        </div>
-
                         <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Alt i Medium, pluss:</p>
                         <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><span class="text-blue-600 font-bold">✓</span> <span><strong>Tekstforfatting</strong> (Jeg skriver)</span></li>
+                            <li class="flex items-start gap-3"><span class="text-blue-600 font-bold">✓</span> <span><strong>Tekstforfatting</strong> inkludert</span></li>
                             <li class="flex items-start gap-3"><span class="text-blue-600 font-bold">✓</span> <span>Analyse & Sporing</span></li>
                             <li class="flex items-start gap-3"><span class="text-blue-600 font-bold">✓</span> <span>Prioritert Support</span></li>
                         </ul>
@@ -351,64 +446,39 @@
                 </div>
 
             </div>
-            
-            <div class="mt-16 text-center" data-aos="fade-in">
-                <p class="text-slate-500 text-sm">
-                    Lurer du på noe? <a href="#kontakt" class="text-blue-600 font-bold underline">Send meg en melding</a> så finner vi riktig pakke.
-                </p>
-            </div>
         </div>
       </section>
 
-      <section id="kontakt" class="py-24 px-6 relative contact-section">
-        <div class="max-w-xl mx-auto relative z-10">
-          <div class="bg-white/90 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-white" data-aos="zoom-in">
-            
-            <div id="form-container">
-                <div class="text-center mb-8">
-                  <h2 class="text-3xl font-black mb-2">Skal vi ta en prat?</h2>
-                  <p class="text-slate-500">Helt uforpliktende. Jeg svarer vanligvis innen 24 timer.</p>
-                </div>
+      <section id="kontakt" class="py-32 px-6 relative overflow-hidden">
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+                Klar for å <span class="text-blue-600">skalere?</span>
+            </h2>
+            <p class="text-xl text-slate-500 mb-12 max-w-2xl mx-auto">
+                Start prosjektet i dag. Ingen uforpliktende prat, bare resultater. 
+                Jeg er klar når du er.
+            </p>
+
+            <a href="kontakt.html" class="group relative inline-flex items-center justify-center px-10 py-6 text-xl font-bold text-white transition-all duration-200 bg-slate-900 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-blue-600 hover:scale-105 shadow-2xl">
+                <div class="absolute -inset-3 rounded-full bg-blue-400 opacity-20 group-hover:opacity-40 blur-lg transition duration-200 animate-pulse"></div>
                 
-                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                  
-                  <input type="hidden" name="access_key" value="83c21432-cebf-4a7b-ab89-fd1cb41b1248">
-                  
-                  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                  <div>
-                    <label for="navn" class="block text-xs font-bold uppercase text-blue-900 mb-1">Navn</label>
-                    <input type="text" id="navn" name="navn" required class="w-full p-4 rounded-xl input-premium focus:ring-2 focus:ring-blue-600 outline-none transition" placeholder="Ola Nordmann">
-                  </div>
-                  <div>
-                    <label for="epost" class="block text-xs font-bold uppercase text-blue-900 mb-1">E-post</label>
-                    <input type="email" id="epost" name="epost" required class="w-full p-4 rounded-xl input-premium focus:ring-2 focus:ring-blue-600 outline-none transition" placeholder="ola@bedrift.no">
-                  </div>
-                  <div>
-                    <label for="melding" class="block text-xs font-bold uppercase text-blue-900 mb-1">Melding</label>
-                    <textarea id="melding" name="melding" rows="4" required class="w-full p-4 rounded-xl input-premium resize-none focus:ring-2 focus:ring-blue-600 outline-none transition" placeholder="Hva trenger du hjelp til?"></textarea>
-                  </div>
-                  <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg transform hover:scale-[1.02]">
-                    Send melding
-                  </button>
-                </form>
-            </div>
-
-            <div id="success-message" class="hidden text-center py-10">
-                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl" aria-hidden="true">✓</div>
-                <h3 class="text-2xl font-black mb-2">Takk for meldingen!</h3>
-                <p class="text-slate-500">Jeg har mottatt din henvendelse og svarer deg så snart som mulig.</p>
-            </div>
-
-          </div>
+                <span class="relative flex items-center">
+                    Start Prosjektet Nå <i class="fa-solid fa-arrow-right ml-4 group-hover:translate-x-1 transition-transform"></i>
+                </span>
+            </a>
         </div>
       </section>
+
     </main>
 
     <footer class="bg-slate-200 py-12 border-t border-slate-300">
       <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
-          <div class="logo-symbol" aria-hidden="true">
+        <a href="index.html" class="logo-container group">
+          <div class="logo-symbol">
             <span class="logo-id">ID</span>
             <div class="logo-cursor"></div>
           </div>
@@ -431,52 +501,18 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         // Mobilmeny
         const btn = document.getElementById("mobile-menu-button");
         const menu = document.getElementById("mobile-menu");
-        btn.addEventListener("click", () => {
-            const isHidden = menu.classList.toggle("hidden");
-            btn.setAttribute("aria-expanded", !isHidden);
-        });
-        
-        // Skjema
-        const form = document.getElementById('contact-form');
-        const result = document.getElementById('success-message');
-        const container = document.getElementById('form-container');
-        const submitBtn = document.getElementById('submit-btn');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.innerText = "Sender...";
-            submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: json
-            })
-            .then(async (response) => {
-                if (response.status == 200) {
-                    container.style.display = "none";
-                    result.classList.remove("hidden");
-                } else {
-                    submitBtn.innerText = "Noe gikk galt. Prøv igjen.";
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                submitBtn.innerText = "Feil ved sending.";
-                submitBtn.disabled = false;
+        if(btn && menu) {
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
             });
-        });
-
+        }
+        
         // Start AOS
         setTimeout(() => {
           if(typeof AOS !== 'undefined') {

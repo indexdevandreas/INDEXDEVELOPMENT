@@ -7,32 +7,16 @@
   box-sizing: border-box;
 }
 
-:root {
-  --accent-color: #2563eb;
-  --text-main: #0f172a;
-  --text-sub: #64748b;
-  --card-bg: #ffffff;
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
-html,
 body {
   font-family: "Inter", sans-serif;
-  
-  /* NY BAKGRUNN: Blått fra sidene, grått i bunn */
-  background-color: #F5F5F7;
-  background-image: 
-    /* Venstre side blå glød */
-    radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-    /* Høyre side blå glød */
-    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-    /* Bunn fade til mørkere grå */
-    linear-gradient(180deg, transparent 60%, #cbd5e1 100%);
-    
-  background-attachment: fixed; /* Gjør at bakgrunnen står stille (premium følelse) */
-  color: var(--text-main);
+  background-color: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
   min-height: 100vh;
 }
 
@@ -41,7 +25,7 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--text-main);
+  color: #0f172a;
   cursor: pointer;
 }
 
@@ -59,25 +43,17 @@ body {
   font-weight: 900;
   font-size: 32px;
   letter-spacing: -0.08em;
-  color: var(--text-main);
-}
-
-@media (min-width: 768px) {
-  .logo-id { font-size: 40px; }
+  color: #0f172a;
 }
 
 .logo-cursor {
   width: 10px;
   height: 28px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   border-radius: 2px;
   margin-left: 4px;
   transform: skewX(-5deg);
   animation: breathe 2.5s infinite ease-in-out;
-}
-
-@media (min-width: 768px) {
-  .logo-cursor { width: 12px; height: 34px; }
 }
 
 @keyframes breathe {
@@ -95,209 +71,214 @@ body {
   font-weight: 800;
   font-size: 16px;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: #0f172a;
   line-height: 1.1;
 }
 
 .logo-subtitle {
   font-weight: 600;
   font-size: 10px;
-  color: var(--text-sub);
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
 
-/* --- 3. COMPONENTS --- */
+/* --- 3. KOMPONENTER --- */
 .glass {
-  background: rgba(255, 255, 255, 0.6); /* Mer transparent for å se bakgrunnen */
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.hover-card {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.hover-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer transparent for å vise body-gradient */
-footer {
-  background-color: transparent !important;
-}
-
-/* --- NAVIGASJON ANIMASJON (PC KUN) --- */
-.nav-link {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #000;
-  transform-origin: bottom right;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* --- SAMMENLIGNING GRID --- */
-.compare-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-@media (min-width: 768px) {
-  .compare-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-}
-
-.compare-card {
-  padding: 1.5rem;
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: flex-start;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .compare-card { padding: 3rem; gap: 1.5rem; }
-}
-
-.compare-card h3 {
-  font-size: 1.2rem;
-  font-weight: 800;
-  margin: 0;
-}
-
-@media (min-width: 768px) {
-  .compare-card h3 { font-size: 1.4rem; }
-}
-
-.sub-text {
-  font-size: 0.9rem;
-  color: var(--text-sub);
-  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  margin: 0;
 }
 
-.compare-card ul {
-  list-style: none;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+.nav-link { position: relative; display: inline-block; text-decoration: none; }
+.nav-link::after {
+  content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
+  bottom: -4px; left: 0; background-color: #000;
+  transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+/* LEVENDE BAKGRUNN (HERO MESH) */
+.hero-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130vh;
+    z-index: -1;
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%);
+    overflow: hidden;
+    pointer-events: none;
 }
 
-.compare-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.95rem;
-  line-height: 1.4;
+.hero-blob {
+    position: absolute;
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: float 20s infinite ease-in-out;
 }
 
-.compare-card.bad {
-  background: #e5e7eb;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #6b7280;
+.blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #dbeafe; animation-delay: 0s; }
+.blob-2 { top: -10%; right: -10%; width: 40vw; height: 40vw; background: #f3e8ff; animation-delay: -5s; }
+.blob-3 { top: 20%; left: 30%; width: 30vw; height: 30vw; background: #e0f2fe; opacity: 0.3; animation-delay: -10s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
 }
 
-.compare-card.good {
-  background: white;
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-  transform: scale(1.02);
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .compare-card.good { transform: scale(1.05); }
-}
-
-.badge {
-  position: absolute;
-  top: -12px;
-  right: 24px;
-  background: var(--accent-color);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-}
-
-/* --- KONTAKTSKJEMA --- */
-.contact-section { position: relative; overflow: hidden; }
-
+/* SKJEMA FELT */
 .input-premium {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .input-premium:focus {
   outline: none;
-  border-color: var(--accent-color);
   background: white;
+  border-color: #2563eb;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
-/* CTA Pulse Animation */
+/* TEKST GRADIENT */
+.text-gradient {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+}
+
+/* KNAPP PULS */
 @keyframes pulse-blue {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); /* Blå start-glød */
-  }
-  70% {
-    transform: scale(1.03); /* Vokser litt */
-    box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); /* Gløden fader ut */
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-  }
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .btn-pulse {
   animation: pulse-blue 2s infinite;
-  border-color: #2563eb !important; /* Gjør kanten blå for ekstra synlighet */
-  color: #2563eb !important; /* Gjør teksten blå */
+  border-color: #2563eb !important;
+  color: #2563eb !important;
+}
+.btn-pulse:hover { animation: none; }
+
+/* NYE KNAPPER (HERO) */
+.btn-primary {
+    background: #0f172a;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
 }
 
-/* Stopper animasjonen når man holder over, så den ikke "hopper" mens man prøver å klikke */
-.btn-pulse:hover {
-  animation: none;
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -3px rgba(37, 99, 235, 0.25);
 }
 
-/* --- PROSESS GRID PATTERN --- */
-.bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+/* --- 3D EFFEKTER FOR HERO KORT --- */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+/* --- TECH STREAM MARQUEE (FUTURISTIC) --- */
+.tech-stream-wrapper {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 0;
+    overflow: hidden;
+    z-index: 20;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: streamScroll 40s linear infinite;
+}
+
+.tech-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.tech-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+@keyframes streamScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- CYBER SCANNER & GLOW EFFECT (For Code Block) --- */
+.scan-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Scanner-linjen */
+.scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.5), transparent);
+    animation: scanner 3s infinite ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+@keyframes scanner {
+    0% { top: -100%; }
+    100% { top: 200%; }
+}
+
+/* Neon Glød bak boksen */
+.future-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #2563eb, #7c3aed, #2563eb);
+    filter: blur(20px);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 2rem;
+    animation: pulseGlow 6s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.2; filter: blur(20px); }
+    100% { opacity: 0.5; filter: blur(30px); }
 }
