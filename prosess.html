@@ -4,35 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slik jobber vi | Index Development </title>
-    <meta name="description" content="En ryddig og forutsigbar prosess. Enten du vil eie eller leie nettsiden, leverer vi kvalitet i alle ledd.">
+    <meta name="description" content="En ryddig og forutsigbar prosess. Vi leverer skreddersydd kvalitet i alle ledd.">
     
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     
     <style>
-        /* Custom styles for Glassmorphism */
+        /* Glassmorphism Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
         }
         
-        .gradient-line {
-            background: linear-gradient(to bottom, #eff6ff 0%, #3b82f6 50%, #eff6ff 100%);
+        /* Hover effekt på kort */
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        /* Den vertikale linjen */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0; /* Slate-200 */
+            overflow: hidden;
+            border-radius: 99px;
+        }
+
+        /* "Laser" strålen som går nedover linjen */
+        .timeline-beam {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px; /* Lengden på strålen */
+            background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+            animation: beamDrop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes beamDrop {
+            0% { top: -150px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Mobil fix for linjen */
+        @media (max-width: 768px) {
+            .timeline-line { left: 2rem; }
         }
 
         .icon-glow {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 0 20px rgba(59, 130, 246, 0.2);
         }
     </style>
   </head>
-  <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden font-['Inter']">
+  <body class="bg-[#F8FAFC] text-slate-900 antialiased overflow-x-hidden font-['Inter']">
     
     <nav class="fixed w-full z-50 glass transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6">
@@ -52,12 +91,12 @@
             <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-black transition-colors">Hjem</a>
             <a href="prosjekter.html" class="text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosjekter</a>
             <a href="prosess.html" class="text-sm font-bold text-black transition-colors">Prosess</a>
-            <a href="index.html#kontakt" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
+            <a href="kontakt.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
           </div>
 
           <div class="md:hidden">
             <button id="mobile-menu-button" class="text-slate-900 focus:outline-none">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+              <i class="fa-solid fa-bars text-2xl"></i>
             </button>
           </div>
         </div>
@@ -66,26 +105,26 @@
         <a href="index.html" class="block text-base font-medium text-slate-600">Hjem</a>
         <a href="prosjekter.html" class="block text-base font-medium text-slate-600">Prosjekter</a>
         <a href="prosess.html" class="block text-base font-bold text-black">Prosess</a>
-        <a href="index.html#kontakt" class="block text-base font-bold text-blue-600">Start Nå</a>
+        <a href="kontakt.html" class="block text-base font-bold text-blue-600">Start Nå</a>
       </div>
     </nav>
 
     <main>
       <section class="pt-32 pb-20 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-blue-50/50 to-transparent rounded-full pointer-events-none -z-10"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-blue-100/40 to-transparent rounded-full pointer-events-none -z-10"></div>
         
         <div class="relative z-10">
           <div class="inline-block mb-6 px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-blue-600 shadow-sm" data-aos="fade-down">
-            Veien til mål
+            Hvordan det fungerer
           </div>
           
           <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900" data-aos="fade-up">
-            En smertefri <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Prosess.</span>
+            Fra idé til ferdig <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">suksess.</span>
           </h1>
           
           <p class="text-lg md:text-2xl text-slate-500 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-            Ingen kompliserte faguttrykk. Kun en ryddig plan fra start til slutt, enten du eier eller leier.
+            En ryddig prosess uten teknisk sjargong. Vi legger en plan, jeg bygger, du eier resultatet.
           </p>
         </div>
       </section>
@@ -93,76 +132,73 @@
       <section class="pb-32 px-6 relative">
         <div class="max-w-6xl mx-auto relative">
             
-            <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] gradient-line md:-translate-x-1/2 hidden md:block rounded-full"></div>
-            <div class="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-200 md:hidden rounded-full"></div>
+            <div class="timeline-line">
+                <div class="timeline-beam"></div>
+            </div>
 
             <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
                 <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-1 pl-20 md:pl-0 md:pr-16 relative z-10" data-aos="fade-right">
-                    
-                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-1 transition-transform duration-300">
-                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Fase 01</span>
-                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Behov & Modell</h3>
-                        <p class="text-slate-600 leading-relaxed font-light">
-                            Vi starter med en prat om din bedrift. Hva trenger dere? Sammen finner vi ut om det lønner seg å <strong>eie</strong> nettsiden selv, eller <strong>leie</strong> den (driftsavtale) for å slippe teknisk ansvar.
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 01</span>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Kartlegging & Strategi</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Vi starter med en prat om din bedrift. Hva trenger du? Vi ser på mål, designønsker og funksjonalitet. Deretter gir jeg deg et klart tilbud med <strong>fastpris</strong>, så du vet nøyaktig hva det koster før vi starter.
                         </p>
                     </div>
-
                 </div>
                 
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-2 border-white icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-300 group-hover:scale-110">
-                    <span class="text-2xl relative z-10">☕️</span>
+                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-slate-50 icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-500 group-hover:scale-110 group-hover:border-blue-100">
+                    <span class="text-2xl relative z-10">💡</span>
                 </div>
 
                 <div class="md:w-[42%] order-3 hidden md:flex justify-start items-center pl-16 opacity-0 md:opacity-100" data-aos="fade-left" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-slate-300 select-none">01</span>
+                    <span class="text-[8rem] leading-none font-black text-slate-200/50 select-none">01</span>
                 </div>
             </div>
 
             <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
                 <div class="md:w-[42%] hidden md:flex justify-end items-center pr-16 order-1 opacity-0 md:opacity-100" data-aos="fade-right" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-slate-300 select-none">02</span>
+                    <span class="text-[8rem] leading-none font-black text-slate-200/50 select-none">02</span>
                 </div>
                 
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-2 border-white icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-300 group-hover:scale-110">
-                    <span class="text-2xl relative z-10">🎨</span>
+                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-slate-50 icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-500 group-hover:scale-110 group-hover:border-blue-100">
+                    <span class="text-2xl relative z-10">👨‍💻</span>
                 </div>
 
                 <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-3 pl-20 md:pl-16 relative z-10" data-aos="fade-left">
-                    
-                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-1 transition-transform duration-300">
-                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Fase 02</span>
-                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Design & Koding</h3>
-                        <p class="text-slate-600 leading-relaxed font-light">
-                            Ingen ferdige maler. Jeg designer og håndkoder nettsiden din fra bunnen av. Jeg bruker moderne teknologi som sikrer at siden blir lynrask, sikker og fungerer perfekt på mobil.
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 02</span>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Design & Utvikling</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Her skjer magien. Jeg bruker ingen trege ferdigmaler. Jeg <strong>håndkoder</strong> nettsiden din fra bunnen av for å sikre ekstrem hastighet (Google elsker dette) og perfekt visning på mobil. Du får se utkast underveis.
                         </p>
                     </div>
-
                 </div>
             </div>
 
             <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 group">
                 <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-1 pl-20 md:pl-0 md:pr-16 relative z-10" data-aos="fade-right">
-                    
-                    <div class="glass-card p-8 rounded-3xl hover:-translate-y-1 transition-transform duration-300">
-                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Fase 03</span>
-                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Lansering</h3>
-                        <p class="text-slate-600 leading-relaxed font-light">
-                            Når siden er godkjent, går vi live! <br class="hidden md:block">
-                            <span class="block mt-4 space-y-1 text-sm font-medium">
-                                <span class="block text-slate-500">🔹 Leie: <span class="text-slate-800">Full drift inkludert.</span></span>
-                                <span class="block text-slate-500">🔹 Eie: <span class="text-slate-800">Du får alle filer.</span></span>
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 03</span>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">Lansering & Drift</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Vi tester alt, kobler på domenet ditt og trykker på knappen. Siden er live!
+                            <span class="block mt-4 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                                <strong class="text-blue-900 block mb-1">Eierskap:</strong>
+                                <span class="text-slate-600 text-xs">
+                                    Nettsiden er din til odel og eie. Jeg tilbyr en valgfri driftsavtale for sikkerhet og oppdateringer, slik at du kan sove godt om natten.
+                                </span>
                             </span>
                         </p>
                     </div>
-
                 </div>
                 
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-2 border-white icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-300 group-hover:scale-110">
+                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-slate-50 icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 transition duration-500 group-hover:scale-110 group-hover:border-blue-100">
                     <span class="text-2xl relative z-10">🚀</span>
                 </div>
 
                 <div class="md:w-[42%] order-3 hidden md:flex justify-start items-center pl-16 opacity-0 md:opacity-100" data-aos="fade-left" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-slate-300 select-none">03</span>
+                    <span class="text-[8rem] leading-none font-black text-slate-200/50 select-none">03</span>
                 </div>
             </div>
 
@@ -171,15 +207,16 @@
 
       <section class="py-24 px-6 border-t border-slate-200 bg-white relative z-20">
         <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
-          <div class="bg-black rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+          <div class="bg-slate-900 rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden shadow-2xl group">
+            <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3 group-hover:bg-blue-600/30 transition duration-700"></div>
             
             <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10">Klar for å starte?</h2>
             <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg mx-auto relative z-10 font-light">
               Send meg en melding, så tar vi en uforpliktende prat.
             </p>
-            <a href="index.html#kontakt" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition transform shadow-xl relative z-10">
-              Start en samtale →
+            
+            <a href="kontakt.html" class="inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-50 hover:scale-105 transition transform shadow-xl relative z-10">
+              Start en samtale <span class="text-xl">→</span>
             </a>
           </div>
         </div>
@@ -217,11 +254,13 @@
     <script>
       const btn = document.getElementById("mobile-menu-button");
       const menu = document.getElementById("mobile-menu");
-      btn.addEventListener("click", () => {
-          const isHidden = menu.classList.toggle("hidden");
-          btn.setAttribute("aria-expanded", !isHidden);
-      });
-      AOS.init({ once: true, offset: 50, duration: 800 });
+      if(btn && menu) {
+          btn.addEventListener("click", () => {
+              const isHidden = menu.classList.toggle("hidden");
+              btn.setAttribute("aria-expanded", !isHidden);
+          });
+      }
+      setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 100);
     </script>
   </body>
 </html>

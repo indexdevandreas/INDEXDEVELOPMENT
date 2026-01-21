@@ -23,16 +23,18 @@
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pop-in': 'popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                        // NY ANIMASJON: Fade In Up (Raskere og smoothere)
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-20px)' },
                         },
-                        popIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.5)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        // Enkel bevegelse oppover + fade in
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -41,23 +43,17 @@
     </script>
     <style>
         /* CSS for FAQ animasjon */
-        details > summary {
-            list-style: none;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-        details[open] summary ~ * {
-            animation: sweep .3s ease-in-out;
-        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .3s ease-in-out; }
         @keyframes sweep {
             0%    {opacity: 0; transform: translateY(-10px)}
             100%  {opacity: 1; transform: translateY(0)}
         }
-        /* Roterer pilen når den er åpen */
-        details[open] .faq-icon {
-            transform: rotate(180deg);
-        }
+        details[open] .faq-icon { transform: rotate(180deg); }
+        
+        /* Initielt skjuler elementer som skal animeres inn, for å unngå "flash" */
+        .animate-fade-in-up { opacity: 0; }
     </style>
 </head>
 <body class="text-slate-900 antialiased overflow-x-hidden bg-white">
@@ -66,27 +62,17 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <a href="index.html" class="logo-container group">
-            <div class="logo-symbol">
-              <span class="logo-id">ID</span>
-              <div class="logo-cursor"></div>
-            </div>
-            <div class="logo-text flex">
-              <span class="logo-title">Index</span>
-              <span class="logo-subtitle">Development</span>
-            </div>
+            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+            <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
           </a>
-
           <div class="hidden md:flex space-x-8 items-center">
             <a href="index.html" class="nav-link text-sm font-bold text-black transition-colors">Hjem</a>
             <a href="prosjekter.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosjekter</a>
             <a href="prosess.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosess</a>
             <a href="index.html#pris" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Se priser</a>
           </div>
-
           <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none">
-              <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none"><i class="fa-solid fa-bars text-2xl"></i></button>
           </div>
         </div>
       </div>
@@ -101,41 +87,44 @@
     <main>
         <section class="relative min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-20">
             
-            <div class="hero-mesh">
-                <div class="hero-blob blob-1"></div>
-                <div class="hero-blob blob-2"></div>
-                <div class="hero-blob blob-3"></div>
-            </div>
+            <div class="hero-mesh"><div class="hero-blob blob-1"></div><div class="hero-blob blob-2"></div><div class="hero-blob blob-3"></div></div>
 
             <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                 
-                <div class="text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div class="text-center lg:text-left flex flex-col items-center lg:items-start relative z-20">
                     
-                    <div class="flex items-center gap-4 mb-8 bg-white/60 backdrop-blur-md p-2 pr-6 rounded-full border border-white/50 shadow-sm w-max animate-pop-in">
-                        <img src="bilder/meg.jpg" alt="Andreas" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md">
+                    <div class="flex items-center gap-4 mb-8 bg-white/60 backdrop-blur-md p-2 pr-6 rounded-full border border-white/50 shadow-sm w-max animate-fade-in-up" style="animation-delay: 0s;">
+                        <img src="bilder/portrett.PNG" alt="Andreas" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md">
                         <div class="text-left">
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Din utvikler</p>
                             <p class="text-sm font-bold text-slate-900">Andreas Melheim</p>
                         </div>
                     </div>
 
-                    <h1 class="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-6 animate-pop-in" style="animation-delay: 0.1s;">
+                    <h1 class="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
                         START <br>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">I DAG.</span>
                     </h1>
                     
-                    <p class="text-xl text-slate-500 max-w-lg leading-relaxed mb-8 animate-pop-in" style="animation-delay: 0.2s;">
+                    <p class="text-xl text-slate-500 max-w-lg leading-relaxed mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
                         "Jeg bygger ikke bare nettsider, jeg bygger din bedrifts digitale fremtid. Ingen byråkrati, bare direkte kontakt med meg."
                     </p>
                     
-                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start text-sm font-medium text-slate-600 animate-pop-in" style="animation-delay: 0.3s;">
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start text-sm font-medium text-slate-600 animate-fade-in-up" style="animation-delay: 0.3s;">
                         <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Uforpliktende prat</span>
                         <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Rask levering</span>
                     </div>
                 </div>
 
-                <div class="flex justify-center lg:justify-end animate-float w-full">
-                    <div class="bg-white/80 backdrop-blur-2xl border border-white/50 p-8 rounded-[2.5rem] shadow-2xl w-full max-w-md relative overflow-hidden animate-pop-in" style="animation-delay: 0.4s;">
+                <div class="hidden lg:block absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none opacity-30">
+                    <svg width="250" height="150" viewBox="0 0 250 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-400 transform rotate-12">
+                        <path d="M20 100 C 80 100, 100 20, 220 20" stroke="currentColor" stroke-width="3" stroke-dasharray="12 12" marker-end="url(#arrowhead)"/>
+                        <defs><marker id="arrowhead" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M1 1 L13 7 L1 13" stroke="currentColor" stroke-width="3" fill="none"/></marker></defs>
+                    </svg>
+                </div>
+
+                <div class="flex justify-center lg:justify-end w-full animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="bg-white/80 backdrop-blur-2xl border border-white/50 p-8 rounded-[2.5rem] shadow-2xl w-full max-w-md relative overflow-hidden animate-float">
                         
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-[50px] rounded-full pointer-events-none"></div>
                         <div class="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/20 blur-[50px] rounded-full pointer-events-none"></div>
@@ -176,59 +165,36 @@
 
         <section class="py-24 px-6 bg-slate-50 border-t border-slate-200">
             <div class="max-w-2xl mx-auto">
-                
                 <h3 class="text-center text-3xl font-black mb-12">Ofte stilte spørsmål</h3>
-                
                 <div class="space-y-4" data-aos="fade-up">
-                    
                     <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors duration-300 shadow-sm cursor-pointer">
                         <summary class="flex items-center justify-between p-6 select-none">
                             <span class="font-bold text-lg text-slate-800">Er møtet gratis og uforpliktende?</span>
-                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">
-                            <p>Ja! Møtet er 100% gratis og uforpliktende. Vi tar en prat (digitalt eller fysisk) for å se om vi er en god match og hva jeg kan hjelpe deg med. Liker du ikke forslaget, betaler du ingenting.</p>
-                        </div>
+                        <div class="px-6 pb-6 text-slate-500 leading-relaxed"><p>Ja! Møtet er 100% gratis og uforpliktende. Vi tar en prat (digitalt eller fysisk) for å se om vi er en god match og hva jeg kan hjelpe deg med. Liker du ikke forslaget, betaler du ingenting.</p></div>
                     </details>
-
                     <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors duration-300 shadow-sm cursor-pointer">
                         <summary class="flex items-center justify-between p-6 select-none">
                             <span class="font-bold text-lg text-slate-800">Hvor mye koster en nettside?</span>
-                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">
-                            <p>Prisen starter fra 4.990,- for en enkel, profesjonell landingsside. For større prosjekter med flere undersider eller booking-systemer, skreddersyr vi en pakke. Alt er inkludert i prisen – ingen skjulte gebyrer.</p>
-                        </div>
+                        <div class="px-6 pb-6 text-slate-500 leading-relaxed"><p>Prisen starter fra 4.990,- for en enkel, profesjonell landingsside. For større prosjekter med flere undersider eller booking-systemer, skreddersyr vi en pakke. Alt er inkludert i prisen – ingen skjulte gebyrer.</p></div>
                     </details>
-
                     <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors duration-300 shadow-sm cursor-pointer">
                         <summary class="flex items-center justify-between p-6 select-none">
                             <span class="font-bold text-lg text-slate-800">Hva innebærer webdesign og SEO?</span>
-                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">
-                            <p>Webdesign handler om hvordan siden ser ut og oppleves for kunden (design, farger, bilder). SEO (Søkemotoroptimalisering) handler om å gjøre siden synlig på Google slik at kunder finner deg. Jeg leverer alltid begge deler i en pakke.</p>
-                        </div>
+                        <div class="px-6 pb-6 text-slate-500 leading-relaxed"><p>Webdesign handler om hvordan siden ser ut og oppleves for kunden (design, farger, bilder). SEO (Søkemotoroptimalisering) handler om å gjøre siden synlig på Google slik at kunder finner deg. Jeg leverer alltid begge deler i en pakke.</p></div>
                     </details>
-
                     <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors duration-300 shadow-sm cursor-pointer">
                         <summary class="flex items-center justify-between p-6 select-none">
                             <span class="font-bold text-lg text-slate-800">Hvor lang tid tar det å få siden ferdig?</span>
-                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                            <span class="faq-icon text-blue-600 transition-transform duration-300 bg-blue-50 w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">
-                            <p>For en standard nettside tar det vanligvis mellom 1 til 2 uker fra vi starter til siden er live. Jeg jobber effektivt og holder deg oppdatert underveis i prosessen.</p>
-                        </div>
+                        <div class="px-6 pb-6 text-slate-500 leading-relaxed"><p>For en standard nettside tar det vanligvis mellom 1 til 2 uker fra vi starter til siden er live. Jeg jobber effektivt og holder deg oppdatert underveis i prosessen.</p></div>
                     </details>
-
                 </div>
             </div>
         </section>
@@ -237,14 +203,8 @@
     <footer class="bg-slate-200 py-12 border-t border-slate-300 relative z-20">
       <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <a href="index.html" class="logo-container group">
-          <div class="logo-symbol">
-            <span class="logo-id">ID</span>
-            <div class="logo-cursor"></div>
-          </div>
-          <div class="logo-text">
-            <span class="logo-title">Index</span>
-            <span class="logo-subtitle">Development</span>
-          </div>
+          <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+          <div class="logo-text"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
         </a>
         <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
           <a href="mailto:andreas@indexdevelopment.no" class="hover:text-black transition">andreas@indexdevelopment.no</a>
@@ -262,21 +222,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Start AOS animasjoner
-      setTimeout(() => {
-          AOS.init({ once: true, offset: 50, duration: 800 });
-      }, 100);
+      setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 100);
+      const btn = document.getElementById("mobile-menu-button"); const menu = document.getElementById("mobile-menu");
+      if(btn && menu) { btn.addEventListener("click", () => { menu.classList.toggle("hidden"); }); }
 
-      // Mobilmeny logikk
-      const btn = document.getElementById("mobile-menu-button");
-      const menu = document.getElementById("mobile-menu");
-      if(btn && menu) {
-          btn.addEventListener("click", () => {
-              menu.classList.toggle("hidden");
-          });
-      }
-
-      // Skjema logikk for denne siden
       const formPage = document.getElementById('contact-page-form');
       const msgPage = document.getElementById('success-msg-page');
       const btnPage = document.getElementById('submit-btn-page');
@@ -286,30 +235,19 @@
               e.preventDefault();
               btnPage.innerHTML = "SENDER...";
               btnPage.disabled = true;
-
               const formData = new FormData(formPage);
               const object = Object.fromEntries(formData);
               const json = JSON.stringify(object);
-
               fetch('https://api.web3forms.com/submit', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                   body: json
               })
               .then(async (response) => {
-                  if (response.status == 200) {
-                      formPage.style.display = "none";
-                      msgPage.classList.remove("hidden");
-                  } else {
-                      btnPage.innerHTML = "FEIL. PRØV IGJEN.";
-                      btnPage.disabled = false;
-                  }
+                  if (response.status == 200) { formPage.style.display = "none"; msgPage.classList.remove("hidden"); } 
+                  else { btnPage.innerHTML = "FEIL. PRØV IGJEN."; btnPage.disabled = false; }
               })
-              .catch(error => {
-                  console.log(error);
-                  btnPage.innerHTML = "NOE GIKK GALT";
-                  btnPage.disabled = false;
-              });
+              .catch(error => { console.log(error); btnPage.innerHTML = "NOE GIKK GALT"; btnPage.disabled = false; });
           });
       }
     </script>
