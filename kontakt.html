@@ -142,7 +142,7 @@
                         <div class="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/20 blur-[50px] rounded-full pointer-events-none"></div>
 
                         <div class="text-center mb-8">
-                            <h2 class="text-2xl font-bold">Send en forespørsel</h2>
+                            <h2 class="text-2xl font-bold">Ta Kontakt</h2>
                             <p class="text-xs text-slate-400 uppercase tracking-widest mt-2">Svarer innen 24 timer</p>
                         </div>
 
@@ -177,7 +177,7 @@
 
         <section id="faq" class="py-24 px-6 bg-slate-50 border-t border-slate-200">
             <div class="max-w-2xl mx-auto">
-                <h3 class="text-center text-3xl font-black mb-12">Ofte stilte spørsmål</h3>
+                <h3 class="text-center text-3xl font-black mb-12 text-slate-900 relative z-30" style="color: #0f172a; opacity: 1;">Ofte stilte spørsmål</h3>
                 <div class="space-y-4" data-aos="fade-up">
                     <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors duration-300 shadow-sm cursor-pointer">
                         <summary class="flex items-center justify-between p-6 select-none">
@@ -272,13 +272,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 100);
-      const btn = document.getElementById("mobile-menu-button"); 
-      const menu = document.getElementById("mobile-menu");
-      if(btn && menu) { 
-          btn.addEventListener("click", () => { 
-              menu.classList.toggle("hidden"); 
-          }); 
-      }
+      const btn = document.getElementById("mobile-menu-button"); const menu = document.getElementById("mobile-menu");
+      if(btn && menu) { btn.addEventListener("click", () => { menu.classList.toggle("hidden"); }); }
 
       const formPage = document.getElementById('contact-page-form');
       const msgPage = document.getElementById('success-msg-page');
