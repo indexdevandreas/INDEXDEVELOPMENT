@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="no" class="scroll-smooth">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Index Development | Nettsider for lokale bedrifter</title>
     <meta name="description" content="Profesjonelle nettsider som konverterer besøkende til kunder. Skreddersydd webutvikling.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+    
     <style>
+        /* KILL HORIZONTAL SCROLL */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
         .tech-stream-wrapper {
             position: relative; width: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
             border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 1rem 0;
@@ -44,35 +55,43 @@
         }
     </script>
 </head>
-<body class="text-slate-900 antialiased overflow-x-hidden">
-    <nav class="fixed w-full z-50 glass transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
-          <a href="index.html" class="logo-container group">
+<body class="text-slate-900 antialiased overflow-x-hidden w-full">
+    
+    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        
+        <a href="index.html" class="logo-container group flex-shrink-0 z-20">
             <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
             <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
-          </a>
-          <div class="hidden md:flex space-x-8 items-center">
-            <a href="index.html" class="nav-link text-sm font-bold text-black transition-colors">Hjem</a>
-            <a href="prosjekter.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosjekter</a>
-            <a href="prosess.html" class="nav-link text-sm font-medium text-slate-600 hover:text-black transition-colors">Prosess</a>
-            <a href="kontakt.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Prosjekt</a>
-          </div>
-          <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none"><i class="fa-solid fa-bars text-2xl"></i></button>
-          </div>
+        </a>
+
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
+            <a href="index.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-900 bg-white shadow-sm transition-all">Hjem</a>
+            <a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosjekter</a>
+            <a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
         </div>
+
+        <div class="flex items-center gap-4 z-20">
+            <a href="kontakt.html" class="hidden md:inline-flex bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-600 transition shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 duration-200">
+                Ta kontakt
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-slate-900 focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
       </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
-        <a href="index.html" class="block text-base font-bold text-black">Hjem</a>
-        <a href="prosjekter.html" class="block text-base font-medium text-slate-600">Prosjekter</a>
-        <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
-        <a href="kontakt.html" class="block text-base font-bold text-blue-600">Start Prosjekt</a>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl absolute w-full top-20 left-0">
+        <a href="index.html" class="block text-base font-bold text-black border-b border-slate-100 pb-2">Hjem</a>
+        <a href="prosjekter.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Prosess</a>
+        <a href="kontakt.html" class="block text-base font-bold text-blue-600 pt-2">Start Prosjekt →</a>
       </div>
     </nav>
 
-    <main>
-      <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 relative overflow-hidden">
+    <main class="overflow-hidden">
+      <section class="pt-24 pb-20 md:pt-36 md:pb-32 px-6 relative overflow-hidden w-full">
         <div class="hero-mesh"><div class="hero-blob blob-1"></div><div class="hero-blob blob-2"></div><div class="hero-blob blob-3"></div></div>
         
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
@@ -80,15 +99,27 @@
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-white text-xs font-bold uppercase tracking-widest mb-8 shadow-xl">
                     <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>Ledig for nye oppdrag
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-6 tracking-tight">Vi bygger din <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">digitale vekst.</span></h1>
-                <p class="text-xl text-slate-500 mb-10 leading-relaxed font-light max-w-lg">Fra usynlig til uunnværlig. Jeg lager nettsider som ikke bare ser bra ut, men som jobber for deg døgnet rundt.</p>
+                
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-6 tracking-tight">
+                    Vi bygger din <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">digitale vekst.</span>
+                </h1>
+                
+                <p class="text-xl text-slate-500 mb-8 leading-relaxed font-light max-w-lg">
+                    Fra usynlig til uunnværlig. Jeg lager nettsider som ikke bare ser bra ut, men som jobber for deg døgnet rundt.
+                </p>
+                
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-400 rounded-full mb-10 shadow-lg shadow-blue-500/30" data-aos="fade-right" data-aos-delay="100"></div>
                 
                 <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="#pris" class="btn-primary h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 transition shadow-lg">
-                        <span class="animate-pulse">Se pakker</span>
+                    
+                    <a href="#pris" class="group relative h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center bg-white border border-slate-200 text-slate-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/20 hover:border-blue-200 overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span class="relative flex items-center gap-2">
+                            Se pakker <i class="fa-solid fa-box-open text-blue-600 group-hover:rotate-12 transition-transform duration-300"></i>
+                        </span>
                     </a>
 
-                    <a href="kontakt.html" class="relative inline-flex h-14 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 group">
+                    <a href="kontakt.html" class="relative inline-flex h-14 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 group hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-blue-600/40">
                         <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0F172A_0%,#3B82F6_50%,#0F172A_100%)]"></span>
                         
                         <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-900 px-8 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-800 gap-2">
@@ -129,9 +160,9 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-900 rounded-b-2xl z-40"></div>
                     <div class="phone-screen w-full h-full bg-black relative rounded-[2.5rem] overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-10 bg-black z-30"></div>
-                        <video autoplay muted playsinline class="active"><source src="bilder/urban.mp4" type="video/mp4"></video>
-                        <video autoplay muted playsinline><source src="bilder/apex.mp4" type="video/mp4"></video>
-                        <video autoplay muted playsinline><source src="bilder/advokat.mp4" type="video/mp4"></video>
+                        <video autoplay muted playsinline class="active" loading="eager"><source src="bilder/urban.mp4" type="video/mp4"></video>
+                        <video muted playsinline preload="none"><source src="bilder/apex.mp4" type="video/mp4"></video>
+                        <video muted playsinline preload="none"><source src="bilder/advokat.mp4" type="video/mp4"></video>
                     </div>
                 </div>
 
@@ -151,7 +182,7 @@
         </div>
       </section>
 
-      <div class="tech-stream-wrapper">
+      <div class="tech-stream-wrapper w-full overflow-hidden">
         <div class="tech-track">
             <div class="tech-item"><span class="tech-dot"></span>Google Verifisert</div><div class="tech-item"><i class="fa-brands fa-react text-blue-400"></i>Moderne Kode</div><div class="tech-item"><span class="tech-dot"></span>99.9% Oppetid</div><div class="tech-item"><i class="fa-brands fa-aws text-orange-400"></i>Lynrask Server</div><div class="tech-item"><span class="tech-dot"></span>SSL Sikret</div><div class="tech-item"><i class="fa-solid fa-mobile-screen text-purple-500"></i>Mobiloptimalisert</div><div class="tech-item"><span class="tech-dot"></span>SEO Klar</div><div class="tech-item"><i class="fa-solid fa-shield-halved text-yellow-400"></i>Høy Sikkerhet</div>
             <div class="tech-item"><span class="tech-dot"></span>Google Verifisert</div><div class="tech-item"><i class="fa-brands fa-react text-blue-400"></i>Moderne Kode</div><div class="tech-item"><span class="tech-dot"></span>99.9% Oppetid</div><div class="tech-item"><i class="fa-brands fa-aws text-orange-400"></i>Lynrask Server</div><div class="tech-item"><span class="tech-dot"></span>SSL Sikret</div><div class="tech-item"><i class="fa-solid fa-mobile-screen text-purple-500"></i>Mobiloptimalisert</div><div class="tech-item"><span class="tech-dot"></span>SEO Klar</div><div class="tech-item"><i class="fa-solid fa-shield-halved text-yellow-400"></i>Høy Sikkerhet</div>
@@ -160,8 +191,8 @@
         </div>
       </div>
 
-      <section class="py-24 px-6 bg-white/50 backdrop-blur-sm border-y border-slate-100">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section class="py-24 px-6 bg-white/50 backdrop-blur-sm border-y border-slate-100 relative overflow-hidden w-full">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
             <div class="relative" data-aos="fade-right">
                 <div class="future-glow"></div>
                 <div class="scan-container relative rounded-[2rem] overflow-hidden bg-[#0F172A] border border-slate-700 p-6 md:p-8 transform hover:scale-[1.01] transition duration-500 shadow-2xl">
@@ -196,7 +227,7 @@
         </div>
       </section>
 
-      <section class="py-24 px-6">
+      <section class="py-24 px-6 w-full overflow-hidden">
         <div class="max-w-6xl mx-auto" data-aos="zoom-in-up">
             <div class="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-2xl border border-slate-100 relative overflow-hidden">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12 relative z-10 gap-6">
@@ -223,9 +254,9 @@
         </div>
       </section>
 
-      <section id="fordeler" class="py-24 px-6 relative">
+      <section id="fordeler" class="py-24 px-6 relative w-full overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        <div class="max-w-7xl mx-auto text-center">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
             <h2 class="text-3xl md:text-4xl font-black mb-16">Hvorfor velge <span class="text-blue-600">meg</span>?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <div class="relative p-[2px] rounded-[2rem] overflow-hidden h-full transform hover:-translate-y-2 transition duration-300" data-aos="fade-up">
@@ -253,7 +284,7 @@
         </div>
       </section>
 
-      <section id="pris" class="py-24 px-6 bg-white border-t border-slate-100">
+      <section id="pris" class="py-24 px-6 bg-white border-t border-slate-100 w-full overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-black mb-4">Invester i bedriften din</h2><p class="text-slate-500 text-lg max-w-2xl mx-auto">Ingen skjulte kostnader. Velg pakken som passer ditt behov.</p></div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -295,7 +326,7 @@
         </div>
       </section>
 
-      <section id="kontakt" class="py-32 px-6 relative overflow-hidden">
+      <section id="kontakt" class="py-32 px-6 relative overflow-hidden w-full">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50"></div>
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[120px] pointer-events-none -z-10"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="zoom-in">
@@ -310,31 +341,94 @@
       </section>
     </main>
 
-    <footer class="bg-slate-200 py-12 border-t border-slate-300">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="index.html" class="logo-container group">
-          <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
-          <div class="logo-text"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
-        </a>
-        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1"><span>© 2026 Index Development Melheim</span><span>Org. nr. 936 933 661</span></div>
-      </div>
+    <footer class="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="space-y-6">
+                    <a href="index.html" class="logo-container group text-white">
+                        <div class="logo-symbol border-white/20"><span class="logo-id text-white">ID</span><div class="logo-cursor bg-blue-500"></div></div>
+                        <div class="logo-text"><span class="logo-title text-white">Index</span><span class="logo-subtitle text-slate-400">Development</span></div>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Skreddersydde nettsider som hjelper lokale bedrifter med å vokse. Ingen templates, bare solid kode.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Meny</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
+                        <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
+                        <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+                        <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Kontakt</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-blue-500"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition">andreas@indexdevelopment.no</a></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-blue-500"></i> <span>+47 48 45 96 86</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-blue-500"></i> <span>Drammen, Norge</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Ofte stilte spørsmål</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva koster en nettside?</a></li>
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva er inkludert?</a></li>
+                    </ul>
+                    <a href="kontakt.html" class="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-900/20">
+                        Start en samtale
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 Index Development Melheim. Org. nr. 936 933 661</p>
+                <div class="flex gap-6">
+                    <a href="personvern.html" class="hover:text-white transition">Personvern</a>
+                    <a href="vilkar.html" class="hover:text-white transition">Vilkår</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu
         const btn = document.getElementById("mobile-menu-button"); const menu = document.getElementById("mobile-menu");
         if(btn && menu) { btn.addEventListener("click", () => { menu.classList.toggle("hidden"); }); }
+        
+        // Init AOS
         if(typeof AOS !== 'undefined') { AOS.init({ once: true, offset: 50, duration: 800 }); }
         
-        // VIDEO SLIDER LOGIC
-        const videos = document.querySelectorAll('.phone-screen video'); let currentVideo = 0; const intervalTime = 4000;
-        if (videos.length > 0) { videos[0].play(); }
-        setInterval(() => {
-            videos[currentVideo].classList.remove('active');
-            currentVideo = (currentVideo + 1) % videos.length;
-            const nextVid = videos[currentVideo]; nextVid.currentTime = 0; nextVid.classList.add('active'); nextVid.play();
-        }, intervalTime);
+        // Video Logic (Optimalisert)
+        const videos = document.querySelectorAll('.phone-screen video');
+        if (videos.length > 0) {
+            let currentVideo = 0;
+            const intervalTime = 4000;
+            
+            // Start interval
+            setInterval(() => {
+                // Skjul nåværende
+                videos[currentVideo].classList.remove('active');
+                
+                // Neste video
+                currentVideo = (currentVideo + 1) % videos.length;
+                const nextVid = videos[currentVideo];
+                
+                // Sørg for at den er klar til å spilles
+                nextVid.currentTime = 0;
+                nextVid.classList.add('active');
+                nextVid.play().catch(e => console.log("Auto-play prevented"));
+            }, intervalTime);
+        }
       });
     </script>
 </body>

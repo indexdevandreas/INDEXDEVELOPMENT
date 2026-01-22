@@ -1,115 +1,202 @@
 <!DOCTYPE html>
-<html lang="no" class="scroll-smooth">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Våre Prosjekter | Index Development </title>
+    <title>Våre Prosjekter | Index Development</title>
     <meta name="description" content="Se demoer av nettsider for restauranter, håndverkere og bedrifter. Raske og mobilvennlige løsninger.">
-    
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  </head>
-  <body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
     
-    <nav class="fixed w-full z-50 glass transition-all duration-300" role="navigation" aria-label="Hovedmeny">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
-          <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
-            <div class="logo-symbol" aria-hidden="true"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Shine Effect for Cards */
+      .shine-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+        transform: skewX(-25deg);
+        transition: 0.5s;
+        z-index: 30;
+        pointer-events: none;
+      }
+      .shine-card:hover::before {
+        left: 150%;
+        transition: 0.7s;
+      }
+      
+      /* Smooth transitions */
+      .project-info {
+        transform: translateY(10px);
+        transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      }
+      .shine-card:hover .project-info {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] text-slate-900 antialiased overflow-x-hidden">
+    
+    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        
+        <a href="index.html" class="logo-container group flex-shrink-0 z-20">
+            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
             <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
-          </a>
-          <div class="hidden md:flex space-x-8 items-center">
-            <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Hjem</a>
-            <a href="prosjekter.html" class="text-sm font-bold text-black transition" aria-current="page">Prosjekter</a>
-            <a href="prosess.html" class="text-sm font-medium text-slate-600 hover:text-black transition">Prosess</a>
-            <a href="kontakt.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition shadow-lg hover:scale-105 transform duration-200">Start Nå</a>
-          </div>
-          <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-slate-900 focus:outline-none" aria-label="Åpne meny" aria-expanded="false"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
-          </div>
+        </a>
+
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
+            <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Hjem</a>
+            
+            <a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-900 bg-white shadow-sm transition-all">Prosjekter</a>
+            
+            <a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
         </div>
+
+        <div class="flex items-center gap-4 z-20">
+            <a href="kontakt.html" class="hidden md:inline-flex bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-600 transition shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 duration-200">
+                Ta kontakt
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-slate-900 focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
       </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-4 shadow-xl">
-        <a href="index.html" class="block text-base font-medium text-slate-600">Hjem</a>
-        <a href="prosjekter.html" class="block text-base font-bold text-black" aria-current="page">Prosjekter</a>
-        <a href="prosess.html" class="block text-base font-medium text-slate-600">Prosess</a>
-        <a href="kontakt.html" class="block text-base font-bold text-blue-600">Start Nå</a>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl absolute w-full top-20 left-0">
+        <a href="index.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Hjem</a>
+        <a href="prosjekter.html" class="block text-base font-bold text-black border-b border-slate-100 pb-2">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Prosess</a>
+        <a href="kontakt.html" class="block text-base font-bold text-blue-600 pt-2">Start Prosjekt →</a>
       </div>
     </nav>
 
     <main>
-      <section class="pt-32 pb-12 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
-        <div class="inline-block mb-6 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500" data-aos="fade-down">
-            Portefølje
+      <section class="pt-32 pb-16 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse-slow"></div>
+
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500 shadow-sm" data-aos="fade-down">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Portefølje
         </div>
 
-        <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight" data-aos="fade-up">
-          Utvalgte <span class="text-blue-600">Prosjekter.</span>
+        <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900" data-aos="fade-up">
+          Utvalgte <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Arbeider.</span>
         </h1>
         
-        <p class="text-lg md:text-2xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-          Demoer av skreddersydde nettsider. Ingen ferdige maler, kun ren kode for maksimal ytelse.
+        <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+          En samling av skreddersydde demoer og konsepter. Bygget for hastighet, designet for konvertering.
         </p>
       </section>
 
       <section class="pb-32 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           
-          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01]" data-aos="fade-up">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 opacity-80"></div>
-            <div class="absolute top-6 right-6 z-20 bg-blue-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg uppercase tracking-wider">Håndverker</div>
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
+          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-blue-900/20 shine-card" data-aos="fade-up">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-70 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Håndverker
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Rørlegger</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Vann & Varme</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Lynrask side optimalisert for akutte henvendelser og lokal synlighet.</p>
-              <div class="mt-8 inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></div>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Vann & Varme</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Lynrask side optimalisert for akutte henvendelser og lokal synlighet.
+              </p>
+              <div class="inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" alt="Bilde av rørlegger nettside" width="800" height="450" loading="eager" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            
+            <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" alt="Rørlegger nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
           </a>
 
-          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01]" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 opacity-80"></div>
-            <div class="absolute top-6 right-6 z-20 bg-yellow-500/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg uppercase tracking-wider">Kjøreskole</div>
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
+          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-yellow-900/20 shine-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-70 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Kjøreskole
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
               <span class="bg-yellow-500 text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Trafikkskole</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Apex Trafikk</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Moderne og ungdommelig profil med fokus på pakker og booking.</p>
-              <div class="mt-8 inline-flex items-center text-yellow-400 font-bold uppercase tracking-widest text-sm border-b border-yellow-400/30 pb-1 group-hover:border-yellow-400 transition-all">Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></div>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Apex Trafikk</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Moderne profil med fokus på pakker, booking og elever.
+              </p>
+              <div class="inline-flex items-center text-yellow-400 font-bold uppercase tracking-widest text-sm border-b border-yellow-400/30 pb-1 group-hover:border-yellow-400 transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Bilde av trafikkskole nettside" width="800" height="450" loading="eager" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Trafikkskole nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
-          <a href="urban-eatery.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c1220] via-[#0c1220]/40 to-transparent z-10 opacity-90"></div>
-            <div class="absolute top-6 right-6 z-20 bg-green-600/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg uppercase tracking-wider">Restaurant</div>
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
-              <span class="bg-green-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Restaurant</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Urban Eatery</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Eksklusiv design som fremhever maten og atmosfæren.</p>
-              <div class="mt-8 inline-flex items-center text-green-400 font-bold uppercase tracking-widest text-sm border-b border-green-400/30 pb-1 group-hover:border-green-400 transition-all">Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></div>
+          <a href="urban-eatery.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-green-900/20 shine-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c1220] via-[#0c1220]/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Restaurant
             </div>
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Bilde av Urban Eatery nettside" width="800" height="450" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-green-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Mat & Drikke</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Urban Eatery</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Eksklusiv design som fremhever maten, menyen og atmosfæren.
+              </p>
+              <div class="inline-flex items-center text-green-400 font-bold uppercase tracking-widest text-sm border-b border-green-400/30 pb-1 group-hover:border-green-400 transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Urban Eatery nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
           </a>
 
-          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.02]" data-aos="fade-up" data-aos-delay="300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-90"></div>
-            <div class="absolute top-6 right-6 z-20 bg-slate-800/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg uppercase tracking-wider">Advokat</div>
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
-              <span class="bg-[#c4a484] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Bedrift</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">Justitia</h2>
-              <p class="text-slate-300 text-sm md:text-lg font-light max-w-md">Klassisk og solid design som bygger tillit og autoritet.</p>
-              <div class="mt-8 inline-flex items-center text-[#c4a484] font-bold uppercase tracking-widest text-sm border-b border-[#c4a484]/30 pb-1 group-hover:border-[#c4a484] transition-all">Se Demo <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></div>
+          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-orange-900/20 shine-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Bedrift
             </div>
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Bilde av Advokatfirma nettside" width="800" height="450" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-[#c4a484] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Advokat</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Justitia</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Klassisk og solid design som bygger tillit, autoritet og profesjonalitet.
+              </p>
+              <div class="inline-flex items-center text-[#c4a484] font-bold uppercase tracking-widest text-sm border-b border-[#c4a484]/30 pb-1 group-hover:border-[#c4a484] transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Advokat nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
           </a>
 
         </div>
@@ -119,13 +206,15 @@
         <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
           <div class="bg-slate-900 rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden shadow-2xl group">
             
-            <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3 group-hover:bg-blue-600/30 transition duration-700"></div>
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3 group-hover:bg-blue-600/30 transition duration-700 animate-pulse-slow"></div>
             
-            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10">La oss realisere din idé.</h2>
-            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg mx-auto relative z-10 font-light">Send meg en melding, så tar vi en uforpliktende prat.</p>
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10 leading-tight">La oss realisere <br> <span class="text-blue-500">din idé.</span></h2>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg mx-auto relative z-10 font-light leading-relaxed">
+                Har du sett nok? Send meg en melding, så tar vi en helt uforpliktende prat om ditt prosjekt.
+            </p>
             
             <a href="kontakt.html" class="inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-50 hover:scale-105 transition transform shadow-xl relative z-10">
-              Start en samtale <span class="text-xl">→</span>
+              Start en samtale <i class="fa-solid fa-arrow-right text-blue-600"></i>
             </a>
           </div>
         </div>
@@ -133,24 +222,61 @@
 
     </main>
 
-    <footer class="bg-slate-200 py-12 border-t border-slate-300">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="index.html" class="logo-container group" aria-label="Index Development Hjem">
-          <div class="logo-symbol" aria-hidden="true"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
-          <div class="logo-text"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
-        </a>
-        <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
-          <a href="mailto:andreas@indexdevelopment.no" class="hover:text-black transition">andreas@indexdevelopment.no</a>
+    <footer class="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="space-y-6">
+                    <a href="index.html" class="logo-container group text-white">
+                        <div class="logo-symbol border-white/20"><span class="logo-id text-white">ID</span><div class="logo-cursor bg-blue-500"></div></div>
+                        <div class="logo-text"><span class="logo-title text-white">Index</span><span class="logo-subtitle text-slate-400">Development</span></div>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Skreddersydde nettsider som hjelper lokale bedrifter med å vokse. Ingen templates, bare solid kode.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Meny</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
+                        <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
+                        <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+                        <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Kontakt</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-blue-500"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition">andreas@indexdevelopment.no</a></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-blue-500"></i> <span>+47 48 45 96 86</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-blue-500"></i> <span>Drammen, Norge</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Ofte stilte spørsmål</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva koster en nettside?</a></li>
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>
+                        <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva er inkludert?</a></li>
+                    </ul>
+                    <a href="kontakt.html" class="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-900/20">
+                        Start en samtale
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 Index Development Melheim. Org. nr. 936 933 661</p>
+                <div class="flex gap-6">
+                    <a href="personvern.html" class="hover:text-white transition">Personvern</a>
+                    <a href="vilkar.html" class="hover:text-white transition">Vilkår</a>
+                </div>
+            </div>
         </div>
-        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
-          <span>© 2026 Index Development Melheim</span>
-          <span>Org. nr. 936 933 661</span>
-          <div class="mt-2 flex flex-col md:flex-row gap-2 md:gap-4 justify-end">
-            <a href="personvern.html" class="hover:text-black underline transition">Personvern</a>
-            <a href="vilkar.html" class="hover:text-black underline transition">Salgsbetingelser</a>
-          </div>
-        </div>
-      </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -159,8 +285,7 @@
       const menu = document.getElementById("mobile-menu");
       if(btn && menu) {
           btn.addEventListener("click", () => {
-              const isHidden = menu.classList.toggle("hidden");
-              btn.setAttribute("aria-expanded", !isHidden);
+              menu.classList.toggle("hidden");
           });
       }
       setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 100);

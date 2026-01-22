@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo: Nordisk Tømrer AS | Kvalitetshåndverk</title>
+    <meta name="description" content="Demodokument for tømrerfirma. Viser rehabilitering, nybygg og tilbygg.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              wood: {
+                DEFAULT: '#A05A2C', /* Varm tre-farge */
+                light: '#C67D48',
+                dark: '#7A401B',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body { 
+          background-color: #F8FAFC;
+      }
+      .hero-overlay {
+        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 60%, rgba(15, 23, 42, 0.3) 100%);
+      }
+      /* Fikser animasjon så den ikke "hopper" på mobil */
+      [data-aos] {
+        pointer-events: none;
+      }
+      [data-aos].aos-animate {
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body class="text-slate-700 antialiased overflow-x-hidden">
+    
+    <a href="index.html" class="fixed bottom-6 right-6 z-[100] bg-slate-900 text-white px-5 py-3 rounded-full font-bold text-sm shadow-2xl hover:bg-wood transition flex items-center gap-2 border border-slate-700 transform hover:-translate-y-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Tilbake til portefølje
+    </a>
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white transition group-hover:bg-wood">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-slate-900 leading-none text-lg tracking-tight group-hover:text-wood transition">Nordisk Tømrer</span>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Bygg & Eiendom AS</span>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+          <a href="#tjenester" class="hover:text-wood transition">Tjenester</a>
+          <a href="#om" class="hover:text-wood transition">Om oss</a>
+          <a href="#prosjekter" class="hover:text-wood transition">Prosjekter</a>
+          <a href="#kontakt" class="bg-wood text-white px-6 py-2.5 rounded-full hover:bg-slate-900 transition shadow-lg shadow-wood/20">
+            Få et tilbud
+          </a>
+        </div>
+
+        <div class="md:hidden">
+            <button id="mobile-menu-btn" class="text-slate-900 p-2 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 shadow-xl">
+        <div class="flex flex-col p-6 gap-4 font-semibold text-slate-700">
+            <a href="#tjenester" class="hover:text-wood transition py-2 border-b border-slate-50">Tjenester</a>
+            <a href="#om" class="hover:text-wood transition py-2 border-b border-slate-50">Om oss</a>
+            <a href="#kontakt" class="bg-wood text-center text-white py-3 rounded-lg mt-2">Be om befaring</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      
+      <section class="relative h-[650px] md:h-[800px] flex items-center">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" 
+             class="absolute inset-0 w-full h-full object-cover" 
+             alt="Tømrer som jobber på takkonstruksjon">
+        
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+            <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-wood-light rounded-full text-xs font-bold uppercase tracking-wider mb-8">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Vi har ledig kapasitet
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+                    Solid håndverk <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-wood-light to-orange-200">som varer i generasjoner.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-xl font-medium">
+                    Spesialister på trearbeid, nybygg og rehabilitering. Vi bygger med stolthet og presisjon.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#kontakt" class="bg-wood text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-slate-900 transition shadow-xl shadow-wood/30">
+                        Start ditt prosjekt
+                    </a>
+                    <a href="#tjenester" class="bg-white/5 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-center hover:bg-white hover:text-slate-900 transition">
+                        Se våre tjenester
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="tjenester" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <span class="text-wood font-bold tracking-widest uppercase text-xs">Våre Tjenester</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mt-2">Alt innen tømrerfaget</h2>
+                <div class="w-20 h-1 bg-wood mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group p-0 rounded-3xl bg-slate-50 border border-slate-100 overflow-hidden hover:shadow-2xl transition duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Montering av ny kledning">
+                        <div class="absolute inset-0 bg-slate-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                             Rehabilitering
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Gi boligen et nytt liv. Vi bytter råtten kledning, etterisolerer vegger og tak, og skifter vinduer til moderne standard.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group p-0 rounded-3xl bg-slate-50 border border-slate-100 overflow-hidden hover:shadow-2xl transition duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1594892437678-75c1d7634359?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Reisverk konstruksjon">
+                        <div class="absolute inset-0 bg-slate-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                             Tilbygg & Nybygg
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Trenger du mer plass? Vi setter opp tilbygg, garasjer og terrasser som glir sømløst inn i eksisterende bebyggelse.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group p-0 rounded-3xl bg-slate-50 border border-slate-100 overflow-hidden hover:shadow-2xl transition duration-500 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1581147036324-c17ac41efa63?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Hender som måler treverk">
+                         <div class="absolute inset-0 bg-slate-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                             Service & Vedlikehold
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Ingen jobb er for liten. Vi tar på oss bytte av dører, listing, gulvlegging og generelt vedlikehold. Raskt og effektivt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="om" class="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block bg-wood text-white px-3 py-1 rounded border border-white/10 text-xs font-bold uppercase tracking-widest mb-6">
+                    Siden 2015
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Ikke bare en snekker, men en partner.</h2>
+                <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                    Vi vet at å slippe håndverkere inn i hjemmet krever tillit. Derfor er vi besatt av punktlighet, ryddighet og åpen kommunikasjon underveis. Hos oss får du ingen overraskelser på fakturaen.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mt-10">
+                    <div class="border-l-4 border-wood pl-6">
+                        <div class="text-4xl font-bold text-white mb-1">150+</div>
+                        <div class="text-slate-500 text-sm font-medium">Fullførte prosjekter</div>
+                    </div>
+                    <div class="border-l-4 border-wood pl-6">
+                        <div class="text-4xl font-bold text-white mb-1">100%</div>
+                        <div class="text-slate-500 text-sm font-medium">Fornøydgaranti</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1000" 
+                     alt="Tømrer som måler treverk" 
+                     class="relative rounded-2xl shadow-2xl border border-slate-700 opacity-90">
+            </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="py-24 px-6 bg-[#F8FAFC]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-5 bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100" data-aos="zoom-in" data-aos-duration="800">
+                
+                <div class="md:col-span-2 bg-slate-900 p-10 md:p-14 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-32 bg-wood rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+                    
+                    <div>
+                        <span class="text-wood font-bold tracking-widest uppercase text-xs">Kontakt Oss</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Klar for å starte?</h2>
+                        <p class="text-slate-400 mb-10 leading-relaxed">
+                            Fyll ut skjemaet for en uforpliktende befaring. (Dette er en demo-side).
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-wood">📞</div>
+                                <div>
+                                    <div class="text-xs text-slate-500 uppercase font-bold">Telefon (Demo)</div>
+                                    <div class="text-lg font-semibold">+47 900 00 000</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-wood">✉️</div>
+                                <div>
+                                    <div class="text-xs text-slate-500 uppercase font-bold">E-post (Demo)</div>
+                                    <div class="text-lg font-semibold">post@nordisktomrer.no</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 p-10 md:p-14">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-900">Navn</label>
+                                <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:bg-white transition outline-none focus:border-wood focus:ring-2 focus:ring-wood/50" placeholder="Ola Nordmann">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-900">Telefon</label>
+                                <input type="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:bg-white transition outline-none focus:border-wood focus:ring-2 focus:ring-wood/50" placeholder="400 00 000">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-900">E-post</label>
+                            <input type="email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:bg-white transition outline-none focus:border-wood focus:ring-2 focus:ring-wood/50" placeholder="ola@eksempel.no">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-900">Beskriv prosjektet kort</label>
+                            <textarea rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:bg-white transition outline-none focus:border-wood focus:ring-2 focus:ring-wood/50" placeholder="Jeg ønsker pris på..."></textarea>
+                        </div>
+
+                        <button type="button" class="w-full bg-wood text-white font-bold py-4 rounded-xl hover:bg-slate-900 transition transform hover:-translate-y-1 shadow-lg shadow-wood/20" onclick="alert('Dette er en demo. Skjemaet sendes ikke på ekte.')">
+                            Send forespørsel (Demo)
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-white py-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </div>
+                <span class="font-bold text-slate-900">Nordisk Tømrer AS (Demo)</span>
+            </div>
+            
+            <p class="text-slate-400 text-sm">© 2026 Nordisk Tømrer AS. Dette er et <a href="index.html" class="text-slate-900 font-bold hover:text-wood">Index Development</a> konsept.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ 
+        once: true,     // Animasjonen skjer bare én gang (cleanere)
+        offset: 50,     // Starter litt tidligere
+        duration: 800,  // Mykere animasjon (ikke så rask/brå)
+        easing: 'ease-out-cubic' // Myk slutt på bevegelsen
+      });
+      
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
