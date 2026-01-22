@@ -50,8 +50,13 @@
         }
         details[open] .faq-icon { transform: rotate(180deg); }
         
-        /* Initielt skjuler elementer som skal animeres inn */
         .animate-fade-in-up { opacity: 0; }
+
+        .hero-mesh { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+        .hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: float 10s infinite ease-in-out; }
+        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #3b82f6; animation-delay: 0s; }
+        .blob-2 { bottom: 10%; right: -5%; width: 400px; height: 400px; background: #8b5cf6; animation-delay: 2s; }
+        .blob-3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #ec4899; animation-delay: 4s; opacity: 0.2; }
     </style>
 </head>
 <body class="text-slate-900 antialiased overflow-x-hidden bg-white">
@@ -87,7 +92,6 @@
         <a href="prosjekter.html" class="text-slate-600 font-medium hover:text-blue-600">Prosjekter</a>
         <a href="prosess.html" class="text-slate-600 font-medium hover:text-blue-600">Prosess</a>
         <a href="om-meg.html" class="text-slate-600 font-medium hover:text-blue-600">Om meg</a>
-        <a href="kontakt.html" class="text-blue-600 font-bold">Kontakt</a>
       </div>
     </nav>
 
@@ -268,8 +272,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 100);
-      const btn = document.getElementById("mobile-menu-button"); const menu = document.getElementById("mobile-menu");
-      if(btn && menu) { btn.addEventListener("click", () => { menu.classList.toggle("hidden"); }); }
+      const btn = document.getElementById("mobile-menu-button"); 
+      const menu = document.getElementById("mobile-menu");
+      if(btn && menu) { 
+          btn.addEventListener("click", () => { 
+              menu.classList.toggle("hidden"); 
+          }); 
+      }
 
       const formPage = document.getElementById('contact-page-form');
       const msgPage = document.getElementById('success-msg-page');
