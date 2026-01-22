@@ -40,11 +40,12 @@
         }
         .tech-dot { width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px rgba(59,130,246,0.6); }
         
+        /* VIDEO CSS - CONTAIN ER TILBAKE */
         .phone-screen video {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             object-fit: contain; 
-            background: #1e293b; /* Mørk bakgrunn mens video laster */
-            opacity: 0; transition: opacity 0.8s ease-in-out; z-index: 0;
+            background: #1e293b; 
+            opacity: 0; transition: opacity 0.5s ease-in-out; z-index: 0;
         }
         .phone-screen video.active { opacity: 1; z-index: 10; }
         
@@ -421,9 +422,17 @@
         // Init AOS
         if(typeof AOS !== 'undefined') { AOS.init({ once: true, offset: 50, duration: 800 }); }
         
-        // Video Logic (Optimalisert)
+        // Video Logic (Aggressive loading fix for Mobile)
         const videos = document.querySelectorAll('.phone-screen video');
         if (videos.length > 0) {
+            
+            // Force load all videos immediately
+            videos.forEach(v => {
+                v.load();
+                // Optional: try to play/pause to force buffer (can fail if muted is not respected)
+                // v.muted = true; 
+            });
+
             let currentVideo = 0;
             const intervalTime = 4000;
             
@@ -436,9 +445,21 @@
                 currentVideo = (currentVideo + 1) % videos.length;
                 const nextVid = videos[currentVideo];
                 
-                // På mobil: Ikke reset currentTime = 0, da det kan skape blink
+                // Pre-load next video slightly by calling load() again just in case
+                nextVid.load();
+                
+                // Show and Play
                 nextVid.classList.add('active');
-                nextVid.play().catch(e => console.log("Auto-play prevented"));
+                var playPromise = nextVid.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                      // Autoplay started!
+                    })
+                    .catch(error => {
+                      console.log("Autoplay prevented or video not ready");
+                    });
+                }
             }, intervalTime);
         }
       });
