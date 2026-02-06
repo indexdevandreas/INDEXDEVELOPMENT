@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onyx Bilpleie | Detailing & Coating</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyan: '#00F0FF',
+                        dark: '#050505',
+                        panel: '#0F0F0F'
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* GENERELT */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        
+        /* GLOW EFFECT */
+        .neon-glow { text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+        .box-glow:hover { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+
+        /* MØRKT KART */
+        .map-dark-mode {
+            filter: grayscale(100%) invert(92%) contrast(83%);
+            mix-blend-mode: hard-light;
+        }
+
+        /* GALLERI SCROLL */
+        .gallery-track {
+            display: flex; gap: 1rem; width: max-content;
+            animation: scrollGallery 60s linear infinite;
+        }
+        /* Pause animasjon når musen er over */
+        .gallery-track:hover { animation-play-state: paused; }
+        
+        @keyframes scrollGallery { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
+
+        /* Fjerner standard styling på inputs */
+        input, textarea, select {
+            appearance: none;
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white antialiased">
+
+    <a href="prosjekter.html" class="fixed bottom-8 left-8 z-[100] bg-white text-slate-900 px-6 py-3 rounded-full font-body font-bold text-sm shadow-2xl hover:scale-105 hover:shadow-white/20 transition duration-300 flex items-center gap-2 group">
+        <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Tilbake
+    </a>
+
+    <nav class="fixed w-full z-50 px-6 py-4 bg-dark/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-display font-black text-xl italic tracking-wider">
+                ONYX <span class="text-cyan">BILPLEIE</span>
+            </a>
+            
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex gap-8 font-body text-sm font-medium text-gray-400 uppercase tracking-widest">
+                    <a href="#tjenester" class="hover:text-cyan transition">Tjenester</a>
+                    <a href="#galleri" class="hover:text-cyan transition">Galleri</a>
+                    <a href="#kontakt" class="hover:text-cyan transition">Kontakt</a>
+                </div>
+                <a href="#kontakt" class="bg-cyan text-black font-display font-bold uppercase px-6 py-2 text-sm hover:bg-white transition-colors skew-x-[-10deg]">
+                    <span class="block skew-x-[10deg]">Bestill Time</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl mx-auto text-center" data-aos="zoom-out" data-aos-duration="1200">
+                <h1 class="font-display text-5xl md:text-8xl font-black italic uppercase leading-tight mb-6">
+                    Ultimate <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-blue-600 neon-glow">Shine & Protect</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10">
+                    Spesialister på lakkorrigering, keramisk coating og premium detailing. Vi gir bilen din nybilfølelsen tilbake – og litt til.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#tjenester" class="bg-cyan text-black px-10 py-4 font-display font-bold uppercase tracking-widest hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                        Våre Tjenester
+                    </a>
+                    <a href="#kontakt" class="border border-white/20 px-10 py-4 font-display font-bold uppercase tracking-widest hover:border-cyan hover:text-cyan transition-all bg-dark/50 backdrop-blur-md">
+                        Kontakt Oss
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tjenester" class="py-32 px-6 bg-dark relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold uppercase mb-4">Våre <span class="text-cyan">Tjenester</span></h2>
+                    <p class="text-gray-500">Premium behandling for kresne bileiere.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-panel p-8 border border-white/5 hover:border-cyan transition-all duration-300 group box-glow" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-14 h-14 bg-cyan/10 rounded-full flex items-center justify-center text-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold uppercase mb-4">Polering</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Vi fjerner riper, swirls og hologrammer. Lakkorrigering i 1, 2 eller 3 steg for perfekt dybde og glans.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Fjerner vaskeriper</li>
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Øker glans med 90%</li>
+                        </ul>
+                        <span class="text-cyan font-bold font-display uppercase text-sm">Fra 3.990,-</span>
+                    </div>
+
+                    <div class="bg-panel p-8 border border-cyan transition-all duration-300 group box-glow relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 right-0 bg-cyan text-black text-xs font-bold px-3 py-1 font-display uppercase">Bestselger</div>
+                        <div class="w-14 h-14 bg-cyan rounded-full flex items-center justify-center text-black text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold uppercase mb-4 text-white">Keramisk Coating</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Den ultimate beskyttelsen. Gir ekstrem vannskrekk, UV-beskyttelse og en selvrensende effekt som varer i årevis.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> 3-5 års varighet</li>
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Ekstrem hydrofobisk effekt</li>
+                        </ul>
+                        <span class="text-cyan font-bold font-display uppercase text-sm">Fra 6.990,-</span>
+                    </div>
+
+                    <div class="bg-panel p-8 border border-white/5 hover:border-cyan transition-all duration-300 group box-glow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-cyan/10 rounded-full flex items-center justify-center text-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-spray-can-sparkles"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold uppercase mb-4">Detailing</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Total innvendig og utvendig rens. Dyprens av skinnseter, tepperens, motorvask og detailing av felger.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Luktsanering</li>
+                            <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Skinnpleie</li>
+                        </ul>
+                        <span class="text-cyan font-bold font-display uppercase text-sm">Fra 2.490,-</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="galleri" class="py-24 border-t border-white/5 bg-dark overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold uppercase mb-2">Showroom <span class="text-cyan">.</span></h2>
+                    <p class="text-gray-500">Resultater som snakker for seg selv.</p>
+                </div>
+            </div>
+            
+            <div class="w-full overflow-hidden">
+                <div class="gallery-track">
+                    <img src="https://images.pexels.com/photos/4489734/pexels-photo-4489734.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/17769801/pexels-photo-17769801/free-photo-of-wet-black-car-chassis.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    
+                    <img src="https://images.pexels.com/photos/4489734/pexels-photo-4489734.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/17769801/pexels-photo-17769801/free-photo-of-wet-black-car-chassis.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                    <img src="https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-32 px-6 bg-dark relative z-10 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <div data-aos="fade-right">
+                        <h2 class="font-display text-4xl md:text-5xl font-bold uppercase mb-6">Klar for <span class="text-cyan">Glans?</span></h2>
+                        <p class="text-gray-400 mb-10 font-light">
+                            Vi holder til sentralt. Kom innom for en gratis inspeksjon av lakken din, eller send oss en melding for et uforpliktende tilbud.
+                        </p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-cyan/10 flex items-center justify-center text-cyan rounded-lg"><i class="fa-solid fa-location-dot text-xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider">Besøk oss</h4>
+                                    <p class="text-gray-400 text-sm">Industriveien 12, 3000 Drammen</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-cyan/10 flex items-center justify-center text-cyan rounded-lg"><i class="fa-solid fa-phone text-xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider">Ring oss</h4>
+                                    <p class="text-gray-400 text-sm">+47 90 00 00 00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-cyan/10 flex items-center justify-center text-cyan rounded-lg"><i class="fa-solid fa-envelope text-xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider">E-post</h4>
+                                    <p class="text-gray-400 text-sm">post@onyx-bilpleie.no</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 h-64 w-full bg-[#111] border border-white/10 overflow-hidden relative grayscale">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1020.9!2d10.2045!3d59.744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDQ0JzM4LjQiTiAxMMKwMTInMTYuMiJF!5e0!3m2!1sen!2sno!4v1600000000000!5m2!1sen!2sno" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-dark-mode"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="bg-panel p-10 border border-white/5 relative" data-aos="fade-left">
+                        <h3 class="font-display text-2xl font-bold uppercase mb-8 text-white">Få et tilbud</h3>
+                        <form id="contact-form" class="flex flex-col gap-6">
+                            <div>
+                                <label class="block text-cyan font-display uppercase tracking-wider text-xs mb-2">Navn</label>
+                                <input type="text" class="w-full bg-dark border border-white/10 p-4 text-white focus:border-cyan focus:outline-none transition-colors placeholder-gray-700" placeholder="Ditt navn">
+                            </div>
+                            <div>
+                                <label class="block text-cyan font-display uppercase tracking-wider text-xs mb-2">Bilmodell</label>
+                                <input type="text" class="w-full bg-dark border border-white/10 p-4 text-white focus:border-cyan focus:outline-none transition-colors placeholder-gray-700" placeholder="F.eks. Audi RS6">
+                            </div>
+                            <div>
+                                <label class="block text-cyan font-display uppercase tracking-wider text-xs mb-2">Hva trenger du hjelp med?</label>
+                                <select class="w-full bg-dark border border-white/10 p-4 text-white focus:border-cyan focus:outline-none transition-colors text-gray-400">
+                                    <option>Velg tjeneste...</option>
+                                    <option>Polering</option>
+                                    <option>Keramisk Coating</option>
+                                    <option>Detailing</option>
+                                    <option>Vet ikke / Annet</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-cyan font-display uppercase tracking-wider text-xs mb-2">Utfyllende informasjon (Valgfritt)</label>
+                                <textarea class="w-full bg-dark border border-white/10 p-4 text-white focus:border-cyan focus:outline-none transition-colors placeholder-gray-700 resize-none h-32" placeholder="F.eks. dype riper, ønsker lakkforsegling også på felger, etc..."></textarea>
+                            </div>
+
+                            <button type="submit" class="bg-cyan text-black font-display font-bold uppercase tracking-widest py-4 hover:bg-white transition-colors mt-4">
+                                Send Forespørsel
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-panel pt-20 pb-10 border-t border-white/5 text-gray-400 font-body relative z-10">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                
+                <div class="space-y-6">
+                    <a href="#" class="font-display font-black text-xl italic tracking-wider text-white">
+                        ONYX <span class="text-cyan">BILPLEIE</span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-xs">
+                        Drammens ledende spesialister på lakkorrigering og keramisk coating. Vi leverer resultater som overgår forventningene.
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-cyan hover:text-black transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-cyan hover:text-black transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white uppercase tracking-widest font-bold mb-6 text-sm">Meny</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#tjenester" class="hover:text-cyan transition">Tjenester & Priser</a></li>
+                        <li><a href="#galleri" class="hover:text-cyan transition">Galleri</a></li>
+                        <li><a href="#kontakt" class="hover:text-cyan transition">Kontakt & Kart</a></li>
+                        <li><a href="#kontakt" class="hover:text-cyan transition">Bestill Time</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white uppercase tracking-widest font-bold mb-6 text-sm">Kontakt</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-cyan"></i> Industriveien 12, Drammen</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-cyan"></i> +47 90 00 00 00</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-cyan"></i> post@onyx-bilpleie.no</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white uppercase tracking-widest font-bold mb-6 text-sm">Nyhetsbrev</h4>
+                    <p class="text-xs mb-4">Få eksklusive tilbud og tips til bilhold.</p>
+                    <form onsubmit="event.preventDefault();" class="flex flex-col gap-3">
+                        <input type="email" placeholder="Din e-post" class="bg-white/5 border border-white/10 p-3 text-sm focus:border-cyan outline-none text-white placeholder-gray-600 rounded-none">
+                        <button class="bg-cyan/20 text-cyan font-display uppercase text-xs font-bold py-3 hover:bg-cyan hover:text-black transition-colors">Meld på</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 text-center md:text-left px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 uppercase tracking-wider font-bold">
+                <p>© 2026 ONYX BILPLEIE. Alle rettigheter reservert.</p>
+                <p>Designet & Utviklet av <a href="index.html" class="text-cyan hover:underline">Index Development</a></p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Simuler sending
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerText = "SENDER...";
+            btn.classList.add('opacity-50');
+            
+            setTimeout(() => {
+                btn.innerText = "MOTTATT!";
+                btn.classList.remove('opacity-50');
+                btn.classList.replace('bg-cyan', 'bg-green-500');
+                btn.classList.replace('text-black', 'text-white');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

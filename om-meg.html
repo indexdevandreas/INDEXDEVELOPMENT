@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,7 @@
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -35,9 +36,9 @@
         }
     </script>
 </head>
-<body class="bg-[#F5F5F7] text-slate-900 antialiased overflow-x-hidden">
+<body class="bg-[#F8FAFC] text-slate-900 antialiased overflow-x-hidden">
 
-     <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
         
         <a href="index.html" class="logo-container group flex-shrink-0 z-20">
@@ -52,7 +53,7 @@
         </div>
 
         <div class="flex items-center gap-4 z-20">
-            <a href="kontakt.html" class="hidden md:inline-block px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+            <a href="kontakt.html" class="hidden md:inline-block px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold hover:bg-blue-600 transition shadow-lg shadow-slate-900/20">
                 Ta kontakt
             </a>
 
@@ -73,72 +74,125 @@
     </nav>
 
     <main>
-      <section class="pt-40 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
-          <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight text-slate-900">
-            Mannen bak <span class="text-blue-600">koden.</span>
-          </h1>
-          <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Jeg heter Andreas. Jeg tror ikke på snarveier. Jeg tror på håndverk, dedikasjon og nettsider som faktisk fungerer.
-          </p>
-        </div>
-
-        <div class="max-w-6xl mx-auto relative" data-aos="fade-up" data-aos-delay="100">
-          <div class="absolute inset-0 bg-blue-600 rounded-3xl transform rotate-1 scale-[1.01] opacity-20 blur-lg"></div>
-          
-          <img 
-            src="bilder/kontor.jpg"
-            alt="Andreas Melheim på kontoret" 
-            class="relative rounded-3xl shadow-2xl w-full h-[500px] md:h-[700px] object-cover border border-white/50"
-          >
-          
-          <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/50 max-w-xs">
-            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Office Setup</p>
-            <p class="text-sm font-medium text-slate-700">Her skapes magien. Ingen templates, bare ren kode.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-24 bg-white">
-        <div class="max-w-3xl mx-auto px-6">
-          <div class="prose prose-lg prose-slate mx-auto" data-aos="fade-up">
-            <h2 class="text-3xl font-bold text-slate-900 mb-6">Hvorfor Index Development?</h2>
-            <p class="text-slate-500 text-lg leading-relaxed mb-6">
-              I en verden full av "gjør-det-selv"-løsninger og trege Wordpress-sider, bestemte jeg meg for å gå mot strømmen. Jeg så at bedrifter betalte dyre dommer for nettsider som var trege, usikre og vanskelige å finne på Google.
-            </p>
-            <p class="text-slate-500 text-lg leading-relaxed mb-8">
-              Derfor startet jeg Index Development. Min filosofi er enkel: <strong>Kvalitet vinner alltid.</strong> Ved å kode alt for hånd, fjerner jeg alt unødvendig rot. Resultatet er nettsider som er lynraske, sikre og skreddersydd for din suksess.
-            </p>
+      
+      <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <h3 class="font-bold text-slate-900 mb-2">100% Ærlighet</h3>
-                <p class="text-sm text-slate-500">Jeg lover ikke gull og grønne skoger. Jeg lover hardt arbeid og resultater.</p>
-              </div>
-              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <h3 class="font-bold text-slate-900 mb-2">Ingen mellomledd</h3>
-                <p class="text-sm text-slate-500">Når du ringer, svarer jeg. Når du sender mail, er det jeg som fikser det.</p>
-              </div>
+            <div data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Utvikler & Gründer
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight text-slate-900 leading-[1.1]">
+                    Mannen bak <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">koden.</span>
+                </h1>
+                <p class="text-xl text-slate-500 leading-relaxed mb-8 max-w-lg">
+                    Hei, jeg er Andreas. Jeg startet Index Development fordi jeg ble lei av trege Wordpress-sider og dyre byråer som leverer dårlig kvalitet. Jeg tror på håndverk.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg font-bold text-sm">
+                        <i class="fa-solid fa-code"></i> Ingen templates
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold text-sm">
+                        <i class="fa-solid fa-bolt"></i> 100/100 Hastighet
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="relative" data-aos="fade-left">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-[2.5rem] transform rotate-3 scale-105 opacity-20 blur-lg"></div>
+                
+                <img 
+                    src="bilder/kontor.jpg"
+                    alt="Andreas Melheim på kontoret" 
+                    class="relative rounded-[2.5rem] shadow-2xl w-full h-[500px] md:h-[600px] object-cover border-4 border-white transform hover:scale-[1.01] transition duration-700"
+                >
+                
+                <div class="absolute -bottom-6 -left-6 md:bottom-10 md:-left-10 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[200px] animate-float">
+                    <div class="flex gap-1 mb-2 text-yellow-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm font-bold text-slate-900">"Andreas leverer kvalitet i alle ledd."</p>
+                </div>
+            </div>
         </div>
       </section>
 
-      <section class="py-20 px-6">
+      <section class="py-24 px-6 bg-white border-y border-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-black mb-6">Min filosofi er enkel.</h2>
+                <p class="text-xl text-slate-500">
+                    I en bransje full av selgere, velger jeg å være en håndverker. Her er prinsippene jeg styrer etter:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition duration-300" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl mb-6">
+                        <i class="fa-solid fa-handshake-simple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">100% Ærlighet</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Jeg lover ikke gull og grønne skoger hvis jeg ikke kan levere det. Du får tydelige svar, faste priser og ingen skjulte kostnader.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-xl mb-6">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ingen mellomledd</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Når du ringer, svarer jeg. Når du sender mail, er det jeg som fikser det. Du slipper å forholde deg til selgere eller prosjektledere.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-xl mb-6">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Nei til Wordpress</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Wordpress er tregt og usikkert. Jeg koder alt for hånd (HTML, CSS, JS). Det gir deg en nettside som er lynrask og umulig å hacke.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 text-xl mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Resultater teller</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        En pen nettside er verdiløs hvis den ikke skaffer kunder. Jeg fokuserer på konvertering – at besøkende faktisk ringer deg.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section class="py-24 px-6 relative overflow-hidden">
         <div class="max-w-5xl mx-auto" data-aos="zoom-in">
             <div class="bg-slate-900 rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
                 
-                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[80px] rounded-full pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full pointer-events-none"></div>
+                <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-600/20 blur-[80px] rounded-full pointer-events-none"></div>
 
                 <div class="relative z-10">
                     <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Skal vi ta en prat?</h2>
-                    <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed">
-                        Jeg er klar for nye utfordringer. La oss se hva vi kan få til sammen.
+                    <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed font-light">
+                        Jeg er klar for nye utfordringer. La oss se hva vi kan få til sammen. Helt uforpliktende, selvfølgelig.
                     </p>
-                    <a href="kontakt.html" class="inline-block bg-white text-slate-900 px-10 py-4 rounded-xl text-lg font-bold hover:scale-105 transition shadow-lg hover:shadow-white/20">
-                        Send melding
-                    </a>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="kontakt.html" class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 hover:scale-105 transition shadow-lg">
+                            Kontakt Meg
+                        </a>
+                        <a href="prosjekter.html" class="inline-block bg-transparent border border-slate-700 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition">
+                            Se mine jobber
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,6 +221,7 @@
                         <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
                         <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
                         <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+                        <li><a href="om-meg.html" class="hover:text-blue-400 transition-colors">Om meg</a></li>
                         <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
                     </ul>
                 </div>
@@ -181,7 +236,7 @@
                 </div>
 
                 <div>
-                    <h3 class="font-bold text-lg mb-6">Ofte stilte spørsmål</h3>
+                    <h3 class="font-bold text-lg mb-6">Lurer du på noe?</h3>
                     <ul class="space-y-4 text-slate-400">
                         <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva koster en nettside?</a></li>
                         <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>

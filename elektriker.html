@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo: Volt Elektro AS | Fremtidens Elektriker</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              volt: {
+                DEFAULT: '#F59E0B', /* Amber-500 */
+                glow: '#FCD34D',
+              },
+              dark: {
+                900: '#020617', /* Slate-950 */
+                800: '#0F172A', /* Slate-900 */
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body { background-color: #020617; color: #F8FAFC; }
+      
+      .neon-border {
+          box-shadow: 0 0 5px rgba(245, 158, 11, 0), inset 0 0 0px rgba(245, 158, 11, 0);
+          transition: all 0.4s ease;
+      }
+      .neon-border:hover {
+          border-color: #F59E0B;
+          box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), inset 0 0 10px rgba(245, 158, 11, 0.1);
+      }
+      
+      .hero-bg {
+          background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 1)), url('https://images.unsplash.com/photo-1555664424-778a69022365?q=80&w=2000&auto=format&fit=crop');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+      }
+
+      /* Ny Navbar Styling */
+      .nav-island {
+          background: rgba(15, 23, 42, 0.85);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+      }
+    </style>
+  </head>
+  <body class="antialiased overflow-x-hidden">
+    
+    <a href="prosjekter.html" class="fixed bottom-6 right-6 z-[100] bg-volt text-black px-5 py-3 rounded-full font-bold text-sm shadow-2xl hover:bg-white transition flex items-center gap-2 transform hover:-translate-y-1">
+        <i class="fa-solid fa-arrow-left"></i> Tilbake til portefølje
+    </a>
+
+    <div class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:pt-6">
+        <nav class="nav-island w-full max-w-7xl rounded-2xl md:rounded-full px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300">
+            
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative flex-shrink-0">
+                    <div class="absolute inset-0 bg-volt blur-md opacity-40 group-hover:opacity-70 transition"></div>
+                    <div class="w-10 h-10 bg-slate-900 border border-volt/30 rounded-full flex items-center justify-center text-volt text-lg font-black relative z-10">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                </div>
+                <span class="font-black text-lg tracking-wider text-white">VOLT<span class="text-volt">.</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#tjenester" class="text-sm font-medium text-slate-300 hover:text-white transition">Tjenester</a>
+                <a href="#smarthus" class="text-sm font-medium text-slate-300 hover:text-white transition">Smarthus</a>
+                <a href="#kontakt" class="text-sm font-medium text-slate-300 hover:text-white transition">Kontakt</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#kontakt" class="hidden md:inline-flex bg-volt hover:bg-white text-black text-sm font-bold px-6 py-2.5 rounded-full transition shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                    Bestill Befaring
+                </a>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-xl pt-32 px-6">
+        <div class="flex flex-col gap-6 text-center text-2xl font-bold text-white">
+            <a href="#tjenester" class="hover:text-volt transition" onclick="toggleMenu()">Tjenester</a>
+            <a href="#smarthus" class="hover:text-volt transition" onclick="toggleMenu()">Smarthus</a>
+            <a href="#kontakt" class="text-volt" onclick="toggleMenu()">Bestill Befaring</a>
+        </div>
+        <button onclick="toggleMenu()" class="absolute top-8 right-8 text-slate-400 hover:text-white text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <main>
+      
+      <section class="relative min-h-[95vh] flex items-center justify-center pt-24 hero-bg text-center px-6">
+        <div class="max-w-5xl relative z-10" data-aos="zoom-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-volt/30 bg-volt/10 text-volt text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-volt animate-pulse"></span> Autorisert Installatør
+            </div>
+            
+            <h1 class="text-6xl md:text-9xl font-black leading-none mb-8 text-white tracking-tight">
+                KRAFT TIL <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-volt via-yellow-200 to-volt">HVERDAGEN.</span>
+            </h1>
+            
+            <p class="text-slate-400 text-lg md:text-2xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Vi moderniserer det elektriske anlegget ditt. Smarthus, elbillading og sikkerhet – installert av fagfolk.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#kontakt" class="bg-white text-black px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                    Få et pristilbud
+                </a>
+                <a href="#tjenester" class="px-10 py-5 rounded-full font-bold text-lg text-white border border-white/20 hover:bg-white/10 backdrop-blur-md transition">
+                    Se hva vi gjør
+                </a>
+            </div>
+        </div>
+      </section>
+
+      <section id="tjenester" class="py-32 px-6 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black text-white mb-2">Våre Tjenester</h2>
+                    <p class="text-slate-400">Alt fra små serviceoppdrag til komplette boliger.</p>
+                </div>
+                <div class="h-1 w-full md:w-32 bg-gradient-to-r from-volt to-transparent rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="md:col-span-2 relative group overflow-hidden rounded-[2.5rem] h-[400px] border border-white/5" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40" alt="Elbil lader">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10">
+                        <div class="w-12 h-12 bg-volt rounded-xl flex items-center justify-center text-black text-xl mb-4">
+                            <i class="fa-solid fa-charging-station"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2">Elbil-lading</h3>
+                        <p class="text-slate-300 max-w-md mb-6">Vi monterer markedets tryggeste ladestasjoner. Easee og Zaptec, ferdig installert med overspenningsvern.</p>
+                        <a href="#kontakt" class="inline-flex items-center text-volt font-bold uppercase tracking-widest text-sm hover:text-white transition">Bestill montering <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:row-span-2 relative group overflow-hidden rounded-[2.5rem] border border-white/5 bg-dark-800 neon-border p-8 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-12 h-12 bg-slate-700/50 rounded-xl flex items-center justify-center text-white text-xl mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Sikringsskap</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Gamle skrusikringer er en brannfelle. Vi rehabiliterer sikringsskapet ditt med nye automatsikringer og jordfeilbrytere på få timer. Øk sikkerheten i hjemmet.
+                        </p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=600&auto=format&fit=crop" class="rounded-2xl opacity-50 grayscale group-hover:grayscale-0 transition duration-500 mt-auto h-48 object-cover" alt="Sikringsskap">
+                </div>
+
+                <div class="relative group overflow-hidden rounded-[2.5rem] border border-white/5 bg-dark-800 neon-border p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-slate-700/50 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <span class="bg-volt/10 text-volt text-[10px] font-bold px-2 py-1 rounded">POPULÆRT</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Smarthus</h3>
+                    <p class="text-slate-400 text-sm">Styring av lys og varme fra mobilen. Spar strøm uten å fryse.</p>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-[2.5rem] border border-white/5 bg-dark-800 neon-border p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-slate-700/50 rounded-xl flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Belysning</h3>
+                    <p class="text-slate-400 text-sm">Downlights, LED-striper og utelys. Vi lyssetter boligen din.</p>
+                </div>
+
+            </div>
+        </div>
+      </section>
+
+      <div class="border-y border-white/5 bg-white/5 backdrop-blur-sm">
+          <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                  <div class="text-4xl font-black text-white mb-1">500+</div>
+                  <div class="text-xs text-slate-400 uppercase tracking-widest">Ladere Montert</div>
+              </div>
+              <div>
+                  <div class="text-4xl font-black text-white mb-1">24/7</div>
+                  <div class="text-xs text-slate-400 uppercase tracking-widest">Vakttelefon</div>
+              </div>
+              <div>
+                  <div class="text-4xl font-black text-white mb-1">15 år</div>
+                  <div class="text-xs text-slate-400 uppercase tracking-widest">I Bransjen</div>
+              </div>
+              <div>
+                  <div class="text-4xl font-black text-white mb-1">100%</div>
+                  <div class="text-xs text-slate-400 uppercase tracking-widest">Fornøydgaranti</div>
+              </div>
+          </div>
+      </div>
+
+      <section id="kontakt" class="py-32 px-6 bg-dark-900 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-volt rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10" data-aos="fade-up">
+            <div class="bg-dark-800 border border-white/10 rounded-[3rem] p-8 md:p-16 text-center shadow-2xl">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Start prosjektet i dag.</h2>
+                <p class="text-slate-400 text-lg mb-10 max-w-lg mx-auto">
+                    Beskriv jobben kort, så kontakter vi deg for en uforpliktende befaring eller et prisestimat.
+                </p>
+
+                <form class="max-w-md mx-auto space-y-4">
+                    <input type="text" placeholder="Ditt navn" class="w-full bg-dark-900 border border-slate-700 rounded-xl p-4 text-white focus:border-volt outline-none transition placeholder-slate-600">
+                    <input type="tel" placeholder="Telefonnummer" class="w-full bg-dark-900 border border-slate-700 rounded-xl p-4 text-white focus:border-volt outline-none transition placeholder-slate-600">
+                    <button type="button" onclick="alert('Dette er en demo.')" class="w-full bg-volt hover:bg-white text-black font-bold py-4 rounded-xl transition shadow-lg shadow-volt/20 transform hover:-translate-y-1">
+                        Kontakt Meg
+                    </button>
+                </form>
+                <p class="text-slate-600 text-xs mt-6">Ved å sende inn skjemaet godtar du vår personvernerklæring.</p>
+            </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-black text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <span class="text-white font-black text-xl tracking-tight">VOLT ELEKTRO</span>
+                    <p class="text-sm">Din lokale elektrikerpartner for fremtiden. Sikkerhet, kvalitet og innovasjon.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Snarveier</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-volt">Elbil-lading</a></li>
+                        <li><a href="#" class="hover:text-volt">Smarthus</a></li>
+                        <li><a href="#" class="hover:text-volt">Sikringsskap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Kontakt</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Strømveien 404, Oslo</li>
+                        <li>post@voltelektro.no</li>
+                        <li>900 00 000</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Godkjenninger</h4>
+                    <div class="flex gap-2">
+                        <div class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-bold text-slate-300">DSB</div>
+                        <div class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-bold text-slate-300">NELFO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 pt-8 text-xs text-center text-slate-600">
+                &copy; 2026 Volt Elektro AS. Designet av <a href="index.html" class="text-volt hover:text-white">Index Development</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 800 });
+
+      // Enkel mobil meny toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      
+      function toggleMenu() {
+          menu.classList.toggle('hidden');
+      }
+      
+      btn.addEventListener('click', toggleMenu);
+    </script>
+  </body>
+</html>

@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Våre Prosjekter | Index Development</title>
-    <meta name="description" content="Se demoer av nettsider for restauranter, håndverkere og bedrifter. Raske og mobilvennlige løsninger.">
+    <meta name="description" content="Se eksempler på nettsider for håndverkere og bedrifter. Vi lager nettsider som skaffer jobber.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css" />
 
     <script>
@@ -22,6 +23,13 @@
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            colors: {
+                cyan: {
+                    400: '#22d3ee',
+                    500: '#06b6d4',
+                    900: '#164e63',
+                }
             }
           }
         }
@@ -64,15 +72,16 @@
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
         
         <a href="index.html" class="logo-container group flex-shrink-0 z-20">
-            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+            <div class="logo-symbol">
+                <span class="logo-id">ID</span>
+                <div class="logo-cursor"></div>
+            </div>
             <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
         </a>
 
         <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
             <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Hjem</a>
-            
             <a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-900 bg-white shadow-sm transition-all">Prosjekter</a>
-            
             <a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
         </div>
 
@@ -100,22 +109,106 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse-slow"></div>
 
         <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold uppercase tracking-widest text-slate-500 shadow-sm" data-aos="fade-down">
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Portefølje
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Eksempler
         </div>
 
         <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900" data-aos="fade-up">
-          Utvalgte <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Arbeider.</span>
+          Slik kan din <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">bedrift se ut.</span>
         </h1>
         
         <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-          En samling av skreddersydde demoer og konsepter. Bygget for hastighet, designet for konvertering.
+          Ikke kjøp katta i sekken. Her er eksempler på nettsider jeg har laget. Finner du noe du liker? Jeg tilpasser den til ditt firma.
         </p>
       </section>
 
       <section class="pb-32 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           
-          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-blue-900/20 shine-card" data-aos="fade-up">
+          <a href="maler.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-blue-900/20 shine-card" data-aos="fade-up">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E3A8A] via-[#1E3A8A]/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Interiør
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-white text-[#1E3A8A] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Maler</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight font-serif italic">Strøk Malermester</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Eksklusivt, redaksjonelt design. Minimalistisk stil med fokus på typografi, luft og kvalitet. Føles som et magasin.
+              </p>
+              <div class="inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1200&auto=format&fit=crop" alt="Maler nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-1000 grayscale group-hover:grayscale-0">
+          </a>
+
+          <a href="anleggsgartner.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-green-900/20 shine-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-[#064E3B]/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Utemiljø
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-[#059669] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Anleggsgartner</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Grønn Oase</h2>
+              <p class="text-slate-100 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Organisk design med bølgeformer og "immersive" kontaktskjema. Skiller seg ut visuelt.
+              </p>
+              <div class="inline-flex items-center text-[#059669] font-bold uppercase tracking-widest text-sm border-b border-[#059669]/30 pb-1 group-hover:border-[#059669] transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop" alt="Anleggsgartner nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-1000">
+          </a>
+
+          <a href="elektriker.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-yellow-600/20 shine-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/70 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Elektro
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-[#F59E0B] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Elektriker</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Volt Elektro</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Mørkt, moderne "Dark Mode" design. Perfekt for bedrifter som satser på teknologi og smarthus.
+              </p>
+              <div class="inline-flex items-center text-[#F59E0B] font-bold uppercase tracking-widest text-sm border-b border-[#F59E0B]/30 pb-1 group-hover:border-[#F59E0B] transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=1200&auto=format&fit=crop" alt="Elektriker nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-1000">
+          </a>
+
+          <a href="bilpleie.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-cyan-900/20 shine-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-70 transition duration-500"></div>
+            
+            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                Service
+            </div>
+
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
+              <span class="bg-cyan-400 text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Bilpleie</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Onyx Bilpleie</h2>
+              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
+                  Tøft design med neon-detaljer og sort bakgrunn. Får bilder til å poppe.
+              </p>
+              <div class="inline-flex items-center text-cyan-400 font-bold uppercase tracking-widest text-sm border-b border-cyan-400/30 pb-1 group-hover:border-cyan-400 transition-all">
+                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1200&q=80" alt="Bilpleie nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+          </a>
+
+          <a href="vann-varme.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-blue-900/20 shine-card" data-aos="fade-up" data-aos-delay="400">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-70 transition duration-500"></div>
             
             <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
@@ -126,7 +219,7 @@
               <span class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Rørlegger</span>
               <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Vann & Varme</h2>
               <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
-                  Lynrask side optimalisert for akutte henvendelser og lokal synlighet.
+                  Klassisk, tillitvekkende design. Fokus på akutt hjelp og enkel kontakt.
               </p>
               <div class="inline-flex items-center text-white font-bold uppercase tracking-widest text-sm border-b border-white/30 pb-1 group-hover:border-white transition-all">
                   Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
@@ -136,67 +229,25 @@
             <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80" alt="Rørlegger nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
           </a>
 
-          <a href="trafikkskole.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-yellow-900/20 shine-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="tomrer.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-orange-900/20 shine-card" data-aos="fade-up" data-aos-delay="500">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-70 transition duration-500"></div>
             
             <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
-                Kjøreskole
+                Bygg
             </div>
 
             <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
-              <span class="bg-yellow-500 text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Trafikkskole</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Apex Trafikk</h2>
+              <span class="bg-[#A05A2C] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Tømrer</span>
+              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Nordisk Tømrer</h2>
               <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
-                  Moderne profil med fokus på pakker, booking og elever.
+                  Solid design som bygger tillit. Enkel navigasjon for rehabilitering og nybygg.
               </p>
-              <div class="inline-flex items-center text-yellow-400 font-bold uppercase tracking-widest text-sm border-b border-yellow-400/30 pb-1 group-hover:border-yellow-400 transition-all">
+              <div class="inline-flex items-center text-[#A05A2C] font-bold uppercase tracking-widest text-sm border-b border-[#A05A2C]/30 pb-1 group-hover:border-[#A05A2C] transition-all">
                   Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
               </div>
             </div>
             
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80" alt="Trafikkskole nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
-          </a>
-
-          <a href="urban-eatery.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-green-900/20 shine-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c1220] via-[#0c1220]/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
-            
-            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
-                Restaurant
-            </div>
-
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
-              <span class="bg-green-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Mat & Drikke</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Urban Eatery</h2>
-              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
-                  Eksklusiv design som fremhever maten, menyen og atmosfæren.
-              </p>
-              <div class="inline-flex items-center text-green-400 font-bold uppercase tracking-widest text-sm border-b border-green-400/30 pb-1 group-hover:border-green-400 transition-all">
-                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-              </div>
-            </div>
-            
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Urban Eatery nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          </a>
-
-          <a href="advokat.html" class="group relative block rounded-[2.5rem] overflow-hidden shadow-2xl h-[450px] md:h-[600px] transform transition duration-500 hover:scale-[1.01] hover:shadow-orange-900/20 shine-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-90 group-hover:opacity-80 transition duration-500"></div>
-            
-            <div class="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg">
-                Bedrift
-            </div>
-
-            <div class="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full project-info">
-              <span class="bg-[#c4a484] text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg mb-4 inline-block">Advokat</span>
-              <h2 class="text-3xl md:text-5xl font-black text-white mb-3 leading-tight">Justitia</h2>
-              <p class="text-slate-200 text-sm md:text-lg font-light max-w-md mb-6 opacity-0 group-hover:opacity-100 transition duration-500 delay-100 translate-y-4 group-hover:translate-y-0">
-                  Klassisk og solid design som bygger tillit, autoritet og profesjonalitet.
-              </p>
-              <div class="inline-flex items-center text-[#c4a484] font-bold uppercase tracking-widest text-sm border-b border-[#c4a484]/30 pb-1 group-hover:border-[#c4a484] transition-all">
-                  Se Demo <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-              </div>
-            </div>
-            
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Advokat nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" alt="Tømrer nettside" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-1000">
           </a>
 
         </div>
@@ -208,13 +259,13 @@
             
             <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3 group-hover:bg-blue-600/30 transition duration-700 animate-pulse-slow"></div>
             
-            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10 leading-tight">La oss realisere <br> <span class="text-blue-500">din idé.</span></h2>
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 relative z-10 leading-tight">Vil du ha en <br> <span class="text-blue-500">sånn side?</span></h2>
             <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg mx-auto relative z-10 font-light leading-relaxed">
-                Har du sett nok? Send meg en melding, så tar vi en helt uforpliktende prat om ditt prosjekt.
+                Send meg en melding, så bruker vi en av disse som utgangspunkt. Jeg gjør jobben ferdig, du betaler ingenting før du er fornøyd.
             </p>
             
             <a href="kontakt.html" class="inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-50 hover:scale-105 transition transform shadow-xl relative z-10">
-              Start en samtale <i class="fa-solid fa-arrow-right text-blue-600"></i>
+              Start nå <i class="fa-solid fa-arrow-right text-blue-600"></i>
             </a>
           </div>
         </div>

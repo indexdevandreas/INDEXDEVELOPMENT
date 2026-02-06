@@ -1,4 +1,4 @@
-/* --- 1. IMPORT & RESET --- */
+/* --- 1. IMPORT & RESET (DIN KODE) --- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -10,6 +10,8 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -20,13 +22,22 @@ body {
   min-height: 100vh;
 }
 
-/* --- 2. LOGO --- */
+/* --- 2. LOGO (DIN ORIGINALE KODE) --- */
 .logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #0f172a;
+  color: #0f172a; /* Standard farge */
   cursor: pointer;
+}
+
+/* Fix for footer: Når containeren har en klasse for hvit tekst, oppdater barna */
+.text-white .logo-container .logo-id,
+.text-white .logo-container .logo-title {
+    color: white !important;
+}
+.text-white .logo-container .logo-subtitle {
+    color: #94a3b8 !important; /* Slate-400 for subtitle i footer */
 }
 
 .logo-container:hover .logo-symbol {
@@ -43,7 +54,7 @@ body {
   font-weight: 900;
   font-size: 32px;
   letter-spacing: -0.08em;
-  color: #0f172a;
+  color: inherit; /* Arver farge fra container/parent */
 }
 
 .logo-cursor {
@@ -71,7 +82,7 @@ body {
   font-weight: 800;
   font-size: 16px;
   text-transform: uppercase;
-  color: #0f172a;
+  color: inherit; /* Arver farge */
   line-height: 1.1;
 }
 
@@ -83,7 +94,7 @@ body {
   letter-spacing: 0.15em;
 }
 
-/* --- 3. KOMPONENTER --- */
+/* --- 3. KOMPONENTER (DIN KODE) --- */
 .glass {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
@@ -99,7 +110,7 @@ body {
 }
 .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
-/* LEVENDE BAKGRUNN (HERO MESH) */
+/* --- 4. HERO MESH (DIN KODE) --- */
 .hero-mesh {
     position: absolute;
     top: 0;
@@ -135,64 +146,7 @@ body {
     100% { transform: translate(0, 0) scale(1); }
 }
 
-/* SKJEMA FELT */
-.input-premium {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  font-size: 16px;
-  transition: all 0.2s ease;
-}
-
-.input-premium:focus {
-  outline: none;
-  background: white;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-}
-
-/* TEKST GRADIENT */
-.text-gradient {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; 
-}
-
-/* KNAPP PULS */
-@keyframes pulse-blue {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-  70% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-.btn-pulse {
-  animation: pulse-blue 2s infinite;
-  border-color: #2563eb !important;
-  color: #2563eb !important;
-}
-.btn-pulse:hover { animation: none; }
-
-/* NYE KNAPPER (HERO) */
-.btn-primary {
-    background: #0f172a;
-    color: white;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
-}
-
-.btn-primary:hover {
-    background: #2563eb;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 20px -3px rgba(37, 99, 235, 0.25);
-}
-
-/* --- 3D EFFEKTER FOR HERO KORT --- */
-.perspective-1000 {
-    perspective: 1000px;
-}
-
-/* --- TECH STREAM MARQUEE (FUTURISTIC) --- */
+/* --- 5. TECH STREAM WRAPPER --- */
 .tech-stream-wrapper {
     position: relative;
     width: 100%;
@@ -200,7 +154,7 @@ body {
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1rem 0; /* Litt mindre padding på mobil */
+    padding: 1rem 0;
     overflow: hidden;
     z-index: 20;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -209,23 +163,22 @@ body {
 
 .tech-track {
     display: flex;
-    gap: 2rem; /* Mindre avstand på mobil ser bedre ut */
+    gap: 2rem;
     width: max-content;
-    animation: streamScroll 30s linear infinite; /* Litt raskere på mobil */
+    animation: streamScroll 30s linear infinite;
+    align-items: center;
 }
 
-/* Større avstand på PC-skjermer */
 @media (min-width: 768px) {
     .tech-track {
         gap: 4rem;
         animation: streamScroll 40s linear infinite;
-        padding: 0.5rem 0;
     }
 }
 
 .tech-item {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem; /* Litt mindre tekst på mobil */
+    font-family: 'JetBrains Mono', 'Inter', monospace;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #64748b;
     display: flex;
@@ -233,7 +186,7 @@ body {
     gap: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    white-space: nowrap; /* VIKTIG: Hindrer at tekst brekker */
+    white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -256,47 +209,32 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-.tech-track {
-    display: flex;
-    gap: 4rem;
-    width: max-content;
-    animation: streamScroll 40s linear infinite;
+/* --- 6. VIDEO CSS (PHONE MOCKUP) --- */
+.phone-screen video {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    background: #1e293b; 
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+    z-index: 0;
 }
 
-.tech-item {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
+.phone-screen video.active { 
+    opacity: 1; 
+    z-index: 10; 
 }
 
-.tech-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #3b82f6;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
-}
-
-@keyframes streamScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* --- CYBER SCANNER & GLOW EFFECT (For Code Block) --- */
+/* --- 7. CYBER SCANNER (CODE BLOCK) --- */
 .scan-container {
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
-/* Scanner-linjen */
 .scan-line {
     position: absolute;
     top: -100%;
@@ -315,7 +253,6 @@ body {
     100% { top: 200%; }
 }
 
-/* Neon Glød bak boksen */
 .future-glow {
     position: absolute;
     inset: -2px;
