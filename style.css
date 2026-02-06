@@ -1,4 +1,4 @@
-/* --- 1. IMPORT & RESET (DIN KODE) --- */
+/* --- 1. IMPORT & RESET --- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -22,22 +22,21 @@ body {
   min-height: 100vh;
 }
 
-/* --- 2. LOGO (DIN ORIGINALE KODE) --- */
+/* --- 2. LOGO --- */
 .logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #0f172a; /* Standard farge */
+  color: #0f172a;
   cursor: pointer;
 }
 
-/* Fix for footer: Når containeren har en klasse for hvit tekst, oppdater barna */
 .text-white .logo-container .logo-id,
 .text-white .logo-container .logo-title {
     color: white !important;
 }
 .text-white .logo-container .logo-subtitle {
-    color: #94a3b8 !important; /* Slate-400 for subtitle i footer */
+    color: #94a3b8 !important;
 }
 
 .logo-container:hover .logo-symbol {
@@ -54,7 +53,7 @@ body {
   font-weight: 900;
   font-size: 32px;
   letter-spacing: -0.08em;
-  color: inherit; /* Arver farge fra container/parent */
+  color: inherit;
 }
 
 .logo-cursor {
@@ -82,7 +81,7 @@ body {
   font-weight: 800;
   font-size: 16px;
   text-transform: uppercase;
-  color: inherit; /* Arver farge */
+  color: inherit;
   line-height: 1.1;
 }
 
@@ -94,7 +93,7 @@ body {
   letter-spacing: 0.15em;
 }
 
-/* --- 3. KOMPONENTER (DIN KODE) --- */
+/* --- 3. KOMPONENTER --- */
 .glass {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
@@ -110,7 +109,7 @@ body {
 }
 .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
-/* --- 4. HERO MESH (DIN KODE) --- */
+/* --- 4. HERO MESH --- */
 .hero-mesh {
     position: absolute;
     top: 0;
@@ -209,15 +208,25 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* --- 6. VIDEO CSS (PHONE MOCKUP) --- */
+/* --- 6. VIDEO CSS (PHONE MOCKUP - FIX MED SVARTE KANTER) --- */
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 .phone-screen video {
     position: absolute; 
     top: 0; 
     left: 0; 
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
-    background: #1e293b; 
+    width: 100% !important; 
+    height: 100% !important; 
+    
+    /* DETTE GIR SVART OPPE OG NEDE (INGEN ZOOM, HELE BREDDEN SYNLIG) */
+    object-fit: contain !important; 
+    
+    background: #000; /* Setter bakgrunnen til svart */
     opacity: 0; 
     transition: opacity 0.5s ease-in-out; 
     z-index: 0;
@@ -228,7 +237,7 @@ body {
     z-index: 10; 
 }
 
-/* --- 7. CYBER SCANNER (CODE BLOCK) --- */
+/* --- 7. CYBER SCANNER --- */
 .scan-container {
     position: relative;
     overflow: hidden;
