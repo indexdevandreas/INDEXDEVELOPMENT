@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,14 +40,10 @@ fadeInUp: {
 }
 </script>
 <style>
-/* CSS for FAQ - FORENKLET (Ingen animasjon som skjuler tekst) */
+/* CSS for FAQ - FORENKLET */
 details > summary { list-style: none; cursor: pointer; }
 details > summary::-webkit-details-marker { display: none; }
-
-/* Kun pil-rotasjon, ingen fading som kan feile */
 details[open] .faq-icon { transform: rotate(180deg); background-color: #dbeafe; color: #2563eb; }
-
-/* Litt styling når den er åpen */
 details[open] { border-color: #3b82f6; }
 
 .animate-fade-in-up { opacity: 0; }
@@ -62,37 +58,38 @@ details[open] { border-color: #3b82f6; }
 <body class="text-slate-900 antialiased overflow-x-hidden bg-white">
 
 <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
-<a href="index.html" class="logo-container group flex-shrink-0 z-20">
-<div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
-<div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
-</a>
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+    
+    <a href="index.html" class="logo-container group flex-shrink-0 z-20">
+        <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+        <div class="logo-text flex"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
+    </a>
 
-<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
-<a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Hjem</a>
-<a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosjekter</a>
-<a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
-</div>
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
+        <a href="index.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Hjem</a>
+        <a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosjekter</a>
+        <a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
+        <a href="om-meg.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Om meg</a>
+    </div>
 
-<div class="flex items-center gap-4 z-20">
-<a href="om-meg.html" class="hidden md:inline-block px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
-Om meg
-</a>
+    <div class="flex items-center gap-4 z-20">
+        <a href="#contact-page-form" class="hidden md:inline-flex bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-600 transition shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 duration-200">
+            Start risikofritt
+        </a>
 
-<button id="mobile-menu-button" class="md:hidden text-slate-900 focus:outline-none">
-<i class="fa-solid fa-bars text-2xl"></i>
-</button>
-</div>
-</div>
+        <button id="mobile-menu-button" class="md:hidden text-slate-900 focus:outline-none p-2">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+    </div>
+  </div>
 
-<div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 p-6 shadow-xl flex flex-col gap-4 md:hidden">
-<a href="index.html" class="text-slate-600 font-medium hover:text-blue-600">Hjem</a>
-<a href="prosjekter.html" class="text-slate-600 font-medium hover:text-blue-600">Prosjekter</a>
-<a href="prosess.html" class="text-slate-600 font-medium hover:text-blue-600">Prosess</a>
-<a href="om-meg.html" class="text-slate-600 font-medium hover:text-blue-600">Om meg</a>
-</div>
+  <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 p-6 shadow-xl flex flex-col gap-4 md:hidden">
+    <a href="index.html" class="text-slate-600 font-medium hover:text-blue-600">Hjem</a>
+    <a href="prosjekter.html" class="text-slate-600 font-medium hover:text-blue-600">Prosjekter</a>
+    <a href="prosess.html" class="text-slate-600 font-medium hover:text-blue-600">Prosess</a>
+    <a href="om-meg.html" class="text-slate-600 font-medium hover:text-blue-600">Om meg</a>
+  </div>
 </nav>
-
 
 <main>
 <section class="relative min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-20">
@@ -231,6 +228,7 @@ Skreddersydde nettsider som hjelper lokale bedrifter med å vokse. Ingen templat
 <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
 <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
 <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+<li><a href="om-meg.html" class="hover:text-blue-400 transition-colors">Om meg</a></li>
 <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
 </ul>
 </div>
@@ -251,7 +249,7 @@ Skreddersydde nettsider som hjelper lokale bedrifter med å vokse. Ingen templat
 <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>
 <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva er inkludert?</a></li>
 </ul>
-<a href="#" class="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-900/20">
+<a href="#contact-page-form" class="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-900/20">
 Start en samtale
 </a>
 </div>

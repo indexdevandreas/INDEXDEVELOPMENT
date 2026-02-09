@@ -138,6 +138,7 @@ body {
 .blob-2 { top: -10%; right: -10%; width: 40vw; height: 40vw; background: #f3e8ff; animation-delay: -5s; }
 .blob-3 { top: 20%; left: 30%; width: 30vw; height: 30vw; background: #e0f2fe; opacity: 0.3; animation-delay: -10s; }
 
+/* Generell float animasjon (brukes av blobs og ikoner) */
 @keyframes float {
     0% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(30px, -50px) scale(1.1); }
@@ -208,7 +209,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* --- 6. VIDEO CSS (PHONE MOCKUP - FIX MED SVARTE KANTER) --- */
+/* --- 6. VIDEO CSS (PHONE MOCKUP) --- */
 .phone-screen {
     position: relative;
     width: 100%;
@@ -222,11 +223,8 @@ body {
     left: 0; 
     width: 100% !important; 
     height: 100% !important; 
-    
-    /* DETTE GIR SVART OPPE OG NEDE (INGEN ZOOM, HELE BREDDEN SYNLIG) */
-    object-fit: contain !important; 
-    
-    background: #000; /* Setter bakgrunnen til svart */
+    object-fit: contain !important; /* Fix for svarte kanter */
+    background: #000; 
     opacity: 0; 
     transition: opacity 0.5s ease-in-out; 
     z-index: 0;
@@ -237,43 +235,18 @@ body {
     z-index: 10; 
 }
 
-/* --- 7. CYBER SCANNER --- */
-.scan-container {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+/* --- 7. ANIMASJONER FOR IKONER (NYE) --- */
+/* Disse klassene får de små kortene (Synlighet, Hastighet, Kunder) til å flyte */
+.animate-float {
+    animation: floatIcon 6s ease-in-out infinite;
 }
 
-.scan-line {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.5), transparent);
-    animation: scanner 3s infinite ease-in-out;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.7;
+.animate-float-delayed {
+    animation: floatIcon 7s ease-in-out infinite;
+    animation-delay: 2s;
 }
 
-@keyframes scanner {
-    0% { top: -100%; }
-    100% { top: 200%; }
-}
-
-.future-glow {
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, #2563eb, #7c3aed, #2563eb);
-    filter: blur(20px);
-    opacity: 0.3;
-    z-index: -1;
-    border-radius: 2rem;
-    animation: pulseGlow 6s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    0% { opacity: 0.2; filter: blur(20px); }
-    100% { opacity: 0.5; filter: blur(30px); }
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
