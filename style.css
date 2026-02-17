@@ -1,252 +1,501 @@
-/* --- 1. IMPORT & RESET --- */
+ /* --- 1. IMPORT & RESET --- */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
+
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
 }
+
+
 
 html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    max-width: 100%;
-    overflow-x: hidden;
+
+scroll-behavior: smooth;
+
+-webkit-font-smoothing: antialiased;
+
+max-width: 100%;
+
+overflow-x: hidden;
+
 }
+
+
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #ffffff;
-  color: #0f172a;
-  overflow-x: hidden;
-  min-height: 100vh;
+
+font-family: "Inter", sans-serif;
+
+background-color: #ffffff;
+
+color: #0f172a;
+
+overflow-x: hidden;
+
+min-height: 100vh;
+
 }
+
+
 
 /* --- 2. LOGO --- */
+
 .logo-container {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #0f172a;
-  cursor: pointer;
+
+display: flex;
+
+align-items: center;
+
+text-decoration: none;
+
+color: #0f172a;
+
+cursor: pointer;
+
 }
+
+
 
 .text-white .logo-container .logo-id,
+
 .text-white .logo-container .logo-title {
-    color: white !important;
+
+color: white !important;
+
 }
+
 .text-white .logo-container .logo-subtitle {
-    color: #94a3b8 !important;
+
+color: #94a3b8 !important;
+
 }
+
+
 
 .logo-container:hover .logo-symbol {
-  transform: scale(1.05) rotate(-3deg);
+
+transform: scale(1.05) rotate(-3deg);
+
 }
+
+
 
 .logo-symbol {
-  display: flex;
-  align-items: center;
-  transition: transform 0.3s ease;
+
+display: flex;
+
+align-items: center;
+
+transition: transform 0.3s ease;
+
 }
+
+
 
 .logo-id {
-  font-weight: 900;
-  font-size: 32px;
-  letter-spacing: -0.08em;
-  color: inherit;
+
+font-weight: 900;
+
+font-size: 32px;
+
+letter-spacing: -0.08em;
+
+color: inherit;
+
 }
+
+
 
 .logo-cursor {
-  width: 10px;
-  height: 28px;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  border-radius: 2px;
-  margin-left: 4px;
-  transform: skewX(-5deg);
-  animation: breathe 2.5s infinite ease-in-out;
+
+width: 10px;
+
+height: 28px;
+
+background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+
+border-radius: 2px;
+
+margin-left: 4px;
+
+transform: skewX(-5deg);
+
+animation: breathe 2.5s infinite ease-in-out;
+
 }
+
+
 
 @keyframes breathe {
-  0%, 100% { opacity: 1; transform: skewX(-5deg) scaleY(1); }
-  50% { opacity: 0.3; transform: skewX(-5deg) scaleY(0.9); }
+
+0%, 100% { opacity: 1; transform: skewX(-5deg) scaleY(1); }
+
+50% { opacity: 0.3; transform: skewX(-5deg) scaleY(0.9); }
+
 }
+
+
 
 .logo-text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 12px;
+
+display: flex;
+
+flex-direction: column;
+
+margin-left: 12px;
+
 }
+
+
 
 .logo-title {
-  font-weight: 800;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: inherit;
-  line-height: 1.1;
+
+font-weight: 800;
+
+font-size: 16px;
+
+text-transform: uppercase;
+
+color: inherit;
+
+line-height: 1.1;
+
 }
+
+
 
 .logo-subtitle {
-  font-weight: 600;
-  font-size: 10px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+
+font-weight: 600;
+
+font-size: 10px;
+
+color: #64748b;
+
+text-transform: uppercase;
+
+letter-spacing: 0.15em;
+
 }
+
+
 
 /* --- 3. KOMPONENTER --- */
+
 .glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+background: rgba(255, 255, 255, 0.85);
+
+backdrop-filter: blur(20px);
+
+-webkit-backdrop-filter: blur(20px);
+
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
 }
+
+
 
 .nav-link { position: relative; display: inline-block; text-decoration: none; }
+
 .nav-link::after {
-  content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
-  bottom: -4px; left: 0; background-color: #000;
-  transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
+
+bottom: -4px; left: 0; background-color: #000;
+
+transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
 }
+
 .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
+
+
 /* --- 4. HERO MESH --- */
+
 .hero-mesh {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 130vh;
-    z-index: -1;
-    background-color: #ffffff;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%);
-    overflow: hidden;
-    pointer-events: none;
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+height: 130vh;
+
+z-index: -1;
+
+background-color: #ffffff;
+
+background-image:
+
+radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+
+radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+
+radial-gradient(at 100% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%),
+
+radial-gradient(at 0% 100%, rgba(255, 255, 255, 0) 0px, transparent 50%);
+
+overflow: hidden;
+
+pointer-events: none;
+
 }
+
+
 
 .hero-blob {
-    position: absolute;
-    filter: blur(90px);
-    opacity: 0.5;
-    animation: float 20s infinite ease-in-out;
+
+position: absolute;
+
+filter: blur(90px);
+
+opacity: 0.5;
+
+animation: float 20s infinite ease-in-out;
+
 }
+
+
 
 .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #dbeafe; animation-delay: 0s; }
+
 .blob-2 { top: -10%; right: -10%; width: 40vw; height: 40vw; background: #f3e8ff; animation-delay: -5s; }
+
 .blob-3 { top: 20%; left: 30%; width: 30vw; height: 30vw; background: #e0f2fe; opacity: 0.3; animation-delay: -10s; }
 
+
+
 /* Generell float animasjon (brukes av blobs og ikoner) */
+
 @keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
+
+0% { transform: translate(0, 0) scale(1); }
+
+33% { transform: translate(30px, -50px) scale(1.1); }
+
+66% { transform: translate(-20px, 20px) scale(0.9); }
+
+100% { transform: translate(0, 0) scale(1); }
+
 }
+
+
 
 /* --- 5. TECH STREAM WRAPPER --- */
+
 .tech-stream-wrapper {
-    position: relative;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1rem 0;
-    overflow: hidden;
-    z-index: 20;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+position: relative;
+
+width: 100%;
+
+background: rgba(255, 255, 255, 0.7);
+
+backdrop-filter: blur(10px);
+
+border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+padding: 1rem 0;
+
+overflow: hidden;
+
+z-index: 20;
+
+mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
 }
+
+
 
 .tech-track {
-    display: flex;
-    gap: 2rem;
-    width: max-content;
-    animation: streamScroll 30s linear infinite;
-    align-items: center;
+
+display: flex;
+
+gap: 2rem;
+
+width: max-content;
+
+animation: streamScroll 30s linear infinite;
+
+align-items: center;
+
 }
 
+
+
 @media (min-width: 768px) {
-    .tech-track {
-        gap: 4rem;
-        animation: streamScroll 40s linear infinite;
-    }
+
+.tech-track {
+
+gap: 4rem;
+
+animation: streamScroll 40s linear infinite;
+
 }
+
+}
+
+
 
 .tech-item {
-    font-family: 'JetBrains Mono', 'Inter', monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
+
+font-family: 'JetBrains Mono', 'Inter', monospace;
+
+font-size: 0.75rem;
+
+font-weight: 600;
+
+color: #64748b;
+
+display: flex;
+
+align-items: center;
+
+gap: 0.5rem;
+
+text-transform: uppercase;
+
+letter-spacing: 0.05em;
+
+white-space: nowrap;
+
 }
+
+
 
 @media (min-width: 768px) {
-    .tech-item {
-        font-size: 0.85rem;
-        gap: 0.8rem;
-    }
+
+.tech-item {
+
+font-size: 0.85rem;
+
+gap: 0.8rem;
+
 }
+
+}
+
+
 
 .tech-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #3b82f6;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+
+width: 6px;
+
+height: 6px;
+
+background-color: #3b82f6;
+
+border-radius: 50%;
+
+box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+
 }
+
+
 
 @keyframes streamScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+
+0% { transform: translateX(0); }
+
+100% { transform: translateX(-50%); }
+
 }
+
+
 
 /* --- 6. VIDEO CSS (PHONE MOCKUP) --- */
+
 .phone-screen {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+
+position: relative;
+
+width: 100%;
+
+height: 100%;
+
+overflow: hidden;
+
 }
+
+
 
 .phone-screen video {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100% !important; 
-    height: 100% !important; 
-    object-fit: contain !important; /* Fix for svarte kanter */
-    background: #000; 
-    opacity: 0; 
-    transition: opacity 0.5s ease-in-out; 
-    z-index: 0;
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100% !important;
+
+height: 100% !important;
+
+object-fit: contain !important; /* Fix for svarte kanter */
+
+background: #000;
+
+opacity: 0;
+
+transition: opacity 0.5s ease-in-out;
+
+z-index: 0;
+
 }
 
-.phone-screen video.active { 
-    opacity: 1; 
-    z-index: 10; 
+
+
+.phone-screen video.active {
+
+opacity: 1;
+
+z-index: 10;
+
 }
+
+
 
 /* --- 7. ANIMASJONER FOR IKONER (NYE) --- */
+
 /* Disse klassene får de små kortene (Synlighet, Hastighet, Kunder) til å flyte */
+
 .animate-float {
-    animation: floatIcon 6s ease-in-out infinite;
+
+animation: floatIcon 6s ease-in-out infinite;
+
 }
+
+
 
 .animate-float-delayed {
-    animation: floatIcon 7s ease-in-out infinite;
-    animation-delay: 2s;
+
+animation: floatIcon 7s ease-in-out infinite;
+
+animation-delay: 2s;
+
 }
 
+
+
 @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
+
+0%, 100% { transform: translateY(0); }
+
+50% { transform: translateY(-15px); } } 
