@@ -48,12 +48,17 @@
     </script>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css" />
@@ -126,7 +131,7 @@
                     <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-4 shadow-sm border border-green-200">
                         <i class="fa-solid fa-shield-heart"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-slate-900 mb-2">100% Fornøydgaranti</h3>
+                    <h2 class="text-2xl font-black text-slate-900 mb-2">100% Fornøydgaranti</h2>
                     <p class="text-slate-500 font-medium leading-relaxed text-sm">Du betaler ingenting med mindre du er fornøyd.</p>
                 </div>
             </div>
@@ -451,28 +456,28 @@
                     </div>
                     <div class="logo-text">
                         <span class="logo-title">Index</span>
-                        <span class="logo-subtitle text-slate-500">Development</span>
+                        <span class="logo-subtitle text-slate-300">Development</span>
                     </div>
                 </a>
-                <p class="text-slate-400 text-sm leading-relaxed">
+                <p class="text-slate-300 text-sm leading-relaxed">
                     Skreddersydde nettsider som hjelper lokale bedrifter med å vokse.
                 </p>
             </div>
 
             <div>
                 <h3 class="font-bold text-lg mb-6">Meny</h3>
-                <ul class="space-y-4 text-slate-400">
-                    <li><a href="index.html" class="text-slate-300 hover:text-blue-400 transition-colors">Hjem</a></li>
-                    <li><a href="prosjekter.html" class="text-slate-300 hover:text-blue-400 transition-colors">Prosjekter</a></li>
-                    <li><a href="prosess.html" class="text-slate-300 hover:text-blue-400 transition-colors">Prosess</a></li>
-                    <li><a href="om-meg.html" class="text-slate-300 hover:text-blue-400 transition-colors">Om meg</a></li>
-                    <li><a href="kontakt.html" class="text-slate-300 hover:text-blue-400 transition-colors">Kontakt</a></li>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
+                    <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
+                    <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+                    <li><a href="om-meg.html" class="hover:text-blue-400 transition-colors">Om meg</a></li>
+                    <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
                 </ul>
             </div>
 
             <div>
                 <h3 class="font-bold text-lg mb-6">Kontakt</h3>
-                <ul class="space-y-4 text-slate-400">
+                <ul class="space-y-4 text-slate-300">
                     <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-blue-500"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition">andreas@indexdevelopment.no</a></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-blue-500"></i> <span>+47 48 45 96 86</span></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-blue-500"></i> <span>Drammen, Norge</span></li>
@@ -481,7 +486,7 @@
 
             <div>
                 <h3 class="font-bold text-lg mb-6">Lurer du på noe?</h3>
-                <ul class="space-y-4 text-slate-400">
+                <ul class="space-y-4 text-slate-300">
                     <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva koster en nettside?</a></li>
                     <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>
                     <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva er inkludert?</a></li>
