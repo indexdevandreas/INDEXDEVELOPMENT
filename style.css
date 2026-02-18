@@ -4,75 +4,18 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-/* --- LOGO FIX (HER VAR FEILEN) --- */
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit; /* Arver farge fra forelder (svart i nav, hvit i footer) */
-    cursor: pointer;
-}
-
-/* Sørger for at logoen blir hvit i footeren */
-.text-white .logo-container .logo-id,
-.text-white .logo-container .logo-title {
-    color: white !important;
-}
-.text-white .logo-container .logo-subtitle {
-    color: #cbd5e1 !important; /* Lys grå i footer */
-}
-
+/* --- LOGO FIX --- */
+.logo-container { display: flex; align-items: center; text-decoration: none; color: inherit; cursor: pointer; }
+.text-white .logo-container .logo-id, .text-white .logo-container .logo-title { color: white !important; }
+.text-white .logo-container .logo-subtitle { color: #cbd5e1 !important; }
 .logo-container:hover .logo-symbol { transform: scale(1.05) rotate(-3deg); }
-
-.logo-symbol {
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.logo-id {
-    font-weight: 900;
-    font-size: 32px;
-    letter-spacing: -0.08em;
-    color: inherit;
-}
-
-.logo-cursor {
-    width: 10px;
-    height: 28px;
-    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-    border-radius: 2px;
-    margin-left: 4px;
-    transform: skewX(-5deg);
-    animation: breathe 2.5s infinite ease-in-out;
-}
-
-@keyframes breathe {
-    0%, 100% { opacity: 1; transform: skewX(-5deg) scaleY(1); }
-    50% { opacity: 0.3; transform: skewX(-5deg) scaleY(0.9); }
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    margin-left: 12px;
-}
-
-.logo-title {
-    font-weight: 800;
-    font-size: 16px;
-    text-transform: uppercase;
-    line-height: 1.1;
-    color: inherit;
-}
-
-.logo-subtitle {
-    font-weight: 600;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #64748b; /* Standard grå i header */
-}
+.logo-symbol { display: flex; align-items: center; transition: transform 0.3s ease; }
+.logo-id { font-weight: 900; font-size: 32px; letter-spacing: -0.08em; color: inherit; }
+.logo-cursor { width: 10px; height: 28px; background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%); border-radius: 2px; margin-left: 4px; transform: skewX(-5deg); animation: breathe 2.5s infinite ease-in-out; }
+@keyframes breathe { 0%, 100% { opacity: 1; transform: skewX(-5deg) scaleY(1); } 50% { opacity: 0.3; transform: skewX(-5deg) scaleY(0.9); } }
+.logo-text { display: flex; flex-direction: column; margin-left: 12px; }
+.logo-title { font-weight: 800; font-size: 16px; text-transform: uppercase; line-height: 1.1; color: inherit; }
+.logo-subtitle { font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: #64748b; }
 
 /* --- CUSTOM ANIMATIONS --- */
 .hero-mesh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
@@ -94,6 +37,25 @@ body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.phone-screen { position: relative; width: 100%; height: 100%; overflow: hidden; }
-.phone-screen video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease-in-out; }
+/* --- VIDEO FIX (HER ER ENDRINGEN DU BA OM) --- */
+.phone-screen { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-color: #000; /* Svart bakgrunn for tomrommet */
+}
+
+.phone-screen video { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Sentrerer videoen */
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain !important; /* <--- DETTE ER FIXEN: Viser hele videoen uten zoom */
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+}
+
 .phone-screen video.active { opacity: 1; z-index: 10; }
