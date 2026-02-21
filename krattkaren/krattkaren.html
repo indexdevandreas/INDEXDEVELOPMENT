@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krattkaren Trepleie | Trefelling & Skogsdrift</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="krattkaren.css?v=3">
+  <link rel="stylesheet" href="krattkaren.css?v=6">
 </head>
 <body>
 
@@ -21,10 +21,10 @@
       </label>
       
       <ul class="menu">
-        <li><a href="#tjenester">Tjenester</a></li>
-        <li><a href="#galleri">Galleri</a></li>
-        <li><a href="#anmeldelser">Anmeldelser</a></li>
-        <li class="mobile-btn-li"><a href="#kontakt" class="btn-nav">Få tilbud</a></li>
+        <li><a href="#tjenester" class="menu-link">Tjenester</a></li>
+        <li><a href="#galleri" class="menu-link">Galleri</a></li>
+        <li><a href="#anmeldelser" class="menu-link">Anmeldelser</a></li>
+        <li class="mobile-btn-li"><a href="#kontakt" class="btn-nav menu-link">Få tilbud</a></li>
       </ul>
     </div>
   </nav>
@@ -132,61 +132,70 @@
   <section id="anmeldelser" class="section bg-dark relative-overflow">
     <div class="bg-shape"></div>
     <div class="container reveal relative-z">
+      
       <div class="section-header center-text">
-        <span class="giant-quote">"</span>
-        <h2 class="title force-white-title">Hva kundene sier</h2>
+        <h2 class="title force-white-title">ANMELDELSER</h2>
       </div>
       
-      <div class="pure-slider-wrapper">
-        <button class="pure-slider-btn prev desktop-btn" onclick="prevReview()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        
-        <div class="pure-slides-container">
-          <div class="pure-slide active">
-            <div class="review-card-single">
-              <div class="stars">★★★★★</div>
-              <p>"Er veldig fornøyd med jobben som ble gjort. Effektiv og punktlig. Kan anbefale alle som skal felle trær å kontakte Krattkaren."</p>
-              <strong>- Marit Larsen</strong>
+      <div class="elegant-carousel-wrapper">
+        <div class="elegant-track" id="elegantTrack">
+          
+          <div class="elegant-card active">
+            <div class="card-box-ref">
+              <div class="quote-side">“</div>
+              <div class="text-side">
+                <p>Er veldig fornøyd med jobben som ble gjort. Effektiv og punktlig. Kan anbefale alle som skal felle trær å kontakte Krattkaren. Profesjonelle fra start til slutt.</p>
+                <div class="stars">★★★★★</div>
+              </div>
             </div>
+            <div class="card-name">Marit Larsen</div>
           </div>
-          <div class="pure-slide">
-            <div class="review-card-single">
-              <div class="stars">★★★★★</div>
-              <p>"Utrolig fornøyd etter at han fjerna røttene på 7 piltrær med rotfreser. Rask, dyktig og hyggelig! Anbefales."</p>
-              <strong>- Tone Jamtveit</strong>
+          
+          <div class="elegant-card">
+            <div class="card-box-ref">
+              <div class="quote-side">“</div>
+              <div class="text-side">
+                <p>Utrolig fornøyd etter at han fjerna røttene på 7 piltrær med rotfreser. Rask, dyktig og hyggelig! Ryddet opp alt etter seg. Anbefales sterkt.</p>
+                <div class="stars">★★★★★</div>
+              </div>
             </div>
+            <div class="card-name">Tone Jamtveit</div>
           </div>
-          <div class="pure-slide">
-            <div class="review-card-single">
-              <div class="stars">★★★★★</div>
-              <p>"Effektiv og hyggelig."</p>
-              <strong>- Runar Jahren</strong>
+
+          <div class="elegant-card">
+            <div class="card-box-ref">
+              <div class="quote-side">“</div>
+              <div class="text-side">
+                <p>Effektiv og hyggelig. Rask respons og profesjonelt utført arbeid i henhold til avtale. Veldig konkurransedyktig på pris også.</p>
+                <div class="stars">★★★★★</div>
+              </div>
             </div>
+            <div class="card-name">Runar Jahren</div>
           </div>
-          <div class="pure-slide">
-            <div class="review-card-single">
-              <div class="stars">★★★★★</div>
-              <p>"Takk for super jobbing i hagen! Nå er det veldig oversiktlig og pent rundt meg. Veldig raskt og effektivt utført."</p>
-              <strong>- Beate Holtet</strong>
+
+          <div class="elegant-card">
+            <div class="card-box-ref">
+              <div class="quote-side">“</div>
+              <div class="text-side">
+                <p>Takk for super jobbing i hagen! Nå er det veldig oversiktlig og pent rundt meg. Veldig raskt og effektivt utført, og god kommunikasjon underveis.</p>
+                <div class="stars">★★★★★</div>
+              </div>
             </div>
+            <div class="card-name">Beate Holtet</div>
           </div>
+
         </div>
-        
-        <button class="pure-slider-btn next desktop-btn" onclick="nextReview()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
+
+        <div class="elegant-controls reveal" style="transition-delay: 0.2s;">
+          <button class="circle-btn" onclick="prevReview()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="circle-btn" onclick="nextReview()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="mobile-slider-btns">
-        <button class="pure-slider-btn prev" onclick="prevReview()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="pure-slider-btn next" onclick="nextReview()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-      
     </div>
   </section>
 
@@ -274,7 +283,6 @@
   </footer>
 
   <script>
-    // Fade-in animasjoner ved scrolling
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -282,36 +290,37 @@
         }
       });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-    document.querySelectorAll('.reveal').forEach((el) => {
-      observer.observe(el);
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const menuToggle = document.getElementById('menu-toggle');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if(menuToggle.checked) menuToggle.checked = false;
+      });
     });
 
-    // 100% IDIOTSIKKER ANMELDELSE-SLIDER LOGIKK
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.pure-slide');
+    // KARUSELL LOGIKK (Samme idiotsikre logikk, nytt design)
+    const reviews = document.querySelectorAll('.elegant-card');
+    let currentIndex = 0;
 
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      
-      if (index >= slides.length) {
-        currentSlide = 0; // Loop tilbake til start
-      } else if (index < 0) {
-        currentSlide = slides.length - 1; // Loop til slutten hvis man går bakover fra start
-      } else {
-        currentSlide = index;
-      }
-      
-      slides[currentSlide].classList.add('active');
+    function updateCarousel() {
+      reviews.forEach((review, index) => {
+        review.classList.remove('active', 'prev', 'next', 'hidden');
+        if (index === currentIndex) {
+          review.classList.add('active');
+        } else if (index === (currentIndex - 1 + reviews.length) % reviews.length) {
+          review.classList.add('prev');
+        } else if (index === (currentIndex + 1) % reviews.length) {
+          review.classList.add('next');
+        } else {
+          review.classList.add('hidden');
+        }
+      });
     }
-
-    function nextReview() {
-      showSlide(currentSlide + 1);
-    }
-
-    function prevReview() {
-      showSlide(currentSlide - 1);
-    }
+    function nextReview() { currentIndex = (currentIndex + 1) % reviews.length; updateCarousel(); }
+    function prevReview() { currentIndex = (currentIndex - 1 + reviews.length) % reviews.length; updateCarousel(); }
+    updateCarousel();
   </script>
 
 </body>
