@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krattkaren Trepleie | Trefelling & Skogsdrift</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="krattkaren.css?v=6">
+  <link rel="stylesheet" href="krattkaren.css?v=7">
 </head>
 <body>
 
@@ -103,7 +103,7 @@
   <section id="tjenester" class="section bg-light relative-overflow">
     <div class="container">
       <div class="section-header center-text reveal">
-        <h2 class="title">Våre Tjenester</h2>
+        <h2 class="title">VÅRE <span class="accent-text">TJENESTER</span></h2>
         <p>Spesialister på krevende oppdrag. Vi har utstyret og kompetansen.</p>
       </div>
       
@@ -111,7 +111,8 @@
         <div class="showcase-row reveal">
           <div class="showcase-img" style="background-image: url('bilder/bilde4.png');"></div>
           <div class="showcase-text">
-            <h3 class="showcase-title">01. Trefelling & Trepleie</h3>
+            <span class="service-tag">01 / Kompetanseområde</span>
+            <h3 class="showcase-title">Trefelling & Trepleie</h3>
             <p><strong>Sikker Trefelling:</strong> Felling av trær i alle størrelser, enten fra bakken eller ved avansert seksjonsfelling der det kreves. Vi setter sikkerhet først.</p>
             <p class="mt-gap"><strong>Beskjæring:</strong> Riktig beskjæring bevarer treets helse, fjerner farlige råtne greiner og slipper mer lys inn i hagen din.</p>
           </div>
@@ -120,7 +121,8 @@
         <div class="showcase-row reverse reveal" style="transition-delay: 0.1s;">
           <div class="showcase-img" style="background-image: url('bilder/bilde5.png');"></div>
           <div class="showcase-text">
-            <h3 class="showcase-title">02. Rotfresing & Skogsdrift</h3>
+            <span class="service-tag">02 / Kompetanseområde</span>
+            <h3 class="showcase-title">Rotfresing & Skogsdrift</h3>
             <p><strong>Rotfresing:</strong> Maskinell fjerning av stubber og røtter. Dette etterlater et rent underlag slik at du kan bygge platting, asfaltere eller plante ny plen rett over.</p>
             <p class="mt-gap"><strong>Skogsdrift:</strong> Vi utfører manuelt skogsarbeid som planting, ungskogpleie, rydding av tomter og klargjøring for tyngre hogstmaskineri.</p>
           </div>
@@ -199,10 +201,10 @@
     </div>
   </section>
 
-  <section id="galleri" class="section">
+  <section id="galleri" class="section bg-light relative-overflow">
     <div class="container reveal">
       <div class="section-header center-text">
-        <h2 class="title">Galleri</h2>
+        <h2 class="title">GALLERI</h2>
       </div>
     </div>
     <div class="scroller reveal" style="transition-delay: 0.1s;">
@@ -300,7 +302,6 @@
       });
     });
 
-    // KARUSELL LOGIKK (Samme idiotsikre logikk, nytt design)
     const reviews = document.querySelectorAll('.elegant-card');
     let currentIndex = 0;
 
