@@ -2,7 +2,7 @@
 :root {
   --primary: #052e16; 
   --accent: #16a34a;  
-  --dark: #07100a; /* Fikset: Ingen blått! Dyp mørkegrønn/svart */
+  --dark: #07100a; 
   --light: #f0fdf4;   
   --white: #ffffff;
   --text-main: #0f172a;
@@ -45,7 +45,8 @@ a { text-decoration: none; color: inherit; }
 
 /* Linje 50: Hero */
 .hero-cinematic { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; background-color: var(--dark); }
-.hero-bg-anim { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('bilder/bilde1.png') center/cover no-repeat; opacity: 0.6; z-index: 0; animation: bgZoom 25s infinite alternate ease-in-out; }
+/* Bytter til det perfekte actionbildet hero1.png her! */
+.hero-bg-anim { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('bilder/hero1.png') center/cover no-repeat; opacity: 0.6; z-index: 0; animation: bgZoom 25s infinite alternate ease-in-out; }
 @keyframes bgZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
 .hero-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(7, 16, 10, 0.1) 0%, rgba(7, 16, 10, 0.8) 80%, rgba(7, 16, 10, 0.95) 100%); z-index: 1; }
 .hero-container { position: relative; z-index: 2; width: 100%; display: flex; justify-content: center; padding: 120px 0 60px 0; }
@@ -81,7 +82,7 @@ a { text-decoration: none; color: inherit; }
 .hidden-toggle:checked ~ .read-more-content { grid-template-rows: 1fr; }
 .hidden-toggle:checked ~ .toggle-label .arrow { transform: rotate(180deg); color: var(--primary); }
 
-/* Linje 91: Overskrifter og Prosessen (Fikset konsistent skrifttype) */
+/* Linje 91: Prosessen */
 .section-header { margin-bottom: 80px; max-width: 650px; position: relative; z-index: 2; }
 .center-text { text-align: center; margin-left: auto; margin-right: auto; }
 .title { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; color: var(--primary); text-transform: uppercase; }
@@ -95,22 +96,20 @@ a { text-decoration: none; color: inherit; }
 .step-title { font-size: 1.6rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
 .process-step p { color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.6; }
 
-/* Linje 105: TJENESTER (Enda mer premium oppsett) */
+/* Linje 105: TJENESTER */
 .showcase-wrap { display: flex; flex-direction: column; gap: 80px; }
 .showcase-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .showcase-row.reverse .showcase-text { order: -1; }
 .showcase-img { height: 500px; background-size: cover; background-position: center; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); transition: var(--transition); }
 .showcase-row:hover .showcase-img { transform: scale(1.02); }
 .showcase-text { padding: 0 20px; }
-/* Ny service-tag lagt til for eksklusivitet */
 .service-tag { display: inline-block; font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
 .showcase-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; }
 .showcase-text p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; }
 .showcase-text strong { color: var(--primary); }
 
-/* Linje 120: ANMELDELSER (Krystallklar Dark Mode, INGEN blått) */
+/* Linje 117: ANMELDELSER */
 .bg-dark { background: var(--dark); color: var(--white); }
-/* Oppdatert bg-shape for å matche den nye mørke fargen */
 .bg-shape { position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(22,163,74,0.1) 0%, rgba(7, 16, 10,0) 70%); border-radius: 50%; z-index: 0; }
 
 .elegant-carousel-wrapper { width: 100%; overflow: hidden; padding: 0 0 60px 0; position: relative; z-index: 2; }
@@ -122,7 +121,6 @@ a { text-decoration: none; color: inherit; }
 .elegant-card.next { opacity: 0.2; transform: translateX(90%) scale(0.85); z-index: 2; display: flex; }
 .elegant-card.hidden { opacity: 0; transform: scale(0.8); pointer-events: none; }
 
-/* KORT DESIGN */
 .card-box-ref { width: 100%; padding: 50px; border-radius: 24px; border: 1px solid transparent; transition: var(--transition); display: flex; gap: 30px; align-items: flex-start; }
 .elegant-card.active .card-box-ref { border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); box-shadow: 0 20px 60px rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
 
@@ -198,7 +196,7 @@ a { text-decoration: none; color: inherit; }
 .footer-col a:hover { color: var(--accent); padding-left: 5px; }
 .footer-bottom-unique { display: flex; justify-content: space-between; padding-top: 40px; color: #94a3b8; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
-/* Linje 223: MASSIV MOBILOPPGRADERING - IDIOTSIKKER */
+/* Linje 223: MASSIV MOBILOPPGRADERING */
 @media (max-width: 900px) {
   .nav { height: 75px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
   .logo { font-size: 1.4rem; z-index: 1002; }
@@ -236,7 +234,6 @@ a { text-decoration: none; color: inherit; }
   .showcase-img { height: 300px; }
   .showcase-title { font-size: 1.8rem; }
   
-  /* Slider Mobile Fix for det nye designet */
   .elegant-track { height: auto; min-height: 450px; }
   .elegant-card { width: 90vw; }
   .card-box-ref { flex-direction: column; gap: 15px; padding: 30px 25px; }
