@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lande Detailing | Eksklusiv Bilpleie i Kongsberg</title>
+    <meta name="description" content="Kongsbergs ledende spesialist på lakkorrigering, keramisk coating og premium detailing. Vi gir bilen din nybilfølelsen tilbake.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="lande-favicon.svg?v=1" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#00d4ff',
+                        dark: '#030712',
+                        panel: '#0a101d'
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-delayed': 'float 8s ease-in-out 4s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body { max-width: 100%; overflow-x: hidden; }
+        
+        .text-silver {
+            background: linear-gradient(180deg, #ffffff 0%, #a0a5b0 50%, #6b7280 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .neon-glow { text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
+        
+        .box-glow { transition: all 0.4s ease-out; border-color: rgba(255,255,255,0.05); }
+        .box-glow:hover { border-color: #00d4ff; box-shadow: 0 0 30px rgba(0, 212, 255, 0.2); transform: translateY(-5px); }
+
+        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.5; pointer-events: none; }
+        .glow-brand { width: 600px; height: 600px; background: #00d4ff; opacity: 0.15; }
+
+        .map-dark-mode { filter: grayscale(100%) invert(92%) hue-rotate(180deg) contrast(83%); mix-blend-mode: hard-light; }
+
+        .gallery-track { display: flex; gap: 1rem; width: max-content; animation: scrollGallery 60s linear infinite; }
+        .gallery-track:hover { animation-play-state: paused; }
+        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        input, textarea, select { appearance: none; -webkit-appearance: none; }
+
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
+        .faq-item.active .faq-content { max-height: 500px; transition: max-height 0.5s ease-in-out; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: #00d4ff; }
+        .faq-item.active { border-color: rgba(0, 212, 255, 0.3); background-color: rgba(0, 212, 255, 0.02); }
+
+        [data-aos] { pointer-events: none; }
+        .aos-animate { pointer-events: auto; }
+        
+        /* Mobilmeny animasjon */
+        .menu-open { transform: translateX(0%); }
+        .menu-closed { transform: translateX(100%); }
+    </style>
+</head>
+<body class="bg-dark text-white antialiased font-body selection:bg-brand selection:text-black pb-20 md:pb-0">
+
+    <nav class="fixed w-full z-50 px-6 py-4 bg-dark/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/30">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-3 relative z-50">
+                <img src="bilder/lande.png" alt="Lande Detailing Logo" class="h-12 w-auto object-contain">
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <div class="flex gap-8 font-medium text-gray-400 uppercase tracking-widest text-xs">
+                    <a href="#tjenester" class="hover:text-brand transition">Tjenester</a>
+                    <a href="#galleri" class="hover:text-brand transition">Galleri</a>
+                    <a href="#faq" class="hover:text-brand transition">Spørsmål</a>
+                    <a href="#kontakt" class="hover:text-brand transition">Kontakt</a>
+                </div>
+                <a href="#kontakt" class="bg-brand text-dark font-display font-bold uppercase px-8 py-3 text-sm hover:bg-white hover:text-dark transition-all skew-x-[-10deg] shadow-[0_0_15px_rgba(0,212,255,0.4)]">
+                    <span class="block skew-x-[10deg]">Bestill Time</span>
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none relative z-50 transition-transform">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-dark/98 backdrop-blur-3xl z-40 menu-closed transition-transform duration-500 ease-in-out flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center gap-8 font-display text-2xl font-bold uppercase tracking-widest text-white">
+            <a href="#tjenester" class="mobile-link hover:text-brand transition">Tjenester</a>
+            <a href="#galleri" class="mobile-link hover:text-brand transition">Showroom</a>
+            <a href="#faq" class="mobile-link hover:text-brand transition">Spørsmål</a>
+            <a href="#kontakt" class="mobile-link text-brand transition mt-8">Kontakt Oss</a>
+        </div>
+    </div>
+
+    <main>
+        
+        <section class="relative min-h-[90vh] flex items-center justify-center pt-20 px-6 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-50" alt="Lande Detailing Bilpleie">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-transparent"></div>
+            </div>
+
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glow-brand ambient-glow opacity-30 animate-pulse"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center pt-16">
+                
+                <div class="lg:col-span-8 flex flex-col items-start" data-aos="fade-right" data-aos-delay="200">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand/30 bg-brand/5 text-brand text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                        Din bil, perfeksjonert.
+                    </div>
+                    <h1 class="font-display text-6xl md:text-9xl font-black italic uppercase leading-[1] mb-6 tracking-tight text-silver">
+                        EXTREME <br>
+                        <span class="text-brand neon-glow">PRECISION.</span>
+                    </h1>
+                    <p class="text-gray-300 text-xl font-light max-w-2xl mb-12 leading-relaxed">
+                        Kongsbergs spesialist på lakkorrigering, keramisk coating og premium detailing. Vi gir bilen din nybilfølelsen tilbake – og litt til.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+                        <a href="#tjenester" class="bg-brand text-dark px-12 py-5 font-display font-bold uppercase tracking-widest text-lg hover:bg-white hover:text-dark transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(0,212,255,0.4)] text-center">
+                            Våre Tjenester
+                        </a>
+                        <a href="#kontakt" class="border border-white/20 px-12 py-5 font-display font-bold uppercase tracking-widest text-lg hover:border-brand hover:text-brand transition-all bg-dark/50 backdrop-blur-md text-white text-center">
+                            Kontakt Oss
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-delay="400">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40 bg-panel/80 backdrop-blur-xl border border-white/10 rounded-2xl flex flex-col items-center justify-center p-4 shadow-[0_0_30px_rgba(0,0,0,0.8)] animate-float-slow z-20">
+                            <i class="fa-solid fa-gem text-brand text-3xl md:text-4xl mb-2 neon-glow"></i>
+                            <span class="font-display font-bold text-xs text-white uppercase tracking-widest text-center">Ceramic<br>Coating</span>
+                        </div>
+                        
+                        <div class="absolute bottom-0 left-0 w-36 h-36 md:w-48 md:h-48 bg-brand/10 backdrop-blur-xl border border-brand/30 rounded-full flex flex-col items-center justify-center p-4 shadow-[0_0_50px_rgba(0,212,255,0.2)] animate-float-delayed z-10">
+                            <span class="font-display font-black text-4xl md:text-5xl text-white mb-1">100%</span>
+                            <span class="font-body font-bold text-[10px] text-brand uppercase tracking-widest text-center">Garantert<br>Resultat</span>
+                        </div>
+                        
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-white/5 rounded-full z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tjenester" class="py-32 px-6 bg-dark relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-4 tracking-tight text-silver">Våre <span class="text-brand neon-glow">Tjenester</span></h2>
+                    <p class="text-gray-400 font-medium max-w-2xl mx-auto">Premium behandling for deg som krever det absolutte beste resultatet.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-panel p-10 border border-white/5 box-glow rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-brand/10 rounded-xl flex items-center justify-center text-brand text-3xl mb-8 border border-brand/20">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-4 tracking-tight text-white">Polering</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed font-medium">
+                            Vi fjerner riper, swirls og hologrammer. Lakkorrigering i flere steg for perfekt dybde og glans.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-3 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Fjerner vaskeriper</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Gjenoppretter dyp farge</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Speilblank finish</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-panel p-10 border-2 border-brand/50 box-glow relative overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 right-0 bg-brand text-dark text-xs font-bold px-4 py-1.5 font-display uppercase tracking-widest">Beskyttelse</div>
+                        <div class="w-16 h-16 bg-brand rounded-xl flex items-center justify-center text-dark text-3xl mb-8 shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-4 text-white tracking-tight">Keramisk Coating</h3>
+                        <p class="text-gray-100 mb-8 leading-relaxed font-semibold">
+                            Den ultimate beskyttelsen. Gir ekstrem vannskrekk, UV-beskyttelse og en selvrensende effekt som varer.
+                        </p>
+                        <ul class="text-sm text-gray-100 space-y-3 font-semibold">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Langvarig beskyttelse</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Ekstrem hydrofobisk effekt</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Enklere vask i hverdagen</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-panel p-10 border border-white/5 box-glow rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-brand/10 rounded-xl flex items-center justify-center text-brand text-3xl mb-8 border border-brand/20">
+                            <i class="fa-solid fa-spray-can-sparkles"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold uppercase mb-4 tracking-tight text-white">Detailing</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed font-medium">
+                            Total innvendig og utvendig rens. Dyprens av skinnseter, tepperens, motorvask og grundig rens av felger.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-3 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Luktsanering</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Skinnpleie & impregnering</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Dyprens av tepper</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="prosess" class="py-32 px-6 bg-dark relative z-10 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-4 tracking-tight text-silver">Slik <span class="text-brand neon-glow">fungerer det</span></h2>
+                    <p class="text-gray-400 font-medium max-w-2xl mx-auto">Fra første kontakt til overlevering. Vi skreddersyr prosessen etter din bils unike behov.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                    <div class="hidden md:block absolute top-12 left-[16.66%] right-[16.66%] h-0.5 bg-gradient-to-r from-brand/0 via-brand/30 to-brand/0 z-0"></div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-24 h-24 rounded-full bg-panel border-2 border-white/10 flex items-center justify-center text-3xl text-brand mb-6 shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:border-brand transition-colors duration-300">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase mb-3 text-white">1. Inspeksjon & Tilbud</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">Du kommer innom, eller vi tar en prat på telefon. Vi vurderer bilens tilstand sammen med deg, uansett om det gjelder innvendig rens eller full lakkforsegling, og gir et fast pristilbud.</p>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 rounded-full bg-panel border-2 border-brand/50 flex items-center justify-center text-3xl text-white mb-6 shadow-[0_0_30px_rgba(0,212,255,0.2)] group-hover:border-brand transition-colors duration-300">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase mb-3 text-white">2. Skreddersydd Behandling</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">Enten du har bestilt en dyprens av interiøret, fjerning av riper eller keramisk coating, utføres jobben med millimeterpresisjon og premium produkter i våre lokaler.</p>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 rounded-full bg-panel border-2 border-white/10 flex items-center justify-center text-3xl text-brand mb-6 shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:border-brand transition-colors duration-300">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold uppercase mb-3 text-white">3. Perfekt Overlevering</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed px-4">Du henter en bil som ser ut (og lukter) som ny. Vi går gjennom nøyaktig hva som er gjort, og gir deg eksperttips til hvordan du best vedlikeholder resultatet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="forvandlingen" class="py-32 px-6 bg-panel relative z-10 border-y border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div data-aos="fade-right">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand/30 bg-brand/5 text-brand text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
+                            <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                            Forvandlingen
+                        </div>
+                        <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-6 tracking-tight text-silver">Se <span class="text-brand neon-glow">Forskjellen</span></h2>
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed font-medium">
+                            Bilder sier mer enn tusen ord. Enten det er fastgrodde flekker i teppet, matt lakk eller skittent skinninteriør, går vi i dybden der vanlige vaskehaller gir opp.
+                        </p>
+                        
+                        <ul class="text-sm text-gray-400 space-y-5 font-medium mb-10">
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center text-brand mt-0.5 border border-brand/20 flex-shrink-0">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div> 
+                                <div><strong class="text-white block mb-1">Ekstrem forvandling</strong> Fra nedslitt til showroom-standard. Vi henter frem nybilfølelsen.</div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center text-brand mt-0.5 border border-brand/20 flex-shrink-0">
+                                    <i class="fa-solid fa-microscope"></i>
+                                </div> 
+                                <div><strong class="text-white block mb-1">Detaljfokus</strong> Vi renser hver minste krok, ventil og søm i setene. Ingenting overlates til tilfeldighetene.</div>
+                            </li>
+                        </ul>
+                        
+                        <a href="#kontakt" class="inline-block border border-brand text-brand px-8 py-4 font-display font-bold uppercase tracking-widest text-sm hover:bg-brand hover:text-dark transition-all shadow-[0_0_15px_rgba(0,212,255,0.2)] text-center">
+                            Få et pristilbud
+                        </a>
+                    </div>
+
+                    <div class="relative w-full" data-aos="fade-left">
+                        <div class="absolute inset-0 glow-brand ambient-glow opacity-20 -translate-x-4 translate-y-4"></div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)] group box-glow">
+                            
+                            <div class="absolute top-4 left-4 md:left-8 bg-dark/80 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full z-10 shadow-lg">
+                                <span class="text-gray-400 text-xs font-bold uppercase tracking-wider">Før</span>
+                            </div>
+                            
+                            <div class="absolute top-4 right-4 md:right-8 bg-brand/90 backdrop-blur-md border border-brand/50 px-4 py-1.5 rounded-full z-10 shadow-[0_0_15px_rgba(0,212,255,0.5)]">
+                                <span class="text-dark text-xs font-bold uppercase tracking-wider">Etter</span>
+                            </div>
+                            
+                            <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-brand shadow-[0_0_15px_rgba(0,212,255,1)] z-10 pointer-events-none transform -translate-x-1/2"></div>
+                            
+                            <img src="bilder/1.png" alt="Før og etter interiør detailing" class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-32 px-6 bg-dark relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-display text-3xl md:text-5xl font-black uppercase mb-4 tracking-tight text-white">Ofte stilte <span class="text-brand">spørsmål</span></h2>
+                    <p class="text-gray-400 font-medium">Alt du trenger å vite før du leverer bilen til oss.</p>
+                </div>
+
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-panel transition-all duration-300">
+                        <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors focus:outline-none group">
+                            <span class="font-display font-bold text-lg text-white group-hover:text-brand transition-colors">Hva er forskjellen på vask og detailing?</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-brand/30 transition-colors">
+                                <i class="fa-solid fa-chevron-down faq-icon text-gray-400"></i>
+                            </div>
+                        </button>
+                        <div class="faq-content bg-panel px-8">
+                            <p class="text-gray-400 pb-8 pt-2 font-medium leading-relaxed border-t border-white/5">
+                                Vanlig bilvask rengjør overflaten. Detailing går mye dypere - vi rengjør, korrigerer, beskytter og bevarer hvert element av bilen din, fra lakk til interiør.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-panel transition-all duration-300">
+                        <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors focus:outline-none group">
+                            <span class="font-display font-bold text-lg text-white group-hover:text-brand transition-colors">Hva koster en polering eller keramisk coating?</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-brand/30 transition-colors">
+                                <i class="fa-solid fa-chevron-down faq-icon text-gray-400"></i>
+                            </div>
+                        </button>
+                        <div class="faq-content bg-panel px-8">
+                            <p class="text-gray-400 pb-8 pt-2 font-medium leading-relaxed border-t border-white/5">
+                                Prisen avhenger av bilens størrelse, tilstanden på lakken og hvilken type beskyttelse du ønsker. En grundig utvendig vask og 1-stegs polering starter på <strong class="text-white">ca. 3.500,-</strong>, mens en full lakkorrigering med premium keramisk coating (3-5 års holdbarhet) ligger mellom <strong class="text-white">8.000,- og 12.000,-</strong>. Vi gir alltid et fast og uforpliktende pristilbud etter å ha sett bilen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-panel transition-all duration-300">
+                        <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors focus:outline-none group">
+                            <span class="font-display font-bold text-lg text-white group-hover:text-brand transition-colors">Hvor lang tid tar en behandling?</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-brand/30 transition-colors">
+                                <i class="fa-solid fa-chevron-down faq-icon text-gray-400"></i>
+                            </div>
+                        </button>
+                        <div class="faq-content bg-panel px-8">
+                            <p class="text-gray-400 pb-8 pt-2 font-medium leading-relaxed border-t border-white/5">
+                                Det er avhengig av hvilken tilstand lakken er i. Vi tar aldri snarveier og sørger for at hver centimeter får den oppmerksomheten den fortjener. En innvendig eller utvendig detailing tar normalt 1 virkedag. Ved større jobber som flerstegs lakkorrigering og coating, må vi vanligvis ha bilen i 2-3 dager slik at coatingen kan herde skikkelig i våre lokaler.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-panel transition-all duration-300">
+                        <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors focus:outline-none group">
+                            <span class="font-display font-bold text-lg text-white group-hover:text-brand transition-colors">Tilbyr dere henting og levering?</span>
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-brand/30 transition-colors">
+                                <i class="fa-solid fa-chevron-down faq-icon text-gray-400"></i>
+                            </div>
+                        </button>
+                        <div class="faq-content bg-panel px-8">
+                            <p class="text-gray-400 pb-8 pt-2 font-medium leading-relaxed border-t border-white/5">
+                                Ja! For kunder i Kongsberg og omegn tilbyr vi henting og levering mot et tillegg i prisen. Kontakt oss for mer informasjon og avtale.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="galleri" class="py-24 bg-panel overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-6 mb-16 flex justify-between items-end" data-aos="fade-up">
+                <div>
+                    <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-2 tracking-tight text-silver">Lande <span class="text-brand">Showroom</span></h2>
+                    <p class="text-gray-400 font-medium max-w-xl">Resultater som snakker for seg selv. Vi leverer perfeksjon i hver detalj.</p>
+                </div>
+            </div>
+            
+            <div class="w-full overflow-hidden">
+                <div class="gallery-track">
+                    <img src="https://images.pexels.com/photos/4489734/pexels-photo-4489734.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/17769801/pexels-photo-17769801/free-photo-of-wet-black-car-chassis.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    
+                    <img src="https://images.pexels.com/photos/4489734/pexels-photo-4489734.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/17769801/pexels-photo-17769801/free-photo-of-wet-black-car-chassis.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                    <img src="https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=800" class="h-[300px] w-[400px] object-cover border-2 border-white/5 hover:border-brand transition duration-500 shadow-xl rounded-xl" alt="Lande Detailing">
+                </div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-6 pt-12 text-center" data-aos="fade-up">
+                <a href="#kontakt" class="inline-block bg-brand text-dark px-8 py-3.5 font-display font-bold uppercase text-sm skew-x-[-10deg] shadow-[0_0_15px_rgba(0,212,255,0.4)] hover:bg-white transition-colors">
+                    <span class="block skew-x-[10deg]">Bestill din transformasjon</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-32 px-6 bg-dark relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                    
+                    <div data-aos="fade-right">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand/30 bg-brand/5 text-brand text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
+                            <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                            Sebastian Lande
+                        </div>
+                        <h2 class="font-display text-4xl md:text-6xl font-black uppercase mb-8 tracking-tight text-silver">Klar for <span class="text-brand">Glans?</span></h2>
+                        <p class="text-gray-300 mb-12 font-medium max-w-xl leading-relaxed">
+                            Send oss en melding med hva du ønsker utført, så tar vi kontakt for et uforpliktende tilbud på din bil. Vi elsker en teknisk utfordring.
+                        </p>
+
+                        <div class="space-y-8 bg-panel p-8 rounded-2xl border border-white/5 hover:border-brand/30 transition-colors duration-300 relative overflow-hidden">
+                            <div class="flex items-start gap-5 relative z-10">
+                                <div class="w-14 h-14 bg-brand/10 flex items-center justify-center text-brand rounded-xl border border-brand/20"><i class="fa-solid fa-location-dot text-2xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider text-sm">Besøk oss</h4>
+                                    <p class="text-gray-300 font-medium">Vestliveien 2A, 3615 Kongsberg</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-5 relative z-10">
+                                <div class="w-14 h-14 bg-brand/10 flex items-center justify-center text-brand rounded-xl border border-brand/20"><i class="fa-solid fa-phone text-2xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider text-sm">Ring oss</h4>
+                                    <p class="text-gray-300 font-medium">+47 XX XX XX XX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-5 relative z-10">
+                                <div class="w-14 h-14 bg-brand/10 flex items-center justify-center text-brand rounded-xl border border-brand/20"><i class="fa-solid fa-envelope text-2xl"></i></div>
+                                <div>
+                                    <h4 class="text-white font-display font-bold uppercase tracking-wider text-sm">E-post</h4>
+                                    <p class="text-gray-300 font-medium">post@landedetailing.no</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 h-72 w-full bg-[#111] border border-white/10 overflow-hidden relative shadow-2xl rounded-2xl">
+                            <iframe src="https://maps.google.com/maps?q=Vestliveien%202A%2C%203615%20Kongsberg&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-dark-mode" title="Kart til Lande Detailing"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="bg-panel p-10 md:p-12 border border-white/5 relative shadow-2xl overflow-hidden rounded-3xl" data-aos="fade-left">
+                        <h3 class="font-display text-3xl font-bold uppercase mb-4 text-silver tracking-tight relative z-10">Bestill Time</h3>
+                        <p class="text-gray-400 mb-10 font-medium relative z-10">Uforpliktende pristilbud og inspeksjon.</p>
+                        
+                        <form id="contact-form" class="flex flex-col gap-6 relative z-10">
+                            <div>
+                                <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">Navn</label>
+                                <input type="text" required class="w-full bg-dark/50 border border-white/10 p-4 text-white focus:border-brand focus:outline-none transition-colors placeholder-gray-700 font-medium rounded-lg" placeholder="Ditt navn">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">E-post</label>
+                                    <input type="email" required class="w-full bg-dark/50 border border-white/10 p-4 text-white focus:border-brand focus:outline-none transition-colors placeholder-gray-700 font-medium rounded-lg" placeholder="Din e-post">
+                                </div>
+                                <div>
+                                    <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">Telefon</label>
+                                    <input type="tel" class="w-full bg-dark/50 border border-white/10 p-4 text-white focus:border-brand focus:outline-none transition-colors placeholder-gray-700 font-medium rounded-lg" placeholder="Ditt telefonnummer">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">Bilmodell</label>
+                                <input type="text" required class="w-full bg-dark/50 border border-white/10 p-4 text-white focus:border-brand focus:outline-none transition-colors placeholder-gray-700 font-medium rounded-lg" placeholder="F.eks. Porsche 911">
+                            </div>
+                            <div>
+                                <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">Tjeneste</label>
+                                <select class="w-full bg-dark/50 border border-white/10 p-4 text-gray-100 focus:border-brand focus:outline-none transition-colors appearance-none font-medium rounded-lg">
+                                    <option>Velg tjeneste...</option>
+                                    <option>Polering</option>
+                                    <option>Keramisk Coating</option>
+                                    <option>Detailing</option>
+                                    <option>Uforpliktende inspeksjon</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-brand font-display uppercase tracking-wider text-xs font-bold mb-2">Informasjon</label>
+                                <textarea class="w-full bg-dark/50 border border-white/10 p-4 text-white focus:border-brand focus:outline-none transition-colors placeholder-gray-700 resize-none h-32 font-medium rounded-lg" placeholder="Beskriv gjerne tilstanden på lakken..."></textarea>
+                            </div>
+
+                            <button type="submit" class="bg-brand text-dark font-display font-bold uppercase tracking-widest py-4 hover:bg-white hover:text-dark transition-all shadow-[0_0_15px_rgba(0,212,255,0.4)] mt-4 w-full rounded-lg">
+                                Send Forespørsel
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark pt-24 pb-12 text-gray-400 font-body relative z-10 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 relative">
+
+                <div class="space-y-6 lg:col-span-1" data-aos="fade-up">
+                    <a href="#" class="flex items-center gap-3">
+                        <img src="bilder/lande.png" alt="Lande Detailing Logo" class="h-16 w-auto object-contain">
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-xs font-medium">
+                        Kongsbergs spesialist på lakkorrigering, keramisk coating og dyp detailing.
+                    </p>
+                    <div class="flex gap-4 pt-3">
+                        <a href="#" class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center hover:bg-brand hover:text-dark transition-colors duration-300">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center hover:bg-brand hover:text-dark transition-colors duration-300">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-display text-white uppercase tracking-widest font-bold mb-7 text-sm tracking-wider">Meny</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#tjenester" class="hover:text-brand transition">Tjenester</a></li>
+                        <li><a href="#galleri" class="hover:text-brand transition">Galleri</a></li>
+                        <li><a href="#faq" class="hover:text-brand transition">Spørsmål</a></li>
+                        <li><a href="#kontakt" class="hover:text-brand transition">Bestill Time</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200" class="lg:col-span-2">
+                    <h4 class="font-display text-white uppercase tracking-widest font-bold mb-7 text-sm tracking-wider">Selskap</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li>LANDE DETAILING.KBG</li>
+                        <li>Innehaver: Sebastian Odden Lande</li>
+                        <li>Vestliveien 2A, 3615 Kongsberg</li>
+                        <li>Org. nr: 937 343 396</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-10 text-center md:text-left px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-600 uppercase tracking-wider font-bold">
+                <p>© 2026 LANDE DETAILING. Alle rettigheter reservert.</p>
+                <p class="flex items-center gap-1.5">Utviklet av <a href="https://indexdevelopment.no" class="text-brand hover:underline">Index Development</a></p>
+            </div>
+        </footer>
+
+    </main>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-dark/95 backdrop-blur-lg border-t border-white/10 z-40 flex gap-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        <a href="tel:+47XXXXXXXX" class="flex-1 bg-brand text-dark font-display font-bold uppercase py-3 text-center rounded-lg shadow-[0_0_15px_rgba(0,212,255,0.3)] hover:bg-white transition-colors">
+            <i class="fa-solid fa-phone mr-2"></i> Ring Nå
+        </a>
+        <a href="#kontakt" class="flex-1 border border-white/20 text-white font-display font-bold uppercase py-3 text-center rounded-lg hover:border-brand hover:text-brand transition-colors">
+            Få Tilbud
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-cubic' });
+        
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('button').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Mobilmeny Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                // Liten delay for at transition skal fungere
+                setTimeout(() => {
+                    mobileMenu.classList.remove('menu-closed');
+                    mobileMenu.classList.add('menu-open');
+                    menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                }, 10);
+            } else {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 500); // Vent på at animasjonen er ferdig
+            }
+        });
+
+        // Lukk mobilmeny når en lenke klikkes
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 500);
+            });
+        });
+        
+        // Contact Form Simulation
+        const form = document.getElementById('contact-form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('button');
+                btn.innerText = "SENDER...";
+                btn.classList.add('opacity-50');
+                
+                setTimeout(() => {
+                    btn.innerText = "MOTTATT!";
+                    btn.classList.remove('opacity-50');
+                    btn.classList.replace('bg-brand', 'bg-green-500');
+                    btn.classList.replace('text-dark', 'text-white');
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>

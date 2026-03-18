@@ -1,0 +1,290 @@
+<!DOCTYPE html> 
+<html lang="no" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teknisk SEO & Markedsføring | Index Development</title>
+    <meta name="description" content="Digital markedsføring starter i koden. Vi bygger lynraske nettsider i ren HTML/CSS på Cloudflare, som gir bedriften din det perfekte fundamentet for SEO og Google Ads.">
+    <meta name="keywords" content="teknisk seo, seo drammen, raske nettsider, cloudflare hosting, ren kode, mobilvennlig nettside">
+    <meta name="author" content="Index Development">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://indexdevelopment.no/digitalmarkedsforing.html" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indexdevelopment.no/digitalmarkedsforing.html">
+    <meta property="og:title" content="Teknisk SEO: Fundamentet for synlighet">
+    <meta property="og:description" content="Vi koder fra bunnen av for ekstrem hastighet, slik at du vinner på Google.">
+    <meta property="og:image" content="https://indexdevelopment.no/og-image.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] },
+            animation: { 'spin-slow': 'spin 12s linear infinite', 'float': 'float 6s ease-in-out infinite', 'float-delayed': 'float 7s ease-in-out infinite' },
+            keyframes: { float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } } } }
+        }
+    </script>
+</head>
+
+<body class="text-slate-900 antialiased overflow-x-hidden w-full bg-slate-50">
+
+<nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        <a href="index.html" class="logo-container group flex-shrink-0 z-20">
+            <div class="logo-symbol"><span class="logo-id">ID</span><div class="logo-cursor"></div></div>
+            <div class="logo-text"><span class="logo-title">Index</span><span class="logo-subtitle">Development</span></div>
+        </a>
+
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-slate-100/50 rounded-full border border-white/50 shadow-inner z-10 backdrop-blur-md">
+            <a href="index.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Hjem</a>
+            <a href="prosjekter.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosjekter</a>
+            <a href="prosess.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Prosess</a>
+            <a href="om-meg.html" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-white/60 transition-all">Om meg</a>
+        </div>
+
+        <div class="flex items-center gap-4 z-20">
+            <a href="kontakt.html" class="hidden md:inline-flex bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-600 transition shadow-lg duration-200">Start risikofritt</a>
+            <button id="mobile-menu-button" aria-label="Åpne hovedmeny" class="md:hidden text-slate-900 focus:outline-none p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl absolute w-full top-20 left-0">
+        <a href="index.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Hjem</a>
+        <a href="prosjekter.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Prosjekter</a>
+        <a href="prosess.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Prosess</a>
+        <a href="om-meg.html" class="block text-base font-medium text-slate-600 border-b border-slate-100 pb-2">Om meg</a>
+        <a href="kontakt.html" class="block text-base font-bold text-blue-600 pt-2">Bestill gratis utkast</a>
+    </div>
+</nav>
+
+<main class="overflow-hidden">
+
+<section class="pt-24 pb-20 md:pt-36 md:pb-32 px-6 relative overflow-hidden w-full bg-white">
+    <div class="hero-mesh"><div class="hero-blob blob-1"></div><div class="hero-blob blob-2"></div><div class="hero-blob blob-3"></div></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div data-aos="fade-right">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest">
+                    Teknisk SEO
+                </div>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-6 tracking-tight">Markedsføring <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">starter i koden.</span></h1>
+            <p class="text-xl text-slate-500 mb-8 leading-relaxed font-light max-w-lg">Du kan bruke tusenvis av kroner på annonser og SEO, men hvis nettsiden din er treg og rotete bygget, straffer Google deg. Jeg bygger det tekniske fundamentet som gjør deg synlig.</p>
+
+            <div class="flex flex-col sm:flex-row gap-6 mb-12">
+                <a href="#hva-vi-gjor" class="group h-14 px-8 rounded-full font-bold text-lg flex items-center justify-center bg-white border border-slate-200 text-slate-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-blue-200">Se hvordan det fungerer</a>
+            </div>
+
+            <div class="flex items-center gap-6 text-slate-500 text-sm font-medium grayscale opacity-70">
+                <div class="flex items-center gap-2"><i class="fa-brands fa-cloudflare text-lg"></i> Cloudflare Hosting</div>
+                <div class="flex items-center gap-2"><i class="fa-brands fa-html5 text-lg"></i> Ren HTML/CSS</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-gauge-high text-lg"></i> 100/100 Hastighet</div>
+            </div>
+        </div>
+
+        <div class="relative hidden lg:flex justify-center h-[600px] items-center" data-aos="fade-left" data-aos-delay="200">
+            <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative w-full max-w-[450px] bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden z-10 animate-float">
+                <div class="h-10 bg-slate-800 flex items-center px-4 gap-2 border-b border-slate-700">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div class="ml-4 text-xs text-slate-400 font-mono">index.html</div>
+                </div>
+                <div class="p-6 font-mono text-sm">
+                    <div class="text-slate-500">&lt;!-- Teknisk SEO Fundament --&gt;</div>
+                    <div class="mt-2 text-blue-400">&lt;html <span class="text-green-400">lang</span>=<span class="text-yellow-300">"no"</span>&gt;</div>
+                    <div class="ml-4 mt-2 text-blue-400">&lt;head&gt;</div>
+                    <div class="ml-8 mt-2 text-slate-300">&lt;<span class="text-blue-400">meta</span> <span class="text-green-400">name</span>=<span class="text-yellow-300">"description"</span> <span class="text-green-400">content</span>=<span class="text-yellow-300">"Lynrask nettside"</span>&gt;</div>
+                    <div class="ml-8 mt-2 text-slate-300">&lt;<span class="text-blue-400">link</span> <span class="text-green-400">rel</span>=<span class="text-yellow-300">"stylesheet"</span> <span class="text-green-400">href</span>=<span class="text-yellow-300">"style.css"</span>&gt;</div>
+                    <div class="ml-4 mt-2 text-blue-400">&lt;/head&gt;</div>
+                    <div class="ml-4 mt-2 text-blue-400">&lt;body <span class="text-green-400">class</span>=<span class="text-yellow-300">"optimized"</span>&gt;</div>
+                    <div class="ml-8 mt-2 text-purple-400">const <span class="text-white">loadTime</span> = <span class="text-yellow-300">"0.2s"</span>;</div>
+                    <div class="ml-8 mt-2 text-slate-500">// Klar for trafikk</div>
+                    <div class="ml-4 mt-2 text-blue-400">&lt;/body&gt;</div>
+                    <div class="mt-2 text-blue-400">&lt;/html&gt;</div>
+                </div>
+            </div>
+
+            <div class="absolute top-20 -left-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 z-30 animate-float-delayed">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0"><i class="fa-solid fa-arrow-trend-up text-xl"></i></div>
+                <div><p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Lastehastighet</p><p class="text-sm font-bold text-slate-900 leading-tight">99/100 poeng</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hva-vi-gjor" class="py-24 px-6 relative w-full overflow-hidden bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">Asfalten du kjører <span class="text-blue-600">markedsføringen</span> på</h2>
+            <p class="text-slate-500 text-lg max-w-3xl mx-auto">Mange webbyråer bruker tunge systemer som WordPress eller Wix. De ser kanskje fine ut, men under panseret er koden et rot som gjør siden treg. Slik bygger jeg et fundament som Google faktisk belønner:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-slate-100" data-aos="fade-up">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6"><i class="fa-solid fa-bolt text-2xl"></i></div>
+                <h3 class="text-2xl font-bold mb-4">Lynrask Hastighet</h3>
+                <p class="text-slate-500 leading-relaxed">Siden jeg skriver all HTML for hånd og har CSS-koden i separate filer, finnes det ingenting unødvendig som drar ned farten. I tillegg hostes siden din direkte på Cloudflare, noe som betyr at den laster på millisekunder uansett hvor kunden befinner seg.</p>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6"><i class="fa-solid fa-mobile-screen text-2xl"></i></div>
+                <h3 class="text-2xl font-bold mb-4">Feilfri Mobilvisning</h3>
+                <p class="text-slate-500 leading-relaxed">Google rangerer i dag nettsider utelukkende basert på hvordan de fungerer på mobil (Mobile-first indexing). Alle nettsider jeg lager er alltid 100% mobilvennlige, slik at kundene dine får en perfekt opplevelse enten de er på byggeplassen eller i sofaen.</p>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2rem] shadow-xl border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6"><i class="fa-solid fa-code text-2xl"></i></div>
+                <h3 class="text-2xl font-bold mb-4">Ren og Lesbar Kode</h3>
+                <p class="text-slate-500 leading-relaxed">Søkemotorer leser ikke bilder, de leser kode. Med ren, semantisk HTML forstår Googles roboter umiddelbart hvem bedriften din er, hva dere tilbyr, og hvor dere holder til. Det er avgjørende for organisk synlighet i Drammen og omegn.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-slate-900 relative overflow-hidden w-full border-t border-slate-800">
+    <div class="absolute inset-0 bg-blue-600/5 blur-[100px] pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6"><i class="fa-solid fa-server"></i> Null Binding</div>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Bedriften din eier <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">infrastrukturen.</span></h2>
+                <p class="text-slate-400 text-lg mb-8 leading-relaxed">Jeg selger ikke dyre, løpende markedsføringskampanjer. Jeg bygger nettsiden først, og du betaler kun oppstartsprisen pluss 199,- i måneden for at serveren skal gå. Siden er din, og jeg legger til rette for alle analyseverktøy (som Google Analytics) bedriften trenger.</p>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-slate-300"><i class="fa-solid fa-check text-green-500"></i> Klar for Google Ads og Meta Pixel</li>
+                    <li class="flex items-center gap-3 text-slate-300"><i class="fa-solid fa-check text-green-500"></i> Enkelt å koble på markedsføringsbyråer</li>
+                    <li class="flex items-center gap-3 text-slate-300"><i class="fa-solid fa-check text-green-500"></i> Bygges først, du betaler kun hvis du er fornøyd</li>
+                </ul>
+
+                <a href="kontakt.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-900 transition-all duration-200 bg-white border border-transparent rounded-full hover:bg-blue-50 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]">Bestill gratis utkast i dag</a>
+            </div>
+
+            <div class="relative hidden md:block" data-aos="fade-left">
+                <div class="relative bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700/50 rounded-[2.5rem] p-8 shadow-2xl">
+                    <h3 class="text-white font-bold text-xl mb-6">Slik fungerer prosessen:</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-600/20 border border-blue-500 flex items-center justify-center text-blue-400 font-bold shrink-0">1</div>
+                            <div>
+                                <h4 class="text-white font-bold">100% Teknisk Oppsett</h4>
+                                <p class="text-slate-400 text-sm mt-1">Jeg håndkoder design, HTML og CSS, og optimaliserer for Core Web Vitals.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-600/20 border border-blue-500 flex items-center justify-center text-blue-400 font-bold shrink-0">2</div>
+                            <div>
+                                <h4 class="text-white font-bold">Lansering på Cloudflare</h4>
+                                <p class="text-slate-400 text-sm mt-1">Siden går live. Du betaler via Stripe og får alt levert i en ren ZIP-fil.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400 font-bold shrink-0"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <h4 class="text-white font-bold">Klar for Trafikk</h4>
+                                <p class="text-slate-400 text-sm mt-1">Du har nå det perfekte grunnlaget for organisk vekst eller for at byråer kan kjøre annonser for deg.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div class="space-y-6">
+                <a href="index.html" class="logo-container group text-white">
+                    <div class="logo-symbol">
+                        <span class="logo-id">ID</span>
+                        <div class="logo-cursor"></div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Index</span>
+                        <span class="logo-subtitle text-slate-300">Development</span>
+                    </div>
+                </a>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Skreddersydde nettsider som hjelper lokale bedrifter med å vokse.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">Meny</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Hjem</a></li>
+                    <li><a href="prosjekter.html" class="hover:text-blue-400 transition-colors">Prosjekter</a></li>
+                    <li><a href="prosess.html" class="hover:text-blue-400 transition-colors">Prosess</a></li>
+                    <li><a href="om-meg.html" class="hover:text-blue-400 transition-colors">Om meg</a></li>
+                    <li><a href="kontakt.html" class="hover:text-blue-400 transition-colors">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">Kontakt</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-blue-500"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition">andreas@indexdevelopment.no</a></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-blue-500"></i> <span>+47 48 45 96 86</span></li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-blue-500"></i> <span>Drammen, Norge</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">Lurer du på noe?</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva koster en nettside?</a></li>
+                    <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hvor lang tid tar det?</a></li>
+                    <li><a href="kontakt.html#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-circle-question text-blue-500 text-xs"></i> Hva er inkludert?</a></li>
+                </ul>
+                <a href="kontakt.html" class="inline-block mt-6 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition shadow-lg shadow-blue-900/20">Snakk med meg</a>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <p>&copy; 2026 Index Development Melheim. Org. nr. 936 933 661</p>
+            <div class="flex gap-6">
+                <a href="personvern.html" class="hover:text-white transition">Personvern</a>
+                <a href="vilkar.html" class="hover:text-white transition">Vilkår</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mobile Menu
+        const btn = document.getElementById("mobile-menu-button"); 
+        const menu = document.getElementById("mobile-menu");
+        if(btn && menu) { btn.addEventListener("click", () => { menu.classList.toggle("hidden"); }); }
+
+        // Init AOS
+        if(typeof AOS !== 'undefined') { AOS.init({ once: true, offset: 50, duration: 800 }); }
+    });
+</script>
+
+</body>
+</html>

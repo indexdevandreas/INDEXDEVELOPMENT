@@ -1,148 +1,313 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Personvern | Index Development</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Hvordan Index Development håndterer personvern og data.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { 
+                extend: { 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#030008',
+                            card: '#0a0514',
+                            pink: '#e81cff',
+                            blue: '#00f0ff',
+                            border: '#1f1333',
+                            muted: '#9ca3af'
+                        }
+                    }
+                } 
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #030008; color: #ffffff; overflow-x: hidden; }
+
+        /* --- AMBIENT GLOWS --- */
+        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.3; pointer-events: none; }
+        .glow-1 { width: 800px; height: 800px; background: #4a1587; top: -200px; right: -200px; }
+
+        /* --- UTILS --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030008; }
+        ::-webkit-scrollbar-thumb { background: #1f1333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e81cff; }
+    </style>
 </head>
-<body class="bg-[#F5F5F7] text-slate-900 antialiased">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="index.html" class="logo-container group flex items-center text-slate-900 no-underline cursor-pointer">
-            <div class="logo-symbol flex items-center transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3">
-              <span class="logo-id font-black text-3xl md:text-4xl -tracking-[0.08em]">ID</span>
-              <div class="logo-cursor w-2.5 h-7 md:w-3 md:h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-sm ml-1 -skew-x-6 animate-pulse"></div>
-            </div>
-            <div class="logo-text flex flex-col ml-3">
-              <span class="logo-title font-extrabold text-base uppercase leading-[1.1]">Index</span>
-              <span class="logo-subtitle font-semibold text-[10px] text-slate-500 uppercase tracking-[0.15em]">Development</span>
-            </div>
-        </a>
+<body class="antialiased bg-brand-dark selection:bg-brand-pink selection:text-white">
 
-        <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-black transition flex items-center gap-2">
-            <span>←</span> Tilbake til forsiden
-        </a>
-      </div>
-    </nav>
+<div class="ambient-glow glow-1"></div>
 
-    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         
-        <h1 class="text-3xl md:text-5xl font-black mb-8">Personvernerklæring</h1>
-        <p class="text-slate-500 mb-12 text-lg leading-relaxed">
-            Denne personvernerklæringen beskriver hvordan <strong>Index Development</strong> (org.nr. 936 933 661) samler inn og behandler personopplysninger i forbindelse med drift av vår egen virksomhet.
-        </p>
+        <a href="index.html" class="flex items-center gap-3 z-20 flex-shrink-0">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
+                <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center font-bold text-xs tracking-tighter text-white">ID</div>
+            </div>
+            <span class="font-bold text-white text-xl tracking-tight">INDEX DEV.</span>
+        </a>
+
+        <div class="flex items-center justify-end gap-8 z-20 w-full">
+            <div class="hidden md:flex items-center gap-8">
+                <a href="prosess.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosess</a>
+                <a href="prosjekter.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosjekter</a>
+                <a href="om-meg.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Om oss</a>
+                <a href="kontakt.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Kontakt</a>
+                
+                <a href="kontakt.html" class="px-6 py-2.5 rounded-full border border-brand-pink/50 bg-[#05020a] text-white text-sm font-bold hover:bg-brand-pink/10 hover:border-brand-pink transition-all shadow-[0_0_15px_rgba(232,28,255,0.1)]">
+                    Book møte
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-white z-20" aria-label="Meny"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#030008]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-2xl">
+        <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosess</a>
+        <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosjekter</a>
+        <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Om oss</a>
+        <a href="kontakt.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Kontakt</a>
+        <a href="kontakt.html" class="block text-base font-bold text-brand-pink pt-2">Book møte →</a>
+    </div>
+</nav>
+
+<main class="pt-40 pb-32 px-6 relative z-10">
+    <div class="max-w-3xl mx-auto">
+        
+        <div class="mb-16">
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-6">Personvernerklæring</h1>
+            <p class="text-brand-muted text-lg leading-relaxed">
+                Denne personvernerklæringen beskriver hvordan <strong>Index Development</strong> (org.nr. 936 933 661) samler inn og behandler data i forbindelse med drift av vår virksomhet og våre B2B-tjenester.
+            </p>
+        </div>
 
         <div class="space-y-12">
             
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink text-sm"><i class="fa-solid fa-user-shield"></i></span> 
                     1. Behandlingsansvarlig
                 </h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Andreas Melheim (Index Development) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Har du spørsmål, kan du kontakte meg på <a href="mailto:andreas@indexdevelopment.no" class="text-blue-600 underline hover:text-black">andreas@indexdevelopment.no</a>.
+                <p class="text-brand-muted leading-relaxed">
+                    Andreas Melheim (Index Development) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Har du spørsmål, kan du kontakte oss på <a href="mailto:andreas@indexdevelopment.no" class="text-brand-pink hover:underline transition-all">andreas@indexdevelopment.no</a>.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    2. Vår rolle vs. Kundens rolle (Databehandler)
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-sm"><i class="fa-solid fa-server"></i></span> 
+                    2. Vår rolle vs. Kundens rolle
                 </h2>
-                <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl mb-4">
-                    <p class="text-slate-700 leading-relaxed font-medium">
-                        Viktig presisering angående kunders nettsider:
-                    </p>
-                    <p class="text-slate-600 leading-relaxed mt-4">
-                        Denne erklæringen gjelder kun for Index Development. For nettsidene vi utvikler og drifter for våre B2B-kunder, fungerer vi kun som teknisk tilrettelegger (Databehandler). Den enkelte bedrift (kunden) er selv Behandlingsansvarlig for alle data som samles inn via deres egen nettside (f.eks. kontaktskjemaer).
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <p class="text-white font-bold mb-2">Presisering av ansvarsforhold:</p>
+                    <p class="text-brand-muted leading-relaxed text-sm">
+                        Denne erklæringen gjelder utelukkende for Index Development. For nettsidene vi utvikler og hoster for våre kunder, fungerer vi teknisk som en tilrettelegger. Den enkelte bedrift (kunden) er selv Behandlingsansvarlig for alle data som samles inn via deres egen nettside (f.eks. via kontaktskjemaer).
                     </p>
                 </div>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    3. Hva slags informasjon samler vi inn?
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white text-sm"><i class="fa-solid fa-database"></i></span> 
+                    3. Informasjon vi samler inn
                 </h2>
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
-                    <ul class="space-y-4 text-slate-600">
-                        <li class="flex flex-col md:flex-row gap-2 md:gap-4">
-                            <span class="font-bold text-slate-900 min-w-[120px]">Kommunikasjon:</span>
-                            <span>Når du kontakter oss, lagrer vi navn, e-post og korrespondanse for å kunne svare deg og yte service.</span>
-                        </li>
-                        <li class="flex flex-col md:flex-row gap-2 md:gap-4">
-                            <span class="font-bold text-slate-900 min-w-[120px]">Kundeforhold:</span>
-                            <span>Når en avtale inngås, lagrer vi nødvendig bedrifts- og kontaktinformasjon for å oppfylle kontrakten og håndtere fakturering i henhold til bokføringsloven.</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    4. Informasjonskapsler (Cookies)
-                </h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Index Development benytter ingen sporings-cookies (som Facebook Pixel eller Google Analytics) for markedsføring på vår egen nettside. Ditt besøk her er privat.
-                </p>
-            </section>
-
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
-                    5. Deling av opplysninger og Underleverandører
-                </h2>
-                <p class="text-slate-600 leading-relaxed mb-4">
-                    Vi selger aldri personopplysninger. For å kunne levere våre tjenester (f.eks. domenekjøp og hosting), deler vi nødvendig bedriftsinformasjon med våre faste tekniske underleverandører:
-                </p>
-                <ul class="list-disc pl-5 space-y-2 text-slate-600">
-                    <li><strong>Domeneshop:</strong> For registrering av .no-domener på kundens vegne.</li>
-                    <li><strong>Cloudflare:</strong> For sikker og rask hosting av infrastruktur.</li>
-                    <li><strong>Fakto.no:</strong> For fakturering og regnskap.</li>
+                <ul class="space-y-6">
+                    <li class="border-b border-white/5 pb-6">
+                        <strong class="text-white block mb-2">Kommunikasjon</strong>
+                        <span class="text-brand-muted text-sm leading-relaxed block">Når du kontakter oss, lagrer vi navn, e-post og korrespondanse via Web3Forms for å kunne svare deg og yte service.</span>
+                    </li>
+                    <li>
+                        <strong class="text-white block mb-2">Kundeforhold og Betaling</strong>
+                        <span class="text-brand-muted text-sm leading-relaxed block">Når en avtale inngås, lagrer vi nødvendig bedriftsinformasjon for å oppfylle kontrakten. All betalingsbehandling, inkludert oppsettsgebyr og månedlig driftslisens, håndteres via faktura. Vi oppbevarer fakturainformasjon i henhold til bokføringsloven.</span>
+                    </li>
                 </ul>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-900">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full"></span> 
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink text-sm"><i class="fa-solid fa-cookie"></i></span> 
+                    4. Informasjonskapsler (Cookies)
+                </h2>
+                <p class="text-brand-muted leading-relaxed">
+                    Index Development benytter ingen sporing, analyseverktøy (som Google Analytics) eller markedsførings-cookies på vår egen nettside. Ditt besøk her er fullstendig privat og krever derfor ingen cookie-samtykke.
+                </p>
+            </section>
+
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-sm"><i class="fa-solid fa-network-wired"></i></span> 
+                    5. Deling med Underleverandører
+                </h2>
+                <p class="text-brand-muted leading-relaxed mb-6">
+                    Vi selger aldri opplysninger. For å kunne drifte vår infrastruktur, benytter vi oss av følgende anerkjente underleverandører:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-[#030008] p-4 rounded-xl border border-white/5">
+                        <strong class="text-white text-sm block mb-1">Cloudflare</strong>
+                        <span class="text-brand-muted text-xs">For sikker hosting og optimalisert nettverksytelse.</span>
+                    </div>
+                    <div class="bg-[#030008] p-4 rounded-xl border border-white/5">
+                        <strong class="text-white text-sm block mb-1">Fakturasystem</strong>
+                        <span class="text-brand-muted text-xs">For sikker håndtering av fakturaer og regnskap.</span>
+                    </div>
+                    <div class="bg-[#030008] p-4 rounded-xl border border-white/5">
+                        <strong class="text-white text-sm block mb-1">Web3Forms</strong>
+                        <span class="text-brand-muted text-xs">For sikker ruting av henvendelser fra kontaktskjema.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-brand-card border border-white/5 p-8 rounded-[2rem]">
+                <h2 class="text-xl font-bold mb-4 text-white flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white text-sm"><i class="fa-solid fa-scale-balanced"></i></span> 
                     6. Dine rettigheter
                 </h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Du har rett til å kreve innsyn, retting eller sletting av personopplysningene vi behandler om deg, med mindre lovverk (som bokføringsloven) krever at vi oppbevarer dem. Kontakt oss på e-post for å benytte deg av disse rettighetene.
+                <p class="text-brand-muted leading-relaxed">
+                    Du har rett til å kreve innsyn, retting eller sletting av opplysningene vi behandler om din bedrift, med mindre annet lovverk (som f.eks. bokføringsloven) krever at vi oppbevarer dem. Kontakt oss på e-post for bistand.
                 </p>
             </section>
 
         </div>
 
-        <div class="mt-16 pt-8 border-t border-slate-200 text-center">
-            <p class="text-slate-400 text-sm">Sist oppdatert: Februar 2026</p>
+        <div class="mt-16 pt-8 border-t border-white/10 text-center">
+            <p class="text-slate-600 text-sm font-medium uppercase tracking-widest">Sist oppdatert: Mars 2026</p>
         </div>
 
-    </main>
+    </div>
+</main>
 
-    <footer class="bg-slate-200 py-12 border-t border-slate-300">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex flex-col gap-2 items-center md:items-start text-slate-600 text-sm font-medium">
-          <span class="font-bold text-black">Index Development</span>
-          <a href="mailto:andreas@indexdevelopment.no" class="hover:text-black transition">andreas@indexdevelopment.no</a>
+<section class="relative w-full h-[250px] md:h-[400px] overflow-hidden bg-brand-dark z-0 mt-12">
+    <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-pink/30 blur-[100px] rounded-full pointer-events-none"></div>
+    <svg class="absolute bottom-0 w-full h-full object-cover" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/></svg>
+    <svg class="absolute bottom-0 w-full h-[70%] object-cover" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/></svg>
+    <svg class="absolute bottom-0 w-full h-[40%] object-cover" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 120V50L250 100L450 30L650 110L950 40L1200 90L1440 20V120H0Z" fill="#000000"/></svg>
+</section>
+
+<footer class="bg-[#000000] pt-8 pb-12 relative z-20">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20 relative z-10">
+            
+            <div class="lg:col-span-4 pr-0 lg:pr-8">
+                <a href="index.html" class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
+                        <div class="w-full h-full bg-[#000000] rounded-full flex items-center justify-center font-black text-sm tracking-tighter text-white">ID</div>
+                    </div>
+                    <span class="font-black text-white text-2xl tracking-tight uppercase">Index Dev.</span>
+                </a>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
+                    Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører. Vi fjerner teknisk støy og bygger digitale infrastruktur som faktisk skaffer deg kunder.
+                </p>
+                <div class="flex items-center gap-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:border-brand-blue hover:text-white transition-all shadow-lg"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all shadow-lg"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white hover:border-white hover:text-black transition-all shadow-lg"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3">
+                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Våre Tjenester</h4>
+                <ul class="space-y-4 text-sm font-medium">
+                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Skreddersydd Webdesign</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Teknisk SEO & Synlighet</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Lynrask Håndkoding</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Drift & Sikkerhet</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Konverteringsoptimalisering</a></li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-2">
+                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Selskap</h4>
+                <ul class="space-y-4 text-sm font-medium">
+                    <li><a href="prosess.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosess</a></li>
+                    <li><a href="prosjekter.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosjekter</a></li>
+                    <li><a href="om-meg.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Om oss</a></li>
+                    <li><a href="kontakt.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-3">
+                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Ta Kontakt</h4>
+                <ul class="space-y-5 text-sm font-medium mb-8">
+                    <li class="flex items-center gap-4 group">
+                        <div class="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink group-hover:bg-brand-pink group-hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></div>
+                        <a href="mailto:andreas@indexdevelopment.no" class="text-slate-300 hover:text-white transition-colors">andreas@indexdevelopment.no</a>
+                    </li>
+                    <li class="flex items-center gap-4 group">
+                        <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors"><i class="fa-solid fa-phone"></i></div>
+                        <span class="text-slate-300">+47 48 45 96 86</span>
+                    </li>
+                    <li class="flex items-center gap-4 group">
+                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors"><i class="fa-solid fa-location-dot"></i></div>
+                        <span class="text-slate-300">Drammen, Norge</span>
+                    </li>
+                </ul>
+                
+                <a href="kontakt.html" class="inline-flex items-center gap-2 px-6 py-3 w-full justify-center bg-white/5 border border-white/10 rounded-full text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-pink hover:border-brand-pink transition-all shadow-[0_0_15px_rgba(232,28,255,0)] hover:shadow-[0_0_20px_rgba(232,28,255,0.3)]">
+                    Book Strategisamtale <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
-        <div class="text-slate-500 text-xs text-center md:text-right flex flex-col gap-1">
-          <span>© 2026 Index Development Melheim</span>
-          <span>Org. nr. 936 933 661</span>
-          <div class="mt-2 flex gap-4 justify-center md:justify-end">
-            <a href="personvern.html" class="text-black underline">Personvern</a>
-            <a href="vilkar.html" class="hover:text-black underline transition">Salgsbetingelser</a>
-          </div>
+
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 relative z-10 gap-4">
+            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
+                <span>&copy; 2026 Index Development Melheim. Alle rettigheter reservert.</span>
+                <span class="hidden md:inline text-white/20">|</span>
+                <span>Org nr. 936 933 661</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="personvern.html" class="hover:text-white hover:underline transition-all">Personvernerklæring</a>
+                <a href="vilkar.html" class="hover:text-white hover:underline transition-all">Vilkår & Betingelser</a>
+            </div>
         </div>
-      </div>
-    </footer>
+
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", function() {
+        const btn = document.getElementById("mobile-menu-button");
+        const menu = document.getElementById("mobile-menu");
+        if(btn && menu) {
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        }
+    });
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+            nav.classList.add('bg-[#030008]/90', 'backdrop-blur-xl', 'shadow-2xl');
+            nav.classList.remove('py-5');
+            nav.classList.add('py-4');
+        } else {
+            nav.classList.remove('bg-[#030008]/90', 'backdrop-blur-xl', 'shadow-2xl');
+            nav.classList.add('py-5');
+            nav.classList.remove('py-4');
+        }
+    });
+</script>
 
 </body>
 </html>
