@@ -1,0 +1,35 @@
+/* --- GLOBAL MOBILE RESET --- */
+@media (max-width: 768px) {
+    /* Hindrer horisontal scrolling en gang for alle */
+    html, body {
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Nedjuster de enorme overskriftene */
+    h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1 !important;
+    }
+
+    h2 {
+        font-size: 2.2rem !important;
+    }
+
+    /* FAQ og Sticker-fix */
+    #faq .grid {
+        gap: 1.5rem !important;
+    }
+
+    /* Sørg for at sticker-bildet ikke blir gigantisk og dytter alt */
+    .sticker-container img {
+        max-width: 80% !important;
+        margin: 0 auto;
+    }
+
+    /* Fjern for mye luft på sidene så innholdet får plass */
+    .max-w-7xl {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+}
