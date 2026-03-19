@@ -41,31 +41,29 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
     <style>
-        /* --- TOTAL MOBIL-LOCKDOWN --- */
+        /* --- TOTAL MOBIL-LOCKDOWN Uten å ødelegge DOM --- */
         html, body { 
             background-color: #030008; 
             color: #ffffff; 
-            overflow-x: hidden; /* Fjerner all horisontal scroll */
-            width: 100%;
-            position: relative;
+            overflow-x: hidden; 
+            width: 100vw;
+            max-width: 100%;
             margin: 0;
             padding: 0;
+            position: relative;
         }
 
-        /* --- HARDWARE ACCELERATED FALLING STARS --- */
+        /* --- FALLING STARS --- */
         .stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; transform: rotate(-45deg); pointer-events: none; }
         .star { position: absolute; width: 150px; height: 2px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(232,28,255,1)); animation: fall linear infinite; opacity: 0; will-change: transform, opacity; }
         @keyframes fall { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(-1500px); opacity: 0; } }
         .star:nth-child(1) { top: 10%; right: -100px; animation-duration: 3s; animation-delay: 0s; }
         .star:nth-child(2) { top: 30%; right: -100px; animation-duration: 4s; animation-delay: 1.5s; }
         .star:nth-child(3) { top: 50%; right: -100px; animation-duration: 2.5s; animation-delay: 3s; }
-        .star:nth-child(4) { top: 70%; right: -100px; animation-duration: 3.5s; animation-delay: 0.5s; }
-        .star:nth-child(5) { top: 90%; right: -100px; animation-duration: 5s; animation-delay: 2s; }
 
         /* --- AMBIENT GLOWS --- */
-        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.4; pointer-events: none; will-change: transform; }
+        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.4; pointer-events: none; }
         .glow-1 { width: 800px; height: 800px; background: #4a1587; top: -200px; right: -200px; }
-        .glow-2 { width: 1000px; height: 600px; background: #e81cff; bottom: -200px; left: -200px; opacity: 0.15; }
 
         /* --- BUTTONS --- */
         .btn-magenta { background-color: #e81cff; color: white; border-radius: 9999px; transition: all 0.3s; box-shadow: 0 0 20px rgba(232, 28, 255, 0.3); display: inline-flex; align-items: center; justify-content: center; border: 1px solid #e81cff; }
@@ -82,7 +80,6 @@
         .animate-float { animation: float 6s ease-in-out infinite; will-change: transform; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* --- OPTIMIZED TEXT GLOW (DARK MODE) --- */
         .glow-text-optimized { background: linear-gradient(90deg, #475569 0%, #ffffff 50%, #475569 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shine 4s linear infinite; }
         .glow-text-light { background: linear-gradient(90deg, #1e293b 0%, #e81cff 50%, #1e293b 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shine 4s linear infinite; }
         @keyframes shine { to { background-position: 200% center; } }
@@ -95,14 +92,13 @@
         
         .circular-text { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 13.5px; fill: #0f172a; letter-spacing: 2px; }
 
-        /* Responsiv fontjustering for å hindre kræsj */
         @media (max-width: 768px) {
             h1 { font-size: 2.8rem !important; line-height: 1.1 !important; }
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased relative">
 
 <div class="ambient-glow glow-1"></div>
 
@@ -130,17 +126,17 @@
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-[#030008]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-2xl">
-        <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosess</a>
-        <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosjekter</a>
-        <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Om oss</a>
-        <a href="kontakt.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Kontakt</a>
+        <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink pb-2">Prosess</a>
+        <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink pb-2">Prosjekter</a>
+        <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink pb-2">Om oss</a>
+        <a href="kontakt.html" class="block text-base font-medium text-white hover:text-brand-pink pb-2">Kontakt</a>
         <a href="kontakt.html" class="block text-base font-bold text-brand-pink pt-2">Book møte →</a>
     </div>
 </nav>
 
 <section class="relative pt-48 pb-32 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden">
     <div class="stars-container">
-        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div><div class="star"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -150,13 +146,13 @@
                 Premium B2B Infrastruktur
             </div>
             
-            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-8 tracking-tight">
+            <h1 class="font-black text-white leading-[1.05] mb-8 tracking-tight md:text-7xl lg:text-[5.5rem]">
                 Du fokuserer på bedriften,<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">vi bygger maskineriet.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-lg font-medium leading-relaxed">
-                Hos Index bygger vi kompromissløse, håndkodede nettsider for ambisiøse aktører. Vi gjør besøkende om til leads, etablerer deg som markedsleder, og fjerner all teknisk støy.
+                Glem trege ferdigmaler og teknisk hodebry. Vi bygger 100 % håndkodede, lynraske nettsider fra bunnen av. Du får en digital maskin som fyller ordreboka di, mens vi tar oss av all drift.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
@@ -192,25 +188,28 @@
     </div>
 </section>
 
-<section class="pt-24 pb-8 px-6 relative z-10 bg-brand-dark">
+<section class="pt-24 pb-16 px-6 relative z-10 bg-brand-dark">
     <div class="max-w-5xl mx-auto text-center md:text-left" data-aos="fade-up">
         <h2 class="text-3xl md:text-5xl font-medium leading-tight text-slate-600">
             <span class="glow-text-optimized">
-                En nettside uten resultater er verdiløs. Vi bygger digital infrastruktur for bedrifter som vil dominere sitt lokalmarked. Null bindingstid, null teknisk hodepine, og du betaler ingenting før du er fornøyd. Du leverer håndverket, vi leverer kundene.
+                En nettside uten resultater er verdiløs. Vi bygger digital infrastruktur for bedrifter som vil dominere sitt lokalmarked. Null bindingstid, null teknisk hodepine, og du betaler ingenting før du er fornøyd.
             </span>
         </h2>
     </div>
 </section>
 
-<section class="relative w-full h-[150px] md:h-[400px] overflow-hidden bg-brand-dark z-0">
-    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#030008] to-transparent z-10"></div>
-    <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-pink/30 blur-[100px] rounded-full pointer-events-none"></div>
-    <svg class="absolute bottom-0 w-full h-full object-cover" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/></svg>
-    <svg class="absolute bottom-0 w-full h-[70%] object-cover" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/></svg>
-    <svg class="absolute bottom-0 w-full h-[40%] object-cover" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 120V50L250 100L450 30L650 110L950 40L1200 90L1440 20V120H0Z" fill="#030008"/></svg>
+<section class="relative w-full h-[120px] md:h-[350px] overflow-hidden bg-[#030008] -mt-1 -mb-1 z-0">
+    <div class="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-[#030008] to-transparent z-10"></div>
+    
+    <svg class="absolute bottom-0 w-full h-full object-cover opacity-30 md:opacity-100" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/>
+        <path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/>
+    </svg>
+    
+    <div class="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-[#1f0a38] to-transparent z-10"></div>
 </section>
 
-<section id="tjenester" class="py-24 relative z-10 bg-[#030008]">
+<section id="tjenester" class="py-24 relative z-10 bg-[#1f0a38]">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
@@ -263,7 +262,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             
             <div data-aos="fade-right" class="lg:sticky lg:top-32">
-                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold tracking-widest uppercase mb-8 shadow-xl shadow-slate-200/50">
+                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold tracking-widest uppercase mb-8 shadow-xl">
                     <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span> Null Risiko
                 </div>
                 
@@ -273,11 +272,10 @@
                 </h2>
                 
                 <p class="text-lg text-slate-600 mb-6 leading-relaxed font-medium max-w-lg">
-                    Alle byråer sier dette, men vi har bygget hele selskapet vårt rundt det. De fleste krever 50 % på forskudd og binder deg i lange kontrakter. Vi gjør det stikk motsatte.
+                    Vi designer og koder nettsiden din ferdig før du betaler en krone. Er du ikke 100 % fornøyd, koster det deg ingenting. 
                 </p>
-                
                 <p class="text-lg text-slate-600 mb-10 leading-relaxed font-medium max-w-lg">
-                    Vi designer og koder nettsiden din ferdig før du betaler en krone. Er du ikke 100 % fornøyd, koster det deg ingenting. Vår modell er brutal, men enkel: Vi bygger et rått produkt, og vi tar kun betalt for oppsett og drift når vi har levert en infrastruktur du faktisk vil bruke. Ren prestasjon, null risiko.
+                    Vår modell er brutal, men enkel: Vi bygger et rått produkt, og vi tar kun betalt for oppsett og drift når vi har levert en infrastruktur du faktisk vil bruke.
                 </p>
                 
                 <div class="relative w-full max-w-md mx-auto lg:mx-0">
@@ -287,7 +285,7 @@
 
             <div class="w-full flex flex-col pt-4 lg:pt-0" data-aos="fade-left">
                 
-                <div class="w-full space-y-5 mb-20">
+                <div class="w-full space-y-5 mb-16 relative z-20">
                     <div class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-300">
                         <button class="w-full pl-8 pr-6 py-6 flex justify-between items-center text-left bg-transparent focus:outline-none">
                             <span class="glow-text-light font-medium text-lg md:text-xl tracking-tight">Hvor mye koster en nettside?</span>
@@ -325,7 +323,7 @@
                     </div>
                 </div>
 
-                <div class="w-full flex justify-center items-center">
+                <div class="w-full flex justify-center items-center relative z-10 pb-8">
                     <div class="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
                         <svg viewBox="0 0 200 200" class="absolute inset-0 w-full h-full animate-spin-text">
                             <path id="textPath2" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none" />
@@ -335,7 +333,6 @@
                                 </textPath>
                             </text>
                         </svg>
-                        
                         <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[3px] shadow-[0_10px_30px_rgba(232,28,255,0.25)] z-10 hover:scale-105 transition-transform">
                             <div class="w-full h-full bg-white rounded-full flex items-center justify-center font-black text-3xl md:text-4xl text-slate-900">ID</div>
                         </div>
@@ -350,36 +347,32 @@
 <section id="garanti" class="py-32 relative z-10 bg-brand-dark">
     <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#030008] to-transparent pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            <div data-aos="fade-right">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-                    Gjør nettsiden fra en byrde <br>
-                    <span class="text-brand-pink">&rarr; til din største ressurs.</span>
-                </h2>
-                <p class="text-lg text-brand-muted mb-10 leading-relaxed font-medium">
-                    Nettsiden din skal ikke være en kostnadspost som krever konstant vedlikehold – den skal drive faktiske resultater. Vi gjør underpresterende sider om til kraftige vekstmotorer.
-                </p>
-                <div class="flex gap-4">
-                    <a href="kontakt.html" class="btn-magenta px-8 py-4 font-bold text-sm text-center">Book Strategisamtale</a>
-                </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                Kast utdaterte systemer. <br>
+                <span class="text-brand-pink">Få en nettside som aldri krasjer.</span>
+            </h2>
+            <p class="text-lg text-brand-muted mb-6 leading-relaxed font-medium">
+                Trøbbel med WordPress-plugins som feiler? Dyre IT-timer? Glem det. Vi bygger statiske, håndkodede nettsider. Null databaser som kan hackes, ingen trege oppdateringer.
+            </p>
+            <div class="flex gap-4">
+                <a href="#pris" class="btn-magenta px-8 py-4 font-bold text-sm">Se enkle priser</a>
+            </div>
+        </div>
+        
+        <div class="relative w-full flex flex-col lg:block" data-aos="fade-left">
+            <div class="w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-10">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80" alt="Ren kode" class="w-full h-full object-cover mix-blend-luminosity opacity-40">
             </div>
             
-            <div class="relative w-full flex flex-col lg:block" data-aos="fade-left">
-                <div class="w-full aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Kode og analyse" class="w-full h-full object-cover mix-blend-luminosity opacity-40 hover:scale-105 transition-transform duration-1000">
+            <div class="mt-6 lg:mt-0 lg:absolute lg:bottom-8 lg:left-[-40px] bg-[#0a0514] lg:bg-[#0a0514]/90 lg:backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl z-20">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-8 h-8 rounded-full bg-brand-pink/20 text-brand-pink flex items-center justify-center"><i class="fa-solid fa-server"></i></div>
+                    <h4 class="text-white font-bold text-lg">Skuddsikker Infrastruktur</h4>
                 </div>
-                
-                <div class="mt-6 lg:mt-0 lg:absolute lg:bottom-8 lg:left-8 lg:right-8 bg-[#0a0514]/90 backdrop-blur-xl p-6 rounded-2xl border border-white/10 lg:shadow-2xl">
-                    <div class="flex items-center gap-4 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-brand-pink/20 text-brand-pink flex items-center justify-center"><i class="fa-solid fa-shield-check"></i></div>
-                        <h4 class="text-white font-bold text-lg">Ingen forskuddsbetaling</h4>
-                    </div>
-                    <p class="text-brand-muted text-sm leading-relaxed pl-12">Vi bygger og designer nettsiden din ferdig. Liker du den, betaler du. Hvis ikke koster det deg ingenting.</p>
-                </div>
+                <p class="text-brand-muted text-sm leading-relaxed pl-12">Ingen nedetid, ingen plugins som feiler. Bare ren kode.</p>
             </div>
-
         </div>
     </div>
 </section>
@@ -388,128 +381,81 @@
     <div class="max-w-7xl mx-auto relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Enkle priser. <span class="text-brand-pink">Ingen tull.</span></h2>
-            <p class="text-brand-muted text-lg max-w-2xl mx-auto mb-6">Fastpris for oppsett, deretter kun <strong class="text-white">199,-/mnd</strong> for domene og lynrask drift.</p>
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto mb-6">Fastpris for oppsett, deretter kun <strong class="text-white">199,-/mnd</strong> for drift.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            
-            <div class="relative p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-white/10 flex flex-col h-full hover:border-white/30 transition-colors" data-aos="fade-up">
-                <div class="mb-6">
-                    <h3 class="text-2xl font-bold text-white mb-4">Start</h3>
-                    <span class="text-5xl font-black text-white tracking-tight">1.999,-</span>
-                </div>
-                <p class="text-white text-sm mb-6 leading-relaxed">Perfekt for enkeltmannsforetak. Teknisk feilfri arkitektur som konverterer.</p>
-                
-                <div class="flex justify-between text-xs text-white pb-6 border-b border-white/10 mb-8">
-                    <span class="text-brand-muted">Driftslisens:</span><span class="font-bold text-brand-blue">199,-/mnd</span>
-                </div>
-
-                <ul class="space-y-4 mb-10 flex-grow text-sm">
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Én kompromissløs landingsside</span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Kontaktskjema & Lead-generering</span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Grunnleggende Teknisk SEO</span></li>
+            <div class="p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-white/10 flex flex-col h-full" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-white mb-4">Start</h3>
+                <span class="text-5xl font-black text-white tracking-tight mb-8">1.999,-</span>
+                <ul class="space-y-4 mb-10 flex-grow text-sm text-white">
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Én landingsside</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Grunnleggende SEO</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Mobiloptimalisert</li>
                 </ul>
-                
-                <a href="kontakt.html" class="mt-auto block w-full py-4 text-center rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-all">Bestill utkast</a>
+                <a href="kontakt.html" class="w-full py-4 text-center rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-all">Bestill utkast</a>
             </div>
 
-            <div class="relative p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-brand-pink flex flex-col h-full transform md:-translate-y-4 shadow-[0_0_30px_rgba(241,25,86,0.15)]" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-brand-pink/5 to-transparent pointer-events-none rounded-[2rem]"></div>
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-pink text-white px-5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">Anbefalt</div>
-                
-                <div class="mb-6 mt-2 relative z-10">
-                    <h3 class="text-2xl font-bold text-white mb-4">Medium</h3>
-                    <span class="text-5xl font-black text-white tracking-tight">6.999,-</span>
-                </div>
-                <p class="text-white text-sm mb-6 leading-relaxed relative z-10">For bedrifter som skal skalere. Flere undersider og massiv rom for vekst.</p>
-                
-                <div class="flex justify-between text-xs text-white pb-6 border-b border-white/10 mb-8 relative z-10">
-                    <span class="text-brand-muted">Driftslisens:</span><span class="font-bold text-brand-blue">199,-/mnd</span>
-                </div>
-
-                <ul class="space-y-4 mb-10 flex-grow text-sm relative z-10">
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Opptil <strong>5 undersider</strong></span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Skreddersydd Premium UI/UX Design</span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Avansert Teknisk SEO & Hastighet</span></li>
+            <div class="p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-brand-pink flex flex-col h-full transform md:-translate-y-4 shadow-[0_0_30px_rgba(241,25,86,0.15)] relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-pink text-white px-5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest">Anbefalt</div>
+                <h3 class="text-2xl font-bold text-white mb-4 mt-2">Medium</h3>
+                <span class="text-5xl font-black text-white tracking-tight mb-8">6.999,-</span>
+                <ul class="space-y-4 mb-10 flex-grow text-sm text-white">
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Opptil 5 undersider</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Premium Design</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Avansert SEO</li>
                 </ul>
-                
-                <a href="kontakt.html" class="mt-auto block text-center w-full py-4 rounded-full bg-brand-pink text-white font-bold hover:bg-[#d1154a] transition relative z-10">Bestill utkast</a>
+                <a href="kontakt.html" class="w-full py-4 text-center rounded-full bg-brand-pink text-white font-bold hover:opacity-90 transition">Bestill utkast</a>
             </div>
 
-            <div class="relative p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-white/10 flex flex-col h-full hover:border-white/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
-                <div class="mb-6">
-                    <h3 class="text-2xl font-bold text-white mb-4">Total</h3>
-                    <span class="text-5xl font-black text-white tracking-tight">14.999,-</span>
-                </div>
-                <p class="text-white text-sm mb-6 leading-relaxed">Hele maskineriet. Vi bygger alt, inkludert produksjon av konverterende tekster.</p>
-                
-                <div class="flex justify-between text-xs text-white pb-6 border-b border-white/10 mb-8">
-                    <span class="text-brand-muted">Driftslisens:</span><span class="font-bold text-brand-blue">199,-/mnd</span>
-                </div>
-
-                <ul class="space-y-4 mb-10 flex-grow text-sm">
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span><strong>Ubegrenset</strong> antall undersider</span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Komplett SEO Innholdsstrategi</span></li>
-                    <li class="flex items-start gap-3 text-white"><i class="fa-solid fa-check text-brand-pink mt-1"></i> <span>Konverterende Tekstforfatting</span></li>
+            <div class="p-8 md:p-10 rounded-[2rem] bg-[#07040a] border border-white/10 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-2xl font-bold text-white mb-4">Total</h3>
+                <span class="text-5xl font-black text-white tracking-tight mb-8">14.999,-</span>
+                <ul class="space-y-4 mb-10 flex-grow text-sm text-white">
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Komplett nettside</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Tekstforfatting</li>
+                    <li><i class="fa-solid fa-check text-brand-pink mr-2"></i> Prioritert support</li>
                 </ul>
-                
-                <a href="kontakt.html" class="mt-auto block text-center w-full py-4 rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition">Book samtale</a>
+                <a href="kontakt.html" class="w-full py-4 text-center rounded-full border border-white/20 text-white font-bold hover:bg-white hover:text-black transition">Book samtale</a>
             </div>
-
         </div>
     </div>
 </section>
 
-<section class="relative w-full h-[150px] md:h-[400px] overflow-hidden bg-brand-dark z-0 mt-12">
-    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#030008] to-transparent z-10"></div>
-    <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-pink/30 blur-[100px] rounded-full pointer-events-none"></div>
-    <svg class="absolute bottom-0 w-full h-full object-cover" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/></svg>
-    <svg class="absolute bottom-0 w-full h-[70%] object-cover" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/></svg>
-    <svg class="absolute bottom-0 w-full h-[40%] object-cover" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 120V50L250 100L450 30L650 110L950 40L1200 90L1440 20V120H0Z" fill="#000000"/></svg>
+<section class="relative w-full h-[120px] md:h-[350px] overflow-hidden bg-[#030008] -mt-1 -mb-1 z-0">
+    <div class="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-[#030008] to-transparent z-10"></div>
+    
+    <svg class="absolute bottom-0 w-full h-full object-cover opacity-30 md:opacity-100" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/>
+        <path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/>
+    </svg>
+    
+    <div class="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-[#000000] to-transparent z-10"></div>
 </section>
 
-<footer class="bg-[#000000] pt-8 pb-12 relative z-20">
+<footer class="bg-[#000000] pt-12 pb-12 relative z-20">
     <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20 relative z-10">
-            
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
             <div class="lg:col-span-4 pr-0 lg:pr-8">
                 <a href="index.html" class="flex items-center gap-3 mb-8">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                        <div class="w-full h-full bg-[#000000] rounded-full flex items-center justify-center font-black text-sm tracking-tighter text-white">ID</div>
+                        <div class="w-full h-full bg-[#000000] rounded-full flex items-center justify-center font-black text-sm text-white">ID</div>
                     </div>
                     <span class="font-black text-white text-2xl tracking-tight uppercase">Index Dev.</span>
                 </a>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
-                    Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører. Vi fjerner teknisk støy og bygger digitale infrastruktur som faktisk skaffer deg kunder.
-                </p>
-                <div class="flex items-center gap-3">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:text-white transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-pink hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
-                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 font-medium">Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører.</p>
             </div>
 
             <div class="lg:col-span-3">
-                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Våre Tjenester</h4>
-                <ul class="space-y-4 text-sm font-medium text-slate-400">
-                    <li><a href="#" class="hover:text-brand-blue transition-colors">Skreddersydd Webdesign</a></li>
-                    <li><a href="#" class="hover:text-brand-blue transition-colors">Teknisk SEO & Synlighet</a></li>
-                    <li><a href="#" class="hover:text-brand-blue transition-colors">Lynrask Håndkoding</a></li>
-                    <li><a href="#" class="hover:text-brand-blue transition-colors">Drift & Sikkerhet</a></li>
-                </ul>
-            </div>
-
-            <div class="lg:col-span-2">
                 <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Selskap</h4>
                 <ul class="space-y-4 text-sm font-medium text-slate-400">
                     <li><a href="prosess.html" class="hover:text-brand-pink transition-colors">Prosess</a></li>
                     <li><a href="prosjekter.html" class="hover:text-brand-pink transition-colors">Prosjekter</a></li>
-                    <li><a href="om-meg.html" class="hover:text-brand-pink transition-colors">Om oss</a></li>
                     <li><a href="kontakt.html" class="hover:text-brand-pink transition-colors">Kontakt</a></li>
                 </ul>
             </div>
 
-            <div class="lg:col-span-3">
+            <div class="lg:col-span-5">
                 <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Ta Kontakt</h4>
                 <ul class="space-y-5 text-sm font-medium mb-8">
                     <li class="flex items-center gap-4">
@@ -522,7 +468,6 @@
                     </li>
                 </ul>
             </div>
-
         </div>
 
         <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 gap-4">
@@ -532,7 +477,6 @@
                 <span>Org nr. 936 933 661</span>
             </div>
         </div>
-
     </div>
 </footer>
 
