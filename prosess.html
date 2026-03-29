@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="no" class="scroll-smooth">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <title>Slik jobber vi | Index Development</title>
-    <meta name="description" content="En ryddig og forutsigbar prosess. Vi leverer skreddersydd kvalitet i alle ledd.">
+    <meta name="description" content="Fra første prat til ferdig lansert salgsmaskin. Se vår nøyaktige 3-stegs prosess for å bygge nettsider som skaffer kunder.">
+    <meta name="robots" content="index, follow" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2564&auto=format&fit=crop" as="image" fetchpriority="high">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,14 +23,8 @@
                 extend: { 
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            dark: '#030008',
-                            card: '#0a0514',
-                            pink: '#e81cff',
-                            blue: '#00f0ff',
-                            border: '#1f1333',
-                            muted: '#9ca3af'
-                        }
+                        dark: '#111827',
+                        light: '#f9fafb',
                     }
                 } 
             }
@@ -34,300 +32,375 @@
     </script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    
-    <style>
-        body { background-color: #030008; color: #ffffff; overflow-x: hidden; }
-
-        /* --- AMBIENT GLOWS --- */
-        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.4; pointer-events: none; }
-        .glow-1 { width: 800px; height: 800px; background: #4a1587; top: -200px; right: -200px; }
-        .glow-2 { width: 1000px; height: 600px; background: #e81cff; bottom: -200px; left: -200px; opacity: 0.15; }
-
-        /* --- BENTO CARDS --- */
-        .bento-card {
-            background: rgba(10, 5, 20, 0.4); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
-        }
-        .bento-card:hover { transform: translateY(-5px); border-color: rgba(232, 28, 255, 0.3); box-shadow: 0 20px 40px rgba(232, 28, 255, 0.1); background: rgba(10, 5, 20, 0.8); }
-
-        /* --- TIMELINE (DARK MODE) --- */
-        .timeline-line {
-            position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 2px;
-            background: rgba(255,255,255,0.05); overflow: hidden; border-radius: 99px; z-index: 0;
-        }
-        .timeline-beam {
-            position: absolute; top: 0; left: 0; width: 100%; height: 40%;
-            background: linear-gradient(to bottom, transparent, #e81cff, transparent);
-            filter: blur(2px); animation: beamFlow 3s linear infinite;
-        }
-        @keyframes beamFlow { 0% { transform: translateY(-100%); } 100% { transform: translateY(250%); } }
-        @media (max-width: 768px) { .timeline-line { left: 2rem; } }
-
-        .icon-glow { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 20px rgba(232, 28, 255, 0.4); }
-        @keyframes subtlePulse { 0%, 100% { transform: translate(-50%, 0) scale(1); } 50% { transform: translate(-50%, 0) scale(1.1); } }
-        .animate-icon-pulse { animation: subtlePulse 4s ease-in-out infinite; }
-
-        /* --- UTILS --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030008; }
-        ::-webkit-scrollbar-thumb { background: #1f1333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #e81cff; }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
+<body class="antialiased selection:bg-black selection:text-white bg-light">
 
-<body class="antialiased">
-
-<div class="ambient-glow glow-1"></div>
-<div class="ambient-glow glow-2" style="top: 40%; right: 10%;"></div>
-
-<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        
-        <a href="index.html" class="flex items-center gap-3 z-20 flex-shrink-0">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center font-bold text-xs tracking-tighter text-white">ID</div>
+    <div id="preloader">
+        <div class="flex items-center gap-4">
+            <span class="font-bold text-3xl tracking-tighter flex items-center gap-2">
+                <div class="w-6 h-6 bg-black rounded-full"></div> index dev.
+            </span>
+            <div class="h-10 w-[1px] bg-slate-300 hidden md:block"></div>
+            <div class="text-sm font-medium text-slate-500 leading-tight hidden md:block">
+                Håndkodet Infrastruktur<br>Uten Kompromiss
             </div>
-            <span class="font-bold text-white text-xl tracking-tight">INDEX DEV.</span>
-        </a>
+        </div>
+    </div>
 
-        <div class="flex items-center justify-end gap-8 z-20 w-full">
-            <div class="hidden md:flex items-center gap-8">
-                <a href="prosess.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosess</a>
-                <a href="prosjekter.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosjekter</a>
-                <a href="om-meg.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Om oss</a>
-                <a href="kontakt.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Kontakt</a>
+    <header>
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6" aria-label="Hovednavigasjon">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
                 
-                <a href="kontakt.html" class="px-6 py-2.5 rounded-full border border-brand-pink/60 bg-[#0a0514] text-white text-sm font-bold hover:bg-brand-pink/10 hover:border-brand-pink transition-all shadow-[0_0_15px_rgba(232,28,255,0.15)]">
-                    Book møte
+                <a href="index.html" class="flex items-center gap-3 z-20">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter" id="nav-logo">
+                        <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot" aria-hidden="true"></div> index dev.
+                    </div>
+                    <div class="hidden lg:block h-8 w-[1px] bg-white/30 ml-2" id="nav-divider" aria-hidden="true"></div>
+                    <div class="hidden lg:block text-[11px] font-medium text-white/80 leading-tight" id="nav-tagline">
+                        Vi tar risikoen.<br>Du får kundene.
+                    </div>
                 </a>
-            </div>
 
-            <button id="mobile-menu-button" class="md:hidden text-white z-20" aria-label="Meny"><i class="fa-solid fa-bars text-2xl"></i></button>
+                <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white" id="nav-links">
+                    <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
+                    <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
+                    <a href="om-meg.html" class="hover:opacity-70 transition-opacity">Om oss</a>
+                    <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
+                </div>
+
+                <div class="hidden md:block z-20">
+                    <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded hover:bg-slate-100 transition-colors focus:ring-2 focus:ring-blue-600 outline-none" id="nav-cta">
+                        Få et gratis utkast
+                    </a>
+                </div>
+
+                <button class="lg:hidden text-white z-20 text-2xl p-2 outline-none focus:ring-2 focus:ring-white rounded" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-4 absolute w-full top-0 left-0 h-screen z-10 pt-24" aria-hidden="true">
+            <a href="prosess.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Slik fungerer det</a>
+            <a href="prosjekter.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Tidligere arbeid</a>
+            <a href="om-meg.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Om oss</a>
+            <a href="kontakt.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Kontakt</a>
+            <a href="kontakt.html" class="block mt-8 px-8 py-4 text-center rounded bg-blue-600 text-white font-bold text-lg mobile-link">Få et gratis utkast</a>
         </div>
-    </div>
+    </header>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-[#030008]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-2xl">
-        <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosess</a>
-        <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosjekter</a>
-        <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Om oss</a>
-        <a href="kontakt.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Kontakt</a>
-        <a href="kontakt.html" class="block text-base font-bold text-brand-pink pt-2">Book møte →</a>
-    </div>
-</nav>
-
-<main>
-    <section class="pt-40 pb-20 md:pt-48 md:pb-24 px-6 relative overflow-hidden text-center">
-        <div class="relative z-10 max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-semibold tracking-widest uppercase mb-8 backdrop-blur-md" data-aos="fade-down">
-                <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
-                Enkel prosess
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-white" data-aos="fade-up">
-                Ingen endeløse møter. <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">Bare resultat.</span>
-            </h1>
-            
-            <p class="text-lg md:text-2xl text-brand-muted mb-10 mx-auto font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                Du har ikke tid til byråkrati og lange prosesser. Det har ikke vi heller. Slik får du en sylskarp nettside på 1-2-3.
-            </p>
-        </div>
-    </section>
-
-    <section class="pb-32 px-6 relative z-10">
-        <div class="max-w-6xl mx-auto relative">
-            
-            <div class="timeline-line">
-                <div class="timeline-beam"></div>
+    <main>
+        <section class="relative min-h-[85vh] flex items-center pt-32 pb-20 bg-dark overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2564&auto=format&fit=crop" alt="Premium infrastruktur og rene linjer" class="w-full h-full object-cover object-right opacity-30" fetchpriority="high" decoding="async">
+                <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-transparent z-0"></div>
             </div>
 
-            <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
-                <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-1 pl-20 md:pl-0 md:pr-16 relative z-10" data-aos="fade-right">
-                    <div class="bento-card p-10">
-                        <span class="text-brand-pink font-bold tracking-widest text-xs uppercase mb-3 block">Steg 01</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Strategi & Forståelse</h3>
-                        <p class="text-brand-muted leading-relaxed text-sm md:text-base">
-                            Vi tar en kort, uforpliktende prat for å forstå din bedrift og dine mål. Vi avklarer hva du trenger, og du får en <strong>fastpris</strong> på bordet. Ingen skjulte kostnader, ingen advokatspråk.
-                        </p>
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative z-10 w-full">
+                <div class="max-w-4xl">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md" data-aos="fade-down">
+                        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse" style="animation-duration: 1s;" aria-hidden="true"></span> 
+                        En systematisk maskin
                     </div>
-                </div>
-                
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-brand-card border border-brand-pink icon-glow rounded-full flex items-center justify-center z-20 order-1 md:order-2 animate-icon-pulse shadow-[0_0_20px_rgba(232,28,255,0.4)]">
-                    <i class="fa-solid fa-phone text-xl text-white relative z-10"></i>
-                </div>
 
-                <div class="md:w-[42%] order-3 hidden md:flex justify-start items-center pl-16 opacity-0 md:opacity-100" data-aos="fade-left" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-white/5 select-none transition-colors duration-500 group-hover:text-brand-pink/20">01</span>
-                </div>
-            </div>
-
-            <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
-                <div class="md:w-[42%] hidden md:flex justify-end items-center pr-16 order-1 opacity-0 md:opacity-100" data-aos="fade-right" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-white/5 select-none transition-colors duration-500 group-hover:text-brand-blue/20">02</span>
-                </div>
-                
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-brand-card border border-brand-blue shadow-[0_0_20px_rgba(0,240,255,0.4)] rounded-full flex items-center justify-center z-20 order-1 md:order-2 animate-icon-pulse" style="animation-delay: 1s;">
-                    <i class="fa-solid fa-code text-xl text-white relative z-10"></i>
-                </div>
-
-                <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-3 pl-20 md:pl-16 relative z-10" data-aos="fade-left">
-                    <div class="bento-card p-10">
-                        <span class="text-brand-blue font-bold tracking-widest text-xs uppercase mb-3 block">Steg 02</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Arkitektur & Design</h3>
-                        <p class="text-brand-muted leading-relaxed text-sm md:text-base">
-                            Vi designer, koder og optimaliserer. Du trenger ikke løfte en finger på det tekniske. I løpet av kort tid mottar du en lenke til et fullt fungerende utkast du kan teste rett på din egen mobil.
-                        </p>
+                    <h1 class="text-white text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8" data-aos="fade-up" data-aos-delay="100">
+                        Vi har fjernet alt som kaster bort tiden din.
+                    </h1>
+                    
+                    <p class="text-slate-400 text-lg md:text-xl max-w-2xl font-medium leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="200">
+                        Tradisjonelle byråer elsker lange prosesser, uforstålige IT-ord og saftige forskuddsfakturaer. Vi hater det. Her er vår nøyaktige formel for å få bedriften din på nett – uten at du tar noen risiko.
+                    </p>
+                    
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <a href="#process-section" class="inline-flex justify-center bg-blue-600 text-white px-8 py-4 text-[15px] font-semibold rounded hover:bg-blue-500 transition-colors shadow-lgShadow shadow-blue-600/30">
+                            Se prosessen vår <i class="fa-solid fa-arrow-down ml-3 animate-bounce"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 group">
-                <div class="md:w-[42%] mb-8 md:mb-0 order-2 md:order-1 pl-20 md:pl-0 md:pr-16 relative z-10" data-aos="fade-right">
-                    <div class="bento-card p-10">
-                        <span class="text-green-400 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 03</span>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Lansering & Eierskap</h3>
-                        <p class="text-brand-muted leading-relaxed text-sm md:text-base">
-                            Liker du nettsiden? Da lanserer vi, og du betaler fakturaen. Liker du den ikke? Da koster det deg ingenting. Risikoen ligger hos oss.
-                        </p>
-                        <div class="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-                            <strong class="text-white block mb-1 flex items-center gap-2"><i class="fa-solid fa-key text-green-400"></i> Fullt Eierskap</strong>
-                            <span class="text-brand-muted text-xs">
-                                Når siden er betalt, eier du kildekoden. Ingen skjult bindingstid eller lureri.
-                            </span>
+        <section class="py-24 md:py-40 bg-light relative z-10 border-t border-slate-200" id="process-section">
+            <div class="max-w-[60rem] mx-auto px-6 lg:px-8 relative">
+                
+                <div class="absolute left-[2.4rem] md:left-[2.9rem] top-8 bottom-8 w-1 z-0">
+                    <div class="absolute inset-0 bg-slate-200 rounded-full"></div>
+                    <div id="scroll-line" class="absolute top-0 left-0 w-full bg-blue-600 rounded-full transition-all duration-150 ease-out h-0"></div>
+                </div>
+
+                <div class="space-y-20 md:space-y-32">
+                    
+                    <article class="relative flex items-start gap-8 md:gap-12 group" data-aos="fade-up">
+                        <div class="relative z-20 flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white border-4 border-slate-200 rounded-full flex items-center justify-center font-bold text-slate-400 text-lg transition-colors duration-300 step-dot shadow-sm">
+                            1
                         </div>
-                    </div>
-                </div>
-                
-                <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-brand-card border border-green-400 shadow-[0_0_20px_rgba(74,222,128,0.4)] rounded-full flex items-center justify-center z-20 order-1 md:order-2 animate-icon-pulse" style="animation-delay: 2s;">
-                    <i class="fa-solid fa-rocket text-xl text-white relative z-10"></i>
-                </div>
+                        
+                        <div class="flex-grow pt-2">
+                            <span class="text-slate-500 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 1: Strategien</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark tracking-tight">Hvor er marginene dine?</h2>
+                            <p class="text-slate-600 leading-relaxed text-lg mb-8">
+                                En nettside som bare ser pen ut er verdiløs. I en 15-minutters kartleggingssamtale finner vi ut hvilke av dine tjenester som har høyest fortjeneste, og hva som er din ideelle kunde. Vi bygger arkitekturen rundt det som faktisk gir penger i kassa.
+                            </p>
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                                <h3 class="font-bold text-dark mb-2 flex items-center gap-2"><i class="fa-solid fa-handshake text-blue-600"></i> Fastpris på bordet</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Før vi avslutter samtalen får du en nøyaktig pris for oppsettet. Ingen estimater, ingen timepris, og ingen ubehagelige fakturaer senere.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
 
-                <div class="md:w-[42%] order-3 hidden md:flex justify-start items-center pl-16 opacity-0 md:opacity-100" data-aos="fade-left" data-aos-delay="100">
-                    <span class="text-[8rem] leading-none font-black text-white/5 select-none transition-colors duration-500 group-hover:text-green-400/20">03</span>
+                    <article class="relative flex items-start gap-8 md:gap-12 group" data-aos="fade-up">
+                        <div class="relative z-20 flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white border-4 border-slate-200 rounded-full flex items-center justify-center font-bold text-slate-400 text-lg transition-colors duration-300 step-dot shadow-sm">
+                            2
+                        </div>
+                        
+                        <div class="flex-grow pt-2">
+                            <span class="text-slate-500 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 2: Konstruksjonen</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark tracking-tight">Vi går i hulen (Helt gratis)</h2>
+                            <p class="text-slate-600 leading-relaxed text-lg mb-8">
+                                Mens du driver bedriften din, håndkoder vi maskineriet ditt. At vi ikke bruker ferdigmaler betyr at siden din vil laste før konkurrentens nettside engang har begynt å tenke. Vi bygger inn teknisk SEO fra første kodelinje.
+                            </p>
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                                <h3 class="font-bold text-dark mb-2 flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-blue-600"></i> Hemmelig test-utkast</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    I løpet av få dager mottar du en skjult lenke. Du kan teste, trykke og navigere den ferdige nettsiden på din egen mobil. Du har fremdeles ikke betalt en krone.
+                                
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="relative flex items-start gap-8 md:gap-12 group" data-aos="fade-up">
+                        <div class="relative z-20 flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white border-4 border-slate-200 rounded-full flex items-center justify-center font-bold text-slate-400 text-lg transition-colors duration-300 step-dot shadow-sm">
+                            3
+                        </div>
+                        
+                        <div class="flex-grow pt-2">
+                            <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-3 block">Steg 3: Sannhetens Øyeblikk</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark tracking-tight">Din godkjenning. Vår lansering.</h2>
+                            <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                                Dette er "The Godfather Offer": Liker du ikke resultatet vi har bygget? Da sier du bare nei. Vi brenner koden, og vi går hver til vårt. Risikoen var 100% på våre skuldre.
+                            </p>
+                            <p class="text-slate-600 leading-relaxed text-lg mb-8">
+                                Elsker du resultatet? Fantastisk. Da betaler du engangssummen for kodingen. Vi kobler domenet ditt til Cloudflare (199,-/mnd), og den nye salgsmaskinen din er live.
+                            </p>
+                            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                                <h3 class="font-bold text-dark mb-2 flex items-center gap-2"><i class="fa-solid fa-unlock-keyhole text-blue-600"></i> Absolutt ingen bindingstid</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Etter oppsettet er kildekoden utelukkende din eiendom. Ønsker du å avslutte driftsavtalen, kutter vi serveren og sender deg filene dine. Du er aldri låst fast.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-</main>
-
-<section class="relative w-full h-[250px] md:h-[400px] overflow-hidden bg-brand-dark z-0 mt-12">
-    <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-pink/30 blur-[100px] rounded-full pointer-events-none"></div>
-    <svg class="absolute bottom-0 w-full h-full object-cover" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/></svg>
-    <svg class="absolute bottom-0 w-full h-[70%] object-cover" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/></svg>
-    <svg class="absolute bottom-0 w-full h-[40%] object-cover" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 120V50L250 100L450 30L650 110L950 40L1200 90L1440 20V120H0Z" fill="#000000"/></svg>
-</section>
-
-<footer class="bg-[#000000] pt-16 pb-12 relative z-20 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20 relative z-10">
+        <section class="relative py-32 bg-dark border-t border-slate-800">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop" alt="Server arkitektur" class="w-full h-full object-cover opacity-10" loading="lazy">
+            </div>
             
-            <div class="lg:col-span-4 pr-0 lg:pr-8">
-                <a href="index.html" class="flex items-center gap-3 mb-8">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                        <div class="w-full h-full bg-[#000000] rounded-full flex items-center justify-center font-black text-sm tracking-tighter text-white">ID</div>
-                    </div>
-                    <span class="font-black text-white text-2xl tracking-tight uppercase">Index Dev.</span>
-                </a>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
-                    Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører. Vi fjerner teknisk støy og bygger digitale infrastruktur som faktisk skaffer deg kunder.
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative z-10 flex flex-col justify-center items-center text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight max-w-4xl" data-aos="fade-up">
+                    Hva har du egentlig å tape?
+                </h2>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed font-medium max-w-2xl" data-aos="fade-up" data-aos-delay="100">
+                    Slutt å kaste bort penger på byråer som krever betalt før de har bevist noe som helst. La oss bygge utkastet ditt i dag.
                 </p>
-                <div class="flex items-center gap-3">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:border-brand-blue hover:text-white transition-all shadow-lg"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all shadow-lg"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white hover:border-white hover:text-black transition-all shadow-lg"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="kontakt.html" class="inline-flex bg-blue-600 text-white px-10 py-5 text-[16px] font-bold rounded hover:bg-blue-500 transition-colors shadow-[0_0_30px_rgba(37,99,235,0.4)] focus:ring-4 focus:ring-blue-300 outline-none" data-aos="fade-up" data-aos-delay="200">
+                    Krev ditt gratis utkast nå
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark pt-20 pb-10 border-t border-slate-800" aria-label="Bunntekst">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+                
+                <div class="md:col-span-4">
+                    <a href="index.html" class="flex items-center gap-3 mb-6" aria-label="Gå til forsiden">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-xs text-dark" aria-hidden="true">ID</div>
+                        <span class="font-bold text-white text-2xl tracking-tight">index dev.</span>
+                    </a>
+                    <p class="text-[15px] text-slate-400 leading-relaxed max-w-sm mb-6">
+                        Vi fjerner teknisk støy. Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører som vil ha resultater.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 md:col-start-6">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Tjenester</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Skreddersydd Webdesign</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Drift & Sikkerhet</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Teknisk SEO</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Selskap</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Tilbud</a></li>
+                        <li><a href="prosjekter.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Arbeid</a></li>
+                        <li><a href="om-meg.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Om oss</a></li>
+                        <li><a href="kontakt.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Ta Kontakt</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition-colors focus:outline-none focus:text-white">E-post</a></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone" aria-hidden="true"></i> +47 48 45 96 86</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Drammen, Norge</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 font-medium gap-4">
+                <div>&copy; 2026 Index Development Melheim. Org nr. 936 933 661.</div>
+                <div class="flex gap-6">
+                    <a href="personvern.html" class="hover:text-white transition-colors">Personvernerklæring</a>
+                    <a href="vilkar.html" class="hover:text-white transition-colors">Vilkår & Betingelser</a>
                 </div>
             </div>
+        </div>
+    </footer>
 
-            <div class="lg:col-span-3">
-                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Våre Tjenester</h4>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Skreddersydd Webdesign</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Teknisk SEO & Synlighet</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Lynrask Håndkoding</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Drift & Sikkerhet</a></li>
-                    <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Konverteringsoptimalisering</a></li>
-                </ul>
-            </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Skjul preloader
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) preloader.classList.add('preloader-hidden');
+            }, 800);
 
-            <div class="lg:col-span-2">
-                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Selskap</h4>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a href="prosess.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosess</a></li>
-                    <li><a href="prosjekter.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosjekter</a></li>
-                    <li><a href="om-meg.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Om oss</a></li>
-                    <li><a href="kontakt.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Kontakt</a></li>
-                </ul>
-            </div>
+            // Init AOS
+            if(typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+            } else {
+                window.addEventListener('load', () => AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' }));
+            }
 
-            <div class="lg:col-span-3">
-                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Ta Kontakt</h4>
-                <ul class="space-y-5 text-sm font-medium mb-8">
-                    <li class="flex items-center gap-4 group">
-                        <div class="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink group-hover:bg-brand-pink group-hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></div>
-                        <a href="mailto:andreas@indexdevelopment.no" class="text-slate-300 hover:text-white transition-colors">andreas@indexdevelopment.no</a>
-                    </li>
-                    <li class="flex items-center gap-4 group">
-                        <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors"><i class="fa-solid fa-phone"></i></div>
-                        <span class="text-slate-300">+47 48 45 96 86</span>
-                    </li>
-                    <li class="flex items-center gap-4 group">
-                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors"><i class="fa-solid fa-location-dot"></i></div>
-                        <span class="text-slate-300">Drammen, Norge</span>
-                    </li>
-                </ul>
+            // Navbar scroll effekt
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                const dot = document.getElementById('nav-dot');
+                const tagline = document.getElementById('nav-tagline');
+                const divider = document.getElementById('nav-divider');
+                const links = document.getElementById('nav-links');
+                const cta = document.getElementById('nav-cta');
+                const mobileBtn = document.getElementById('mobile-menu-btn');
                 
-                <a href="kontakt.html" class="inline-flex items-center gap-2 px-6 py-3 w-full justify-center bg-white/5 border border-white/10 rounded-full text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-pink hover:border-brand-pink transition-all shadow-[0_0_15px_rgba(232,28,255,0)] hover:shadow-[0_0_20px_rgba(232,28,255,0.3)]">
-                    Book Strategisamtale <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-
-        </div>
-
-        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 relative z-10 gap-4">
-            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-                <span>&copy; 2026 Index Development Melheim. Alle rettigheter reservert.</span>
-                <span class="hidden md:inline text-white/20">|</span>
-                <span>Org nr. 936 933 661</span>
-            </div>
-            <div class="flex gap-6">
-                <a href="personvern.html" class="hover:text-white hover:underline transition-all">Personvernerklæring</a>
-                <a href="vilkar.html" class="hover:text-white hover:underline transition-all">Vilkår & Betingelser</a>
-            </div>
-        </div>
-
-    </div>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
-
-        const btn = document.getElementById("mobile-menu-button");
-        const menu = document.getElementById("mobile-menu");
-        if(btn && menu) {
-            btn.addEventListener("click", () => {
-                menu.classList.toggle("hidden");
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white', 'shadow-md');
+                    nav.classList.remove('py-6');
+                    nav.classList.add('py-4');
+                    
+                    document.getElementById('nav-logo').classList.replace('text-white', 'text-black');
+                    dot.classList.replace('bg-white', 'bg-black');
+                    tagline.classList.replace('text-white/80', 'text-slate-500');
+                    divider.classList.replace('bg-white/30', 'bg-slate-300');
+                    
+                    if(links) links.classList.replace('text-white', 'text-slate-600');
+                    if(cta) {
+                        cta.classList.replace('bg-white', 'bg-black');
+                        cta.classList.replace('text-black', 'text-white');
+                        cta.classList.replace('hover:bg-slate-100', 'hover:bg-slate-800');
+                    }
+                    if(mobileBtn) mobileBtn.classList.replace('text-white', 'text-black');
+                } else {
+                    nav.classList.remove('bg-white', 'shadow-md');
+                    nav.classList.add('py-6');
+                    nav.classList.remove('py-4');
+                    
+                    document.getElementById('nav-logo').classList.replace('text-black', 'text-white');
+                    dot.classList.replace('bg-black', 'bg-white');
+                    tagline.classList.replace('text-slate-500', 'text-white/80');
+                    divider.classList.replace('bg-slate-300', 'bg-white/30');
+                    
+                    if(links) links.classList.replace('text-slate-600', 'text-white');
+                    if(cta) {
+                        cta.classList.replace('bg-black', 'bg-white');
+                        cta.classList.replace('text-white', 'text-black');
+                        cta.classList.replace('hover:bg-slate-800', 'hover:bg-slate-100');
+                    }
+                    if(mobileBtn) mobileBtn.classList.replace('text-black', 'text-white');
+                }
             });
-        }
-    });
 
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (window.scrollY > 20) {
-            nav.classList.add('bg-brand-dark/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-            nav.classList.remove('border-transparent', 'py-5');
-            nav.classList.add('py-4');
-        } else {
-            nav.classList.remove('bg-brand-dark/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-            nav.classList.add('border-transparent', 'py-5');
-            nav.classList.remove('py-4');
-        }
-    });
-</script>
+            // Mobilmeny logikk
+            const btn = document.getElementById("mobile-menu-btn");
+            const menu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
 
+            if(btn && menu) {
+                const toggleMenu = () => {
+                    const isHidden = menu.classList.contains("hidden");
+                    menu.classList.toggle("hidden");
+                    btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+                    
+                    const icon = btn.querySelector('i');
+                    if(!isHidden){
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                        if (window.scrollY > 50) {
+                            btn.classList.replace('text-white', 'text-black');
+                        } else {
+                            btn.classList.replace('text-black', 'text-white');
+                        }
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                        btn.classList.remove('text-white');
+                        btn.classList.add('text-black');
+                    }
+                };
+
+                btn.addEventListener("click", toggleMenu);
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener("click", toggleMenu);
+                });
+            }
+
+            // Den fete Scroll-Progress linjen
+            const processSection = document.getElementById('process-section');
+            const scrollLine = document.getElementById('scroll-line');
+            const stepDots = document.querySelectorAll('.step-dot');
+
+            if(processSection && scrollLine) {
+                window.addEventListener('scroll', () => {
+                    const rect = processSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    const startScroll = rect.top - (windowHeight / 2);
+                    const totalScroll = rect.height;
+                    
+                    let progress = (windowHeight / 2 - rect.top) / totalScroll;
+                    progress = Math.max(0, Math.min(1, progress)); 
+                    
+                    scrollLine.style.height = `${progress * 100}%`;
+
+                    stepDots.forEach((dot) => {
+                        const dotRect = dot.getBoundingClientRect();
+                        if(dotRect.top < windowHeight / 2 + 50) { 
+                            dot.classList.remove('border-slate-200', 'text-slate-400');
+                            dot.classList.add('border-blue-600', 'text-blue-600');
+                        } else {
+                            dot.classList.add('border-slate-200', 'text-slate-400');
+                            dot.classList.remove('border-blue-600', 'text-blue-600');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

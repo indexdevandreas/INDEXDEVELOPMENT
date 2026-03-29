@@ -1,35 +1,222 @@
-/* --- GLOBAL MOBILE RESET --- */
+/* GLOBAL RESET & SETUP */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100%;
+}
+
+/* --- PRELOADER ANIMATION --- */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- HERO OVERLAY --- */
+.hero-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+/* --- HOW WE HELP CARDS (Dotlogics Hover Style) --- */
+.service-card {
+    background-color: #f9fafb;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #f3f4f6;
+}
+.service-card .icon-placeholder {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 2rem;
+    color: #111827;
+    transition: color 0.4s ease;
+}
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: color 0.4s ease;
+}
+.service-card p {
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    transition: color 0.4s ease;
+}
+.service-card .card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111827;
+    color: #ffffff;
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+.service-card .card-footer i {
+    transform: translateX(0) rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+/* Hover States for Service Cards */
+.service-card:hover {
+    background-color: #111827;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.service-card:hover .icon-placeholder {
+    color: #ffffff;
+}
+.service-card:hover h3 {
+    color: #ffffff;
+}
+.service-card:hover p {
+    color: #d1d5db;
+}
+.service-card:hover .card-footer {
+    background-color: #ffffff;
+    color: #111827;
+}
+.service-card:hover .card-footer i {
+    transform: translateX(5px) rotate(0deg);
+}
+
+/* --- PRICING CARDS --- */
+.pricing-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 3rem 2.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.pricing-card:hover {
+    border-color: #111827;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    transform: translateY(-5px);
+}
+.pricing-card.popular {
+    background-color: #111827;
+    color: #ffffff;
+    border-color: #111827;
+    transform: scale(1.02);
+}
+.pricing-card.popular:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* Feature Grouping inside Pricing */
+.pricing-feature-group {
+    margin-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+.pricing-card.popular .pricing-feature-group {
+    border-color: #334155;
+}
+.feature-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 1rem;
+    display: block;
+}
+.pricing-card.popular .feature-category {
+    color: #94a3b8;
+}
+
+/* --- CASE STUDY CARDS --- */
+.case-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+.case-card img {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.case-card:hover img {
+    transform: scale(1.05);
+}
+.case-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+}
+.case-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111827;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+.case-card:hover .case-icon {
+    opacity: 1;
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* --- FAQ ACCORDION --- */
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+.faq-content { 
+    max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.faq-item.active .faq-content { max-height: 300px; }
+.faq-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.faq-item.active .faq-icon { transform: rotate(180deg); color: #2563eb; }
+
+/* --- PHILOSOPHY SECTION OVERLAY --- */
+.philosophy-overlay {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* --- CUSTOM SCROLLBAR --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* MOBILE ADJUSTMENTS */
 @media (max-width: 768px) {
-    /* Hindrer horisontal scrolling en gang for alle */
-    html, body {
-        overflow-x: hidden;
-        position: relative;
-    }
-
-    /* Nedjuster de enorme overskriftene */
-    h1 {
-        font-size: 2.8rem !important;
-        line-height: 1.1 !important;
-    }
-
-    h2 {
-        font-size: 2.2rem !important;
-    }
-
-    /* FAQ og Sticker-fix */
-    #faq .grid {
-        gap: 1.5rem !important;
-    }
-
-    /* Sørg for at sticker-bildet ikke blir gigantisk og dytter alt */
-    .sticker-container img {
-        max-width: 80% !important;
-        margin: 0 auto;
-    }
-
-    /* Fjern for mye luft på sidene så innholdet får plass */
-    .max-w-7xl {
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
-    }
+    .pricing-card.popular { transform: scale(1); }
+    .pricing-card.popular:hover { transform: translateY(-5px); }
 }

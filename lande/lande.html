@@ -59,8 +59,6 @@
         .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.5; pointer-events: none; }
         .glow-brand { width: 600px; height: 600px; background: #00d4ff; opacity: 0.15; }
 
-        .map-dark-mode { filter: grayscale(100%) invert(92%) hue-rotate(180deg) contrast(83%); mix-blend-mode: hard-light; }
-
         .gallery-track { display: flex; gap: 1rem; width: max-content; animation: scrollGallery 60s linear infinite; }
         .gallery-track:hover { animation-play-state: paused; }
         @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -461,7 +459,7 @@
                         </div>
 
                         <div class="mt-10 h-72 w-full bg-[#111] border border-white/10 overflow-hidden relative shadow-2xl rounded-2xl">
-                            <iframe src="https://maps.google.com/maps?q=Vestliveien%202A%2C%203615%20Kongsberg&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-dark-mode" title="Kart til Lande Detailing"></iframe>
+                            <iframe src="https://maps.google.com/maps?q=Vestliveien%202A%2C%203615%20Kongsberg&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Kart til Lande Detailing"></iframe>
                         </div>
                     </div>
 
@@ -598,7 +596,6 @@
             isMenuOpen = !isMenuOpen;
             if(isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
-                // Liten delay for at transition skal fungere
                 setTimeout(() => {
                     mobileMenu.classList.remove('menu-closed');
                     mobileMenu.classList.add('menu-open');
@@ -610,11 +607,10 @@
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
-                }, 500); // Vent på at animasjonen er ferdig
+                }, 500); 
             }
         });
 
-        // Lukk mobilmeny når en lenke klikkes
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 isMenuOpen = false;

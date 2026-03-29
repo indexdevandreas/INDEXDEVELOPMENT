@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="no" class="scroll-smooth">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Kontakt Oss | Index Development</title>
-    <meta name="description" content="Klar for å dominere lokalmarkedet? Ta kontakt med Index Development i dag for en uforpliktende prat.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    
+    <title>Start Prosjektet | Index Development</title>
+    <meta name="description" content="Klar for å dominere lokalmarkedet? Krev ditt gratis, håndkodede utkast i dag. Null risiko, ingen forpliktelser.">
+    <meta name="robots" content="index, follow" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="preload" href="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop" as="image" fetchpriority="high">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,23 +23,8 @@
                 extend: { 
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            dark: '#030008',
-                            card: '#0a0514',
-                            pink: '#e81cff',
-                            blue: '#00f0ff',
-                            border: '#1f1333',
-                            muted: '#9ca3af'
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
+                        dark: '#111827',
+                        light: '#f9fafb',
                     }
                 } 
             }
@@ -44,437 +32,417 @@
     </script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    
+    <link rel="stylesheet" href="style.css" />
+
     <style>
-        body { background-color: #030008; color: #ffffff; overflow-x: hidden; }
-
-        /* --- FALLING STARS --- */
-        .stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; transform: rotate(-45deg); pointer-events: none; }
-        .star { position: absolute; width: 150px; height: 2px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(232,28,255,1)); animation: fall linear infinite; opacity: 0; will-change: transform, opacity; }
-        @keyframes fall { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(-1500px); opacity: 0; } }
-        .star:nth-child(1) { top: 10%; right: -100px; animation-duration: 3s; animation-delay: 0s; }
-        .star:nth-child(2) { top: 30%; right: -100px; animation-duration: 4s; animation-delay: 1.5s; }
-        .star:nth-child(3) { top: 50%; right: -100px; animation-duration: 2.5s; animation-delay: 3s; }
-
-        /* --- AMBIENT GLOWS --- */
-        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.4; pointer-events: none; }
-        .glow-1 { width: 800px; height: 800px; background: #4a1587; top: -200px; right: -200px; }
-
-        /* --- UTILS --- */
-        .btn-magenta { background-color: #e81cff; color: white; transition: all 0.3s; border: 1px solid #e81cff; }
-        .btn-magenta:hover { background-color: transparent; color: #e81cff; transform: translateY(-2px); box-shadow: 0 0 30px rgba(232, 28, 255, 0.4); }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030008; }
-        ::-webkit-scrollbar-thumb { background: #1f1333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #e81cff; }
-
-        /* --- CONTACT FORM FLOATING LABELS --- */
-        .contact-input:focus ~ .contact-label,
-        .contact-input:not(:placeholder-shown) ~ .contact-label {
-            transform: translateY(-1.5rem) scale(0.85);
-            color: #e81cff;
+        /* High-end input styling inspirert av Dotlogics */
+        .premium-input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #e2e8f0;
+            border-radius: 0;
+            padding: 12px 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #111827;
+            transition: all 0.3s ease;
+            box-shadow: none !important;
+        }
+        .premium-input:focus {
+            border-bottom-color: #2563eb; /* text-blue-600 */
+            outline: none;
+        }
+        .premium-input::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
         }
     </style>
 </head>
 
-<body class="antialiased bg-brand-dark selection:bg-brand-pink selection:text-white">
+<body class="antialiased selection:bg-blue-600 selection:text-white bg-light">
 
-<div class="ambient-glow glow-1"></div>
-
-<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        
-        <a href="index.html" class="flex items-center gap-3 z-20 flex-shrink-0">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center font-bold text-xs tracking-tighter text-white">ID</div>
+    <div id="preloader">
+        <div class="flex items-center gap-4">
+            <span class="font-bold text-3xl tracking-tighter flex items-center gap-2">
+                <div class="w-6 h-6 bg-black rounded-full" aria-hidden="true"></div> index dev.
+            </span>
+            <div class="h-10 w-[1px] bg-slate-300 hidden md:block" aria-hidden="true"></div>
+            <div class="text-sm font-medium text-slate-500 leading-tight hidden md:block">
+                Håndkodet Infrastruktur<br>Uten Kompromiss
             </div>
-            <span class="font-bold text-white text-xl tracking-tight">INDEX DEV.</span>
-        </a>
+        </div>
+    </div>
 
-        <div class="flex items-center justify-end gap-8 z-20 w-full">
-            <div class="hidden md:flex items-center gap-8">
-                <a href="prosess.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosess</a>
-                <a href="prosjekter.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosjekter</a>
-                <a href="om-meg.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Om oss</a>
-                <a href="kontakt.html" class="text-sm font-bold text-white transition-colors">Kontakt</a>
+    <header>
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6" aria-label="Hovednavigasjon">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
                 
-                <a href="kontakt.html" class="px-6 py-2.5 rounded-full border border-brand-pink/60 bg-[#0a0514] text-white text-sm font-bold shadow-[0_0_15px_rgba(232,28,255,0.3)] pointer-events-none">
-                    Book møte
+                <a href="index.html" class="flex items-center gap-3 z-20" aria-label="Gå til forsiden">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter" id="nav-logo">
+                        <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot" aria-hidden="true"></div> index dev.
+                    </div>
+                    <div class="hidden lg:block h-8 w-[1px] bg-white/30 ml-2" id="nav-divider" aria-hidden="true"></div>
+                    <div class="hidden lg:block text-[11px] font-medium text-white/80 leading-tight" id="nav-tagline">
+                        Vi tar risikoen.<br>Du får kundene.
+                    </div>
                 </a>
-            </div>
 
-            <button id="mobile-menu-button" class="md:hidden text-white z-20" aria-label="Meny"><i class="fa-solid fa-bars text-2xl"></i></button>
-        </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-[#030008]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-2xl">
-        <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosess</a>
-        <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosjekter</a>
-        <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Om oss</a>
-        <a href="kontakt.html" class="block text-base font-medium text-brand-pink border-b border-white/5 pb-2 transition-colors">Kontakt</a>
-    </div>
-</nav>
-
-<main class="relative z-10">
-
-<section class="relative min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-20">
-    <div class="stars-container">
-        <div class="star"></div><div class="star"></div><div class="star"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
-        
-        <div class="flex flex-col items-start relative z-20" data-aos="fade-right">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-pink/30 bg-brand-pink/5 text-brand-pink text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
-                <span class="w-2 h-2 rounded-full bg-brand-pink animate-pulse"></span>
-                Kapasitet for nye prosjekter
-            </div>
-
-            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.05] mb-6">
-                Få maskineriet <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">i gang.</span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-brand-muted max-w-lg leading-relaxed mb-12 font-medium">
-                Klar for å dominere lokalmarkedet? Send oss en forespørsel, så bygger vi et skreddersydd, uforpliktende utkast basert på våre kraftigste rammeverk. Ingen risiko, kun resultater.
-            </p>
-
-            <div class="space-y-6 w-full">
-                <div class="flex items-center gap-6 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-pink/50 transition-colors">
-                    <div class="w-12 h-12 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink text-lg"><i class="fa-solid fa-envelope"></i></div>
-                    <div>
-                        <p class="text-xs text-brand-muted uppercase tracking-widest font-bold mb-1">E-post</p>
-                        <a href="mailto:andreas@indexdevelopment.no" class="text-white font-medium hover:text-brand-pink transition-colors">andreas@indexdevelopment.no</a>
-                    </div>
+                <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white" id="nav-links">
+                    <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
+                    <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
+                    <a href="om-meg.html" class="hover:opacity-70 transition-opacity">Om oss</a>
+                    <a href="kontakt.html" class="text-blue-400">Kontakt</a>
                 </div>
 
-                <div class="flex items-center gap-6 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-blue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-lg"><i class="fa-solid fa-phone"></i></div>
-                    <div>
-                        <p class="text-xs text-brand-muted uppercase tracking-widest font-bold mb-1">Telefon</p>
-                        <p class="text-white font-medium">+47 48 45 96 86</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-full relative" data-aos="fade-left" data-aos-delay="200">
-            <div class="bg-brand-card border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] w-full relative overflow-hidden z-20 animate-float">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-pink/5 blur-[80px] rounded-full pointer-events-none"></div>
-
-                <div class="mb-10 relative z-10">
-                    <h2 class="text-2xl font-bold text-white mb-2">Start oppsettet</h2>
-                    <p class="text-sm text-brand-muted">Fyll ut skjemaet, så setter vi i gang med utkastet. Vi kontakter deg innen 24 timer.</p>
-                </div>
-
-                <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6 relative z-10">
-                    <input type="hidden" name="access_key" value="83c21432-cebf-4a7b-ab89-fd1cb41b1248">
-                    <input type="checkbox" name="botcheck" class="hidden pointer-events-none">
-
-                    <div class="relative">
-                        <input type="text" id="navn" name="navn" required class="contact-input w-full p-4 pt-6 bg-transparent border-b-2 border-white/10 text-white focus:border-brand-pink transition outline-none font-medium placeholder-transparent" placeholder="Bedriftsnavn">
-                        <label for="navn" class="contact-label absolute left-0 top-5 text-slate-500 font-medium transition-all pointer-events-none origin-left">Bedriftsnavn / Kontaktperson</label>
-                    </div>
-
-                    <div class="relative">
-                        <input type="email" id="epost" name="epost" required class="contact-input w-full p-4 pt-6 bg-transparent border-b-2 border-white/10 text-white focus:border-brand-pink transition outline-none font-medium placeholder-transparent" placeholder="E-postadresse">
-                        <label for="epost" class="contact-label absolute left-0 top-5 text-slate-500 font-medium transition-all pointer-events-none origin-left">E-postadresse</label>
-                    </div>
-
-                    <div class="relative">
-                        <input type="tel" id="telefon" name="telefon" class="contact-input w-full p-4 pt-6 bg-transparent border-b-2 border-white/10 text-white focus:border-brand-pink transition outline-none font-medium placeholder-transparent" placeholder="Telefon (Valgfritt)">
-                        <label for="telefon" class="contact-label absolute left-0 top-5 text-slate-500 font-medium transition-all pointer-events-none origin-left">Telefonnummer (Valgfritt)</label>
-                    </div>
-
-                    <div class="relative mt-8">
-                        <textarea id="melding" name="melding" rows="1" class="contact-input w-full p-4 pt-6 bg-transparent border-b-2 border-white/10 text-white focus:border-brand-pink transition outline-none font-medium placeholder-transparent resize-none overflow-hidden" placeholder="Hva kan vi hjelpe deg med?"></textarea>
-                        <label for="melding" class="contact-label absolute left-0 top-5 text-slate-500 font-medium transition-all pointer-events-none origin-left">Kort beskrivelse av behovet</label>
-                    </div>
-
-                    <div class="pt-6">
-                        <button type="submit" id="submit-btn-page" class="w-full py-4 rounded-full btn-magenta font-bold text-sm uppercase tracking-widest shadow-xl transition-all duration-300 border-none group">
-                            Send Forespørsel <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </div>
-                </form>
-
-                <div id="success-msg-page" class="hidden text-center py-16 relative z-10">
-                    <div class="w-20 h-20 bg-brand-pink/20 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-4xl">
-                        <i class="fa-solid fa-check"></i>
-                    </div>
-                    <h3 class="text-3xl font-black text-white mb-3">Systemet er i gang.</h3>
-                    <p class="text-brand-muted text-lg">Vi har mottatt informasjonen. Du hører fra oss innen 24 timer.</p>
-                </div>
-
-            </div>
-            
-            <div class="absolute inset-0 border border-brand-pink/20 rounded-[2.5rem] transform translate-x-4 translate-y-4 -z-10 pointer-events-none hidden md:block"></div>
-        </div>
-    </div>
-</section>
-
-<section id="autoritet" class="py-32 px-6 bg-brand-card border-y border-white/5 relative z-10">
-    <div class="max-w-7xl mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            <div class="lg:col-span-7" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-brand-pink"></span>
-                    Personlig Engasjement
-                </div>
-                
-                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-8">
-                    Glem byråkratiet.<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">Du forholder deg til meg.</span>
-                </h2>
-                
-                <p class="text-lg text-brand-muted leading-relaxed mb-12 font-medium">
-                    Når du samarbeider med Index Development, forholder du deg direkte til eksperten. Vi har kuttet ut prosjektledere, selgere og unødvendig administrativ støy. Det sikrer lynrask kommunikasjon, dyp teknisk forståelse fra første prat, og en personlig stolthet i infrastrukturen som leveres. Alt driftes via Cloudflare under mitt personlige tilsyn for maksimal ytelse.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <div class="p-6 bg-brand-dark rounded-2xl border border-white/10">
-                        <div class="text-4xl text-brand-pink mb-4"><i class="fa-solid fa-code"></i></div>
-                        <p class="text-white font-bold">100% Håndkodet</p>
-                        <p class="text-xs text-brand-muted mt-1">Ingen trege templates</p>
-                    </div>
-                    <div class="p-6 bg-brand-dark rounded-2xl border border-white/10">
-                        <div class="text-4xl text-brand-blue mb-4"><i class="fa-brands fa-cloudflare"></i></div>
-                        <p class="text-white font-bold">Premium Hosting</p>
-                        <p class="text-xs text-brand-muted mt-1">Driftes via Cloudflare</p>
-                    </div>
-                    <div class="p-6 bg-brand-dark rounded-2xl border border-white/10">
-                        <div class="text-4xl text-white mb-4"><i class="fa-solid fa-user-check"></i></div>
-                        <p class="text-white font-bold">Direkte Kontakt</p>
-                        <p class="text-xs text-brand-muted mt-1">Ingen mellomledd</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="lg:col-span-5 flex flex-col items-center lg:items-end relative pb-16 lg:pb-0 mt-8 lg:mt-0" data-aos="fade-left">
-                <div class="relative w-full max-w-sm">
-                    <div class="relative w-full aspect-[3/4] rounded-[2rem] overflow-hidden border-2 border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.8)] group">
-                        <img src="bilder/kontakt.PNG" alt="Andreas Melheim, Index Development" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
-                    </div>
-                    
-                    <div class="absolute -bottom-16 left-4 right-4 bg-brand-card/95 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl z-20 transition-transform duration-500 hover:-translate-y-2">
-                        <p class="text-xs text-brand-pink font-bold uppercase tracking-widest mb-1">Grunnlegger & Utvikler</p>
-                        <h3 class="text-xl font-bold text-white mb-3">Andreas Melheim</h3>
-                        <div class="h-px w-full bg-gradient-to-r from-brand-pink to-brand-blue opacity-50 mb-4"></div>
-                        <p class="text-slate-300 text-xs font-medium italic">"Vi tar fullt teknisk ansvar. Vårt mål er at infrastrukturen vi bygger skal være din bedrifts største konkurransefortrinn."</p>
-                    </div>
-
-                    <div class="absolute top-0 bottom-0 left-0 right-0 border border-brand-blue/20 rounded-[2rem] transform translate-x-6 translate-y-6 -z-10 pointer-events-none hidden lg:block"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="py-32 px-6 bg-brand-dark relative z-10">
-    <div class="max-w-7xl mx-auto">
-        
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Klarhet i hver detalj.</h2>
-            <p class="text-brand-muted text-lg max-w-2xl mx-auto font-medium">Vi tror ikke på skjulte kostnader eller komplisert stammespråk. Her er svarene på det de fleste bedrifter lurer på før de tar i bruk våre plattformer.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
-            <div class="bg-brand-card p-8 rounded-[2rem] border border-white/5 hover:border-brand-pink/30 transition-colors group" data-aos="fade-up" data-aos-delay="0">
-                <div class="w-12 h-12 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                <h3 class="text-xl font-bold text-white mb-4">Må vi betale noe på forskudd?</h3>
-                <p class="text-brand-muted leading-relaxed font-medium">Nei. Våre interne rammeverk lar oss bygge og designe nettsiden din ferdig, helt risikofritt. Du betaler kun for oppsettet dersom du liker resultatet og ønsker å ta i bruk den ferdige løsningen. Liker du det ikke, koster det deg ingenting.</p>
-            </div>
-
-            <div class="bg-brand-card p-8 rounded-[2rem] border border-white/5 hover:border-brand-blue/30 transition-colors group" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-bolt"></i></div>
-                <h3 class="text-xl font-bold text-white mb-4">Hvor lang tid tar det å få siden live?</h3>
-                <p class="text-brand-muted leading-relaxed font-medium">Vår teknologi og arbeidsmetodikk gjør at vi opererer med ekstrem fart. Du får vanligvis presentert et fullt fungerende utkast innen 3-5 dager. Etter godkjenning tar det under 24 timer å koble til domenet og få infrastrukturen live på nett.</p>
-            </div>
-
-            <div class="bg-brand-card p-8 rounded-[2rem] border border-white/5 hover:border-brand-pink/30 transition-colors group" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-server"></i></div>
-                <h3 class="text-xl font-bold text-white mb-4">Hva skiller dere fra et vanlig webhotell?</h3>
-                <p class="text-brand-muted leading-relaxed font-medium">Et webhotell gir deg kun lagringsplass – du må gjøre alt det tekniske arbeidet selv. Vi er en fullservice-partner. Vi leverer hele infrastrukturen ferdig oppsatt, og garanterer lynrask ytelse, sikkerhet og driftsovervåkning. Du drifter bedriften, vi drifter koden.</p>
-            </div>
-
-            <div class="bg-brand-card p-8 rounded-[2rem] border border-white/5 hover:border-brand-blue/30 transition-colors group" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-brands fa-google"></i></div>
-                <h3 class="text-xl font-bold text-white mb-4">Vil siden rangere på Google?</h3>
-                <p class="text-brand-muted leading-relaxed font-medium">Ja. Alle våre plattformer er bygget fra bunnen av med en SEO-fokusert arkitektur. Vi sørger for sylskarp kode, riktig semantisk struktur og avansert teknisk optimalisering – noe som er alfa og omega for at Google skal prioritere din bedrift i lokalmarkedet.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-</main>
-
-<section class="relative w-full h-[250px] md:h-[400px] overflow-hidden bg-brand-dark z-0 mt-12">
-    <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-pink/30 blur-[100px] rounded-full pointer-events-none"></div>
-    <svg class="absolute bottom-0 w-full h-full object-cover" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 300V120L100 180L300 80L500 200L700 60L900 150L1150 40L1440 180V300H0Z" fill="#1f0a38"/></svg>
-    <svg class="absolute bottom-0 w-full h-[70%] object-cover" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200V80L150 150L350 40L600 160L850 70L1050 140L1300 60L1440 120V200H0Z" fill="#130424"/></svg>
-    <svg class="absolute bottom-0 w-full h-[40%] object-cover" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 120V50L250 100L450 30L650 110L950 40L1200 90L1440 20V120H0Z" fill="#000000"/></svg>
-</section>
-
-<div class="footer-mountain-wrapper relative z-20">
-    <footer class="bg-[#000000] pt-16 pb-12 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20 relative z-10">
-                
-                <div class="lg:col-span-4 pr-0 lg:pr-8">
-                    <a href="index.html" class="flex items-center gap-3 mb-8">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                            <div class="w-full h-full bg-[#000000] rounded-full flex items-center justify-center font-black text-sm tracking-tighter text-white">ID</div>
-                        </div>
-                        <span class="font-black text-white text-2xl tracking-tight uppercase">Index Dev.</span>
+                <div class="hidden md:block z-20">
+                    <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded shadow-[0_0_15px_rgba(255,255,255,0.1)] pointer-events-none" id="nav-cta" aria-current="page">
+                        Krev ditt utkast
                     </a>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
-                        Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører. Vi fjerner teknisk støy og bygger digitale rammeverk som faktisk skaffer deg kunder.
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-blue hover:border-brand-blue hover:text-white transition-all shadow-lg"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all shadow-lg"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-white hover:border-white hover:text-black transition-all shadow-lg"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+
+                <button class="lg:hidden text-white z-20 text-2xl p-2 outline-none focus:ring-2 focus:ring-white rounded" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-4 absolute w-full top-0 left-0 h-screen z-10 pt-24" aria-hidden="true">
+            <a href="prosess.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Slik fungerer det</a>
+            <a href="prosjekter.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Tidligere arbeid</a>
+            <a href="om-meg.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Om oss</a>
+            <a href="kontakt.html" class="block text-2xl font-bold text-blue-600 pb-4 border-b border-slate-100 mobile-link">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-dark overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-5" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+                    
+                    <div class="lg:col-span-5" data-aos="fade-right">
+                        
+                        <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-6 block">Vi har ledig kapasitet</span>
+
+                        <h1 class="text-white text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
+                            La oss bygge maskineriet ditt.
+                        </h1>
+                        
+                        <p class="text-slate-400 text-lg md:text-xl font-medium leading-relaxed mb-12">
+                            Fyll ut detaljene, så setter vi opp et skreddersydd utkast basert på vår lynraske arkitektur. Du betaler absolutt ingenting før du er 100% fornøyd med resultatet.
+                        </p>
+                        
+                        <div class="space-y-8 w-full border-t border-white/10 pt-8">
+                            <div>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">Send en e-post</p>
+                                <a href="mailto:andreas@indexdevelopment.no" class="text-white text-xl font-medium hover:text-blue-400 transition-colors">andreas@indexdevelopment.no</a>
+                            </div>
+
+                            <div>
+                                <p class="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">Ring oss direkte</p>
+                                <p class="text-white text-xl font-medium">+47 48 45 96 86</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="lg:col-span-7 relative mt-12 lg:mt-0" data-aos="fade-left" data-aos-delay="100">
+                        <div class="bg-white p-8 md:p-14 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] relative z-20">
+                            
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark mb-2 tracking-tight">Krev ditt utkast</h2>
+                            <p class="text-slate-500 mb-10 font-medium text-lg">Vi er klare til å starte kodingen.</p>
+
+                            <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-8">
+                                <input type="hidden" name="access_key" value="83c21432-cebf-4a7b-ab89-fd1cb41b1248">
+                                <input type="checkbox" name="botcheck" class="hidden pointer-events-none" aria-hidden="true">
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div class="relative">
+                                        <input type="text" id="navn" name="navn" required class="premium-input w-full" placeholder="Ditt Navn / Bedrift *">
+                                    </div>
+
+                                    <div class="relative">
+                                        <input type="email" id="epost" name="epost" required class="premium-input w-full" placeholder="E-postadresse *">
+                                    </div>
+                                </div>
+
+                                <div class="relative">
+                                    <input type="tel" id="telefon" name="telefon" class="premium-input w-full" placeholder="Telefonnummer (Valgfritt)">
+                                </div>
+
+                                <div class="relative">
+                                    <textarea id="melding" name="melding" rows="3" class="premium-input w-full resize-none" placeholder="Fortell oss kort om prosjektet eller bedriften din..."></textarea>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 pt-4 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-500">
+                                        <i class="fa-solid fa-shield-check" aria-hidden="true"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-dark">100% Risikofritt. Null forskuddsbetaling.</span>
+                                </div>
+
+                                <div class="pt-4">
+                                    <button type="submit" id="submit-btn-page" class="w-full md:w-auto px-10 py-5 rounded bg-blue-600 text-white font-bold text-[15px] shadow-lg hover:bg-blue-500 transition-colors focus:ring-4 focus:ring-blue-300 outline-none flex justify-center items-center gap-3 group">
+                                        Send Forespørsel <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div id="success-msg-page" class="hidden text-center py-16 relative z-10">
+                                <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500 text-5xl">
+                                    <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-dark mb-4 tracking-tight">Forespørsel mottatt.</h3>
+                                <p class="text-slate-600 text-lg max-w-sm mx-auto">Vi har mottatt informasjonen din og er allerede i gang. Du hører fra oss innen 24 timer.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 bg-light border-t border-slate-200">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+                
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark tracking-tight mb-4">Prosessen videre</h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto">Slik bygger vi Norges mest risikofrie web-opplevelse for deg.</p>
                 </div>
 
-                <div class="lg:col-span-3">
-                    <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Våre Tjenester</h4>
-                    <ul class="space-y-4 text-sm font-medium">
-                        <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Skreddersydd Webdesign</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Teknisk SEO & Synlighet</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Lynrask Håndkoding</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Drift & Sikkerhet</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-blue hover:translate-x-1 inline-block transition-transform duration-300">Konverteringsoptimalisering</a></li>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                    <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-slate-300 z-0"></div>
+                    
+                    <article class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-24 h-24 mx-auto bg-white rounded-full border border-slate-200 shadow-sm flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-blue-600">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-4">Kartlegging (15 min)</h3>
+                        <p class="text-slate-600 leading-relaxed text-base max-w-xs mx-auto">Vi tar en uforpliktende prat for å forstå målene dine. Du får en eksakt fastpris for selve oppsettet der og da.</p>
+                    </article>
+
+                    <article class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 mx-auto bg-white rounded-full border border-slate-200 shadow-sm flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-blue-600">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-4">Vi bygger utkastet</h3>
+                        <p class="text-slate-600 leading-relaxed text-base max-w-xs mx-auto">Vi designer og håndkoder nettsiden din. Innen få dager får du en skjult lenke for å teste resultatet på din egen mobil.</p>
+                    </article>
+
+                    <article class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 mx-auto bg-white rounded-full border border-blue-600 bg-blue-50 flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-blue-600">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-4">Din avgjørelse</h3>
+                        <p class="text-slate-600 leading-relaxed text-base max-w-xs mx-auto">Liker du det ikke, betaler du ingenting. Liker du det, betaler du for oppsettet og vi lanserer nettsiden på våre lynraske servere.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark pt-20 pb-10 border-t border-slate-800" aria-label="Bunntekst">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+                
+                <div class="md:col-span-4">
+                    <a href="index.html" class="flex items-center gap-3 mb-6" aria-label="Gå til forsiden">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-xs text-dark" aria-hidden="true">ID</div>
+                        <span class="font-bold text-white text-2xl tracking-tight">index dev.</span>
+                    </a>
+                    <p class="text-[15px] text-slate-400 leading-relaxed max-w-sm mb-6">
+                        Vi fjerner teknisk støy. Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører som vil ha resultater.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 md:col-start-6">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Tjenester</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Skreddersydd Webdesign</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Drift & Sikkerhet</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Teknisk SEO</a></li>
                     </ul>
                 </div>
 
-                <div class="lg:col-span-2">
-                    <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Selskap</h4>
-                    <ul class="space-y-4 text-sm font-medium">
-                        <li><a href="prosess.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosess</a></li>
-                        <li><a href="prosjekter.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Prosjekter</a></li>
-                        <li><a href="om-meg.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Om oss</a></li>
-                        <li><a href="kontakt.html" class="text-slate-400 hover:text-brand-pink hover:translate-x-1 inline-block transition-transform duration-300">Kontakt</a></li>
+                <div class="md:col-span-2">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Selskap</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Tilbud</a></li>
+                        <li><a href="prosjekter.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Arbeid</a></li>
+                        <li><a href="om-meg.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Om oss</a></li>
+                        <li><a href="kontakt.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Kontakt</a></li>
                     </ul>
                 </div>
 
-                <div class="lg:col-span-3">
-                    <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest border-b border-white/10 pb-4 inline-block">Ta Kontakt</h4>
-                    <ul class="space-y-5 text-sm font-medium mb-8">
-                        <li class="flex items-center gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink group-hover:bg-brand-pink group-hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></div>
-                            <a href="mailto:andreas@indexdevelopment.no" class="text-slate-300 hover:text-white transition-colors">andreas@indexdevelopment.no</a>
-                        </li>
-                        <li class="flex items-center gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors"><i class="fa-solid fa-phone"></i></div>
-                            <span class="text-slate-300">+47 48 45 96 86</span>
-                        </li>
-                        <li class="flex items-center gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors"><i class="fa-solid fa-location-dot"></i></div>
-                            <span class="text-slate-300">Drammen, Norge</span>
-                        </li>
+                <div class="md:col-span-2">
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Ta Kontakt</h2>
+                    <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition-colors focus:outline-none focus:text-white">E-post</a></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone" aria-hidden="true"></i> +47 48 45 96 86</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Drammen, Norge</li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 relative z-10 gap-4">
-                <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-                    <span>&copy; 2026 Index Development Melheim. Alle rettigheter reservert.</span>
-                    <span class="hidden md:inline text-white/20">|</span>
-                    <span>Org nr. 936 933 661</span>
-                </div>
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 font-medium gap-4">
+                <div>&copy; 2026 Index Development Melheim. Org nr. 936 933 661.</div>
                 <div class="flex gap-6">
-                    <a href="personvern.html" class="hover:text-white hover:underline transition-all">Personvernerklæring</a>
-                    <a href="vilkar.html" class="hover:text-white hover:underline transition-all">Vilkår & Betingelser</a>
+                    <a href="personvern.html" class="hover:text-white transition-colors">Personvernerklæring</a>
+                    <a href="vilkar.html" class="hover:text-white transition-colors">Vilkår & Betingelser</a>
                 </div>
             </div>
-
         </div>
     </footer>
-</div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) preloader.classList.add('preloader-hidden');
+            }, 800);
 
-        // Mobile menu toggle
-        const btn = document.getElementById("mobile-menu-button");
-        const menu = document.getElementById("mobile-menu");
-        if(btn && menu) {
-            btn.addEventListener("click", () => {
-                menu.classList.toggle("hidden");
-            });
-        }
+            if(typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+            } else {
+                window.addEventListener('load', () => AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' }));
+            }
 
-        // Web3Forms Auto-resize textarea
-        const textarea = document.getElementById('melding');
-        if(textarea) {
-            textarea.addEventListener('input', function() {
-                this.style.height = 'auto';
-                this.style.height = (this.scrollHeight) + 'px';
-            });
-        }
-
-        // Web3Forms Logic
-        const formPage = document.getElementById('contact-page-form');
-        const msgPage = document.getElementById('success-msg-page');
-        const btnPage = document.getElementById('submit-btn-page');
-
-        if(formPage) {
-            formPage.addEventListener('submit', function(e) {
-                e.preventDefault();
-                btnPage.innerHTML = "SENDER...";
-                btnPage.disabled = true;
-                const formData = new FormData(formPage);
-                const object = Object.fromEntries(formData);
-                const json = JSON.stringify(object);
-                
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: json
-                })
-                .then(async (response) => {
-                    if (response.status == 200) { 
-                        formPage.style.display = "none"; 
-                        msgPage.classList.remove("hidden"); 
-                    } else { 
-                        btnPage.innerHTML = "FEIL. PRØV IGJEN."; 
-                        btnPage.disabled = false; 
-                    }
-                })
-                .catch(error => { 
-                    console.log(error); 
-                    btnPage.innerHTML = "NOE GIKK GALT"; 
-                    btnPage.disabled = false; 
+            // Web3Forms Auto-resize textarea
+            const textarea = document.getElementById('melding');
+            if(textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
                 });
+            }
+
+            // Web3Forms Submit Logic
+            const formPage = document.getElementById('contact-page-form');
+            const msgPage = document.getElementById('success-msg-page');
+            const btnPage = document.getElementById('submit-btn-page');
+
+            if(formPage) {
+                formPage.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    btnPage.innerHTML = "SENDER... <i class='fa-solid fa-spinner fa-spin ml-2' aria-hidden='true'></i>";
+                    btnPage.disabled = true;
+                    btnPage.classList.add('opacity-70', 'cursor-not-allowed');
+                    
+                    const formData = new FormData(formPage);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        if (response.status == 200) { 
+                            formPage.style.display = "none"; 
+                            msgPage.classList.remove("hidden"); 
+                        } else { 
+                            btnPage.innerHTML = "FEIL. PRØV IGJEN."; 
+                            btnPage.disabled = false; 
+                            btnPage.classList.remove('opacity-70', 'cursor-not-allowed');
+                        }
+                    })
+                    .catch(error => { 
+                        console.log(error); 
+                        btnPage.innerHTML = "NOE GIKK GALT. PRØV IGJEN."; 
+                        btnPage.disabled = false; 
+                        btnPage.classList.remove('opacity-70', 'cursor-not-allowed');
+                    });
+                });
+            }
+
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                const dot = document.getElementById('nav-dot');
+                const tagline = document.getElementById('nav-tagline');
+                const divider = document.getElementById('nav-divider');
+                const links = document.getElementById('nav-links');
+                const cta = document.getElementById('nav-cta');
+                const mobileBtn = document.getElementById('mobile-menu-btn');
+                
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white', 'shadow-md');
+                    nav.classList.remove('py-6');
+                    nav.classList.add('py-4');
+                    
+                    document.getElementById('nav-logo').classList.replace('text-white', 'text-black');
+                    dot.classList.replace('bg-white', 'bg-black');
+                    tagline.classList.replace('text-white/80', 'text-slate-500');
+                    divider.classList.replace('bg-white/30', 'bg-slate-300');
+                    
+                    if(links) links.classList.replace('text-white', 'text-slate-600');
+                    if(cta) {
+                        cta.classList.replace('bg-white', 'bg-black');
+                        cta.classList.replace('text-black', 'text-white');
+                        cta.classList.replace('shadow-[0_0_15px_rgba(255,255,255,0.1)]', 'hover:bg-slate-800');
+                    }
+                    if(mobileBtn) mobileBtn.classList.replace('text-white', 'text-black');
+                } else {
+                    nav.classList.remove('bg-white', 'shadow-md');
+                    nav.classList.add('py-6');
+                    nav.classList.remove('py-4');
+                    
+                    document.getElementById('nav-logo').classList.replace('text-black', 'text-white');
+                    dot.classList.replace('bg-black', 'bg-white');
+                    tagline.classList.replace('text-slate-500', 'text-white/80');
+                    divider.classList.replace('bg-slate-300', 'bg-white/30');
+                    
+                    if(links) links.classList.replace('text-slate-600', 'text-white');
+                    if(cta) {
+                        cta.classList.replace('bg-black', 'bg-white');
+                        cta.classList.replace('text-white', 'text-black');
+                        cta.classList.replace('hover:bg-slate-800', 'shadow-[0_0_15px_rgba(255,255,255,0.1)]');
+                    }
+                    if(mobileBtn) mobileBtn.classList.replace('text-black', 'text-white');
+                }
             });
-        }
-    });
 
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (window.scrollY > 20) {
-            nav.classList.add('bg-[#030008]/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-            nav.classList.remove('border-transparent', 'py-5');
-            nav.classList.add('py-4');
-        } else {
-            nav.classList.remove('bg-[#030008]/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-            nav.classList.add('border-transparent', 'py-5');
-            nav.classList.remove('py-4');
-        }
-    });
-</script>
+            // Mobilmeny logikk
+            const btn = document.getElementById("mobile-menu-btn");
+            const menu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
 
+            if(btn && menu) {
+                const toggleMenu = () => {
+                    const isHidden = menu.classList.contains("hidden");
+                    menu.classList.toggle("hidden");
+                    btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+                    
+                    const icon = btn.querySelector('i');
+                    if(!isHidden){
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                        if (window.scrollY > 50) {
+                            btn.classList.replace('text-white', 'text-black');
+                        } else {
+                            btn.classList.replace('text-black', 'text-white');
+                        }
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                        btn.classList.remove('text-white');
+                        btn.classList.add('text-black');
+                    }
+                };
+
+                btn.addEventListener("click", toggleMenu);
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener("click", toggleMenu);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
