@@ -49,10 +49,10 @@
     </div>
 
     <header>
-        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6" aria-label="Hovednavigasjon">
+        <nav id="navbar" class="fixed w-full z-[60] transition-all duration-300 py-6" aria-label="Hovednavigasjon">
             <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
                 
-                <a href="index.html" class="flex items-center gap-3 z-20" aria-label="Gå til forsiden">
+                <a href="index.html" class="flex items-center gap-3 z-[70]" aria-label="Gå til forsiden">
                     <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter" id="nav-logo">
                         <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot" aria-hidden="true"></div> index dev.
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </a>
 
-                <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white" id="nav-links">
+                <div class="hidden lg:flex items-center gap-10 z-[70] font-medium text-[15px] text-white" id="nav-links">
                     <a href="tjenester.html" class="hover:opacity-70 transition-opacity">Tjenester</a>
                     <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
                     <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
@@ -70,25 +70,25 @@
                     <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
                 </div>
 
-                <div class="hidden md:block z-20">
+                <div class="hidden md:block z-[70]">
                     <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded hover:bg-slate-100 transition-colors focus:ring-2 focus:ring-blue-600 outline-none" id="nav-cta">
                         Krev ditt utkast
                     </a>
                 </div>
 
-                <button class="lg:hidden text-white z-20 text-2xl p-2 outline-none focus:ring-2 focus:ring-white rounded" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false" aria-controls="mobile-menu">
-                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                <button class="lg:hidden text-white z-[80] text-3xl p-2 outline-none rounded relative" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false">
+                    <i class="fa-solid fa-bars transition-transform duration-300" aria-hidden="true"></i>
                 </button>
             </div>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-8 absolute w-full top-0 left-0 h-screen z-10 pt-32" aria-hidden="true">
+        <div id="mobile-menu" class="fixed inset-0 w-full h-[100dvh] bg-white z-50 px-6 pt-32 pb-8 space-y-8 overflow-y-auto transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 pointer-events-none translate-y-[-20px] md:hidden" aria-hidden="true">
             <a href="tjenester.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tjenester</a>
             <a href="prosess.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Slik fungerer det</a>
             <a href="prosjekter.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tidligere arbeid</a>
             <a href="om-meg.html" class="block text-3xl font-bold text-blue-600 mobile-link">Sannheten</a>
             <a href="kontakt.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Kontakt</a>
-            <a href="kontakt.html" class="block mt-12 px-8 py-5 text-center rounded bg-blue-600 text-white font-bold text-xl hover:bg-blue-500 transition-colors mobile-link">Krev ditt utkast</a>
+            <a href="kontakt.html" class="block mt-12 px-8 py-5 text-center rounded bg-blue-600 text-white font-bold text-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:bg-blue-500 transition-colors mobile-link">Få et gratis utkast</a>
         </div>
     </header>
 
@@ -306,8 +306,10 @@
                 window.addEventListener('load', () => AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' }));
             }
 
+            // NAVBAR SCROLL (Fikset for mørk side)
             window.addEventListener('scroll', () => {
                 const nav = document.getElementById('navbar');
+                const logoText = document.getElementById('nav-logo').childNodes[2];
                 const dot = document.getElementById('nav-dot');
                 const tagline = document.getElementById('nav-tagline');
                 const divider = document.getElementById('nav-divider');
@@ -315,6 +317,9 @@
                 const activeLink = document.getElementById('nav-active');
                 const cta = document.getElementById('nav-cta');
                 const mobileBtn = document.getElementById('mobile-menu-btn');
+                
+                const menu = document.getElementById("mobile-menu");
+                if(menu && !menu.classList.contains('opacity-0')) return;
                 
                 if (window.scrollY > 50) {
                     nav.classList.add('bg-white', 'shadow-md');
@@ -365,37 +370,57 @@
                 }
             });
 
+            // SILKEMYK MOBILMENY LOGIKK
             const btn = document.getElementById("mobile-menu-btn");
             const menu = document.getElementById("mobile-menu");
             const mobileLinks = document.querySelectorAll(".mobile-link");
+            let isMenuOpen = false;
 
             if(btn && menu) {
                 const toggleMenu = () => {
-                    const isHidden = menu.classList.contains("hidden");
-                    menu.classList.toggle("hidden");
-                    btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
-                    
+                    isMenuOpen = !isMenuOpen;
                     const icon = btn.querySelector('i');
-                    if(!isHidden){
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                        if (window.scrollY > 50) {
-                            btn.classList.replace('text-white', 'text-black');
-                        } else {
-                            btn.classList.replace('text-black', 'text-white');
-                        }
-                    } else {
+                    
+                    if(isMenuOpen){
+                        // ÅPNE MENY
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-xmark');
-                        btn.classList.remove('text-white');
-                        btn.classList.add('text-black');
+                        icon.style.transform = "rotate(90deg)"; 
+                        
+                        btn.classList.replace('text-white', 'text-black');
+                        
+                        document.getElementById('nav-logo').classList.replace('text-white', 'text-black');
+                        document.getElementById('nav-dot').classList.replace('bg-white', 'bg-black');
+                        
+                        menu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                        
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        // LUKKE MENY
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                        icon.style.transform = "rotate(0deg)";
+                        
+                        menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                        menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                        
+                        document.body.style.overflow = '';
+                        
+                        if (window.scrollY <= 50) {
+                            btn.classList.replace('text-black', 'text-white');
+                            document.getElementById('nav-logo').classList.replace('text-black', 'text-white');
+                            document.getElementById('nav-dot').classList.replace('bg-black', 'bg-white');
+                        }
                     }
                 };
 
                 btn.addEventListener("click", toggleMenu);
                 
                 mobileLinks.forEach(link => {
-                    link.addEventListener("click", toggleMenu);
+                    link.addEventListener("click", () => {
+                        if (isMenuOpen) toggleMenu();
+                    });
                 });
             }
         });
