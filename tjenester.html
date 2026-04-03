@@ -70,45 +70,49 @@
         </div>
     </div>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
-        <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
-            
-            <a href="index.html" class="flex items-center gap-3 z-20">
-                <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter" id="nav-logo">
-                    <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot"></div> index dev.
-                </div>
-                <div class="hidden lg:block h-8 w-[1px] bg-white/30 ml-2" id="nav-divider"></div>
-                <div class="hidden lg:block text-[11px] font-medium text-white/80 leading-tight" id="nav-tagline">
-                    Vi tar risikoen.<br>Du får kundene.
-                </div>
-            </a>
-
-            <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white" id="nav-links">
-                <a href="tjenester.html" class="font-bold border-b-2 border-white pb-1 transition-all" id="nav-active">Tjenester</a>
-                <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
-                <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
-                <a href="om-meg.html" class="hover:opacity-70 transition-opacity">Om oss</a>
-                <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
-            </div>
-
-            <div class="hidden md:block z-20">
-                <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded hover:bg-slate-100 transition-colors" id="nav-cta">
-                    Få et gratis utkast
+    <header>
+        <nav id="navbar" class="fixed w-full z-[60] transition-all duration-300 py-6" aria-label="Hovednavigasjon">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
+                
+                <a href="index.html" class="flex items-center gap-3 z-[70]" aria-label="Gå til forsiden">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter" id="nav-logo">
+                        <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot" aria-hidden="true"></div> index dev.
+                    </div>
+                    <div class="hidden lg:block h-8 w-[1px] bg-white/30 ml-2" id="nav-divider" aria-hidden="true"></div>
+                    <div class="hidden lg:block text-[11px] font-medium text-white/80 leading-tight" id="nav-tagline">
+                        Vi tar risikoen.<br>Du får kundene.
+                    </div>
                 </a>
+
+                <div class="hidden lg:flex items-center gap-10 z-[70] font-medium text-[15px] text-white" id="nav-links">
+                    <a href="tjenester.html" class="font-bold border-b-2 border-white pb-1 transition-all" id="nav-active">Tjenester</a>
+                    <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
+                    <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
+                    <a href="om-meg.html" class="hover:opacity-70 transition-opacity">Sannheten</a>
+                    <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
+                </div>
+
+                <div class="hidden md:block z-[70]">
+                    <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded hover:bg-slate-100 transition-colors focus:ring-2 focus:ring-blue-600 outline-none" id="nav-cta">
+                        Få et gratis utkast
+                    </a>
+                </div>
+
+                <button class="lg:hidden text-white z-[80] text-3xl p-2 outline-none rounded relative" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false">
+                    <i class="fa-solid fa-bars transition-transform duration-300" aria-hidden="true"></i>
+                </button>
             </div>
+        </nav>
 
-            <button class="lg:hidden text-white z-20 text-2xl" id="mobile-menu-btn" aria-label="Åpne meny"><i class="fa-solid fa-bars"></i></button>
+        <div id="mobile-menu" class="fixed inset-0 w-full h-[100dvh] bg-white z-50 px-6 pt-32 pb-8 space-y-8 overflow-y-auto transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 pointer-events-none translate-y-[-20px] md:hidden" aria-hidden="true">
+            <a href="tjenester.html" class="block text-3xl font-bold text-blue-600 mobile-link">Tjenester</a>
+            <a href="prosess.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Slik fungerer det</a>
+            <a href="prosjekter.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tidligere arbeid</a>
+            <a href="om-meg.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Sannheten</a>
+            <a href="kontakt.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Kontakt</a>
+            <a href="kontakt.html" class="block mt-12 px-8 py-5 text-center rounded bg-blue-600 text-white font-bold text-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:bg-blue-500 transition-colors mobile-link">Få et gratis utkast</a>
         </div>
-    </nav>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-8 absolute w-full top-0 left-0 h-screen z-10 pt-32">
-        <a href="tjenester.html" class="block text-3xl font-bold text-blue-600 mobile-link">Tjenester</a>
-        <a href="prosess.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Slik fungerer det</a>
-        <a href="prosjekter.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tidligere arbeid</a>
-        <a href="om-meg.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Om oss</a>
-        <a href="kontakt.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Kontakt</a>
-        <a href="kontakt.html" class="block mt-12 px-8 py-5 text-center rounded bg-blue-600 text-white font-bold text-xl hover:bg-blue-500 transition-colors mobile-link">Få et gratis utkast</a>
-    </div>
+    </header>
 
     <section class="relative pt-48 pb-32 bg-dark text-white overflow-hidden border-b border-white/5">
         <div class="absolute inset-0 bg-gradient-to-br from-[#030008] to-[#110524] z-0"></div>
@@ -328,45 +332,46 @@
         </div>
     </section>
 
-    <footer class="bg-dark pt-20 pb-10 border-t border-white/5">
+    <footer class="bg-dark pt-20 pb-10 border-t border-slate-800" aria-label="Bunntekst">
         <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
                 
                 <div class="md:col-span-4">
-                    <a href="index.html" class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-xs text-dark">ID</div>
+                    <a href="index.html" class="flex items-center gap-3 mb-6" aria-label="Gå til forsiden">
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-xs text-dark" aria-hidden="true">ID</div>
                         <span class="font-bold text-white text-2xl tracking-tight">index dev.</span>
                     </a>
                     <p class="text-[15px] text-slate-400 leading-relaxed max-w-sm mb-6">
-                        Vi bygger nettsidene. Du tar oppdragene. Lynraske nettsider bygget fra bunnen av, helt uten risiko for deg.
+                        Vi fjerner teknisk støy. Vi bygger kompromissløse, håndkodede nettsider for ambisiøse aktører som vil ha resultater.
                     </p>
                 </div>
 
                 <div class="md:col-span-3 md:col-start-6">
-                    <h4 class="text-white font-semibold text-[15px] mb-6">Tjenester</h4>
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Tjenester</h2>
                     <ul class="space-y-4 text-sm text-slate-400 font-medium">
-                        <li><a href="tjenester.html" class="text-white transition-colors">Våre Tjenester</a></li>
-                        <li><a href="tjenester.html" class="hover:text-white transition-colors">Nettsider som selger</a></li>
-                        <li><a href="tjenester.html" class="hover:text-white transition-colors">Total Web-Redesign</a></li>
-                        <li><a href="tjenester.html" class="hover:text-white transition-colors">Drift & Sikkerhet</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Våre Tjenester</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Nettsider som selger</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Total Web-Redesign</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Drift & Sikkerhet</a></li>
                     </ul>
                 </div>
 
                 <div class="md:col-span-2">
-                    <h4 class="text-white font-semibold text-[15px] mb-6">Selskap</h4>
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Selskap</h2>
                     <ul class="space-y-4 text-sm text-slate-400 font-medium">
-                        <li><a href="prosess.html" class="hover:text-white transition-colors">Slik fungerer det</a></li>
-                        <li><a href="prosjekter.html" class="hover:text-white transition-colors">Tidligere prosjekter</a></li>
-                        <li><a href="om-meg.html" class="hover:text-white transition-colors">Om oss</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Slik fungerer det</a></li>
+                        <li><a href="prosjekter.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Arbeid</a></li>
+                        <li><a href="om-meg.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Sannheten</a></li>
+                        <li><a href="kontakt.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Kontakt</a></li>
                     </ul>
                 </div>
 
                 <div class="md:col-span-2">
-                    <h4 class="text-white font-semibold text-[15px] mb-6">Ta Kontakt</h4>
+                    <h2 class="text-white font-semibold text-[15px] mb-6">Ta Kontakt</h2>
                     <ul class="space-y-4 text-sm text-slate-400 font-medium">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition-colors">E-post</a></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone"></i> +47 48 45 96 86</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot"></i> Drammen, Norge</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:andreas@indexdevelopment.no" class="hover:text-white transition-colors focus:outline-none focus:text-white">E-post</a></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone" aria-hidden="true"></i> +47 48 45 96 86</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Drammen, Norge</li>
                     </ul>
                 </div>
 
@@ -382,16 +387,21 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Skjul preloader
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 if (preloader) preloader.classList.add('preloader-hidden');
-            }, 1200);
+            }, 800);
 
-            // Smidig AOS
-            AOS.init({ once: true, offset: 100, duration: 900, easing: 'ease-out-cubic' });
+            // Init AOS
+            if(typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+            } else {
+                window.addEventListener('load', () => AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' }));
+            }
 
             // 88% TALL-ANIMASJON (Ekstremt flytende)
             const statTrigger = document.getElementById('stat-trigger');
@@ -432,7 +442,7 @@
                 });
             }
 
-            // NAVBAR SCROLL (Eksakt som index)
+            // NAVBAR SCROLL (Fikset farger og logikk)
             window.addEventListener('scroll', () => {
                 const nav = document.getElementById('navbar');
                 const logoText = document.getElementById('nav-logo').childNodes[2];
@@ -443,6 +453,10 @@
                 const activeLink = document.getElementById('nav-active');
                 const cta = document.getElementById('nav-cta');
                 const mobileBtn = document.getElementById('mobile-menu-btn');
+                
+                // Ikke overstyr farger hvis mobilmenyen er åpen
+                const menu = document.getElementById("mobile-menu");
+                if(menu && !menu.classList.contains('opacity-0')) return;
                 
                 if (window.scrollY > 50) {
                     nav.classList.add('bg-white', 'shadow-md');
@@ -462,9 +476,9 @@
                     }
 
                     if(cta) {
-                        cta.classList.replace('bg-white', 'bg-blue-600');
+                        cta.classList.replace('bg-white', 'bg-black');
                         cta.classList.replace('text-black', 'text-white');
-                        cta.classList.replace('hover:bg-slate-100', 'hover:bg-blue-500');
+                        cta.classList.replace('hover:bg-slate-100', 'hover:bg-slate-800');
                     }
                     if(mobileBtn) mobileBtn.classList.replace('text-white', 'text-black');
                 } else {
@@ -493,33 +507,58 @@
                 }
             });
 
-            // MOBILMENY
+            // SILKEMYK MOBILMENY LOGIKK
             const btn = document.getElementById("mobile-menu-btn");
             const menu = document.getElementById("mobile-menu");
             const mobileLinks = document.querySelectorAll(".mobile-link");
+            let isMenuOpen = false;
 
             if(btn && menu) {
                 const toggleMenu = () => {
-                    menu.classList.toggle("hidden");
+                    isMenuOpen = !isMenuOpen;
                     const icon = btn.querySelector('i');
-                    if(menu.classList.contains('hidden')){
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                        if (window.scrollY > 50) {
-                            btn.classList.replace('text-white', 'text-black');
-                        } else {
-                            btn.classList.replace('text-black', 'text-white');
-                        }
-                    } else {
+                    
+                    if(isMenuOpen){
+                        // ÅPNE MENY
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-xmark');
-                        btn.classList.remove('text-white');
-                        btn.classList.add('text-black');
+                        icon.style.transform = "rotate(90deg)"; 
+                        
+                        btn.classList.replace('text-white', 'text-black');
+                        
+                        document.getElementById('nav-logo').classList.replace('text-white', 'text-black');
+                        document.getElementById('nav-dot').classList.replace('bg-white', 'bg-black');
+                        
+                        menu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                        menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                        
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        // LUKKE MENY
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                        icon.style.transform = "rotate(0deg)";
+                        
+                        menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                        menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                        
+                        document.body.style.overflow = '';
+                        
+                        if (window.scrollY <= 50) {
+                            btn.classList.replace('text-black', 'text-white');
+                            document.getElementById('nav-logo').classList.replace('text-black', 'text-white');
+                            document.getElementById('nav-dot').classList.replace('bg-black', 'bg-white');
+                        }
                     }
                 };
 
                 btn.addEventListener("click", toggleMenu);
-                mobileLinks.forEach(link => link.addEventListener("click", toggleMenu));
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener("click", () => {
+                        if (isMenuOpen) toggleMenu();
+                    });
+                });
             }
         });
     </script>
