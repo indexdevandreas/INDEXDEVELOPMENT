@@ -220,3 +220,144 @@ html, body {
     .pricing-card.popular { transform: scale(1); }
     .pricing-card.popular:hover { transform: translateY(-5px); }
 }
+
+/* =========================================
+   PREMIUM INTERACTIONS & ANIMATIONS
+   ========================================= */
+
+/* Hero Glass Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabular numbers for smooth counting */
+.stat-huge { 
+    font-variant-numeric: tabular-nums; 
+}
+
+/* Premium Card Hover Effects */
+.premium-service-card {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.premium-service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px -15px rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+/* Icon Fill Effect */
+.icon-fill-bg {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: scale(0);
+    transform-origin: center;
+}
+.premium-service-card:hover .icon-fill-bg {
+    transform: scale(1);
+}
+.premium-service-card:hover .icon-element {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+.icon-element {
+    transition: all 0.4s ease;
+}
+
+/* Number Parallax Effect on Hover */
+.bg-number {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), color 0.8s ease;
+}
+.premium-service-card:hover ~ .bg-number,
+.group:hover .bg-number {
+    transform: translateY(-20px) scale(1.05);
+    color: rgba(37, 99, 235, 0.08);
+}
+
+/* Strike line (Problems section) */
+.strike-line {
+    position: relative;
+}
+.strike-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 2px;
+    background: #ef4444;
+    transition: width 0.6s ease;
+}
+.group:hover .strike-line::after {
+    width: 100%;
+}
+
+ 
+        /* Hero Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-huge { font-variant-numeric: tabular-nums; }
+        
+        /* Premium Card Hover Effects */
+        .premium-service-card {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .premium-service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px -15px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Icon Fill Effect */
+        .icon-fill-bg {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: scale(0);
+            transform-origin: center;
+        }
+        .premium-service-card:hover .icon-fill-bg {
+            transform: scale(1);
+        }
+        .premium-service-card:hover .icon-element {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        .icon-element {
+            transition: all 0.4s ease;
+        }
+
+        /* Number Parallax Effect on Hover */
+        .bg-number {
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), color 0.8s ease;
+        }
+        .premium-service-card:hover ~ .bg-number,
+        .group:hover .bg-number {
+            transform: translateY(-20px) scale(1.05);
+            color: rgba(37, 99, 235, 0.08);
+        }
+
+        /* Glitch/Strike line */
+        .strike-line {
+            position: relative;
+        }
+        .strike-line::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 2px;
+            background: #ef4444;
+            transition: width 0.6s ease;
+        }
+        .group:hover .strike-line::after {
+            width: 100%;
+        }
+    

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>404 | Side ikke funnet</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="description" content="Siden du leter etter finnes ikke.">
+    <meta name="robots" content="noindex, follow" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,138 +20,128 @@
                 extend: { 
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            dark: '#030008',
-                            card: '#0a0514',
-                            pink: '#e81cff',
-                            blue: '#00f0ff',
-                            border: '#1f1333',
-                            muted: '#9ca3af'
-                        }
-                    },
-                    animation: {
-                        'spin-slow': 'spin 20s linear infinite',
-                        'spin-reverse': 'spin 15s linear infinite reverse',
+                        dark: '#111827',
+                        light: '#f9fafb',
                     }
                 } 
             }
         }
     </script>
 
-    <style>
-        body { background-color: #030008; color: #ffffff; overflow-x: hidden; }
-
-        /* --- HARDWARE ACCELERATED FALLING STARS --- */
-        .stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; transform: rotate(-45deg); pointer-events: none; }
-        .star { position: absolute; width: 150px; height: 2px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(232,28,255,1)); animation: fall linear infinite; opacity: 0; will-change: transform, opacity; }
-        @keyframes fall { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(-1500px); opacity: 0; } }
-        .star:nth-child(1) { top: 10%; right: -100px; animation-duration: 3s; animation-delay: 0s; }
-        .star:nth-child(2) { top: 30%; right: -100px; animation-duration: 4s; animation-delay: 1.5s; }
-        .star:nth-child(3) { top: 50%; right: -100px; animation-duration: 2.5s; animation-delay: 3s; }
-
-        /* --- AMBIENT GLOWS --- */
-        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(120px); z-index: -2; opacity: 0.4; pointer-events: none; }
-        .glow-1 { width: 800px; height: 800px; background: #4a1587; top: -200px; right: -200px; }
-        
-        /* Myk puste-animasjon for 404-gløden */
-        @keyframes breathe {
-            0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.25; transform: translate(-50%, -50%) scale(1.1); }
-        }
-        .glow-blob { animation: breathe 4s ease-in-out infinite; }
-
-        /* --- BUTTONS --- */
-        .btn-magenta { background-color: #e81cff; color: white; border-radius: 9999px; transition: all 0.3s; box-shadow: 0 0 20px rgba(232, 28, 255, 0.3); display: inline-flex; align-items: center; justify-content: center; border: 1px solid #e81cff; }
-        .btn-magenta:hover { background-color: transparent; color: #e81cff; transform: translateY(-2px); box-shadow: 0 0 30px rgba(232, 28, 255, 0.5); }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-brand-dark text-white h-screen overflow-hidden flex flex-col font-sans antialiased selection:bg-brand-pink selection:text-white">
+<body class="antialiased selection:bg-blue-600 selection:text-white bg-dark h-screen flex flex-col overflow-hidden">
 
-    <div class="ambient-glow glow-1"></div>
+    <header>
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-dark/80 backdrop-blur-md border-b border-white/10" aria-label="Hovednavigasjon">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex items-center justify-between">
+                
+                <a href="index.html" class="flex items-center gap-3 z-20" aria-label="Gå til forsiden">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter text-white" id="nav-logo">
+                        <div class="w-5 h-5 bg-white rounded-full transition-colors" id="nav-dot" aria-hidden="true"></div> index dev.
+                    </div>
+                    <div class="hidden lg:block h-8 w-[1px] bg-white/30 ml-2" aria-hidden="true"></div>
+                    <div class="hidden lg:block text-[11px] font-medium text-white/80 leading-tight">
+                        Vi tar risikoen.<br>Du får kundene.
+                    </div>
+                </a>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-            
-            <a href="index.html" class="flex items-center gap-3 z-20 flex-shrink-0">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue p-[2px]">
-                    <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center font-bold text-xs tracking-tighter text-white">ID</div>
+                <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white">
+                    <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
+                    <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
+                    <a href="om-meg.html" class="hover:opacity-70 transition-opacity">Om oss</a>
+                    <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
                 </div>
-                <span class="font-bold text-white text-xl tracking-tight">INDEX DEV.</span>
-            </a>
 
-            <div class="flex items-center justify-end gap-8 z-20 w-full">
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="prosess.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosess</a>
-                    <a href="prosjekter.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Prosjekter</a>
-                    <a href="om-meg.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Om oss</a>
-                    <a href="kontakt.html" class="text-sm font-semibold text-slate-300 hover:text-brand-pink transition-colors">Kontakt</a>
-                    
-                    <a href="kontakt.html" class="px-6 py-2.5 rounded-full border border-brand-pink/50 bg-[#05020a] text-white text-sm font-bold hover:bg-brand-pink/10 hover:border-brand-pink transition-all shadow-[0_0_15px_rgba(232,28,255,0.1)]">
-                        Book møte
+                <div class="hidden md:block z-20">
+                    <a href="kontakt.html" class="px-6 py-3 bg-white text-black text-sm font-bold rounded shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:bg-slate-200 transition-colors outline-none">
+                        Krev ditt utkast
                     </a>
                 </div>
 
-                <button id="mobile-menu-button" class="md:hidden text-white z-20" aria-label="Meny"><i class="fa-solid fa-bars text-2xl"></i></button>
+                <button class="lg:hidden text-white z-20 text-2xl p-2 outline-none focus:ring-2 focus:ring-white rounded" id="mobile-menu-btn" aria-label="Åpne mobilmeny" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
             </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-4 absolute w-full top-0 left-0 h-screen z-10 pt-24" aria-hidden="true">
+            <a href="prosess.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Slik fungerer det</a>
+            <a href="prosjekter.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Tidligere arbeid</a>
+            <a href="om-meg.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Om oss</a>
+            <a href="kontakt.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Kontakt</a>
         </div>
+    </header>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-[#030008]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 space-y-4 absolute w-full top-20 left-0 shadow-2xl">
-            <a href="prosess.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosess</a>
-            <a href="prosjekter.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Prosjekter</a>
-            <a href="om-meg.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Om oss</a>
-            <a href="kontakt.html" class="block text-base font-medium text-white hover:text-brand-pink border-b border-white/5 pb-2 transition-colors">Kontakt</a>
-            <a href="kontakt.html" class="block text-base font-bold text-brand-pink pt-2">Book møte →</a>
-        </div>
-    </nav>
-
-    <main class="flex-grow flex items-center justify-center relative px-6 w-full">
-      
-      <div class="stars-container">
-          <div class="star"></div><div class="star"></div><div class="star"></div>
-      </div>
-
-      <div class="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-brand-pink rounded-full blur-[150px] glow-blob pointer-events-none -z-10"></div>
-
-      <div class="relative z-10 text-center max-w-2xl mx-auto">
+    <main class="flex-grow flex items-center justify-center relative w-full pt-20">
         
-        <h1 class="text-[120px] md:text-[180px] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-brand-pink to-brand-blue select-none drop-shadow-[0_0_30px_rgba(232,28,255,0.2)]">
-          404
-        </h1>
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-dark z-0"></div>
 
-        <div class="space-y-6 relative -top-4">
-          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Her var det tomt.
-          </h2>
-          
-          <p class="text-brand-muted text-lg md:text-xl font-medium max-w-md mx-auto leading-relaxed">
-            Siden du leter etter har enten flyttet, eller så har du skrevet feil adresse. Ingen fare, maskineriet venter på deg.
-          </p>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
 
-          <div class="pt-8">
-            <a href="index.html" class="btn-magenta px-10 py-4 font-bold text-lg">
-              Tilbake til forsiden <i class="fa-solid fa-arrow-right ml-2"></i>
+        <div class="relative z-10 text-center px-6 w-full max-w-2xl mx-auto">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse" aria-hidden="true"></span> 
+                Feilkode 404
+            </div>
+
+            <h1 class="text-white text-[8rem] md:text-[12rem] font-black leading-none tracking-tighter mb-2 select-none drop-shadow-2xl">
+                404
+            </h1>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                Her var det helt tomt.
+            </h2>
+            
+            <p class="text-slate-400 text-lg md:text-xl font-medium max-w-lg mx-auto mb-12 leading-relaxed">
+                Lenken du klikket på er død, eller så har siden blitt flyttet. Ingen fare, maskineriet vårt kjører videre som normalt.
+            </p>
+
+            <a href="index.html" class="inline-flex justify-center items-center gap-3 bg-blue-600 text-white px-10 py-5 text-[16px] font-bold rounded hover:bg-blue-500 transition-colors shadow-[0_0_30px_rgba(37,99,235,0.4)] focus:ring-4 focus:ring-blue-300 outline-none">
+                Tilbake til forsiden <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-          </div>
-        </div>
 
-      </div>
+        </div>
     </main>
 
     <footer class="absolute bottom-6 w-full text-center z-10">
-      <p class="text-white/30 text-xs font-bold uppercase tracking-widest">
-        Feilkode: 404 &bull; Index Development
-      </p>
+        <p class="text-slate-600 text-xs font-bold uppercase tracking-widest">
+            &copy; 2026 Index Development
+        </p>
     </footer>
 
     <script>
-        // Mobile menu toggle
         document.addEventListener("DOMContentLoaded", function() {
-            const btn = document.getElementById("mobile-menu-button");
+            // Mobile menu toggle
+            const btn = document.getElementById("mobile-menu-btn");
             const menu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
             if(btn && menu) {
-                btn.addEventListener("click", () => {
+                const toggleMenu = () => {
+                    const isHidden = menu.classList.contains("hidden");
                     menu.classList.toggle("hidden");
+                    btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+                    
+                    const icon = btn.querySelector('i');
+                    if(!isHidden){
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                        btn.classList.replace('text-white', 'text-black');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                        btn.classList.replace('text-white', 'text-black');
+                    }
+                };
+
+                btn.addEventListener("click", toggleMenu);
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener("click", toggleMenu);
                 });
             }
         });

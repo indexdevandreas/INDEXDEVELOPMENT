@@ -63,9 +63,10 @@
                 </a>
 
                 <div class="hidden lg:flex items-center gap-10 z-20 font-medium text-[15px] text-white" id="nav-links">
+                    <a href="tjenester.html" class="hover:opacity-70 transition-opacity">Tjenester</a>
                     <a href="prosess.html" class="hover:opacity-70 transition-opacity">Slik fungerer det</a>
                     <a href="prosjekter.html" class="hover:opacity-70 transition-opacity">Tidligere arbeid</a>
-                    <a href="om-meg.html" class="hover:opacity-70 transition-opacity text-blue-400">Sannheten</a>
+                    <a href="om-meg.html" class="font-bold border-b-2 border-white pb-1 transition-all" id="nav-active">Sannheten</a>
                     <a href="kontakt.html" class="hover:opacity-70 transition-opacity">Kontakt</a>
                 </div>
 
@@ -81,20 +82,21 @@
             </div>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-4 absolute w-full top-0 left-0 h-screen z-10 pt-24" aria-hidden="true">
-            <a href="prosess.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Slik fungerer det</a>
-            <a href="prosjekter.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Tidligere arbeid</a>
-            <a href="om-meg.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Sannheten</a>
-            <a href="kontakt.html" class="block text-2xl font-bold text-dark pb-4 border-b border-slate-100 mobile-link">Kontakt</a>
-            <a href="kontakt.html" class="block mt-8 px-8 py-4 text-center rounded bg-blue-600 text-white font-bold text-lg mobile-link">Krev ditt utkast</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-8 space-y-8 absolute w-full top-0 left-0 h-screen z-10 pt-32" aria-hidden="true">
+            <a href="tjenester.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tjenester</a>
+            <a href="prosess.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Slik fungerer det</a>
+            <a href="prosjekter.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Tidligere arbeid</a>
+            <a href="om-meg.html" class="block text-3xl font-bold text-blue-600 mobile-link">Sannheten</a>
+            <a href="kontakt.html" class="block text-3xl font-bold text-dark hover:text-blue-600 transition-colors mobile-link">Kontakt</a>
+            <a href="kontakt.html" class="block mt-12 px-8 py-5 text-center rounded bg-blue-600 text-white font-bold text-xl hover:bg-blue-500 transition-colors mobile-link">Krev ditt utkast</a>
         </div>
     </header>
 
     <main>
-        <section class="pt-32 bg-dark border-b border-white/10">
+        <section class="pt-32 bg-dark">
             <div class="max-w-[100rem] mx-auto px-6 lg:px-12">
                 
-                <div class="pt-20 pb-12 border-b border-white/10" data-aos="fade-down">
+                <div class="pt-20 pb-12" data-aos="fade-down">
                     <h1 class="text-white text-4xl md:text-6xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.95]">
                         SANNHETEN BYRÅENE <br class="hidden lg:block">
                         <span class="text-blue-600">BER TIL GUD OM AT DU</span><br class="hidden lg:block">
@@ -104,7 +106,7 @@
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     
-                    <div class="lg:col-span-6 py-12 lg:pr-16 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-center" data-aos="fade-right" data-aos-delay="100">
+                    <div class="lg:col-span-6 py-12 lg:pr-16 flex flex-col justify-center" data-aos="fade-right" data-aos-delay="100">
                         <p class="text-slate-400 text-xl md:text-2xl font-medium leading-relaxed mb-8">
                             Hvorfor betaler bedrifter 30.000 kroner for nettsider som ikke genererer en eneste krone i omsetning? Fordi bransjen selger deg design, når du egentlig trenger en maskin.
                         </p>
@@ -119,9 +121,9 @@
                     </div>
 
                     <div class="lg:col-span-6 relative bg-black overflow-hidden" data-aos="fade-left" data-aos-delay="200">
-                        <img src="bilder/kontor.jpg" alt="Andreas Melheim" class="w-full h-full min-h-[400px] md:min-h-[500px] object-cover grayscale border-t border-white/5 opacity-70">
+                        <img src="bilder/kontor.jpg" alt="Andreas Melheim" class="w-full h-full min-h-[400px] md:min-h-[500px] object-cover grayscale opacity-70">
                         
-                        <div class="absolute bottom-0 left-0 bg-dark border-t border-r border-white/10 p-6 md:p-8 max-w-md">
+                        <div class="absolute bottom-0 left-0 bg-dark p-6 md:p-8 max-w-md">
                             <p class="text-white font-medium text-sm md:text-base leading-relaxed">
                                 <strong class="text-blue-500 block mb-2 uppercase tracking-widest text-xs">Andreas Melheim / Grunnlegger</strong> 
                                 "Jeg nekter å la deg betale for noe som ikke gir deg avkastning. Derfor tar jeg 100% av risikoen."
@@ -133,7 +135,7 @@
             </div>
         </section>
 
-        <section class="py-24 md:py-32 bg-white border-t border-slate-200">
+        <section class="py-24 md:py-32 bg-white">
             <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -176,7 +178,7 @@
             </div>
         </section>
 
-        <section class="py-24 md:py-32 bg-light border-t border-slate-200">
+        <section class="py-24 md:py-32 bg-light">
             <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4 tracking-tight">Motgiften: Håndkodet Infrastruktur.</h2>
@@ -213,7 +215,7 @@
             </div>
         </section>
 
-        <section class="relative py-32 bg-dark border-t border-slate-800">
+        <section class="relative py-32 bg-dark">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop" alt="Server arkitektur" class="w-full h-full object-cover opacity-10" loading="lazy">
             </div>
@@ -235,7 +237,7 @@
         </section>
     </main>
 
-    <footer class="bg-dark pt-20 pb-10 border-t border-slate-800" aria-label="Bunntekst">
+    <footer class="bg-dark pt-20 pb-10" aria-label="Bunntekst">
         <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
                 
@@ -252,16 +254,17 @@
                 <div class="md:col-span-3 md:col-start-6">
                     <h2 class="text-white font-semibold text-[15px] mb-6">Tjenester</h2>
                     <ul class="space-y-4 text-sm text-slate-400 font-medium">
-                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Skreddersydd Webdesign</a></li>
-                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Drift & Sikkerhet</a></li>
-                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Teknisk SEO</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Våre Tjenester</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Nettsider som selger</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Total Web-Redesign</a></li>
+                        <li><a href="tjenester.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Drift & Sikkerhet</a></li>
                     </ul>
                 </div>
 
                 <div class="md:col-span-2">
                     <h2 class="text-white font-semibold text-[15px] mb-6">Selskap</h2>
                     <ul class="space-y-4 text-sm text-slate-400 font-medium">
-                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Tilbud</a></li>
+                        <li><a href="prosess.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Slik fungerer det</a></li>
                         <li><a href="prosjekter.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Vårt Arbeid</a></li>
                         <li><a href="om-meg.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Sannheten</a></li>
                         <li><a href="kontakt.html" class="hover:text-white transition-colors focus:outline-none focus:text-white">Kontakt</a></li>
@@ -279,7 +282,7 @@
 
             </div>
 
-            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 font-medium gap-4">
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 font-medium gap-4">
                 <div>&copy; 2026 Index Development Melheim. Org nr. 936 933 661.</div>
                 <div class="flex gap-6">
                     <a href="personvern.html" class="hover:text-white transition-colors">Personvernerklæring</a>
@@ -309,6 +312,7 @@
                 const tagline = document.getElementById('nav-tagline');
                 const divider = document.getElementById('nav-divider');
                 const links = document.getElementById('nav-links');
+                const activeLink = document.getElementById('nav-active');
                 const cta = document.getElementById('nav-cta');
                 const mobileBtn = document.getElementById('mobile-menu-btn');
                 
@@ -323,6 +327,12 @@
                     divider.classList.replace('bg-white/30', 'bg-slate-300');
                     
                     if(links) links.classList.replace('text-white', 'text-slate-600');
+                    if(activeLink) {
+                        activeLink.classList.remove('border-white');
+                        activeLink.classList.add('border-blue-600');
+                        activeLink.classList.add('text-blue-600');
+                    }
+
                     if(cta) {
                         cta.classList.replace('bg-white', 'bg-black');
                         cta.classList.replace('text-black', 'text-white');
@@ -340,6 +350,12 @@
                     divider.classList.replace('bg-slate-300', 'bg-white/30');
                     
                     if(links) links.classList.replace('text-slate-600', 'text-white');
+                    if(activeLink) {
+                        activeLink.classList.add('border-white');
+                        activeLink.classList.remove('border-blue-600');
+                        activeLink.classList.remove('text-blue-600');
+                    }
+
                     if(cta) {
                         cta.classList.replace('bg-black', 'bg-white');
                         cta.classList.replace('text-white', 'text-black');
