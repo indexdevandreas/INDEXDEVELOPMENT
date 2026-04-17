@@ -805,7 +805,6 @@ body:has(.cursor) * { cursor: none; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 3rem; flex-wrap: wrap;
 }
-.no-lock-left {}
 .no-lock-eyebrow {
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
