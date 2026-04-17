@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt | Index Development — Start prosjektet ditt</title>
+  <meta name="description" content="Send oss litt info om bedriften din. Innen 72 timer har du et ferdig utkast klart til testing — uten at du har betalt en øre. Null risiko.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indexdevelopment.no/kontakt.html">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://indexdevelopment.no/kontakt.html">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:title" content="Kontakt — Index Development">
+  <meta property="og:description" content="Send oss litt info. Innen 72 timer har du et utkast klart — uten å betale en øre.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kontakt — Index Development">
+  <meta name="twitter:description" content="Send oss litt info. Innen 72 timer har du et utkast klart — uten å betale en øre.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="main.css">
+
+  <style>
+    /* ====== CONTACT HERO ====== */
+    .contact-hero {
+      position: relative;
+      background: var(--dark);
+      overflow: hidden;
+      padding-top: 9rem;
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none; z-index: 0;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(37,99,235,0.11), transparent 65%);
+      pointer-events: none; z-index: 1;
+    }
+    .contact-hero-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto; width: 100%;
+      padding-inline: var(--pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: center;
+    }
+
+    /* Left column */
+    .contact-hero-left {
+      opacity: 0;
+      animation: heroFadeUp 0.8s 0.2s ease forwards;
+    }
+    .contact-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 600;
+      color: rgba(255,255,255,0.55); letter-spacing: 0.02em;
+      margin-bottom: 2.25rem;
+    }
+    .contact-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--blue); border-radius: 50%;
+      animation: topbarPulse 2s infinite;
+    }
+    .contact-info-strip {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 2.25rem;
+      margin-top: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-info-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.25rem;
+    }
+    .contact-info-value {
+      font-size: 1.0625rem; font-weight: 500;
+      color: rgba(255,255,255,0.8);
+    }
+    .contact-info-value a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info-value a:hover { color: var(--white); }
+
+    /* Right column — form card */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.35);
+      opacity: 0;
+      animation: heroFadeUp 0.85s 0.45s ease forwards;
+    }
+    .contact-form-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700; letter-spacing: -0.03em;
+      color: var(--fg); margin-bottom: 0.4rem;
+    }
+    .contact-form-card .form-sub {
+      font-size: 0.9375rem; color: var(--fg2);
+      margin-bottom: 2.25rem;
+    }
+
+    /* Form inputs */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-row { margin-bottom: 1.5rem; }
+    .form-input {
+      width: 100%; box-sizing: border-box;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #e2e8f0;
+      border-radius: 0;
+      padding: 0.75rem 0;
+      font-size: 1rem; font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      color: var(--fg);
+      transition: border-color 0.25s;
+      outline: none;
+    }
+    .form-input:focus { border-bottom-color: var(--blue); }
+    .form-input::placeholder { color: #94a3b8; font-weight: 400; }
+    textarea.form-input { resize: none; overflow: hidden; }
+
+    /* Trust row */
+    .form-trust {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 1.75rem 0 0.5rem;
+      padding: 0.875rem 1rem;
+      background: #f0fdf4;
+      border-radius: 0.5rem;
+      font-size: 0.875rem; font-weight: 700;
+      color: #166534;
+    }
+    .form-trust-icon {
+      width: 2rem; height: 2rem; flex-shrink: 0;
+      background: #dcfce7; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #16a34a;
+    }
+    .form-trust-icon svg { width: 1rem; height: 1rem; }
+
+    /* Submit button */
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      margin-top: 1.5rem;
+      padding: 0.9375rem 2.25rem;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.9375rem; font-weight: 700;
+      border-radius: 0.375rem;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-submit:hover { background: #1d4ed8; }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .btn-submit svg { width: 1rem; height: 1rem; transition: transform 0.2s; flex-shrink: 0; }
+    .btn-submit:not(:disabled):hover svg { transform: translateX(3px); }
+
+    /* Loading spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      width: 1rem; height: 1rem;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    /* Success state */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 3.5rem 1rem;
+    }
+    .success-icon {
+      width: 5rem; height: 5rem;
+      background: #dcfce7; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: #16a34a;
+    }
+    .success-icon svg { width: 2rem; height: 2rem; }
+    .success-msg h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem; font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--fg); margin-bottom: 0.75rem;
+    }
+    .success-msg p { font-size: 1rem; color: var(--fg2); max-width: 28rem; margin: 0 auto; line-height: 1.7; }
+
+    /* ====== PROSESSEN VIDERE ====== */
+    .prosess-section {
+      background: var(--white);
+      border-top: 1px solid var(--border2);
+    }
+    .prosess-header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto clamp(3rem, 5vw, 5rem);
+    }
+    .prosess-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      position: relative;
+    }
+    /* Connecting line between circles */
+    .prosess-grid::before {
+      content: '';
+      position: absolute;
+      top: 3rem; /* aligns to center of circle (6rem/2) */
+      left: calc(16.667% + 1.5rem);
+      right: calc(16.667% + 1.5rem);
+      height: 1px;
+      background: var(--border2);
+      z-index: 0;
+    }
+    .prosess-step {
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .prosess-num {
+      width: 6rem; height: 6rem;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.375rem; font-weight: 700;
+      color: var(--blue);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .prosess-step:last-child .prosess-num {
+      border-color: var(--blue);
+      background: #eff6ff;
+    }
+    .prosess-step h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.0625rem; font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--fg); margin-bottom: 0.625rem;
+    }
+    .prosess-step p {
+      font-size: 0.9375rem; color: var(--fg2);
+      line-height: 1.65;
+      max-width: 22rem; margin: 0 auto;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 1024px) {
+      .contact-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .prosess-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .prosess-grid::before { display: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kontakt — Index Development",
+    "url": "https://indexdevelopment.no/kontakt.html",
+    "description": "Send oss litt info om bedriften din. Innen 72 timer har du et ferdig utkast klart til testing — uten å betale en øre.",
+    "isPartOf": { "@type": "WebSite", "url": "https://indexdevelopment.no" }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
+          <div class="nav-logo-dot" aria-hidden="true"></div>
+          index dev.
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="prosess.html">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html">Prosjekter</a></li>
+          <li><a href="om-meg.html">Sannheten</a></li>
+          <li><a href="kontakt.html" aria-current="page" style="color:var(--white)">Kontakt</a></li>
+        </ul>
+        <a href="kontakt.html" class="nav-cta">
+          Krev ditt utkast
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="prosess.html">Slik fungerer det</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om-meg.html">Sannheten</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================
+         HERO + FORM
+    ============================= -->
+    <section class="contact-hero" aria-labelledby="kontakt-title">
+      <div class="contact-hero-inner">
+
+        <!-- Left: headline + info -->
+        <div class="contact-hero-left">
+          <div class="contact-badge">
+            <span class="contact-badge-dot" aria-hidden="true"></span>
+            Vi har ledig kapasitet
+          </div>
+
+          <h1 class="hero-headline" id="kontakt-title">
+            <span class="hl-row"><span class="hl-text">La oss bygge</span></span>
+            <span class="hl-row"><span class="hl-text hl-outline">maskineriet ditt.</span></span>
+          </h1>
+
+          <p style="color:rgba(255,255,255,0.4);font-size:clamp(0.9375rem,1.5vw,1.0625rem);line-height:1.75;margin-top:1.75rem;max-width:440px;">
+            Fyll ut skjemaet, så setter vi opp et skreddersydd utkast basert på vår lynraske arkitektur. Du betaler absolutt ingenting før du er 100% fornøyd.
+          </p>
+
+          <div class="contact-info-strip">
+            <div>
+              <p class="contact-info-label">Send en e-post</p>
+              <p class="contact-info-value"><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></p>
+            </div>
+            <div>
+              <p class="contact-info-label">Ring oss direkte</p>
+              <p class="contact-info-value">+47 48 45 96 86</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form card -->
+        <div class="contact-form-card">
+          <h2>Krev ditt utkast</h2>
+          <p class="form-sub">Vi er klare til å starte kodingen.</p>
+
+          <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="83c21432-cebf-4a7b-ab89-fd1cb41b1248">
+            <input type="checkbox" name="botcheck" style="display:none;pointer-events:none" aria-hidden="true">
+
+            <div class="form-grid-2">
+              <input type="text" id="navn" name="navn" required class="form-input" placeholder="Navn / Bedrift *">
+              <input type="email" id="epost" name="epost" required class="form-input" placeholder="E-postadresse *">
+            </div>
+            <div class="form-row">
+              <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="Telefonnummer (valgfritt)">
+            </div>
+            <div class="form-row" style="margin-bottom:0">
+              <textarea id="melding" name="melding" rows="3" class="form-input" placeholder="Fortell kort om bedriften din..."></textarea>
+            </div>
+
+            <div class="form-trust">
+              <div class="form-trust-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.5 1.709a.75.75 0 0 0-1 0 8.963 8.963 0 0 1-4.84 2.217.75.75 0 0 0-.654.72 10.499 10.499 0 0 0 5.647 9.672.75.75 0 0 0 .694 0 10.499 10.499 0 0 0 5.647-9.672.75.75 0 0 0-.654-.72A8.963 8.963 0 0 1 8.5 1.71Zm2.34 5.504a.75.75 0 0 0-1.18-.926L7.394 9.17l-1.156-1.21a.75.75 0 1 0-1.076 1.044l1.75 1.812a.75.75 0 0 0 1.102.031l2.825-3.344Z" clip-rule="evenodd"/></svg>
+              </div>
+              100% risikofritt — null forskuddsbetaling
+            </div>
+
+            <button type="submit" id="submit-btn-page" class="btn-submit">
+              Send forespørsel
+              <svg id="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </button>
+          </form>
+
+          <div class="success-msg" id="success-msg-page" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+            </div>
+            <h3>Forespørsel mottatt.</h3>
+            <p>Vi har fått informasjonen din og er allerede i gang. Du hører fra oss innen 24 timer.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         PROSESSEN VIDERE
+    ============================= -->
+    <section class="prosess-section section-pad" aria-labelledby="prosess-title">
+      <div class="container">
+        <div class="prosess-header">
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Hva skjer videre</p>
+          <h2 class="t-section" id="prosess-title" data-sr="up" data-d="1">Prosessen videre.</h2>
+          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2">Slik bygger vi Norges mest risikofrie web-opplevelse for deg.</p>
+        </div>
+
+        <div class="prosess-grid">
+
+          <article class="prosess-step" data-sr="up" data-d="1">
+            <div class="prosess-num" aria-hidden="true">01</div>
+            <h3>Kartlegging (15 min)</h3>
+            <p>Vi tar en uforpliktende prat for å forstå målene dine. Du får en eksakt fastpris der og da.</p>
+          </article>
+
+          <article class="prosess-step" data-sr="up" data-d="2">
+            <div class="prosess-num" aria-hidden="true">02</div>
+            <h3>Vi bygger utkastet</h3>
+            <p>Vi designer og håndkoder nettsiden din. Innen få dager får du en skjult lenke for å teste resultatet på din egen mobil.</p>
+          </article>
+
+          <article class="prosess-step" data-sr="up" data-d="3">
+            <div class="prosess-num" aria-hidden="true">03</div>
+            <h3>Din avgjørelse</h3>
+            <p>Liker du det ikke, betaler du ingenting. Liker du det, betaler du og vi lanserer på lynraske servere.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-dot" aria-hidden="true"></div>
+            index dev.
+          </div>
+          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Tjenester</h3>
+          <ul>
+            <li><a href="tjenester.html">Alle tjenester</a></li>
+            <li><a href="tjenester.html">Nettsider som selger</a></li>
+            <li><a href="tjenester.html">Web-redesign</a></li>
+            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Selskap</h3>
+          <ul>
+            <li><a href="prosess.html">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html">Prosjekter</a></li>
+            <li><a href="om-meg.html">Sannheten</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Ta kontakt</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
+              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
+              +47 48 45 96 86
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
+              Drammen, Norge
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
+        <nav class="footer-bottom-links" aria-label="Juridisk">
+          <a href="personvern.html">Personvern</a>
+          <a href="vilkar.html">Vilkår</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ---- SCROLL PROGRESS ----
+    var prog = document.getElementById('scroll-progress');
+    function updateProgress() {
+      if (!prog) return;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+
+    // ---- NAVBAR ----
+    var navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', function () { updateProgress(); updateNav(); }, { passive: true });
+    updateNav();
+
+    // ---- HAMBURGER ----
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- CUSTOM CURSOR (pointer devices only) ----
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var cursorDot  = document.getElementById('cursor-dot');
+      var cursorRing = document.getElementById('cursor-ring');
+      var mx = 0, my = 0, rx = 0, ry = 0, rafId = null;
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (cursorDot) { cursorDot.parentElement.style.left = mx + 'px'; cursorDot.parentElement.style.top = my + 'px'; }
+        if (!rafId) rafId = requestAnimationFrame(animateCursor);
+      });
+      function animateCursor() {
+        if (cursorRing) {
+          var dx = mx - rx, dy = my - ry;
+          rx += dx * 0.14; ry += dy * 0.14;
+          cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+          rafId = (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) ? requestAnimationFrame(animateCursor) : null;
+        } else { rafId = null; }
+      }
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          if (cursorRing) { cursorRing.style.width = '56px'; cursorRing.style.height = '56px'; }
+          if (cursorDot)  { cursorDot.style.width = '4px'; cursorDot.style.height = '4px'; }
+        });
+        el.addEventListener('mouseleave', function () {
+          if (cursorRing) { cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; }
+          if (cursorDot)  { cursorDot.style.width = '8px'; cursorDot.style.height = '8px'; }
+        });
+      });
+    }
+
+    // ---- TEXTAREA AUTO-RESIZE ----
+    var textarea = document.getElementById('melding');
+    if (textarea) {
+      textarea.addEventListener('input', function () {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+      });
+    }
+
+    // ---- WEB3FORMS SUBMIT ----
+    var form    = document.getElementById('contact-page-form');
+    var msgDiv  = document.getElementById('success-msg-page');
+    var btn     = document.getElementById('submit-btn-page');
+    var btnArrow = document.getElementById('btn-arrow');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Loading state
+        btn.disabled = true;
+        btn.innerHTML = 'Sender... <span class="spinner" aria-hidden="true"></span>';
+
+        var formData = new FormData(form);
+        var object = {};
+        formData.forEach(function (val, key) { object[key] = val; });
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(object)
+        })
+        .then(function (response) {
+          if (response.status === 200) {
+            form.style.display = 'none';
+            msgDiv.style.display = 'block';
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = 'Noe gikk galt — prøv igjen';
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.innerHTML = 'Noe gikk galt — prøv igjen';
+        });
+      });
+    }
+
+    // ---- SCROLL REVEAL (data-sr elements) ----
+    var srEls = document.querySelectorAll('[data-sr]');
+    var srObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          srObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    srEls.forEach(function (el) { srObserver.observe(el); });
+
+  }());
+  </script>
+
+</body>
+</html>

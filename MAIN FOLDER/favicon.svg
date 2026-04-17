@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background with rounded corners -->
+  <rect width="32" height="32" rx="7" fill="#080808"/>
+  <!-- Blue dot — the brand mark (tittle of the i) -->
+  <circle cx="16" cy="9" r="3.5" fill="#2563eb"/>
+  <!-- White stem of the i -->
+  <rect x="12.5" y="15" width="7" height="11" rx="2" fill="#ffffff"/>
+</svg>

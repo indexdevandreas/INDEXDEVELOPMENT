@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Development | Håndkodede nettsider som skaffer kunder — 0,- på forskudd</title>
+  <meta name="description" content="Den trege nettsiden din koster deg kunder hver dag. Vi bygger deg en lynrask salgsmaskin på 72 timer. Du betaler ikke en krone før du er fornøyd.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indexdevelopment.no/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://indexdevelopment.no/">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:title" content="Index Development | Håndkodede nettsider som skaffer kunder — 0,- på forskudd">
+  <meta property="og:description" content="Den trege nettsiden din koster deg kunder hver dag. Vi bygger deg en lynrask salgsmaskin på 72 timer. Du betaler ikke en krone før du er fornøyd.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Index Development | Håndkodede nettsider som skaffer kunder">
+  <meta name="twitter:description" content="Den trege nettsiden din koster deg kunder. Vi bygger en lynrask salgsmaskin på 72 timer. Betaler ingenting før du er fornøyd.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "description": "Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.",
+    "url": "https://indexdevelopment.no",
+    "telephone": "+4748459686",
+    "email": "andreas@indexdevelopment.no",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Drammen",
+      "addressRegion": "Viken",
+      "addressCountry": "NO"
+    },
+    "priceRange": "1999-14999 NOK",
+    "areaServed": { "@type": "Country", "name": "NO" },
+    "founder": { "@type": "Person", "name": "Andreas Melheim" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <!-- Topbar -->
+  <div class="topbar" role="banner">
+    <span class="topbar-pulse" aria-hidden="true"></span>
+    <strong>Ingen bindingstid</strong> &mdash; Koden er din eiendom &mdash; 1 klientplass ledig &mdash;
+    <a href="#pris">Se priser</a>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
+          <div class="nav-logo-dot" aria-hidden="true"></div>
+          index dev.
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="prosess.html">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html">Prosjekter</a></li>
+          <li><a href="om-meg.html">Sannheten</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+
+        <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
+          Stopp blødningen
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+        </a>
+
+        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="prosess.html">Slik fungerer det</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om-meg.html">Sannheten</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================
+         HERO
+    ============================= -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <!-- Rotating rings decoration -->
+      <div class="hero-rings" aria-hidden="true">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="ring-spoke"></div>
+      </div>
+      <div class="hero-light" id="hero-light" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <!-- Top meta row -->
+        <div class="hero-meta">
+          <span class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            1 klientplass ledig denne måneden
+          </span>
+          <span class="hero-loc">Drammen, Norge</span>
+        </div>
+
+        <!-- Main headline — clip reveal per line -->
+        <h1 class="hero-headline" id="hero-title">
+          <span class="hl-row"><span class="hl-text">Konkurrenten din</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline">stjeler kunden</span></span>
+          <span class="hl-row"><span class="hl-text">som leter etter</span></span>
+          <span class="hl-row"><span class="hl-text">deg akkurat nå.</span></span>
+        </h1>
+
+        <!-- Bottom: sub + CTAs + mini stats -->
+        <div class="hero-bottom">
+          <div class="hero-sub-col">
+            <p class="hero-sub">
+              Den trege nettsiden din sender kunder direkte til nabobedriften — uten at du merker det. Vi håndkoder en lynrask salgsmaskin på 72 timer. Du betaler ingenting før du er fornøyd.
+            </p>
+            <div class="hero-ctas">
+              <div class="mag-wrap">
+                <a href="kontakt.html" class="btn btn-white" id="hero-cta-main">
+                  Bygg dette for meg — gratis
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+                </a>
+              </div>
+              <a href="prosess.html" class="btn btn-ghost-white">
+                Se hvordan det fungerer
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-stats-grid" aria-label="Nøkkelfakta">
+            <div class="hstat">
+              <span class="hstat-num">72t</span>
+              <span class="hstat-label">Leveranse</span>
+            </div>
+            <div class="hstat">
+              <span class="hstat-num">0,-</span>
+              <span class="hstat-label">På forskudd</span>
+            </div>
+            <div class="hstat">
+              <span class="hstat-num">100%</span>
+              <span class="hstat-label">Fornøyd-garanti</span>
+            </div>
+            <div class="hstat">
+              <span class="hstat-num">199,-</span>
+              <span class="hstat-label">Drift per måned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         MARQUEE
+    ============================= -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-item"><span>Håndkodet HTML/CSS/JS</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>0,4 sekunder innlasting</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>72 timers leveranse</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>0,- på forskudd</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Cloudflare Enterprise</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Lokal SEO inkludert</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>100% fornøyd-garanti</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Koden er din eiendom</span><span class="marquee-sep"></span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-item"><span>Håndkodet HTML/CSS/JS</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>0,4 sekunder innlasting</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>72 timers leveranse</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>0,- på forskudd</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Cloudflare Enterprise</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Lokal SEO inkludert</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>100% fornøyd-garanti</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Koden er din eiendom</span><span class="marquee-sep"></span></div>
+      </div>
+    </div>
+
+    <!-- ============================
+         STATS
+    ============================= -->
+    <section class="stats-section section-pad" aria-label="Nøkkeltall">
+      <div class="container">
+        <p class="t-label" style="margin-bottom:2.5rem" data-sr="up">Realiteten — i tall</p>
+        <div class="stats-grid">
+          <div class="stat-item" data-sr="up" data-d="1">
+            <div class="stat-number-wrap">
+              <span class="t-giant c-red" data-counter="53">0</span>
+              <span class="stat-unit">%</span>
+            </div>
+            <p class="stat-desc">av mobilbrukere forlater en nettside som laster over 3 sekunder</p>
+            <p class="stat-source">Kilde: Google/SOASTA Research</p>
+          </div>
+          <div class="stat-item" data-sr="up" data-d="2">
+            <div class="stat-number-wrap">
+              <span class="t-giant c-orange" data-counter="76">0</span>
+              <span class="stat-unit">%</span>
+            </div>
+            <p class="stat-desc">googler lokalt på mobil før de ringer eller besøker bedriften</p>
+            <p class="stat-source">Kilde: Think With Google</p>
+          </div>
+          <div class="stat-item" data-sr="up" data-d="3">
+            <div class="stat-number-wrap">
+              <span class="t-giant" style="color:#16a34a" data-counter="180">0</span>
+              <span class="stat-unit" style="font-size:clamp(1.5rem,3vw,2.5rem)">K/år</span>
+            </div>
+            <p class="stat-desc">i tapt omsetning for en gjennomsnittlig håndverker med dårlig nettside</p>
+            <p class="stat-source">2–3 oppdrag/mnd × 5.000,- × 12 mnd</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PROBLEM
+    ============================= -->
+    <section class="problem-section section-pad" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="problem-header">
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Problemet — diagnosen</p>
+          <h2 class="t-section" id="problem-title" data-sr="up" data-d="1">
+            Nettsiden din blør<br>penger hver dag.
+          </h2>
+          <p class="t-body-lg" style="margin-top:1rem;max-width:520px" data-sr="up" data-d="2">Her er regnestykket: et typisk håndverkerfirma mister 2–3 oppdrag per måned til konkurrenter med raskere nettsider. Ved 5.000,- per oppdrag er det <strong>180.000,- i tapt omsetning per år.</strong></p>
+        </div>
+
+        <div class="problem-list" role="list">
+          <article class="problem-item" data-sr="up" role="listitem">
+            <div class="problem-num" aria-hidden="true">01</div>
+            <div class="problem-body">
+              <h3>Det glorifiserte visittkortet</h3>
+              <p>De fleste byråer gir deg en pen nettside som absolutt ingen besøker. Siden ser imponerende ut på presentasjonen — og gjør null for bunnlinjen din. Du betaler 30–80.000,- for et visittkort.</p>
+            </div>
+            <div class="problem-cost">
+              <span class="problem-cost-label">Estimert tap</span>
+              <span class="problem-cost-amount">60–120K/år</span>
+            </div>
+          </article>
+
+          <article class="problem-item" data-sr="up" data-d="1" role="listitem">
+            <div class="problem-num" aria-hidden="true">02</div>
+            <div class="problem-body">
+              <h3>3 sekunder er alt du har</h3>
+              <p>Laster siden din over 3 sekunder forlater over halvparten av besøkende — direkte til Google, og til konkurrenten din. Hvert sekund av lastetid koster deg konverteringer. WordPress og sidebuildere er skurkene.</p>
+            </div>
+            <div class="problem-cost">
+              <span class="problem-cost-label">53% forlater</span>
+              <span class="problem-cost-amount">ved 3+ sekunder</span>
+            </div>
+          </article>
+
+          <article class="problem-item" data-sr="up" data-d="2" role="listitem">
+            <div class="problem-num" aria-hidden="true">03</div>
+            <div class="problem-body">
+              <h3>Usynlig i ditt nærområde</h3>
+              <p>Hva hjelper det å være flinkest i faget hvis ingen finner deg? Konkurrenten med teknisk bedre nettside rangerer over deg på Google og tar kundehenvendelsene dine — mens du sover.</p>
+            </div>
+            <div class="problem-cost">
+              <span class="problem-cost-label">76% søker lokalt</span>
+              <span class="problem-cost-amount">før de ringer</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         WORK
+    ============================= -->
+    <section class="work-section section-pad" aria-labelledby="work-title">
+      <div class="container">
+        <div class="work-header">
+          <div>
+            <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up">Prosjekter</p>
+            <h2 class="t-section" id="work-title" data-sr="up" data-d="1">
+              Vi bygger ikke<br>bare fine sider.
+            </h2>
+          </div>
+          <a href="prosjekter.html" data-sr="right">
+            Se alle prosjekter
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+
+        <div class="cases-grid">
+          <a href="prosjekter.html" class="case-card" data-sr="up" data-d="1" aria-label="Case: Strøk Malermester">
+            <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1200&auto=format&fit=crop" alt="Malermester nettside prosjekt" width="1200" height="900" loading="lazy">
+            <div class="case-overlay" aria-hidden="true"></div>
+            <div class="case-body">
+              <span class="case-tag" style="color:#f97316">Håndverk</span>
+              <h3 class="case-title">Strøk Malermester</h3>
+              <p class="case-desc">Fra usynlig til det naturlige førstevalget for malejobber i lokalmiljøet. Kontaktskjema som sender leads direkte til telefonen.</p>
+            </div>
+            <div class="case-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </div>
+          </a>
+
+          <a href="prosjekter.html" class="case-card" data-sr="up" data-d="2" aria-label="Case: Grønn Oase">
+            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop" alt="Anleggsgartner nettside prosjekt" width="1200" height="900" loading="lazy">
+            <div class="case-overlay" aria-hidden="true"></div>
+            <div class="case-body">
+              <span class="case-tag" style="color:#4ade80">Utemiljø</span>
+              <h3 class="case-title">Grønn Oase</h3>
+              <p class="case-desc">Et skreddersydd bestillingssystem som gjør det friksjonsfritt for kunden å be om befaring — og enkelt for eieren å konvertere leads.</p>
+            </div>
+            <div class="case-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PROOF / PHILOSOPHY
+    ============================= -->
+    <section class="proof-section section-pad" aria-labelledby="proof-title">
+      <div class="container">
+        <p class="t-label" style="margin-bottom:2.5rem" data-sr="up">Hvorfor vi bygger før du betaler</p>
+        <div class="proof-inner">
+          <div class="proof-quote" data-sr="left">
+            <blockquote>
+              "Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi nekter å være en del av et system der du tar all risikoen."
+            </blockquote>
+            <p class="proof-quote-author">— Andreas Melheim, <strong>Index Development</strong></p>
+          </div>
+
+          <div class="proof-compare" data-sr="right" data-d="1">
+            <div class="compare-item bad">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:1rem;height:1rem" aria-hidden="true"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+                Det råtne systemet (tradisjonelle byråer)
+              </h4>
+              <ul>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+                  30–80.000,- på forskudd — for noe du aldri har sett
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+                  Billig WordPress-mal omdøpt til "skreddersydd design"
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+                  Du eier aldri koden — du er låst til dem
+                </li>
+              </ul>
+            </div>
+            <div class="compare-item good">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:1rem;height:1rem" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Index Development — annerledes
+              </h4>
+              <ul>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                  0,- på forskudd — du ser resultatet først
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                  Ren håndkodet HTML/CSS/JS — lynrask
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                  Koden er din. Ingen bindingstid, aldri.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PROCESS
+    ============================= -->
+    <section class="process-section section-pad" aria-labelledby="process-title">
+      <div class="container">
+        <div class="process-header">
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Tilbudet som er umulig å si nei til</p>
+          <h2 class="t-section" id="process-title" data-sr="up" data-d="1">Slik fungerer det</h2>
+          <p data-sr="up" data-d="2">Ingen kontrakter. Ingen forskudd. Bare resultater.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step" data-sr="up" data-d="1">
+            <div class="process-step-num" aria-hidden="true">01</div>
+            <h3>Du sender info</h3>
+            <p>Fyll inn kontaktskjemaet og fortell oss om bedriften din. Tar ca. 10 minutter.</p>
+            <span class="process-time">Dag 1</span>
+          </div>
+          <div class="process-step" data-sr="up" data-d="2">
+            <div class="process-step-num" aria-hidden="true">02</div>
+            <h3>Vi koder alt</h3>
+            <p>Vi designer og koder en komplett, lynrask nettside skreddersydd for din bedrift og bransje.</p>
+            <span class="process-time">Innen 72 timer</span>
+          </div>
+          <div class="process-step" data-sr="up" data-d="3">
+            <div class="process-step-num" aria-hidden="true">03</div>
+            <h3>Du tester</h3>
+            <p>Du får se den ferdige nettsiden. Er du ikke 100% imponert, betaler du ingenting og vi går hver til vårt.</p>
+            <span class="process-time">Dag 3–5</span>
+          </div>
+          <div class="process-step" data-sr="up" data-d="4">
+            <div class="process-step-num" aria-hidden="true">04</div>
+            <h3>Kun ved fornøyd</h3>
+            <p>Er du fornøyd betaler du engangsbeløpet + 199,-/mnd for drift via Cloudflare enterprise-nettverk.</p>
+            <span class="process-time">Ingen bindingstid</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FIT CHECK
+    ============================= -->
+    <section class="fit-section section-pad" aria-labelledby="fit-title">
+      <div class="container">
+        <div class="fit-header">
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Ærlig avklaring</p>
+          <h2 class="t-section" id="fit-title" data-sr="up" data-d="1">Er vi riktig match?</h2>
+          <p data-sr="up" data-d="2">Vi jobber ikke med hvem som helst. For å garantere resultater må vi være en god match.</p>
+        </div>
+        <div class="fit-grid">
+          <div class="fit-card not" data-sr="left">
+            <p class="fit-card-title">Dette er ikke for deg hvis:</p>
+            <ul class="fit-items">
+              <li class="fit-item">
+                <span class="fit-item-marker">—</span>
+                <span>Du vil ha billigst mulig. Du bryr deg ikke om å miste kunder bare prisene er lave.</span>
+              </li>
+              <li class="fit-item">
+                <span class="fit-item-marker">—</span>
+                <span>Du vil ha "kul design". Du ønsker en imponerende side — ikke en som skaffer oppdrag.</span>
+              </li>
+              <li class="fit-item">
+                <span class="fit-item-marker">—</span>
+                <span>Du har nok kunder. Kapasiteten er full og du ønsker ingen vekst nå.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="fit-card yes" data-sr="right">
+            <p class="fit-card-title">Dette er for deg hvis:</p>
+            <ul class="fit-items">
+              <li class="fit-item">
+                <span class="fit-item-marker">+</span>
+                <span>Du er lei av å tape til konkurrenter. Du vet at kundene søker på Google — du vil bare at de skal <strong>finne deg</strong>.</span>
+              </li>
+              <li class="fit-item">
+                <span class="fit-item-marker">+</span>
+                <span>Du forstår at ytelse = penger. Millisekunder er forskjellen på et tapt salg og et nytt oppdrag.</span>
+              </li>
+              <li class="fit-item">
+                <span class="fit-item-marker">+</span>
+                <span>Du vil ha en <strong>partner</strong>, ikke bare en leverandør. En som tar ansvar for resultatet.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         INGEN BINDINGSTID CALLOUT
+    ============================= -->
+    <section class="no-lock-section" aria-labelledby="nolock-title">
+      <div class="no-lock-inner">
+        <div class="no-lock-left">
+          <p class="no-lock-eyebrow">Vår garanti til deg</p>
+          <h2 class="no-lock-title" id="nolock-title">Ingen bindingstid.<br>Koden er din — alltid.</h2>
+          <p class="no-lock-sub">Vi tjener ikke penger på å låse deg inne. Slutter du å betale 199,-/mnd sender vi hele koden i en ZIP-fil. Ingen straffegebyrer. Ingen advokater. Ingen drama.</p>
+          <div class="no-lock-pills">
+            <span class="no-lock-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+              0,- på forskudd
+            </span>
+            <span class="no-lock-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+              Du eier koden
+            </span>
+            <span class="no-lock-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+              Si opp når du vil
+            </span>
+            <span class="no-lock-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+              100% fornøyd-garanti
+            </span>
+          </div>
+        </div>
+        <div class="no-lock-cta" data-sr="scale">
+          <a href="kontakt.html" class="btn btn-white" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
+            Start gratis i dag
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PRICING
+    ============================= -->
+    <section class="pricing-section section-pad" id="pris" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="pricing-header">
+          <div>
+            <p class="t-label" style="margin-bottom:1rem" data-sr="up">
+              <span style="color:#dc2626">⚡</span> Begrenset kapasitet
+            </p>
+            <h2 class="t-section" id="pricing-title" data-sr="up" data-d="1">Vi tar kun 3 nye kunder per måned.</h2>
+          </div>
+          <div class="pricing-note" data-sr="right">
+            <p class="pricing-note-label">Status denne måneden</p>
+            <p class="pricing-note-val">2 av 3 plasser tatt</p>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Lokal Ekspert -->
+          <div class="pricing-card" data-sr="up" data-d="1">
+            <h3 class="pricing-name">Lokal Ekspert</h3>
+            <div class="pricing-price">1.999<span style="font-size:1.5rem;font-weight:500;color:#9ca3af">,-</span></div>
+            <p class="pricing-period">engangsbeløp</p>
+            <p class="pricing-desc">For enkeltmannsforetak og håndverkere som trenger en solid nettside som skaffer oppdrag.</p>
+            <hr class="pricing-divider">
+            <ul class="pricing-features">
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Én kompromissløs landingsside
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Håndkodet for maksimal hastighet
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Perfekt på alle mobiler
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Kontaktskjema → direkte leads
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Grunnleggende teknisk SEO
+              </li>
+            </ul>
+            <div class="pricing-monthly">
+              <span class="pricing-monthly-label">Drift og sikkerhet:</span>
+              <span class="pricing-monthly-val">199,-/mnd</span>
+            </div>
+            <div class="pricing-no-lock">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 1A3.5 3.5 0 0 0 8 4.5V7H2.5A1.5 1.5 0 0 0 1 8.5v5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 13.5 7H10V4.5a1.5 1.5 0 0 1 3 0v.5h1.5v-.5A3.5 3.5 0 0 0 11.5 1Z"/></svg>
+              Ingen bindingstid — si opp når du vil
+            </div>
+            <a href="kontakt.html" class="pricing-cta pricing-cta-plain">Velg Lokal Ekspert</a>
+          </div>
+
+          <!-- Bedrift Pluss (featured) -->
+          <div class="pricing-card featured" data-sr="up" data-d="2">
+            <span class="pricing-badge">Kundefavoritten</span>
+            <h3 class="pricing-name">Bedrift Pluss</h3>
+            <div class="pricing-price">6.999<span style="font-size:1.5rem;font-weight:500;color:rgba(255,255,255,0.3)">,-</span></div>
+            <p class="pricing-period">engangsbeløp</p>
+            <p class="pricing-desc">For bedrifter som vil dominere lokalt med full nettstedpakke og en grundig analyse av konkurrentene.</p>
+            <hr class="pricing-divider">
+            <ul class="pricing-features">
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Opptil 5 skreddersydde undersider
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Skreddersydd design for din bransje
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Kraftig SEO-struktur for Google
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Analytics og besøksstatistikk
+              </li>
+              <li class="pricing-feature bonus">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.384 2.457C7.768 1.841 8.232 1.841 8.616 2.457l.944 1.556L11.5 4.5c.766.158 1.09.783.723 1.404l-.868 1.502.039 1.73c.016.73-.532 1.1-1.253.832L8.5 9.5 6.86 9.968c-.72.268-1.27-.102-1.253-.832l.039-1.73-.868-1.502c-.367-.621-.043-1.246.723-1.404l1.94-.487.943-1.556Z"/></svg>
+                BONUS: Konkurrentanalyse
+              </li>
+            </ul>
+            <div class="pricing-monthly">
+              <span class="pricing-monthly-label">Drift og sikkerhet:</span>
+              <span class="pricing-monthly-val">199,-/mnd</span>
+            </div>
+            <div class="pricing-no-lock">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 1A3.5 3.5 0 0 0 8 4.5V7H2.5A1.5 1.5 0 0 0 1 8.5v5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 13.5 7H10V4.5a1.5 1.5 0 0 1 3 0v.5h1.5v-.5A3.5 3.5 0 0 0 11.5 1Z"/></svg>
+              Ingen bindingstid — si opp når du vil
+            </div>
+            <a href="kontakt.html" class="pricing-cta pricing-cta-featured">Bygg denne gratis for meg →</a>
+          </div>
+
+          <!-- Totalpakken -->
+          <div class="pricing-card" data-sr="up" data-d="3">
+            <h3 class="pricing-name">Totalpakken</h3>
+            <div class="pricing-price">14.999<span style="font-size:1.5rem;font-weight:500;color:#9ca3af">,-</span></div>
+            <p class="pricing-period">engangsbeløp</p>
+            <p class="pricing-desc">Vi designer, koder og skriver alle tekstene — en komplett salgsmaskin som jobber for deg døgnet rundt.</p>
+            <hr class="pricing-divider">
+            <ul class="pricing-features">
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Ubegrenset antall undersider
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Vi skriver alle tekster for deg
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Konkurransestrategi og analyse
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                Prioritert support
+              </li>
+              <li class="pricing-feature bonus">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.384 2.457C7.768 1.841 8.232 1.841 8.616 2.457l.944 1.556L11.5 4.5c.766.158 1.09.783.723 1.404l-.868 1.502.039 1.73c.016.73-.532 1.1-1.253.832L8.5 9.5 6.86 9.968c-.72.268-1.27-.102-1.253-.832l.039-1.73-.868-1.502c-.367-.621-.043-1.246.723-1.404l1.94-.487.943-1.556Z"/></svg>
+                BONUS: Full konkurrentanalyse
+              </li>
+            </ul>
+            <div class="pricing-monthly">
+              <span class="pricing-monthly-label">Drift og sikkerhet:</span>
+              <span class="pricing-monthly-val">199,-/mnd</span>
+            </div>
+            <div class="pricing-no-lock">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 1A3.5 3.5 0 0 0 8 4.5V7H2.5A1.5 1.5 0 0 0 1 8.5v5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 13.5 7H10V4.5a1.5 1.5 0 0 1 3 0v.5h1.5v-.5A3.5 3.5 0 0 0 11.5 1Z"/></svg>
+              Ingen bindingstid — si opp når du vil
+            </div>
+            <a href="kontakt.html" class="pricing-cta pricing-cta-plain">Velg Totalpakken</a>
+          </div>
+        </div>
+
+        <p class="pricing-footer" data-sr="up" data-d="2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11 7V4.5A3.5 3.5 0 0 0 8 1Zm2 6V4.5a2 2 0 1 0-4 0V7h4Z" clip-rule="evenodd"/></svg>
+          <strong style="color:#0a0a0a">Koden er din eiendom.</strong> Ingen bindingstid. Slutter du å betale 199,-/mnd sender vi koden i en ZIP-fil.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================
+         QUIZ CTA
+    ============================= -->
+    <section class="quiz-section section-pad" aria-labelledby="quiz-title">
+      <div class="quiz-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="quiz-inner">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(37,99,235,0.8)" data-sr="up">2 minutter · Gratis · Ingen forpliktelser</p>
+          <h2 class="t-section" id="quiz-title" data-sr="up" data-d="1">
+            Betaler du for mye<br>— eller for lite?
+          </h2>
+          <p data-sr="up" data-d="2">De fleste bedrifter er på feil pakke. Ta quizen og finn ut nøyaktig hva din bedrift trenger — og hva det koster. Personlig anbefaling på under 2 minutter.</p>
+          <div data-sr="up" data-d="3">
+            <a href="../quiz/quiz.html" class="quiz-cta-btn" aria-label="Ta quizen og finn din nettside-pakke">
+              Ta quizen — finn min pakke
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+            <p class="quiz-cta-note">Gratis · 2 min · Ingen forpliktelser</p>
+          </div>
+          <div class="quiz-packages" data-sr="up" data-d="4">
+            <div class="quiz-pkg">
+              <span class="quiz-pkg-name">Lokal Ekspert</span>
+              <span class="quiz-pkg-price">Fra 1.999,-</span>
+            </div>
+            <div class="quiz-pkg quiz-pkg-featured">
+              <span class="quiz-pkg-name">Bedrift Pluss</span>
+              <span class="quiz-pkg-price">Fra 6.999,-</span>
+            </div>
+            <div class="quiz-pkg">
+              <span class="quiz-pkg-name">Totalpakken</span>
+              <span class="quiz-pkg-price">Fra 14.999,-</span>
+            </div>
+          </div>
+          <p class="quiz-pkg-hint" data-sr="up" data-d="5">Quizen forteller deg hvilken pakke som passer din bedrift best</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FAQ
+    ============================= -->
+    <section class="faq-section section-pad" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-sidebar" data-sr="left">
+            <p class="t-label" style="margin-bottom:1rem">Spørsmål og svar</p>
+            <h2 class="t-section" id="faq-title">Ofte stilte spørsmål.</h2>
+            <p>Skjønner at du lurer. Her er de vanligste spørsmålene vi får fra potensielle kunder.</p>
+            <a href="kontakt.html">
+              Har du et annet spørsmål?
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+
+          <div class="faq-list" data-sr="right" role="list">
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                Er det virkelig helt gratis å få bygget et utkast?
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
+                </span>
+              </button>
+              <div class="faq-a"><p>Ja. Vi koder en fullstendig, fungerende nettside tilpasset din bedrift innen 72 timer. Er du ikke 100% fornøyd med resultatet, betaler du ingenting, og vi går hver til vårt.</p></div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                Hva er haken? Hvorfor gjør dere dette gratis?
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
+                </span>
+              </button>
+              <div class="faq-a"><p>Det er ingen hake. Vår filosofi er enkel: Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi vet at vi leverer kvalitet, og er villige til å ta all risikoen i starten.</p></div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                Hva dekker de 199,- per måned?
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
+                </span>
+              </button>
+              <div class="faq-a"><p>Enterprise-hosting via Cloudflare, SSL-sertifikater, teknisk vedlikehold og garantert oppetid. Din nettside er alltid live, alltid lynrask, alltid sikker.</p></div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                Hvor lang tid tar det?
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
+                </span>
+              </button>
+              <div class="faq-a"><p>Fra du har sendt inn info (ca. 10 minutter), har vi et fungerende utkast klart innen 72 timer.</p></div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                Hva skjer hvis jeg vil avslutte?
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
+                </span>
+              </button>
+              <div class="faq-a"><p>Du eier koden. Avslutter du driften sender vi all kode (HTML/CSS/JS) i en ZIP-fil. Ingen straffegebyrer, ingen bindingstid — aldri.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FINAL CTA
+    ============================= -->
+    <section class="cta-section section-pad" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Siste sjanse</p>
+          <h2 class="t-section" id="cta-title" data-sr="up" data-d="1">
+            Slutt å miste kunder<br>til nabobedriften.
+          </h2>
+          <p data-sr="up" data-d="2">
+            Du har lest langt nok. Enten gir du oss 10 minutter av din tid, eller fortsetter du å miste oppdrag til konkurrenter med raskere nettsider. Valget er enkelt.
+          </p>
+          <div data-sr="up" data-d="3">
+            <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
+              Stopp blødningen — gratis
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-dot" aria-hidden="true"></div>
+            index dev.
+          </div>
+          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Tjenester</h3>
+          <ul>
+            <li><a href="tjenester.html">Alle tjenester</a></li>
+            <li><a href="tjenester.html">Nettsider som selger</a></li>
+            <li><a href="tjenester.html">Web-redesign</a></li>
+            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Selskap</h3>
+          <ul>
+            <li><a href="prosess.html">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html">Prosjekter</a></li>
+            <li><a href="om-meg.html">Sannheten</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Ta kontakt</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
+              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
+              +47 48 45 96 86
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
+              Drammen, Norge
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
+        <nav class="footer-bottom-links" aria-label="Juridisk">
+          <a href="personvern.html">Personvern</a>
+          <a href="vilkar.html">Vilkår</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ---- SCROLL PROGRESS ----
+    const prog = document.getElementById('scroll-progress');
+    function updateProgress() {
+      if (!prog) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+
+    // ---- NAVBAR ----
+    const navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+
+    window.addEventListener('scroll', function () {
+      updateProgress();
+      updateNav();
+      handleParallax();
+    }, { passive: true });
+
+    updateNav();
+
+    // ---- HAMBURGER ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- HERO CURSOR LIGHT ----
+    const heroSection = document.getElementById('hero');
+    const heroLight  = document.getElementById('hero-light');
+    if (heroSection && heroLight) {
+      heroSection.addEventListener('mousemove', function (e) {
+        const rect = heroSection.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(2);
+        const y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(2);
+        heroLight.style.setProperty('--mx', x + '%');
+        heroLight.style.setProperty('--my', y + '%');
+      });
+    }
+
+    // ---- CUSTOM CURSOR (pointer devices only) ----
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cursorDot  = document.getElementById('cursor-dot');
+      const cursorRing = document.getElementById('cursor-ring');
+      let mx = 0, my = 0, rx = 0, ry = 0, rafId = null;
+
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX;
+        my = e.clientY;
+        if (cursorDot) {
+          cursorDot.parentElement.style.left = mx + 'px';
+          cursorDot.parentElement.style.top  = my + 'px';
+        }
+        if (!rafId) rafId = requestAnimationFrame(animateCursor);
+      });
+
+      function animateCursor() {
+        if (cursorRing) {
+          var dx = mx - rx, dy = my - ry;
+          rx += dx * 0.14;
+          ry += dy * 0.14;
+          cursorRing.style.left = rx + 'px';
+          cursorRing.style.top  = ry + 'px';
+          rafId = (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1)
+            ? requestAnimationFrame(animateCursor)
+            : null;
+        } else {
+          rafId = null;
+        }
+      }
+
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          if (cursorRing) { cursorRing.style.width = '56px'; cursorRing.style.height = '56px'; }
+          if (cursorDot)  { cursorDot.style.width = '4px'; cursorDot.style.height = '4px'; }
+        });
+        el.addEventListener('mouseleave', function () {
+          if (cursorRing) { cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; }
+          if (cursorDot)  { cursorDot.style.width = '8px'; cursorDot.style.height = '8px'; }
+        });
+      });
+    }
+
+    // ---- MAGNETIC BUTTON ----
+    const magBtn = document.getElementById('hero-cta-main');
+    if (magBtn) {
+      magBtn.addEventListener('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width  / 2) * 0.25;
+        const y = (e.clientY - rect.top  - rect.height / 2) * 0.25;
+        this.style.transform = 'translate(' + x + 'px,' + y + 'px) translateY(-2px)';
+      });
+      magBtn.addEventListener('mouseleave', function () {
+        this.style.transform = '';
+      });
+    }
+
+    // ---- HERO PARALLAX on ORBs ----
+    const orb1 = document.querySelector('.orb-1');
+    const orb2 = document.querySelector('.orb-2');
+    const orb3 = document.querySelector('.orb-3');
+    function handleParallax() {
+      const y = window.scrollY;
+      if (orb1) orb1.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+      if (orb2) orb2.style.transform = 'translateY(' + (y * -0.1) + 'px)';
+      if (orb3) orb3.style.transform = 'translateY(' + (y * 0.2)  + 'px)';
+    }
+
+    // ---- SCROLL REVEAL ----
+    const srEls = document.querySelectorAll('[data-sr]');
+    const srObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Also trigger hero title underline
+          if (entry.target.classList.contains('hero-title')) {
+            entry.target.classList.add('revealed');
+          }
+          srObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    srEls.forEach(function (el) { srObserver.observe(el); });
+
+    // ---- COUNTER ANIMATION ----
+    const counters = document.querySelectorAll('[data-counter]');
+    const cObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const el     = entry.target;
+        const target = parseInt(el.dataset.counter);
+        const dur    = 2200;
+        const start  = performance.now();
+        function tick(now) {
+          const prog   = Math.min((now - start) / dur, 1);
+          const eased  = 1 - Math.pow(1 - prog, 4); // quartic ease out
+          el.textContent = Math.round(eased * target).toLocaleString('nb-NO');
+          if (prog < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        cObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { cObserver.observe(el); });
+
+    // ---- FAQ ACCORDION ----
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const item   = this.closest('.faq-item');
+        const isOpen = item.classList.contains('active');
+        document.querySelectorAll('.faq-item.active').forEach(function (i) {
+          i.classList.remove('active');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+  }());
+  </script>
+
+</body>
+</html>

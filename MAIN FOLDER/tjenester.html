@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tjenester | Index Development — Håndkodede nettsider som skaffer kunder</title>
+  <meta name="description" content="Håndkodede nettsider, redesign og sikker drift for norske småbedrifter. Vi bygger lynraske salgsmaskiner skreddersydd for din bransje — du betaler ikke en krone før du er fornøyd.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indexdevelopment.no/tjenester.html">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://indexdevelopment.no/tjenester.html">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:title" content="Tjenester — Index Development">
+  <meta property="og:description" content="Håndkodede nettsider, redesign og drift for norske småbedrifter. Du betaler ikke en krone før du er fornøyd.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tjenester — Index Development">
+  <meta name="twitter:description" content="Håndkodede nettsider, redesign og drift. Du betaler ingenting før du er fornøyd.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="main.css">
+
+  <style>
+    /* ====== PAGE HERO (felles for alle undersider) ====== */
+    .page-hero {
+      position: relative;
+      min-height: 74vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none; z-index: 0;
+    }
+    /* Subtle blue glow top-right */
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12), transparent 65%);
+      pointer-events: none; z-index: 1;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto; width: 100%;
+      padding-inline: var(--pad);
+      padding-top: 9rem;
+      padding-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    /* ====== PAGE BADGE (reuses main.css hero-badge vars) ====== */
+    .page-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 600;
+      color: rgba(255,255,255,0.65); letter-spacing: 0.02em;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: heroFadeUp 0.7s 0.2s ease forwards;
+    }
+    .page-badge-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: topbarPulse 2s infinite; }
+
+    /* Hero bottom strip: sub + cta */
+    .page-hero-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 2.5rem;
+      margin-top: clamp(2.5rem, 4vw, 4rem);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: heroFadeUp 0.8s 1s ease forwards;
+    }
+    .page-hero-sub {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.4);
+      max-width: 480px;
+    }
+
+    /* ====== TRUST BAR ====== */
+    .trust-bar {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid rgba(255,255,255,0.06);
+    }
+    .trust-item {
+      padding: 1.5rem 1.75rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .trust-item.revealed { opacity: 1; transform: none; }
+    .trust-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700; color: var(--white);
+      letter-spacing: -0.03em; line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .trust-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ====== SERVICES SECTION ====== */
+    .services-header { max-width: 640px; margin-bottom: clamp(3rem, 5vw, 5rem); }
+    .service-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start; gap: 2.5rem;
+      padding: clamp(2.25rem, 4vw, 3.25rem) 0;
+      border-top: 1px solid var(--border2);
+      position: relative;
+    }
+    .service-item:last-child { border-bottom: 1px solid var(--border2); }
+    /* Animated blue accent line */
+    .service-item::before {
+      content: '';
+      position: absolute; left: 0; top: 0;
+      width: 3px; height: 0;
+      background: var(--blue);
+      transition: height 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s;
+    }
+    .service-item.revealed::before { height: 100%; }
+
+    /* Per-child reveal animations */
+    .service-item .service-num {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .service-item .service-body {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s 0.14s cubic-bezier(0.16,1,0.3,1), transform 0.7s 0.14s cubic-bezier(0.16,1,0.3,1);
+    }
+    .service-item .service-price {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.7s 0.24s cubic-bezier(0.16,1,0.3,1), transform 0.7s 0.24s cubic-bezier(0.16,1,0.3,1);
+    }
+    .service-item.revealed .service-num,
+    .service-item.revealed .service-body,
+    .service-item.revealed .service-price { opacity: 1; transform: none; }
+
+    .service-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700; color: #ebebeb;
+      line-height: 1; letter-spacing: -0.04em;
+      min-width: 4rem; user-select: none;
+      transition: color 0.3s;
+    }
+    .service-item:hover .service-num { color: #d4d4d4; }
+    .service-body h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+      font-weight: 700; letter-spacing: -0.025em;
+      margin-bottom: 0.75rem; color: var(--fg);
+    }
+    .service-body p {
+      font-size: 0.9375rem; color: var(--fg2);
+      line-height: 1.65; max-width: 520px; margin-bottom: 1.25rem;
+    }
+    .service-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .service-pill {
+      display: inline-flex; align-items: center;
+      padding: 0.35rem 0.9rem;
+      background: var(--blue-l); color: var(--blue);
+      font-size: 0.75rem; font-weight: 700;
+      border-radius: 9999px;
+      border: 1px solid rgba(37,99,235,0.12);
+      transition: background 0.2s, color 0.2s;
+    }
+    .service-pill:hover { background: var(--blue); color: var(--white); }
+    .service-price {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0.25rem; flex-shrink: 0;
+    }
+    .service-price-from {
+      font-size: 0.63rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg3);
+    }
+    .service-price-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.375rem);
+      font-weight: 700; color: var(--blue); white-space: nowrap;
+    }
+
+    /* ====== FRICTION SECTION ====== */
+    .friction-section { background: #0a0a0a; position: relative; overflow: hidden; }
+    .friction-section::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(37,99,235,0.08), transparent 65%);
+      pointer-events: none;
+    }
+    .friction-header { margin-bottom: clamp(3rem, 5vw, 4rem); }
+    .friction-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--r); overflow: hidden;
+      position: relative; z-index: 1;
+    }
+    .friction-item {
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 1.75rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.3s;
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1), background 0.3s;
+    }
+    .friction-item.revealed { opacity: 1; transform: none; }
+    .friction-item:hover { background: rgba(255,255,255,0.025); }
+    .friction-item:nth-child(even) {
+      border-right: none;
+      transform: translateX(24px);
+    }
+    .friction-item:nth-child(even).revealed { transform: none; }
+    .friction-item:nth-last-child(-n+2) { border-bottom: none; }
+    .friction-x {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      background: rgba(220,38,38,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: #f87171;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .friction-item:hover .friction-x { background: rgba(220,38,38,0.2); transform: scale(1.1); }
+    .friction-x svg { width: 0.875rem; height: 0.875rem; }
+    .friction-text { font-size: 0.9375rem; color: rgba(255,255,255,0.4); line-height: 1.55; }
+
+    @media (max-width: 768px) {
+      .service-item { grid-template-columns: auto 1fr; }
+      .service-price { display: none; }
+      .friction-grid { grid-template-columns: 1fr; }
+      .friction-item { border-right: none; transform: translateX(-24px); }
+      .friction-item:nth-child(even) { transform: translateX(-24px); }
+      .friction-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .friction-item:last-child { border-bottom: none; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Tjenester — Index Development",
+    "url": "https://indexdevelopment.no/tjenester.html",
+    "description": "Håndkodede nettsider, redesign og drift for norske småbedrifter.",
+    "isPartOf": { "@type": "WebSite", "url": "https://indexdevelopment.no" }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
+          <div class="nav-logo-dot" aria-hidden="true"></div>
+          index dev.
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="tjenester.html" aria-current="page" style="color:var(--white)">Tjenester</a></li>
+          <li><a href="prosess.html">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html">Prosjekter</a></li>
+          <li><a href="om-meg.html">Sannheten</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="kontakt.html" class="nav-cta">
+          Stopp blødningen
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="prosess.html">Slik fungerer det</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om-meg.html">Sannheten</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================
+         HERO
+    ============================= -->
+    <section class="page-hero" aria-labelledby="tjenester-title">
+      <div class="page-hero-inner">
+        <div class="page-badge">
+          <span class="page-badge-dot" aria-hidden="true"></span>
+          Håndkodet · lynrask · designet for profitt
+        </div>
+
+        <!-- Clip-reveal headline (same system as index.html) -->
+        <h1 class="hero-headline" id="tjenester-title">
+          <span class="hl-row"><span class="hl-text">Nettsider som</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline">faktisk selger.</span></span>
+        </h1>
+
+        <div class="page-hero-bottom">
+          <p class="page-hero-sub">
+            Vi håndkoder salgsmaskiner skreddersydd for din bransje, din by, ditt marked. Ingen maler, ingen WordPress-bloatware — og du betaler ikke en krone før du er fornøyd.
+          </p>
+          <div class="hero-ctas">
+            <a href="kontakt.html" class="btn btn-white">
+              Krev ditt gratis utkast
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="prosess.html" class="btn btn-ghost-white">
+              Se hvordan det fungerer
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         TRUST BAR
+    ============================= -->
+    <div class="trust-bar" aria-label="Nøkkeltall">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-val">72t</div>
+            <div class="trust-label">Leveranse</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">0,-</div>
+            <div class="trust-label">På forskudd</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">100%</div>
+            <div class="trust-label">Fornøyd-garanti</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">199,-</div>
+            <div class="trust-label">Drift per måned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================
+         SERVICES
+    ============================= -->
+    <section style="background:var(--white)" class="section-pad" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services-header">
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Det vi gjør best</p>
+          <h2 class="t-section" id="services-title" data-sr="up" data-d="1">Tre tjenester.<br>Én garanti.</h2>
+          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2">Alle pakkene bygger på samme prinsipp: du ser det ferdige resultatet før du betaler en krone.</p>
+        </div>
+
+        <div role="list">
+          <article class="service-item" role="listitem">
+            <div class="service-num" aria-hidden="true">01</div>
+            <div class="service-body">
+              <h2>Nettside som konverterer</h2>
+              <p>Vi håndkoder en komplett nettside skreddersydd for din bedrift og bransje. Ingen maler, ingen bloatware — bare ren kode som laster på millisekunder og presser besøkende mot ett mål: å ta kontakt med deg.</p>
+              <div class="service-pills">
+                <span class="service-pill">Millisekund-lasting</span>
+                <span class="service-pill">Lokal SEO inkludert</span>
+                <span class="service-pill">Leads direkte til telefon</span>
+              </div>
+            </div>
+            <div class="service-price">
+              <span class="service-price-from">Fra kun</span>
+              <span class="service-price-val">1.999,-</span>
+            </div>
+          </article>
+
+          <article class="service-item" role="listitem">
+            <div class="service-num" aria-hidden="true">02</div>
+            <div class="service-body">
+              <h2>Total redesign</h2>
+              <p>Har du en utdatert nettside som skremmer vekk potensielle kunder? Vi river den ned og bygger et profesjonelt system som gjør deg til det naturlige valget i din bransje. Google-rangering bevares og forbedres fra dag én.</p>
+              <div class="service-pills">
+                <span class="service-pill">Google-rangering beholdes</span>
+                <span class="service-pill">Mobiloptimalisert</span>
+                <span class="service-pill">Økt konvertering</span>
+              </div>
+            </div>
+            <div class="service-price">
+              <span class="service-price-from">Fra kun</span>
+              <span class="service-price-val">6.999,-</span>
+            </div>
+          </article>
+
+          <article class="service-item" role="listitem">
+            <div class="service-num" aria-hidden="true">03</div>
+            <div class="service-body">
+              <h2>Drift og sikkerhet</h2>
+              <p>Null teknisk stress etter lansering. Vi drifter siden din via Cloudflares enterprise-nettverk, sørger for at den aldri går ned, og holder alt oppdatert og sikkert. Du driver bedriften — vi driver nettsiden.</p>
+              <div class="service-pills">
+                <span class="service-pill">Cloudflare Enterprise</span>
+                <span class="service-pill">SSL-sertifikat</span>
+                <span class="service-pill">Ingen bindingstid</span>
+              </div>
+            </div>
+            <div class="service-price">
+              <span class="service-price-from">Kun</span>
+              <span class="service-price-val">199,-/mnd</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FRICTION
+    ============================= -->
+    <section class="friction-section section-pad" aria-labelledby="friction-title">
+      <div class="container">
+        <div class="friction-header">
+          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up">Friksjon koster penger</p>
+          <h2 class="t-section" id="friction-title" style="color:var(--white)" data-sr="up" data-d="1">
+            Dette er hva<br>vi eliminerer.
+          </h2>
+        </div>
+        <div class="friction-grid" id="friction-grid">
+          <div class="friction-item">
+            <div class="friction-x" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+            </div>
+            <span class="friction-text">Trege sider som frustrerer mobilbrukere og sender dem rett til konkurrenten</span>
+          </div>
+          <div class="friction-item">
+            <div class="friction-x" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+            </div>
+            <span class="friction-text">Utdatert innhold som dreper kundenes tillit og gjør deg usynlig på Google</span>
+          </div>
+          <div class="friction-item">
+            <div class="friction-x" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+            </div>
+            <span class="friction-text">Rotete navigasjon der kunden ikke finner det de leter etter — og gir opp</span>
+          </div>
+          <div class="friction-item">
+            <div class="friction-x" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
+            </div>
+            <span class="friction-text">Svake handlingsknapper som ikke klarer å konvertere besøkende til betalende kunder</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         CTA
+    ============================= -->
+    <section class="cta-section section-pad" aria-labelledby="tjenester-cta-title">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Klar for å begynne?</p>
+          <h2 class="t-section" id="tjenester-cta-title" data-sr="up" data-d="1">
+            Vi bygger det.<br>Du betaler kun hvis du elsker det.
+          </h2>
+          <p data-sr="up" data-d="2">
+            Send oss litt info om bedriften din. Innen 72 timer har du et ferdig utkast klart til testing — uten at du har betalt en øre.
+          </p>
+          <div data-sr="up" data-d="3">
+            <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
+              Start gratis i dag
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-dot" aria-hidden="true"></div>
+            index dev.
+          </div>
+          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Tjenester</h3>
+          <ul>
+            <li><a href="tjenester.html">Alle tjenester</a></li>
+            <li><a href="tjenester.html">Nettsider som selger</a></li>
+            <li><a href="tjenester.html">Web-redesign</a></li>
+            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Selskap</h3>
+          <ul>
+            <li><a href="prosess.html">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html">Prosjekter</a></li>
+            <li><a href="om-meg.html">Sannheten</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Ta kontakt</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
+              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
+              +47 48 45 96 86
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
+              Drammen, Norge
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
+        <nav class="footer-bottom-links" aria-label="Juridisk">
+          <a href="personvern.html">Personvern</a>
+          <a href="vilkar.html">Vilkår</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ---- SCROLL PROGRESS ----
+    const prog = document.getElementById('scroll-progress');
+    function updateProgress() {
+      if (!prog) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+
+    // ---- NAVBAR ----
+    const navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', function () { updateProgress(); updateNav(); }, { passive: true });
+    updateNav();
+
+    // ---- HAMBURGER ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- CUSTOM CURSOR (pointer devices only) ----
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cursorDot  = document.getElementById('cursor-dot');
+      const cursorRing = document.getElementById('cursor-ring');
+      let mx = 0, my = 0, rx = 0, ry = 0, rafId = null;
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (cursorDot) { cursorDot.parentElement.style.left = mx + 'px'; cursorDot.parentElement.style.top = my + 'px'; }
+        if (!rafId) rafId = requestAnimationFrame(animateCursor);
+      });
+      function animateCursor() {
+        if (cursorRing) {
+          var dx = mx - rx, dy = my - ry;
+          rx += dx * 0.14; ry += dy * 0.14;
+          cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+          rafId = (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) ? requestAnimationFrame(animateCursor) : null;
+        } else { rafId = null; }
+      }
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          if (cursorRing) { cursorRing.style.width = '56px'; cursorRing.style.height = '56px'; }
+          if (cursorDot)  { cursorDot.style.width = '4px'; cursorDot.style.height = '4px'; }
+        });
+        el.addEventListener('mouseleave', function () {
+          if (cursorRing) { cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; }
+          if (cursorDot)  { cursorDot.style.width = '8px'; cursorDot.style.height = '8px'; }
+        });
+      });
+    }
+
+    // ---- TRUST BAR stagger reveal ----
+    var trustItems = document.querySelectorAll('.trust-item');
+    var trustObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        trustItems.forEach(function (item, i) {
+          setTimeout(function () { item.classList.add('revealed'); }, i * 100);
+        });
+        trustObserver.disconnect();
+      }
+    }, { threshold: 0.4 });
+    if (trustItems[0]) trustObserver.observe(trustItems[0].closest('.trust-bar') || trustItems[0]);
+
+    // ---- SERVICE ITEMS per-child reveal ----
+    var serviceItems = document.querySelectorAll('.service-item');
+    var sObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          sObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    serviceItems.forEach(function (el) { sObserver.observe(el); });
+
+    // ---- FRICTION GRID stagger reveal ----
+    var frictionGrid = document.getElementById('friction-grid');
+    if (frictionGrid) {
+      var fObserver = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          frictionGrid.querySelectorAll('.friction-item').forEach(function (item, i) {
+            setTimeout(function () { item.classList.add('revealed'); }, i * 110);
+          });
+          fObserver.disconnect();
+        }
+      }, { threshold: 0.2 });
+      fObserver.observe(frictionGrid);
+    }
+
+    // ---- SCROLL REVEAL (data-sr elements) ----
+    var srEls = document.querySelectorAll('[data-sr]');
+    var srObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          srObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    srEls.forEach(function (el) { srObserver.observe(el); });
+
+  }());
+  </script>
+
+</body>
+</html>

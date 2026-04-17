@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo-galleri | Index Development — Se hva vi bygger</title>
+  <meta name="description" content="Se ferdigkodede demosider for ulike bransjer. Ikke lovnader — faktiske nettsider du kan teste på din egen mobil. Finn din bransje og se hva vi kan bygge for deg.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indexdevelopment.no/prosjekter.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://indexdevelopment.no/prosjekter.html">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:title" content="Demo-galleri — Index Development">
+  <meta property="og:description" content="Ferdigkodede demoer for ulike bransjer. Se nøyaktig hva vi kan bygge for deg.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo-galleri — Index Development">
+  <meta name="twitter:description" content="Ikke lovnader — faktiske nettsider du kan teste på din mobil.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="main.css">
+
+  <style>
+    /* ====== PAGE HERO ====== */
+    .page-hero {
+      position: relative;
+      min-height: 74vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none; z-index: 0;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12), transparent 65%);
+      pointer-events: none; z-index: 1;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto; width: 100%;
+      padding-inline: var(--pad);
+      padding-top: 9rem;
+      padding-bottom: clamp(3rem, 5vw, 5rem);
+    }
+    .page-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 600;
+      color: rgba(255,255,255,0.65); letter-spacing: 0.02em;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: heroFadeUp 0.7s 0.2s ease forwards;
+    }
+    .page-badge-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: topbarPulse 2s infinite; }
+    .page-hero-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 2.5rem;
+      margin-top: clamp(2.5rem, 4vw, 4rem);
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: heroFadeUp 0.8s 1s ease forwards;
+    }
+    .page-hero-sub {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.4);
+      max-width: 480px;
+    }
+
+    /* ====== DEMO GRID SECTION ====== */
+    .demos-section { background: #080808; }
+
+    .demos-header {
+      max-width: 560px; margin-bottom: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Demo cards */
+    .demo-card {
+      position: relative;
+      border-radius: var(--r);
+      overflow: hidden;
+      background: #0a0a0a;
+      display: block;
+      min-height: 520px;
+      border: 1px solid rgba(255,255,255,0.05);
+      /* Initial hidden state for reveal animation */
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1),
+                  border-color 0.4s ease,
+                  box-shadow 0.5s ease;
+    }
+    .demo-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .demo-card.revealed:hover {
+      transform: translateY(-8px);
+      border-color: rgba(37,99,235,0.35);
+      box-shadow: 0 40px 80px -15px rgba(37,99,235,0.14);
+    }
+    .demo-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.55;
+      transition: opacity 0.55s ease, transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .demo-card:hover img { opacity: 0.72; transform: scale(1.05); }
+    .demo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top,
+        rgba(4,4,10,0.98) 0%,
+        rgba(4,4,10,0.55) 45%,
+        rgba(4,4,10,0.1) 100%);
+      z-index: 1;
+    }
+
+    /* Category chip top-right */
+    .demo-chip {
+      position: absolute; top: 1.5rem; right: 1.5rem; z-index: 3;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.65rem; font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* Content */
+    .demo-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      z-index: 2;
+      transform: translateY(6px);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .demo-card:hover .demo-body { transform: translateY(0); }
+
+    .demo-eyebrow {
+      display: block;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .demo-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 700; color: var(--white);
+      letter-spacing: -0.02em; line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .demo-desc {
+      font-size: 0.875rem; color: rgba(255,255,255,0.48);
+      line-height: 1.6; max-width: 380px; margin-bottom: 1.5rem;
+    }
+    .demo-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white);
+    }
+    .demo-cta svg {
+      width: 0.875rem; height: 0.875rem;
+      transform: rotate(-45deg);
+      transition: transform 0.3s ease;
+    }
+    .demo-card:hover .demo-cta svg { transform: rotate(-45deg) translate(3px, -3px); }
+
+    @media (max-width: 768px) {
+      .demo-grid { grid-template-columns: 1fr; }
+      .demo-card { min-height: 440px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Demo-galleri — Index Development",
+    "url": "https://indexdevelopment.no/prosjekter.html",
+    "description": "Ferdigkodede demoer for ulike bransjer. Se nøyaktig hva vi kan bygge for deg.",
+    "isPartOf": { "@type": "WebSite", "url": "https://indexdevelopment.no" }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
+          <div class="nav-logo-dot" aria-hidden="true"></div>
+          index dev.
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="prosess.html">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html" aria-current="page" style="color:var(--white)">Prosjekter</a></li>
+          <li><a href="om-meg.html">Sannheten</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
+          Stopp blødningen
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="prosess.html">Slik fungerer det</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om-meg.html">Sannheten</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================
+         HERO
+    ============================= -->
+    <section class="page-hero" aria-labelledby="prosjekter-title">
+      <div class="page-hero-inner">
+        <div class="page-badge">
+          <span class="page-badge-dot" aria-hidden="true"></span>
+          Live demoer · Håndkodet · Klikk og utforsk
+        </div>
+
+        <h1 class="hero-headline" id="prosjekter-title">
+          <span class="hl-row"><span class="hl-text">Se det levende.</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline">Ikke bare lovnader.</span></span>
+        </h1>
+
+        <div class="page-hero-bottom">
+          <p class="page-hero-sub">
+            Vi viser deg nøyaktig hva du får — ikke en PowerPoint-presentasjon, men faktiske nettsider du kan trykke og teste på din egen mobil. Nedenfor er håndkodede demoer for ulike bransjer. Er din her?
+          </p>
+          <div class="hero-ctas">
+            <a href="kontakt.html" class="btn btn-white">
+              Vil du ha en egen demo?
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="tjenester.html" class="btn btn-ghost-white">
+              Se tjenester og priser
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         DEMO GRID
+    ============================= -->
+    <section class="demos-section section-pad" aria-labelledby="demos-title">
+      <div class="container">
+
+        <div class="demos-header">
+          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up">Demo-galleri</p>
+          <h2 class="t-section" id="demos-title" style="color:var(--white)" data-sr="up" data-d="1">Seks bransjer. Null lovnader. Bare resultater.</h2>
+          <p class="t-body" style="margin-top:1rem;color:rgba(255,255,255,0.4)" data-sr="up" data-d="2">Klikk på en demo for å se den live. Alt er håndkodet fra bunnen av — ingen maler, ingen WordPress, ingen kompromisser.</p>
+        </div>
+
+        <div class="demo-grid" id="demo-grid">
+
+          <!-- 1. Malermester -->
+          <a href="../demos/maler.html" class="demo-card" aria-label="Se live demo: Strøk Malermester">
+            <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1200&auto=format&fit=crop" alt="Malermester demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">Håndverk & Interiør</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#60a5fa">Demo-konsept · Malermester</span>
+              <div class="demo-title">Strøk Malermester</div>
+              <p class="demo-desc">Designet for å få folk med oppussingsplaner til å velge deg direkte — et premium-rammeverk som skriker autoritet og håver inn oppdrag.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. Anleggsgartner -->
+          <a href="../demos/anleggsgartner.html" class="demo-card" aria-label="Se live demo: Grønn Oase Anleggsgartner">
+            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop" alt="Anleggsgartner demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">Utemiljø & Hage</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#4ade80">Demo-konsept · Anleggsgartner</span>
+              <div class="demo-title">Grønn Oase</div>
+              <p class="demo-desc">Hage-drømmer konvertert til harde leads. En direkte respons-arkitektur optimalisert for å fange nabolagets mest lukrative utemiljø-prosjekter.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. Elektriker -->
+          <a href="../demos/elektriker.html" class="demo-card" aria-label="Se live demo: Volt Elektro">
+            <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=1200&auto=format&fit=crop" alt="Elektriker demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">Teknologi & Installasjon</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#fbbf24">Demo-konsept · Elektrobedrift</span>
+              <div class="demo-title">Volt Elektro</div>
+              <p class="demo-desc">Mørkt. Autoritært. Teknisk overlegent. Utklasser konkurrentene og posisjonerer deg som det eneste valget for premium el-installasjoner.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. VVS / Rørlegger -->
+          <a href="../demos/vann-varme.html" class="demo-card" aria-label="Se live demo: Vann & Varme AS">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" alt="Rørlegger demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">VVS & Akutt</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#60a5fa">Demo-konsept · Rørlegger</span>
+              <div class="demo-title">Vann & Varme AS</div>
+              <p class="demo-desc">Når vannet fosser har kunden ikke tid til trege nettsider. Et friksjonsfritt rammeverk aggressivt optimalisert for lokal SEO og umiddelbare telefonsamtaler.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. Tømmerer -->
+          <a href="../demos/tomrer.html" class="demo-card" aria-label="Se live demo: Nordisk Tømrer AS">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="Tømmerer demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">Bygg & Snekker</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#fb923c">Demo-konsept · Tømmerer</span>
+              <div class="demo-title">Nordisk Tømrer AS</div>
+              <p class="demo-desc">Solid som eik. En tung, tillitsbyggende nettside som overbeviser huseiere om at du er riktig håndverker for jobben — lenge før de ringer.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 6. Advokat -->
+          <a href="../demos/advokat.html" class="demo-card" aria-label="Se live demo: Advokatfirmaet Justitia">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop" alt="Advokat demo" width="600" height="750" loading="lazy">
+            <div class="demo-overlay" aria-hidden="true"></div>
+            <div class="demo-chip" aria-hidden="true">Jus & Forretning</div>
+            <div class="demo-body">
+              <span class="demo-eyebrow" style="color:#a78bfa">Demo-konsept · Advokatfirma</span>
+              <div class="demo-title">Advokatfirmaet Justitia</div>
+              <p class="demo-desc">Autoritet og presisjon i hvert piksel. En nettside som kommuniserer kompetanse og bygger tillit hos næringslivskunder før det første møtet.</p>
+              <div class="demo-cta">
+                Se live demo
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         CTA
+    ============================= -->
+    <section class="cta-section section-pad" aria-labelledby="prosjekter-cta-title">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Ikke i din bransje enda?</p>
+          <h2 class="t-section" id="prosjekter-cta-title" data-sr="up" data-d="1">
+            Vi bygger en demo<br>for din bransje. Gratis.
+          </h2>
+          <p data-sr="up" data-d="2">
+            Fortell oss om bedriften din. Innen 72 timer har du en ferdig demo skreddersydd for din bransje — du betaler ingenting før du er 100% fornøyd.
+          </p>
+          <div data-sr="up" data-d="3">
+            <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
+              Bestill din gratis demo
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-dot" aria-hidden="true"></div>
+            index dev.
+          </div>
+          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Tjenester</h3>
+          <ul>
+            <li><a href="tjenester.html">Alle tjenester</a></li>
+            <li><a href="tjenester.html">Nettsider som selger</a></li>
+            <li><a href="tjenester.html">Web-redesign</a></li>
+            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Selskap</h3>
+          <ul>
+            <li><a href="prosess.html">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html">Prosjekter</a></li>
+            <li><a href="om-meg.html">Sannheten</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Ta kontakt</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
+              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
+              +47 48 45 96 86
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
+              Drammen, Norge
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
+        <nav class="footer-bottom-links" aria-label="Juridisk">
+          <a href="personvern.html">Personvern</a>
+          <a href="vilkar.html">Vilkår</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ---- SCROLL PROGRESS ----
+    var prog = document.getElementById('scroll-progress');
+    function updateProgress() {
+      if (!prog) return;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+
+    // ---- NAVBAR ----
+    var navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', function () { updateProgress(); updateNav(); }, { passive: true });
+    updateNav();
+
+    // ---- HAMBURGER ----
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- CUSTOM CURSOR ----
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var cursorDot  = document.getElementById('cursor-dot');
+      var cursorRing = document.getElementById('cursor-ring');
+      var mx = 0, my = 0, rx = 0, ry = 0, rafId = null;
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (cursorDot) { cursorDot.parentElement.style.left = mx + 'px'; cursorDot.parentElement.style.top = my + 'px'; }
+        if (!rafId) rafId = requestAnimationFrame(animateCursor);
+      });
+      function animateCursor() {
+        if (cursorRing) {
+          var dx = mx - rx, dy = my - ry;
+          rx += dx * 0.14; ry += dy * 0.14;
+          cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+          rafId = (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) ? requestAnimationFrame(animateCursor) : null;
+        } else { rafId = null; }
+      }
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          if (cursorRing) { cursorRing.style.width = '56px'; cursorRing.style.height = '56px'; }
+          if (cursorDot)  { cursorDot.style.width = '4px'; cursorDot.style.height = '4px'; }
+        });
+        el.addEventListener('mouseleave', function () {
+          if (cursorRing) { cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; }
+          if (cursorDot)  { cursorDot.style.width = '8px'; cursorDot.style.height = '8px'; }
+        });
+      });
+    }
+
+    // ---- DEMO CARD STAGGER REVEAL ----
+    var demoGrid = document.getElementById('demo-grid');
+    if (demoGrid) {
+      var demoObserver = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          demoGrid.querySelectorAll('.demo-card').forEach(function (card, i) {
+            // Stagger: 2-column layout — pair columns fire together, slight delay between rows
+            setTimeout(function () { card.classList.add('revealed'); }, i * 90);
+          });
+          demoObserver.disconnect();
+        }
+      }, { threshold: 0.08 });
+      demoObserver.observe(demoGrid);
+    }
+
+    // ---- SCROLL REVEAL (data-sr) ----
+    var srEls = document.querySelectorAll('[data-sr]');
+    var srObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          srObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    srEls.forEach(function (el) { srObserver.observe(el); });
+
+  }());
+  </script>
+
+</body>
+</html>
