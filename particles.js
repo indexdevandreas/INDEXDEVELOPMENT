@@ -4,6 +4,12 @@
   var canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
 
+  /* No mouse on touch devices — animation has no effect and causes jank */
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   var ctx = canvas.getContext('2d');
   var particles = [];
   var mouse = { x: -9999, y: -9999 };
