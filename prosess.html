@@ -91,8 +91,6 @@
     /* ====== STEPS OVERVIEW BAR ====== */
     .steps-bar {
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .steps-grid {
       display: grid;
@@ -329,14 +327,15 @@
           index dev.
         </a>
         <ul class="nav-links" role="list">
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="prosess.html" aria-current="page" style="color:var(--white)">Slik fungerer det</a></li>
-          <li><a href="prosjekter.html">Prosjekter</a></li>
-          <li><a href="om-meg.html">Sannheten</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a></li>
+          <li><a href="prosess.html" aria-current="page" style="color:var(--white)" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+          <li><a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a></li>
+          <li><a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
+        <button class="lang-btn" id="lang-toggle" aria-label="Switch language">NO</button>
         <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
-          Stopp blødningen
+          <span data-no="Stopp blødningen" data-en="Stop the bleeding">Stopp blødningen</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
         </a>
         <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
@@ -345,12 +344,12 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="prosess.html">Slik fungerer det</a>
-      <a href="prosjekter.html">Prosjekter</a>
-      <a href="om-meg.html">Sannheten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+      <a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a>
+      <a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a>
+      <a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+      <a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a>
+      <a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-no="Krev ditt gratis utkast →" data-en="Claim your free draft →">Krev ditt gratis utkast →</a>
     </div>
   </header>
 
@@ -363,25 +362,25 @@
       <div class="page-hero-inner">
         <div class="page-badge">
           <span class="page-badge-dot" aria-hidden="true"></span>
-          3 steg · null risiko · 72 timers leveranse
+          <span data-no="3 steg · null risiko · 72 timers leveranse" data-en="3 steps · zero risk · 72-hour delivery">3 steg · null risiko · 72 timers leveranse</span>
         </div>
 
         <h1 class="hero-headline" id="prosess-title">
-          <span class="hl-row"><span class="hl-text">Du ser resultatet</span></span>
-          <span class="hl-row"><span class="hl-text hl-outline">før du betaler.</span></span>
+          <span class="hl-row"><span class="hl-text" data-no="Du ser resultatet" data-en="You see the result">Du ser resultatet</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline" data-no="før du betaler." data-en="before you pay.">før du betaler.</span></span>
         </h1>
 
         <div class="page-hero-bottom">
-          <p class="page-hero-sub">
+          <p class="page-hero-sub" data-no="Tradisjonelle byråer tar penger, lover resultater og ber deg bare håpe. Vi snur det på hodet: utkastet ditt er ferdig på 72 timer — og du betaler ingenting før du er 100% fornøyd med det vi har bygget." data-en="Traditional agencies take your money, promise results and ask you to just hope. We flip the script: your draft is done in 72 hours — and you pay nothing until you're 100% satisfied with what we've built.">
             Tradisjonelle byråer tar penger, lover resultater og ber deg bare håpe. Vi snur det på hodet: utkastet ditt er ferdig på 72 timer — og du betaler ingenting før du er 100% fornøyd med det vi har bygget.
           </p>
           <div class="hero-ctas">
             <a href="kontakt.html" class="btn btn-white">
-              Start gratis i dag
+              <span data-no="Start gratis i dag" data-en="Start free today">Start gratis i dag</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
             <a href="tjenester.html" class="btn btn-ghost-white">
-              Se tjenester og priser
+              <span data-no="Se tjenester og priser" data-en="See services and prices">Se tjenester og priser</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
@@ -396,19 +395,19 @@
       <div class="container">
         <div class="steps-grid">
           <div class="steps-bar-item">
-            <div class="steps-bar-num">Steg 01</div>
-            <div class="steps-bar-title">Strategien</div>
-            <div class="steps-bar-sub">15 min gratis samtale</div>
+            <div class="steps-bar-num" data-no="Steg 01" data-en="Step 01">Steg 01</div>
+            <div class="steps-bar-title" data-no="Strategien" data-en="The strategy">Strategien</div>
+            <div class="steps-bar-sub" data-no="15 min gratis samtale" data-en="15 min free call">15 min gratis samtale</div>
           </div>
           <div class="steps-bar-item">
-            <div class="steps-bar-num">Steg 02</div>
-            <div class="steps-bar-title">Konstruksjonen</div>
-            <div class="steps-bar-sub">72 timer — 0,- på forskudd</div>
+            <div class="steps-bar-num" data-no="Steg 02" data-en="Step 02">Steg 02</div>
+            <div class="steps-bar-title" data-no="Konstruksjonen" data-en="The build">Konstruksjonen</div>
+            <div class="steps-bar-sub" data-no="72 timer — 0,- på forskudd" data-en="72 hours — 0 upfront">72 timer — 0,- på forskudd</div>
           </div>
           <div class="steps-bar-item">
-            <div class="steps-bar-num">Steg 03</div>
-            <div class="steps-bar-title">Sannhetens øyeblikk</div>
-            <div class="steps-bar-sub">Du betaler kun om du elsker det</div>
+            <div class="steps-bar-num" data-no="Steg 03" data-en="Step 03">Steg 03</div>
+            <div class="steps-bar-title" data-no="Sannhetens øyeblikk" data-en="The moment of truth">Sannhetens øyeblikk</div>
+            <div class="steps-bar-sub" data-no="Du betaler kun om du elsker det" data-en="You pay only if you love it">Du betaler kun om du elsker det</div>
           </div>
         </div>
       </div>
@@ -421,9 +420,9 @@
       <div class="container">
 
         <div class="timeline-header">
-          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Prosessen</p>
-          <h2 class="t-section" id="prosess-steps-title" data-sr="up" data-d="1">Vi har fjernet alt som kaster bort tiden din.</h2>
-          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2">Ingen lange diskusjoner. Ingen uforståelige IT-ord. Bare tre klare steg fra første prat til ferdig salgsmaskin.</p>
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up" data-no="Prosessen" data-en="The process">Prosessen</p>
+          <h2 class="t-section" id="prosess-steps-title" data-sr="up" data-d="1" data-no="Vi har fjernet alt som kaster bort tiden din." data-en="We've removed everything that wastes your time.">Vi har fjernet alt som kaster bort tiden din.</h2>
+          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2" data-no="Ingen lange diskusjoner. Ingen uforståelige IT-ord. Bare tre klare steg fra første prat til ferdig salgsmaskin." data-en="No long discussions. No confusing IT jargon. Just three clear steps from first chat to finished sales machine.">Ingen lange diskusjoner. Ingen uforståelige IT-ord. Bare tre klare steg fra første prat til ferdig salgsmaskin.</p>
         </div>
 
         <div class="timeline-track">
@@ -438,11 +437,11 @@
           <div class="step-row" id="step-1">
             <div class="step-dot" aria-hidden="true">1</div>
             <div class="step-content">
-              <span class="step-eyebrow">Steg 1 — Strategien</span>
+              <span class="step-eyebrow" data-no="Steg 1 — Strategien" data-en="Step 1 — The strategy">Steg 1 — Strategien</span>
               <div class="step-h2-wrap">
-                <span class="step-h2-inner">Hvor er marginene dine?</span>
+                <span class="step-h2-inner" data-no="Hvor er marginene dine?" data-en="Where are your margins?">Hvor er marginene dine?</span>
               </div>
-              <p class="step-body-text">
+              <p class="step-body-text" data-no="En nettside som bare ser pen ut er verdiløs. I en 15-minutters kartleggingssamtale finner vi ut hvilke av dine tjenester som har høyest fortjeneste, og hvem som er din ideelle kunde. Vi bygger arkitekturen rundt det som faktisk gir penger i kassen — ikke rundt det som ser bra ut på en presentasjon." data-en="A website that just looks pretty is worthless. In a 15-minute strategy call we find out which of your services have the highest profit margin, and who your ideal customer is. We build the architecture around what actually puts money in the till — not what looks good in a presentation.">
                 En nettside som bare ser pen ut er verdiløs. I en 15-minutters kartleggingssamtale finner vi ut hvilke av dine tjenester som har høyest fortjeneste, og hvem som er din ideelle kunde. Vi bygger arkitekturen rundt det som faktisk gir penger i kassen — ikke rundt det som ser bra ut på en presentasjon.
               </p>
               <div class="step-card step-card-default">
@@ -450,9 +449,9 @@
                   <span class="step-card-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v1.697c0 .346.134.678.373.923l4.431 4.431a2.5 2.5 0 0 0 3.536 0l1.697-1.697a2.5 2.5 0 0 0 0-3.536L7.606 1.887A1.25 1.25 0 0 0 6.697 1.5H4.5ZM5.75 6.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"/></svg>
                   </span>
-                  Fastpris på bordet
+                  <span data-no="Fastpris på bordet" data-en="Fixed price on the table">Fastpris på bordet</span>
                 </h3>
-                <p>Før vi avslutter samtalen får du en nøyaktig pris for oppsettet. Ingen estimater, ingen timepris — og ingen ubehagelige fakturaer som dukker opp i etterkant.</p>
+                <p data-no="Før vi avslutter samtalen får du en nøyaktig pris for oppsettet. Ingen estimater, ingen timepris — og ingen ubehagelige fakturaer som dukker opp i etterkant." data-en="Before we end the call you get an exact price for the setup. No estimates, no hourly rate — and no unpleasant invoices showing up afterwards.">Før vi avslutter samtalen får du en nøyaktig pris for oppsettet. Ingen estimater, ingen timepris — og ingen ubehagelige fakturaer som dukker opp i etterkant.</p>
               </div>
             </div>
           </div>
@@ -461,11 +460,11 @@
           <div class="step-row" id="step-2">
             <div class="step-dot" aria-hidden="true">2</div>
             <div class="step-content">
-              <span class="step-eyebrow">Steg 2 — Konstruksjonen</span>
+              <span class="step-eyebrow" data-no="Steg 2 — Konstruksjonen" data-en="Step 2 — The build">Steg 2 — Konstruksjonen</span>
               <div class="step-h2-wrap">
-                <span class="step-h2-inner">Vi går i hulen. Helt gratis.</span>
+                <span class="step-h2-inner" data-no="Vi går i hulen. Helt gratis." data-en="We go to work. Completely free.">Vi går i hulen. Helt gratis.</span>
               </div>
-              <p class="step-body-text">
+              <p class="step-body-text" data-no="Mens du driver bedriften din, håndkoder vi maskineriet ditt fra bunnen av. At vi ikke bruker ferdigmaler betyr at siden din laster før konkurrentens nettside engang begynner å tenke. Vi bygger inn teknisk SEO fra første kodelinje — ikke som en etterpåklokskap, men som selve fundamentet." data-en="While you run your business, we hand-code your machinery from scratch. Not using templates means your site loads before your competitor's website even starts to think. We bake in technical SEO from the first line of code — not as an afterthought, but as the very foundation.">
                 Mens du driver bedriften din, håndkoder vi maskineriet ditt fra bunnen av. At vi ikke bruker ferdigmaler betyr at siden din laster før konkurrentens nettside engang begynner å tenke. Vi bygger inn teknisk SEO fra første kodelinje — ikke som en etterpåklokskap, men som selve fundamentet.
               </p>
               <div class="step-card step-card-default">
@@ -473,9 +472,9 @@
                   <span class="step-card-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 0 0 1.44 11.37 11.37 0 0 0 13.24 0 .87.87 0 0 0 0-1.44A11.37 11.37 0 0 0 1.38 8.28Z" clip-rule="evenodd"/></svg>
                   </span>
-                  Hemmelig test-utkast
+                  <span data-no="Hemmelig test-utkast" data-en="Secret test draft">Hemmelig test-utkast</span>
                 </h3>
-                <p>I løpet av 72 timer mottar du en skjult lenke. Du kan teste, trykke og navigere den ferdige nettsiden på din egen mobil — og du har fremdeles ikke betalt en krone.</p>
+                <p data-no="I løpet av 72 timer mottar du en skjult lenke. Du kan teste, trykke og navigere den ferdige nettsiden på din egen mobil — og du har fremdeles ikke betalt en krone." data-en="Within 72 hours you receive a hidden link. You can test, click and navigate the finished website on your own phone — and you still haven't paid a krone.">I løpet av 72 timer mottar du en skjult lenke. Du kan teste, trykke og navigere den ferdige nettsiden på din egen mobil — og du har fremdeles ikke betalt en krone.</p>
               </div>
             </div>
           </div>
@@ -484,11 +483,11 @@
           <div class="step-row" id="step-3">
             <div class="step-dot" aria-hidden="true">3</div>
             <div class="step-content">
-              <span class="step-eyebrow">Steg 3 — Sannhetens øyeblikk</span>
+              <span class="step-eyebrow" data-no="Steg 3 — Sannhetens øyeblikk" data-en="Step 3 — The moment of truth">Steg 3 — Sannhetens øyeblikk</span>
               <div class="step-h2-wrap">
-                <span class="step-h2-inner">Din godkjenning. Vår lansering.</span>
+                <span class="step-h2-inner" data-no="Din godkjenning. Vår lansering." data-en="Your approval. Our launch.">Din godkjenning. Vår lansering.</span>
               </div>
-              <p class="step-body-text">
+              <p class="step-body-text" data-no="Du ser utkastet på din egen enhet. Liker du ikke resultatet vi har bygget? Da sier du bare nei. Vi brenner koden og vi går hver til vårt — risikoen lå 100% på våre skuldre. Elsker du det? Da betaler du engangssummen, vi kobler på domenet ditt via Cloudflare, og din nye salgsmaskin er live." data-en="You see the draft on your own device. Don't like what we've built? Just say no. We burn the code and we part ways — the risk was 100% on our shoulders. Love it? Then you pay the one-time fee, we connect your domain via Cloudflare, and your new sales machine goes live.">
                 Du ser utkastet på din egen enhet. Liker du ikke resultatet vi har bygget? Da sier du bare nei. Vi brenner koden og vi går hver til vårt — risikoen lå 100% på våre skuldre. Elsker du det? Da betaler du engangssummen, vi kobler på domenet ditt via Cloudflare, og din nye salgsmaskin er live.
               </p>
               <div class="step-card step-card-tinted">
@@ -496,32 +495,32 @@
                   <span class="step-card-icon" style="background:rgba(37,99,235,0.1)" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 1a.75.75 0 0 1 .476.171l6.25 5a.75.75 0 0 1-.952 1.158L14 7.232V14.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-3.5H6V14.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V7.232L2.226 7.33a.75.75 0 0 1-.952-1.158l6.25-5A.75.75 0 0 1 8 1Z" clip-rule="evenodd"/></svg>
                   </span>
-                  Absolutt ingen bindingstid
+                  <span data-no="Absolutt ingen bindingstid" data-en="Absolutely no lock-in">Absolutt ingen bindingstid</span>
                 </h3>
-                <p>Kildekoden er utelukkende din eiendom. Ønsker du å avslutte driftsavtalen, kutter vi serveren og sender deg alle filene dine. Du er aldri låst fast hos oss.</p>
+                <p data-no="Kildekoden er utelukkende din eiendom. Ønsker du å avslutte driftsavtalen, kutter vi serveren og sender deg alle filene dine. Du er aldri låst fast hos oss." data-en="The source code is exclusively your property. Want to cancel the hosting agreement, we cut the server and send you all your files. You're never locked in with us.">Kildekoden er utelukkende din eiendom. Ønsker du å avslutte driftsavtalen, kutter vi serveren og sender deg alle filene dine. Du er aldri låst fast hos oss.</p>
               </div>
 
               <!-- Godfather offer callout -->
               <div class="godfather-card">
                 <div class="godfather-eyebrow">The Godfather Offer</div>
-                <div class="godfather-title">Vi tar all risikoen — du tar beslutningen.</div>
-                <p class="godfather-body">Dette er et tilbud du ikke kan si nei til — fordi du aldri trenger å si ja til noe du ikke elsker. Null risiko på din side. Ingen forpliktelser. Ingen skjulte gebyrer.</p>
+                <div class="godfather-title" data-no="Vi tar all risikoen — du tar beslutningen." data-en="We take all the risk — you make the decision.">Vi tar all risikoen — du tar beslutningen.</div>
+                <p class="godfather-body" data-no="Dette er et tilbud du ikke kan si nei til — fordi du aldri trenger å si ja til noe du ikke elsker. Null risiko på din side. Ingen forpliktelser. Ingen skjulte gebyrer." data-en="This is an offer you can't say no to — because you never have to say yes to something you don't love. Zero risk on your side. No obligations. No hidden fees.">Dette er et tilbud du ikke kan si nei til — fordi du aldri trenger å si ja til noe du ikke elsker. Null risiko på din side. Ingen forpliktelser. Ingen skjulte gebyrer.</p>
                 <div class="godfather-pills">
                   <span class="godfather-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
-                    0,- på forskudd
+                    <span data-no="0,- på forskudd" data-en="0 upfront">0,- på forskudd</span>
                   </span>
                   <span class="godfather-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
-                    100% fornøyd-garanti
+                    <span data-no="100% fornøyd-garanti" data-en="100% satisfaction guarantee">100% fornøyd-garanti</span>
                   </span>
                   <span class="godfather-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
-                    Ingen bindingstid
+                    <span data-no="Ingen bindingstid" data-en="No lock-in">Ingen bindingstid</span>
                   </span>
                   <span class="godfather-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
-                    Koden er din
+                    <span data-no="Koden er din" data-en="The code is yours">Koden er din</span>
                   </span>
                 </div>
               </div>
@@ -538,20 +537,20 @@
     <section class="cta-section section-pad" aria-labelledby="prosess-cta-title">
       <div class="container">
         <div class="cta-inner">
-          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Klar for å begynne?</p>
-          <h2 class="t-section" id="prosess-cta-title" data-sr="up" data-d="1">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up" data-no="Klar for å begynne?" data-en="Ready to start?">Klar for å begynne?</p>
+          <h2 class="t-section" id="prosess-cta-title" data-sr="up" data-d="1" data-no-html="Hva har du<br>egentlig å tape?" data-en-html="What do you<br>really have to lose?">
             Hva har du<br>egentlig å tape?
           </h2>
-          <p data-sr="up" data-d="2">
+          <p data-sr="up" data-d="2" data-no="Slutt å kaste bort penger på byråer som krever betalt før de har bevist noe som helst. La oss bygge din salgsmaskin i dag — du risikerer ingenting." data-en="Stop wasting money on agencies that demand payment before proving anything. Let us build your sales machine today — you risk absolutely nothing.">
             Slutt å kaste bort penger på byråer som krever betalt før de har bevist noe som helst. La oss bygge din salgsmaskin i dag — du risikerer ingenting.
           </p>
           <div data-sr="up" data-d="3">
             <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
-              Krev ditt gratis utkast nå
+              <span data-no="Krev ditt gratis utkast nå" data-en="Claim your free draft now">Krev ditt gratis utkast nå</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
-          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+          <p class="cta-sub" data-sr="up" data-d="4" data-no="0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti" data-en="0 upfront · 72-hour delivery · 100% satisfaction guarantee">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
         </div>
       </div>
     </section>
@@ -614,6 +613,7 @@
     </div>
   </footer>
 
+  <script src="lang.js" defer></script>
   <script>
   (function () {
     'use strict';

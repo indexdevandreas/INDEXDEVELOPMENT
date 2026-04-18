@@ -100,8 +100,6 @@
     /* ====== TRUST BAR ====== */
     .trust-bar {
       background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .trust-grid {
       display: grid;
@@ -302,14 +300,15 @@
           index dev.
         </a>
         <ul class="nav-links" role="list">
-          <li><a href="tjenester.html" aria-current="page" style="color:var(--white)">Tjenester</a></li>
-          <li><a href="prosess.html">Slik fungerer det</a></li>
-          <li><a href="prosjekter.html">Prosjekter</a></li>
-          <li><a href="om-meg.html">Sannheten</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="tjenester.html" aria-current="page" style="color:var(--white)" data-no="Tjenester" data-en="Services">Tjenester</a></li>
+          <li><a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+          <li><a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a></li>
+          <li><a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
+        <button class="lang-btn" id="lang-toggle" aria-label="Switch language">NO</button>
         <a href="kontakt.html" class="nav-cta">
-          Stopp blødningen
+          <span data-no="Stopp blødningen" data-en="Stop the bleeding">Stopp blødningen</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
         </a>
         <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
@@ -318,12 +317,12 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="prosess.html">Slik fungerer det</a>
-      <a href="prosjekter.html">Prosjekter</a>
-      <a href="om-meg.html">Sannheten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+      <a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a>
+      <a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a>
+      <a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+      <a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a>
+      <a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-no="Krev ditt gratis utkast →" data-en="Claim your free draft →">Krev ditt gratis utkast →</a>
     </div>
   </header>
 
@@ -336,26 +335,26 @@
       <div class="page-hero-inner">
         <div class="page-badge">
           <span class="page-badge-dot" aria-hidden="true"></span>
-          Håndkodet · lynrask · designet for profitt
+          <span data-no="Håndkodet · lynrask · designet for profitt" data-en="Hand-coded · lightning fast · built for profit">Håndkodet · lynrask · designet for profitt</span>
         </div>
 
         <!-- Clip-reveal headline (same system as index.html) -->
         <h1 class="hero-headline" id="tjenester-title">
-          <span class="hl-row"><span class="hl-text">Nettsider som</span></span>
-          <span class="hl-row"><span class="hl-text hl-outline">faktisk selger.</span></span>
+          <span class="hl-row"><span class="hl-text" data-no="Nettsider som" data-en="Websites that">Nettsider som</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline" data-no="faktisk selger." data-en="actually convert.">faktisk selger.</span></span>
         </h1>
 
         <div class="page-hero-bottom">
-          <p class="page-hero-sub">
+          <p class="page-hero-sub" data-no="Vi håndkoder salgsmaskiner skreddersydd for din bransje, din by, ditt marked. Ingen maler, ingen WordPress-bloatware — og du betaler ikke en krone før du er fornøyd." data-en="We hand-code sales machines tailored for your industry, your city, your market. No templates, no WordPress bloatware — and you pay nothing until you're satisfied.">
             Vi håndkoder salgsmaskiner skreddersydd for din bransje, din by, ditt marked. Ingen maler, ingen WordPress-bloatware — og du betaler ikke en krone før du er fornøyd.
           </p>
           <div class="hero-ctas">
             <a href="kontakt.html" class="btn btn-white">
-              Krev ditt gratis utkast
+              <span data-no="Krev ditt gratis utkast" data-en="Claim your free draft">Krev ditt gratis utkast</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
             <a href="prosess.html" class="btn btn-ghost-white">
-              Se hvordan det fungerer
+              <span data-no="Se hvordan det fungerer" data-en="See how it works">Se hvordan det fungerer</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
@@ -371,19 +370,19 @@
         <div class="trust-grid">
           <div class="trust-item">
             <div class="trust-val">72t</div>
-            <div class="trust-label">Leveranse</div>
+            <div class="trust-label" data-no="Leveranse" data-en="Delivery">Leveranse</div>
           </div>
           <div class="trust-item">
             <div class="trust-val">0,-</div>
-            <div class="trust-label">På forskudd</div>
+            <div class="trust-label" data-no="På forskudd" data-en="Upfront">På forskudd</div>
           </div>
           <div class="trust-item">
             <div class="trust-val">100%</div>
-            <div class="trust-label">Fornøyd-garanti</div>
+            <div class="trust-label" data-no="Fornøyd-garanti" data-en="Satisfaction guarantee">Fornøyd-garanti</div>
           </div>
           <div class="trust-item">
             <div class="trust-val">199,-</div>
-            <div class="trust-label">Drift per måned</div>
+            <div class="trust-label" data-no="Drift per måned" data-en="Hosting per month">Drift per måned</div>
           </div>
         </div>
       </div>
@@ -395,25 +394,25 @@
     <section style="background:var(--white)" class="section-pad" aria-labelledby="services-title">
       <div class="container">
         <div class="services-header">
-          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Det vi gjør best</p>
-          <h2 class="t-section" id="services-title" data-sr="up" data-d="1">Tre tjenester.<br>Én garanti.</h2>
-          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2">Alle pakkene bygger på samme prinsipp: du ser det ferdige resultatet før du betaler en krone.</p>
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up" data-no="Det vi gjør best" data-en="What we do best">Det vi gjør best</p>
+          <h2 class="t-section" id="services-title" data-sr="up" data-d="1" data-no-html="Tre tjenester.<br>Én garanti." data-en-html="Three services.<br>One guarantee.">Tre tjenester.<br>Én garanti.</h2>
+          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2" data-no="Alle pakkene bygger på samme prinsipp: du ser det ferdige resultatet før du betaler en krone." data-en="Every package is built on the same principle: you see the finished result before you pay a single krone.">Alle pakkene bygger på samme prinsipp: du ser det ferdige resultatet før du betaler en krone.</p>
         </div>
 
         <div role="list">
           <article class="service-item" role="listitem">
             <div class="service-num" aria-hidden="true">01</div>
             <div class="service-body">
-              <h2>Nettside som konverterer</h2>
-              <p>Vi håndkoder en komplett nettside skreddersydd for din bedrift og bransje. Ingen maler, ingen bloatware — bare ren kode som laster på millisekunder og presser besøkende mot ett mål: å ta kontakt med deg.</p>
+              <h2 data-no="Nettside som konverterer" data-en="Website that converts">Nettside som konverterer</h2>
+              <p data-no="Vi håndkoder en komplett nettside skreddersydd for din bedrift og bransje. Ingen maler, ingen bloatware — bare ren kode som laster på millisekunder og presser besøkende mot ett mål: å ta kontakt med deg." data-en="We hand-code a complete website tailored to your business and industry. No templates, no bloatware — just clean code that loads in milliseconds and pushes visitors toward one goal: contacting you.">Vi håndkoder en komplett nettside skreddersydd for din bedrift og bransje. Ingen maler, ingen bloatware — bare ren kode som laster på millisekunder og presser besøkende mot ett mål: å ta kontakt med deg.</p>
               <div class="service-pills">
-                <span class="service-pill">Millisekund-lasting</span>
-                <span class="service-pill">Lokal SEO inkludert</span>
-                <span class="service-pill">Leads direkte til telefon</span>
+                <span class="service-pill" data-no="Millisekund-lasting" data-en="Millisecond load time">Millisekund-lasting</span>
+                <span class="service-pill" data-no="Lokal SEO inkludert" data-en="Local SEO included">Lokal SEO inkludert</span>
+                <span class="service-pill" data-no="Leads direkte til telefon" data-en="Leads straight to your phone">Leads direkte til telefon</span>
               </div>
             </div>
             <div class="service-price">
-              <span class="service-price-from">Fra kun</span>
+              <span class="service-price-from" data-no="Fra kun" data-en="From only">Fra kun</span>
               <span class="service-price-val">1.999,-</span>
             </div>
           </article>
@@ -421,16 +420,16 @@
           <article class="service-item" role="listitem">
             <div class="service-num" aria-hidden="true">02</div>
             <div class="service-body">
-              <h2>Total redesign</h2>
-              <p>Har du en utdatert nettside som skremmer vekk potensielle kunder? Vi river den ned og bygger et profesjonelt system som gjør deg til det naturlige valget i din bransje. Google-rangering bevares og forbedres fra dag én.</p>
+              <h2 data-no="Total redesign" data-en="Full redesign">Total redesign</h2>
+              <p data-no="Har du en utdatert nettside som skremmer vekk potensielle kunder? Vi river den ned og bygger et profesjonelt system som gjør deg til det naturlige valget i din bransje. Google-rangering bevares og forbedres fra dag én." data-en="Have an outdated website that scares away potential customers? We tear it down and build a professional system that makes you the obvious choice in your industry. Google ranking preserved and improved from day one.">Har du en utdatert nettside som skremmer vekk potensielle kunder? Vi river den ned og bygger et profesjonelt system som gjør deg til det naturlige valget i din bransje. Google-rangering bevares og forbedres fra dag én.</p>
               <div class="service-pills">
-                <span class="service-pill">Google-rangering beholdes</span>
-                <span class="service-pill">Mobiloptimalisert</span>
-                <span class="service-pill">Økt konvertering</span>
+                <span class="service-pill" data-no="Google-rangering beholdes" data-en="Google ranking preserved">Google-rangering beholdes</span>
+                <span class="service-pill" data-no="Mobiloptimalisert" data-en="Mobile optimised">Mobiloptimalisert</span>
+                <span class="service-pill" data-no="Økt konvertering" data-en="Increased conversions">Økt konvertering</span>
               </div>
             </div>
             <div class="service-price">
-              <span class="service-price-from">Fra kun</span>
+              <span class="service-price-from" data-no="Fra kun" data-en="From only">Fra kun</span>
               <span class="service-price-val">6.999,-</span>
             </div>
           </article>
@@ -438,16 +437,16 @@
           <article class="service-item" role="listitem">
             <div class="service-num" aria-hidden="true">03</div>
             <div class="service-body">
-              <h2>Drift og sikkerhet</h2>
-              <p>Null teknisk stress etter lansering. Vi drifter siden din via Cloudflares enterprise-nettverk, sørger for at den aldri går ned, og holder alt oppdatert og sikkert. Du driver bedriften — vi driver nettsiden.</p>
+              <h2 data-no="Drift og sikkerhet" data-en="Hosting &amp; security">Drift og sikkerhet</h2>
+              <p data-no="Null teknisk stress etter lansering. Vi drifter siden din via Cloudflares enterprise-nettverk, sørger for at den aldri går ned, og holder alt oppdatert og sikkert. Du driver bedriften — vi driver nettsiden." data-en="Zero technical stress after launch. We host your site on Cloudflare's enterprise network, make sure it never goes down, and keep everything updated and secure. You run the business — we run the website.">Null teknisk stress etter lansering. Vi drifter siden din via Cloudflares enterprise-nettverk, sørger for at den aldri går ned, og holder alt oppdatert og sikkert. Du driver bedriften — vi driver nettsiden.</p>
               <div class="service-pills">
                 <span class="service-pill">Cloudflare Enterprise</span>
-                <span class="service-pill">SSL-sertifikat</span>
-                <span class="service-pill">Ingen bindingstid</span>
+                <span class="service-pill" data-no="SSL-sertifikat" data-en="SSL certificate">SSL-sertifikat</span>
+                <span class="service-pill" data-no="Ingen bindingstid" data-en="No lock-in">Ingen bindingstid</span>
               </div>
             </div>
             <div class="service-price">
-              <span class="service-price-from">Kun</span>
+              <span class="service-price-from" data-no="Kun" data-en="Only">Kun</span>
               <span class="service-price-val">199,-/mnd</span>
             </div>
           </article>
@@ -461,8 +460,8 @@
     <section class="friction-section section-pad" aria-labelledby="friction-title">
       <div class="container">
         <div class="friction-header">
-          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up">Friksjon koster penger</p>
-          <h2 class="t-section" id="friction-title" style="color:var(--white)" data-sr="up" data-d="1">
+          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up" data-no="Friksjon koster penger" data-en="Friction costs money">Friksjon koster penger</p>
+          <h2 class="t-section" id="friction-title" style="color:var(--white)" data-sr="up" data-d="1" data-no-html="Dette er hva<br>vi eliminerer." data-en-html="This is what<br>we eliminate.">
             Dette er hva<br>vi eliminerer.
           </h2>
         </div>
@@ -471,25 +470,25 @@
             <div class="friction-x" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
             </div>
-            <span class="friction-text">Trege sider som frustrerer mobilbrukere og sender dem rett til konkurrenten</span>
+            <span class="friction-text" data-no="Trege sider som frustrerer mobilbrukere og sender dem rett til konkurrenten" data-en="Slow pages that frustrate mobile users and send them straight to your competitor">Trege sider som frustrerer mobilbrukere og sender dem rett til konkurrenten</span>
           </div>
           <div class="friction-item">
             <div class="friction-x" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
             </div>
-            <span class="friction-text">Utdatert innhold som dreper kundenes tillit og gjør deg usynlig på Google</span>
+            <span class="friction-text" data-no="Utdatert innhold som dreper kundenes tillit og gjør deg usynlig på Google" data-en="Outdated content that kills customer trust and makes you invisible on Google">Utdatert innhold som dreper kundenes tillit og gjør deg usynlig på Google</span>
           </div>
           <div class="friction-item">
             <div class="friction-x" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
             </div>
-            <span class="friction-text">Rotete navigasjon der kunden ikke finner det de leter etter — og gir opp</span>
+            <span class="friction-text" data-no="Rotete navigasjon der kunden ikke finner det de leter etter — og gir opp" data-en="Cluttered navigation where customers can't find what they need — and give up">Rotete navigasjon der kunden ikke finner det de leter etter — og gir opp</span>
           </div>
           <div class="friction-item">
             <div class="friction-x" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"/></svg>
             </div>
-            <span class="friction-text">Svake handlingsknapper som ikke klarer å konvertere besøkende til betalende kunder</span>
+            <span class="friction-text" data-no="Svake handlingsknapper som ikke klarer å konvertere besøkende til betalende kunder" data-en="Weak calls-to-action that fail to convert visitors into paying customers">Svake handlingsknapper som ikke klarer å konvertere besøkende til betalende kunder</span>
           </div>
         </div>
       </div>
@@ -501,20 +500,20 @@
     <section class="cta-section section-pad" aria-labelledby="tjenester-cta-title">
       <div class="container">
         <div class="cta-inner">
-          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Klar for å begynne?</p>
-          <h2 class="t-section" id="tjenester-cta-title" data-sr="up" data-d="1">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up" data-no="Klar for å begynne?" data-en="Ready to start?">Klar for å begynne?</p>
+          <h2 class="t-section" id="tjenester-cta-title" data-sr="up" data-d="1" data-no-html="Vi bygger det.<br>Du betaler kun hvis du elsker det." data-en-html="We build it.<br>You only pay if you love it.">
             Vi bygger det.<br>Du betaler kun hvis du elsker det.
           </h2>
-          <p data-sr="up" data-d="2">
+          <p data-sr="up" data-d="2" data-no="Send oss litt info om bedriften din. Innen 72 timer har du et ferdig utkast klart til testing — uten at du har betalt en øre." data-en="Send us a bit of info about your business. Within 72 hours you'll have a finished draft ready to test — without having paid a penny.">
             Send oss litt info om bedriften din. Innen 72 timer har du et ferdig utkast klart til testing — uten at du har betalt en øre.
           </p>
           <div data-sr="up" data-d="3">
             <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
-              Start gratis i dag
+              <span data-no="Start gratis i dag" data-en="Start free today">Start gratis i dag</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
-          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+          <p class="cta-sub" data-sr="up" data-d="4" data-no="0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti" data-en="0 upfront · 72-hour delivery · 100% satisfaction guarantee">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
         </div>
       </div>
     </section>
@@ -529,28 +528,28 @@
             <div class="footer-logo-dot" aria-hidden="true"></div>
             index dev.
           </div>
-          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+          <p class="footer-desc" data-no="Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side." data-en="Hand-coded websites for Norwegian small businesses that want results — not just a pretty page.">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
         </div>
         <div class="footer-col">
-          <h3>Tjenester</h3>
+          <h3 data-no="Tjenester" data-en="Services">Tjenester</h3>
           <ul>
-            <li><a href="tjenester.html">Alle tjenester</a></li>
-            <li><a href="tjenester.html">Nettsider som selger</a></li>
-            <li><a href="tjenester.html">Web-redesign</a></li>
-            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+            <li><a href="tjenester.html" data-no="Alle tjenester" data-en="All services">Alle tjenester</a></li>
+            <li><a href="tjenester.html" data-no="Nettsider som selger" data-en="Websites that convert">Nettsider som selger</a></li>
+            <li><a href="tjenester.html" data-no="Web-redesign" data-en="Web redesign">Web-redesign</a></li>
+            <li><a href="tjenester.html" data-no="Drift og sikkerhet" data-en="Hosting &amp; security">Drift og sikkerhet</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Selskap</h3>
+          <h3 data-no="Selskap" data-en="Company">Selskap</h3>
           <ul>
-            <li><a href="prosess.html">Slik fungerer det</a></li>
-            <li><a href="prosjekter.html">Prosjekter</a></li>
-            <li><a href="om-meg.html">Sannheten</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+            <li><a href="om-meg.html" data-no="Sannheten" data-en="The truth">Sannheten</a></li>
+            <li><a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Ta kontakt</h3>
+          <h3 data-no="Ta kontakt" data-en="Get in touch">Ta kontakt</h3>
           <div class="footer-contact">
             <div class="footer-contact-item">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
@@ -562,7 +561,7 @@
             </div>
             <div class="footer-contact-item">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
-              Drammen, Norge
+              <span data-no="Drammen, Norge" data-en="Drammen, Norway">Drammen, Norge</span>
             </div>
           </div>
         </div>
@@ -570,13 +569,14 @@
       <div class="footer-bottom">
         <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
         <nav class="footer-bottom-links" aria-label="Juridisk">
-          <a href="personvern.html">Personvern</a>
-          <a href="vilkar.html">Vilkår</a>
+          <a href="personvern.html" data-no="Personvern" data-en="Privacy policy">Personvern</a>
+          <a href="vilkar.html" data-no="Vilkår" data-en="Terms">Vilkår</a>
         </nav>
       </div>
     </div>
   </footer>
 
+  <script src="lang.js" defer></script>
   <script>
   (function () {
     'use strict';

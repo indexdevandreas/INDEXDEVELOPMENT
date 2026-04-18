@@ -14,7 +14,6 @@
         q2: {
             handverk:   [2, 0, 0],
             restaurant: [0, 2, 0],
-            butikk:     [0, 1, 1],
             konsulent:  [0, 2, 1],
             annet:      [1, 1, 0]
         },
@@ -150,7 +149,7 @@
 
     // ---- SHOW STEP ---- //
     function showStep(n) {
-        document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.q-step').forEach(el => el.classList.remove('active'));
         const el = document.getElementById('step-' + n);
         if (el) {
             el.classList.add('active');
@@ -162,7 +161,7 @@
             }
             // Update next button state for option steps
             if (n > 1) {
-                const nextBtn = el.querySelector('.btn-next');
+                const nextBtn = el.querySelector('.q-btn-next');
                 const hasAnswer = !!answers['q' + n];
                 if (nextBtn) {
                     nextBtn.disabled = !hasAnswer;
@@ -188,10 +187,9 @@
     });
 
     // ---- RADIO CHANGE ---- //
-    document.querySelectorAll('.quiz-section input[type="radio"]').forEach(function (radio) {
+    document.querySelectorAll('#quiz-section input[type="radio"]').forEach(function (radio) {
         radio.addEventListener('change', function () {
-            const step = parseInt(this.closest('.quiz-step').id.replace('step-', ''));
-            const nextBtn = this.closest('.quiz-step').querySelector('.btn-next');
+            const nextBtn = this.closest('.q-step').querySelector('.q-btn-next');
             if (nextBtn) {
                 nextBtn.disabled = false;
             }
@@ -199,7 +197,7 @@
     });
 
     // ---- KEYBOARD ON OPTION LABELS ---- //
-    document.querySelectorAll('.option-label').forEach(function (label) {
+    document.querySelectorAll('.q-option').forEach(function (label) {
         label.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -210,25 +208,19 @@
                 }
             }
         });
-        // Make labels tabbable for keyboard users (radio handles it, but add tabindex for extra safety)
         label.setAttribute('tabindex', '0');
-        // Forward tab-focus to the visually styled label
         const radio = label.previousElementSibling;
         if (radio) {
-            radio.addEventListener('focus', function () {
-                label.classList.add('focused');
-            });
-            radio.addEventListener('blur', function () {
-                label.classList.remove('focused');
-            });
+            radio.addEventListener('focus', function () { label.classList.add('focused'); });
+            radio.addEventListener('blur',  function () { label.classList.remove('focused'); });
         }
     });
 
     // ---- NEXT BUTTONS ---- //
-    document.querySelectorAll('.btn-next').forEach(function (btn) {
+    document.querySelectorAll('.q-btn-next').forEach(function (btn) {
         btn.addEventListener('click', function () {
             if (this.disabled) return;
-            const step = parseInt(this.closest('.quiz-step').id.replace('step-', ''));
+            const step = parseInt(this.closest('.q-step').id.replace('step-', ''));
 
             if (step === 1) {
                 // Name step
@@ -253,9 +245,9 @@
     });
 
     // ---- BACK BUTTONS ---- //
-    document.querySelectorAll('.btn-back').forEach(function (btn) {
+    document.querySelectorAll('.q-btn-back').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            const step = parseInt(this.closest('.quiz-step').id.replace('step-', ''));
+            const step = parseInt(this.closest('.q-step').id.replace('step-', ''));
             if (step > 1) showStep(step - 1);
         });
     });
@@ -265,7 +257,7 @@
     if (nameInput) {
         nameInput.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
-                document.querySelector('#step-1 .btn-next').click();
+                document.querySelector('#step-1 .q-btn-next').click();
             }
         });
     }

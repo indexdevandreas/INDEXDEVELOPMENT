@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogg | Index Development — Innsikt om nettsider, SEO og konvertering</title>
+  <meta name="description" content="Lær hvordan du får en nettside som faktisk skaffer kunder. Fagartikler om SEO, hastighet, design og konvertering fra Index Development.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indexdevelopment.no/blogg.html">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="main.css">
+
+  <style>
+    /* ── PAGE HERO ── */
+    .blog-page-hero {
+      position: relative;
+      background: #080808;
+      overflow: hidden;
+      padding-top: 9rem;
+      padding-bottom: 5rem;
+    }
+    .blog-page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none; z-index: 0;
+    }
+    .blog-page-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-inline: 5%;
+    }
+    .blog-page-tagline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(59,130,246,0.8);
+      margin-bottom: 1.5rem;
+    }
+    .blog-page-tagline::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 8px #3b82f6;
+      animation: pulse 2s infinite;
+    }
+    .blog-page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700; line-height: 1.05;
+      color: #fff; max-width: 700px;
+    }
+    .blog-page-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .blog-page-sub {
+      color: rgba(255,255,255,0.4);
+      font-size: 1.05rem; line-height: 1.7;
+      max-width: 520px; margin-top: 1.5rem;
+    }
+    .blog-post-count {
+      display: flex; align-items: center; gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .blog-post-count span {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .blog-post-count-line {
+      height: 1px; width: 60px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ── CATEGORIES ── */
+    .blog-cats {
+      background: #080808;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1.25rem 0;
+      position: sticky; top: 64px; z-index: 10;
+    }
+    .blog-cats-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding-inline: 5%;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .blog-cat-btn {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 99px; padding: 0.4rem 1rem;
+      cursor: default;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .blog-cat-btn.active,
+    .blog-cat-btn:hover {
+      color: #3b82f6;
+      background: rgba(59,130,246,0.08);
+      border-color: rgba(59,130,246,0.25);
+    }
+
+    /* ── FEATURED ── */
+    .blog-section {
+      background: #080808;
+      padding: 4rem 0 8rem;
+    }
+    .blog-container {
+      max-width: 1400px; margin: 0 auto;
+      padding-inline: 5%;
+    }
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 3rem;
+      text-decoration: none;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    .blog-featured:hover {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 40px 100px -20px rgba(37,99,235,0.15);
+    }
+    .blog-featured-img {
+      position: relative; overflow: hidden;
+      min-height: 480px;
+    }
+    .blog-featured-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .blog-featured:hover .blog-featured-img img { transform: scale(1.04); }
+    .blog-featured-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(8,8,8,0.35) 0%, transparent 60%);
+    }
+    .blog-featured-body {
+      background: #0d0d12;
+      padding: 3.5rem;
+      display: flex; flex-direction: column;
+      justify-content: center;
+    }
+    .blog-featured-cat {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #3b82f6; margin-bottom: 1rem;
+    }
+    .blog-featured-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 700; color: #fff;
+      line-height: 1.2; margin-bottom: 1.25rem;
+    }
+    .blog-featured-desc {
+      font-size: 0.975rem; color: rgba(255,255,255,0.45);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .blog-featured-meta {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.72rem; color: rgba(255,255,255,0.25);
+      font-weight: 500; letter-spacing: 0.05em;
+    }
+    .blog-featured-meta span { display: flex; align-items: center; gap: 0.35rem; }
+    .blog-featured-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600;
+      color: #3b82f6; margin-top: 2rem;
+      transition: gap 0.2s;
+    }
+    .blog-featured:hover .blog-featured-link { gap: 0.75rem; }
+    .blog-featured-badge {
+      display: inline-block;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #fff; background: #3b82f6;
+      border-radius: 4px; padding: 0.25rem 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── GRID ── */
+    .blog-grid-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 1.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .blog-card {
+      display: flex; flex-direction: column;
+      background: #0d0d12;
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      text-decoration: none;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  border-color 0.3s, box-shadow 0.4s;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59,130,246,0.25);
+      box-shadow: 0 24px 64px -12px rgba(37,99,235,0.12);
+    }
+    .blog-card-img {
+      position: relative; overflow: hidden;
+      height: 220px;
+    }
+    .blog-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .blog-card:hover .blog-card-img img { transform: scale(1.06); }
+    .blog-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(13,13,18,0.6) 100%);
+    }
+    .blog-card-body {
+      padding: 1.75rem 2rem 2rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .blog-card-cat {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+    .blog-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: #fff; line-height: 1.3;
+      margin-bottom: 0.85rem;
+    }
+    .blog-card-desc {
+      font-size: 0.875rem; color: rgba(255,255,255,0.4);
+      line-height: 1.65; flex: 1;
+    }
+    .blog-card-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.7rem; color: rgba(255,255,255,0.22);
+      font-weight: 500;
+    }
+    .blog-card-arrow {
+      color: rgba(255,255,255,0.2);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .blog-card:hover .blog-card-arrow {
+      color: #3b82f6;
+      transform: translateX(4px);
+    }
+
+    /* ── NEWSLETTER ── */
+    .blog-newsletter {
+      margin-top: 5rem;
+      background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(139,92,246,0.06) 100%);
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 16px;
+      padding: 3.5rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .blog-newsletter-text h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: #fff; margin-bottom: 0.5rem;
+    }
+    .blog-newsletter-text p {
+      font-size: 0.9rem; color: rgba(255,255,255,0.4);
+    }
+    .blog-newsletter-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #2563eb; color: #fff;
+      font-size: 0.9rem; font-weight: 600;
+      padding: 0.9rem 1.75rem; border-radius: 8px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .blog-newsletter-cta:hover {
+      background: #1d4ed8; transform: translateY(-2px);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured-img { min-height: 300px; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-featured-body { padding: 2rem; }
+      .blog-newsletter { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <!-- Topbar -->
+  <div class="topbar" role="banner">
+    <span class="topbar-pulse" aria-hidden="true"></span>
+    <strong>Ingen bindingstid</strong> &mdash; Koden er din eiendom &mdash; 1 klientplass ledig &mdash;
+    <a href="index.html#pris">Se priser</a>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
+          <div class="nav-logo-dot" aria-hidden="true"></div>
+          index dev.
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="prosess.html">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html">Prosjekter</a></li>
+          <li><a href="om-meg.html">Sannheten</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+
+        <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
+          Stopp blødningen
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+        </a>
+
+        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="tjenester.html">Tjenester</a>
+      <a href="prosess.html">Slik fungerer det</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om-meg.html">Sannheten</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="blog-page-hero" aria-labelledby="blog-page-title">
+      <div class="blog-page-hero-inner">
+        <p class="blog-page-tagline">Index Development — Fagblogg</p>
+        <h1 class="blog-page-title" id="blog-page-title">
+          Innsikt som<br><em>faktisk selger.</em>
+        </h1>
+        <p class="blog-page-sub">Vi deler det vi vet om nettsider som konverterer, SEO som dominerer og kode som ikke krasjer. Ingen fyllstoff, bare substans.</p>
+        <div class="blog-post-count">
+          <div class="blog-post-count-line"></div>
+          <span>8 artikler</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <div class="blog-cats" aria-label="Kategorier">
+      <div class="blog-cats-inner">
+        <span class="blog-cat-btn active">Alle</span>
+        <span class="blog-cat-btn">SEO</span>
+        <span class="blog-cat-btn">Koding</span>
+        <span class="blog-cat-btn">Design</span>
+        <span class="blog-cat-btn">Strategi</span>
+        <span class="blog-cat-btn">Ytelse</span>
+      </div>
+    </div>
+
+    <!-- BLOG CONTENT -->
+    <section class="blog-section" aria-label="Artikler">
+      <div class="blog-container">
+
+        <!-- FEATURED ARTICLE -->
+        <a href="seo-strategi.html" class="blog-featured" aria-label="Les: Hvorfor din fine nettside er usynlig for Google">
+          <div class="blog-featured-img">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop"
+              alt="Google Search Analytics dashboard"
+              width="700" height="480" loading="eager">
+            <div class="blog-featured-img-overlay"></div>
+          </div>
+          <div class="blog-featured-body">
+            <span class="blog-featured-badge">Mest lest</span>
+            <span class="blog-featured-cat">Strategi &amp; SEO</span>
+            <h2 class="blog-featured-title">Hvorfor din "fine" nettside er usynlig for Google</h2>
+            <p class="blog-featured-desc">Design alene selger ingenting hvis ingen finner deg. Vi dypdykker i teknisk SEO og hvordan vi tvinger Google til å prioritere din bedrift fremfor konkurrentene.</p>
+            <div class="blog-featured-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.8rem;height:0.8rem" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8Zm7.75-4.25a.75.75 0 0 0-1.5 0V8c0 .414.336.75.75.75h3.25a.75.75 0 0 0 0-1.5h-2.5v-3.5Z" clip-rule="evenodd"/></svg>
+                6 min lesing
+              </span>
+              <span>April 2026</span>
+            </div>
+            <span class="blog-featured-link">
+              Les artikkelen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- GRID -->
+        <p class="blog-grid-label">Alle artikler</p>
+        <div class="blog-grid">
+
+          <!-- 1 -->
+          <a href="hvorfor-handkodet.html" class="blog-card" aria-label="Les: Håndkodet vs. WordPress">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14431b9?q=80&w=800&auto=format&fit=crop"
+                alt="Kode på skjerm" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#3b82f6">Koding</span>
+              <h2 class="blog-card-title">Håndkodet vs. WordPress: Kampen om millisekundene</h2>
+              <p class="blog-card-desc">Ren HTML og CSS gir deg 100/100 på Lighthouse. Lær hvorfor sidebuildere er bremsen som koster deg kunder.</p>
+              <div class="blog-card-footer">
+                <span>5 min · Mars 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2 -->
+          <a href="konverterings-design.html" class="blog-card" aria-label="Les: Psykologien bak en konverterende nettside">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=800&auto=format&fit=crop"
+                alt="UX og design mockup" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#8b5cf6">Design</span>
+              <h2 class="blog-card-title">Psykologien bak en konverterende nettside</h2>
+              <p class="blog-card-desc">Farger, plassering og tekst styrer brukeren mot "kontakt oss". Det er ikke tilfeldig at våre sider selger mer.</p>
+              <div class="blog-card-footer">
+                <span>7 min · Mars 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3 -->
+          <a href="lokal-seo.html" class="blog-card" aria-label="Les: Slik dominerer du lokale Google-søk">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=800&auto=format&fit=crop"
+                alt="Mobil med Google Maps" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#10b981">SEO</span>
+              <h2 class="blog-card-title">Slik dominerer du lokale Google-søk i 2026</h2>
+              <p class="blog-card-desc">76% søker lokalt på mobil før de ringer. Her er den eksakte strategien vi bruker for å plassere kunder øverst i sitt nærområde.</p>
+              <div class="blog-card-footer">
+                <span>8 min · Februar 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4 -->
+          <a href="lighthouse-100.html" class="blog-card" aria-label="Les: Slik scorer vi 100/100 på Lighthouse">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop"
+                alt="Speedometer og ytelse" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#f59e0b">Ytelse</span>
+              <h2 class="blog-card-title">Slik scorer vi 100/100 på Lighthouse — hver gang</h2>
+              <p class="blog-card-desc">Perfekt Lighthouse-score er ikke flaks. Det er et resultat av bevisste valg på hvert eneste element. Her er hele oppskriften.</p>
+              <div class="blog-card-footer">
+                <span>9 min · Februar 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5 -->
+          <a href="cta-tekster.html" class="blog-card" aria-label="Les: Ordene som får kunder til å klikke">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop"
+                alt="Skriving og copywriting" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#ef4444">Strategi</span>
+              <h2 class="blog-card-title">Ordene som får kunder til å klikke — og de som dreper salget</h2>
+              <p class="blog-card-desc">CTA-teksten din er forskjellen på et lead og en avvisning. Vi analyserer hvilke ord som konverterer og hvilke som sender folk bort.</p>
+              <div class="blog-card-footer">
+                <span>5 min · Januar 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 6 -->
+          <a href="cloudflare-hosting.html" class="blog-card" aria-label="Les: Hvorfor vi bruker Cloudflare for alle kunder">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
+                alt="Server og infrastruktur" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#3b82f6">Koding</span>
+              <h2 class="blog-card-title">Hvorfor vi bruker Cloudflare Enterprise for alle kunder</h2>
+              <p class="blog-card-desc">DDoS-beskyttelse, global CDN og 99.99% oppetid — for 199,-/mnd. Her er den tekniske forklaringen bak infrastrukturen vår.</p>
+              <div class="blog-card-footer">
+                <span>6 min · Januar 2026</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- 7 -->
+          <a href="hva-koster-nettside.html" class="blog-card" aria-label="Les: Hva koster egentlig en nettside i 2026">
+            <div class="blog-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop"
+                alt="Kalkulator og pris" width="800" height="440" loading="lazy">
+              <div class="blog-card-img-overlay"></div>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-cat" style="color:#10b981">Strategi</span>
+              <h2 class="blog-card-title">Hva koster egentlig en god nettside i 2026?</h2>
+              <p class="blog-card-desc">Vi bryter ned prisene og forklarer hva du faktisk betaler for — og hva du aldri bør betale for. Inkludert ROI-kalkulator.</p>
+              <div class="blog-card-footer">
+                <span>7 min · Desember 2025</span>
+                <svg class="blog-card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- NEWSLETTER / CTA -->
+        <div class="blog-newsletter">
+          <div class="blog-newsletter-text">
+            <h3>Vil du ha nye artikler rett i innboksen?</h3>
+            <p>Vi sender kun innhold som faktisk er verdt å lese. Null spam, ingen ukentlige nyhetsbrev.</p>
+          </div>
+          <a href="kontakt.html" class="blog-newsletter-cta">
+            Ta kontakt
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:0.9rem;height:0.9rem" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-dot" aria-hidden="true"></div>
+            index dev.
+          </div>
+          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Tjenester</h3>
+          <ul>
+            <li><a href="tjenester.html">Alle tjenester</a></li>
+            <li><a href="tjenester.html">Nettsider som selger</a></li>
+            <li><a href="tjenester.html">Web-redesign</a></li>
+            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Selskap</h3>
+          <ul>
+            <li><a href="prosess.html">Slik fungerer det</a></li>
+            <li><a href="prosjekter.html">Prosjekter</a></li>
+            <li><a href="om-meg.html">Sannheten</a></li>
+            <li><a href="blogg.html">Blogg</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Ta kontakt</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
+              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
+              +47 48 45 96 86
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
+              Drammen, Norge
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
+        <nav class="footer-bottom-links" aria-label="Juridisk">
+          <a href="personvern.html">Personvern</a>
+          <a href="vilkar.html">Vilkår</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // Scroll progress
+    const prog = document.getElementById('scroll-progress');
+    function updateProgress() {
+      if (!prog) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    }
+
+    // Navbar scroll state
+    const navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+
+    window.addEventListener('scroll', function () {
+      updateProgress();
+      updateNav();
+    }, { passive: true });
+    updateNav();
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Custom cursor
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cursorDot  = document.getElementById('cursor-dot');
+      const cursorRing = document.getElementById('cursor-ring');
+      let mx = 0, my = 0, rx = 0, ry = 0, rafId = null;
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (cursorDot) {
+          cursorDot.parentElement.style.left = mx + 'px';
+          cursorDot.parentElement.style.top  = my + 'px';
+        }
+        if (!rafId) rafId = requestAnimationFrame(animateCursor);
+      });
+      function animateCursor() {
+        if (cursorRing) {
+          var dx = mx - rx, dy = my - ry;
+          rx += dx * 0.14; ry += dy * 0.14;
+          cursorRing.style.left = rx + 'px';
+          cursorRing.style.top  = ry + 'px';
+          rafId = (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1)
+            ? requestAnimationFrame(animateCursor) : null;
+        } else { rafId = null; }
+      }
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          if (cursorRing) { cursorRing.style.width = '56px'; cursorRing.style.height = '56px'; }
+          if (cursorDot)  { cursorDot.style.width = '4px';  cursorDot.style.height = '4px'; }
+        });
+        el.addEventListener('mouseleave', function () {
+          if (cursorRing) { cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; }
+          if (cursorDot)  { cursorDot.style.width = '8px';  cursorDot.style.height = '8px'; }
+        });
+      });
+    }
+
+    // Scroll reveal for cards
+    const srEls = document.querySelectorAll('.blog-card, .blog-featured, .blog-newsletter');
+    srEls.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(32px)';
+      el.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+    });
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'none';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    srEls.forEach(function (el) { io.observe(el); });
+
+  }());
+  </script>
+
+</body>
+</html>

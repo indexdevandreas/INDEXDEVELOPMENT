@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olympus Trening – Hverdagsenergi | Drammen</title>
+  <meta name="description" content="Olympus Trening i Drammen. Et trygt og hyggelig treningssenter med personlige trenere, fleksible åpningstider og nøkkelkorttilgang alle dager.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #4a9b9c;
+      --teal-dark:  #3a8283;
+      --teal-light: #e6f4f4;
+      --teal-mid:   #c2e0e0;
+      --dark:       #1c2b2b;
+      --body:       #3d4f4f;
+      --muted:      #7a9090;
+      --border:     #ddeaea;
+      --bg:         #ffffff;
+      --bg2:        #f5fafa;
+      --font-head:  'Playfair Display', Georgia, serif;
+      --font-body:  'Lato', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 72px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(74,155,156,0.1); }
+
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 48px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal) !important;
+      color: #fff !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: #fff;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      text-decoration: none;
+      color: var(--body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--teal); }
+    .mobile-menu .m-cta {
+      display: block;
+      background: var(--teal);
+      color: #fff !important;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 50px;
+      margin-top: 0.75rem;
+      border-bottom: none !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding-top: 72px;
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      gap: 4rem;
+    }
+
+    .hero-text { padding: 4rem 0; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 2.25rem;
+      font-weight: 300;
+    }
+
+    .hero-btns { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
+
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--teal);
+      color: #fff;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-solid:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: var(--teal);
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--teal-mid);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--teal); background: var(--teal-light); }
+
+    .hero-img-wrap {
+      position: relative;
+      height: 580px;
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+    .hero-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-img-badge {
+      position: absolute;
+      bottom: 2rem; left: 2rem;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 8px 32px rgba(74,155,156,0.18);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .badge-icon {
+      width: 44px; height: 44px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .badge-icon svg { width: 22px; height: 22px; color: var(--teal); }
+    .badge-text .big {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--dark);
+      line-height: 1;
+      display: block;
+    }
+    .badge-text .sm {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ─── STRIP ─── */
+    .strip {
+      background: var(--teal);
+      color: #fff;
+    }
+    .strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+    }
+    .strip-item {
+      padding: 1.1rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .strip-item:first-child { padding-left: 0; }
+    .strip-item:last-child { border-right: none; }
+    .strip-item .s-lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    .strip-item .s-val {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* ─── SHARED LAYOUT ─── */
+    .section { padding: 6rem 2.5rem; }
+    .section.bg2 { background: var(--bg2); }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-intro { margin-bottom: 3.5rem; }
+    .section-intro.centered { text-align: center; }
+    .section-intro.centered p { max-width: 520px; margin: 0.75rem auto 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    h2.title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      color: var(--dark);
+      line-height: 1.25;
+    }
+    .section-intro p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-top: 0.75rem;
+      font-weight: 300;
+    }
+
+    /* ─── FEATURES ─── */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .feat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2rem 1.75rem;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .feat-card:hover {
+      box-shadow: 0 8px 32px rgba(74,155,156,0.12);
+      transform: translateY(-3px);
+    }
+    .feat-icon-wrap {
+      width: 52px; height: 52px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .feat-icon-wrap svg { width: 24px; height: 24px; color: var(--teal); }
+    .feat-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .feat-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── TWO-COL ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .two-col.reverse { direction: rtl; }
+    .two-col.reverse > * { direction: ltr; }
+
+    .col-img {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .col-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .col-text h2 { margin-bottom: 1rem; }
+    .col-text p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .col-text p:last-of-type { margin-bottom: 1.5rem; }
+
+    .check-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.95rem;
+      color: var(--body);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .check-list li::before {
+      content: '';
+      flex-shrink: 0;
+      margin-top: 5px;
+      width: 16px; height: 16px;
+      background: var(--teal);
+      border-radius: 50%;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+
+    /* ─── STATS ROW ─── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-top: 3.5rem;
+    }
+    .stat-item {
+      background: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .stat-item .num {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      display: block;
+    }
+    .stat-item .lbl {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      font-weight: 400;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s;
+    }
+    .price-card:hover { box-shadow: 0 8px 32px rgba(74,155,156,0.1); }
+    .price-card.featured {
+      border: 2px solid var(--teal);
+      position: relative;
+    }
+    .popular-pill {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.9rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+    .plan-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      margin-bottom: 0.35rem;
+    }
+    .price-row .curr { font-size: 1rem; color: var(--teal); font-weight: 700; }
+    .price-row .amt {
+      font-family: var(--font-head);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .price-row .per { font-size: 0.85rem; color: var(--muted); }
+    .price-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .price-feats {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .price-feats li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--body);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--bg2);
+    }
+    .price-feats li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .price-feats li.no {
+      color: var(--muted);
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    .price-feats li.no::before { content: '–'; color: var(--muted); }
+
+    .btn-block {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: var(--font-body);
+      transition: all 0.2s;
+    }
+    .btn-block.solid { background: var(--teal); color: #fff; }
+    .btn-block.solid:hover { background: var(--teal-dark); }
+    .btn-block.outline { border: 2px solid var(--teal-mid); color: var(--teal); }
+    .btn-block.outline:hover { border-color: var(--teal); background: var(--teal-light); }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--teal);
+      padding: 5rem 2.5rem;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .cta-banner-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+      color: var(--teal);
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-1px); }
+    .btn-white-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: #fff;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.65);
+      padding: 4rem 2.5rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand .nav-logo img { filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-brand p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      margin-top: 1rem;
+      max-width: 280px;
+      font-weight: 300;
+    }
+    .f-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.1rem;
+    }
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 0.55rem; }
+    .f-col ul li a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .f-col ul li a:hover { color: var(--teal); }
+    .f-col address {
+      font-style: normal;
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+    }
+    .f-col address a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-col address a:hover { color: var(--teal); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.28); }
+    .footer-bottom .credit { font-size: 0.8rem; color: rgba(255,255,255,0.22); }
+    .footer-bottom .credit span { color: var(--teal); }
+
+    /* ─── SCROLL REVEAL ─── */
+    [data-sr] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    [data-sr].visible { opacity: 1; transform: none; }
+
+    .feat-card, .price-card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s, transform 0.25s;
+    }
+    .feat-card.visible, .price-card.visible { opacity: 1; transform: none; }
+    .feat-card:hover { transform: translateY(-3px) !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: calc(72px + 3rem); gap: 2.5rem; }
+      .hero-img-wrap { height: 380px; }
+      .hero-text { padding: 0; }
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two-col.reverse { direction: ltr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stats-row { grid-template-columns: 1fr; }
+      .section { padding: 4rem 1.25rem; }
+      nav, .mobile-menu { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .strip-inner { padding: 0 1.25rem; }
+      .cta-banner { padding: 4rem 1.25rem; }
+      footer { padding: 3rem 1.25rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <!-- Bytt ut med: <img src="bilder/olympus-logo.png" alt="Olympus Trening"> -->
+    <img src="bilder/olympus-logo.png" alt="Olympus Trening" onerror="this.outerHTML='<span style=\'font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:#1c2b2b;letter-spacing:0.02em\'>OLYMPUS <span style=\'color:#4a9b9c\'>TRENING</span></span>'">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#om">Om oss</a></li>
+    <li><a href="#tilbud">Tilbud</a></li>
+    <li><a href="#pt">Personlig Trener</a></li>
+    <li><a href="#priser">Priser</a></li>
+    <li><a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="nav-cta">Bli Medlem</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#om">Om oss</a>
+  <a href="#tilbud">Tilbud</a>
+  <a href="#pt">Personlig Trener</a>
+  <a href="#priser">Priser</a>
+  <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="m-cta">Bli Medlem →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text" data-sr>
+    <div class="hero-eyebrow">Drammen · Treningssenter</div>
+    <h1 class="hero-h1">
+      Trening som<br>
+      gir deg <em>energi</em><br>
+      til hverdagen
+    </h1>
+    <p class="hero-sub">
+      Olympus Trening er et trygt og inkluderende treningssenter i Drammen — med moderne utstyr, engasjerte personlige trenere og tilgang alle dager.
+    </p>
+    <div class="hero-btns">
+      <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-solid">Bli Medlem →</a>
+      <a href="#priser" class="btn-ghost">Se Priser</a>
+    </div>
+  </div>
+
+  <div class="hero-img-wrap" data-sr>
+    <img
+      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80"
+      alt="Treningssenter Olympus Trening Drammen"
+      loading="eager"
+    >
+    <div class="hero-img-badge">
+      <div class="badge-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+      </div>
+      <div class="badge-text">
+        <span class="big">05:30 – 22:00</span>
+        <span class="sm">Åpent alle dager med nøkkelkort</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <span class="s-lbl">Åpningstider</span>
+      <span class="s-val">05:30 – 22:00</span>
+    </div>
+    <div class="strip-item">
+      <span class="s-lbl">Alle dager</span>
+      <span class="s-val">Nøkkelkorttilgang</span>
+    </div>
+    <div class="strip-item">
+      <span class="s-lbl">Adresse</span>
+      <span class="s-val">Erik Børresens Allé 6, Drammen</span>
+    </div>
+    <div class="strip-item">
+      <span class="s-lbl">Telefon</span>
+      <span class="s-val">40 49 29 28</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section bg2" id="tilbud">
+  <div class="container">
+    <div class="section-intro" data-sr>
+      <span class="eyebrow">Hva vi tilbyr</span>
+      <h2 class="title">Alt du trenger,<br>rett ved siden av deg</h2>
+      <p>Et komplett treningssenter med god atmosfære og personale som bryr seg — slik at du alltid gleder deg til neste treningsøkt.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 5v14M10 5v14M3 9h4m10 0h4M14 5v14M18 5v14M3 15h4m10 0h4"/>
+          </svg>
+        </div>
+        <h3>Moderne Utstyr</h3>
+        <p>Fullt utstyrt med moderne treningsutstyr for styrke, kondisjon og rehabilitering.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
+          </svg>
+        </div>
+        <h3>Personlig Trener</h3>
+        <p>Erfarne PT-er som tilpasser treningen til akkurat deg — ditt tempo, dine mål.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>Fleksible Tider</h3>
+        <p>Nøkkelkorttilgang alle dager fra 05:30 til 22:00 — kom når det passer deg.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Godt Miljø</h3>
+        <p>En inkluderende og støttende atmosfære der alle er velkomne, uansett alder og nivå.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="om">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-img" data-sr>
+        <img
+          src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=80"
+          alt="Olympus Trening interiør"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="col-text" data-sr>
+        <span class="eyebrow">Om oss</span>
+        <h2 class="title">Ditt lokale<br>treningssenter<br>i Drammen</h2>
+        <p>Olympus Trening er et lokalt treningssenter dedikert til å gjøre hverdagen litt lettere og energien litt større — for deg, uansett hvor du er i livet.</p>
+        <p>Vi er ikke for dem som vil konkurrere. Vi er for deg som vil ha mer overskudd, bedre helse og en fin rutine i hverdagen.</p>
+        <ul class="check-list">
+          <li>Nøkkelkorttilgang alle dager</li>
+          <li>Ingen bindingstid</li>
+          <li>Personlige trenere tilgjengelig</li>
+          <li>Trygt og rolig treingsmiljø</li>
+        </ul>
+        <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-solid">Kom i gang i dag →</a>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="num">365</span>
+            <span class="lbl">Dager åpent</span>
+          </div>
+          <div class="stat-item">
+            <span class="num">0 kr</span>
+            <span class="lbl">Bindingstid</span>
+          </div>
+          <div class="stat-item">
+            <span class="num">PT</span>
+            <span class="lbl">Tilgjengelig</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PT -->
+<section class="section bg2" id="pt">
+  <div class="container">
+    <div class="two-col reverse">
+      <div class="col-text" data-sr>
+        <span class="eyebrow">Personlig Trener</span>
+        <h2 class="title">Tren med<br>en som<br>bryr seg</h2>
+        <p>En personlig trener fra Olympus lytter til deg, tilpasser treningen til din kropp og ditt tempo — og er der for å motivere deg på dager det ikke er like lett.</p>
+        <p>Uansett om du aldri har trent før, eller vil komme tilbake etter en skade: vi møter deg der du er.</p>
+        <a href="mailto:post@olympustrening.no" class="btn-solid">Book en PT-time →</a>
+      </div>
+
+      <div class="col-img" data-sr>
+        <img
+          src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bd?w=800&q=80"
+          alt="Personlig trener Olympus Trening"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="priser">
+  <div class="container">
+    <div class="section-intro centered" data-sr>
+      <span class="eyebrow">Priser</span>
+      <h2 class="title">Velg det som<br>passer deg</h2>
+      <p>Enkle og oversiktlige priser uten skjulte kostnader. Ingen bindingstid — si opp når du vil.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="plan-name">Basis</div>
+        <p class="plan-desc">For deg som vil trene i eget tempo</p>
+        <div class="price-row">
+          <span class="curr">kr</span>
+          <span class="amt">—</span>
+          <span class="per">/mnd</span>
+        </div>
+        <p class="price-note">* Kontakt oss for gjeldende priser</p>
+        <ul class="price-feats">
+          <li>Nøkkelkorttilgang 05:30–22:00</li>
+          <li>Alle treningsrom</li>
+          <li>Ingen bindingstid</li>
+          <li class="no">Personlig trener inkludert</li>
+          <li class="no">Ernæringsveiledning</li>
+        </ul>
+        <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-block outline">Kom i gang</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="popular-pill">Mest populær</div>
+        <div class="plan-name">Standard</div>
+        <p class="plan-desc">Treningssenter + personlig oppfølging</p>
+        <div class="price-row">
+          <span class="curr">kr</span>
+          <span class="amt">—</span>
+          <span class="per">/mnd</span>
+        </div>
+        <p class="price-note">* Kontakt oss for gjeldende priser</p>
+        <ul class="price-feats">
+          <li>Nøkkelkorttilgang 05:30–22:00</li>
+          <li>Alle treningsrom</li>
+          <li>Ingen bindingstid</li>
+          <li>1 PT-time per måned</li>
+          <li class="no">Ernæringsveiledning</li>
+        </ul>
+        <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-block solid">Bli Medlem →</a>
+      </div>
+
+      <div class="price-card">
+        <div class="plan-name">Premium</div>
+        <p class="plan-desc">Alt inkludert for best mulig resultat</p>
+        <div class="price-row">
+          <span class="curr">kr</span>
+          <span class="amt">—</span>
+          <span class="per">/mnd</span>
+        </div>
+        <p class="price-note">* Kontakt oss for gjeldende priser</p>
+        <ul class="price-feats">
+          <li>Nøkkelkorttilgang 05:30–22:00</li>
+          <li>Alle treningsrom</li>
+          <li>Ingen bindingstid</li>
+          <li>Ubegrenset PT-hjelp</li>
+          <li>Ernæringsveiledning</li>
+        </ul>
+        <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-block outline">Kom i gang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Klar til å starte din treningsreise?</h2>
+    <p>Meld deg inn i dag og opplev forskjellen det gjør å ha et godt treningssenter i hverdagen.</p>
+    <div class="cta-banner-btns">
+      <a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener" class="btn-white">Bli Medlem →</a>
+      <a href="tel:40492928" class="btn-white-outline">Ring oss: 40 49 29 28</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <img src="bilder/olympus-logo.png" alt="Olympus Trening" onerror="this.outerHTML='<span style=\'font-family:Georgia,serif;font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:0.02em\'>OLYMPUS <span style=\'color:#4a9b9c\'>TRENING</span></span>'">
+      </a>
+      <p>Et lokalt treningssenter i Drammen for deg som vil ha mer energi i hverdagen — uansett alder og nivå.</p>
+    </div>
+
+    <div class="f-col">
+      <h4>Navigasjon</h4>
+      <ul>
+        <li><a href="#om">Om oss</a></li>
+        <li><a href="#tilbud">Tilbud</a></li>
+        <li><a href="#pt">Personlig Trener</a></li>
+        <li><a href="#priser">Priser</a></li>
+        <li><a href="http://olympustreningdrammen.wondr.cc/register?subscription" target="_blank" rel="noopener">Bli Medlem</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <h4>Kontakt oss</h4>
+      <address>
+        Erik Børresens Allé 6<br>
+        3015 Drammen<br><br>
+        <a href="tel:40492928">40 49 29 28</a><br>
+        <a href="mailto:post@olympustrening.no">post@olympustrening.no</a><br><br>
+        Åpent 05:30–22:00<br>
+        Alle dager (nøkkelkort)
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Olympus Trening. Alle rettigheter forbeholdt.</p>
+    <p class="credit">Nettside av <span>Index Development</span></p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-sr], .feat-card, .price-card').forEach(el =>
+    observer.observe(el)
+  );
+
+  // Stagger
+  document.querySelectorAll('.feat-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+  document.querySelectorAll('.price-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

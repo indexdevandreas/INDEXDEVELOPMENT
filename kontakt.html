@@ -327,14 +327,15 @@
           index dev.
         </a>
         <ul class="nav-links" role="list">
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="prosess.html">Slik fungerer det</a></li>
-          <li><a href="prosjekter.html">Prosjekter</a></li>
-          <li><a href="om-meg.html">Sannheten</a></li>
-          <li><a href="kontakt.html" aria-current="page" style="color:var(--white)">Kontakt</a></li>
+          <li><a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a></li>
+          <li><a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+          <li><a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a></li>
+          <li><a href="kontakt.html" aria-current="page" style="color:var(--white)" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
+        <button class="lang-btn" id="lang-toggle" aria-label="Switch language">NO</button>
         <a href="kontakt.html" class="nav-cta">
-          Krev ditt utkast
+          <span data-no="Krev ditt utkast" data-en="Claim your draft">Krev ditt utkast</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
         </a>
         <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
@@ -343,12 +344,12 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="prosess.html">Slik fungerer det</a>
-      <a href="prosjekter.html">Prosjekter</a>
-      <a href="om-meg.html">Sannheten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+      <a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a>
+      <a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a>
+      <a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+      <a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a>
+      <a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-no="Krev ditt gratis utkast →" data-en="Claim your free draft →">Krev ditt gratis utkast →</a>
     </div>
   </header>
 
@@ -364,25 +365,25 @@
         <div class="contact-hero-left">
           <div class="contact-badge">
             <span class="contact-badge-dot" aria-hidden="true"></span>
-            Vi har ledig kapasitet
+            <span data-no="Vi har ledig kapasitet" data-en="We have availability">Vi har ledig kapasitet</span>
           </div>
 
           <h1 class="hero-headline" id="kontakt-title">
-            <span class="hl-row"><span class="hl-text">La oss bygge</span></span>
-            <span class="hl-row"><span class="hl-text hl-outline">maskineriet ditt.</span></span>
+            <span class="hl-row"><span class="hl-text" data-no="La oss bygge" data-en="Let us build">La oss bygge</span></span>
+            <span class="hl-row"><span class="hl-text hl-outline" data-no="maskineriet ditt." data-en="your machine.">maskineriet ditt.</span></span>
           </h1>
 
-          <p style="color:rgba(255,255,255,0.4);font-size:clamp(0.9375rem,1.5vw,1.0625rem);line-height:1.75;margin-top:1.75rem;max-width:440px;">
+          <p style="color:rgba(255,255,255,0.4);font-size:clamp(0.9375rem,1.5vw,1.0625rem);line-height:1.75;margin-top:1.75rem;max-width:440px;" data-no="Fyll ut skjemaet, så setter vi opp et skreddersydd utkast basert på vår lynraske arkitektur. Du betaler absolutt ingenting før du er 100% fornøyd." data-en="Fill out the form and we'll set up a tailor-made draft based on our lightning-fast architecture. You pay absolutely nothing until you're 100% satisfied.">
             Fyll ut skjemaet, så setter vi opp et skreddersydd utkast basert på vår lynraske arkitektur. Du betaler absolutt ingenting før du er 100% fornøyd.
           </p>
 
           <div class="contact-info-strip">
             <div>
-              <p class="contact-info-label">Send en e-post</p>
+              <p class="contact-info-label" data-no="Send en e-post" data-en="Send an email">Send en e-post</p>
               <p class="contact-info-value"><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></p>
             </div>
             <div>
-              <p class="contact-info-label">Ring oss direkte</p>
+              <p class="contact-info-label" data-no="Ring oss direkte" data-en="Call us directly">Ring oss direkte</p>
               <p class="contact-info-value">+47 48 45 96 86</p>
             </div>
           </div>
@@ -390,33 +391,33 @@
 
         <!-- Right: form card -->
         <div class="contact-form-card">
-          <h2>Krev ditt utkast</h2>
-          <p class="form-sub">Vi er klare til å starte kodingen.</p>
+          <h2 data-no="Krev ditt utkast" data-en="Claim your draft">Krev ditt utkast</h2>
+          <p class="form-sub" data-no="Vi er klare til å starte kodingen." data-en="We're ready to start coding.">Vi er klare til å starte kodingen.</p>
 
           <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
             <input type="hidden" name="access_key" value="83c21432-cebf-4a7b-ab89-fd1cb41b1248">
             <input type="checkbox" name="botcheck" style="display:none;pointer-events:none" aria-hidden="true">
 
             <div class="form-grid-2">
-              <input type="text" id="navn" name="navn" required class="form-input" placeholder="Navn / Bedrift *">
-              <input type="email" id="epost" name="epost" required class="form-input" placeholder="E-postadresse *">
+              <input type="text" id="navn" name="navn" required class="form-input" placeholder="Navn / Bedrift *" data-no-placeholder="Navn / Bedrift *" data-en-placeholder="Name / Business *">
+              <input type="email" id="epost" name="epost" required class="form-input" placeholder="E-postadresse *" data-no-placeholder="E-postadresse *" data-en-placeholder="Email address *">
             </div>
             <div class="form-row">
-              <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="Telefonnummer (valgfritt)">
+              <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="Telefonnummer (valgfritt)" data-no-placeholder="Telefonnummer (valgfritt)" data-en-placeholder="Phone number (optional)">
             </div>
             <div class="form-row" style="margin-bottom:0">
-              <textarea id="melding" name="melding" rows="3" class="form-input" placeholder="Fortell kort om bedriften din..."></textarea>
+              <textarea id="melding" name="melding" rows="3" class="form-input" placeholder="Fortell kort om bedriften din..." data-no-placeholder="Fortell kort om bedriften din..." data-en-placeholder="Tell us briefly about your business..."></textarea>
             </div>
 
             <div class="form-trust">
               <div class="form-trust-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.5 1.709a.75.75 0 0 0-1 0 8.963 8.963 0 0 1-4.84 2.217.75.75 0 0 0-.654.72 10.499 10.499 0 0 0 5.647 9.672.75.75 0 0 0 .694 0 10.499 10.499 0 0 0 5.647-9.672.75.75 0 0 0-.654-.72A8.963 8.963 0 0 1 8.5 1.71Zm2.34 5.504a.75.75 0 0 0-1.18-.926L7.394 9.17l-1.156-1.21a.75.75 0 1 0-1.076 1.044l1.75 1.812a.75.75 0 0 0 1.102.031l2.825-3.344Z" clip-rule="evenodd"/></svg>
               </div>
-              100% risikofritt — null forskuddsbetaling
+              <span data-no="100% risikofritt — null forskuddsbetaling" data-en="100% risk-free — zero upfront payment">100% risikofritt — null forskuddsbetaling</span>
             </div>
 
             <button type="submit" id="submit-btn-page" class="btn-submit">
-              Send forespørsel
+              <span data-no="Send forespørsel" data-en="Send request">Send forespørsel</span>
               <svg id="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </button>
           </form>
@@ -425,8 +426,8 @@
             <div class="success-icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
             </div>
-            <h3>Forespørsel mottatt.</h3>
-            <p>Vi har fått informasjonen din og er allerede i gang. Du hører fra oss innen 24 timer.</p>
+            <h3 data-no="Forespørsel mottatt." data-en="Request received.">Forespørsel mottatt.</h3>
+            <p data-no="Vi har fått informasjonen din og er allerede i gang. Du hører fra oss innen 24 timer." data-en="We've received your information and are already on it. You'll hear from us within 24 hours.">Vi har fått informasjonen din og er allerede i gang. Du hører fra oss innen 24 timer.</p>
           </div>
         </div>
 
@@ -439,29 +440,29 @@
     <section class="prosess-section section-pad" aria-labelledby="prosess-title">
       <div class="container">
         <div class="prosess-header">
-          <p class="t-label" style="margin-bottom:1rem" data-sr="up">Hva skjer videre</p>
-          <h2 class="t-section" id="prosess-title" data-sr="up" data-d="1">Prosessen videre.</h2>
-          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2">Slik bygger vi Norges mest risikofrie web-opplevelse for deg.</p>
+          <p class="t-label" style="margin-bottom:1rem" data-sr="up" data-no="Hva skjer videre" data-en="What happens next">Hva skjer videre</p>
+          <h2 class="t-section" id="prosess-title" data-sr="up" data-d="1" data-no="Prosessen videre." data-en="The process ahead.">Prosessen videre.</h2>
+          <p class="t-body-lg" style="margin-top:1rem" data-sr="up" data-d="2" data-no="Slik bygger vi Norges mest risikofrie web-opplevelse for deg." data-en="This is how we build Norway's most risk-free web experience for you.">Slik bygger vi Norges mest risikofrie web-opplevelse for deg.</p>
         </div>
 
         <div class="prosess-grid">
 
           <article class="prosess-step" data-sr="up" data-d="1">
             <div class="prosess-num" aria-hidden="true">01</div>
-            <h3>Kartlegging (15 min)</h3>
-            <p>Vi tar en uforpliktende prat for å forstå målene dine. Du får en eksakt fastpris der og da.</p>
+            <h3 data-no="Kartlegging (15 min)" data-en="Discovery call (15 min)">Kartlegging (15 min)</h3>
+            <p data-no="Vi tar en uforpliktende prat for å forstå målene dine. Du får en eksakt fastpris der og da." data-en="We have a no-obligation chat to understand your goals. You get an exact fixed price right then and there.">Vi tar en uforpliktende prat for å forstå målene dine. Du får en eksakt fastpris der og da.</p>
           </article>
 
           <article class="prosess-step" data-sr="up" data-d="2">
             <div class="prosess-num" aria-hidden="true">02</div>
-            <h3>Vi bygger utkastet</h3>
-            <p>Vi designer og håndkoder nettsiden din. Innen få dager får du en skjult lenke for å teste resultatet på din egen mobil.</p>
+            <h3 data-no="Vi bygger utkastet" data-en="We build the draft">Vi bygger utkastet</h3>
+            <p data-no="Vi designer og håndkoder nettsiden din. Innen få dager får du en skjult lenke for å teste resultatet på din egen mobil." data-en="We design and hand-code your website. Within a few days you get a private link to test the result on your own phone.">Vi designer og håndkoder nettsiden din. Innen få dager får du en skjult lenke for å teste resultatet på din egen mobil.</p>
           </article>
 
           <article class="prosess-step" data-sr="up" data-d="3">
             <div class="prosess-num" aria-hidden="true">03</div>
-            <h3>Din avgjørelse</h3>
-            <p>Liker du det ikke, betaler du ingenting. Liker du det, betaler du og vi lanserer på lynraske servere.</p>
+            <h3 data-no="Din avgjørelse" data-en="Your decision">Din avgjørelse</h3>
+            <p data-no="Liker du det ikke, betaler du ingenting. Liker du det, betaler du og vi lanserer på lynraske servere." data-en="Don't like it, you pay nothing. Love it, you pay and we launch on lightning-fast servers.">Liker du det ikke, betaler du ingenting. Liker du det, betaler du og vi lanserer på lynraske servere.</p>
           </article>
 
         </div>
@@ -526,6 +527,7 @@
     </div>
   </footer>
 
+  <script src="lang.js" defer></script>
   <script>
   (function () {
     'use strict';

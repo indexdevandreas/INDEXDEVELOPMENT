@@ -231,14 +231,15 @@
           index dev.
         </a>
         <ul class="nav-links" role="list">
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="prosess.html">Slik fungerer det</a></li>
-          <li><a href="prosjekter.html" aria-current="page" style="color:var(--white)">Prosjekter</a></li>
-          <li><a href="om-meg.html">Sannheten</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a></li>
+          <li><a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
+          <li><a href="prosjekter.html" aria-current="page" style="color:var(--white)" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+          <li><a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a></li>
+          <li><a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
+        <button class="lang-btn" id="lang-toggle" aria-label="Switch language">NO</button>
         <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
-          Stopp blødningen
+          <span data-no="Stopp blødningen" data-en="Stop the bleeding">Stopp blødningen</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
         </a>
         <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
@@ -247,12 +248,12 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="tjenester.html">Tjenester</a>
-      <a href="prosess.html">Slik fungerer det</a>
-      <a href="prosjekter.html">Prosjekter</a>
-      <a href="om-meg.html">Sannheten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="kontakt.html">Krev ditt gratis utkast →</a>
+      <a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a>
+      <a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a>
+      <a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+      <a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a>
+      <a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-no="Krev ditt gratis utkast →" data-en="Claim your free draft →">Krev ditt gratis utkast →</a>
     </div>
   </header>
 
@@ -265,25 +266,25 @@
       <div class="page-hero-inner">
         <div class="page-badge">
           <span class="page-badge-dot" aria-hidden="true"></span>
-          Live demoer · Håndkodet · Klikk og utforsk
+          <span data-no="Live demoer · Håndkodet · Klikk og utforsk" data-en="Live demos · Hand-coded · Click and explore">Live demoer · Håndkodet · Klikk og utforsk</span>
         </div>
 
         <h1 class="hero-headline" id="prosjekter-title">
-          <span class="hl-row"><span class="hl-text">Se det levende.</span></span>
-          <span class="hl-row"><span class="hl-text hl-outline">Ikke bare lovnader.</span></span>
+          <span class="hl-row"><span class="hl-text" data-no="Se det levende." data-en="See it live.">Se det levende.</span></span>
+          <span class="hl-row"><span class="hl-text hl-outline" data-no="Ikke bare lovnader." data-en="Not just promises.">Ikke bare lovnader.</span></span>
         </h1>
 
         <div class="page-hero-bottom">
-          <p class="page-hero-sub">
+          <p class="page-hero-sub" data-no="Vi viser deg nøyaktig hva du får — ikke en PowerPoint-presentasjon, men faktiske nettsider du kan trykke og teste på din egen mobil. Nedenfor er håndkodede demoer for ulike bransjer. Er din her?" data-en="We show you exactly what you get — not a PowerPoint presentation, but actual websites you can tap and test on your own phone. Below are hand-coded demos for various industries. Is yours here?">
             Vi viser deg nøyaktig hva du får — ikke en PowerPoint-presentasjon, men faktiske nettsider du kan trykke og teste på din egen mobil. Nedenfor er håndkodede demoer for ulike bransjer. Er din her?
           </p>
           <div class="hero-ctas">
             <a href="kontakt.html" class="btn btn-white">
-              Vil du ha en egen demo?
+              <span data-no="Vil du ha en egen demo?" data-en="Want your own demo?">Vil du ha en egen demo?</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
             <a href="tjenester.html" class="btn btn-ghost-white">
-              Se tjenester og priser
+              <span data-no="Se tjenester og priser" data-en="See services and pricing">Se tjenester og priser</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
@@ -298,9 +299,9 @@
       <div class="container">
 
         <div class="demos-header">
-          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up">Demo-galleri</p>
-          <h2 class="t-section" id="demos-title" style="color:var(--white)" data-sr="up" data-d="1">Seks bransjer. Null lovnader. Bare resultater.</h2>
-          <p class="t-body" style="margin-top:1rem;color:rgba(255,255,255,0.4)" data-sr="up" data-d="2">Klikk på en demo for å se den live. Alt er håndkodet fra bunnen av — ingen maler, ingen WordPress, ingen kompromisser.</p>
+          <p class="t-label" style="margin-bottom:1rem;color:rgba(255,255,255,0.3)" data-sr="up" data-no="Demo-galleri" data-en="Demo gallery">Demo-galleri</p>
+          <h2 class="t-section" id="demos-title" style="color:var(--white)" data-sr="up" data-d="1" data-no="Seks bransjer. Null lovnader. Bare resultater." data-en="Six industries. Zero promises. Only results.">Seks bransjer. Null lovnader. Bare resultater.</h2>
+          <p class="t-body" style="margin-top:1rem;color:rgba(255,255,255,0.4)" data-sr="up" data-d="2" data-no="Klikk på en demo for å se den live. Alt er håndkodet fra bunnen av — ingen maler, ingen WordPress, ingen kompromisser." data-en="Click a demo to see it live. Everything is hand-coded from scratch — no templates, no WordPress, no compromises.">Klikk på en demo for å se den live. Alt er håndkodet fra bunnen av — ingen maler, ingen WordPress, ingen kompromisser.</p>
         </div>
 
         <div class="demo-grid" id="demo-grid">
@@ -309,13 +310,13 @@
           <a href="../demos/maler.html" class="demo-card" aria-label="Se live demo: Strøk Malermester">
             <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1200&auto=format&fit=crop" alt="Malermester demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">Håndverk & Interiør</div>
+            <div class="demo-chip" aria-hidden="true" data-no="Håndverk & Interiør" data-en="Craft & Interior">Håndverk & Interiør</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#60a5fa">Demo-konsept · Malermester</span>
+              <span class="demo-eyebrow" style="color:#60a5fa" data-no="Demo-konsept · Malermester" data-en="Demo concept · Painter">Demo-konsept · Malermester</span>
               <div class="demo-title">Strøk Malermester</div>
-              <p class="demo-desc">Designet for å få folk med oppussingsplaner til å velge deg direkte — et premium-rammeverk som skriker autoritet og håver inn oppdrag.</p>
+              <p class="demo-desc" data-no="Designet for å få folk med oppussingsplaner til å velge deg direkte — et premium-rammeverk som skriker autoritet og håver inn oppdrag." data-en="Designed to get people with renovation plans to choose you directly — a premium framework that screams authority and reels in jobs.">Designet for å få folk med oppussingsplaner til å velge deg direkte — et premium-rammeverk som skriker autoritet og håver inn oppdrag.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -325,13 +326,13 @@
           <a href="../demos/anleggsgartner.html" class="demo-card" aria-label="Se live demo: Grønn Oase Anleggsgartner">
             <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop" alt="Anleggsgartner demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">Utemiljø & Hage</div>
+            <div class="demo-chip" aria-hidden="true" data-no="Utemiljø & Hage" data-en="Outdoor & Garden">Utemiljø & Hage</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#4ade80">Demo-konsept · Anleggsgartner</span>
+              <span class="demo-eyebrow" style="color:#4ade80" data-no="Demo-konsept · Anleggsgartner" data-en="Demo concept · Landscaper">Demo-konsept · Anleggsgartner</span>
               <div class="demo-title">Grønn Oase</div>
-              <p class="demo-desc">Hage-drømmer konvertert til harde leads. En direkte respons-arkitektur optimalisert for å fange nabolagets mest lukrative utemiljø-prosjekter.</p>
+              <p class="demo-desc" data-no="Hage-drømmer konvertert til harde leads. En direkte respons-arkitektur optimalisert for å fange nabolagets mest lukrative utemiljø-prosjekter." data-en="Garden dreams converted to hard leads. A direct-response architecture optimised to capture the neighbourhood's most lucrative outdoor projects.">Hage-drømmer konvertert til harde leads. En direkte respons-arkitektur optimalisert for å fange nabolagets mest lukrative utemiljø-prosjekter.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -341,13 +342,13 @@
           <a href="../demos/elektriker.html" class="demo-card" aria-label="Se live demo: Volt Elektro">
             <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?q=80&w=1200&auto=format&fit=crop" alt="Elektriker demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">Teknologi & Installasjon</div>
+            <div class="demo-chip" aria-hidden="true" data-no="Teknologi & Installasjon" data-en="Technology & Installation">Teknologi & Installasjon</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#fbbf24">Demo-konsept · Elektrobedrift</span>
+              <span class="demo-eyebrow" style="color:#fbbf24" data-no="Demo-konsept · Elektrobedrift" data-en="Demo concept · Electrician">Demo-konsept · Elektrobedrift</span>
               <div class="demo-title">Volt Elektro</div>
-              <p class="demo-desc">Mørkt. Autoritært. Teknisk overlegent. Utklasser konkurrentene og posisjonerer deg som det eneste valget for premium el-installasjoner.</p>
+              <p class="demo-desc" data-no="Mørkt. Autoritært. Teknisk overlegent. Utklasser konkurrentene og posisjonerer deg som det eneste valget for premium el-installasjoner." data-en="Dark. Authoritative. Technically superior. Outclasses competitors and positions you as the only choice for premium electrical installations.">Mørkt. Autoritært. Teknisk overlegent. Utklasser konkurrentene og posisjonerer deg som det eneste valget for premium el-installasjoner.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -357,13 +358,13 @@
           <a href="../demos/vann-varme.html" class="demo-card" aria-label="Se live demo: Vann & Varme AS">
             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" alt="Rørlegger demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">VVS & Akutt</div>
+            <div class="demo-chip" aria-hidden="true" data-no="VVS & Akutt" data-en="Plumbing & Emergency">VVS & Akutt</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#60a5fa">Demo-konsept · Rørlegger</span>
+              <span class="demo-eyebrow" style="color:#60a5fa" data-no="Demo-konsept · Rørlegger" data-en="Demo concept · Plumber">Demo-konsept · Rørlegger</span>
               <div class="demo-title">Vann & Varme AS</div>
-              <p class="demo-desc">Når vannet fosser har kunden ikke tid til trege nettsider. Et friksjonsfritt rammeverk aggressivt optimalisert for lokal SEO og umiddelbare telefonsamtaler.</p>
+              <p class="demo-desc" data-no="Når vannet fosser har kunden ikke tid til trege nettsider. Et friksjonsfritt rammeverk aggressivt optimalisert for lokal SEO og umiddelbare telefonsamtaler." data-en="When water is flooding, customers have no time for slow websites. A friction-free framework aggressively optimised for local SEO and immediate phone calls.">Når vannet fosser har kunden ikke tid til trege nettsider. Et friksjonsfritt rammeverk aggressivt optimalisert for lokal SEO og umiddelbare telefonsamtaler.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -373,13 +374,13 @@
           <a href="../demos/tomrer.html" class="demo-card" aria-label="Se live demo: Nordisk Tømrer AS">
             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="Tømmerer demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">Bygg & Snekker</div>
+            <div class="demo-chip" aria-hidden="true" data-no="Bygg & Snekker" data-en="Construction & Carpentry">Bygg & Snekker</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#fb923c">Demo-konsept · Tømmerer</span>
+              <span class="demo-eyebrow" style="color:#fb923c" data-no="Demo-konsept · Tømmerer" data-en="Demo concept · Carpenter">Demo-konsept · Tømmerer</span>
               <div class="demo-title">Nordisk Tømrer AS</div>
-              <p class="demo-desc">Solid som eik. En tung, tillitsbyggende nettside som overbeviser huseiere om at du er riktig håndverker for jobben — lenge før de ringer.</p>
+              <p class="demo-desc" data-no="Solid som eik. En tung, tillitsbyggende nettside som overbeviser huseiere om at du er riktig håndverker for jobben — lenge før de ringer." data-en="Solid as oak. A heavy, trust-building website that convinces homeowners you're the right craftsman for the job — long before they call.">Solid som eik. En tung, tillitsbyggende nettside som overbeviser huseiere om at du er riktig håndverker for jobben — lenge før de ringer.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -389,13 +390,13 @@
           <a href="../demos/advokat.html" class="demo-card" aria-label="Se live demo: Advokatfirmaet Justitia">
             <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop" alt="Advokat demo" width="600" height="750" loading="lazy">
             <div class="demo-overlay" aria-hidden="true"></div>
-            <div class="demo-chip" aria-hidden="true">Jus & Forretning</div>
+            <div class="demo-chip" aria-hidden="true" data-no="Jus & Forretning" data-en="Law & Business">Jus & Forretning</div>
             <div class="demo-body">
-              <span class="demo-eyebrow" style="color:#a78bfa">Demo-konsept · Advokatfirma</span>
+              <span class="demo-eyebrow" style="color:#a78bfa" data-no="Demo-konsept · Advokatfirma" data-en="Demo concept · Law firm">Demo-konsept · Advokatfirma</span>
               <div class="demo-title">Advokatfirmaet Justitia</div>
-              <p class="demo-desc">Autoritet og presisjon i hvert piksel. En nettside som kommuniserer kompetanse og bygger tillit hos næringslivskunder før det første møtet.</p>
+              <p class="demo-desc" data-no="Autoritet og presisjon i hvert piksel. En nettside som kommuniserer kompetanse og bygger tillit hos næringslivskunder før det første møtet." data-en="Authority and precision in every pixel. A website that communicates expertise and builds trust with business clients before the first meeting.">Autoritet og presisjon i hvert piksel. En nettside som kommuniserer kompetanse og bygger tillit hos næringslivskunder før det første møtet.</p>
               <div class="demo-cta">
-                Se live demo
+                <span data-no="Se live demo" data-en="See live demo">Se live demo</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
               </div>
             </div>
@@ -411,20 +412,20 @@
     <section class="cta-section section-pad" aria-labelledby="prosjekter-cta-title">
       <div class="container">
         <div class="cta-inner">
-          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up">Ikke i din bransje enda?</p>
-          <h2 class="t-section" id="prosjekter-cta-title" data-sr="up" data-d="1">
+          <p class="t-label" style="margin-bottom:1.25rem;color:rgba(255,255,255,0.25)" data-sr="up" data-no="Ikke i din bransje enda?" data-en="Not in your industry yet?">Ikke i din bransje enda?</p>
+          <h2 class="t-section" id="prosjekter-cta-title" data-sr="up" data-d="1" data-no-html="Vi bygger en demo<br>for din bransje. Gratis." data-en-html="We build a demo<br>for your industry. Free.">
             Vi bygger en demo<br>for din bransje. Gratis.
           </h2>
-          <p data-sr="up" data-d="2">
+          <p data-sr="up" data-d="2" data-no="Fortell oss om bedriften din. Innen 72 timer har du en ferdig demo skreddersydd for din bransje — du betaler ingenting før du er 100% fornøyd." data-en="Tell us about your business. Within 72 hours you have a finished demo tailored to your industry — you pay nothing until you're 100% satisfied.">
             Fortell oss om bedriften din. Innen 72 timer har du en ferdig demo skreddersydd for din bransje — du betaler ingenting før du er 100% fornøyd.
           </p>
           <div data-sr="up" data-d="3">
             <a href="kontakt.html" class="btn btn-blue" style="font-size:1.0625rem;padding:1.1rem 2.25rem">
-              Bestill din gratis demo
+              <span data-no="Bestill din gratis demo" data-en="Order your free demo">Bestill din gratis demo</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
-          <p class="cta-sub" data-sr="up" data-d="4">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
+          <p class="cta-sub" data-sr="up" data-d="4" data-no="0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti" data-en="0,- upfront · 72 hour delivery · 100% satisfaction guarantee">0,- på forskudd · 72 timers leveranse · 100% fornøyd-garanti</p>
         </div>
       </div>
     </section>
@@ -487,6 +488,7 @@
     </div>
   </footer>
 
+  <script src="lang.js" defer></script>
   <script>
   (function () {
     'use strict';
