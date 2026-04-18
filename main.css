@@ -667,6 +667,7 @@ body:has(.cursor) * { cursor: none; }
 .stat-desc { font-size: 0.9375rem; color: var(--fg2); line-height: 1.55; max-width: 220px; }
 .stat-source { font-size: 0.67rem; color: var(--fg3); margin-top: 0.5rem; font-style: italic; }
 
+
 /* ---- PROBLEM SECTION ---- */
 .problem-section { background: var(--white); }
 .problem-header { max-width: 640px; margin-bottom: clamp(3rem, 5vw, 5rem); }
