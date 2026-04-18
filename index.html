@@ -27,6 +27,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
 
+  <link rel="preload" href="main.css" as="style">
   <link rel="stylesheet" href="main.css">
 
 
@@ -317,7 +318,13 @@
 
         <div class="cases-grid">
           <a href="prosjekter.html" class="case-card" data-sr="up" data-d="1" aria-label="Case: Strøk Malermester">
-            <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1200&auto=format&fit=crop" alt="Malermester nettside prosjekt" width="1200" height="900" loading="lazy">
+            <img
+              src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=70&w=800&auto=format&fit=crop"
+              srcset="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=65&w=400&auto=format&fit=crop 400w,
+                      https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=70&w=800&auto=format&fit=crop 800w,
+                      https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=70&w=1200&auto=format&fit=crop 1200w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+              alt="Malermester nettside prosjekt" width="800" height="600" loading="lazy">
             <div class="case-overlay" aria-hidden="true"></div>
             <div class="case-body">
               <span class="case-tag" style="color:#f97316" data-no="Håndverk" data-en="Craft">Håndverk</span>
@@ -330,7 +337,13 @@
           </a>
 
           <a href="prosjekter.html" class="case-card" data-sr="up" data-d="2" aria-label="Case: Grønn Oase">
-            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop" alt="Anleggsgartner nettside prosjekt" width="1200" height="900" loading="lazy">
+            <img
+              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=70&w=800&auto=format&fit=crop"
+              srcset="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=65&w=400&auto=format&fit=crop 400w,
+                      https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=70&w=800&auto=format&fit=crop 800w,
+                      https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=70&w=1200&auto=format&fit=crop 1200w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+              alt="Anleggsgartner nettside prosjekt" width="800" height="600" loading="lazy">
             <div class="case-overlay" aria-hidden="true"></div>
             <div class="case-body">
               <span class="case-tag" style="color:#4ade80" data-no="Utemiljø" data-en="Outdoor">Utemiljø</span>
@@ -996,26 +1009,29 @@
 
     // ---- SCROLL PROGRESS ----
     const prog = document.getElementById('scroll-progress');
-    function updateProgress() {
-      if (!prog) return;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
-    }
+
+    // Cache layout values — re-read only on resize, never inside scroll
+    let cachedScrollH = document.documentElement.scrollHeight;
+    let cachedInnerH  = window.innerHeight;
+    window.addEventListener('resize', function () {
+      cachedScrollH = document.documentElement.scrollHeight;
+      cachedInnerH  = window.innerHeight;
+    }, { passive: true });
 
     // ---- NAVBAR ----
     const navbar = document.getElementById('navbar');
-    function updateNav() {
-      if (window.scrollY > 60) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    }
 
+    // Single scroll handler: read scrollY once, then write — no forced reflow
     window.addEventListener('scroll', function () {
-      updateProgress();
-      updateNav();
-      handleParallax();
+      const sy  = window.scrollY;                          // one read
+      const max = cachedScrollH - cachedInnerH;
+      if (prog) prog.style.width = (max > 0 ? (sy / max) * 100 : 0) + '%';
+      if (sy > 60) navbar.classList.add('scrolled');
+      else         navbar.classList.remove('scrolled');
     }, { passive: true });
 
-    updateNav();
+    // Set initial navbar state on load
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
 
     // ---- HAMBURGER ----
     const hamburger = document.getElementById('hamburger');

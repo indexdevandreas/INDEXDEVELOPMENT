@@ -231,6 +231,17 @@
     }
     @media (max-width: 640px) {
       .antidote-grid { grid-template-columns: 1fr; }
+      /* Image: smaller and full visible */
+      .truth-photo img {
+        min-height: 0;
+        height: 300px;
+        object-position: center 15%;
+      }
+      /* Caption: move below image instead of overlaying it */
+      .truth-caption {
+        position: relative;
+        padding: 1rem 1.25rem;
+      }
     }
   </style>
 
