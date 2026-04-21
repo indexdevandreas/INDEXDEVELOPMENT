@@ -1027,7 +1027,7 @@
       var root = viewer.shadowRoot;
       if (!root) return;
       var style = document.createElement('style');
-      style.textContent = '#logo, [class*="watermark"], [id*="watermark"], a[href*="spline.design"] { display:none!important; opacity:0!important; pointer-events:none!important; }';
+      style.textContent = '#logo, [class*="watermark"], [id*="watermark"], a[href*="spline.design"] { opacity:0!important; filter:opacity(0)!important; pointer-events:none!important; } * { --logo-opacity:0!important; }';
       root.appendChild(style);
     }
     function init() {
