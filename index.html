@@ -30,6 +30,8 @@
   <link rel="preload" href="main.css" as="style">
   <link rel="stylesheet" href="main.css">
 
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+
 
   <script type="application/ld+json">
   {
@@ -122,6 +124,12 @@
          HERO
     ============================= -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
+      <spline-viewer
+        class="spline-bg"
+        url="https://prod.spline.design/kSnCEYla2jnKaYg9/scene.splinecode"
+        loading="lazy"
+        aria-hidden="true">
+      </spline-viewer>
       <canvas id="particle-canvas" aria-hidden="true"></canvas>
       <div class="hero-light" id="hero-light" aria-hidden="true"></div>
 
@@ -213,37 +221,101 @@
     <!-- ============================
          STATS
     ============================= -->
-    <section class="stats-section section-pad" aria-label="Nøkkeltall">
-      <div class="container">
-        <p class="t-label" style="margin-bottom:2.5rem" data-sr="up" data-no="Realiteten — i tall" data-en="The reality — in numbers">Realiteten — i tall</p>
-        <div class="stats-grid">
-          <div class="stat-item" data-sr="up" data-d="1">
-            <div class="stat-number-wrap">
-              <span class="t-giant c-red" data-counter="53">0</span>
-              <span class="stat-unit">%</span>
-            </div>
-            <p class="stat-desc" data-no="av mobilbrukere forlater en nettside som laster over 3 sekunder" data-en="of mobile users leave a website that loads in over 3 seconds">av mobilbrukere forlater en nettside som laster over 3 sekunder</p>
-            <p class="stat-source" data-no="Kilde: Google/SOASTA Research" data-en="Source: Google/SOASTA Research">Kilde: Google/SOASTA Research</p>
+    <section id="stats-scrub" class="stats-scrub" aria-label="Nøkkeltall">
+
+      <!-- Sticky heading -->
+      <div class="scrub-sticky">
+        <h2 class="scrub-heading" data-no="Visste du at..." data-en="Did you know...">Visste du at...</h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="scrub-cards">
+
+        <div class="scrub-card scrub-card--left" id="scrub-c1">
+          <div class="scrub-num">
+            <span class="scrub-count" data-target="53" data-suffix="%" data-no-suffix="%" data-en-suffix="%">0%</span>
           </div>
-          <div class="stat-item" data-sr="up" data-d="2">
-            <div class="stat-number-wrap">
-              <span class="t-giant c-orange" data-counter="76">0</span>
-              <span class="stat-unit">%</span>
-            </div>
-            <p class="stat-desc" data-no="googler lokalt på mobil før de ringer eller besøker bedriften" data-en="search locally on mobile before calling or visiting a business">googler lokalt på mobil før de ringer eller besøker bedriften</p>
-            <p class="stat-source" data-no="Kilde: Think With Google" data-en="Source: Think With Google">Kilde: Think With Google</p>
+          <div class="scrub-body">
+            <p class="scrub-text" data-no="av mobilbrukere forlater en nettside som laster over 3 sekunder" data-en="of mobile users leave a website that loads in over 3 seconds">av mobilbrukere forlater en nettside som laster over 3 sekunder</p>
+            <p class="scrub-source" data-no="Kilde: Google/SOASTA Research" data-en="Source: Google/SOASTA Research">Kilde: Google/SOASTA Research</p>
           </div>
-          <div class="stat-item" data-sr="up" data-d="3">
-            <div class="stat-number-wrap">
-              <span class="t-giant" style="color:#16a34a" data-counter="180">0</span>
-              <span class="stat-unit" style="font-size:clamp(1.5rem,3vw,2.5rem)">K/yr</span>
-            </div>
-            <p class="stat-desc" data-no="i tapt omsetning for en gjennomsnittlig håndverker med dårlig nettside" data-en="in lost revenue for the average tradesperson with a poor website">i tapt omsetning for en gjennomsnittlig håndverker med dårlig nettside</p>
-            <p class="stat-source" data-no="2–3 oppdrag/mnd × 5.000,- × 12 mnd" data-en="2–3 jobs/month × 5,000 NOK × 12 months">2–3 oppdrag/mnd × 5.000,- × 12 mnd</p>
+        </div>
+
+        <div class="scrub-card scrub-card--right" id="scrub-c2">
+          <div class="scrub-num">
+            <span class="scrub-count" data-target="76" data-suffix="%" data-no-suffix="%" data-en-suffix="%">0%</span>
+          </div>
+          <div class="scrub-body">
+            <p class="scrub-text" data-no="googler lokalt på mobil før de ringer eller besøker bedriften" data-en="search locally on mobile before calling or visiting a business">googler lokalt på mobil før de ringer eller besøker bedriften</p>
+            <p class="scrub-source" data-no="Kilde: Think With Google" data-en="Source: Think With Google">Kilde: Think With Google</p>
+          </div>
+        </div>
+
+        <div class="scrub-card scrub-card--left" id="scrub-c3">
+          <div class="scrub-num">
+            <span class="scrub-count" data-target="180000" data-suffix=",-" data-format="no">0,-</span>
+          </div>
+          <div class="scrub-body">
+            <p class="scrub-text" data-no="i tapt omsetning for en gjennomsnittlig håndverker med dårlig nettside" data-en="in lost revenue for the average tradesperson with a poor website">i tapt omsetning for en gjennomsnittlig håndverker med dårlig nettside</p>
+            <p class="scrub-source" data-no="2–3 oppdrag/mnd × 5.000,- × 12 mnd" data-en="2–3 jobs/month × 5,000 NOK × 12 months">2–3 oppdrag/mnd × 5.000,- × 12 mnd</p>
           </div>
         </div>
 
       </div>
+
+      <script>
+      (function () {
+        var section = document.getElementById('stats-scrub');
+        var heading = section.querySelector('.scrub-heading');
+        var c1 = document.getElementById('scrub-c1');
+        var c2 = document.getElementById('scrub-c2');
+        var c3 = document.getElementById('scrub-c3');
+        var triggered = [false, false, false];
+
+        function animateCount(card) {
+          var el = card.querySelector('.scrub-count');
+          if (!el || el.dataset.done) return;
+          el.dataset.done = '1';
+          var target = parseInt(el.dataset.target, 10);
+          var suffix = el.dataset.suffix || '';
+          var isNo   = el.dataset.format === 'no';
+          var t0     = performance.now();
+          function step(now) {
+            var prog  = Math.min(1, (now - t0) / 1400);
+            var val   = Math.round((1 - Math.pow(1 - prog, 3)) * target);
+            el.textContent = isNo
+              ? val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + suffix
+              : val + suffix;
+            if (prog < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        function show(card, i) {
+          if (triggered[i]) return;
+          triggered[i] = true;
+          card.classList.add('visible');
+          animateCount(card);
+        }
+
+        function onScroll() {
+          var rect = section.getBoundingClientRect();
+          /* Heading: visible as soon as section enters viewport */
+          if (rect.top < window.innerHeight * 0.85) heading.classList.add('visible');
+          /* Cards: based on scroll progress through section */
+          var p = Math.max(0, Math.min(1,
+            -rect.top / (section.offsetHeight - window.innerHeight)
+          ));
+          if (p > 0.02) show(c1, 0);
+          if (p > 0.30) show(c2, 1);
+          if (p > 0.60) show(c3, 2);
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }());
+      </script>
+
     </section>
 
     <!-- ============================
@@ -947,6 +1019,7 @@
   <script src="intro.js" defer></script>
   <script src="particles.js" defer></script>
   <script src="lang.js" defer></script>
+  <script src="steps.js" defer></script>
   <script>
   // ---- KOSTNADSKALKULATOR ----
   (function () {
@@ -1149,7 +1222,7 @@
           srObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px 120px 0px' });
     srEls.forEach(function (el) { srObserver.observe(el); });
 
     // ---- COUNTER ANIMATION ----
@@ -1170,7 +1243,7 @@
         requestAnimationFrame(tick);
         cObserver.unobserve(el);
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
     counters.forEach(function (el) { cObserver.observe(el); });
 
     // ---- FAQ ACCORDION ----
