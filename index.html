@@ -1021,6 +1021,31 @@
   <script src="lang.js" defer></script>
   <script src="steps.js" defer></script>
   <script>
+  /* Hide Spline watermark — shadow DOM injection */
+  (function () {
+    function killWatermark(viewer) {
+      var root = viewer.shadowRoot;
+      if (!root) return;
+      var style = document.createElement('style');
+      style.textContent = '#logo, [class*="watermark"], [id*="watermark"], a[href*="spline.design"] { display:none!important; opacity:0!important; pointer-events:none!important; }';
+      root.appendChild(style);
+    }
+    function init() {
+      document.querySelectorAll('spline-viewer').forEach(function (v) {
+        if (v.shadowRoot) { killWatermark(v); }
+        else {
+          var mo = new MutationObserver(function () { killWatermark(v); mo.disconnect(); });
+          mo.observe(v, { childList: true, subtree: true });
+        }
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+    /* Also catch late render */
+    setTimeout(init, 2000);
+  }());
+  </script>
+  <script>
   // ---- KOSTNADSKALKULATOR ----
   (function () {
     var visitorsSlider = document.getElementById('calc-visitors');
