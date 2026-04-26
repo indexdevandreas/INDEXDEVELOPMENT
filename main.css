@@ -737,10 +737,12 @@ spline-viewer::part(watermark) { display: none !important; }
   margin: 0;
 }
 @media (max-width: 640px) {
-  .stats-scrub { height: 280vh; }
-  .scrub-card { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .stats-scrub { height: 190vh; }
+  .scrub-cards { padding-top: 4rem; padding-bottom: 2rem; }
+  .scrub-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   .scrub-card--right { align-self: flex-start; transform: translateX(-120%); }
   .scrub-heading { letter-spacing: -1.5px; }
+  .scrub-num { font-size: clamp(52px, 14vw, 80px); line-height: 1; }
 }
 
 
@@ -2039,5 +2041,27 @@ footer {
   .hero-ctas { flex-direction: column; align-items: flex-start; }
   .pricing-header { flex-direction: column; align-items: flex-start; }
   .pricing-note { text-align: left; }
-  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    width: 100%;
+  }
+  .hstat { padding: 0.85rem 1rem; }
+  .hstat-num { font-size: 1.2rem; }
+  /* Problem section — prevent 3-col grid from crushing text */
+  .problem-item {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem 1.25rem;
+  }
+  .problem-cost {
+    grid-column: 2;
+    grid-row: 2;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0.4rem;
+    align-items: baseline;
+  }
+  .problem-cost-label::after { content: ':'; }
+  .problem-num { font-size: clamp(2rem, 9vw, 3rem); }
 }

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tjenester | Ren Rask Bilvask – Priser og Pakker</title>
+  <meta name="description" content="Se alle pakker og priser hos Ren Rask Bilvask i Trondheim. Utvendig vask fra 300 kr, innvendig fra 400 kr, total pakke fra 600 kr. Book online på under ett minutt.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Tjenester page extras ── */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) { .pkg-grid { grid-template-columns: 1fr; } }
+
+    .pkg {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(0,0,0,0.07);
+    }
+    .pkg:last-child { border-right: none; }
+    @media (max-width: 900px) {
+      .pkg { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.07); }
+      .pkg:last-child { border-bottom: none; }
+    }
+    .pkg.featured {
+      background: var(--dark);
+      border-right-color: transparent;
+    }
+
+    .pkg-img {
+      width: 100%; height: 280px;
+      object-fit: cover; display: block;
+    }
+
+    .pkg-body { padding: 40px 36px 36px; flex: 1; display: flex; flex-direction: column; }
+    .pkg.featured .pkg-body { background: var(--dark); }
+
+    .pkg-badge {
+      display: inline-flex; align-items: center;
+      background: var(--blue); color: #fff;
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      padding: 5px 12px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .pkg-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 3.5vw, 44px);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+    .pkg.featured .pkg-name { color: #fff; }
+
+    .pkg-time {
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .pkg-desc {
+      font-size: 14px; font-weight: 300;
+      color: var(--muted); line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .pkg.featured .pkg-desc { color: rgba(255,255,255,0.55); }
+
+    .pkg-includes {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 36px;
+      flex: 1;
+    }
+    .pkg-includes li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; font-weight: 300;
+      color: var(--dark); line-height: 1.5;
+    }
+    .pkg.featured .pkg-includes li { color: rgba(255,255,255,0.72); }
+    .pkg-includes li::before {
+      content: '';
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3 3.5 7-7' stroke='%23fff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 10px 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 2px;
+    }
+
+    .pkg-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(40px, 5vw, 62px);
+      color: var(--blue); line-height: 1;
+      letter-spacing: 0.01em;
+      margin-bottom: 4px;
+    }
+    .pkg-price-note {
+      font-size: 11px; font-weight: 400;
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .pkg.featured .pkg-price-note { color: rgba(255,255,255,0.35); }
+
+    .pkg-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 15px;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 16px 30px; text-decoration: none;
+      background: var(--blue); color: #fff;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .pkg-cta:hover { background: var(--blue-h); transform: translateX(3px); }
+    .pkg.featured .pkg-cta { background: #fff; color: var(--dark); }
+    .pkg.featured .pkg-cta:hover { background: var(--gray); }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--gray2);
+      padding: 0;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 24px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; text-align: left; gap: 20px;
+    }
+    .faq-q-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 19px;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      color: var(--dark);
+    }
+    .faq-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1.5px solid var(--gray2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--dark);
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .faq-item.open .faq-icon { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .faq-a {
+      font-size: 14px; font-weight: 300;
+      color: var(--muted); line-height: 1.85;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding-bottom 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 24px; }
+
+    /* ── Add-ons ── */
+    .addon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .addon {
+      background: var(--dark2);
+      padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .addon-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 18px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: #fff;
+    }
+    .addon-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 28px;
+      color: var(--blue); line-height: 1;
+    }
+    .addon-desc {
+      font-size: 12px; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.7;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="renrask.html" class="nav-logo">
+      <img src="bilder/renrask.png" alt="Ren Rask Bilvask" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="renrask.html">HJEM</a></li>
+      <li><a href="om-oss.html">OM OSS</a></li>
+      <li><a href="tjenester.html" class="active">TJENESTER</a></li>
+      <li><a href="renrask.html#anmeldelser">ANMELDELSER</a></li>
+      <li><a href="kontakt.html">KONTAKT</a></li>
+    </ul>
+    <a href="#" class="nav-cta" data-book>BOOK NÅ</a>
+    <button class="hamburger" id="hamburger" aria-label="Meny">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="m-nav" id="m-nav" role="dialog" aria-modal="true">
+  <button class="m-close" id="m-close" aria-label="Lukk"><i class="fa-solid fa-xmark"></i></button>
+  <a href="renrask.html">HJEM</a>
+  <a href="om-oss.html">OM OSS</a>
+  <a href="tjenester.html">TJENESTER</a>
+  <a href="renrask.html#anmeldelser">ANMELDELSER</a>
+  <a href="kontakt.html">KONTAKT</a>
+</div>
+
+<main>
+
+<!-- ═══ PAGE HERO ════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-eyebrow">Priser og pakker</span>
+    <h1 class="page-title">
+      <span class="o-light">VÅRE</span> TJENESTER
+    </h1>
+  </div>
+</section>
+
+<!-- ═══ PACKAGES ══════════════════════════════════ -->
+<section style="background: var(--gray); padding: 88px 32px;">
+  <div style="max-width: 1280px; margin: 0 auto 64px;">
+    <p class="adv-kicker sr">Velg pakken som passer deg</p>
+    <h2 class="sr sr-d1" style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(32px,5vw,64px); text-transform:uppercase; letter-spacing:0.02em; line-height:0.95; margin-bottom:0;">
+      <span style="-webkit-text-stroke:2px var(--dark); color:transparent;">ENKLE</span> PRISER.<br>EKSEPSJONELT RESULTAT.
+    </h2>
+  </div>
+
+  <div class="pkg-grid sr">
+
+    <!-- Package 1: Utvendig -->
+    <div class="pkg">
+      <img
+        src="https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=800"
+        alt="Utvendig bilvask" class="pkg-img" loading="lazy">
+      <div class="pkg-body">
+        <div class="pkg-name">Utvendig Vask</div>
+        <div class="pkg-time"><i class="fa-regular fa-clock"></i> &nbsp;Ca. 45 minutter</div>
+        <p class="pkg-desc">En grundig utvendig vask som fjerner smuss, støv og veisalt. Bilen din stråler igjen – uten at du trenger å forlate parkeringsplassen.</p>
+        <ul class="pkg-includes">
+          <li>Skumvask av hele kjøretøyet</li>
+          <li>Høytrykksspyling av hjul og bunnplate</li>
+          <li>Vask av ruter og speil</li>
+          <li>Tørking med mikrofiberklut</li>
+          <li>Rengjøring av dørkarmer</li>
+        </ul>
+        <div class="pkg-price">300 kr</div>
+        <div class="pkg-price-note">Startpris · Endelig pris avhenger av bilstørrelse</div>
+        <a href="#" class="pkg-cta" data-book>BOOK UTVENDIG VASK &nbsp;→</a>
+      </div>
+    </div>
+
+    <!-- Package 2: Total (featured) -->
+    <div class="pkg featured">
+      <img
+        src="https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=800"
+        alt="Total bilvask pakke" class="pkg-img" loading="lazy">
+      <div class="pkg-body">
+        <div class="pkg-badge">★ Mest Populær</div>
+        <div class="pkg-name" style="color:#fff;">Total Pakke</div>
+        <div class="pkg-time"><i class="fa-regular fa-clock"></i> &nbsp;Ca. 1,5 time</div>
+        <p class="pkg-desc">Den komplette bilvask-opplevelsen. Utvendig og innvendig – alt gjøres med samme presisjon og omhu. Dette er pakken som gjør bilen din som ny.</p>
+        <ul class="pkg-includes">
+          <li>Alt i utvendig + innvendig pakke</li>
+          <li>Støvsuging av hele kupeen</li>
+          <li>Vask og desinfeksjon av alle flater</li>
+          <li>Rengjøring av seter, matter og bagasjerom</li>
+          <li>Polering av plast og konsoll</li>
+          <li>Rens av ruter innvendig</li>
+          <li>Premium luftrenser inkludert</li>
+        </ul>
+        <div class="pkg-price">600 kr</div>
+        <div class="pkg-price-note" style="color:rgba(255,255,255,0.35);">Startpris · Endelig pris avhenger av bilstørrelse</div>
+        <a href="#" class="pkg-cta" data-book>BOOK TOTAL PAKKE &nbsp;→</a>
+      </div>
+    </div>
+
+    <!-- Package 3: Innvendig -->
+    <div class="pkg">
+      <img
+        src="https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg?auto=compress&cs=tinysrgb&w=800"
+        alt="Innvendig bilvask" class="pkg-img" loading="lazy">
+      <div class="pkg-body">
+        <div class="pkg-name">Innvendig Vask</div>
+        <div class="pkg-time"><i class="fa-regular fa-clock"></i> &nbsp;Ca. 60 minutter</div>
+        <p class="pkg-desc">En dyptgående innvendig rens som fjerner støv, smuss og bakterier. Du stiger inn i en bil som lukter og føles helt ny.</p>
+        <ul class="pkg-includes">
+          <li>Støvsuging av kupé og bagasjerom</li>
+          <li>Vask av dashbord og alle overflater</li>
+          <li>Rengjøring av seter og matter</li>
+          <li>Polering av plast og konsoll</li>
+          <li>Rens av ruter innvendig</li>
+          <li>Luftrenser inkludert</li>
+        </ul>
+        <div class="pkg-price">400 kr</div>
+        <div class="pkg-price-note">Startpris · Endelig pris avhenger av bilstørrelse</div>
+        <a href="#" class="pkg-cta" data-book>BOOK INNVENDIG VASK &nbsp;→</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ADD-ONS ═══════════════════════════════════ -->
+<section style="background: var(--dark2); padding: 80px 0;">
+  <div style="max-width: 1280px; margin: 0 auto 48px; padding: 0 32px;">
+    <p class="adv-kicker sr" style="text-align:left;">Tilleggstjenester</p>
+    <h2 class="sr sr-d1" style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(28px,4vw,56px); text-transform:uppercase; letter-spacing:0.02em; line-height:0.95; color:#fff;">
+      <span style="-webkit-text-stroke:2px rgba(255,255,255,0.6); color:transparent;">LEGG</span> TIL EKSTRA
+    </h2>
+  </div>
+  <div class="addon-grid sr">
+    <div class="addon">
+      <div class="addon-name">Felgrens</div>
+      <div class="addon-price">+100 kr</div>
+      <p class="addon-desc">Profesjonell rengjøring av alle fire felger. Fjerner bremsefilm og veisøle effektivt.</p>
+    </div>
+    <div class="addon">
+      <div class="addon-name">Motorroms­vask</div>
+      <div class="addon-price">+150 kr</div>
+      <p class="addon-desc">Skånsom høytrykksvask og avfetting av motorrommet. Ser imponerende ut og er bra for bilen.</p>
+    </div>
+    <div class="addon">
+      <div class="addon-name">Lakkforsegling</div>
+      <div class="addon-price">+200 kr</div>
+      <p class="addon-desc">Polering og voksforsegling som beskytter lakken og gir et dypere glans i måneder fremover.</p>
+    </div>
+    <div class="addon">
+      <div class="addon-name">Luktfjerning</div>
+      <div class="addon-price">+100 kr</div>
+      <p class="addon-desc">Ozon- og enzymdrevet behandling som nøytraliserer ubehagelige lukter permanent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ══════════════════════════════ -->
+<section class="how">
+  <div class="how-inner">
+    <p class="how-kicker sr">Enklere enn du tror</p>
+    <h2 class="how-title sr sr-d1">
+      <span class="o-dark">SLIK</span> FUNGERER DET
+    </h2>
+    <div class="how-steps">
+      <div class="how-step sr">
+        <div class="how-num">1</div>
+        <div class="how-step-title">Book Online</div>
+        <p class="how-step-text">Velg pakke, tid og sted i bookingsystemet vårt. Tar under ett minutt.</p>
+      </div>
+      <div class="how-step sr sr-d1">
+        <div class="how-num">2</div>
+        <div class="how-step-title">Vi Bekrefter</div>
+        <p class="how-step-text">Vi sender bekreftelse og ringer deg ved behov for å avtale detaljer.</p>
+      </div>
+      <div class="how-step sr sr-d2">
+        <div class="how-num">3</div>
+        <div class="how-step-title">Vi Møter Opp</div>
+        <p class="how-step-text">Vi kommer til deg med alt utstyr. Du trenger ikke gjøre noe som helst.</p>
+      </div>
+      <div class="how-step sr sr-d3">
+        <div class="how-num">4</div>
+        <div class="how-step-title">Bilen Er Ny</div>
+        <p class="how-step-text">Du får en bil som ser ut som den nettopp kom fra forhandler. Garantert.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══════════════════════════════════════ -->
+<section style="background: var(--gray); padding: 88px 32px;">
+  <div style="max-width: 820px; margin: 0 auto;">
+    <p class="adv-kicker sr">Svar på det du lurer på</p>
+    <h2 class="sr sr-d1" style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(32px,5vw,64px); text-transform:uppercase; letter-spacing:0.02em; line-height:0.95; margin-bottom:52px; text-align:center;">
+      VANLIGE <span style="-webkit-text-stroke:2px var(--dark); color:transparent;">SPØRSMÅL</span>
+    </h2>
+
+    <div id="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Trenger jeg å være tilstede under vasken?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Nei – du trenger ikke å være der. Du forteller oss bare hvor bilen er parkert, og vi tar oss av resten. Mange kunder lar oss vaske mens de er på jobb eller hjemme.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hva trenger dere for å vaske bilen?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Vi er selvforsynte og tar med alt utstyr, vann og produkter. Alt du trenger å gjøre er å sørge for at vi har tilgang til bilen. Vi trenger tilgang til strøm dersom vasken gjøres i et lukket garasjebygg.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Vasker dere i all slags vær?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Vi vasker i de fleste værforhold. Ved kraftig regn eller ekstremkulde kan vi måtte avtale ny tid. Vi gir alltid beskjed i god tid dersom vi trenger å flytte avtalen.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hva om jeg ikke er fornøyd med resultatet?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Da kommer vi tilbake og gjør jobben på nytt – helt gratis. Ingen diskusjon. Det er vår 100% fornøyd-garanti, og vi tar den på alvor. Vi er ikke ferdig før du er fornøyd.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Når kan jeg booke og hva er åpningstidene?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Du kan booke online når som helst, døgnet rundt. Vi er tilgjengelig for vask mandag til fredag 08:00–16:00. Bookingsystemet viser ledige tider i sanntid.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Vasker dere kun i Trondheim?</span>
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-a">Vi opererer primært i Trondheim og omegn. Lurer du på om vi dekker ditt område – ta gjerne kontakt på telefon eller e-post så avklarer vi det raskt.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══════════════════════════════════════ -->
+<section class="cta-sec">
+  <h2 class="cta-title sr">
+    <span class="o-light">KLAR FOR EN</span>
+    SPLITTER NY BIL?
+  </h2>
+  <p class="cta-sub sr sr-d1">
+    Book din vask i dag. Vi kommer til deg, gjør jobben – og leverer garantert resultat.
+  </p>
+  <a href="#" class="btn-fill sr sr-d2" data-book style="font-size:16px; padding:20px 48px;">BOOK DIN VASK NÅ &nbsp;→</a>
+  <div class="cta-info sr sr-d3">
+    <div class="cta-info-item">
+      <i class="fa-solid fa-phone"></i>
+      <a href="tel:+4745843392">+47 458 43 392</a>
+    </div>
+    <div class="cta-info-item">
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:post@renraskbilvask.no">post@renraskbilvask.no</a>
+    </div>
+    <div class="cta-info-item">
+      <i class="fa-solid fa-location-dot"></i>
+      Trondheim
+    </div>
+    <div class="cta-info-item">
+      <i class="fa-solid fa-clock"></i>
+      Man–Fre 08:00–16:00
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-main">
+    <div class="f-col f-col-brand">
+      <a href="renrask.html" class="f-logo">
+        <img src="bilder/renrask.png" alt="Ren Rask Bilvask" class="f-logo-img">
+      </a>
+      <p class="f-tagline">Trondheims ledende mobile bilvask. Vi leverer showroom-standard direkte til deg – hjemme eller på jobb – uten at du trenger å flytte deg.</p>
+      <div class="f-social">
+        <a href="https://www.instagram.com/renrask_bilvask/" target="_blank" rel="noopener noreferrer" class="f-social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/mobilvask1/" target="_blank" rel="noopener noreferrer" class="f-social-link" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Navigasjon</div>
+      <a href="renrask.html">Hjem</a>
+      <a href="om-oss.html">Om Oss</a>
+      <a href="tjenester.html">Tjenester</a>
+      <a href="renrask.html#anmeldelser">Anmeldelser</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Pakker</div>
+      <a href="tjenester.html">Utvendig Vask – fra 300 kr</a>
+      <a href="tjenester.html">Innvendig Vask – fra 400 kr</a>
+      <a href="tjenester.html">Total Pakke – fra 600 kr</a>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title">Kontakt</div>
+      <a href="tel:+4745843392">+47 458 43 392</a>
+      <a href="mailto:post@renraskbilvask.no">post@renraskbilvask.no</a>
+      <span>Trondheim</span>
+      <span>Man–Fre 08:00–16:00</span>
+    </div>
+  </div>
+  <div class="footer-divider">
+    <span class="footer-divider-text">REN RASK BILVASK &nbsp;·&nbsp; TRONDHEIM &nbsp;·&nbsp; 100% FORNØYD GARANTI</span>
+    <div class="f-social" style="gap:8px;">
+      <a href="https://www.instagram.com/renrask_bilvask/" target="_blank" rel="noopener noreferrer" class="f-social-link" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mobilvask1/" target="_blank" rel="noopener noreferrer" class="f-social-link" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Ren Rask Bilvask. Alle rettigheter reservert.</span>
+    <span>Utviklet av <a href="https://indexdevelopment.no">Index Development</a></span>
+  </div>
+</footer>
+
+<!-- Mobile sticky -->
+<div class="mob-sticky">
+  <a href="tel:+4745843392" class="mob-call"><i class="fa-solid fa-phone"></i> Ring Nå</a>
+  <a href="#" class="mob-book" data-book>Book Vask</a>
+</div>
+
+<script src="main.js"></script>
+<script>
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

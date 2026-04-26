@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Dark background with rounded corners -->
-  <rect width="32" height="32" rx="7" fill="#080808"/>
-  <!-- Blue dot — the brand mark (tittle of the i) -->
-  <circle cx="16" cy="9" r="3.5" fill="#2563eb"/>
-  <!-- White stem of the i -->
-  <rect x="12.5" y="15" width="7" height="11" rx="2" fill="#ffffff"/>
+  <rect width="32" height="32" rx="6" fill="#080808"/>
+  <!-- < -->
+  <path d="M7 16 L11.5 11 L13 12.2 L9.8 16 L13 19.8 L11.5 21 Z" fill="#2563eb"/>
+  <!-- / -->
+  <rect x="13.5" y="10" width="2.2" height="12" rx="1.1"
+        fill="#ffffff"
+        transform="rotate(-18 14.6 16)"/>
+  <!-- > -->
+  <path d="M25 16 L20.5 11 L19 12.2 L22.2 16 L19 19.8 L20.5 21 Z" fill="#2563eb"/>
 </svg>

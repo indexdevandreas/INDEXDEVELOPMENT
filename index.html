@@ -30,6 +30,15 @@
   <link rel="preload" href="main.css" as="style">
   <link rel="stylesheet" href="main.css">
 
+  <!-- Blokkerer render umiddelbart så introen aldri "popper" inn -->
+  <script>
+  (function(){
+    if (!sessionStorage.getItem('idx_intro')) {
+      document.documentElement.style.cssText += 'background:#000!important;overflow:hidden;';
+    }
+  })();
+  </script>
+
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 
 
