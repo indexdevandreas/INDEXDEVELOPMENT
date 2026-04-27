@@ -37,15 +37,16 @@ function initNav() {
   const mNav      = document.getElementById('m-nav');
   const mClose    = document.getElementById('m-close');
 
-  hamburger?.addEventListener('click', () => mNav.classList.toggle('open'));
-  mClose?.addEventListener('click',    () => mNav.classList.remove('open'));
+  hamburger?.addEventListener('click', e => {
+    e.stopPropagation();
+    mNav.classList.toggle('open');
+  });
+  mClose?.addEventListener('click', () => mNav.classList.remove('open'));
   mNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mNav.classList.remove('open')));
 
   document.addEventListener('click', e => {
     if (!mNav?.classList.contains('open')) return;
-    if (!mNav.contains(e.target) && !hamburger.contains(e.target)) {
-      mNav.classList.remove('open');
-    }
+    if (!mNav.contains(e.target)) mNav.classList.remove('open');
   });
 }
 

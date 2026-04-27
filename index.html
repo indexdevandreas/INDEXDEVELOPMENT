@@ -33,7 +33,7 @@
   <!-- Blokkerer render umiddelbart så introen aldri "popper" inn -->
   <script>
   (function(){
-    if (!sessionStorage.getItem('idx_intro')) {
+    if (!sessionStorage.getItem('idx_intro') && !window.matchMedia('(max-width:900px)').matches) {
       document.documentElement.style.cssText += 'background:#000!important;overflow:hidden;';
     }
   })();
@@ -301,13 +301,16 @@
           animateCount(card);
         }
 
+        var cachedSectionH = section.offsetHeight;
+        window.addEventListener('resize', function () { cachedSectionH = section.offsetHeight; }, { passive: true });
+
         function onScroll() {
           var rect = section.getBoundingClientRect();
           /* Heading: visible as soon as section enters viewport */
           if (rect.top < window.innerHeight * 0.85) heading.classList.add('visible');
           /* Cards: based on scroll progress through section */
           var p = Math.max(0, Math.min(1,
-            -rect.top / (section.offsetHeight - window.innerHeight)
+            -rect.top / (cachedSectionH - window.innerHeight)
           ));
           if (p > 0.02) show(c1, 0);
           if (p > 0.30) show(c2, 1);

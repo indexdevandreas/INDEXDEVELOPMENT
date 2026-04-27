@@ -2,6 +2,7 @@
   'use strict';
 
   if (sessionStorage.getItem('idx_intro')) return;
+  if (window.matchMedia('(max-width: 900px)').matches) return;
   sessionStorage.setItem('idx_intro', '1');
 
   document.body.style.overflow = 'hidden';
