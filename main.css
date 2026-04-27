@@ -339,6 +339,14 @@ body:has(.cursor) * { cursor: none; }
   pointer-events: none;
 }
 
+/* Mobile fallback: radial gradient replaces 5MB Spline scene */
+@media (max-width: 900px) {
+  .spline-bg {
+    background: radial-gradient(ellipse 120% 80% at 80% 20%, rgba(99,102,241,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(30,64,175,0.12) 0%, transparent 55%);
+  }
+}
+
 /* Hide Spline watermark */
 .spline-bg::part(watermark),
 spline-viewer::part(watermark) { display: none !important; }
