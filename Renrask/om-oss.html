@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="bilder/renrask.png">
   <title>Om Oss | Ren Rask Bilvask – Trondheim</title>
   <meta name="description" content="Lær mer om Ren Rask Bilvask – Trondheims ledende mobile bilvask. Startet sommeren 2023 med én misjon: å gjøre bilvask enklere og bedre for deg.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="style.css">
@@ -64,16 +66,16 @@
     <div style="gap: 64px;" class="about-layout">
       <div class="sr">
         <img
-          src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=900"
-          alt="Ren Rask Bilvask i arbeid"
-          loading="lazy"
+          src="bilder/vaskemiddel.jpg"
+          alt="Ren Rask Bilvask klargjør produkter"
+          loading="lazy" width="900" height="506"
           style="width:100%; height:520px; object-fit:cover; display:block;">
       </div>
       <div class="about-card sr sr-d1">
         <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:var(--blue); margin-bottom:12px;">Startet sommeren 2023</p>
         <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(28px,4vw,48px); text-transform:uppercase; letter-spacing:0.02em; line-height:1.05; margin-bottom:20px;">HISTORIEN OM REN RASK BILVASK</h2>
         <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.9; margin-bottom:14px;">Ren Rask Bilvask startet sommeren 2023. Vi ønsket å tilby bilvask for fremmede i nabolaget og startet smått med å vaske biler for naboer og bekjente. Allerede fra start skjønte vi at folk elsket konseptet – du trenger ikke stå i kø på bensinstasjon eller bruke en hel dag på å vaske bilen selv.</p>
-        <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.9; margin-bottom:14px;">Vi er mobile og kommer til deg, uansett om du er hjemme, på jobb eller et annet sted. Alt utstyr har vi med. Alt du trenger å gjøre er å booke tid og si til oss hvor bilen din er parkert.</p>
+        <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.9; margin-bottom:14px;">Vi er mobile og kommer til deg der bilen din er. Alt du trenger å gjøre er å booke tid og si til oss hvor bilen din er parkert. Vi trenger kun tilgang til vannkran og strøm hos deg.</p>
         <p style="font-size:14px; font-weight:300; color:var(--muted); line-height:1.9;">Siden oppstarten har vi vokst jevnt og trutt basert på anbefaleringer fra fornøyde kunder. Det er den bekreftelsen vi trenger på at vi gjør noe riktig – og vi er langt ifra ferdig.</p>
       </div>
     </div>
@@ -122,7 +124,7 @@
       <div class="stat-lbl">Startet</div>
     </div>
     <div class="sr sr-d1">
-      <div class="stat-n"><span data-count="300" data-suffix=" kr">300 kr</span></div>
+      <div class="stat-n"><span data-count="500" data-suffix=" kr">500 kr</span></div>
       <div class="stat-lbl">Fra pris</div>
     </div>
     <div class="sr sr-d2">
@@ -130,8 +132,12 @@
       <div class="stat-lbl">Fornøyd garanti</div>
     </div>
     <div class="sr sr-d3">
-      <div class="stat-n">★★★★★</div>
+      <div class="stat-n stat-n--stars">★★★★★</div>
       <div class="stat-lbl">Facebook-rating</div>
+    </div>
+    <div class="sr sr-d4">
+      <div class="stat-n stat-n--stars">★★★★★</div>
+      <div class="stat-lbl">Google-rating</div>
     </div>
   </div>
 </section>
@@ -172,7 +178,7 @@
       <a href="renrask.html" class="f-logo">
         <img src="bilder/renrask.png" alt="Ren Rask Bilvask" class="f-logo-img">
       </a>
-      <p class="f-tagline">Trondheims ledende mobile bilvask. Vi leverer showroom-standard direkte til deg – hjemme eller på jobb – uten at du trenger å flytte deg.</p>
+      <p class="f-tagline">Trondheims ledende mobile bilvask. Vi leverer showroom-standard direkte til deg – hjemme eller der bilen din er. Trenger kun tilgang til vannkran og strøm.</p>
       <div class="f-social">
         <a href="https://www.instagram.com/renrask_bilvask/" target="_blank" rel="noopener noreferrer" class="f-social-link" aria-label="Instagram">
           <i class="fa-brands fa-instagram"></i>
@@ -192,9 +198,9 @@
     </div>
     <div class="f-col">
       <div class="f-col-title">Tjenester</div>
-      <span>Utvendig Vask – fra 300 kr</span>
-      <span>Innvendig Vask – fra 400 kr</span>
-      <span>Total Pakke – fra 600 kr</span>
+      <span>Premium (innv + utv) – 1 000 kr</span>
+      <span>Premium Innvendig – 600 kr</span>
+      <span>Premium Utvendig – 500 kr</span>
     </div>
     <div class="f-col">
       <div class="f-col-title">Kontakt</div>

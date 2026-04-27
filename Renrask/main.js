@@ -66,10 +66,10 @@ function initSlider() {
 
   function visible() { return window.innerWidth >= 768 ? 3 : 1; }
   function max()     { return Math.max(0, cards.length - visible()); }
+  function step()    { const c = cards[0]; return c ? c.offsetWidth + 20 : 0; }
 
   function update() {
-    const pct = pos * (100 / visible());
-    track.style.transform = `translateX(-${pct}%)`;
+    track.style.transform = `translateX(-${pos * step()}px)`;
   }
 
   document.getElementById('arr-prev')?.addEventListener('click', () => { pos = Math.max(0, pos - 1);    update(); });
@@ -118,33 +118,68 @@ function initCounters() {
   document.querySelectorAll('[data-count]').forEach(el => obs.observe(el));
 }
 
-/* ─── Reviews carousel ─── */
+/* ─── Reviews carousel (infinite loop) ─── */
 function initReviews() {
   const track = document.getElementById('rv-track');
   if (!track) return;
 
-  const cards = track.querySelectorAll('.rv');
-  let pos = 0;
+  const orig = Array.from(track.querySelectorAll('.rv'));
+  const N    = orig.length;
+  const BUF  = 3; // buffer = max visible cards on desktop
 
-  function visible() { return window.innerWidth >= 768 ? 3 : 1; }
-  function max()     { return Math.max(0, cards.length - visible()); }
-
-  function update() {
-    const pct = pos * (100 / visible());
-    track.style.transform = `translateX(-${pct}%)`;
+  // Prepend clones of the last BUF originals
+  for (let i = N - BUF; i < N; i++) {
+    track.insertBefore(orig[i].cloneNode(true), track.firstChild);
+  }
+  // Append clones of the first BUF originals
+  for (let i = 0; i < BUF; i++) {
+    track.appendChild(orig[i].cloneNode(true));
   }
 
-  document.getElementById('rv-prev')?.addEventListener('click', () => { pos = Math.max(0, pos - 1);    update(); });
-  document.getElementById('rv-next')?.addEventListener('click', () => { pos = Math.min(max(), pos + 1); update(); });
-  window.addEventListener('resize', () => { pos = Math.min(pos, max()); update(); }, { passive: true });
+  let pos    = BUF; // start at first original
+  let locked = false;
+
+  function moveTo(p, animate) {
+    if (!animate) {
+      track.style.transition = 'none';
+      track.getBoundingClientRect(); // force reflow
+    } else {
+      track.style.transition = '';
+    }
+    pos = p;
+    const c = track.querySelector('.rv');
+    const step = c ? c.offsetWidth + 18 : 0;
+    track.style.transform = `translateX(-${pos * step}px)`;
+  }
+
+  moveTo(BUF, false);
+
+  function snapIfNeeded() {
+    if      (pos < BUF)       moveTo(pos + N, false);
+    else if (pos >= BUF + N)  moveTo(pos - N, false);
+  }
+
+  function step(dir) {
+    if (locked) return;
+    locked = true;
+    moveTo(pos + dir, true);
+    track.addEventListener('transitionend', function cb() {
+      track.removeEventListener('transitionend', cb);
+      snapIfNeeded();
+      locked = false;
+    }, { once: true });
+  }
+
+  document.getElementById('rv-prev')?.addEventListener('click', () => step(-1));
+  document.getElementById('rv-next')?.addEventListener('click', () => step(1));
+  window.addEventListener('resize', () => { moveTo(pos, false); }, { passive: true });
 
   let sx = 0;
   track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - sx;
     if (Math.abs(dx) < 40) return;
-    if (dx < 0) { pos = Math.min(max(), pos + 1); update(); }
-    else         { pos = Math.max(0, pos - 1);    update(); }
+    step(dx < 0 ? 1 : -1);
   }, { passive: true });
 }
 
@@ -205,23 +240,6 @@ function initHeroParallax() {
     }
   }, { passive: true });
 
-  if (window.matchMedia('(pointer: coarse)').matches) return;
-
-  hero.addEventListener('mousemove', e => {
-    const rect = hero.getBoundingClientRect();
-    const mx = ((e.clientX - rect.left) / rect.width)  * 100;
-    const my = ((e.clientY - rect.top)  / rect.height) * 100;
-    hero.style.setProperty('--mx', mx + '%');
-    hero.style.setProperty('--my', my + '%');
-
-    const dx = (e.clientX - rect.left - rect.width  / 2) / rect.width;
-    const dy = (e.clientY - rect.top  - rect.height / 2) / rect.height;
-    heroBg.style.transform = `translate(${dx * -18}px, ${dy * -10}px) translateY(${window.scrollY * 0.35}px)`;
-  }, { passive: true });
-
-  hero.addEventListener('mouseleave', () => {
-    heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
-  });
 }
 
 /* ─── 3D card tilt ─── */

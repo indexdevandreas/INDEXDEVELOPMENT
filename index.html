@@ -81,7 +81,7 @@
     <span class="topbar-pulse" aria-hidden="true"></span>
     <strong data-no="Ingen bindingstid" data-en="No lock-in">Ingen bindingstid</strong>
     &mdash; <span data-no="Koden er din eiendom" data-en="You own the code">Koden er din eiendom</span>
-    &mdash; <span data-no="1 klientplass ledig" data-en="1 client spot available">1 klientplass ledig</span> &mdash;
+    &mdash; <span data-no="Resultater før du betaler" data-en="Results before you pay">Resultater før du betaler</span> &mdash;
     <a href="#pris" data-no="Se priser" data-en="See pricing">Se priser</a>
   </div>
 
@@ -132,14 +132,7 @@
          HERO
     ============================= -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
-      <video
-        class="spline-bg"
-        autoplay muted loop playsinline
-        preload="none"
-        aria-hidden="true">
-        <source src="hero-bg.webm" type="video/webm">
-        <source src="hero-bg.mp4" type="video/mp4">
-      </video>
+      <div class="spline-bg" id="spline-container" aria-hidden="true"></div>
       <canvas id="particle-canvas" aria-hidden="true"></canvas>
       <div class="hero-light" id="hero-light" aria-hidden="true"></div>
 
@@ -148,7 +141,7 @@
         <div class="hero-meta">
           <span class="hero-badge">
             <span class="badge-dot" aria-hidden="true"></span>
-            <span data-no="1 klientplass ledig denne måneden" data-en="1 client spot available this month">1 klientplass ledig denne måneden</span>
+            <span data-no="Åpent for nye kunder" data-en="Open for new clients">Åpent for nye kunder</span>
           </span>
           <span class="hero-loc" data-no="Drammen, Norge" data-en="Drammen, Norway">Drammen, Norge</span>
         </div>
@@ -164,8 +157,8 @@
         <!-- Bottom: sub + CTAs + mini stats -->
         <div class="hero-bottom">
           <div class="hero-sub-col">
-            <p class="hero-sub" data-no="Den trege nettsiden din sender kunder direkte til nabobedriften — uten at du merker det. Vi håndkoder en lynrask salgsmaskin på 72 timer. Du betaler ingenting før du er fornøyd." data-en="Your slow website sends customers straight to your competitor — without you noticing. We hand-code a lightning-fast sales machine in 72 hours. You pay nothing until you're satisfied.">
-              Den trege nettsiden din sender kunder direkte til nabobedriften — uten at du merker det. Vi håndkoder en lynrask salgsmaskin på 72 timer. Du betaler ingenting før du er fornøyd.
+            <p class="hero-sub" data-no="Den trege nettsiden din sender kunder direkte til konkurrenten — uten at du merker det. Vi bygger deg en lynrask nettside på 72 timer. Er du ikke fornøyd ser du ikke en krone av regningen." data-en="Your slow website sends customers straight to your competitor — without you noticing. We build you a lightning-fast website in 72 hours. Not satisfied? You won't see a single krone of the bill.">
+              Den trege nettsiden din sender kunder direkte til konkurrenten — uten at du merker det. Vi bygger deg en lynrask nettside på 72 timer. Er du ikke fornøyd ser du ikke en krone av regningen.
             </p>
             <div class="hero-ctas">
               <div class="mag-wrap">
@@ -208,20 +201,20 @@
     ============================= -->
     <div class="marquee-section" aria-hidden="true">
       <div class="marquee-track">
-        <div class="marquee-item"><span data-no="Håndkodet HTML/CSS/JS" data-en="Hand-coded HTML/CSS/JS">Håndkodet HTML/CSS/JS</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span data-no="Skreddersydd kode" data-en="Custom code">Skreddersydd kode</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="0,4 sekunder innlasting" data-en="0.4 second load time">0,4 sekunder innlasting</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="72 timers leveranse" data-en="72-hour delivery">72 timers leveranse</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="0,- på forskudd" data-en="0 upfront">0,- på forskudd</span><span class="marquee-sep"></span></div>
-        <div class="marquee-item"><span>Cloudflare Enterprise</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Cloudflare-nettverket</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="Lokal SEO inkludert" data-en="Local SEO included">Lokal SEO inkludert</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="100% fornøyd-garanti" data-en="100% satisfaction guarantee">100% fornøyd-garanti</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="Koden er din eiendom" data-en="You own the code">Koden er din eiendom</span><span class="marquee-sep"></span></div>
         <!-- Duplicate for seamless loop -->
-        <div class="marquee-item"><span data-no="Håndkodet HTML/CSS/JS" data-en="Hand-coded HTML/CSS/JS">Håndkodet HTML/CSS/JS</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span data-no="Skreddersydd kode" data-en="Custom code">Skreddersydd kode</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="0,4 sekunder innlasting" data-en="0.4 second load time">0,4 sekunder innlasting</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="72 timers leveranse" data-en="72-hour delivery">72 timers leveranse</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="0,- på forskudd" data-en="0 upfront">0,- på forskudd</span><span class="marquee-sep"></span></div>
-        <div class="marquee-item"><span>Cloudflare Enterprise</span><span class="marquee-sep"></span></div>
+        <div class="marquee-item"><span>Cloudflare-nettverket</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="Lokal SEO inkludert" data-en="Local SEO included">Lokal SEO inkludert</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="100% fornøyd-garanti" data-en="100% satisfaction guarantee">100% fornøyd-garanti</span><span class="marquee-sep"></span></div>
         <div class="marquee-item"><span data-no="Koden er din eiendom" data-en="You own the code">Koden er din eiendom</span><span class="marquee-sep"></span></div>
@@ -308,16 +301,13 @@
           animateCount(card);
         }
 
-        var cachedSectionH = section.offsetHeight;
-        window.addEventListener('resize', function () { cachedSectionH = section.offsetHeight; }, { passive: true });
-
         function onScroll() {
           var rect = section.getBoundingClientRect();
           /* Heading: visible as soon as section enters viewport */
           if (rect.top < window.innerHeight * 0.85) heading.classList.add('visible');
           /* Cards: based on scroll progress through section */
           var p = Math.max(0, Math.min(1,
-            -rect.top / (cachedSectionH - window.innerHeight)
+            -rect.top / (section.offsetHeight - window.innerHeight)
           ));
           if (p > 0.02) show(c1, 0);
           if (p > 0.30) show(c2, 1);
@@ -452,8 +442,8 @@
         <p class="t-label" style="margin-bottom:2.5rem" data-sr="up" data-no="Hvorfor vi bygger før du betaler" data-en="Why we build before you pay">Hvorfor vi bygger før du betaler</p>
         <div class="proof-inner">
           <div class="proof-quote" data-sr="left">
-            <blockquote data-no="&quot;Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi nekter å være en del av et system der du tar all risikoen.&quot;" data-en="&quot;If we can&#39;t prove our value with a finished product, we don&#39;t deserve your money. We refuse to be part of a system where you take all the risk.&quot;">
-              "Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi nekter å være en del av et system der du tar all risikoen."
+            <blockquote data-no="&quot;Vi er så sikre på at du vil ha siden vi bygger, at vi tar hele risikoen selv. Du ser resultatet før du betaler en krone — slik skal det være.&quot;" data-en="&quot;We&apos;re so confident you&apos;ll want the site we build, that we take all the risk ourselves. You see the result before you pay a single krone — that&apos;s how it should be.&quot;">
+              "Vi er så sikre på at du vil ha siden vi bygger, at vi tar hele risikoen selv. Du ser resultatet før du betaler en krone — slik skal det være."
             </blockquote>
             <p class="proof-quote-author">— Andreas Melheim, <strong>Index Development</strong></p>
           </div>
@@ -536,7 +526,7 @@
           <div class="process-step" data-sr="up" data-d="4">
             <div class="process-step-num" aria-hidden="true">04</div>
             <h3 data-no="Kun ved fornøyd" data-en="Only if satisfied">Kun ved fornøyd</h3>
-            <p data-no="Er du fornøyd betaler du engangsbeløpet + 199,-/mnd for drift via Cloudflare enterprise-nettverk." data-en="If you're satisfied you pay the one-time fee + 199 NOK/month for hosting via Cloudflare enterprise network.">Er du fornøyd betaler du engangsbeløpet + 199,-/mnd for drift via Cloudflare enterprise-nettverk.</p>
+            <p data-no="Er du fornøyd betaler du engangsbeløpet + 199,-/mnd for drift via Cloudflare-nettverket." data-en="If you're satisfied you pay the one-time fee + 199 NOK/month for hosting via Cloudflare network.">Er du fornøyd betaler du engangsbeløpet + 199,-/mnd for drift via Cloudflare-nettverket.</p>
             <span class="process-time" data-no="Ingen bindingstid" data-en="No lock-in">Ingen bindingstid</span>
           </div>
         </div>
@@ -600,7 +590,7 @@
         <div class="no-lock-left">
           <p class="no-lock-eyebrow" data-no="Vår garanti til deg" data-en="Our guarantee to you">Vår garanti til deg</p>
           <h2 class="no-lock-title" id="nolock-title" data-no-html="Ingen bindingstid.<br>Koden er din — alltid." data-en-html="No lock-in.<br>The code is yours — always.">Ingen bindingstid.<br>Koden er din — alltid.</h2>
-          <p class="no-lock-sub" data-no="Vi tjener ikke penger på å låse deg inne. Slutter du å betale 199,-/mnd sender vi hele koden i en ZIP-fil. Ingen straffegebyrer. Ingen advokater. Ingen drama." data-en="We don't make money by locking you in. Stop paying 199 NOK/month and we'll send you all the code in a ZIP file. No penalties. No lawyers. No drama.">Vi tjener ikke penger på å låse deg inne. Slutter du å betale 199,-/mnd sender vi hele koden i en ZIP-fil. Ingen straffegebyrer. Ingen advokater. Ingen drama.</p>
+          <p class="no-lock-sub" data-no="Koden tilhører deg fra dag én. Slutter du å betale 199,-/mnd sender vi hele koden i en ZIP-fil. Ingen straffegebyrer. Ingen bindingstid. Ingen drama." data-en="The code is yours from day one. Stop paying 199 NOK/month and we'll send you all the code in a ZIP file. No penalties. No lock-in. No drama.">Koden tilhører deg fra dag én. Slutter du å betale 199,-/mnd sender vi hele koden i en ZIP-fil. Ingen straffegebyrer. Ingen bindingstid. Ingen drama.</p>
           <div class="no-lock-pills">
             <span class="no-lock-pill">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
@@ -711,11 +701,11 @@
             </div>
             <div class="quiz-pkg quiz-pkg-featured">
               <span class="quiz-pkg-name" data-no="Bedrift Pluss" data-en="Business Plus">Bedrift Pluss</span>
-              <span class="quiz-pkg-price" data-no="Fra 6.999,-" data-en="From 6,999 NOK">Fra 6.999,-</span>
+              <span class="quiz-pkg-price" data-no="Fra 5.999,-" data-en="From 5,999 NOK">Fra 5.999,-</span>
             </div>
             <div class="quiz-pkg">
               <span class="quiz-pkg-name" data-no="Totalpakken" data-en="The Full Package">Totalpakken</span>
-              <span class="quiz-pkg-price" data-no="Fra 14.999,-" data-en="From 14,999 NOK">Fra 14.999,-</span>
+              <span class="quiz-pkg-price" data-no="Fra 12.990,-" data-en="From 12,990 NOK">Fra 12.990,-</span>
             </div>
           </div>
           <p class="quiz-pkg-hint" data-sr="up" data-d="5" data-no="Quizen forteller deg hvilken pakke som passer din bedrift best" data-en="The quiz tells you which package suits your business best">Quizen forteller deg hvilken pakke som passer din bedrift best</p>
@@ -737,7 +727,7 @@
           </div>
           <div class="pricing-note" data-sr="right">
             <p class="pricing-note-label" data-no="Status denne måneden" data-en="Status this month">Status denne måneden</p>
-            <p class="pricing-note-val" data-no="2 av 3 plasser tatt" data-en="2 of 3 spots taken">2 av 3 plasser tatt</p>
+            <p class="pricing-note-val" data-no="Åpent for nye kunder nå" data-en="Open for new clients now">Åpent for nye kunder nå</p>
           </div>
         </div>
 
@@ -770,6 +760,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
                 <span data-no="Grunnleggende teknisk SEO" data-en="Basic technical SEO">Grunnleggende teknisk SEO</span>
               </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                <span data-no="Google Search Console" data-en="Google Search Console">Google Search Console</span>
+              </li>
             </ul>
             <div class="pricing-monthly">
               <span class="pricing-monthly-label" data-no="Drift og sikkerhet:" data-en="Hosting and security:">Drift og sikkerhet:</span>
@@ -784,9 +778,8 @@
 
           <!-- Bedrift Pluss (featured) -->
           <div class="pricing-card featured" data-sr="up" data-d="2">
-            <span class="pricing-badge" data-no="Kundefavoritten" data-en="Client favourite">Kundefavoritten</span>
             <h3 class="pricing-name" data-no="Bedrift Pluss" data-en="Business Plus">Bedrift Pluss</h3>
-            <div class="pricing-price">6.999<span style="font-size:1.5rem;font-weight:500;color:rgba(255,255,255,0.3)">,-</span></div>
+            <div class="pricing-price">5.999<span style="font-size:1.5rem;font-weight:500;color:rgba(255,255,255,0.3)">,-</span></div>
             <p class="pricing-period" data-no="engangsbeløp" data-en="one-time fee">engangsbeløp</p>
             <p class="pricing-desc" data-no="For bedrifter som vil dominere lokalt med full nettstedpakke og en grundig analyse av konkurrentene." data-en="For businesses that want to dominate locally with a full website package and a thorough competitor analysis.">For bedrifter som vil dominere lokalt med full nettstedpakke og en grundig analyse av konkurrentene.</p>
             <hr class="pricing-divider">
@@ -807,6 +800,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
                 <span data-no="Analytics og besøksstatistikk" data-en="Analytics and visitor statistics">Analytics og besøksstatistikk</span>
               </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                <span data-no="Google Bedriftsprofil" data-en="Google Business Profile">Google Bedriftsprofil</span>
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                <span data-no="Google Search Console" data-en="Google Search Console">Google Search Console</span>
+              </li>
               <li class="pricing-feature bonus">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.384 2.457C7.768 1.841 8.232 1.841 8.616 2.457l.944 1.556L11.5 4.5c.766.158 1.09.783.723 1.404l-.868 1.502.039 1.73c.016.73-.532 1.1-1.253.832L8.5 9.5 6.86 9.968c-.72.268-1.27-.102-1.253-.832l.039-1.73-.868-1.502c-.367-.621-.043-1.246.723-1.404l1.94-.487.943-1.556Z"/></svg>
                 <span data-no="BONUS: Konkurrentanalyse" data-en="BONUS: Competitor analysis">BONUS: Konkurrentanalyse</span>
@@ -826,7 +827,7 @@
           <!-- Totalpakken -->
           <div class="pricing-card" data-sr="up" data-d="3">
             <h3 class="pricing-name" data-no="Totalpakken" data-en="The Full Package">Totalpakken</h3>
-            <div class="pricing-price">14.999<span style="font-size:1.5rem;font-weight:500;color:#9ca3af">,-</span></div>
+            <div class="pricing-price">12.990<span style="font-size:1.5rem;font-weight:500;color:#9ca3af">,-</span></div>
             <p class="pricing-period" data-no="engangsbeløp" data-en="one-time fee">engangsbeløp</p>
             <p class="pricing-desc" data-no="Vi designer, koder og skriver alle tekstene — en komplett salgsmaskin som jobber for deg døgnet rundt." data-en="We design, code and write all the copy — a complete sales machine that works for you around the clock.">Vi designer, koder og skriver alle tekstene — en komplett salgsmaskin som jobber for deg døgnet rundt.</p>
             <hr class="pricing-divider">
@@ -846,6 +847,14 @@
               <li class="pricing-feature">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
                 <span data-no="Prioritert support" data-en="Priority support">Prioritert support</span>
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                <span data-no="Google Bedriftsprofil" data-en="Google Business Profile">Google Bedriftsprofil</span>
+              </li>
+              <li class="pricing-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd"/></svg>
+                <span data-no="Google Search Console" data-en="Google Search Console">Google Search Console</span>
               </li>
               <li class="pricing-feature bonus">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.384 2.457C7.768 1.841 8.232 1.841 8.616 2.457l.944 1.556L11.5 4.5c.766.158 1.09.783.723 1.404l-.868 1.502.039 1.73c.016.73-.532 1.1-1.253.832L8.5 9.5 6.86 9.968c-.72.268-1.27-.102-1.253-.832l.039-1.73-.868-1.502c-.367-.621-.043-1.246.723-1.404l1.94-.487.943-1.556Z"/></svg>
@@ -905,7 +914,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="currentColor"><path d="M6 1.5a.75.75 0 0 1 .75.75V5.5h3.25a.75.75 0 0 1 0 1.5H6.75v3.25a.75.75 0 0 1-1.5 0V7H2a.75.75 0 0 1 0-1.5h3.25V2.25A.75.75 0 0 1 6 1.5Z"/></svg>
                 </span>
               </button>
-              <div class="faq-a"><p data-no="Det er ingen hake. Vår filosofi er enkel: Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi vet at vi leverer kvalitet, og er villige til å ta all risikoen i starten." data-en="There's no catch. Our philosophy is simple: if we can't prove our value with a finished product, we don't deserve your money. We know we deliver quality and are willing to take all the risk upfront.">Det er ingen hake. Vår filosofi er enkel: Hvis vi ikke kan bevise verdien vår med et ferdig produkt, fortjener vi ikke pengene dine. Vi vet at vi leverer kvalitet, og er villige til å ta all risikoen i starten.</p></div>
+              <div class="faq-a"><p data-no="Ingen hake. Vi er så sikre på at du vil like resultatet at vi tar all risikoen selv. Mange byråer ber om 30–80.000,- før du har sett en eneste linje kode. Det synes vi er feil. Du ser siden ferdig — så bestemmer du." data-en="No catch. We're so confident you'll like the result that we take all the risk ourselves. Many agencies ask for 30–80,000 NOK before you've seen a single line of code. We think that's wrong. You see the finished site — then you decide.">Ingen hake. Vi er så sikre på at du vil like resultatet at vi tar all risikoen selv. Mange byråer ber om 30–80.000,- før du har sett en eneste linje kode. Det synes vi er feil. Du ser siden ferdig — så bestemmer du.</p></div>
             </div>
 
             <div class="faq-item" role="listitem">
@@ -1031,9 +1040,49 @@
 
   <script src="intro.js" defer></script>
   <script src="particles.js" defer></script>
-  <script src="stars.js" defer></script>
   <script src="lang.js" defer></script>
   <script src="steps.js" defer></script>
+  <script>
+  /* Lazy-load Spline only on desktop (>900px) after page is idle */
+  (function () {
+    if (window.innerWidth <= 900) return;
+
+    function loadSpline() {
+      var container = document.getElementById('spline-container');
+      if (!container) return;
+
+      function killWatermark(viewer) {
+        var root = viewer.shadowRoot;
+        if (!root) return;
+        var style = document.createElement('style');
+        style.textContent = '#logo, [class*="watermark"], [id*="watermark"], a[href*="spline.design"] { opacity:0!important; filter:opacity(0)!important; pointer-events:none!important; } * { --logo-opacity:0!important; }';
+        root.appendChild(style);
+      }
+
+      var script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
+      script.onload = function () {
+        var viewer = document.createElement('spline-viewer');
+        viewer.setAttribute('url', 'https://prod.spline.design/kSnCEYla2jnKaYg9/scene.splinecode');
+        viewer.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+        if (viewer.shadowRoot) { killWatermark(viewer); }
+        else {
+          var mo = new MutationObserver(function () { killWatermark(viewer); mo.disconnect(); });
+          mo.observe(viewer, { childList: true, subtree: true });
+        }
+        container.appendChild(viewer);
+      };
+      document.head.appendChild(script);
+    }
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadSpline, { timeout: 3000 });
+    } else {
+      setTimeout(loadSpline, 2500);
+    }
+  }());
+  </script>
   <script>
   // ---- KOSTNADSKALKULATOR ----
   (function () {
