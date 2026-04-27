@@ -18,9 +18,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: #fff; color: var(--dark);
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 68px;
 }
-@media (min-width: 768px) { body { padding-bottom: 0; } }
 body.noscroll { overflow: hidden; }
 
 /* ─── INTRO ────────────────────────────────────── */
@@ -656,24 +654,21 @@ footer {
 }
 .footer-bottom a { color: var(--blue); text-decoration: none; }
 
-/* ─── MOBILE STICKY ─────────────────────────────── */
-.mob-sticky {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  background: var(--dark); border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 14px; display: flex; gap: 10px; z-index: 50;
+
+/* ─── CONTACT GRID ───────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-@media (min-width: 768px) { .mob-sticky { display: none; } }
-.mob-sticky a {
-  flex: 1; padding: 13px; text-align: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  text-decoration: none; transition: background 0.2s;
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid .about-card { margin: 0; padding: 32px 24px; }
+  .contact-email { font-size: 16px !important; word-break: break-all; }
 }
-.mob-call { background: var(--blue); color: #fff; }
-.mob-call:hover { background: var(--blue-h); }
-.mob-book { border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.7); }
 
 /* ─── SCROLL REVEAL ──────────────────────────────── */
 .sr {

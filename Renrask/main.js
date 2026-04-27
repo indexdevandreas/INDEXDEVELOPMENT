@@ -37,9 +37,16 @@ function initNav() {
   const mNav      = document.getElementById('m-nav');
   const mClose    = document.getElementById('m-close');
 
-  hamburger?.addEventListener('click', () => mNav.classList.add('open'));
+  hamburger?.addEventListener('click', () => mNav.classList.toggle('open'));
   mClose?.addEventListener('click',    () => mNav.classList.remove('open'));
   mNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mNav.classList.remove('open')));
+
+  document.addEventListener('click', e => {
+    if (!mNav?.classList.contains('open')) return;
+    if (!mNav.contains(e.target) && !hamburger.contains(e.target)) {
+      mNav.classList.remove('open');
+    }
+  });
 }
 
 /* ─── Services slider ─── */
@@ -61,6 +68,15 @@ function initSlider() {
   document.getElementById('arr-prev')?.addEventListener('click', () => { pos = Math.max(0, pos - 1);    update(); });
   document.getElementById('arr-next')?.addEventListener('click', () => { pos = Math.min(max(), pos + 1); update(); });
   window.addEventListener('resize', () => { pos = Math.min(pos, max()); update(); }, { passive: true });
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) { pos = Math.min(max(), pos + 1); update(); }
+    else         { pos = Math.max(0, pos - 1);    update(); }
+  }, { passive: true });
 }
 
 /* ─── Scroll reveal ─── */
@@ -114,6 +130,15 @@ function initReviews() {
   document.getElementById('rv-prev')?.addEventListener('click', () => { pos = Math.max(0, pos - 1);    update(); });
   document.getElementById('rv-next')?.addEventListener('click', () => { pos = Math.min(max(), pos + 1); update(); });
   window.addEventListener('resize', () => { pos = Math.min(pos, max()); update(); }, { passive: true });
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) { pos = Math.min(max(), pos + 1); update(); }
+    else         { pos = Math.max(0, pos - 1);    update(); }
+  }, { passive: true });
 }
 
 /* ─── Ambient cursor glow ─── */
@@ -166,7 +191,6 @@ function initHeroParallax() {
   const heroBg = document.querySelector('.hero-bg');
   if (!hero || !heroBg) return;
 
-  /* Scroll parallax */
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (y < window.innerHeight) {
@@ -174,7 +198,6 @@ function initHeroParallax() {
     }
   }, { passive: true });
 
-  /* Mouse parallax within hero */
   if (window.matchMedia('(pointer: coarse)').matches) return;
 
   hero.addEventListener('mousemove', e => {
