@@ -324,12 +324,12 @@ body:has(.cursor) * { cursor: none; }
 .hero {
   position: relative;
   min-height: 100svh;
-  background: var(--dark);
+  background: var(--dark) radial-gradient(ellipse 100% 70% at 70% 10%, rgba(37,99,235,0.15) 0%, transparent 65%);
   display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden;
 }
 
-/* Spline 3D — inside hero, sits on dark background */
+/* Hero background video */
 .spline-bg {
   position: absolute;
   inset: 0;
@@ -337,19 +337,8 @@ body:has(.cursor) * { cursor: none; }
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  object-fit: cover;
 }
-
-/* Mobile fallback: radial gradient replaces 5MB Spline scene */
-@media (max-width: 900px) {
-  .spline-bg {
-    background: radial-gradient(ellipse 120% 80% at 80% 20%, rgba(99,102,241,0.18) 0%, transparent 60%),
-                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(30,64,175,0.12) 0%, transparent 55%);
-  }
-}
-
-/* Hide Spline watermark */
-.spline-bg::part(watermark),
-spline-viewer::part(watermark) { display: none !important; }
 
 /* Particle canvas — above Spline and rings, below text */
 #particle-canvas {
