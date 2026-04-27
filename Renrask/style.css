@@ -83,6 +83,9 @@ body.noscroll { overflow: hidden; }
 .hamburger {
   background: none; border: none;
   color: #fff; font-size: 21px; cursor: pointer;
+  position: relative; z-index: 1001;
+  padding: 8px; margin: -8px;
+  -webkit-tap-highlight-color: transparent;
 }
 @media (min-width: 900px) { .hamburger { display: none; } }
 

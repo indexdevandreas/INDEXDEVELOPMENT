@@ -37,17 +37,23 @@ function initNav() {
   const mNav      = document.getElementById('m-nav');
   const mClose    = document.getElementById('m-close');
 
-  hamburger?.addEventListener('click', e => {
-    e.stopPropagation();
-    mNav.classList.toggle('open');
-  });
-  mClose?.addEventListener('click', () => mNav.classList.remove('open'));
-  mNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mNav.classList.remove('open')));
+  if (!hamburger || !mNav) return;
 
-  document.addEventListener('click', e => {
-    if (!mNav?.classList.contains('open')) return;
-    if (!mNav.contains(e.target)) mNav.classList.remove('open');
+  const close  = () => mNav.classList.remove('open');
+  const toggle = () => mNav.classList.toggle('open');
+
+  let didMove = false;
+  hamburger.addEventListener('touchstart', () => { didMove = false; }, { passive: true });
+  hamburger.addEventListener('touchmove',  () => { didMove = true;  }, { passive: true });
+  hamburger.addEventListener('touchend', e => {
+    if (didMove) return;
+    e.preventDefault();
+    toggle();
   });
+  hamburger.addEventListener('click', toggle);
+
+  mClose?.addEventListener('click', close);
+  mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 }
 
 /* ─── Services slider ─── */
