@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontakt Hans Haugerud AS — rørlegger i Oslo. Ring 23 08 41 41 eller send oss en melding. 24/7 vakt på 90 91 90 90.">
+  <title>Kontakt oss — Hans Haugerud AS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .emergency-bar {
+      background: linear-gradient(90deg, var(--gold) 0%, #8a6b30 100%);
+      padding: 14px 0; text-align: center;
+      position: relative; z-index: 50; margin-top: var(--nav-h);
+    }
+    .emergency-bar p { font-size: .88rem; font-weight: 600; color: var(--dark); }
+    .emergency-bar a { color: var(--dark); font-weight: 700; text-decoration: underline; }
+    .job-card {
+      background: var(--off-white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 40px; position: relative; overflow: hidden;
+    }
+    .job-card::before {
+      content:''; position:absolute; left:0; top:0; bottom:0;
+      width:4px; background: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">Hans Haugerud</span>
+      <span class="nav__logo-sub">AS · Rørlegger Oslo</span>
+    </a>
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Hjem</a>
+      <a href="tjenester.html" class="nav__link">Tjenester</a>
+      <a href="kvalitet.html" class="nav__link">Kvalitet & Miljø</a>
+      <a href="referanser.html" class="nav__link">Referanser & Baderom</a>
+      <a href="kontakt.html" class="nav__link active">Kontakt</a>
+    </div>
+    <a href="tel:23084141" class="nav__phone">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      23 08 41 41
+    </a>
+    <button class="nav__hamburger" aria-label="Åpne meny"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Hjem</a>
+  <a href="tjenester.html" class="nav__mobile-link">Tjenester</a>
+  <a href="kvalitet.html" class="nav__mobile-link">Kvalitet & Miljø</a>
+  <a href="referanser.html" class="nav__mobile-link">Referanser & Baderom</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <a href="tel:23084141" class="nav__mobile-phone">Ring oss: 23 08 41 41 · Vakt: 90 91 90 90</a>
+</div>
+
+<!-- Akutt-banner — vises etter nav (siden nav er fixed) -->
+<div class="emergency-bar" style="margin-top:var(--nav-h)">
+  <p>24/7 Rørleggervakt — akutt hjelp? Ring <a href="tel:90919090">90 91 90 90</a> nå</p>
+</div>
+
+<main>
+
+  <!-- ── PAGE HERO ─────────────────────────── -->
+  <section class="page-hero" style="padding-top:120px">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=85')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="container">
+      <div class="page-hero__content">
+        <nav class="breadcrumb">
+          <a href="index.html">Hjem</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Kontakt</span>
+        </nav>
+        <span class="eyebrow">Vi er her for deg</span>
+        <h1 class="page-hero__title">Kontakt oss</h1>
+        <p class="page-hero__desc">Uforpliktende samtale, tilbud eller akutt hjelp — ta kontakt på den måten som passer deg best.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KONTAKT ───────────────────────────── -->
+  <section class="section section--warm">
+    <div class="container">
+      <div class="grid-2" style="gap:48px;align-items:start">
+
+        <!-- Info -->
+        <div class="reveal-left">
+          <span class="eyebrow">Kontaktinformasjon</span>
+          <div class="gold-rule"></div>
+          <h2 class="section-title">La oss ta en prat</h2>
+          <p class="section-desc" style="margin-bottom:2.5rem">Vi gir gode råd og ærlig rådgivning — uten forpliktelse. Ring oss, send en e-post eller fyll ut skjemaet.</p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Adresse</div>
+              <div class="contact-info-value">Lindemansgate 2, 0267 Oslo<br>
+                <a href="http://kart.gulesider.no/m/nnkGt" target="_blank" rel="noopener" style="font-size:.85rem;color:var(--gold)">Finn oss på kart →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Kontor</div>
+              <div class="contact-info-value"><a href="tel:23084141">23 08 41 41</a></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:rgba(184,151,90,.2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">24/7 Rørleggervakt</div>
+              <div class="contact-info-value" style="font-size:1.15rem"><a href="tel:90919090" style="color:var(--gold);font-weight:700">90 91 90 90</a></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">E-post</div>
+              <div class="contact-info-value"><a href="mailto:post@hanshaugerud.no">post@hanshaugerud.no</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal-right">
+          <div class="contact-form">
+            <h3 style="font-family:var(--font-h);font-size:1.4rem;font-weight:700;margin-bottom:1.5rem">Send oss en melding</h3>
+            <form>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="navn">Ditt navn *</label>
+                  <input class="form-input" type="text" id="navn" name="navn" required placeholder="Ola Nordmann">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telefon">Telefon</label>
+                  <input class="form-input" type="tel" id="telefon" name="telefon" placeholder="90 00 00 00">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="epost">E-postadresse *</label>
+                <input class="form-input" type="email" id="epost" name="epost" required placeholder="din@epost.no">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="emne">Hva gjelder henvendelsen?</label>
+                <select class="form-select" id="emne" name="emne">
+                  <option value="">— Velg et tema —</option>
+                  <option>Baderom / Våtrom</option>
+                  <option>Sanitær / Varme</option>
+                  <option>Brannvern / Sprinkler</option>
+                  <option>Akutt reparasjon</option>
+                  <option>Nybygg / Rehabilitering</option>
+                  <option>Annet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="melding">Melding *</label>
+                <textarea class="form-textarea" id="melding" name="melding" required placeholder="Beskriv hva du trenger hjelp med..."></textarea>
+              </div>
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <button type="submit" class="form-submit">Send melding</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JOBB HOS OSS ──────────────────────── -->
+  <section class="section section--white" id="jobb">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal-left">
+          <span class="eyebrow">Karriere</span>
+          <div class="gold-rule"></div>
+          <h2 class="section-title">Jobb hos oss</h2>
+          <p class="section-desc">Våre medarbeidere er vår viktigste ressurs. Vi er alltid på utkikk etter flinke, pålitelige folk med interesse for faget og stort utviklingspotensial.</p>
+          <p class="section-desc mt-2">Vi tilbyr et trivelig arbeidsmiljø, kontinuerlig faglig utvikling og muligheten til å jobbe med Oslos mest krevende og spennende prosjekter.</p>
+          <div class="feature-list mt-4">
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Godkjent lærebedrift med strukturert opplæring
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Spennende prosjekter — fra private bad til Stortinget
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Stabilt, trivelig og profesjonelt arbeidsmiljø
+            </li>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="job-card">
+            <span class="eyebrow">Åpen søknad</span>
+            <h3 style="font-family:var(--font-h);font-size:1.5rem;font-weight:700;margin-bottom:1rem">Er du vår neste kollega?</h3>
+            <p style="color:var(--text-mid);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem">
+              Vi oppmuntrer til personlig initiativ og entusiasme. Er du en dyktig og pålitelig person med positive holdninger og ønske om å lære og utvikle deg — vil vi gjerne høre fra deg.
+            </p>
+            <a href="mailto:post@hanshaugerud.no?subject=Åpen søknad" class="btn btn--dark" style="display:inline-flex">
+              Send åpen søknad
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <p style="font-size:.82rem;color:var(--text-light);margin-top:1rem">Send til: post@hanshaugerud.no</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────── -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <span class="eyebrow" style="color:var(--gold)">Alltid tilgjengelig</span>
+      <h2>Akutt rørleggerbehov?</h2>
+      <p>Ring vår 24-timers vakt — vi er der for deg, hele døgnet.</p>
+      <a href="tel:90919090" class="cta-phone">90 91 90 90</a>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:23084141" class="btn btn--primary">Ring kontoret</a>
+        <a href="tjenester.html" class="btn btn--outline">Se våre tjenester</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-main">Hans Haugerud</div>
+        <div class="footer__logo-sub">AS · Rørlegger Oslo</div>
+        <p class="footer__tagline">Fullservice rørlegger i Oslo med over 45 års erfaring. Fra baderom og sanitær til brannvern og 24/7 vakt.</p>
+        <div class="footer__badges">
+          <span class="footer__badge">NRL</span>
+          <span class="footer__badge">Mesterbedrift</span>
+          <span class="footer__badge">Miljøfyrtårn</span>
+          <span class="footer__badge">NHO</span>
+          <span class="footer__badge">Godkjent lærebedrift</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Navigasjon</div>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Hjem</a>
+          <a href="tjenester.html" class="footer__link">Tjenester</a>
+          <a href="kvalitet.html" class="footer__link">Kvalitet & Miljø</a>
+          <a href="referanser.html" class="footer__link">Referanser & Baderom</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+          <a href="#jobb" class="footer__link">Jobb hos oss</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Tjenester</div>
+        <div class="footer__links">
+          <a href="tjenester.html" class="footer__link">Baderom & Våtrom</a>
+          <a href="tjenester.html" class="footer__link">Sanitær & Varme</a>
+          <a href="tjenester.html" class="footer__link">Brannvern & Sprinkler</a>
+          <a href="tjenester.html" class="footer__link">Staking & Spyling</a>
+          <a href="tjenester.html" class="footer__link">24/7 Rørleggervakt</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Kontakt</div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Lindemansgate 2, 0267 Oslo</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><a href="tel:23084141">23 08 41 41</a> (kontor)</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><a href="tel:90919090">90 91 90 90</a> (24/7 vakt)</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span><a href="mailto:post@hanshaugerud.no">post@hanshaugerud.no</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 Hans Haugerud AS. Alle rettigheter forbeholdt.</p>
+      <p>Lindemansgate 2, 0267 Oslo</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
