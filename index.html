@@ -380,13 +380,20 @@
          TESTIMONIAL
     ============================= -->
     <section class="testimonial-section" aria-label="Kundeanmeldelse">
-      <div class="container">
-        <div class="testimonial-card">
-          <div class="testimonial-quote" aria-hidden="true">"</div>
-          <blockquote class="testimonial-body">
-            Index Development bygger ikke bare en nettside. De bygger en salgsmaskin. Med god kommunikasjon og samhandling laget de en nettside for min bedrift tilfredsstillende og effektivt. Hvis din bedrift ønsker en nettside eller bare leter etter det neste steg for bedriften, ikke tenk mer, velg Index Development.
-          </blockquote>
-          <p class="testimonial-author">— Jakob Tande, Daglig Leder Renraskbilvask</p>
+      <canvas id="stars-canvas-2" aria-hidden="true"></canvas>
+      <div class="testimonial-inner">
+        <svg class="testimonial-quote-icon" viewBox="0 0 80 52" fill="none" aria-hidden="true">
+          <path d="M0 52V30.4C0 13.6 8 4 24 0l4.8 6.4C20 9.6 15.467 15.2 14.4 24H28V52H0ZM52 52V30.4C52 13.6 60 4 76 0l4.8 6.4C72 9.6 67.467 15.2 66.4 24H80V52H52Z" fill="#2563eb"/>
+        </svg>
+        <blockquote class="testimonial-body">
+          Index Development bygger ikke bare en nettside. De bygger en salgsmaskin. Med god kommunikasjon og samhandling laget de en nettside for min bedrift tilfredsstillende og effektivt. Ikke tenk mer — velg Index Development.
+        </blockquote>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">JT</div>
+          <div class="testimonial-person-info">
+            <div class="testimonial-name">JAKOB TANDE</div>
+            <div class="testimonial-role">DAGLIG LEDER, RENRASKBILVASK</div>
+          </div>
         </div>
       </div>
     </section>
@@ -395,6 +402,7 @@
          WORK
     ============================= -->
     <section class="work-section section-pad" aria-labelledby="work-title">
+      <canvas id="stars-canvas" aria-hidden="true"></canvas>
       <div class="container">
         <div class="work-header">
           <div>
@@ -1347,32 +1355,54 @@
   </script>
   <script>
   (function () {
+    /* ---- Project carousel ---- */
     var projects = [
-      { desktop: 'bilder/rr.png',    mobile: '' },
-      { desktop: 'bilder/blezz.png', mobile: '' }
+      { desktop: 'bilder/rr.png',    mobile: 'bilder/tlf2.jpg' },
+      { desktop: 'bilder/blezz.png', mobile: 'bilder/tlf1.jpg' }
     ];
 
-    var current = 0;
+    var current    = 0;
+    var busy       = false;
     var desktopImg = document.getElementById('pm-desktop-img');
     var mobileImg  = document.getElementById('pm-mobile-img');
     var dots       = document.querySelectorAll('.pm-dot');
     var prevBtn    = document.getElementById('pm-prev');
     var nextBtn    = document.getElementById('pm-next');
 
-    function loadImg(el, src) {
-      el.classList.remove('pm-loaded');
+    function fadeSwap(el, src) {
+      if (!src) { el.style.opacity = '0'; return; }
+      el.style.transition = 'opacity 0s';
+      el.style.opacity    = '0';
       var tmp = new Image();
-      tmp.onload = function () { el.src = src; el.classList.add('pm-loaded'); };
-      tmp.onerror = function () { el.src = ''; };
+      tmp.onload = function () {
+        el.src = src;
+        requestAnimationFrame(function () {
+          el.style.transition = 'opacity 0.55s ease';
+          el.style.opacity    = '1';
+        });
+      };
+      tmp.onerror = function () { el.style.opacity = '0'; };
       tmp.src = src;
     }
 
     function go(idx) {
-      current = (idx + projects.length) % projects.length;
-      var p = projects[current];
-      loadImg(desktopImg, p.desktop);
-      loadImg(mobileImg,  p.mobile);
-      dots.forEach(function (d, i) { d.classList.toggle('pm-dot-active', i === current); });
+      if (busy) return;
+      busy = true;
+      var next = (idx + projects.length) % projects.length;
+      var p    = projects[next];
+
+      desktopImg.style.transition = 'opacity 0.3s ease';
+      desktopImg.style.opacity    = '0';
+      mobileImg.style.transition  = 'opacity 0.3s ease';
+      mobileImg.style.opacity     = '0';
+
+      setTimeout(function () {
+        current = next;
+        fadeSwap(desktopImg, p.desktop);
+        fadeSwap(mobileImg,  p.mobile);
+        dots.forEach(function (d, i) { d.classList.toggle('pm-dot-active', i === current); });
+        setTimeout(function () { busy = false; }, 600);
+      }, 300);
     }
 
     if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
@@ -1380,8 +1410,137 @@
     dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
 
     go(0);
-
   }());
+
+  /* ---- Falling stars ---- */
+  function initFallingStars(canvasId) {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var stars = [];
+    var NUM = 160;
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    /* 4-pointed sparkle / cross */
+    function drawSparkle(x, y, size, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth   = size * 0.28;
+      ctx.lineCap     = 'round';
+      /* long axis */
+      ctx.beginPath();
+      ctx.moveTo(x, y - size);
+      ctx.lineTo(x, y + size);
+      ctx.stroke();
+      /* short axis */
+      ctx.lineWidth = size * 0.18;
+      ctx.beginPath();
+      ctx.moveTo(x - size * 0.55, y);
+      ctx.lineTo(x + size * 0.55, y);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    /* 6-pointed star (two overlapping triangles) */
+    function drawStar6(x, y, r, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle   = '#fff';
+      for (var t = 0; t < 2; t++) {
+        ctx.beginPath();
+        for (var i = 0; i < 3; i++) {
+          var angle = (i * Math.PI * 2) / 3 + (t ? Math.PI / 3 : 0);
+          var px = x + r * Math.cos(angle);
+          var py = y + r * Math.sin(angle);
+          i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    /* glowing dot with soft halo */
+    function drawGlow(x, y, r, alpha) {
+      var g = ctx.createRadialGradient(x, y, 0, x, y, r * 3);
+      g.addColorStop(0,   'rgba(255,255,255,' + alpha + ')');
+      g.addColorStop(0.35,'rgba(255,255,255,' + (alpha * 0.55) + ')');
+      g.addColorStop(1,   'rgba(255,255,255,0)');
+      ctx.save();
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, r * 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    /* plain dot */
+    function drawDot(x, y, r, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle   = '#fff';
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function initStars() {
+      stars = [];
+      for (var i = 0; i < NUM; i++) {
+        var type = Math.random();
+        stars.push({
+          x:     rand(0, canvas.width),
+          y:     rand(-canvas.height, canvas.height),
+          r:     rand(0.8, 3.5),
+          speed: rand(0.25, 0.9),
+          alpha: rand(0.25, 0.75),
+          /* 0=dot 1=glow 2=sparkle 3=star6 */
+          kind:  type < 0.35 ? 0 : type < 0.62 ? 1 : type < 0.84 ? 2 : 3,
+          twinkleOffset: rand(0, Math.PI * 2),
+          twinkleSpeed:  rand(0.008, 0.025)
+        });
+      }
+    }
+
+    var frame = 0;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frame++;
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        var a = s.alpha * (0.7 + 0.3 * Math.sin(frame * s.twinkleSpeed + s.twinkleOffset));
+
+        if      (s.kind === 0) drawDot(s.x, s.y, s.r, a);
+        else if (s.kind === 1) drawGlow(s.x, s.y, s.r, a);
+        else if (s.kind === 2) drawSparkle(s.x, s.y, s.r * 2.2, a);
+        else                   drawStar6(s.x, s.y, s.r * 1.4, a);
+
+        s.y += s.speed;
+        if (s.y > canvas.height + 10) {
+          s.y = -10;
+          s.x = rand(0, canvas.width);
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    var ro = new ResizeObserver(function () { resize(); initStars(); });
+    ro.observe(canvas.parentElement);
+    resize();
+    initStars();
+    draw();
+  }
+
+  initFallingStars('stars-canvas');
+  initFallingStars('stars-canvas-2');
   </script>
 
 </body>

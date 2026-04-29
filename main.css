@@ -1176,7 +1176,17 @@ body:has(.cursor) * { cursor: none; }
 }
 
 /* ---- WORK / CASES ---- */
-.work-section { background: #0a0a0a; }
+.work-section { background: #0a0a0a; position: relative; overflow: hidden; margin-top: 0; }
+#stars-canvas,
+#stars-canvas-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.work-section .container { position: relative; z-index: 1; }
 .work-header {
   display: flex; justify-content: space-between; align-items: flex-end;
   margin-bottom: 3rem;
@@ -1273,8 +1283,7 @@ body:has(.cursor) * { cursor: none; }
   background: linear-gradient(135deg, #0d0d18 0%, #12182a 100%);
   border-radius: 2px; overflow: hidden;
 }
-.pm-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; opacity: 0; transition: opacity 0.4s ease; }
-.pm-screen img.pm-loaded { opacity: 1; }
+.pm-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .pm-hinge { width: 800px; height: 5px; background: linear-gradient(to bottom, #1c1c1e, #2c2c2e); }
 .pm-base {
   width: 840px; height: 22px;
@@ -1315,8 +1324,7 @@ body:has(.cursor) * { cursor: none; }
   background: linear-gradient(135deg, #0d0d18 0%, #12182a 100%);
   border-radius: 36px; overflow: hidden;
 }
-.pm-phone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; opacity: 0; transition: opacity 0.4s ease; }
-.pm-phone-screen img.pm-loaded { opacity: 1; }
+.pm-phone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .pm-island {
   position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
   width: 36px; height: 10px; background: #1c1c1e; border-radius: 10px; z-index: 10;
@@ -1386,39 +1394,88 @@ body:has(.cursor) * { cursor: none; }
 
 /* ---- TESTIMONIAL ---- */
 .testimonial-section {
-  padding: 5rem 0 0;
-  background: var(--bg);
-}
-.testimonial-card {
-  max-width: 720px;
-  margin: 0 auto;
+  background: #0a0a0a;
+  padding: 5rem 2rem 7rem;
   text-align: center;
+  position: relative;
 }
-.testimonial-quote {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 8rem;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--white);
-  margin-bottom: 0.5rem;
+.testimonial-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 520px;
+  background: linear-gradient(to bottom,
+    #ffffff    0%,
+    #f2f2f2   8%,
+    #d6d6d6   18%,
+    #aaaaaa   28%,
+    #707070   40%,
+    #3d3d3d   52%,
+    #1c1c1c   64%,
+    #0e0e0e   76%,
+    #0a0a0a   100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.testimonial-inner { position: relative; z-index: 1; }
+.testimonial-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.testimonial-quote-icon {
+  width: 64px;
+  height: auto;
+  margin: 0 auto 2rem;
+  display: block;
 }
 .testimonial-body {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.75);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
   font-style: normal;
-  margin: 0 0 1.8rem;
   border: none;
   padding: 0;
+  margin: 0 0 3rem;
 }
-.testimonial-author {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.4);
-  font-style: normal;
+.testimonial-person {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+.testimonial-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid #444;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.testimonial-person-info { text-align: left; }
+.testimonial-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+.testimonial-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2563eb;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
 }
 @media (max-width: 640px) {
-  .testimonial-quote { font-size: 5rem; }
-  .testimonial-body { font-size: 1.05rem; }
+  .testimonial-section { padding: 4rem 1.5rem; }
+  .testimonial-body { font-size: 1.25rem; }
 }
 
 /* ---- PROOF / PHILOSOPHY ---- */
