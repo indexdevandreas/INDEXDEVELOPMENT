@@ -137,6 +137,13 @@
     .acc-content { grid-template-columns: 1fr; gap: 32px; padding: 8px 0 48px 56px; }
     .acc-list:hover .acc-trigger { opacity: 1; }
   }
+  @media (max-width: 480px) {
+    .page-hero { padding: 120px 16px 56px; }
+    .acc-section { padding: 0 16px 60px; }
+    .acc-trigger { grid-template-columns: 32px 1fr 32px; gap: 0 12px; padding: 24px 0; }
+    .acc-content { padding: 4px 0 36px 44px; gap: 24px; }
+    .acc-title { font-size: clamp(28px, 8vw, 72px); }
+  }
 </style>
 </head>
 <body>

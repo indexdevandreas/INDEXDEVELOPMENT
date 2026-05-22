@@ -165,6 +165,17 @@
     .pricing-grid { grid-template-columns: 1fr; }
     .price-card.featured { padding-top: 48px; }
   }
+  @media (max-width: 480px) {
+    .page-hero { padding: 120px 16px 64px; }
+    .metrics { padding: 0 16px; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .metric { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0; }
+    .metric:last-child { border-bottom: none; }
+    .pricing { padding: 64px 16px; }
+    .price-card { padding: 36px 24px; }
+    .price-card.featured { padding-top: 44px; padding-left: 24px; padding-right: 24px; }
+    .pc-price { font-size: clamp(36px, 10vw, 68px); }
+  }
 </style>
 </head>
 <body>
