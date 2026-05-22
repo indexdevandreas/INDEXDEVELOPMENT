@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Webdesign, SEO & utvikling — index dev.</title>
+<meta name="description" content="Komplett nettside fra strategi til lansering. Håndkodet, optimalisert for Google, levert på 3–5 dager. Fra 1.999,-.">
+<link rel="canonical" href="https://indexdevelopment.no/webdesign.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hjemmeside.css">
+<style>
+  .promo { --r: 1; }
+  .nav   { --r: 1; }
+
+  /* ─── Hero ─── */
+  .page-hero {
+    padding: 200px 32px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
+  }
+  .hero-text { padding-bottom: 80px; max-width: 820px; }
+  .page-hero h1 {
+    font-size: clamp(64px, 11vw, 160px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+  }
+  .w-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
+  .hero-sub {
+    margin-top: 32px; font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 520px;
+  }
+  .hero-meta {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta-item {
+    padding: 32px 0;
+    border-right: 1px solid var(--line);
+    padding-right: 40px;
+  }
+  .hero-meta-item:last-child { border-right: none; padding-left: 40px; padding-right: 0; }
+  .hero-meta-item:nth-child(2) { padding-left: 40px; padding-right: 40px; }
+  .hero-meta-item .hm-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .hero-meta-item .hm-val {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 800; letter-spacing: -0.03em;
+  }
+
+  /* ─── What's included ─── */
+  .included { padding: 120px 32px 0; border-top: 1px solid var(--line); }
+  .included-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: end; padding-bottom: 80px;
+  }
+  .included-header h2 {
+    font-size: clamp(48px, 6.5vw, 96px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+  }
+  .included-header p {
+    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
+  }
+  .included-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .inc-item {
+    padding: 56px 48px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .inc-n {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 20px;
+  }
+  .inc-item h3 {
+    font-size: clamp(22px, 2.5vw, 32px); font-weight: 700;
+    letter-spacing: -0.03em; margin-bottom: 16px;
+  }
+  .inc-item p {
+    font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .inc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .inc-tag {
+    padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 11px; letter-spacing: 0.06em; color: var(--muted);
+  }
+
+  /* ─── Process ─── */
+  .process { padding: 120px 32px 0; border-top: 1px solid var(--line); }
+  .process-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: end; padding-bottom: 80px;
+  }
+  .process-header h2 {
+    font-size: clamp(48px, 6.5vw, 96px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+  }
+  .process-header p {
+    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
+  }
+  .proc-list { display: flex; flex-direction: column; }
+  .proc-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 0 48px; align-items: start;
+    padding: 48px 0; border-bottom: 1px solid var(--line);
+  }
+  .proc-row:first-child { border-top: 1px solid var(--line); }
+  .proc-n {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); padding-top: 4px;
+  }
+  .proc-row h3 {
+    font-size: clamp(20px, 2.2vw, 28px); font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .proc-row p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+  /* ─── Pricing callout ─── */
+  .pricing-callout {
+    padding: 120px 32px; border-top: 1px solid var(--line);
+  }
+  .pc-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .pc-left h2 {
+    font-size: clamp(48px, 6.5vw, 88px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  .pc-left p {
+    font-size: 17px; line-height: 1.6;
+    color: rgba(255,255,255,0.6); margin-bottom: 40px;
+  }
+  .pc-right {
+    border: 1px solid var(--line); border-radius: 20px;
+    padding: 48px 40px; background: rgba(255,255,255,0.015);
+  }
+  .pcr-price {
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+    margin-bottom: 8px;
+  }
+  .pcr-note { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+  .pcr-divider { height: 1px; background: var(--line); margin-bottom: 28px; }
+  .pcr-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .pcr-features li {
+    list-style: none; font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .pcr-features li::before {
+    content: "✓"; color: var(--blue); font-weight: 700; flex-shrink: 0;
+  }
+
+  @media (max-width: 980px) {
+    .page-hero { padding: 140px 20px 80px; }
+    .hero-meta { gap: 32px; }
+    .included, .process, .pricing-callout { padding: 80px 20px 0; }
+    .included-header, .process-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
+    .included-grid { grid-template-columns: 1fr; border-left: none; }
+    .inc-item { border-right: none; padding: 40px 24px; }
+    .proc-row { grid-template-columns: 1fr; gap: 8px; }
+    .proc-n { padding-top: 0; }
+    .pc-inner { grid-template-columns: 1fr; gap: 48px; }
+    .pricing-callout { padding-bottom: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="promo">
+  <span class="green-dot"></span>
+  <strong>Ingen bindingstid</strong>
+  <span class="sep">—</span>
+  <span>Resultater før du betaler</span>
+  <a class="link" href="priser.html">Se priser →</a>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
+  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+    <span class="menu-label">Meny</span>
+    <span class="bars"></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-text">
+      <p class="eyebrow">Tjeneste 01</p>
+      <h1 class="reveal">Webdesign,<br>SEO &amp;<br><span class="w-outline">utvikling.</span></h1>
+      <p class="hero-sub reveal">Komplett nettside fra strategi til lansering — håndkodet, optimalisert for Google og bygget for å konvertere.</p>
+    </div>
+    <div class="hero-meta reveal">
+      <div class="hero-meta-item">
+        <p class="hm-label">Fra</p>
+        <p class="hm-val">1 999,-</p>
+      </div>
+      <div class="hero-meta-item">
+        <p class="hm-label">Leveringstid</p>
+        <p class="hm-val">3–5 dager</p>
+      </div>
+      <div class="hero-meta-item">
+        <p class="hm-label">Garanti</p>
+        <p class="hm-val">Betal etter</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="included">
+  <div class="container">
+    <div class="included-header">
+      <h2 class="reveal">Hva er<br><span class="blue">inkludert.</span></h2>
+      <p class="reveal">Alt du trenger for en nettside som faktisk skaffer kunder. Ingenting er ekstra, ingenting mangler.</p>
+    </div>
+    <div class="included-grid">
+
+      <div class="inc-item reveal">
+        <p class="inc-n">Design</p>
+        <h3>Skreddersydd layout</h3>
+        <p>Ingen maler, ingen WordPress. Designet er laget fra bunnen, tilpasset din merkevare og optimalisert for konvertering.</p>
+        <div class="inc-tags">
+          <span class="inc-tag">Custom design</span>
+          <span class="inc-tag">Typografi</span>
+          <span class="inc-tag">Fargepalett</span>
+          <span class="inc-tag">Mobil-first</span>
+        </div>
+      </div>
+
+      <div class="inc-item reveal">
+        <p class="inc-n">Utvikling</p>
+        <h3>Ren, rask kode</h3>
+        <p>Håndkodet i HTML, CSS og JavaScript — ingen tung Page Builder, ingen unødvendige plugins. Resultatet er raskere og mer stabilt.</p>
+        <div class="inc-tags">
+          <span class="inc-tag">HTML / CSS / JS</span>
+          <span class="inc-tag">Lighthouse 100</span>
+          <span class="inc-tag">Sub-2s lastetid</span>
+        </div>
+      </div>
+
+      <div class="inc-item reveal">
+        <p class="inc-n">SEO</p>
+        <h3>Synlig på Google fra dag én</h3>
+        <p>Semantisk HTML, JSON-LD structured data, korrekte meta-tags og innholdsstruktur som gjør at Google finner deg og rangerer deg over konkurrentene.</p>
+        <div class="inc-tags">
+          <span class="inc-tag">Teknisk SEO</span>
+          <span class="inc-tag">JSON-LD</span>
+          <span class="inc-tag">Meta-tags</span>
+          <span class="inc-tag">Sitemap</span>
+        </div>
+      </div>
+
+      <div class="inc-item reveal">
+        <p class="inc-n">Lansering</p>
+        <h3>Cloudflare hosting inkludert</h3>
+        <p>Vi setter opp alt — domene, SSL-sertifikat, globalt CDN og DDoS-beskyttelse. Du trenger ikke gjøre noe teknisk.</p>
+        <div class="inc-tags">
+          <span class="inc-tag">Cloudflare CDN</span>
+          <span class="inc-tag">SSL</span>
+          <span class="inc-tag">DDoS-beskyttelse</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="process-header">
+      <h2 class="reveal">Slik jobber<br><span class="blue">vi.</span></h2>
+      <p class="reveal">Fra første melding til ferdig nettside — dette er hvert steg i prosessen.</p>
+    </div>
+    <div class="proc-list">
+      <div class="proc-row reveal">
+        <p class="proc-n">01</p>
+        <div>
+          <h3>Kontakt</h3>
+          <p>Send en melding og beskriv hva du trenger. Du får fastpris med en gang — ingen estimater, ingen overraskelser.</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <p class="proc-n">02</p>
+        <div>
+          <h3>Strategi og tekstforfatning</h3>
+          <p>Vi planlegger strukturen og skriver teksten som skal selge. Hvert ord er valgt for å gjøre besøkende til kunder.</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <p class="proc-n">03</p>
+        <div>
+          <h3>Design og utvikling</h3>
+          <p>Vi koder nettsiden fra bunnen. Design, SEO og ytelse bygges inn fra starten — ikke lagt til som en ettertanke.</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <p class="proc-n">04</p>
+        <div>
+          <h3>Forhåndsvisning — du godkjenner</h3>
+          <p>Du ser nettsiden privat innen 3–5 dager. Liker du det? Da betaler du. Ikke fornøyd? Det koster deg ingenting.</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <p class="proc-n">05</p>
+        <div>
+          <h3>Lansering og drift</h3>
+          <p>Vi publiserer siden og setter opp hosting, SSL og CDN. Driftsavtale på 199,-/mnd holder siden rask og sikker fremover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-callout">
+  <div class="container">
+    <div class="pc-inner">
+      <div class="pc-left reveal">
+        <h2>Klar til å<br><span class="blue">komme i gang?</span></h2>
+        <p>Du ser resultatet før du bestemmer deg. Ingen risiko, ingen bindingstid, ingen forskuddsbetaling.</p>
+        <div class="cta-buttons">
+          <a class="btn" href="kontakt.html">Send en melding →</a>
+          <a class="btn ghost" href="priser.html">Se alle priser</a>
+        </div>
+      </div>
+      <div class="pc-right reveal">
+        <p class="pcr-price">1 999,-</p>
+        <p class="pcr-note">Fra — engangssum + 199,-/mnd hosting</p>
+        <div class="pcr-divider"></div>
+        <ul class="pcr-features">
+          <li>Håndkodet HTML/CSS/JS</li>
+          <li>SEO-optimalisert fra dag én</li>
+          <li>Lighthouse-score 100</li>
+          <li>Mobilvennlig design</li>
+          <li>Levert på 3–5 dager</li>
+          <li>Ingen betaling før du er fornøyd</li>
+        </ul>
+        <a class="btn" href="kontakt.html" style="width:100%;justify-content:center;">Kom i gang →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
+        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
+        <span class="org">Org.nr — 934 626 009</span>
+      </div>
+      <div class="foot-col">
+        <h5>Sider</h5>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Annet</h5>
+        <ul>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge</span>
+    </div>
+  </div>
+</footer>
+
+<script src="subpage.js" defer></script>
+</body>
+</html>

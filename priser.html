@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Priser — index dev.</title>
+<meta name="description" content="Enkle, ærlige priser. Fra 1.999,- for en komplett nettside. Ingen betaling før du er fornøyd. Drift og sikkerhet fra 199,-/mnd uten bindingstid.">
+<link rel="canonical" href="https://indexdevelopment.no/priser.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hjemmeside.css">
+<style>
+  .promo { --r: 1; }
+  .nav   { --r: 1; }
+
+  /* ─── Hero ─── */
+  .page-hero {
+    padding: 160px 32px 100px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .page-hero h1 {
+    font-size: clamp(72px, 12vw, 180px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+  }
+  .p-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
+  .hero-sub {
+    margin-top: 40px; font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.55; color: rgba(255,255,255,0.6);
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+
+  /* ─── Guarantee metrics ─── */
+  .metrics {
+    padding: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .metrics-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .metric {
+    padding: 64px 40px;
+    border-right: 1px solid var(--line);
+  }
+  .metric:last-child { border-right: none; }
+  .metric-big {
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 800; letter-spacing: -0.05em;
+    color: var(--blue); line-height: 0.9;
+    margin-bottom: 20px; display: block;
+  }
+  .metric p {
+    font-size: 14px; line-height: 1.55;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ─── Pricing cards ─── */
+  .pricing { padding: 120px 32px; }
+  .pricing-intro {
+    margin-bottom: 72px;
+  }
+  .pricing-intro h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+    margin-bottom: 20px;
+  }
+  .pricing-intro p {
+    font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.55;
+    max-width: 520px;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .price-card {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 48px 40px;
+    background: rgba(255,255,255,0.015);
+    transition: border-color 0.3s, background 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .price-card:hover {
+    border-color: rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.03);
+  }
+  .price-card.featured {
+    border-color: var(--blue);
+    background: rgba(37,71,255,0.06);
+    position: relative;
+    padding-top: 56px;
+  }
+  .price-tag-pill {
+    position: absolute;
+    top: -13px; left: 40px;
+    background: var(--blue); color: #fff;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 999px;
+  }
+  .pc-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .pc-price {
+    font-size: clamp(44px, 5.5vw, 68px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .pc-note { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .pc-desc {
+    font-size: 14px; line-height: 1.6;
+    color: rgba(255,255,255,0.5); margin-bottom: 28px;
+  }
+  .pc-divider { height: 1px; background: var(--line); margin-bottom: 32px; }
+  .pc-drift {
+    margin-top: auto; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+  .pc-drift-price {
+    display: block; font-size: 14px; font-weight: 600;
+    color: rgba(255,255,255,0.8); margin-bottom: 4px;
+  }
+  .pc-drift-note { display: block; font-size: 12px; color: var(--muted); }
+  .pricing-footer {
+    margin-top: 40px; text-align: center;
+    font-size: 14px; color: rgba(255,255,255,0.35);
+    padding-top: 32px; border-top: 1px solid var(--line);
+  }
+  .pc-features {
+    list-style: none; display: flex; flex-direction: column; gap: 14px;
+    margin-bottom: 24px; flex: 1;
+  }
+  .pc-features li {
+    font-size: 15px; color: rgba(255,255,255,0.8);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+  }
+  .pc-features li::before {
+    content: "✓"; color: var(--blue); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .pc-btn {
+    display: block; text-align: center;
+    padding: 16px 24px; border-radius: 999px;
+    font-size: 15px; font-weight: 600;
+    border: 1px solid var(--line); color: var(--fg);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .pc-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+  .pc-btn.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pc-btn.primary:hover { background: #1d3ce0; }
+
+  @media (max-width: 980px) {
+    .page-hero { padding: 140px 20px 80px; }
+    .metrics { padding: 0 20px; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric { border-bottom: 1px solid var(--line); padding: 40px 24px; }
+    .metric:nth-child(2n) { border-right: none; }
+    .metric:nth-child(3), .metric:nth-child(4) { border-bottom: none; }
+    .pricing { padding: 80px 20px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="promo">
+  <span class="green-dot"></span>
+  <strong>Ingen bindingstid</strong>
+  <span class="sep">—</span>
+  <span>Resultater før du betaler</span>
+  <a class="link" href="kontakt.html">Kom i gang →</a>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
+  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+    <span class="menu-label">Meny</span>
+    <span class="bars"></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="reveal">Enkle,<br><span class="p-outline">ærlige priser.</span></h1>
+    <p class="hero-sub reveal">Ingen skjulte kostnader. Ingen bindingstid. Du betaler kun om du er fornøyd.</p>
+  </div>
+</section>
+
+<section class="metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric reveal">
+        <span class="metric-big">0,-</span>
+        <p>Ingen forskuddsbetaling. Du betaler ingenting før du er fornøyd med nettsiden.</p>
+      </div>
+      <div class="metric reveal">
+        <span class="metric-big">100%</span>
+        <p>Tilfredsgaranti. Ikke fornøyd? Ikke ett eneste krone ut av lommen.</p>
+      </div>
+      <div class="metric reveal">
+        <span class="metric-big">3–5</span>
+        <p>Dager til ferdig nettside. Rask og forutsigbar levering, alltid.</p>
+      </div>
+      <div class="metric reveal">
+        <span class="metric-big">Din</span>
+        <p>Koden er din eiendom. Du låses aldri til oss — ta den med deg fritt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <div class="pricing-intro">
+      <h2 class="reveal">Velg din<br><span class="blue">pakke.</span></h2>
+      <p class="reveal">Alle pakker inkluderer vår "bygg først, betal etterpå"-garanti. Ingen risiko.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card reveal">
+        <p class="pc-label">Lokal Ekspert</p>
+        <p class="pc-price">1.999,-</p>
+        <p class="pc-note">engangsbeløp</p>
+        <p class="pc-desc">For enkeltmannsforetak og håndverkere som trenger en solid nettside som skaffer oppdrag.</p>
+        <div class="pc-divider"></div>
+        <ul class="pc-features">
+          <li>Én kompromissløs landingsside</li>
+          <li>Håndkodet for maksimal hastighet</li>
+          <li>Perfekt på alle mobiler</li>
+          <li>Kontaktskjema → direkte leads</li>
+          <li>Grunnleggende teknisk SEO</li>
+          <li>Google Search Console</li>
+        </ul>
+        <div class="pc-drift">
+          <span class="pc-drift-price">Drift og sikkerhet: 199,-/mnd</span>
+          <span class="pc-drift-note">Ingen bindingstid — si opp når du vil</span>
+        </div>
+        <a class="pc-btn" href="kontakt.html">Velg Lokal Ekspert</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="price-tag-pill">Anbefalt</span>
+        <p class="pc-label">Bedrift Pluss</p>
+        <p class="pc-price">5.999,-</p>
+        <p class="pc-note">engangsbeløp</p>
+        <p class="pc-desc">For bedrifter som vil dominere lokalt med full nettstedpakke og en grundig analyse av konkurrentene.</p>
+        <div class="pc-divider"></div>
+        <ul class="pc-features">
+          <li>Opptil 5 skreddersydde undersider</li>
+          <li>Skreddersydd design for din bransje</li>
+          <li>Kraftig SEO-struktur for Google</li>
+          <li>Analytics og besøksstatistikk</li>
+          <li>Google Bedriftsprofil</li>
+          <li>Google Search Console</li>
+          <li><strong>BONUS:</strong> Konkurrentanalyse</li>
+        </ul>
+        <div class="pc-drift">
+          <span class="pc-drift-price">Drift og sikkerhet: 199,-/mnd</span>
+          <span class="pc-drift-note">Ingen bindingstid — si opp når du vil</span>
+        </div>
+        <a class="pc-btn primary" href="kontakt.html">Bygg denne gratis for meg →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <p class="pc-label">Totalpakken</p>
+        <p class="pc-price">12.990,-</p>
+        <p class="pc-note">engangsbeløp</p>
+        <p class="pc-desc">Vi designer, koder og skriver alle tekstene — en komplett salgsmaskin som jobber for deg døgnet rundt.</p>
+        <div class="pc-divider"></div>
+        <ul class="pc-features">
+          <li>Ubegrenset antall undersider</li>
+          <li>Vi skriver alle tekster for deg</li>
+          <li>Konkurransestrategi og analyse</li>
+          <li>Prioritert support</li>
+          <li>Google Bedriftsprofil</li>
+          <li>Google Search Console</li>
+          <li><strong>BONUS:</strong> Full konkurrentanalyse</li>
+        </ul>
+        <div class="pc-drift">
+          <span class="pc-drift-price">Drift og sikkerhet: 199,-/mnd</span>
+          <span class="pc-drift-note">Ingen bindingstid — si opp når du vil</span>
+        </div>
+        <a class="pc-btn" href="kontakt.html">Velg Totalpakken</a>
+      </div>
+
+    </div>
+
+    <p class="pricing-footer reveal">Koden er din eiendom. Ingen bindingstid. Slutter du å betale 199,-/mnd sender vi koden i en ZIP-fil.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2 class="reveal">Klar til å<br><span class="blue">komme i gang?</span></h2>
+    <p class="reveal" style="font-size:18px;line-height:1.55;color:rgba(255,255,255,0.65);max-width:480px;margin:24px auto 48px;">Send oss en melding. Vi gir deg fastpris med en gang — og du ser nettsiden før du bestemmer deg.</p>
+    <div class="cta-buttons reveal">
+      <a class="btn" href="kontakt.html">Send en melding →</a>
+      <a class="btn ghost" href="tjenester.html">Se tjenester</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
+        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
+        <span class="org">Org.nr — 934 626 009</span>
+      </div>
+      <div class="foot-col">
+        <h5>Sider</h5>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Annet</h5>
+        <ul>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge</span>
+    </div>
+  </div>
+</footer>
+
+<script src="subpage.js" defer></script>
+</body>
+</html>

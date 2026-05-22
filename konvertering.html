@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google-synlighet & konvertering — index dev.</title>
+<meta name="description" content="Vi bygger ikke nettsider for porteføljen — vi bygger dem for å skaffe deg kunder. Les om hvordan vi kombinerer Google-synlighet og konvertering.">
+<link rel="canonical" href="https://indexdevelopment.no/konvertering.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hjemmeside.css">
+<style>
+  .promo { --r: 1; }
+  .nav   { --r: 1; }
+
+  /* ─── Hero ─── */
+  .page-hero {
+    padding: 200px 32px 140px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
+  }
+  .page-hero h1 {
+    font-size: clamp(68px, 11vw, 170px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+  }
+  .t-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
+  .hero-sub {
+    margin-top: 48px; font-size: clamp(17px, 1.6vw, 22px);
+    line-height: 1.55; color: rgba(255,255,255,0.55); max-width: 540px;
+  }
+
+  /* ─── Pull quote ─── */
+  .pull-quote {
+    padding: 120px 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pull-quote p {
+    font-size: clamp(24px, 3.5vw, 48px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
+    max-width: 920px; color: rgba(255,255,255,0.8);
+  }
+  .pull-quote p em { font-style: normal; color: var(--blue); }
+
+  /* ─── Pillar rows ─── */
+  .pillar-wrap { border-bottom: 1px solid var(--line); }
+  .pillar-wrap:first-of-type { border-top: 1px solid var(--line); }
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    gap: 0 64px;
+    padding: 96px 0;
+    align-items: start;
+  }
+  .pr-n {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); padding-top: 10px;
+  }
+  .pr-left h2 {
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+    margin-bottom: 28px;
+  }
+  .pr-left p {
+    font-size: 16px; line-height: 1.7;
+    color: rgba(255,255,255,0.6); max-width: 440px;
+  }
+  .pr-right {
+    padding-top: 8px;
+  }
+  .pr-list {
+    list-style: none; padding: 0; margin: 0 0 48px;
+    display: flex; flex-direction: column;
+  }
+  .pr-list li {
+    display: flex; align-items: flex-start; gap: 16px;
+    font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.75);
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .pr-list li:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+  .pr-list li::before {
+    content: "→"; color: var(--blue); flex-shrink: 0;
+    font-size: 12px; margin-top: 2px;
+  }
+  .pr-stat {
+    display: flex; gap: 48px; flex-wrap: wrap;
+  }
+  .pr-stat-item {}
+  .pr-stat-item .psn {
+    font-size: clamp(44px, 5vw, 64px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.85;
+    color: #fff; display: block; margin-bottom: 8px;
+  }
+  .pr-stat-item .psn .psu { color: var(--blue); }
+  .pr-stat-item .psl {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    max-width: 160px; line-height: 1.5; display: block;
+  }
+
+  /* ─── How ─── */
+  .how { padding: 120px 32px; }
+  .how-top {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: end; padding-bottom: 80px;
+  }
+  .how-top h2 {
+    font-size: clamp(44px, 5.5vw, 80px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+  }
+  .how-top p {
+    font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.6);
+  }
+  .how-row {
+    display: grid; grid-template-columns: 64px 1fr 1fr;
+    gap: 0 56px; padding: 48px 0;
+    border-top: 1px solid var(--line); align-items: start;
+  }
+  .how-n {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); padding-top: 6px;
+  }
+  .how-row h3 {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+  }
+  .how-row p {
+    font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 140px 20px 80px; }
+    .pull-quote { padding: 80px 20px; }
+    .pillar-row { grid-template-columns: 1fr; gap: 32px; padding: 72px 20px; }
+    .pillar-row:first-of-type { border-top: none; }
+    .pr-n { padding-top: 0; }
+    .how { padding: 80px 20px; }
+    .how-top { grid-template-columns: 1fr; gap: 24px; padding-bottom: 48px; }
+    .how-row { grid-template-columns: 1fr; gap: 12px; padding: 40px 0; }
+    .how-n { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="promo">
+  <span class="green-dot"></span>
+  <strong>Ingen bindingstid</strong>
+  <span class="sep">—</span>
+  <span>Resultater før du betaler</span>
+  <a class="link" href="priser.html">Se priser →</a>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
+  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+    <span class="menu-label">Meny</span>
+    <span class="bars"></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+<!-- ─── Hero ─── -->
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Filosofi</p>
+    <h1 class="reveal">
+      Synlighet.<br>
+      <span class="t-outline">Konvertering.</span>
+    </h1>
+    <p class="hero-sub reveal">Vi bygger ikke nettsider for å se pene ut i porteføljen — vi bygger dem for å skaffe deg kunder.</p>
+  </div>
+</section>
+
+<!-- ─── Pull quote ─── -->
+<div class="pull-quote">
+  <div class="container">
+    <p class="reveal">
+      "Hver beslutning — fra typografi til lasthastighet — handler om én ting:
+      at de som finner deg på nett <em>blir til betalende kunder.</em>"
+    </p>
+  </div>
+</div>
+
+<!-- ─── Google-synlighet ─── -->
+<div class="pillar-wrap">
+  <div class="container">
+    <div class="pillar-row reveal">
+      <p class="pr-n">01</p>
+      <div class="pr-left">
+        <h2>Google-<br>synlighet.</h2>
+        <p>Det hjelper ikke med en god nettside om ingen finner den. Teknisk SEO er ikke et etterslep — det er grunnmuren hele siden hviler på.</p>
+      </div>
+      <div class="pr-right">
+        <ul class="pr-list">
+          <li>Semantisk HTML Google faktisk forstår</li>
+          <li>JSON-LD strukturerte data for lokale søk</li>
+          <li>Lastetid under 1 sekund — kritisk for rangering</li>
+          <li>Mobil-first — over 60 % av søk skjer på mobil</li>
+          <li>Korrekte heading-hierarkier og meta-tags</li>
+        </ul>
+        <div class="pr-stat">
+          <div class="pr-stat-item">
+            <span class="psn">76<span class="psu">%</span></span>
+            <span class="psl">googler lokalt på mobil før de ringer</span>
+          </div>
+          <div class="pr-stat-item">
+            <span class="psn">53<span class="psu">%</span></span>
+            <span class="psl">forlater siden om lastetid er over 3 sek</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Konvertering ─── -->
+<div class="pillar-wrap">
+  <div class="container">
+    <div class="pillar-row reveal">
+      <p class="pr-n">02</p>
+      <div class="pr-left">
+        <h2>Konver&shy;tering.</h2>
+        <p>Trafikk uten konvertering er ingenting. Vi designer og skriver for å gjøre valget enkelt for den besøkende — hva du tilbyr, hvorfor deg, og hva de skal gjøre nå.</p>
+      </div>
+      <div class="pr-right">
+        <ul class="pr-list">
+          <li>Tydelig verditilbud over fold</li>
+          <li>Tekstforfatning som selger, ikke informerer</li>
+          <li>CTA-plassering basert på lesemønstre</li>
+          <li>Tillitssignaler synlig tidlig</li>
+          <li>Ingen friksjon — ingen unødvendige klikk</li>
+        </ul>
+        <div class="pr-stat">
+          <div class="pr-stat-item">
+            <span class="psn">60<span class="psu">k</span></span>
+            <span class="psl">kr tapt per år på dårlig nettside</span>
+          </div>
+          <div class="pr-stat-item">
+            <span class="psn">0<span class="psu">,-</span></span>
+            <span class="psl">koster det å se resultatet på forhånd</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── How ─── -->
+<section class="how">
+  <div class="container">
+    <div class="how-top">
+      <h2 class="reveal">Slik bygger<br><span class="t-outline">vi det.</span></h2>
+      <p class="reveal">Ingen steg uten formål. Alt er koblet til ett mål — at nettsiden skaffer deg kunder.</p>
+    </div>
+    <div class="how-row reveal">
+      <span class="how-n">01</span>
+      <h3>Strategi først</h3>
+      <p>Hvem er kunden din, hva søker de etter, og hva skal til for at de tar kontakt? Dette svarer vi på før vi skriver én linje kode — det definerer alt.</p>
+    </div>
+    <div class="how-row reveal">
+      <span class="how-n">02</span>
+      <h3>Design for konvertering</h3>
+      <p>Hvert designvalg er tatt med konvertering i bakhodet. Ingenting eksisterer bare for å se bra ut i porteføljen.</p>
+    </div>
+    <div class="how-row reveal">
+      <span class="how-n">03</span>
+      <h3>Tekst som selger</h3>
+      <p>Vi skriver alle tekster. Ikke for å fylle plass, men for å overbevise. Hvert avsnitt er ett steg nærmere at besøkende tar kontakt.</p>
+    </div>
+    <div class="how-row reveal">
+      <span class="how-n">04</span>
+      <h3>SEO bakt inn fra start</h3>
+      <p>Lighthouse 100/100, semantisk HTML og lynrask lastetid er bakt inn fra første linje. Ikke lagt til etterpå.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta">
+  <div class="container">
+    <h2 class="reveal">Se resultatet<br><span class="blue">før du betaler.</span></h2>
+    <p class="reveal" style="font-size:18px;line-height:1.55;color:rgba(255,255,255,0.65);max-width:480px;margin:24px auto 48px;">Vi bygger gratis. Du ser nettsiden din i privat forhåndsvisning — og bestemmer etterpå.</p>
+    <div class="cta-buttons reveal">
+      <a class="btn" href="kontakt.html">Ta kontakt →</a>
+      <a class="btn ghost" href="tjenester.html">Se tjenester</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
+        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
+        <span class="org">Org.nr — 934 626 009</span>
+      </div>
+      <div class="foot-col">
+        <h5>Sider</h5>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Annet</h5>
+        <ul>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge</span>
+    </div>
+  </div>
+</footer>
+
+<script src="subpage.js" defer></script>
+</body>
+</html>

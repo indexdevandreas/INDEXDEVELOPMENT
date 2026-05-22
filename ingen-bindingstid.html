@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ingen bindingstid — index dev.</title>
+<meta name="description" content="Vi bygger nettsiden din gratis — du betaler kun om du er fornøyd. Koden er din eiendom. Ingen bindingstid, ingen risiko.">
+<link rel="canonical" href="https://indexdevelopment.no/ingen-bindingstid.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hjemmeside.css">
+<style>
+  .promo { --r: 1; }
+  .nav   { --r: 1; }
+
+  /* ─── Hero ─── */
+  .page-hero {
+    padding: 200px 32px 120px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
+  }
+  .page-hero h1 {
+    font-size: clamp(72px, 12vw, 180px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+  }
+  .nb-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
+  .hero-sub {
+    margin-top: 48px; font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 580px;
+  }
+
+  /* ─── Pillars ─── */
+  .pillars { padding: 0; border-bottom: 1px solid var(--line); }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .pillar {
+    padding: 72px 48px;
+    border-right: 1px solid var(--line);
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar-n {
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 800; letter-spacing: -0.06em;
+    color: var(--blue); line-height: 0.88;
+    margin-bottom: 28px; display: block;
+  }
+  .pillar h3 {
+    font-size: clamp(20px, 2.2vw, 28px); font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 14px;
+  }
+  .pillar p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+  /* ─── Explanation rows ─── */
+  .explain { padding: 120px 32px 0; border-top: 1px solid var(--line); }
+  .explain-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: end; padding-bottom: 80px;
+  }
+  .explain-header h2 {
+    font-size: clamp(48px, 6.5vw, 96px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+  }
+  .explain-header p {
+    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
+  }
+  .explain-rows { display: flex; flex-direction: column; }
+  .exp-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0 80px; align-items: start;
+    padding: 64px 0; border-bottom: 1px solid var(--line);
+  }
+  .exp-row:first-child { border-top: 1px solid var(--line); }
+  .exp-q {
+    font-size: clamp(22px, 2.5vw, 32px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.1;
+  }
+  .exp-a {
+    font-size: 16px; line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+  }
+  .exp-a strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+  /* ─── ZIP section ─── */
+  .zip-section {
+    padding: 120px 32px; border-top: 1px solid var(--line);
+  }
+  .zip-inner {
+    display: grid; grid-template-columns: 1fr 480px;
+    gap: 80px; align-items: center;
+  }
+  .zip-left h2 {
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+    margin-bottom: 28px;
+  }
+  .zip-left h2 .blue { color: var(--blue); }
+  .zip-left p {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(255,255,255,0.65); margin-bottom: 16px;
+  }
+  .zip-visual {
+    border: 1px solid var(--line); border-radius: 20px;
+    padding: 48px 40px; background: rgba(255,255,255,0.015);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .zip-file {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px; border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .zip-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(37,71,255,0.15); border: 1px solid rgba(37,71,255,0.3);
+    display: grid; place-items: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .zip-filename { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+  .zip-filesize { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .zip-note {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    text-align: center; padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ─── vs Traditional ─── */
+  .comparison { padding: 0 32px 120px; }
+  .comp-header { padding-bottom: 56px; }
+  .comp-header h2 {
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
+  }
+  .comp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .comp-card {
+    border: 1px solid var(--line); border-radius: 20px; padding: 40px;
+  }
+  .comp-card.ours {
+    border-color: var(--blue);
+    background: rgba(37,71,255,0.04);
+  }
+  .comp-card-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+  }
+  .comp-card.ours .comp-card-label { color: var(--blue); }
+  .comp-card h3 {
+    font-size: clamp(20px, 2vw, 26px); font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 28px;
+  }
+  .comp-list { display: flex; flex-direction: column; gap: 12px; }
+  .comp-item {
+    font-size: 15px; color: rgba(255,255,255,0.7);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+  }
+  .comp-item.bad { color: rgba(255,255,255,0.4); }
+  .comp-item.bad::before { content: "✗"; color: rgba(255,255,255,0.2); font-weight: 700; flex-shrink: 0; }
+  .comp-item.good::before { content: "✓"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+  @media (max-width: 980px) {
+    .page-hero { padding: 140px 20px 80px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid var(--line); padding: 48px 24px; }
+    .pillar:last-child { border-bottom: none; }
+    .explain, .zip-section { padding: 80px 20px 0; }
+    .explain-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 48px; }
+    .exp-row { grid-template-columns: 1fr; gap: 20px; padding: 48px 0; }
+    .zip-inner { grid-template-columns: 1fr; gap: 48px; }
+    .zip-section { padding-bottom: 80px; }
+    .comparison { padding: 80px 20px; }
+    .comp-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="promo">
+  <span class="green-dot"></span>
+  <strong>Ingen bindingstid</strong>
+  <span class="sep">—</span>
+  <span>Resultater før du betaler</span>
+  <a class="link" href="priser.html">Se priser →</a>
+</div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
+  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+    <span class="menu-label">Meny</span>
+    <span class="bars"></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Vår garanti</p>
+    <h1 class="reveal">Ingen<br><span class="nb-outline">bindingstid.</span></h1>
+    <p class="hero-sub reveal">Vi tror så sterkt på arbeidet vi leverer at vi aldri trenger å låse deg inn. Du betaler fordi du vil — ikke fordi du må.</p>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="container">
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <span class="pillar-n">0,-</span>
+        <h3>Ingen forskuddsbetaling</h3>
+        <p>Vi bygger nettsiden din vederlagsfritt og viser deg resultatet. Første krone betales først etter du har godkjent det du ser.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-n">0</span>
+        <h3>Null måneders binding</h3>
+        <p>Driftsavtalen løper måned for måned. Ingen årskontrakt, ingen klausuler, ingen straffegebyr. Si opp med én måneds varsel — ferdig snakket.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-n">ZIP</span>
+        <h3>Koden er din eiendom</h3>
+        <p>Betaler du oppsettsfakturaen eier du koden — fullstendig. Sier du opp driften sender vi en ZIP-fil med alt. Du kan ta med deg siden til enhver leverandør.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explain">
+  <div class="container">
+    <div class="explain-header">
+      <h2 class="reveal">Hva betyr<br>dette i<br><span class="blue">praksis?</span></h2>
+      <p class="reveal">Vi vet at "ingen bindingstid" kan høres ut som en tom frase. Her er konkret svar på hva det faktisk betyr for deg.</p>
+    </div>
+    <div class="explain-rows">
+
+      <div class="exp-row reveal">
+        <p class="exp-q">Hva skjer hvis jeg ikke liker nettsiden?</p>
+        <p class="exp-a">Da betaler du <strong>ingenting</strong>. Ikke et eneste krone. Vi bygger utkastet på vår egen regning og tar risikoen fullt ut. Hvis du ikke er fornøyd, er prosjektet avsluttet uten kostnad for deg.</p>
+      </div>
+
+      <div class="exp-row reveal">
+        <p class="exp-q">Kan jeg slutte å betale 199,-/mnd når jeg vil?</p>
+        <p class="exp-a">Ja. Send en e-post med én måneds varsel og avtalen avsluttes. <strong>Ingen spørsmål, ingen gebyrer, ingen forklaring nødvendig.</strong> Vi sender deg kildekoden i en ZIP-fil samme dag.</p>
+      </div>
+
+      <div class="exp-row reveal">
+        <p class="exp-q">Hva skjer med nettsiden om jeg sier opp?</p>
+        <p class="exp-a">Siden tas offline når driftsavtalen avsluttes, ettersom vi håndterer all infrastruktur. Men <strong>du eier koden</strong> — du kan ta den med til en annen leverandør, hoste den selv, eller bruke den som grunnlag for noe nytt.</p>
+      </div>
+
+      <div class="exp-row reveal">
+        <p class="exp-q">Hva om jeg vil bytte til WordPress eller annen plattform?</p>
+        <p class="exp-a">Det er fullt mulig. Koden vi leverer er ren HTML/CSS/JS — den kan konverteres, importeres eller brukes som referanse av enhver utvikler. Vi låser deg ikke til oss eller til et proprietært system.</p>
+      </div>
+
+      <div class="exp-row reveal">
+        <p class="exp-q">Hvorfor tilbyr dere ingen bindingstid?</p>
+        <p class="exp-a">Fordi vi ikke trenger det. Vi er trygge på at nettsider vi leverer gir resultater. <strong>Kunder som ser trafikk og leads vil fortsette å betale</strong> — ikke fordi de er låst til oss, men fordi det er lønnsomt å bli.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="zip-section">
+  <div class="container">
+    <div class="zip-inner">
+      <div class="zip-left reveal">
+        <h2>Du får alltid<br><span class="blue">koden din.</span></h2>
+        <p>Når oppsettsfakturaen er betalt, sender vi deg en komplett ZIP-fil med all kildekode. HTML, CSS, JavaScript, bilder — alt.</p>
+        <p>Sier du opp driftsavtalen sender vi en oppdatert ZIP med eventuelle endringer vi har gjort. Du sitter alltid med det nyeste.</p>
+      </div>
+      <div class="zip-visual reveal">
+        <div class="zip-file">
+          <div class="zip-icon">📁</div>
+          <div>
+            <p class="zip-filename">din-bedrift-nettside.zip</p>
+            <p class="zip-filesize">index.html · style.css · app.js · /bilder</p>
+          </div>
+        </div>
+        <div class="zip-file">
+          <div class="zip-icon">📄</div>
+          <div>
+            <p class="zip-filename">index.html</p>
+            <p class="zip-filesize">Ren, håndkodet HTML</p>
+          </div>
+        </div>
+        <div class="zip-file">
+          <div class="zip-icon">🎨</div>
+          <div>
+            <p class="zip-filename">style.css</p>
+            <p class="zip-filesize">Komplett stilark — ingen rammeverk</p>
+          </div>
+        </div>
+        <div class="zip-file">
+          <div class="zip-icon">⚡</div>
+          <div>
+            <p class="zip-filename">app.js</p>
+            <p class="zip-filesize">Ren JavaScript — ingen dependencies</p>
+          </div>
+        </div>
+        <p class="zip-note">Levert som ZIP — eies 100% av deg</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="comparison">
+  <div class="container">
+    <div class="comp-header">
+      <h2 class="reveal">Vi vs. tradisjonelle<br><span class="blue">webbyrå.</span></h2>
+    </div>
+    <div class="comp-grid">
+
+      <div class="comp-card reveal">
+        <p class="comp-card-label">Tradisjonelt webbyrå</p>
+        <h3>Slik fungerer det vanligvis</h3>
+        <div class="comp-list">
+          <div class="comp-item bad">Betaler tusenvis av kroner på forhånd</div>
+          <div class="comp-item bad">Årskontrakt med automatisk fornyelse</div>
+          <div class="comp-item bad">Koden eies av byrået, ikke deg</div>
+          <div class="comp-item bad">Låst til proprietær plattform</div>
+          <div class="comp-item bad">Høye kostnader for enkle endringer</div>
+          <div class="comp-item bad">Vanskelig å bytte leverandør</div>
+        </div>
+      </div>
+
+      <div class="comp-card ours reveal">
+        <p class="comp-card-label">Index Development</p>
+        <h3>Slik gjør vi det</h3>
+        <div class="comp-list">
+          <div class="comp-item good">Null betaling før du er fornøyd</div>
+          <div class="comp-item good">Månedlig driftsavtale — si opp når du vil</div>
+          <div class="comp-item good">Koden er din eiendom fra dag én</div>
+          <div class="comp-item good">Ren HTML/CSS/JS — ingen lock-in</div>
+          <div class="comp-item good">Enkle endringer inkludert i driften</div>
+          <div class="comp-item good">ZIP-fil med kildekode ved oppsigelse</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2 class="reveal">Ingenting å<br><span class="blue">tape.</span></h2>
+    <p class="reveal" style="font-size:18px;line-height:1.55;color:rgba(255,255,255,0.65);max-width:480px;margin:24px auto 48px;">Vi bygger nettsiden gratis, du ser resultatet, og så bestemmer du. Ingen kontrakt, ingen risiko.</p>
+    <div class="cta-buttons reveal">
+      <a class="btn" href="kontakt.html">Book gratis samtale →</a>
+      <a class="btn ghost" href="priser.html">Se priser</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
+        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
+        <span class="org">Org.nr — 934 626 009</span>
+      </div>
+      <div class="foot-col">
+        <h5>Sider</h5>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Annet</h5>
+        <ul>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge</span>
+    </div>
+  </div>
+</footer>
+
+<script src="subpage.js" defer></script>
+</body>
+</html>

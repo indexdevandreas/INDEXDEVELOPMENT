@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Index Development — håndkodede nettsider som skaffer kunder.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#000000">
+  <title>Index Development</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400&family=Geist:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cursor" id="js-cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="js-cursor-dot" aria-hidden="true"></div>
+
+  <!-- ── Intro overlay ──────────────────────────────────── -->
+  <div class="se-overlay" id="js-intro" aria-hidden="true">
+    <svg class="se-logo" viewBox="0 0 1200 280" aria-label="index dev.">
+      <circle class="se-dot" cx="100" cy="155" r="42" pathLength="100"></circle>
+      <text class="se-wordmark" x="200" y="220">index dev.</text>
+    </svg>
+  </div>
+
+  <!-- ── Topbar ──────────────────────────────────────────── -->
+  <div class="topbar" id="js-topbar">
+    <span class="topbar-pulse" aria-hidden="true"></span>
+    <span><strong>Ingen bindingstid</strong> — Koden er din eiendom — Resultater før du betaler</span>
+    <a href="#kontakt" class="topbar-link">Se priser</a>
+  </div>
+
+  <!-- ── Mobile menu ─────────────────────────────────────── -->
+  <div class="menu" id="js-menu" aria-hidden="true">
+    <nav class="menu-nav">
+      <a href="#">Hjem</a>
+      <a href="#tjenester">Tjenester</a>
+      <a href="#prosjekter">Prosjekter</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <address class="menu-foot">
+      <a href="tel:+4748459686">+47 484 59 686</a>
+      <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    </address>
+  </div>
+
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <nav class="nav" id="js-nav" aria-label="Navigasjon">
+    <a href="#" class="nav-logo" aria-label="Index Development — forsiden">
+      <span class="nav-dot" aria-hidden="true"></span>
+      index dev.
+    </a>
+    <button class="nav-meny" id="js-meny" aria-label="Åpne meny" aria-expanded="false">
+      MENY <span class="meny-bar" aria-hidden="true"></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════
+         HERO — tekst sentrert
+    ══════════════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Introduksjon">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">VI BYGGER</p>
+        <h1 class="hero-title">
+          <span class="hero-line hero-line--solid">NETTSIDER</span>
+          <span class="hero-line hero-line--outline">SOM SKAFFER</span>
+          <span class="hero-line hero-line--solid">KUNDER</span>
+        </h1>
+        <p class="hero-sub" id="hero-sub">
+          Mens konkurrenten din tar alle kundehenvendelsene — hver eneste dag.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         VISSTE DU AT — rett under hero, tall fra siden
+    ══════════════════════════════════════════════════ -->
+    <section class="vda-section" id="visste-du-at" aria-labelledby="vda-heading">
+      <div class="vda-inner">
+
+        <div class="vda-head">
+          <h2 class="vda-heading" id="vda-heading">Visste du at...</h2>
+        </div>
+
+        <div class="vda-cards">
+
+          <div class="vda-card vda-card--left js-vda">
+            <div class="vda-num">
+              <span class="vda-count" data-to="53">0</span><span class="vda-unit">%</span>
+            </div>
+            <div class="vda-body">
+              <p>av mobilbrukere forlater en nettside som laster over 3 sekunder</p>
+              <cite>Kilde: Google/SOASTA Research</cite>
+            </div>
+          </div>
+
+          <div class="vda-card vda-card--right js-vda">
+            <div class="vda-num">
+              <span class="vda-count" data-to="76">0</span><span class="vda-unit">%</span>
+            </div>
+            <div class="vda-body">
+              <p>googler lokalt på mobil før de ringer eller besøker bedriften</p>
+              <cite>Kilde: Think With Google</cite>
+            </div>
+          </div>
+
+          <div class="vda-card vda-card--left js-vda">
+            <div class="vda-num">
+              <span class="vda-count" data-to="180" data-format="k">0</span><span class="vda-unit">K</span>
+            </div>
+            <div class="vda-body">
+              <p>kroner i tapt omsetning per år for en håndverker med dårlig nettside</p>
+              <cite>2–3 oppdrag/mnd × 5 000,- × 12 mnd</cite>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         INTRO (brand-kort + statement)
+    ══════════════════════════════════════════════════ -->
+    <section class="intro" id="intro">
+      <div class="intro-inner">
+
+        <div class="intro-logo-card">
+          <div class="intro-logo-top">
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span class="intro-logo-text">index dev.</span>
+          </div>
+          <p class="intro-logo-tag">Drammen, Norge</p>
+          <p class="intro-logo-sub">Vi bygger nettsider som skaffer kunder</p>
+        </div>
+
+        <div class="intro-copy">
+          <p class="intro-lead">
+            VI LEVERER<br>
+            NETTSIDER MED<br>
+            <strong>GOOGLE-SYNLIGHET</strong><br>
+            OG KONVERTERING
+          </p>
+          <a href="#tjenester" class="btn-pill">Les mer</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         TJENESTER
+    ══════════════════════════════════════════════════ -->
+    <section class="tjenester" id="tjenester" aria-labelledby="tj-heading">
+      <div class="tjenester-inner">
+
+        <h2 class="section-heading" id="tj-heading">TJENESTER</h2>
+
+        <div class="cards">
+
+          <a href="#kontakt" class="card js-card">
+            <div class="card-foot">
+              <h3 class="card-name">WEBDESIGN</h3>
+              <p class="card-sub">NETTSIDER SOM KONVERTERER</p>
+              <span class="card-more">Les mer</span>
+            </div>
+          </a>
+
+          <a href="#kontakt" class="card js-card">
+            <div class="card-foot">
+              <h3 class="card-name">DRIFT &amp;<br>VEDLIKEHOLD</h3>
+              <p class="card-sub">HOSTING, OPPDATERING, SUPPORT</p>
+              <span class="card-more">Les mer</span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         START I DAG
+    ══════════════════════════════════════════════════ -->
+    <section class="start-seksjon" id="start" aria-label="Kom i gang">
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>WEBDESIGN</span><span class="dot">•</span>
+          <span>HOSTING</span><span class="dot">•</span>
+          <span>SEO</span><span class="dot">•</span>
+          <span>KODE</span><span class="dot">•</span>
+          <span>WEBDESIGN</span><span class="dot">•</span>
+          <span>HOSTING</span><span class="dot">•</span>
+          <span>SEO</span><span class="dot">•</span>
+          <span>KODE</span><span class="dot">•</span>
+          <span>WEBDESIGN</span><span class="dot">•</span>
+          <span>HOSTING</span><span class="dot">•</span>
+          <span>SEO</span><span class="dot">•</span>
+          <span>KODE</span><span class="dot">•</span>
+        </div>
+      </div>
+
+      <div class="start-inner">
+        <p class="eyebrow-center">KLAR.FERDIG.</p>
+        <h2 class="start-title">
+          <span class="start-solid">START</span>
+          <span class="start-outline">I DAG</span>
+        </h2>
+        <a href="#kontakt" class="btn-pill btn-pill--big">Ta kontakt</a>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         TESTIMONIAL
+    ══════════════════════════════════════════════════ -->
+    <section class="testimonial" id="anmeldelse" aria-label="Kundeanmeldelse">
+      <div class="testimonial-inner">
+
+        <svg class="quote-marks" viewBox="0 0 80 52" fill="none" aria-hidden="true">
+          <path d="M0 52V30.4C0 13.6 8 4 24 0l4.8 6.4C20 9.6 15.467 15.2 14.4 24H28V52H0ZM52 52V30.4C52 13.6 60 4 76 0l4.8 6.4C72 9.6 67.467 15.2 66.4 24H80V52H52Z" fill="#1a45f5"/>
+        </svg>
+
+        <blockquote class="testimonial-text">
+          INDEX DEVELOPMENT BYGGER IKKE BARE EN NETTSIDE. DE BYGGER EN SALGSMASKIN. MED GOD KOMMUNIKASJON OG SAMHANDLING LAGET DE EN NETTSIDE FOR MIN BEDRIFT TILFREDSSTILLENDE OG EFFEKTIVT. IKKE TENK MER — VELG INDEX DEVELOPMENT.
+        </blockquote>
+
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" aria-hidden="true">JT</div>
+          <div>
+            <p class="testimonial-name">JAKOB TANDE</p>
+            <p class="testimonial-role">DAGLIG LEDER, RENRASK BILVASK</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         PROSJEKTER
+    ══════════════════════════════════════════════════ -->
+    <section class="prosjekter" id="prosjekter" aria-labelledby="proj-heading">
+      <div class="prosjekter-inner">
+
+        <div class="prosjekter-left">
+          <span class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Levert og live
+          </span>
+          <h2 class="prosjekter-heading" id="proj-heading">
+            FERDIGE<br>
+            NETTSIDER<br>
+            <span class="text-blue">FOR NORSKE<br>BEDRIFTER</span>
+          </h2>
+          <p class="prosjekter-sub">
+            Håndkodet fra bunnen, skreddersydd per kunde.
+            Klar på 3–5 dager.
+          </p>
+          <div class="prosjekter-btns">
+            <a href="../prosjekter.html" class="btn-dark">Se alle prosjekter</a>
+            <a href="#kontakt" class="btn-outline">Kom i gang gratis</a>
+          </div>
+        </div>
+
+        <div class="prosjekter-right">
+          <div class="mockup-card">
+            <img src="../bilder/rr.png" alt="Renrask Bilvask nettside av Index Development" loading="lazy" width="1200" height="800">
+            <div class="mockup-stats">
+              <span><strong>100</strong><br>Lighthouse</span>
+              <span><strong>&lt;1s</strong><br>Lastetid</span>
+              <span><strong>100%</strong><br>Mobil</span>
+              <span><strong>24/7</strong><br>Oppe</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════ -->
+  <footer class="footer" id="kontakt" role="contentinfo">
+
+    <div class="footer-wordmark-row">
+      <span class="footer-wordmark" aria-hidden="true">INDEX DEVELOPMENT</span>
+    </div>
+
+    <div class="footer-body">
+      <div class="footer-logo-col">
+        <a href="#" class="footer-logo" aria-label="Index Development — forsiden">
+          <span class="nav-dot" aria-hidden="true"></span>
+          index dev.
+        </a>
+        <address class="footer-addr">
+          Drammen, Norge
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col-label">SIDER</h3>
+        <ul>
+          <li><a href="#">Forside</a></li>
+          <li><a href="#tjenester">Tjenester</a></li>
+          <li><a href="#prosjekter">Prosjekter</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-col-label">ANNET</h3>
+        <ul>
+          <li><a href="../personvern.html">Personvernerklæring</a></li>
+          <li><a href="../vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col--contact">
+        <h3 class="footer-col-label">KONTAKT</h3>
+        <a href="tel:+4748459686">+47 484 59 686</a>
+        <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Index Development. Alle rettigheter reservert.</span>
+      <span>Org nr 934 626 009</span>
+    </div>
+
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

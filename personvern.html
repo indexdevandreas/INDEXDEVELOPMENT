@@ -1,385 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personvernerklæring | Index Development</title>
-  <meta name="description" content="Hvordan Index Development håndterer personvern og data. Ren, sikker og transparent databehandling.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://indexdevelopment.no/personvern.html">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#080808">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personvernerklæring — index dev.</title>
+<meta name="description" content="Personvernerklæring for Index Development. Les om hvordan vi håndterer dine data.">
+<link rel="canonical" href="https://indexdevelopment.no/personvern.html">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hjemmeside.css">
+<style>
+  .promo { --r: 1; }
+  .nav   { --r: 1; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="main.css">
+  .page-top { padding: 200px 32px 100px; border-bottom: 1px solid var(--line); }
+  .page-eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 10px;
+  }
+  .page-eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
+  }
+  .page-top h1 {
+    font-size: clamp(60px, 10vw, 150px);
+    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+  }
 
-  <style>
-    .legal-hero {
-      background: var(--dark);
-      padding-top: 8rem;
-      padding-bottom: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .legal-hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 36px 36px;
-      pointer-events: none;
-    }
-    .legal-hero-inner {
-      position: relative; z-index: 1;
-      max-width: var(--max); margin: 0 auto;
-      padding-inline: var(--pad);
-    }
-    .legal-tag {
-      display: inline-block;
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(59,130,246,0.8);
-      margin-bottom: 1.25rem;
-    }
-    .legal-hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.25rem, 5vw, 3.75rem);
-      font-weight: 700; color: #fff;
-      line-height: 1.1; letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-    }
-    .legal-hero p {
-      color: rgba(255,255,255,0.4);
-      font-size: 1rem; line-height: 1.7;
-      max-width: 560px;
-    }
-    .legal-meta {
-      display: flex; align-items: center; gap: 1.5rem;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      font-size: 0.75rem; color: rgba(255,255,255,0.25);
-      font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em;
-    }
+  /* Legal body */
+  .legal-body { padding: 100px 32px; }
+  .legal-container { max-width: 780px; }
 
-    /* Legal content */
-    .legal-body {
-      background: #0a0a0e;
-      padding: 5rem 0 8rem;
-    }
-    .legal-container {
-      max-width: 780px; margin: 0 auto;
-      padding-inline: var(--pad);
-    }
-    .legal-section {
-      background: #0f0f16;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 2.5rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .legal-section::before {
-      content: '';
-      position: absolute; left: 0; top: 0;
-      width: 3px; height: 100%;
-      background: linear-gradient(to bottom, var(--blue), transparent);
-      opacity: 0.6;
-    }
-    .legal-section-num {
-      font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 0.75rem;
-    }
-    .legal-section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.125rem; font-weight: 700;
-      color: #fff; margin-bottom: 1.25rem;
-      letter-spacing: -0.02em;
-    }
-    .legal-section p {
-      font-size: 0.9375rem; color: rgba(255,255,255,0.5);
-      line-height: 1.75; margin-bottom: 0.875rem;
-    }
-    .legal-section p:last-child { margin-bottom: 0; }
-    .legal-section a {
-      color: #60a5fa; text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .legal-section strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+  .legal-section {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.015);
+    position: relative;
+    overflow: hidden;
+  }
+  .legal-section::before {
+    content: "";
+    position: absolute; left: 0; top: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+  }
+  .legal-num {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 12px;
+  }
+  .legal-section h2 {
+    font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .legal-section p {
+    font-size: 15px; line-height: 1.75;
+    color: rgba(255,255,255,0.6); margin-bottom: 14px;
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section a { color: var(--blue); }
+  .legal-section strong { color: rgba(255,255,255,0.85); }
 
-    .legal-infobox {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-top: 1rem;
-    }
-    .legal-infobox p { margin-bottom: 0.75rem; font-size: 0.875rem; }
-    .legal-infobox p:last-child { margin-bottom: 0; }
+  .legal-infobox {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .legal-infobox p { margin-bottom: 0; font-size: 14px; }
 
-    .legal-partners {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.875rem;
-      margin-top: 1.25rem;
-    }
-    .legal-partner {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      padding: 1.25rem;
-    }
-    .legal-partner strong {
-      display: block;
-      font-size: 0.875rem; color: #fff;
-      margin-bottom: 0.35rem;
-    }
-    .legal-partner span {
-      font-size: 0.75rem; color: rgba(255,255,255,0.3);
-      line-height: 1.5;
-    }
+  .legal-partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-top: 20px;
+  }
+  .legal-partner {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .legal-partner strong {
+    display: block; font-size: 14px;
+    color: var(--fg); margin-bottom: 6px;
+  }
+  .legal-partner span {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
 
-    .legal-footer-note {
-      text-align: center;
-      padding-top: 3rem;
-      margin-top: 3rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
-    }
+  .legal-foot {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
 
-    @media (max-width: 640px) {
-      .legal-partners { grid-template-columns: 1fr; }
-      .legal-section { padding: 1.75rem; }
-    }
-  </style>
+  @media (max-width: 980px) {
+    .legal-body { padding: 80px 20px; }
+    .page-top { padding: 140px 20px 60px; }
+    .legal-section { padding: 28px 24px; }
+    .legal-partners { grid-template-columns: 1fr; }
+    .legal-body .container { padding: 0; }
+  }
+</style>
 </head>
 <body>
 
-  <div id="scroll-progress" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" id="cursor" aria-hidden="true">
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
-  </div>
+<div class="promo">
+  <span class="green-dot"></span>
+  <strong>Ingen bindingstid</strong>
+  <span class="sep">—</span>
+  <span>Resultater før du betaler</span>
+  <a class="link" href="priser.html">Se priser →</a>
+</div>
 
-  <div class="topbar" role="banner">
-    <span class="topbar-pulse" aria-hidden="true"></span>
-    <strong>Ingen bindingstid</strong> &mdash; Koden er din eiendom &mdash; 1 klientplass ledig &mdash;
-    <a href="index.html#pris">Se priser</a>
-  </div>
+<header class="nav">
+  <a class="brand" href="index.html">
+    <span class="dot"></span>
+    <span>index dev.</span>
+  </a>
+  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+    <span class="menu-label">Meny</span>
+    <span class="bars"></span>
+  </button>
+</header>
 
-  <header>
-    <nav class="navbar" id="navbar" aria-label="Hovednavigasjon">
-      <div class="navbar-inner">
-        <a href="index.html" class="nav-logo" aria-label="Index Development — forsiden">
-          <div class="nav-logo-dot" aria-hidden="true"></div>
-          index dev.
-        </a>
-        <ul class="nav-links" role="list">
-          <li><a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a></li>
-          <li><a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a></li>
-          <li><a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
-          <li><a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a></li>
-          <li><a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+<section class="page-top">
+  <div class="container">
+    <p class="page-eyebrow">Juridisk</p>
+    <h1 class="reveal">Personvern&shy;erklæring.</h1>
+    <p class="reveal" style="margin-top:32px;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:rgba(255,255,255,0.55);max-width:520px;">Sist oppdatert: Mars 2026 · Org.nr. 934 626 009</p>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="container">
+    <div class="legal-container">
+
+      <div class="legal-section reveal">
+        <p class="legal-num">01 / Behandlingsansvarlig</p>
+        <h2>Hvem er ansvarlig for dine data?</h2>
+        <p>Andreas Melheim (Index Development, org.nr. 934 626 009) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Kontakt oss på <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a> ved spørsmål.</p>
+      </div>
+
+      <div class="legal-section reveal">
+        <p class="legal-num">02 / Ansvarsforhold</p>
+        <h2>Vår rolle vs. kundens rolle</h2>
+        <p>Denne erklæringen gjelder utelukkende for Index Development som virksomhet. For nettsidene vi utvikler og drifter for kunder, fungerer vi teknisk som tilrettelegger.</p>
+        <div class="legal-infobox">
+          <p><strong>Viktig presisering:</strong> Den enkelte bedrift (kunden) er selv behandlingsansvarlig for alle data som samles inn via sin nettside — for eksempel via kontaktskjemaer. Index Development håndterer ikke disse dataene med mindre en separat databehandleravtale er inngått.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal">
+        <p class="legal-num">03 / Innsamlede data</p>
+        <h2>Informasjon vi samler inn</h2>
+        <p><strong>Kommunikasjon:</strong> Når du kontakter oss lagrer vi navn, e-post og meldingsinnhold for å kunne svare deg og utføre behovsanalyse.</p>
+        <p><strong>Kundeforhold og betaling:</strong> Når avtale inngås lagrer vi nødvendig bedriftsinformasjon. All betalingsbehandling håndteres via Stripe. Vi oppbevarer fakturainformasjon i henhold til bokføringsloven.</p>
+      </div>
+
+      <div class="legal-section reveal">
+        <p class="legal-num">04 / Informasjonskapsler</p>
+        <h2>Cookies og sporing</h2>
+        <p>Index Development benytter ingen sporing, analyseverktøy eller markedsføringscookies på vår nettside. Ditt besøk er fullstendig privat — ingen cookie-popup er nødvendig fordi det ikke er noe å samtykke til.</p>
+      </div>
+
+      <div class="legal-section reveal">
+        <p class="legal-num">05 / Underleverandører</p>
+        <h2>Deling med tredjeparter</h2>
+        <p>Vi selger aldri opplysninger. For å drifte infrastrukturen vår sikkert benytter vi følgende leverandører:</p>
+        <div class="legal-partners">
+          <div class="legal-partner">
+            <strong>Cloudflare</strong>
+            <span>Hosting, DDoS-beskyttelse og nettverksytelse.</span>
+          </div>
+          <div class="legal-partner">
+            <strong>Stripe</strong>
+            <span>Sikker håndtering av betalinger og abonnement.</span>
+          </div>
+          <div class="legal-partner">
+            <strong>Web3Forms</strong>
+            <span>Sikker ruting av innsendte kontaktskjemaer.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-section reveal">
+        <p class="legal-num">06 / Dine rettigheter</p>
+        <h2>Hva du har krav på</h2>
+        <p>Du har rett til å kreve innsyn, retting eller sletting av opplysninger vi behandler, med mindre annet lovverk krever at vi oppbevarer dem. Send en e-post til <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a> for bistand.</p>
+      </div>
+
+      <p class="legal-foot">Sist oppdatert: Mars 2026 &nbsp;·&nbsp; Index Development &nbsp;·&nbsp; Org.nr. 934 626 009</p>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
+        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
+        <span class="org">Org.nr — 934 626 009</span>
+      </div>
+      <div class="foot-col">
+        <h5>Sider</h5>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
-        <button class="lang-btn" id="lang-toggle" aria-label="Switch language">NO</button>
-        <a href="kontakt.html" class="nav-cta" aria-label="Krev ditt gratis utkast">
-          <span data-no="Stopp blødningen" data-en="Stop the bleeding">Stopp blødningen</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clip-rule="evenodd"/></svg>
-        </a>
-        <button class="nav-hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
       </div>
-    </nav>
-    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <a href="tjenester.html" data-no="Tjenester" data-en="Services">Tjenester</a>
-      <a href="prosess.html" data-no="Slik fungerer det" data-en="How it works">Slik fungerer det</a>
-      <a href="prosjekter.html" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-      <a href="om-meg.html" data-no="Sannheten" data-en="The Truth">Sannheten</a>
-      <a href="kontakt.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
-      <a href="kontakt.html" data-no="Krev ditt gratis utkast →" data-en="Claim your free draft →">Krev ditt gratis utkast →</a>
-    </div>
-  </header>
-
-  <main>
-
-    <section class="legal-hero" aria-labelledby="personvern-title">
-      <div class="legal-hero-inner">
-        <p class="legal-tag">Juridisk</p>
-        <h1 id="personvern-title">Personvernerklæring</h1>
-        <p>Hvordan Index Development samler inn, bruker og beskytter data i forbindelse med vår virksomhet. Vi sporer ingenting du ikke har godkjent.</p>
-        <div class="legal-meta">
-          <span>Sist oppdatert: Mars 2026</span>
-          <span>·</span>
-          <span>Index Development, Org.nr. 936 933 661</span>
-        </div>
+      <div class="foot-col">
+        <h5>Annet</h5>
+        <ul>
+          <li><a href="personvern.html" aria-current="page">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
       </div>
-    </section>
-
-    <div class="legal-body">
-      <div class="legal-container">
-
-        <div class="legal-section">
-          <p class="legal-section-num">01 / Behandlingsansvarlig</p>
-          <h2>Hvem er ansvarlig for dine data?</h2>
-          <p>Andreas Melheim (Index Development, org.nr. 936 933 661) er behandlingsansvarlig for virksomhetens behandling av personopplysninger. Har du spørsmål, kontakt oss på <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>.</p>
-        </div>
-
-        <div class="legal-section">
-          <p class="legal-section-num">02 / Ansvarsforhold</p>
-          <h2>Vår rolle vs. kundens rolle</h2>
-          <p>Denne erklæringen gjelder utelukkende for Index Development som virksomhet. For nettsidene vi utvikler og drifter for kunder, fungerer vi teknisk som tilrettelegger.</p>
-          <div class="legal-infobox">
-            <p><strong>Viktig presisering:</strong> Den enkelte bedrift (kunden) er selv behandlingsansvarlig for alle data som samles inn via sin nettside — for eksempel via kontaktskjemaer. Index Development håndterer ikke disse dataene på vegne av kunden med mindre en separat databehandleravtale er inngått.</p>
-          </div>
-        </div>
-
-        <div class="legal-section">
-          <p class="legal-section-num">03 / Innsamlede data</p>
-          <h2>Informasjon vi samler inn</h2>
-          <p><strong>Kommunikasjon:</strong> Når du kontakter oss via skjema, lagrer vi navn, e-post og meldingsinnhold via Web3Forms for å kunne svare deg og utføre analyse av behov.</p>
-          <p><strong>Kundeforhold og betaling:</strong> Når avtale inngås, lagrer vi nødvendig bedriftsinformasjon for å oppfylle kontrakten. All betalingsbehandling håndteres via Stripe. Vi oppbevarer fakturainformasjon i henhold til bokføringsloven.</p>
-        </div>
-
-        <div class="legal-section">
-          <p class="legal-section-num">04 / Informasjonskapsler</p>
-          <h2>Cookies og sporing</h2>
-          <p>Index Development benytter ingen sporing, analyseverktøy (som Google Analytics) eller markedsføringscookies på vår nettside. Ditt besøk er fullstendig privat — ingen cookie-popup er nødvendig fordi det rett og slett ikke er noe å samtykke til.</p>
-        </div>
-
-        <div class="legal-section">
-          <p class="legal-section-num">05 / Underleverandører</p>
-          <h2>Deling med tredjeparter</h2>
-          <p>Vi selger aldri opplysninger. For å drifte infrastrukturen vår sikkert benytter vi følgende enterprise-leverandører:</p>
-          <div class="legal-partners">
-            <div class="legal-partner">
-              <strong>Cloudflare</strong>
-              <span>Hosting, DDoS-beskyttelse og nettverksytelse.</span>
-            </div>
-            <div class="legal-partner">
-              <strong>Stripe</strong>
-              <span>Sikker håndtering av betalinger og abonnement.</span>
-            </div>
-            <div class="legal-partner">
-              <strong>Web3Forms</strong>
-              <span>Sikker ruting av innsendte kontaktskjemaer.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="legal-section">
-          <p class="legal-section-num">06 / Dine rettigheter</p>
-          <h2>Hva du har krav på</h2>
-          <p>Du har rett til å kreve innsyn, retting eller sletting av opplysninger vi behandler om din bedrift, med mindre annet lovverk (som bokføringsloven) krever at vi oppbevarer dem. Send en e-post til <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a> for bistand.</p>
-        </div>
-
-        <p class="legal-footer-note">Sist oppdatert: Mars 2026 &nbsp;·&nbsp; Index Development Melheim &nbsp;·&nbsp; Org.nr. 936 933 661</p>
-
+      <div class="foot-col contact">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
       </div>
     </div>
-
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">
-            <div class="footer-logo-dot" aria-hidden="true"></div>
-            index dev.
-          </div>
-          <p class="footer-desc">Håndkodede nettsider for norske småbedrifter som vil ha resultater — ikke bare en pen side.</p>
-        </div>
-        <div class="footer-col">
-          <h3>Tjenester</h3>
-          <ul>
-            <li><a href="tjenester.html">Alle tjenester</a></li>
-            <li><a href="tjenester.html">Nettsider som selger</a></li>
-            <li><a href="tjenester.html">Web-redesign</a></li>
-            <li><a href="tjenester.html">Drift og sikkerhet</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Selskap</h3>
-          <ul>
-            <li><a href="prosess.html">Slik fungerer det</a></li>
-            <li><a href="prosjekter.html">Prosjekter</a></li>
-            <li><a href="om-meg.html">Sannheten</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Ta kontakt</h3>
-          <div class="footer-contact">
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/></svg>
-              <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
-            </div>
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511Z" clip-rule="evenodd"/></svg>
-              +47 48 45 96 86
-            </div>
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7a5 5 0 0 0 5 5c.41 0 .809-.049 1.19-.143Z" clip-rule="evenodd"/></svg>
-              Drammen, Norge
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Index Development Melheim. Org.nr. 936 933 661.</p>
-        <nav class="footer-bottom-links" aria-label="Juridisk">
-          <a href="personvern.html" aria-current="page" style="color:var(--white)">Personvern</a>
-          <a href="vilkar.html">Vilkår</a>
-        </nav>
-      </div>
+    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="lang.js" defer></script>
-  <script>
-  (function () {
-    'use strict';
-    var prog = document.getElementById('scroll-progress');
-    function updateProgress() {
-      if (!prog) return;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
-    }
-    var navbar = document.getElementById('navbar');
-    function updateNav() {
-      if (window.scrollY > 60) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    }
-    window.addEventListener('scroll', function () { updateProgress(); updateNav(); }, { passive: true });
-    updateNav();
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', function () {
-      var isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
-      mobileMenu.setAttribute('aria-hidden', !isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
-    });
-  }());
-  </script>
-
+<script src="subpage.js" defer></script>
 </body>
 </html>
