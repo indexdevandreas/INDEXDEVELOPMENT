@@ -24,7 +24,7 @@ html, body {
   font-feature-settings: 'ss01', 'cv11';
   overflow-x: hidden;
 }
-body { overflow-x: hidden; max-width: 100%; }
+body { max-width: 100%; }
 
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
@@ -54,8 +54,8 @@ button { font-family: inherit; cursor: pointer; }
   opacity: 0;
   transform-origin: 50% 0%;
   transform: perspective(900px) translateY(-100%) rotateX(60deg);
-  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
-              transform 0.55s cubic-bezier(0.22,1,0.36,1);
+  transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1),
+              transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 .promo .green-dot {
   width: 8px; height: 8px;
@@ -94,8 +94,8 @@ button { font-family: inherit; cursor: pointer; }
   opacity: 0;
   transform-origin: 50% 0%;
   transform: perspective(900px) translateY(-30px) rotateX(55deg);
-  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1) 0.18s,
-              transform 0.55s cubic-bezier(0.22,1,0.36,1) 0.18s;
+  transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1),
+              transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 .brand {
   display: inline-flex;
@@ -189,14 +189,15 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
    ─────────────────────────────────────────────────────────── */
 .intro-overlay {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   z-index: 60;
   background: var(--bg);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 32px;
   pointer-events: none;
-  animation: intro-fade-out 0.4s ease 2.6s forwards;
+  animation: intro-fade-out 0.3s ease 1.5s forwards;
 }
 @keyframes intro-fade-out {
   to { opacity: 0; }
@@ -204,6 +205,7 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
 .hero-logo {
   width: min(92vw, 1300px);
   height: auto;
+  aspect-ratio: 1300 / 280;
   overflow: visible;
   display: block;
 }
@@ -214,7 +216,7 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   fill-opacity: 0;
-  animation: dot-draw 2.6s linear forwards;
+  animation: dot-draw 1.5s linear forwards;
 }
 .hero-logo .h-text {
   fill: var(--fg);
@@ -227,9 +229,9 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   stroke-dashoffset: 1400;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 220px;
+  font-size: min(15.57vw, 220px);
   letter-spacing: -0.045em;
-  animation: text-draw 2.6s linear forwards;
+  animation: text-draw 1.5s linear forwards;
 }
 @keyframes dot-draw {
   0%   { stroke-dashoffset: 100;  fill-opacity: 0; }
@@ -1241,7 +1243,7 @@ body.menu-open .nav .brand {
 
 @media (max-width: 480px) {
   section { padding: 64px 16px; }
-  .statement { padding-top: 110px; padding-bottom: 80px; }
+  .statement { padding-top: 130px; padding-bottom: 80px; }
   .stats h2 { margin-bottom: 56px; }
   .stat-grid { gap: 56px; }
   .pitch { padding-top: 80px; padding-bottom: 80px; }

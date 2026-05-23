@@ -11,7 +11,7 @@
     showNav();
   } else {
     sessionStorage.setItem('intro-seen', '1');
-    setTimeout(showNav, 3050);
+    setTimeout(showNav, 1600);
   }
 })();
 
