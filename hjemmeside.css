@@ -51,11 +51,6 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
-  opacity: 0;
-  transform-origin: 50% 0%;
-  transform: perspective(900px) translateY(-100%) rotateX(60deg);
-  transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1),
-              transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 .promo .green-dot {
   width: 8px; height: 8px;
@@ -91,11 +86,6 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  opacity: 0;
-  transform-origin: 50% 0%;
-  transform: perspective(900px) translateY(-30px) rotateX(55deg);
-  transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1),
-              transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 .brand {
   display: inline-flex;
@@ -184,82 +174,6 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   max-width: 640px;
 }
 
-/* ───────────────────────────────────────────────────────────
-   INTRO OVERLAY — timed logo draw + reverse
-   ─────────────────────────────────────────────────────────── */
-.intro-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 60;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 32px;
-  pointer-events: none;
-  animation: intro-fade-out 0.3s ease 1.5s forwards;
-}
-@keyframes intro-fade-out {
-  to { opacity: 0; }
-}
-.hero-logo {
-  width: min(92vw, 1300px);
-  height: auto;
-  aspect-ratio: 1300 / 280;
-  overflow: visible;
-  display: block;
-}
-.hero-logo .h-dot {
-  fill: var(--blue);
-  stroke: var(--blue);
-  stroke-width: 3;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  fill-opacity: 0;
-  animation: dot-draw 1.5s linear forwards;
-}
-.hero-logo .h-text {
-  fill: var(--fg);
-  fill-opacity: 0;
-  stroke: var(--fg);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: min(15.57vw, 220px);
-  letter-spacing: -0.045em;
-  animation: text-draw 1.5s linear forwards;
-}
-@keyframes dot-draw {
-  0%   { stroke-dashoffset: 100;  fill-opacity: 0; }
-  15%  { stroke-dashoffset: 0;    fill-opacity: 0; }
-  25%  { stroke-dashoffset: 0;    fill-opacity: 1; }
-  72%  { stroke-dashoffset: 0;    fill-opacity: 1; }
-  83%  { stroke-dashoffset: 0;    fill-opacity: 0; }
-  100% { stroke-dashoffset: -100; fill-opacity: 0; }
-}
-@keyframes text-draw {
-  0%   { stroke-dashoffset: 1400;  fill-opacity: 0; }
-  25%  { stroke-dashoffset: 1400;  fill-opacity: 0; }
-  62%  { stroke-dashoffset: 0;     fill-opacity: 0; }
-  70%  { stroke-dashoffset: 0;     fill-opacity: 1; }
-  72%  { stroke-dashoffset: 0;     fill-opacity: 1; }
-  82%  { stroke-dashoffset: 0;     fill-opacity: 0; }
-  100% { stroke-dashoffset: -1400; fill-opacity: 0; }
-}
-body.nav-ready .promo,
-body.nav-ready .nav {
-  opacity: 1;
-  transform: none;
-}
-body.no-intro .intro-overlay { display: none; }
-body.no-intro .promo,
-body.no-intro .nav {
-  transition: none;
-}
 
 /* ───────────────────────────────────────────────────────────
    STATEMENT
@@ -1224,20 +1138,20 @@ body.menu-open .nav .brand {
   }
   .stat { grid-template-columns: 1fr; gap: 16px; }
   .stat:nth-child(even) { grid-template-columns: 1fr; direction: ltr; }
+  .stat:nth-child(even) .big { order: -1; }
   .service-grid { grid-template-columns: 1fr; }
   .pitch-grid { grid-template-columns: 1fr; gap: 48px; }
   .skill-item { grid-template-columns: 32px 1fr; gap: 20px; }
   .skill-tag { display: none; }
   .promo { font-size: 11px; padding: 0 16px; }
   .promo span:nth-child(n+4):not(.link) { display: none; }
-  .intro-overlay { padding: 0 20px; }
   .statement { padding-top: 120px; }
   .project .container { grid-template-columns: 1fr; }
   .foot-mark .big { -webkit-text-stroke-width: 0.8px; }
   .service { padding: 44px 32px; min-height: 280px; }
   .service .s-arrow { bottom: 28px; right: 28px; width: 40px; height: 40px; }
   .service:hover .s-reveal { max-height: 240px; }
-  .statement h1 { font-size: clamp(40px, 12vw, 200px); }
+  .statement h1 { font-size: clamp(52px, 13vw, 200px); }
   .testi-mark { font-size: clamp(56px, 18vw, 140px); }
 }
 
@@ -1252,7 +1166,7 @@ body.menu-open .nav .brand {
   .skills { padding: 80px 16px; }
   .promise { padding: 80px 16px; }
   .cta { padding: 80px 16px; }
-  .intro-overlay { padding: 0 12px; }
+  .statement h1 { font-size: clamp(52px, 14.5vw, 200px); }
   .service { padding: 36px 20px; min-height: 220px; }
   .skill-item { padding: 20px 0; }
   footer { padding: 60px 0 0; }
@@ -1263,7 +1177,5 @@ body.menu-open .nav .brand {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .intro-overlay { display: none; }
-  .promo, .nav { opacity: 1 !important; transform: none !important; transition: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
