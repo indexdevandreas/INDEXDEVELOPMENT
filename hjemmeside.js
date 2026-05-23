@@ -1,5 +1,19 @@
 'use strict';
 
+/* ─── Intro + nav reveal ─── */
+(function () {
+  function showNav() {
+    document.body.classList.add('nav-ready');
+  }
+
+  if (sessionStorage.getItem('intro-seen')) {
+    document.body.classList.add('no-intro');
+    showNav();
+  } else {
+    sessionStorage.setItem('intro-seen', '1');
+    setTimeout(showNav, 3050);
+  }
+})();
 
 /* ─── Mobile menu ─── */
 const menuBtn    = document.getElementById('js-menu-btn');

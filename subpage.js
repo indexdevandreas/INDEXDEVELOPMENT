@@ -2,6 +2,7 @@
 
 /* Subpages have no intro overlay — show nav/promo immediately */
 document.body.classList.add('no-intro');
+document.body.classList.add('nav-ready');
 
 /* ─── Mobile menu ─── */
 const menuBtn    = document.getElementById('js-menu-btn');

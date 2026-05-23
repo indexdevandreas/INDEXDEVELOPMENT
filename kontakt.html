@@ -288,11 +288,9 @@
 
   @media (max-width: 980px) {
     .page-hero { padding: 140px 20px 80px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
     .hero-card { margin-bottom: 0; }
     .contact-section { padding: 80px 20px; }
     .form-card { padding: 32px 24px; }
-    .contact-info-row { grid-template-columns: 1fr; gap: 24px; }
     .process { padding: 80px 20px 0; }
     .process-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -348,38 +346,16 @@
 
 <section class="page-hero">
   <div class="container">
-    <div class="hero-inner">
-      <div>
-        <p class="eyebrow">Kontakt</p>
-        <h1 class="reveal">La oss<span class="k-indent k-outline">Snakke.</span></h1>
-        <p class="hero-sub reveal">Send en melding. Fastpris med en gang. Du ser nettsiden før du betaler én krone.</p>
-      </div>
-      <div class="hero-card reveal">
-        <div class="hc-item">
-          <span class="hc-label">Telefon</span>
-          <a class="hc-val" href="tel:+4748459686">+47 484 59 686</a>
-        </div>
-        <div class="hc-item">
-          <span class="hc-label">E-post</span>
-          <a class="hc-val" href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
-        </div>
-        <div class="hc-item">
-          <span class="hc-label">Responstid</span>
-          <span class="hc-val">Innen én time på hverdager</span>
-        </div>
-        <div class="hc-bullets">
-          <span>Ingen betaling før du er fornøyd</span>
-          <span>Fastpris i første svar</span>
-          <span>Ingen bindingstid</span>
-        </div>
-      </div>
+    <div>
+      <p class="eyebrow">Kontakt</p>
+      <h1 class="reveal">La oss<span class="k-indent k-outline">Snakke.</span></h1>
+      <p class="hero-sub reveal">Send en melding. Fastpris med en gang. Du ser nettsiden før du betaler én krone.</p>
     </div>
   </div>
 </section>
 
 <section class="contact-section">
   <div class="container">
-
     <div class="form-wrap">
       <div class="form-section-mark reveal">KONTAKT</div>
       <div class="form-card reveal">
@@ -417,6 +393,32 @@
         </div>
       </form>
     </div>
+    </div>
+
+    <div class="hero-card reveal" style="max-width:700px;margin:32px auto 0;">
+      <div class="hc-item">
+        <span class="hc-label">Telefon</span>
+        <a class="hc-val" href="tel:+4748459686">+47 484 59 686</a>
+      </div>
+      <div class="hc-item">
+        <span class="hc-label">E-post</span>
+        <a class="hc-val" href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+      </div>
+      <div class="hc-item">
+        <span class="hc-label">Responstid</span>
+        <span class="hc-val">Innen én time på hverdager</span>
+      </div>
+      <div class="hc-bullets">
+        <span>Ingen betaling før du er fornøyd</span>
+        <span>Fastpris i første svar</span>
+        <span>Ingen bindingstid</span>
+      </div>
+    </div>
+
+    <div class="contact-guarantees reveal" style="max-width:700px;margin:20px auto 0;">
+      <div class="cg-item">Ingen betaling før du er fornøyd</div>
+      <div class="cg-item">Fastpris-tilbud samme dag</div>
+      <div class="cg-item">Ingen bindingstid</div>
     </div>
 
   </div>
