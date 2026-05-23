@@ -1137,8 +1137,12 @@ body.menu-open .nav .brand {
     gap: 56px;
   }
   .stat { grid-template-columns: 1fr; gap: 16px; }
-  .stat:nth-child(even) { grid-template-columns: 1fr; direction: ltr; }
-  .stat:nth-child(even) .big { order: -1; }
+  .stat:nth-child(even) {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    display: flex;
+    flex-direction: column-reverse;
+  }
   .service-grid { grid-template-columns: 1fr; }
   .pitch-grid { grid-template-columns: 1fr; gap: 48px; }
   .skill-item { grid-template-columns: 32px 1fr; gap: 20px; }
@@ -1157,16 +1161,17 @@ body.menu-open .nav .brand {
 
 @media (max-width: 480px) {
   section { padding: 64px 16px; }
-  .statement { padding-top: 130px; padding-bottom: 80px; }
-  .stats h2 { margin-bottom: 56px; }
-  .stat-grid { gap: 56px; }
+  .statement { padding-top: 130px; padding-bottom: 40px; }
+  .statement .meta { margin-top: 36px; }
+  .stats h2 { margin-bottom: 48px; }
+  .stat-grid { gap: 48px; }
   .pitch { padding-top: 80px; padding-bottom: 80px; }
   .testimonial { padding-top: 80px; padding-bottom: 80px; }
   .services { padding-top: 80px; padding-bottom: 100px; }
   .skills { padding: 80px 16px; }
   .promise { padding: 80px 16px; }
   .cta { padding: 80px 16px; }
-  .statement h1 { font-size: clamp(52px, 14.5vw, 200px); }
+  .statement h1 { font-size: clamp(60px, 16vw, 200px); }
   .service { padding: 36px 20px; min-height: 220px; }
   .skill-item { padding: 20px 0; }
   footer { padding: 60px 0 0; }
