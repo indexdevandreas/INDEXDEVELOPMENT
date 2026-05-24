@@ -48,7 +48,7 @@ button { font-family: inherit; cursor: pointer; }
   gap: 16px;
 }
 .intro-dot {
-  width: 16px; height: 16px;
+  width: 24px; height: 24px;
   border-radius: 50%;
   background: var(--blue);
   transform: scale(0);
@@ -307,11 +307,6 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   gap: 48px;
   align-items: end;
 }
-.stat:nth-child(even) {
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
-  direction: rtl;
-}
-.stat:nth-child(even) > * { direction: ltr; }
 .stat .big {
   font-size: clamp(120px, 18vw, 280px);
   font-weight: 800;
@@ -1192,10 +1187,6 @@ body.menu-open .nav .brand {
     gap: 56px;
   }
   .stat { grid-template-columns: 1fr; gap: 16px; }
-  .stat:nth-child(even) {
-    grid-template-columns: 1fr;
-    direction: ltr;
-  }
   .service-grid { grid-template-columns: 1fr; }
   .pitch-grid { grid-template-columns: 1fr; gap: 48px; }
   .skill-item { grid-template-columns: 32px 1fr; gap: 20px; }
