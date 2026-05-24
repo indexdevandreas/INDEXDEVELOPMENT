@@ -308,11 +308,11 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   align-items: end;
 }
 .stat:nth-child(even) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+  align-items: center;
 }
-.stat:nth-child(even) .copy { text-align: right; }
+.stat:nth-child(even) .copy { grid-column: 1; }
+.stat:nth-child(even) .big  { grid-column: 2; justify-self: end; }
 .stat .big {
   font-size: clamp(120px, 18vw, 280px);
   font-weight: 800;
