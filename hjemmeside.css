@@ -309,10 +309,9 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
 }
 .stat:nth-child(even) {
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
-  direction: rtl;
 }
-.stat:nth-child(even) > * { direction: ltr; }
-.stat:nth-child(even) .big { justify-self: end; }
+.stat:nth-child(even) .copy { grid-column: 1; }
+.stat:nth-child(even) .big  { grid-column: 2; justify-self: end; }
 .stat .big {
   font-size: clamp(120px, 18vw, 280px);
   font-weight: 800;
@@ -1193,6 +1192,8 @@ body.menu-open .nav .brand {
     gap: 56px;
   }
   .stat { grid-template-columns: 1fr; gap: 16px; }
+  .stat:nth-child(even) .big,
+  .stat:nth-child(even) .copy { grid-column: auto; justify-self: auto; }
   .service-grid { grid-template-columns: 1fr; }
   .pitch-grid { grid-template-columns: 1fr; gap: 48px; }
   .skill-item { grid-template-columns: 32px 1fr; gap: 20px; }
