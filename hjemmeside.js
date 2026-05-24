@@ -1,5 +1,34 @@
 'use strict';
 
+/* ─── Intro overlay ─── */
+(function () {
+  const overlay = document.getElementById('intro-overlay');
+  if (!overlay) return;
+
+  if (sessionStorage.getItem('intro-seen')) {
+    overlay.style.display = 'none';
+    return;
+  }
+
+  const dot  = overlay.querySelector('.intro-dot');
+  const text = overlay.querySelector('.intro-text');
+
+  // Dot scales in immediately
+  dot.classList.add('animate');
+
+  // Text slides in after dot finishes (400 ms)
+  setTimeout(() => text.classList.add('animate'), 400);
+
+  // Fade out: dot (400ms) + text (500ms) + hold (1000ms) = 1900ms
+  setTimeout(() => {
+    overlay.classList.add('fade-out');
+    overlay.addEventListener('animationend', () => {
+      overlay.style.display = 'none';
+      sessionStorage.setItem('intro-seen', '1');
+    }, { once: true });
+  }, 1900);
+})();
+
 /* ─── Mobile menu ─── */
 const menuBtn    = document.getElementById('js-menu-btn');
 const mobileMenu = document.getElementById('js-mobile-menu');
