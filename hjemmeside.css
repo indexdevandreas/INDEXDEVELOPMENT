@@ -6,8 +6,8 @@
   --blue: #2547ff;
   --blue-soft: rgba(37, 71, 255, 0.12);
   --green: #22c55e;
-  --muted: rgba(255, 255, 255, 0.42);
-  --muted-2: rgba(255, 255, 255, 0.22);
+  --muted: rgba(255, 255, 255, 0.68);
+  --muted-2: rgba(255, 255, 255, 0.48);
   --line: rgba(255, 255, 255, 0.07);
   --line-light: rgba(0, 0, 0, 0.08);
 }
@@ -856,7 +856,7 @@ footer::before {
   margin-top: auto;
 }
 
-.foot-col h5 {
+.foot-col h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 500;
@@ -1034,7 +1034,7 @@ body.menu-open .nav .brand {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.68);
 }
 .ticker-dot {
   width: 5px !important;

@@ -8,7 +8,8 @@
 <link rel="canonical" href="https://indexdevelopment.no/webdesign.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <style>
   .promo { --r: 1; }
@@ -222,6 +223,8 @@
   </address>
 </div>
 
+<main>
+
 <section class="page-hero">
   <div class="container">
     <div class="hero-text">
@@ -380,6 +383,8 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="container">
     <div class="foot-top">
@@ -389,7 +394,7 @@
         <span class="org">Org.nr — 934 626 009</span>
       </div>
       <div class="foot-col">
-        <h5>Sider</h5>
+        <h3>Sider</h3>
         <ul>
           <li><a href="index.html">Forside</a></li>
           <li><a href="tjenester.html">Tjenester</a></li>
@@ -398,14 +403,14 @@
         </ul>
       </div>
       <div class="foot-col">
-        <h5>Annet</h5>
+        <h3>Annet</h3>
         <ul>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
       </div>
       <div class="foot-col contact">
-        <h5>Kontakt</h5>
+        <h3>Kontakt</h3>
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
