@@ -1195,8 +1195,6 @@ body.menu-open .nav .brand {
   .stat:nth-child(even) {
     grid-template-columns: 1fr;
     direction: ltr;
-    display: flex;
-    flex-direction: column-reverse;
   }
   .service-grid { grid-template-columns: 1fr; }
   .pitch-grid { grid-template-columns: 1fr; gap: 48px; }
