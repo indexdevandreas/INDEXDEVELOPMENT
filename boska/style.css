@@ -268,7 +268,9 @@ main > *:not(.hero) {
   z-index: 1;
   background: #fff;
 }
-main > .steps-section {
+main > .steps-section,
+main > .page-hero,
+main > .cta-section {
   background: var(--c-ink);
 }
 .split-stats-section {
@@ -873,7 +875,7 @@ a.hc-item-val:hover { color: var(--c-primary); }
 
 /* === PAGE HERO (subpages) === */
 .page-hero {
-  background: linear-gradient(140deg, var(--c-ink) 0%, var(--c-ink-2) 100%);
+  background: var(--c-ink);
   padding: calc(64px + 5.5rem) 0 5.5rem;
   position: relative; overflow: hidden;
 }
@@ -881,12 +883,13 @@ a.hc-item-val:hover { color: var(--c-primary); }
   content: '';
   position: absolute; top: -20%; right: -10%;
   width: 50vw; height: 50vw;
-  background: radial-gradient(circle, rgba(31,95,191,.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(31,95,191,.22) 0%, transparent 70%);
   pointer-events: none;
 }
 .page-hero-inner { max-width: 820px; }
 .page-hero .section-label { color: rgba(255,255,255,.4); }
 .page-hero h1 {
+  font-family: 'Montserrat', var(--font), sans-serif;
   font-size: clamp(2.75rem, 5.5vw, 5.5rem);
   font-weight: 800; letter-spacing: -.045em; line-height: .98;
   color: #fff; margin-bottom: 1.5rem;
