@@ -28,7 +28,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Hero reveals immediately
 setTimeout(() => {
-  document.querySelectorAll('.hero .reveal, .page-hero .reveal').forEach((el, i) => {
+  document.querySelectorAll('.hero .reveal, .page-hero .reveal, .rorlegger-hero .reveal, .ventilasjon-hero .reveal, .utleie-hero .reveal, .kontakt-hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('in'), i * 90);
   });
 }, 60);
@@ -139,18 +139,44 @@ document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
   }
 });
 
-// === CONTACT FORMS ===
-[
-  { formId: 'contact-form', successSel: '.form-success' },
-  { formId: 'homepage-contact-form', successSel: '.hc-success' }
-].forEach(({ formId, successSel }) => {
+// === CONTACT FORMS (Web3Forms) ===
+// Gå til web3forms.com, skriv inn tommy@boskaror.no og lim inn nøkkelen her:
+const W3F_KEY = 'DIN_WEB3FORMS_NØKKEL';
+
+function handleForm(formId, successSel) {
   const form = document.getElementById(formId);
   if (!form) return;
-  form.addEventListener('submit', e => {
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    form.style.display = 'none';
-    const ok = form.closest('.hc-form-wrap, .contact-form-box')?.querySelector(successSel)
-             || document.querySelector(successSel);
-    if (ok) ok.style.display = 'block';
+
+    const btn = form.querySelector('button[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = 'Sender…';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+    data.append('access_key', W3F_KEY);
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        form.style.display = 'none';
+        const ok = form.closest('.hc-form-wrap, .contact-form-box')?.querySelector(successSel)
+                 || document.querySelector(successSel);
+        if (ok) ok.style.display = 'block';
+      } else {
+        throw new Error(json.message);
+      }
+    } catch (err) {
+      btn.textContent = origText;
+      btn.disabled = false;
+      alert('Noe gikk galt. Prøv igjen eller ring oss direkte på +47 941 68 653.');
+      console.error('Web3Forms error:', err);
+    }
   });
-});
+}
+
+handleForm('contact-form', '.form-success');
+handleForm('homepage-contact-form', '.hc-success');

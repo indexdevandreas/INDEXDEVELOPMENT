@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt oss – Boska Rør og Ventilasjon</title>
   <meta name="description" content="Ta kontakt med Boska Rør og Ventilasjon i Ørsta. Ring, send e-post eller fyll ut skjemaet – vi svarer raskt.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://boskaror.no/kontakt">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,14 +40,27 @@
 
   <main>
 
-    <section class="page-hero">
-      <div class="container">
-        <div class="page-hero-inner">
-          <span class="section-label reveal">Kontakt</span>
-          <h1 class="reveal" style="--delay:.08s">La oss ta<br>en prat.</h1>
-          <p class="reveal" style="--delay:.16s">
-            Har du et spørsmål, ønsker en uforpliktende befaring, eller er du en bedrift som trenger fagkapasitet? Vi hører gjerne fra deg – og svarer raskt.
-          </p>
+    <section class="kontakt-hero">
+      <div class="kontakt-hero-glow" aria-hidden="true"></div>
+      <div class="kontakt-hero-inner">
+        <div class="kontakt-hero-top reveal">
+          <span class="section-label">Kontakt</span>
+          <span class="kontakt-hero-coords">Man–fre 07:00–16:00</span>
+        </div>
+        <h1 class="kontakt-hero-title reveal" style="--delay:.07s">
+          La oss ta<br><em>en prat.</em>
+        </h1>
+        <div class="kontakt-hero-actions reveal" style="--delay:.15s">
+          <a href="tel:+4794168653" class="kontakt-action">
+            <span class="kontakt-action-type">Ring direkte</span>
+            <span class="kontakt-action-val">+47 941 68 653</span>
+            <span class="kontakt-action-sub">Rask respons – vi svarer normalt samme dag</span>
+          </a>
+          <a href="mailto:tommy@boskaror.no" class="kontakt-action">
+            <span class="kontakt-action-type">Send e-post</span>
+            <span class="kontakt-action-val">tommy@boskaror.no</span>
+            <span class="kontakt-action-sub">Eller bruk skjemaet nedenfor</span>
+          </a>
         </div>
       </div>
     </section>
@@ -57,9 +71,9 @@
 
           <!-- Kontaktinfo -->
           <div class="contact-info reveal">
-            <h2>Kontaktinformasjon</h2>
+            <h2>Snakk med Tommy</h2>
             <p>
-              Bruk gjerne telefon for rask respons. Vi er tilgjengelige på hverdager og svarer normalt samme dag.
+              Telefon er raskest for akutte saker. Ellers tar vi kontakt innen samme virkedag.
             </p>
             <div class="contact-details">
               <div class="contact-item">
@@ -97,13 +111,25 @@
                   <span>Myra 60, 6156 Ørsta</span>
                 </div>
               </div>
+              <div class="contact-item">
+                <div class="contact-ico" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="contact-item-body">
+                  <strong>Åpningstider</strong>
+                  <span>Man–fre 07:00–16:00</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- Skjema -->
           <div class="contact-form-box reveal" style="--delay:.12s">
             <h3>Send oss en melding</h3>
-            <p class="form-note">Fyll ut skjemaet, så tar vi kontakt med deg så snart vi kan – vanligvis samme dag.</p>
+            <p class="form-note">Fyll ut skjemaet, så tar vi kontakt med deg – vanligvis samme dag.</p>
 
             <form id="contact-form" novalidate>
               <div class="form-row">
@@ -135,7 +161,7 @@
                 <label for="melding">Melding</label>
                 <textarea id="melding" name="melding" placeholder="Beskriv hva du trenger hjelp med..." required></textarea>
               </div>
-              <button type="submit" class="btn-form-submit">Send melding</button>
+              <button type="submit" class="btn-form-submit">Send melding →</button>
             </form>
 
             <div class="form-success">

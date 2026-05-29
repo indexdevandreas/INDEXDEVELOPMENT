@@ -270,8 +270,14 @@ main > *:not(.hero) {
 }
 main > .steps-section,
 main > .page-hero,
-main > .cta-section {
+main > .cta-section,
+main > .rorlegger-hero,
+main > .utleie-hero,
+main > .kontakt-hero {
   background: var(--c-ink);
+}
+main > .ventilasjon-hero {
+  background: #060f1f;
 }
 .split-stats-section {
   box-shadow: 0 -16px 48px rgba(0,0,0,.07);
@@ -906,6 +912,419 @@ a.hc-item-val:hover { color: var(--c-primary); }
 }
 .btn-page-cta:hover { border-color: rgba(255,255,255,.55); color: #fff; }
 
+/* ─── KONTAKT HERO ─── */
+.kontakt-hero {
+  background: var(--c-ink);
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.kontakt-hero-glow {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 75% at 85% 40%, rgba(31,95,191,.12) 0%, transparent 65%);
+}
+.kontakt-hero-inner {
+  padding: 5.5rem max(2rem, calc((100vw - var(--max-w)) / 2 + 2rem)) 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.kontakt-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.75rem;
+}
+.kontakt-hero-top .section-label { color: rgba(255,255,255,.28); margin-bottom: 0; }
+.kontakt-hero-coords {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.2);
+}
+.kontakt-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 10.5rem);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: .88;
+  color: #fff;
+  margin-bottom: 4.5rem;
+}
+.kontakt-hero-title em {
+  font-style: italic;
+  color: rgba(255,255,255,.4);
+  display: block;
+}
+.kontakt-hero-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.kontakt-action {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 2.25rem 0 2.25rem 0;
+  background: transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: background .25s;
+  position: relative;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.kontakt-action:last-child { border-right: none; padding-left: 3rem; }
+.kontakt-action::after {
+  content: '↗';
+  position: absolute;
+  top: 2.25rem; right: 0;
+  font-size: 1.125rem;
+  color: rgba(255,255,255,.18);
+  transition: transform .2s, color .2s;
+}
+.kontakt-action:last-child::after { right: 0; }
+.kontakt-action:hover { background: rgba(255,255,255,.025); }
+.kontakt-action:hover::after { transform: translate(3px, -3px); color: rgba(255,255,255,.45); }
+.kontakt-action-type {
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.28);
+}
+.kontakt-action-val {
+  font-family: 'Montserrat', var(--font), sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.875rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: #fff;
+  transition: color .2s;
+}
+.kontakt-action:hover .kontakt-action-val { color: rgba(255,255,255,.85); }
+.kontakt-action-sub {
+  font-size: .78rem;
+  color: rgba(255,255,255,.28);
+}
+
+/* ─── RORLEGGER HERO ─── */
+.rorlegger-hero {
+  background: var(--c-ink);
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: grid;
+}
+.rorlegger-hero-inner {
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  min-height: calc(100svh - 64px);
+}
+.rorlegger-hero-text {
+  padding: 5.5rem 4rem 5.5rem max(2rem, calc((100vw - var(--max-w)) / 2 + 2rem));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.rorlegger-hero-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.rorlegger-hero-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .035;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    rgba(255,255,255,1) 0px,
+    rgba(255,255,255,1) 1px,
+    transparent 1px,
+    transparent 72px
+  );
+}
+.rorlegger-hero .section-label { color: rgba(255,255,255,.3); }
+.rorlegger-hero h1 {
+  font-family: 'Montserrat', var(--font), sans-serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: .95;
+  color: #fff;
+  margin: 1.125rem 0 2rem;
+}
+.rorlegger-hero > .rorlegger-hero-inner > .rorlegger-hero-text p {
+  font-size: .975rem;
+  color: rgba(255,255,255,.48);
+  max-width: 400px;
+  line-height: 1.78;
+  margin-bottom: 2.5rem;
+}
+.rorlegger-hero-img {
+  position: relative;
+  overflow: hidden;
+}
+.rorlegger-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--c-ink) 0%, rgba(11,18,32,.08) 35%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+.rorlegger-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 1s ease;
+}
+.rorlegger-hero-img:hover img { transform: scale(1.03); }
+.rorlegger-hero-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  z-index: 2;
+}
+.rorlegger-hero-bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.rorlegger-hero-bottom-label {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.28);
+}
+.rorlegger-hero-bottom-cta {
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+}
+
+/* ─── VENTILASJON HERO ─── */
+.ventilasjon-hero {
+  background: #060f1f;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+}
+.ventilasjon-hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ventilasjon-hero-orbs::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: 35%;
+  transform: translateX(-50%);
+  width: 80vw; height: 80vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31,95,191,.16) 0%, transparent 60%);
+  animation: vOrb1 9s ease-in-out infinite alternate;
+}
+.ventilasjon-hero-orbs::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; right: -5%;
+  width: 45vw; height: 45vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(31,95,191,.09) 0%, transparent 70%);
+  animation: vOrb2 12s ease-in-out infinite alternate;
+}
+@keyframes vOrb1 {
+  0%   { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: .7; }
+}
+@keyframes vOrb2 {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.25) translate(-40px, -30px); }
+}
+.ventilasjon-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: calc(64px + 5rem) max(2rem, calc((100vw - var(--max-w)) / 2 + 2rem)) 0;
+  padding-bottom: 0;
+}
+.ventilasjon-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.ventilasjon-hero-top .section-label { color: rgba(255,255,255,.3); }
+.ventilasjon-price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.6);
+  background: rgba(31,95,191,.15);
+  border: 1px solid rgba(31,95,191,.3);
+  padding: .55rem 1.1rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ventilasjon-price-badge strong { color: #fff; font-weight: 700; }
+.ventilasjon-title {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 11vw, 13rem);
+  font-weight: 400;
+  line-height: .88;
+  letter-spacing: -.025em;
+  color: #fff;
+  margin-bottom: 0;
+}
+.ventilasjon-title .ghost-line {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.18);
+  display: block;
+}
+.ventilasjon-title .solid-line {
+  font-style: italic;
+  display: block;
+}
+.ventilasjon-hero-footer {
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.ventilasjon-hero-footer-item {
+  flex: 1;
+  padding: 1.75rem 2.5rem 1.75rem 0;
+  border-right: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.ventilasjon-hero-footer-item:first-child { padding-left: 0; }
+.ventilasjon-hero-footer-item:last-child { border-right: none; padding-right: 0; align-items: flex-end; justify-content: center; }
+.ventilasjon-footer-label {
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.28);
+}
+.ventilasjon-footer-val {
+  font-size: .925rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.65);
+}
+
+/* ─── UTLEIE HERO ─── */
+.utleie-hero {
+  background: var(--c-ink);
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+}
+.utleie-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.utleie-hero-grid-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(31,95,191,.12) 0%, transparent 60%);
+}
+.utleie-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: calc(var(--max-w) + 4rem);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.utleie-hero-columns {
+  display: grid;
+  grid-template-columns: 1fr 36%;
+  gap: 5rem;
+  align-items: flex-end;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.utleie-hero-left .section-label { color: rgba(255,255,255,.3); }
+.utleie-hero-left h1 {
+  font-family: 'Montserrat', var(--font), sans-serif;
+  font-size: clamp(2.75rem, 5.5vw, 5.75rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: .96;
+  color: #fff;
+  margin: 1rem 0 1.875rem;
+}
+.utleie-hero-left p {
+  font-size: .95rem;
+  color: rgba(255,255,255,.42);
+  line-height: 1.78;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+}
+.utleie-hero-card {
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.utleie-card-item {
+  padding: 2.25rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+}
+.utleie-card-item:last-child {
+  border-bottom: none;
+  background: rgba(31,95,191,.07);
+}
+.utleie-card-num {
+  font-family: 'Montserrat', var(--font), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  color: #fff;
+  line-height: 1;
+  display: block;
+  margin-bottom: .5rem;
+}
+.utleie-card-item p {
+  font-size: .8rem;
+  color: rgba(255,255,255,.35);
+  line-height: 1.6;
+}
+
 /* === CONTENT SECTIONS (subpages) === */
 .content-section { padding: 7rem 0; }
 .content-section.tint {
@@ -1125,12 +1544,16 @@ a.hc-item-val:hover { color: var(--c-primary); }
 .btn-form-submit {
   display: flex; align-items: center; justify-content: center; width: 100%;
   padding: .875rem; font-size: .875rem; font-weight: 700; font-family: var(--font);
-  background: var(--c-ink); color: #fff;
-  border: none; border-radius: var(--radius-sm);
+  background: var(--c-primary); color: #fff;
+  border: none; border-radius: 100px;
   cursor: pointer; margin-top: .5rem;
-  transition: background .2s, transform .2s;
+  transition: background .2s, transform .2s, box-shadow .2s;
 }
-.btn-form-submit:hover { background: var(--c-ink-2); transform: translateY(-1px); }
+.btn-form-submit:hover {
+  background: var(--c-primary-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(31,95,191,.35);
+}
 
 .form-success { display: none; text-align: center; padding: 3rem 2rem; color: var(--c-muted); }
 .form-success strong { display: block; font-size: 1rem; font-weight: 700; color: var(--c-ink); margin-bottom: .5rem; }
@@ -1156,52 +1579,162 @@ a.hc-item-val:hover { color: var(--c-primary); }
   .hc-info { border-right: none; border-bottom: 1px solid var(--c-line); }
   .service-row { grid-template-columns: 52px 1fr auto; gap: 1.25rem; }
   .service-cards { grid-template-columns: 1fr; }
+  /* Kontakt hero responsive */
+  .kontakt-hero-actions { grid-template-columns: 1fr 1fr; }
+  /* Rorlegger hero responsive */
+  .rorlegger-hero-inner { grid-template-columns: 1fr 40%; }
+  .rorlegger-hero-text { padding: 4rem 2.5rem 4rem 2rem; }
+  /* Utleie hero responsive */
+  .utleie-hero-columns { grid-template-columns: 1fr 38%; gap: 3rem; }
+  /* Ventilasjon hero responsive */
+  .ventilasjon-hero-footer { flex-wrap: wrap; }
+  .ventilasjon-hero-footer-item { min-width: 200px; }
 }
 
 @media (max-width: 768px) {
+  /* NAV */
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .floating-call { display: flex; }
+
+  /* INDEX HERO */
   .hero { min-height: auto; }
-  .hero-photo-col { height: 72vw; }
-  .hero-left { padding: 2rem 1.25rem; }
+  .hero-left { padding: 2.5rem 1.25rem 2.5rem 1.25rem; justify-content: flex-start; }
+  .hero-title { font-size: clamp(2.75rem, 11vw, 4rem); }
+  .hero-tagline { font-size: .85rem; }
   .hero-meta-bar .container { display: none; }
-  .hero-cta-bar .container { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.25rem; }
+  .hero-cta-bar .container { flex-direction: column; align-items: flex-start; gap: .875rem; padding: 1.25rem; }
   .hero-cta-label { display: none; }
+
+  /* SPLIT STATS */
+  .split-stats-section { padding: 3.5rem 0 0; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .split-stats-top { padding-bottom: 3rem; }
   .split-stats-bar { grid-template-columns: 1fr; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--c-line); padding: 1.75rem 0; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--c-line); padding: 1.5rem 0; }
   .stat-item:last-child { border-bottom: none; }
   .stat-item + .stat-item { padding-left: 0; }
+
+  /* SERVICES */
+  .services-section { padding: 3.5rem 0; }
+  .services-header--center { margin-bottom: 2.5rem; }
   .service-row { grid-template-columns: 44px 1fr; }
   .service-arrow { display: none; }
   .service-num { font-size: 1.6rem; }
+
+  /* STEPS */
+  .steps-section { padding: 4.5rem 0; }
   .steps-grid { grid-template-columns: 1fr; }
   .step-card { padding: 2rem 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
   .step-card:last-child { border-bottom: none; }
   .step-card + .step-card { padding-left: 0; }
+  .step-num { font-size: 2.25rem; }
+
+  /* AUDIENCE */
   .audience-grid { grid-template-columns: 1fr; }
-  .content-section, .steps-section, .pricing-section, .contact-section { padding: 5rem 0; }
-  .cta-section { padding: 5.5rem 0; }
-  .services-section { padding: 4rem 0; }
-  .page-hero { padding: calc(64px + 3.5rem) 0 3.5rem; }
-  .footer-cols { flex-direction: column; gap: 2rem; }
-  .highlight-block { padding: 2.5rem; border-radius: var(--radius-md); }
-  .contact-form-box { padding: 1.875rem; }
-  .hc-info, .hc-form-wrap { padding: 2rem 1.875rem; }
-  .hc-form-row { grid-template-columns: 1fr; }
-  .team-section { padding: 5rem 0; }
+
+  /* CONTENT SECTIONS */
+  .content-section, .pricing-section, .contact-section { padding: 4rem 0; }
+  .content-body h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .highlight-block { padding: 2.25rem 1.875rem; border-radius: var(--radius-md); }
+
+  /* TEAM */
+  .team-section { padding: 4rem 0; }
   .team-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .team-text h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+
+  /* PRICING */
+  .pricing-grid { grid-template-columns: 1fr; }
+
+  /* TESTIMONIAL */
+  .testimonial-section { padding: 3rem 0; }
+  .testimonial-quote { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+  /* CTA SECTION */
+  .cta-section { padding: 4.5rem 0; }
+  .cta-text h2 { font-size: clamp(2.25rem, 9vw, 3.5rem); }
+  .cta-text p { max-width: 100%; }
+  .cta-inner { flex-direction: column; gap: 2.5rem; align-items: flex-start; }
+
+  /* PAGE HERO */
+  .page-hero { padding: calc(64px + 3rem) 0 3rem; }
+  .page-hero h1 { font-size: clamp(2.25rem, 9vw, 3.5rem); }
+
+  /* FOOTER */
+  .footer-cols { flex-direction: column; gap: 2rem; }
+
+  /* HOMEPAGE CONTACT */
+  .homepage-contact { padding: 4rem 0 5rem; }
+  .hc-info, .hc-form-wrap { padding: 2rem 1.5rem; }
+  .hc-form-row { grid-template-columns: 1fr; }
+  .hc-title { font-size: clamp(1.875rem, 7vw, 2.75rem); }
+
+  /* CONTACT PAGE */
+  .contact-form-box { padding: 1.75rem; }
+
+  /* PRICELIST */
   .pricelist-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* ─── HERO SECTIONS (subpages) ─── */
+
+  /* Rorlegger hero */
+  .rorlegger-hero { display: flex; flex-direction: column; }
+  .rorlegger-hero-inner { display: block; flex: 1; }
+  .rorlegger-hero-img { display: none; }
+  .rorlegger-hero-text { padding: 3rem 1.25rem 2rem; justify-content: flex-start; min-height: 0; }
+  .rorlegger-hero h1 { font-size: clamp(2.5rem, 10vw, 3.75rem); margin-top: 1rem; }
+  .rorlegger-hero > .rorlegger-hero-inner > .rorlegger-hero-text p { max-width: 100%; }
+  .rorlegger-hero-bottom { position: relative; width: 100%; }
+  .rorlegger-hero-bottom .container { padding: 1rem 1.25rem; }
+
+  /* Ventilasjon hero */
+  .ventilasjon-hero { align-items: flex-start; }
+  .ventilasjon-hero-inner { padding: calc(64px + 3.5rem) 1.25rem 4rem; }
+  .ventilasjon-hero-top { flex-direction: column; gap: 1rem; align-items: flex-start; margin-bottom: 2rem; }
+  .ventilasjon-price-badge { align-self: flex-start; }
+  .ventilasjon-title { font-size: clamp(3rem, 13vw, 5rem); margin-bottom: 2.5rem; }
+  .ventilasjon-hero-mobile-cta { display: inline-flex !important; }
+  .ventilasjon-hero-footer { display: none; }
+
+  /* Utleie hero */
+  .utleie-hero-inner { padding: 0 1.25rem; }
+  .utleie-hero-columns { grid-template-columns: 1fr; gap: 2rem; padding-top: 4rem; padding-bottom: 3.5rem; }
+  .utleie-hero-left h1 { font-size: clamp(2.25rem, 9vw, 3.5rem); }
+  .utleie-card-item { padding: 1.75rem 1.5rem; }
+
+  /* Kontakt hero */
+  .kontakt-hero-inner { padding: calc(64px + 3.5rem) 1.25rem 0; }
+  .kontakt-hero-top { flex-direction: column; gap: .625rem; align-items: flex-start; margin-bottom: 2rem; }
+  .kontakt-hero-coords { display: none; }
+  .kontakt-hero-title { font-size: clamp(2.75rem, 12vw, 5rem); margin-bottom: 2.5rem; }
+  .kontakt-hero-actions { grid-template-columns: 1fr; }
+  .kontakt-action:last-child { padding-left: 0; border-top: 1px solid rgba(255,255,255,.08); }
+  .kontakt-action-val { font-size: clamp(1rem, 4.5vw, 1.5rem); }
 }
 
-@media (max-width: 500px) {
-  .container { padding: 0 1.25rem; }
-  .hero-title { font-size: 3rem; }
-}
+/* Ventilasjon mobile CTA – hidden on desktop */
+.ventilasjon-hero-mobile-cta { display: none; }
 
-@media (max-width: 500px) {
-  .container { padding: 0 1.25rem; }
-  .hero-title { font-size: 2.75rem; }
-  .hero-inner { padding: 3.25rem 0 3.5rem; }
-  .hero-img-wrap { aspect-ratio: 3/4; }
+@media (max-width: 480px) {
+  .container { padding: 0 1.125rem; }
+  .hero-title { font-size: 2.5rem; }
+  .hero-cta-bar .container { padding: 1rem 1.125rem; }
+  .btn-primary, .btn-ghost { padding: .75rem 1.25rem; font-size: .825rem; }
+  .service-card { padding: 2rem 1.625rem; }
+  .pricing-card { padding: 2rem 1.625rem; }
+  .section-title { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .cta-text h2 { font-size: clamp(2rem, 9vw, 3rem); }
+  .contact-form-box { padding: 1.5rem; }
+  .hc-info, .hc-form-wrap { padding: 1.75rem 1.25rem; }
+  .steps-section { padding: 3.5rem 0; }
+  .team-section, .content-section { padding: 3.5rem 0; }
+  .homepage-contact { padding: 3rem 0 4rem; }
+  .testimonial-section { padding: 2.5rem 0; }
+  .cta-section { padding: 3.5rem 0; }
+  .split-stats-section { padding: 3rem 0 0; }
+  /* Subpage hero font sizes */
+  .rorlegger-hero-text h1 { font-size: 2.25rem; }
+  .ventilasjon-title { font-size: clamp(2.5rem, 11vw, 4rem); }
+  .utleie-hero-left h1 { font-size: 2.25rem; }
+  .kontakt-hero-title { font-size: clamp(2.25rem, 11vw, 4rem); }
+  .kontakt-action-val { font-size: 1.1rem; }
 }
