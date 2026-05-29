@@ -1602,6 +1602,7 @@ a.hc-item-val:hover { color: var(--c-primary); }
   main > *:not(.hero) { z-index: auto; }
 
   /* INDEX HERO */
+  .hero-bg img { object-position: right 15%; }
   .hero-left { padding: 2.5rem 1.25rem 2.5rem 1.25rem; justify-content: flex-start; }
   .hero-title { font-size: clamp(2.75rem, 11vw, 4rem); }
   .hero-tagline { font-size: .85rem; }
@@ -1609,8 +1610,8 @@ a.hc-item-val:hover { color: var(--c-primary); }
   .hero-cta-bar .container { flex-direction: column; align-items: flex-start; gap: .875rem; padding: 1.25rem; }
   .hero-cta-label { display: none; }
 
-  /* SPLIT STATS */
-  .split-stats-section { padding: 3.5rem 0 0; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  /* SPLIT STATS – remove slide-over visual on mobile */
+  .split-stats-section { padding: 3.5rem 0 0; border-radius: 0; box-shadow: none; }
   .split-stats-top { padding-bottom: 3rem; }
   .split-stats-bar { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--c-line); padding: 1.5rem 0; }
