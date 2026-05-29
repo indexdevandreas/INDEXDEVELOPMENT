@@ -273,7 +273,8 @@ main > .page-hero,
 main > .cta-section,
 main > .rorlegger-hero,
 main > .utleie-hero,
-main > .kontakt-hero {
+main > .kontakt-hero,
+main > .utleie-process-section {
   background: var(--c-ink);
 }
 main > .ventilasjon-hero {
@@ -1592,6 +1593,19 @@ a.hc-item-val:hover { color: var(--c-primary); }
 }
 
 @media (max-width: 768px) {
+  /* ─── FIX: horizontal overflow from reveal animations ─── */
+  /* translateX(±40px) exceeds mobile padding → shift visible content to edge.
+     Convert to Y-only so no horizontal clipping occurs. */
+  .reveal.from-left,
+  .reveal.from-right { transform: translateY(22px); }
+
+  /* Clip sections that contain img-shadow-wrap::before (extends -16px right) */
+  .split-stats-section,
+  .team-section { overflow: hidden; }
+
+  /* Reduce shadow offset so it stays within container padding on mobile */
+  .img-shadow-wrap::before { top: -8px; right: -8px; }
+
   /* NAV */
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -1719,6 +1733,130 @@ a.hc-item-val:hover { color: var(--c-primary); }
 /* Ventilasjon mobile CTA – hidden on desktop */
 .ventilasjon-hero-mobile-cta { display: none; }
 
+/* === UTLEIE PROCESS SECTION (unique – replaces generic steps on utleie.html) === */
+.utleie-process-section {
+  padding: 7rem 0;
+  background: var(--c-ink);
+  overflow: hidden;
+}
+.utleie-process-header { margin-bottom: 5rem; }
+.utleie-process-header .section-label { color: rgba(255,255,255,.3); }
+.utleie-process-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: #fff;
+  margin-top: .625rem;
+}
+
+.utleie-process-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+/* Horizontal connecting line through the badge centers.
+   Badges are left-aligned in each 1fr column; center of badge 1 = 26px from left;
+   center of badge 3 = 2*(track/3) + 26px from left = track/3 - 26px from right. */
+.utleie-process-track::before {
+  content: '';
+  position: absolute;
+  top: 26px; /* half of 52px badge height */
+  left: 26px;
+  right: calc(100% / 3 - 26px);
+  height: 1px;
+  background: rgba(31,95,191,.25);
+  z-index: 0;
+}
+
+.utleie-proc-step {
+  padding: 0 3rem 0 0;
+  position: relative;
+}
+.utleie-proc-step:last-child { padding-right: 0; }
+
+.utleie-proc-badge {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(31,95,191,.45);
+  background: rgba(31,95,191,.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-primary);
+  position: relative; z-index: 1;
+  margin-bottom: 2.5rem;
+  transition: background .25s, border-color .25s;
+}
+.utleie-proc-step:hover .utleie-proc-badge {
+  background: rgba(31,95,191,.22);
+  border-color: var(--c-primary);
+}
+
+.utleie-proc-meta {
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.utleie-proc-num {
+  font-family: 'Montserrat', var(--font), sans-serif;
+  font-size: 3.75rem;
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.1);
+  user-select: none;
+  pointer-events: none;
+}
+.utleie-proc-label {
+  font-size: .55rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+}
+
+.utleie-proc-step h3 {
+  font-size: 1.175rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  color: #fff;
+  margin-bottom: .75rem;
+  line-height: 1.25;
+}
+.utleie-proc-step p {
+  font-size: .875rem;
+  color: rgba(255,255,255,.4);
+  line-height: 1.75;
+}
+
+/* Vertical separator between steps */
+.utleie-proc-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 1.5rem;
+  width: 1px; height: 100%;
+  background: rgba(255,255,255,.05);
+}
+
+@media (max-width: 768px) {
+  .utleie-process-section { padding: 4.5rem 0; }
+  .utleie-process-header { margin-bottom: 3rem; }
+  .utleie-process-track {
+    grid-template-columns: 1fr;
+  }
+  .utleie-process-track::before { display: none; }
+  .utleie-proc-step {
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(255,255,255,.07);
+    border-bottom: none;
+  }
+  .utleie-proc-step:last-child { padding-bottom: 0; }
+  .utleie-proc-step::after { display: none; }
+  .utleie-proc-badge { margin-bottom: 1.5rem; }
+  .utleie-proc-num { font-size: 2.5rem; }
+}
+
 @media (max-width: 480px) {
   .container { padding: 0 1.125rem; }
   .hero-title { font-size: 2.5rem; }
@@ -1736,6 +1874,8 @@ a.hc-item-val:hover { color: var(--c-primary); }
   .testimonial-section { padding: 2.5rem 0; }
   .cta-section { padding: 3.5rem 0; }
   .split-stats-section { padding: 3rem 0 0; }
+  .utleie-process-section { padding: 3.5rem 0; }
+  .utleie-process-title { font-size: 1.875rem; }
   /* Subpage hero font sizes */
   .rorlegger-hero-text h1 { font-size: 2.25rem; }
   .ventilasjon-title { font-size: clamp(2.5rem, 11vw, 4rem); }
