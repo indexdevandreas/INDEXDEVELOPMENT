@@ -354,6 +354,7 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: start;
+  padding-left: clamp(0px, 6vw, 120px);
 }
 .norge-text .eyebrow-sm {
   font-size: 11px;
