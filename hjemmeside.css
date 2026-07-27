@@ -8,8 +8,8 @@
   --green: #22c55e;
   --muted: rgba(255, 255, 255, 0.68);
   --muted-2: rgba(255, 255, 255, 0.48);
-  --line: rgba(255, 255, 255, 0.07);
-  --line-light: rgba(0, 0, 0, 0.08);
+  --line: transparent;
+  --line-light: transparent;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -741,6 +741,9 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   max-width: 980px;
   margin: 0 auto;
 }
+.testi-wrap + .testi-wrap {
+  margin-top: 140px;
+}
 .testi-mark {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
@@ -916,12 +919,10 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: rgba(0,0,0,0.7);
-  border-top: 1px solid rgba(255,255,255,0.06);
 }
 .project-mock .mock-stats .cell {
   padding: 16px 12px;
   text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.04);
 }
 .project-mock .mock-stats .cell:last-child { border-right: 0; }
 .project-mock .mock-stats .val {
@@ -1068,13 +1069,6 @@ footer {
   padding: 80px 32px 32px;
   background: var(--bg);
   position: relative;
-}
-footer::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.14) 25%, rgba(255,255,255,0.14) 75%, transparent 100%);
 }
 .foot-top {
   display: grid;

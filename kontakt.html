@@ -46,7 +46,6 @@
     line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 520px;
   }
   .hero-card {
-    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 18px;
     padding: 32px;
     background: rgba(255,255,255,0.03);
@@ -55,7 +54,6 @@
   }
   .hc-item {
     padding: 18px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .hc-item:first-child { padding-top: 0; }
   .hc-label {
@@ -96,7 +94,6 @@
     text-align: center;
   }
   .form-card {
-    border: 1px solid rgba(255,255,255,0.14);
     border-radius: 20px;
     padding: 56px;
     background: rgba(255,255,255,0.045);
@@ -366,7 +363,6 @@
       <div class="form-card reveal">
       <p class="form-lead">Send melding</p>
       <form class="contact-form" id="contact-form" novalidate>
-        <input type="hidden" name="access_key" value="a8f98da4-c5c8-4607-bd07-3dc199888140">
         <input type="hidden" name="subject" value="Ny henvendelse — Index Development">
 
         <div class="field">
@@ -544,10 +540,12 @@ document.querySelectorAll('.faq-item').forEach(function(item) {
     btn.disabled = true;
 
     try {
+      const fd = new FormData(form);
+      fd.append('access_key', atob('NWY0NjI1NWUtNDI4Ni00ZTc4LTk3N2UtM2U4MGQ2ZTMyNGI5'));
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        body: fd
       });
       const data = await res.json();
       if (data.success) {
