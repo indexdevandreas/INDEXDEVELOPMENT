@@ -45,39 +45,6 @@
     margin-top: 48px; font-size: clamp(17px, 1.6vw, 21px);
     line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 520px;
   }
-  .hero-card {
-    border-radius: 18px;
-    padding: 32px;
-    background: rgba(255,255,255,0.03);
-    display: flex; flex-direction: column; gap: 0;
-    margin-bottom: 6px;
-  }
-  .hc-item {
-    padding: 18px 0;
-  }
-  .hc-item:first-child { padding-top: 0; }
-  .hc-label {
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); display: block; margin-bottom: 6px;
-  }
-  .hc-val {
-    font-size: 15px; font-weight: 600; color: var(--fg);
-    letter-spacing: -0.01em; display: block; line-height: 1.3;
-    transition: color 0.2s;
-  }
-  a.hc-val:hover { color: var(--blue); }
-  .hc-bullets {
-    padding-top: 20px;
-    display: flex; flex-direction: column; gap: 9px;
-  }
-  .hc-bullets span {
-    font-size: 12px; color: rgba(255,255,255,0.38);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .hc-bullets span::before {
-    content: "✓"; color: var(--blue); font-weight: 700; font-size: 11px; flex-shrink: 0;
-  }
-
   /* ─── Contact form section ─── */
   .contact-section { padding: 80px 32px 120px; border-bottom: 1px solid var(--line); }
   .form-wrap {
@@ -146,6 +113,58 @@
     font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6;
   }
 
+  /* ─── Kontaktperson (foto + telefon/e-post) ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 72px;
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .contact-photo {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
+  }
+  .contact-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block;
+  }
+  .contact-info .eyebrow { margin-bottom: 24px; }
+  .contact-heading {
+    font-size: clamp(32px, 3.6vw, 48px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .contact-heading .blue { color: var(--blue); }
+  .contact-copy {
+    font-size: 16px; line-height: 1.6;
+    color: rgba(255,255,255,0.6); max-width: 420px;
+    margin-bottom: 40px;
+  }
+  .contact-links {
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 28px 32px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 40px;
+  }
+  .contact-link {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    padding: 12px 0;
+  }
+  .cl-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); flex-shrink: 0;
+  }
+  .cl-val {
+    font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -0.02em;
+    color: var(--fg); transition: color 0.2s; text-align: right;
+  }
+  .contact-link:hover .cl-val { color: var(--blue); }
+
   /* Info strip below form */
   .contact-info-row {
     max-width: 700px; margin: 40px auto 0;
@@ -162,8 +181,7 @@
   }
   a.ci-val:hover { color: var(--blue); }
   .contact-guarantees {
-    max-width: 700px; margin: 28px auto 0;
-    display: flex; flex-wrap: wrap; gap: 20px 32px;
+    display: flex; flex-wrap: wrap; gap: 14px 28px;
   }
   .cg-item {
     font-size: 13px; color: rgba(255,255,255,0.4);
@@ -287,9 +305,11 @@
 
   @media (max-width: 980px) {
     .page-hero { padding: 140px 20px 80px; }
-    .hero-card { margin-bottom: 0; }
     .contact-section { padding: 80px 20px; }
     .form-card { padding: 32px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-photo { aspect-ratio: 3/4; max-width: 360px; margin: 0 auto; }
+    .contact-copy { max-width: none; }
     .process { padding: 80px 20px 0; }
     .process-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -336,6 +356,7 @@
     <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
+    <a href="index.html#blogg">Blogg</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
   <address class="mobile-menu-foot">
@@ -358,7 +379,35 @@
 
 <section class="contact-section">
   <div class="container">
-    <div class="form-wrap">
+    <div class="contact-grid">
+      <div class="contact-photo reveal">
+        <img src="bilder/kontakt.PNG" alt="Andreas Melheim — Index Development" loading="lazy" width="1021" height="1299">
+      </div>
+      <div class="contact-info reveal">
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="contact-heading">Du snakker med <span class="blue">meg</span> — ikke et team.</h2>
+        <p class="contact-copy">Ingen kundeservice-kø, ingen bot som svarer. Ring eller send en e-post, så får du svar direkte fra meg.</p>
+
+        <div class="contact-links">
+          <a class="contact-link" href="tel:+4748459686">
+            <span class="cl-label">Telefon</span>
+            <span class="cl-val">+47 484 59 686</span>
+          </a>
+          <a class="contact-link" href="mailto:andreas@indexdevelopment.no">
+            <span class="cl-label">E-post</span>
+            <span class="cl-val">andreas@indexdevelopment.no</span>
+          </a>
+        </div>
+
+        <div class="contact-guarantees reveal">
+          <div class="cg-item">Ingen betaling før du er fornøyd</div>
+          <div class="cg-item">Fastpris-tilbud samme dag</div>
+          <div class="cg-item">Ingen bindingstid</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap" hidden>
       <div class="form-section-mark reveal">KONTAKT</div>
       <div class="form-card reveal">
       <p class="form-lead">Send melding</p>
@@ -394,32 +443,6 @@
         </div>
       </form>
     </div>
-    </div>
-
-    <div class="hero-card reveal" style="max-width:700px;margin:32px auto 0;">
-      <div class="hc-item">
-        <span class="hc-label">Telefon</span>
-        <a class="hc-val" href="tel:+4748459686">+47 484 59 686</a>
-      </div>
-      <div class="hc-item">
-        <span class="hc-label">E-post</span>
-        <a class="hc-val" href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
-      </div>
-      <div class="hc-item">
-        <span class="hc-label">Responstid</span>
-        <span class="hc-val">Innen én time på hverdager</span>
-      </div>
-      <div class="hc-bullets">
-        <span>Ingen betaling før du er fornøyd</span>
-        <span>Fastpris i første svar</span>
-        <span>Ingen bindingstid</span>
-      </div>
-    </div>
-
-    <div class="contact-guarantees reveal" style="max-width:700px;margin:20px auto 0;">
-      <div class="cg-item">Ingen betaling før du er fornøyd</div>
-      <div class="cg-item">Fastpris-tilbud samme dag</div>
-      <div class="cg-item">Ingen bindingstid</div>
     </div>
 
   </div>
