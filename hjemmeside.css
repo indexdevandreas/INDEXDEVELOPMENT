@@ -627,7 +627,7 @@ h3 { font-size: clamp(28px, 2.6vw, 40px); letter-spacing: -0.025em; line-height:
 }
 .service-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 .service {

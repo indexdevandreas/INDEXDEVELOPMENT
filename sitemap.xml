@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://indexdevelopment.no/systemutvikling.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://indexdevelopment.no/om-meg.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
