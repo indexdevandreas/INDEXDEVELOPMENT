@@ -1,0 +1,410 @@
+/* ───────────────────────────────────────────────────────────
+   drift.css — kun for drift.html.
+   Delt designsystem (font, farger, header, footer, seksjons-
+   overskrifter, demo-CTA) ligger i sider.css og må lastes først.
+
+   Siden handler om noe som er levende hele døgnet, så heroen er
+   bygget som et kontrollrom: nordlys som driver sakte, et rutenett
+   under, et lyssveip som går over flaten med jevne mellomrom, og et
+   glasskort med en roterende lyskant. Alt av bevegelse er
+   transform/opacity — ingen layout-thrashing — og alt skrus av ved
+   «prefers-reduced-motion».
+   ─────────────────────────────────────────────────────────── */
+
+/* Vinkelen til den roterende kanten må registreres for å kunne
+   animeres jevnt. Nettlesere uten @property hopper bare over
+   animasjonen — kanten blir stående stille, ikke ødelagt. */
+@property --dr-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Skallet til heroen ligger i sider.css. Her er bare objektet den viser. */
+
+/* ═══ Statusstripen langs bunnen av heroen ═══ */
+.dr-strip { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid rgba(255,255,255,.16); background: rgba(8,9,9,.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.dr-cell { display: flex; align-items: center; gap: 11px; padding: 20px 26px; font-size: 14px; color: rgba(255,255,255,.9); border-right: 1px solid rgba(255,255,255,.12); }
+.dr-cell:last-child { border-right: 0; }
+.dr-cell em { margin-left: auto; font-style: normal; font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: .1em; color: rgba(255,255,255,.5); }
+.dr-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
+.dr-dot::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 1.5px solid rgba(212,255,61,.7); animation: drPing 2.4s ease-out infinite; }
+.dr-cell:nth-child(2) .dr-dot::after { animation-delay: .6s; }
+.dr-cell:nth-child(3) .dr-dot::after { animation-delay: 1.2s; }
+.dr-cell:nth-child(4) .dr-dot::after { animation-delay: 1.8s; }
+@keyframes drPing { 0%{transform:scale(.5);opacity:.9} 70%,100%{transform:scale(1.7);opacity:0} }
+@media (prefers-reduced-motion: reduce) { .dr-dot::after { animation: none; } }
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   INKLUDERT — bento-rutenett med små levende detaljer
+   ═══════════════════════════════════════════════════════════ */
+.dr-incl { background: #fff; padding: 130px 0 110px; }
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.bn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 30px 30px 28px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  background: #f1f1ef;
+  color: #0a0a0a;
+  /* Opacity må være med: .rv-avsløringen i sider.css bruker samme
+     transition-shorthand, og denne regelen lastes sist. Uten opacity
+     her ville kortene poppet inn i stedet for å tone inn. */
+  transition:
+    transform 0.55s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+    opacity 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.bn:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(10,10,10,0.13); }
+.bn-wide { grid-column: span 2; }
+.bn-lime { background: var(--lime); }
+.bn-dark { background: #0d0d0d; color: #fff; }
+
+/* Lyskjegle som følger pekeren — settes av drift.js */
+.bn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.5), transparent 66%);
+}
+.bn-dark::after {
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(212,255,61,0.16), transparent 66%);
+}
+.bn-lime::after {
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.55), transparent 66%);
+}
+@media (hover: hover) {
+  .bn:hover::after { opacity: 1; }
+}
+.bn > * { position: relative; z-index: 1; }
+
+.bn-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: auto;
+}
+.bn h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.18;
+  margin: 26px 0 10px;
+  color: inherit;
+}
+.bn p { font-size: 14.5px; line-height: 1.6; opacity: 0.72; }
+.bn-stat {
+  margin-top: 20px;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.bn-dark .bn-stat { color: var(--lime); }
+.bn-stat small {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* Ringer som slår utover — «signalet når hele veien ut» */
+.bn-rings {
+  position: absolute;
+  right: -104px; bottom: -104px;
+  width: 280px; height: 280px;
+  pointer-events: none;
+}
+.bn-rings span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212,255,61,0.6);
+  animation: drRing 4.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+.bn-rings span:nth-child(2) { animation-delay: 1.5s; }
+.bn-rings span:nth-child(3) { animation-delay: 3s; }
+@keyframes drRing {
+  0%   { transform: scale(0.25); opacity: 0; }
+  16%  { opacity: 0.85; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* Skjoldet som «låses» med jevne mellomrom */
+.bn-shield {
+  position: absolute;
+  right: 26px; top: 24px;
+  width: 44px; height: 44px;
+  opacity: 0.85;
+  stroke: #0a0a0a;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.bn-shield .bolt {
+  stroke-dasharray: 26;
+  animation: drDraw 4.4s ease-in-out infinite;
+}
+@keyframes drDraw {
+  0%, 12%   { stroke-dashoffset: 26; }
+  38%, 82%  { stroke-dashoffset: 0; }
+  100%      { stroke-dashoffset: 26; }
+}
+
+@media (max-width: 1050px) {
+  /* Med to kolonner går de brede kortene ikke opp: seks kort blir
+     sju celler og etterlater et hull. Da er alle kort like brede. */
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .bn-wide { grid-column: auto; }
+  /* Ringene trenger bredden på et dobbeltkort for å lese som ambiens
+     — på et smalt kort skjærer de bare gjennom teksten. */
+  .bn-rings { display: none; }
+}
+@media (max-width: 700px) {
+  .dr-incl { padding: 90px 0 70px; }
+  .bento { grid-template-columns: 1fr; }
+  .bn, .bn-wide { grid-column: auto; min-height: 0; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   PRIS — 199,- for nettsider, og ærlig om alt annet
+   ═══════════════════════════════════════════════════════════ */
+.dr-price { background: #fff; padding: 20px 0 120px; }
+.dp-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: stretch;
+}
+.dp-card { border-radius: 20px; padding: 40px 42px 36px; }
+.dp-main {
+  position: relative;
+  overflow: hidden;
+  background: #0d0d0d;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+/* Rolig lysdrift i bakgrunnen på priskortet */
+.dp-main::before {
+  content: "";
+  position: absolute;
+  width: 70%; height: 130%;
+  left: 42%; top: -30%;
+  background: radial-gradient(circle at center, rgba(212,255,61,0.16) 0%, transparent 66%);
+  animation: drBlob1 24s ease-in-out infinite;
+  pointer-events: none;
+}
+.dp-main > * { position: relative; z-index: 1; }
+.dp-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.dp-amount {
+  margin: 18px 0 6px;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(64px, 8vw, 104px);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+.dp-amount .kr { font-size: 0.42em; }
+.dp-per { font-size: 15px; color: rgba(255,255,255,0.62); margin-bottom: 30px; }
+.dp-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 26px; margin-bottom: 32px; }
+.dp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.84);
+}
+.dp-check {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 9.5px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dp-btn {
+  --cap: 40px;
+  --pad: 6px;
+  gap: 16px;
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  margin-top: auto;
+}
+
+/* Den ærlige boksen ved siden av */
+.dp-note {
+  background: #f1f1ef;
+  color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+}
+.dp-note .dp-label { color: rgba(10,10,10,0.5); }
+.dp-note h3 {
+  margin: 18px 0 14px;
+  font-size: clamp(24px, 2.3vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0a0a0a;
+}
+.dp-note p {
+  font-size: 15px;
+  line-height: 1.62;
+  color: rgba(10,10,10,0.66);
+  margin-bottom: 14px;
+}
+.dp-note .pf-link { margin-top: auto; align-self: flex-start; }
+
+@media (max-width: 980px) {
+  .dr-price { padding: 0 0 90px; }
+  .dp-grid { grid-template-columns: 1fr; }
+  .dp-card { padding: 32px 26px 30px; }
+  .dp-list { grid-template-columns: 1fr; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   TRYGGHET — rullebånd + tre korte punkter
+   ═══════════════════════════════════════════════════════════ */
+.dr-safe { background: #fff; padding: 0 0 130px; }
+
+.dr-band {
+  background: #0d0d0d;
+  color: #fff;
+  border-radius: 20px;
+  max-width: 1290px;
+  margin: 0 auto 20px;
+  padding: 22px 0;
+  overflow: hidden;
+}
+/* Motsatt vei av båndet i heroen — de to skaper en rolig motbevegelse */
+.dr-band-track {
+  display: flex;
+  width: max-content;
+  animation: drBand 36s linear infinite;
+}
+@keyframes drBand {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+.dr-band-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  padding-right: 26px;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.dr-band-item::after {
+  content: "✦";
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  color: var(--lime);
+}
+
+.dr-safe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ds-card {
+  border-radius: 18px;
+  padding: 28px 28px 26px;
+  background: #f1f1ef;
+}
+.ds-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 9px;
+  color: #0a0a0a;
+}
+.ds-card p { font-size: 14.5px; line-height: 1.58; color: rgba(10,10,10,0.64); }
+
+@media (max-width: 900px) {
+  .dr-safe { padding: 0 0 90px; }
+  .dr-safe-grid { grid-template-columns: 1fr; }
+  .dr-band { margin-left: 24px; margin-right: 24px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLINDIKATOR — ren CSS der nettleseren støtter det
+   ═══════════════════════════════════════════════════════════ */
+.dr-progress {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 60;
+  width: 100%;
+  height: 2px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+@supports (animation-timeline: scroll()) {
+  .dr-progress {
+    animation: drProgress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes drProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Alt av bevegelse av
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .dr-band-track, .bn-rings span, .bn-shield .bolt,
+  .dp-main::before, .dr-progress {
+    animation: none !important;
+  }
+  .bn-rings { opacity: 0; }
+  .bn:hover { transform: none; }
+}

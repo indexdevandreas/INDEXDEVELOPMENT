@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>API-integrasjoner — index dev.</title>
+<meta name="description" content="Vi kobler systemene du allerede bruker til hverandre — betaling, regnskap, e-post, kalender og CRM — slik at data flyter automatisk i stedet for å tastes inn to ganger.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://indexdevelopment.no/api-integrasjoner.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
+<link rel="stylesheet" href="hjemmeside.css">
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="api-integrasjoner.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "API-integrasjoner",
+  "name": "API-integrasjoner",
+  "description": "Vi kobler nettsiden og systemene en bedrift allerede bruker til hverandre via API — betaling, regnskap, e-post, CRM, kalender og varsling — slik at data flyter automatisk mellom dem.",
+  "url": "https://indexdevelopment.no/api-integrasjoner.html",
+  "areaServed": "NO",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "url": "https://indexdevelopment.no",
+    "telephone": "+4748459686",
+    "email": "andreas@indexdevelopment.no",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Drammen",
+      "addressRegion": "Viken",
+      "addressCountry": "NO"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NOK",
+    "description": "Fastpris for oppsett avtales skriftlig per prosjekt. Vi sjekker gratis om systemene dine kan kobles før du betaler noe."
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="chatbots.html">Chatbots</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="index.html#blogg">Blogg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+
+<main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero photo-hero ph-edge" id="top">
+  <img class="ph-img"
+       src="bilder/hero/api-1600.jpg"
+       srcset="bilder/hero/api-800.jpg 800w, bilder/hero/api-1600.jpg 1600w"
+       sizes="100vw" width="1600" height="1066"
+       alt="" fetchpriority="high" decoding="async">
+  <div class="ph-veil" aria-hidden="true"></div>
+
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-body">
+    <p class="ph-kicker">API-integrasjoner</p>
+    <h1 class="ph-title">Systemene dine<br>snakker ikke sammen.</h1>
+    <p class="ph-lead">Vi kobler sammen systemene du allerede bruker, så du slutter å taste det samme inn to ganger.</p>
+    <a class="ph-link" href="kontakt.html">Sjekk om det lar seg koble <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="ph-obj ai-pipe">
+    <span class="ai-stop">Nettside</span>
+    <span class="ai-seg" aria-hidden="true"></span>
+    <span class="ai-stop">Betaling</span>
+    <span class="ai-seg" aria-hidden="true"></span>
+    <span class="ai-stop is-core">Integrasjonen</span>
+    <span class="ai-seg" aria-hidden="true"></span>
+    <span class="ai-stop">Regnskap</span>
+    <span class="ai-seg" aria-hidden="true"></span>
+    <span class="ai-stop">Varsel</span>
+  </div>
+</section>
+
+
+<!-- ───── FØR / ETTER ───── -->
+<section class="ai-vs">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>FORSKJELLEN</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Samme bestilling.<br><span class="pf-grey">To helt ulike arbeidsdager.</span></h2>
+      <div class="pf-aside">
+        <p>Det er sjelden ett stort problem som tar tid. Det er det samme lille tastearbeidet, hver eneste gang, resten av året.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="vs-grid">
+    <div class="vs-col">
+      <p class="vs-tag">Uten integrasjon</p>
+      <h3>Fem steg, hver gang</h3>
+      <ol class="vs-steps">
+        <li>Kunden bestiller på nettsiden</li>
+        <li>Du får en e-post om bestillingen</li>
+        <li>Du taster den inn i regnskapssystemet</li>
+        <li>Du sjekker manuelt om betalingen er kommet inn</li>
+        <li>Du sender bekreftelse tilbake til kunden</li>
+      </ol>
+      <p class="vs-foot">Fire av stegene er ren tasting. Og før eller siden er det ett av dem som blir glemt en travel dag.</p>
+    </div>
+
+    <div class="vs-col vs-after">
+      <p class="vs-tag">Med integrasjon</p>
+      <h3>To steg, én gang</h3>
+      <ol class="vs-steps">
+        <li>Kunden bestiller på nettsiden</li>
+        <li>Resten skjer av seg selv</li>
+      </ol>
+      <p class="vs-foot">Bestillingen havner i regnskapet, betalingen matches, bekreftelsen går ut — og du får ett varsel om at det er gjort.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── KOBLINGSSKJEMA ───── -->
+<section class="ai-wire">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>HVA SOM KAN KOBLES</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Har systemet et API, kan vi koble det.</h2>
+      <div class="pf-aside">
+        <a class="pf-link" href="systemutvikling.html">Se all systemutvikling <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wr-list">
+    <div class="wr-row">
+      <p class="wr-cat">Betaling</p>
+      <div class="wr-chips">
+        <span>Vipps</span><span>Stripe</span><span>Klarna</span><span class="wr-open">andre med API</span>
+      </div>
+      <p class="wr-what">Betalingen registreres på riktig ordre automatisk, i stedet for at du krysser av manuelt.</p>
+    </div>
+
+    <div class="wr-row">
+      <p class="wr-cat">Regnskap</p>
+      <div class="wr-chips">
+        <span>Fiken</span><span>Tripletex</span><span>PowerOffice</span><span class="wr-open">andre med API</span>
+      </div>
+      <p class="wr-what">Salg og fakturagrunnlag sendes rett inn, så regnskapsføreren slipper å etterlyse bilag.</p>
+    </div>
+
+    <div class="wr-row">
+      <p class="wr-cat">E-post og CRM</p>
+      <div class="wr-chips">
+        <span>Mailchimp</span><span>Brevo</span><span>HubSpot</span><span class="wr-open">andre med API</span>
+      </div>
+      <p class="wr-what">Nye kunder og henvendelser legger seg i riktig liste, med riktig merkelapp, med en gang.</p>
+    </div>
+
+    <div class="wr-row">
+      <p class="wr-cat">Kalender</p>
+      <div class="wr-chips">
+        <span>Google Calendar</span><span>Outlook</span>
+      </div>
+      <p class="wr-what">Bookinger dukker opp i kalenderen din, og opptatte tider forsvinner fra nettsiden.</p>
+    </div>
+
+    <div class="wr-row">
+      <p class="wr-cat">Varsling</p>
+      <div class="wr-chips">
+        <span>SMS</span><span>E-post</span><span>Slack</span>
+      </div>
+      <p class="wr-what">Du får beskjed når noe krever deg — og slipper å sjekke fire steder for å være sikker.</p>
+    </div>
+
+    <div class="wr-row">
+      <p class="wr-cat">Ditt eget system</p>
+      <div class="wr-chips">
+        <span>Webhooks</span><span>REST</span><span class="wr-open">bransjesystemer</span>
+      </div>
+      <p class="wr-what">Har du et fagsystem med et åpent grensesnitt, kobler vi mot det på samme måte.</p>
+    </div>
+  </div>
+
+  <div class="wr-note">
+    <p><strong>Én ærlig forbehold:</strong> vi kan bare koble systemer som faktisk tilbyr et API. Noen eldre bransjesystemer gjør ikke det, og da hjelper ingen kode. Send oss navnet på systemet, så finner vi ut av det — det koster deg ingenting, og du får et rett svar enten det er ja eller nei.</p>
+  </div>
+</section>
+
+
+<!-- ───── PRIS ───── -->
+<section class="ai-price">
+  <div class="platform-top pt-reverse">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>PRIS</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Tre tall, alle<br><span class="pf-grey">kjent på forhånd.</span></h2>
+      <div class="pf-aside">
+        <p>En integrasjon er en avgrenset jobb med et tydelig resultat. Da skal den også kunne prises som det.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pr-band">
+    <p class="pr-head">Du betaler ikke for å finne ut om det går an.</p>
+
+    <div class="pr-cols">
+      <div class="pr-cell">
+        <p class="pr-label">Først</p>
+        <p class="pr-val">Sjekk av systemene — 0,-</p>
+        <p>Vi undersøker om systemene dine kan snakke sammen i det hele tatt. Kan de ikke det, sier vi det rett ut og du har ikke betalt noe.</p>
+      </div>
+      <div class="pr-cell">
+        <p class="pr-label">Deretter</p>
+        <p class="pr-val">Oppsett — fastpris</p>
+        <p>Én kobling er en liten jobb. Flere systemer som skal henge sammen er en større. Du får tallet skriftlig før vi skriver kode.</p>
+      </div>
+      <div class="pr-cell">
+        <p class="pr-label">Løpende</p>
+        <p class="pr-val">Drift — fast per måned</p>
+        <p>En integrasjon må holdes i live når systemene den kobler endrer seg. Det prises sammen med resten av driften din.</p>
+      </div>
+    </div>
+
+    <div class="pr-foot">
+      <p class="pr-fine">Alle tall avtales skriftlig før oppstart. Koden er din ved fullført betaling, og integrasjonen kjører på dine egne kontoer hos leverandørene.</p>
+      <a class="btn-circle pr-btn" href="kontakt.html">
+        <span>FÅ ET FASTPRIS-TILBUD</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Hva taster du inn<br><span class="dm-lime">to ganger i uka?</span></h2>
+      <p class="dm-text">Det er som regel der den første integrasjonen skal ligge. Fortell oss hvilke systemer du bruker og hva du flytter mellom dem for hånd, så sier vi om det lar seg automatisere.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>SNAKK OM EN INTEGRASJON</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis å sjekke</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Dine egne kontoer</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-top foot-top-wide">
+      <div class="foot-brand">
+        <span class="brand-big">
+          <span class="dot"></span>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
+      </div>
+      <div class="foot-col">
+        <h3>Tjenester</h3>
+        <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Fra bloggen</h3>
+        <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge — bygget av oss selv.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
+<script src="chatbot-widget.js" defer></script>
+</body>
+</html>

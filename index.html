@@ -4,20 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>index dev. — digitale løsninger som skaffer kunder</title>
-<meta name="description" content="Vi bygger lynraske nettsider, smarte chatbots og skreddersydde systemer som henter inn kunder for norske bedrifter. Levert på 3–5 dager, ingen betaling før du er fornøyd.">
+<meta name="description" content="Nettsider, AI-agenter, chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift — alt fra én leverandør. Håndkodet for norske bedrifter. Demo på fem dager, ingen betaling før du er fornøyd.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="forside.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Index Development",
-  "description": "Vi bygger lynraske nettsider, smarte chatbots og skreddersydde systemer som henter inn kunder for norske bedrifter.",
+  "description": "Vi bygger lynraske nettsider, AI-agenter og skreddersydde systemer som henter inn kunder for norske bedrifter.",
   "url": "https://indexdevelopment.no",
   "telephone": "+4748459686",
   "email": "andreas@indexdevelopment.no",
@@ -30,50 +32,20 @@
   },
   "areaServed": "NO",
   "priceRange": "1999–12990 NOK",
-  "knowsAbout": ["Webdesign", "SEO", "Webutvikling", "Tekstforfatning", "Grafisk design", "AI-agenter", "API-integrasjoner", "Supabase", "Databaser"]
+  "knowsAbout": ["Webdesign", "SEO", "Webutvikling", "Tekstforfatning", "Grafisk design", "AI-agenter", "Chatbots", "Systemutvikling", "API-integrasjoner", "Booking-systemer", "Drift og vedlikehold", "Supabase", "Databaser"]
 }
 </script>
 </head>
 <body>
 
-<div id="intro-overlay" aria-hidden="true">
-  <div class="intro-brand">
-    <span class="intro-dot"></span>
-    <span class="intro-text">index dev.</span>
-  </div>
-</div>
-
-<!-- ───── Promo bar ───── -->
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid</strong>
-  <span class="sep">—</span>
-  <span>Koden er din eiendom</span>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<!-- ───── Nav ───── -->
-<header class="nav">
-  <a class="brand" href="#top">
-    <span class="dot"></span>
-    <span>index dev.</span>
-  </a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
-
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
-    <a href="#top">Forside</a>
+    <a href="index.html">Forside</a>
     <a href="tjenester.html">Tjenester</a>
     <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
-    <a href="#blogg">Blogg</a>
+    <a href="index.html#blogg">Blogg</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
   <address class="mobile-menu-foot">
@@ -82,405 +54,600 @@
   </address>
 </div>
 
-
-<main>
-<!-- ───── STATEMENT: massive headline ───── -->
-<section class="statement" id="top">
-  <div class="container">
-    <h1 class="reveal">
-      Digitale løsninger som <span class="blue">skaffer</span><br>
-      <span class="outline">kunder</span> — ikke bare ser pene ut.
-    </h1>
-      </div>
-    <p class="reveal" style="margin-top:32px;font-size:clamp(16px,1.5vw,20px);line-height:1.55;color:rgba(255,255,255,0.6);max-width:540px;">Vi bygger lynraske nettsider, smarte chatbots og skreddersydde systemer som henter inn kunder for norske bedrifter.</p>
-    <div class="meta reveal">
-      <div class="meta-item"><strong>Drammen, Norge</strong>Nettsider &amp; chatbots</div>
-      <div class="meta-item"><strong>3–5 dager</strong>Typisk leveringstid</div>
-      <div class="meta-item"><strong>Ingen bindingstid</strong>Koden er din eiendom</div>
-    </div>
+<section class="hero" id="top">
+  <div class="hero-photo">
+    <img src="bilder/andreas-utklipp-myk.png" alt="Andreas Melheim, utvikler i Index Development" width="900" height="1200" fetchpriority="high">
   </div>
-</section>
 
-<!-- ───── STATS: Visste du at... ───── -->
-<section class="stats">
-  <div class="container">
-    <h2 class="reveal">Visste du at...</h2>
-    <div class="stat-grid">
-      <div class="stat reveal">
-        <div class="big"><span class="count-up" data-to="53">0</span><span class="unit">%</span></div>
-        <div class="copy">
-          <p>av mobilbrukere forlater en nettside som laster over 3 sekunder.</p>
-          <div class="src">Kilde — Google/Soasta Research</div>
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="#top">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="stat reveal">
-        <div class="big"><span class="count-up" data-to="76">0</span><span class="unit">%</span></div>
-        <div class="copy">
-          <p>googler lokalt på mobil før de ringer eller besøker en bedrift.</p>
-          <div class="src">Kilde — Think With Google</div>
-        </div>
-      </div>
-      <div class="stat reveal">
-        <div class="big"><span class="count-up" data-to="60">0</span><span class="unit">k</span></div>
-        <div class="copy">
-          <p>kroner i tapt omsetning per år for en bedrift med dårlig nettside.</p>
-          <div class="src">2 tapte oppdrag/mnd × 2 500 kr × 12 mnd</div>
-        </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="hero-body">
+  <div class="hero-inner">
+    <h1>Digitale løsninger<br>som skaffer kunder.</h1>
+    <p class="hero-sub">Vi bygger, kobler sammen og drifter alt det digitale bedriften din trenger — for at flere skal finne deg, stole på deg og betale deg. Du ser løsningen fungere før du betaler én krone.</p>
+
+    <a class="btn-circle hero-btn" href="kontakt.html">
+      <span>BOOK DEMO</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+    </a>
+
+    <a class="hero-pill" href="ai-agenter.html">
+      <span class="hp-tag">NYHET</span>
+      <span class="hp-icon">AI</span>
+      <span class="hp-title">AI-agenter</span>
+      <span class="hp-sep"></span>
+      <span class="hp-text">Skreddersydd AI for din bedrift</span>
+      <span class="hp-arrow">→</span>
+    </a>
+
+  </div>
+  </div>
+
+  <nav class="hero-services" aria-label="Våre tjenester">
+    <span class="hsv-label">VI BYGGER</span>
+    <a href="webdesign.html">Nettsider</a>
+    <a href="ai-agenter.html">AI-agenter</a>
+    <a href="chatbots.html">Chatbots</a>
+    <a href="systemutvikling.html">Systemutvikling</a>
+    <a href="api-integrasjoner.html">API-integrasjoner</a>
+    <a href="booking-systemer.html">Booking-systemer</a>
+    <a href="drift.html">Drift &amp; vedlikehold</a>
+  </nav>
+</section>
+
+
+<!-- ───── PLATTFORMEN ───── -->
+<section class="platform">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>FLERE BETALENDE KUNDER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Vi bygger for én ting:<br><span class="pf-grey">at det kommer penger inn til bedriften din.</span></h2>
+      <div class="pf-aside">
+        <p>Design, fart, booking og sikkerhet er ikke pynt. Det er de fire tingene som avgjør om en som googler bransjen din ender opp med å betale deg — eller konkurrenten.</p>
+        <a class="pf-link" href="tjenester.html">Se hva vi bygger <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ───── PITCH ───── -->
-<section class="pitch">
-  <div class="container">
-    <div class="pitch-grid">
-      <div class="pitch-wrap reveal">
-        <h2>Vi leverer digitale løsninger med Google-synlighet og <span class="blue">konvertering</span>.</h2>
-        <p>Vi bygger ikke nettsider og chatbots for å se pene ut i porteføljen — vi bygger dem for å skaffe deg kunder. Hver beslutning handler om én ting: at de som finner deg på nett blir til betalende kunder.</p>
-        <a class="btn" href="konvertering.html">Les mer <span class="arrow">→</span></a>
-      </div>
-      <div class="pitch-img reveal">
-        <svg class="seo-graphic" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Google SEO">
-          <rect width="480" height="320" fill="#000" rx="20"/>
-          <!-- Google -->
-          <text font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" text-anchor="middle" x="240" y="100">
-            <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
-          </text>
-          <!-- SEO -->
-          <text font-family="Space Grotesk, sans-serif" font-size="88" font-weight="800" fill="#fff" text-anchor="middle" x="240" y="188" letter-spacing="-3">SEO</text>
-          <!-- Arrow -->
-          <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#2547FF"/>
-            </marker>
-          </defs>
-          <polyline
-            points="20,300 110,240 195,268 430,55"
-            fill="none" stroke="#2547FF" stroke-width="10"
-            stroke-linecap="round" stroke-linejoin="round"
-            marker-end="url(#arrowhead)"/>
-
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───── TESTIMONIAL ───── -->
-<section class="testimonial">
-  <div class="container">
-    <div class="testi-wrap reveal">
-      <div class="testi-mark">"</div>
-      <blockquote>
-        Index Development bygger ikke bare en nettside. <span class="em">De bygger en salgsmaskin.</span> Med god kommunikasjon og samhandling laget de en nettside for min bedrift effektivt og tilfredsstillende. Ikke tenk mer — velg Index Development.
-      </blockquote>
-      <div class="testi-stars" aria-label="5 av 5 stjerner">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div class="testi-name">Jakob Tande</div>
-      <div class="testi-role">Daglig leder — Renrask Bilvask</div>
-      <a class="btn ghost testi-link reveal" href="renrask/index.html">Se side →</a>
-    </div>
-
-    <div class="testi-wrap reveal">
-      <div class="testi-mark">"</div>
-      <blockquote>
-        Veldig fornøyd med jobben! <span class="em">Profesjonell, rask og enkel å samarbeide med.</span> Hjemmesiden ble akkurat slik jeg ønsket. Anbefales!
-      </blockquote>
-      <div class="testi-stars" aria-label="5 av 5 stjerner">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <div class="testi-name">Tommy</div>
-      <div class="testi-role">Daglig leder — Boska Rør og Ventilasjon</div>
-      <a class="btn ghost testi-link reveal" href="https://boskaror.no/" target="_blank" rel="noopener noreferrer">Se side →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ───── SERVICES ───── -->
-<section class="services" id="tjenester">
-  <div class="container">
-    <h2 class="reveal">Tjenester<span class="end-dot"></span></h2>
-    <div class="services-layout">
-      <div class="service-grid">
-      <a class="service reveal" href="webdesign.html">
-        <span class="s-num">01</span>
-        <div>
-          <h3>Webdesign,<br>SEO &amp; utvikling</h3>
-          <div class="s-reveal">
-            <p>Komplett nettside fra strategi til lansering. Håndkodet, optimalisert for Google, og bygget for at besøkende skal bli til kunder.</p>
+  <div class="pf-cards">
+    <div class="pf-card pf-grey-card">
+      <span class="pf-badge">
+        <svg class="ic-stack" viewBox="0 0 24 24"><path class="l1" d="M12 3l9 5-9 5-9-5 9-5z"/><path class="l2" d="M3 12l9 5 9-5"/><path class="l3" d="M3 16l9 5 9-5"/></svg>
+      </span>
+      <div class="pf-tagrows" aria-hidden="true">
+        <div class="pf-tagrow">
+          <div class="pf-tagtrack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span><span>Supabase</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span><span>Supabase</span>
           </div>
         </div>
-        <span class="s-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="service reveal" href="drift.html">
-        <span class="s-num">02</span>
-        <div>
-          <h3>Drift &amp;<br>vedlikehold</h3>
-          <div class="s-reveal">
-            <p>Vi holder siden din rask, sikker og oppdatert mens du fokuserer på drift. Sikkerhetsoppdateringer, ytelsesovervåking og mindre endringer — alt inkludert.</p>
+        <div class="pf-tagrow">
+          <div class="pf-tagtrack">
+            <span>PostgreSQL</span><span>Claude</span><span>Stripe</span><span>Vipps</span><span>Supabase</span>
+            <span>PostgreSQL</span><span>Claude</span><span>Stripe</span><span>Vipps</span><span>Supabase</span>
           </div>
         </div>
-        <span class="s-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="service reveal" href="chatbots.html">
-        <span class="s-num">03</span>
-        <div>
-          <h3>Chatbot</h3>
-          <div class="s-reveal">
-            <p>En chatbot skreddersydd for din bedrift — svarer på spørsmål, fanger leads og hjelper besøkende 24/7. Integrert direkte på nettsiden din.</p>
+      </div>
+      <p class="pf-tags-sr">Teknologier vi bygger med: HTML, CSS, JavaScript, Cloudflare, Supabase, PostgreSQL, Claude, Stripe og Vipps.</p>
+
+      <div class="pf-card-foot">
+        <p class="pf-label">Grafisk design</p>
+        <p class="pf-val">0<span class="pf-unit"> maler</span></p>
+        <p class="pf-desc">Egen profil, farger og bildespråk. Ser du ut som alle andre, blir du valgt på pris — ikke på kvalitet.</p>
+      </div>
+    </div>
+
+    <div class="pf-card pf-lime-card">
+      <span class="pf-badge">
+        <svg class="ic-gauge" viewBox="0 0 24 24"><path d="M4 18a8 8 0 1116 0"/><path class="needle" d="M12 18l4-6"/></svg>
+      </span>
+      <div class="pf-card-foot">
+        <p class="pf-label">Fart</p>
+        <p class="pf-val">100<span class="pf-unit">/100</span></p>
+        <p class="pf-desc">Lighthouse-score på ytelse, SEO og tilgjengelighet. Hvert sekund lastetid er folk som aldri ser tilbudet ditt.</p>
+      </div>
+    </div>
+
+    <div class="pf-card pf-grey-card">
+      <span class="pf-badge">
+        <svg class="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 12V7"/><path d="M12 12l3.5 2"/></svg>
+      </span>
+      <div class="pf-card-foot">
+        <p class="pf-label">Booking</p>
+        <p class="pf-val">24<span class="pf-unit">/7</span></p>
+        <p class="pf-desc">Kunden bestiller selv, døgnet rundt. Hver time du ikke rekker telefonen er et oppdrag som ellers gikk til naboen.</p>
+      </div>
+    </div>
+
+    <div class="pf-card pf-dark-card">
+      <span class="pf-badge">
+        <svg class="ic-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.2c0 4.3-2.9 8.2-7 9.3-4.1-1.1-7-5-7-9.3V6l7-3z"/><path class="tick" d="M8.8 12.1l2.2 2.2 4.2-4.4"/></svg>
+      </span>
+      <div class="pf-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="pf-card-foot pf-foot-statement">
+        <p class="pf-label">Trygt å handle med</p>
+        <p class="pf-desc">SSL, overvåking og sikkerhetsoppdateringer på Cloudflare. Er siden nede eller merket «ikke sikker», ringer ingen — uansett hvor god du er.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── TALL ───── -->
+<section class="stats2">
+  <div class="platform-top s2-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>HVA DET KOSTER Å PRØVE</p>
+  </div>
+
+  <div class="s2-grid">
+    <div class="s2-card s2-dark">
+      <p class="s2-num">0<span class="s2-unit">kr</span></p>
+      <p class="s2-text">i forskudd. Du ser løsningen fungere først — og betaler først når du sier ja.</p>
+      <p class="s2-src">Gjelder alle sju tjenester</p>
+    </div>
+    <div class="s2-card">
+      <p class="s2-num">5<span class="s2-unit">dager</span></p>
+      <p class="s2-text">til du ser din egen løsning live — nettside, chatbot, AI-agent eller booking.</p>
+      <p class="s2-src">Gjelder demo på alle sju tjenester</p>
+    </div>
+    <div class="s2-card">
+      <p class="s2-num">0<span class="s2-unit">mnd</span></p>
+      <p class="s2-text">bindingstid. Koden er din, og du kan si opp eller flytte siden når du vil.</p>
+      <p class="s2-src">Gjelder nettside og drift</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── KONVERTERING ───── -->
+<section class="convert">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>KONVERTERING</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Å bli funnet er halve jobben.<br><span class="pf-grey">Resten er å bli valgt.</span></h2>
+      <div class="pf-aside">
+        <p>Trafikk uten henvendelser er ingenting verdt. Vi bygger siden rundt veien fra søk til kontakt.</p>
+        <a class="pf-link" href="konvertering.html">Les om konvertering <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-grid">
+    <div class="cv-card">
+      <span class="cv-label">Steg 1 — synlighet</span>
+      <div class="cv-mock">
+        <div class="cv-search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          rørlegger drammen
+        </div>
+        <div class="cv-res cv-res-top">
+          <span class="cv-rank">1</span>
+          <span>
+            <span class="cv-res-title">Din bedrift AS</span>
+            <span class="cv-res-url">dinbedrift.no</span>
+          </span>
+        </div>
+        <div class="cv-res">
+          <span class="cv-rank">2</span>
+          <span>
+            <span class="cv-res-title">Konkurrent AS</span>
+            <span class="cv-res-url">konkurrent.no</span>
+          </span>
+        </div>
+        <div class="cv-res">
+          <span class="cv-rank">3</span>
+          <span>
+            <span class="cv-res-title">Annen konkurrent</span>
+            <span class="cv-res-url">annen.no</span>
+          </span>
+        </div>
+      </div>
+      <p class="cv-desc">Teknisk SEO og innholdsstruktur som gjør at Google finner deg — og setter deg foran konkurrentene i ditt område.</p>
+    </div>
+
+    <div class="cv-card cv-dark">
+      <span class="cv-label">Steg 2 — fra besøk til kunde</span>
+      <div class="cv-steps">
+        <div class="cv-step">
+          <span class="cv-step-dot"></span>
+          <span>
+            <span class="cv-step-title">De klikker seg inn</span>
+            <span class="cv-step-sub">Siden laster på under to sekunder</span>
+          </span>
+        </div>
+        <div class="cv-step">
+          <span class="cv-step-dot"></span>
+          <span>
+            <span class="cv-step-title">Siden svarer på spørsmålet</span>
+            <span class="cv-step-sub">Tydelig tilbud, priser og referanser</span>
+          </span>
+        </div>
+        <div class="cv-step cv-step-end">
+          <span class="cv-step-dot"></span>
+          <span>
+            <span class="cv-step-title">De tar kontakt</span>
+            <span class="cv-step-sub">Skjema, telefon eller AI-agent</span>
+          </span>
+        </div>
+      </div>
+      <p class="cv-desc">Hvert steg er designet bort fra friksjon. Ingen døde ender, ingen skjulte kontaktopplysninger.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── LEVERT ARBEID ───── -->
+<section class="reviews">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>LEVERT ARBEID</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Sider vi faktisk har levert.</h2>
+      <div class="pf-aside">
+        <p>Ekte prosjekter, ekte tilbakemeldinger.</p>
+        <a class="pf-link" href="kontakt.html">Bli den neste <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rv-grid">
+    <article class="rv-card">
+      <div class="rv-img">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Bilpleie og vask av bil" loading="lazy" width="900" height="600">
+        <span class="rv-chip">Renrask Bilvask</span>
+      </div>
+      <div class="rv-body">
+        <div class="rv-stars" aria-label="5 av 5 stjerner">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="rv-quote">
+          Index Development bygger ikke bare en nettside. <span class="rv-em">De bygger en salgsmaskin.</span> Med god kommunikasjon og samhandling laget de en nettside for min bedrift effektivt og tilfredsstillende. Ikke tenk mer — velg Index Development.
+        </blockquote>
+        <div class="rv-foot">
+          <span class="rv-avatar">JT</span>
+          <div class="rv-person">
+            <span class="rv-name">Jakob Tande</span>
+            <span class="rv-role">Daglig leder — Renrask Bilvask</span>
           </div>
+          <a class="rv-link" href="renrask/index.html">Se siden <span class="pf-link-arrow">→</span></a>
         </div>
-        <span class="s-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="service reveal" href="systemutvikling.html">
-        <span class="s-num">04</span>
-        <div>
-          <h3>System-<br>utvikling</h3>
-          <div class="s-reveal">
-            <p>AI-agenter, API-integrasjoner og database-løsninger med Supabase — for deg som trenger «logg inn», bestillingssystem eller automatisering, ikke bare en statisk side.</p>
+      </div>
+    </article>
+
+    <article class="rv-card">
+      <div class="rv-img">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Rørlegger som jobber med rør" loading="lazy" width="900" height="600">
+        <span class="rv-chip">Boska Rør og Ventilasjon</span>
+      </div>
+      <div class="rv-body">
+        <div class="rv-stars" aria-label="5 av 5 stjerner">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="rv-quote">
+          Veldig fornøyd med jobben! <span class="rv-em">Profesjonell, rask og enkel å samarbeide med.</span> Hjemmesiden ble akkurat slik jeg ønsket. Anbefales!
+        </blockquote>
+        <div class="rv-foot">
+          <span class="rv-avatar">T</span>
+          <div class="rv-person">
+            <span class="rv-name">Tommy</span>
+            <span class="rv-role">Daglig leder — Boska Rør og Ventilasjon</span>
           </div>
+          <a class="rv-link" href="https://boskaror.no/" target="_blank" rel="noopener noreferrer">Se siden <span class="pf-link-arrow">→</span></a>
         </div>
-        <span class="s-arrow" aria-hidden="true">→</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<!-- ───── TJENESTER ───── -->
+<section class="services2" id="tjenester">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>TJENESTER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Sju tjenester,<br>én leverandør.</h2>
+      <div class="pf-aside">
+        <p>Start med en nettside, eller bygg et helt system. Samme kodebase, samme drift, én å ringe.</p>
+        <a class="pf-link" href="tjenester.html">Se alle tjenester <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sv-grid">
+    <a class="sv-card" href="webdesign.html">
+      <span class="sv-num">01</span>
+      <h3>Webdesign, SEO &amp; utvikling</h3>
+      <p>Komplett nettside fra strategi til lansering. Håndkodet, rask og bygget for å konvertere.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card sv-lime" href="ai-agenter.html">
+      <span class="sv-num">02</span>
+      <h3>AI-agenter</h3>
+      <p>Kode som leser data, tar beslutninger og utfører oppgaver i bakgrunnen — koblet til dine systemer.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card" href="chatbots.html">
+      <span class="sv-num">03</span>
+      <h3>Chatbots</h3>
+      <p>Svarer kundene dine på norsk, døgnet rundt — og sender henvendelsen videre til deg.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card" href="systemutvikling.html">
+      <span class="sv-num">04</span>
+      <h3>Systemutvikling</h3>
+      <p>Database, innlogging og adminpanel med Supabase. Bygget for din arbeidsflyt.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card sv-lime" href="api-integrasjoner.html">
+      <span class="sv-num">05</span>
+      <h3>API-integrasjoner</h3>
+      <p>Vi kobler systemene du allerede bruker, så data flyter av seg selv.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card" href="booking-systemer.html">
+      <span class="sv-num">06</span>
+      <h3>Booking-systemer</h3>
+      <p>Kunder booker direkte på nettsiden, alt lagres i din egen database.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card sv-dark sv-wide" href="drift.html">
+      <span class="sv-num">07</span>
+      <h3>Drift &amp; vedlikehold</h3>
+      <p>Det eneste som løper videre etter lansering: vi holder siden rask, sikker og oppdatert for 199,-/mnd. Cloudflare, SSL, overvåking og småendringer.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+
+<div class="stack">
+
+<!-- ───── NORSK AI ───── -->
+<section class="norsk">
+  <div class="platform-top pt-center">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>BYGGET FOR NORSKE BEDRIFTER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">AI som snakker norsk <span class="pf-grey">— og faktisk kjenner bedriften din.</span></h2>
+      <div class="pf-aside">
+        <p>Ikke en generisk assistent. Trent på dine tekster, dine priser og dine rutiner.</p>
+        <a class="pf-link" href="ai-agenter.html">Les mer om AI-agenter <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nk-grid">
+    <div class="nk-card">
+      <span class="nk-check" aria-hidden="true">✓</span>
+      <h3>Svarer på norsk</h3>
+      <p>Naturlig norsk, ikke oversatt engelsk. Kundene merker forskjellen med en gang.</p>
+    </div>
+    <div class="nk-card">
+      <span class="nk-check" aria-hidden="true">✓</span>
+      <h3>Kjenner tjenestene dine</h3>
+      <p>Matet med din egen informasjon — priser, åpningstider og hva du faktisk tilbyr.</p>
+    </div>
+    <div class="nk-card">
+      <span class="nk-check" aria-hidden="true">✓</span>
+      <h3>Fanger opp henvendelser</h3>
+      <p>Samler navn, nummer og behov mens du sover, så du kan følge opp neste morgen.</p>
+    </div>
+    <div class="nk-card nk-dark">
+      <p class="nk-stat-label">Svartid</p>
+      <p class="nk-stat">&lt;1<span class="nk-stat-unit">sek</span></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── BLOGG ───── -->
+<section class="blogg2" id="blogg">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>INNSIKT</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Fra bloggen.</h2>
+      <div class="pf-aside">
+        <p>Korte tekster om det som faktisk avgjør om nettsiden din tjener penger.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bl-grid">
+    <a class="bl-card" href="blogg-seo.html">
+      <div class="bl-img">
+        <img src="https://images.unsplash.com/photo-1586125674857-4eb86880905d?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Google-søkefeltet på en skjerm" loading="lazy" width="900" height="600">
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">SEO</span>
+        <h3>Hvorfor Google ikke finner deg</h3>
+        <p>De vanligste tekniske grunnene til at siden din ikke dukker opp — og hva som skal til.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+    <a class="bl-card" href="blogg-pris.html">
+      <div class="bl-img">
+        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Kalkulator, papirer og kaffekopp på et bord" loading="lazy" width="900" height="600">
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">Priser</span>
+        <h3>Hva du faktisk betaler for</h3>
+        <p>Hvorfor én nettside koster 1 999,- og en annen koster 80 000,-.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+    <a class="bl-card" href="blogg-tlf.html">
+      <div class="bl-img">
+        <img src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Person som snakker i telefonen ved en laptop" loading="lazy" width="900" height="600">
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">Konvertering</span>
+        <h3>Hvorfor ringer ikke telefonen</h3>
+        <p>Du har trafikk, men ingen henvendelser. Som regel er det én ting som mangler.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ───── FAQ ───── -->
+<section class="faq2">
+  <div class="fq-grid">
+    <div class="fq-left">
+      <p class="pf-eyebrow"><span class="pf-sq"></span>FAQ</p>
+      <h2 class="fq-title">Ofte stilte<br>spørsmål</h2>
+      <p class="fq-lead">Alt om pris, leveringstid, bindingstid og hva som skjer hvis du vil avslutte.</p>
+
+      <div class="fq-contact">
+        <p class="fq-contact-head">Fortsatt spørsmål?</p>
+        <p class="fq-contact-sub">Ingen bindingstid på nettsider. Koden er din eiendom.</p>
+        <a class="btn-circle fq-contact-btn" href="kontakt.html">
+          <span>TA KONTAKT</span>
+          <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="fq-list">
+      <details class="fq-item">
+        <summary>Får jeg virkelig se noe før jeg betaler?<span class="fq-plus" aria-hidden="true">+</span></summary>
+        <div class="fq-body"><div class="fq-body-inner">
+          <p>Ja — uansett hva du kjøper. For nettsider bygger vi et ferdig utkast du kan se på i fred. For AI-agenter, chatbots, systemer, integrasjoner og booking får du en fungerende demo, satt opp på dine egne tekster og rutiner. Sier du nei, koster det deg ingenting.</p>
+        </div></div>
+      </details>
+      <details class="fq-item">
+        <summary>Hvor lang tid tar det?<span class="fq-plus" aria-hidden="true">+</span></summary>
+        <div class="fq-body"><div class="fq-body-inner">
+          <p>Fem dager fra du tar kontakt til du ser din egen løsning live — det gjelder alle sju tjenestene. For nettsider er det et ferdig utkast. For større systemer er det en fungerende demo, og selve byggetiden avtaler vi etterpå med skriftlig tidsplan og fastpris.</p>
+        </div></div>
+      </details>
+      <details class="fq-item">
+        <summary>Hva dekker den månedlige driften?<span class="fq-plus" aria-hidden="true">+</span></summary>
+        <div class="fq-body"><div class="fq-body-inner">
+          <p>Hosting via Cloudflare, SSL-sertifikat, domeneadministrasjon, sikkerhetsoppdateringer og overvåking. Siden er alltid oppe og alltid rask.</p>
+        </div></div>
+      </details>
+      <details class="fq-item">
+        <summary>Hva koster AI-agenter, systemer og integrasjoner?<span class="fq-plus" aria-hidden="true">+</span></summary>
+        <div class="fq-body"><div class="fq-body-inner">
+          <p>Det avhenger av omfang, og du får alltid fastpris skriftlig før vi starter. Rekkefølgen er den samme som for nettsider: demo først, pris før byggingen, betaling etterpå.</p>
+        </div></div>
+      </details>
+      <details class="fq-item">
+        <summary>Hva skjer hvis jeg vil avslutte?<span class="fq-plus" aria-hidden="true">+</span></summary>
+        <div class="fq-body"><div class="fq-body-inner">
+          <p>For nettside- og driftsavtaler: ingen bindingstid, avslutt når du vil, koden er din i en ZIP-fil. Systemutvikling og andre prosjektbaserte tjenester avtales i den skriftlige kontrakten.</p>
+        </div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.stack -->
+
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Se hva vi kan bygge<br>for <span class="dm-lime">bedriften din.</span></h2>
+      <p class="dm-text">Book en uforpliktende demo, så går vi gjennom hva du trenger og hva det vil koste. Du ser løsningen fungere før du betaler én krone — uansett hvilken tjeneste du er ute etter.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>BOOK UFORPLIKTENDE DEMO</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-    </div>
-      <img src="bilder/norge.png" alt="Norge sett fra rommet" class="services-norge reveal">
-    </div>
-  </div>
-</section>
-
-<!-- ───── CHATBOT STATS ───── -->
-<section class="chatbot-stats">
-  <div class="container">
-    <h2>Chatbots i tall</h2>
-    <div class="cbot-stat-grid">
-
-      <div class="cbot-stat reveal">
-        <div class="cbot-num"><span class="count-up" data-to="80">0</span><span class="cbot-unit">%</span></div>
-        <p>av rutinemessige kundehenvendelser kan håndteres automatisk av en chatbot — uten menneskelig involvering.</p>
-        <span class="cbot-src">Kilde — IBM</span>
-      </div>
-
-      <div class="cbot-stat reveal">
-        <div class="cbot-num"><span class="count-up" data-to="23">0</span><span class="cbot-unit">t</span></div>
-        <p>er gjennomsnittlig responstid på web-henvendelser fra mennesker. En chatbot svarer på sekunder — hele døgnet.</p>
-        <span class="cbot-src">Kilde — Harvard Business Review</span>
-      </div>
-
-      <div class="cbot-stat reveal">
-        <div class="cbot-num"><span class="count-up" data-to="61">0</span><span class="cbot-unit">%</span></div>
-        <p>av kunder sier at 24/7 tilgjengelighet er den viktigste fordelen med chatbots.</p>
-        <span class="cbot-src">Kilde — Salesforce State of Service 2024</span>
-      </div>
-
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis demo på alle tjenester</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
     </div>
   </div>
 </section>
-
-<!-- ───── NORGE ───── -->
-<section class="norge-section">
-  <div class="container">
-    <div class="norge-grid">
-
-      <div class="norge-text reveal">
-        <p class="eyebrow-sm">Bygget for norske bedrifter</p>
-        <h2>Vi bygger<br><span class="blue">norske</span><br>AI-chatbots.</h2>
-        <p>Chatbotene vi lager er trent på norsk, forstår norsk kontekst og er tilpasset norske bedrifters behov — ikke en generisk løsning oversatt fra engelsk, men noe som faktisk høres ut som deg.</p>
-        <div class="norge-features">
-          <div class="norge-feat">
-            <span class="norge-feat-check">✓</span>
-            <div>
-              <strong>Norsk språkforståelse</strong>
-              <p>Forstår dialekter, sjargong og norske uttrykk — ikke bare bokmål fra en ordbok.</p>
-            </div>
-          </div>
-          <div class="norge-feat">
-            <span class="norge-feat-check">✓</span>
-            <div>
-              <strong>Trent på din bedrift</strong>
-              <p>Vi bruker dine egne tekster og informasjon — chatboten snakker som deg, ikke som alle andre.</p>
-            </div>
-          </div>
-          <div class="norge-feat">
-            <span class="norge-feat-check">✓</span>
-            <div>
-              <strong>Klar for alle bransjer</strong>
-              <p>Rørlegger, frisør, regnskapsfører, bilforhandler — vi tilpasser til din hverdag.</p>
-            </div>
-          </div>
-        </div>
-        <a class="btn" href="chatbots.html">Les mer om chatbots <span class="arrow">→</span></a>
-      </div>
-
-      <div class="norge-map-wrap reveal">
-        <img src="bilder/chatbot.png" alt="AI-chatbot for norske bedrifter" class="norge-img">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───── SKILLS ───── -->
-<section class="skills">
-  <div class="container">
-    <h2 class="skills-heading reveal"><span>K<span class="skills-o">o</span>mpet<span class="skills-o">a</span>ns<span class="skills-o">e</span></span><span class="end-dot"></span></h2>
-    <div class="skills-grid">
-
-      <div class="skill-item reveal">
-        <span class="skill-n">01</span>
-        <div class="skill-body">
-          <h3>Webdesign</h3>
-          <p>Håndkodet fra bunnen i HTML, CSS og JavaScript. Ingen maler, ingen snarveier — bare skreddersydde sider som skiller seg ut og konverterer.</p>
-        </div>
-        <span class="skill-tag">Design</span>
-      </div>
-
-      <div class="skill-item reveal">
-        <span class="skill-n">02</span>
-        <div class="skill-body">
-          <h3>SEO</h3>
-          <p>Teknisk SEO, semantisk HTML og innholdsstruktur som gjør at Google finner deg — og rangerer deg over konkurrentene.</p>
-        </div>
-        <span class="skill-tag">Synlighet</span>
-      </div>
-
-      <div class="skill-item reveal">
-        <span class="skill-n">03</span>
-        <div class="skill-body">
-          <h3>Tekstforfatning</h3>
-          <p>Tekst skrevet for å selge, ikke for å fylle plass. Hvert ord er valgt for å gjøre besøkende til betalende kunder.</p>
-        </div>
-        <span class="skill-tag">Copy</span>
-      </div>
-
-      <div class="skill-item reveal">
-        <span class="skill-n">04</span>
-        <div class="skill-body">
-          <h3>Grafisk design</h3>
-          <p>Logo, fargepalett og visuell identitet som ser profesjonell ut på alt fra visittkort til skjerm — konsistent og gjenkjennelig.</p>
-        </div>
-        <span class="skill-tag">Identitet</span>
-      </div>
-
-      <div class="skill-item reveal">
-        <span class="skill-n">05</span>
-        <div class="skill-body">
-          <h3>AI-løsninger</h3>
-          <p>Chatbots trent på bedriftens egne tekster og informasjon — som svarer som om det er deg. Ikke generisk AI, men noe som faktisk kjenner virksomheten din.</p>
-        </div>
-        <span class="skill-tag">Chatbot</span>
-      </div>
-
-    </div>
-    <div style="margin-top:64px;display:flex;gap:16px;flex-wrap:wrap;" class="reveal">
-      <a class="btn ghost" href="kompetanse.html">Les mer <span class="arrow">→</span></a>
-      <a class="btn ghost" href="chatbots.html">Om chatbots <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ───── BLOG ───── -->
-<section class="blog" id="blogg">
-  <div class="container">
-    <p class="eyebrow reveal">Innsikt</p>
-    <h2 class="reveal">Fra bloggen.</h2>
-    <div class="blog-grid">
-
-      <a class="blog-card reveal" href="blogg-seo.html">
-        <div class="blog-img-wrap">
-          <img src="bilder/seo.png" alt="SEO — Hvorfor Google ikke finner bedriften din" loading="lazy" width="800" height="450">
-        </div>
-        <div class="blog-body">
-          <h3>Hvorfor Google ikke finner bedriften din</h3>
-          <p>De fleste nettsider er usynlige for Google. Her er hvorfor – og hva du kan gjøre med det.</p>
-          <span class="blog-read">Les mer →</span>
-        </div>
-      </a>
-
-      <a class="blog-card reveal" href="blogg-pris.html">
-        <div class="blog-img-wrap">
-          <img src="bilder/pris.png" alt="Nettside priser — hva du faktisk betaler for" loading="lazy" width="800" height="450">
-        </div>
-        <div class="blog-body">
-          <h3>Hvorfor byråer tar 30.000 kr for noe som koster 5.000 kr</h3>
-          <p>Vi forklarer hva du faktisk betaler for – og hva du ikke trenger å betale for.</p>
-          <span class="blog-read">Les mer →</span>
-        </div>
-      </a>
-
-      <a class="blog-card reveal" href="blogg-tlf.html">
-        <div class="blog-img-wrap">
-          <img src="bilder/tlf.png" alt="Konvertering — Hvorfor ringer ikke telefonen?" loading="lazy" width="800" height="450">
-        </div>
-        <div class="blog-body">
-          <h3>Hvorfor ringer ikke telefonen selv om du har nettside?</h3>
-          <p>En nettside som ikke konverterer er verre enn ingen nettside. Her er de vanligste grunnene.</p>
-          <span class="blog-read">Les mer →</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───── PROMISE ───── -->
-<section class="promise">
-  <div class="container">
-    <h2 class="reveal">Ingen <span class="blue">bindingstid</span>.</h2>
-    <a class="btn ghost reveal" href="ingen-bindingstid.html">Les mer <span class="arrow">→</span></a>
-  </div>
-</section>
-
-<!-- ───── CTA ───── -->
-<section class="cta" id="kontakt">
-  <div class="container">
-    <h2 class="reveal">Få ny nettside på <span class="blue">5 dager</span>.</h2>
-    <p class="reveal">Send en melding. Fastpris-tilbud samme dag. Ingen bindingstid, ingen forskuddsbetaling.</p>
-    <div class="cta-buttons reveal">
-      <a class="btn" href="kontakt.html">Ta kontakt <span class="arrow">→</span></a>
-      <a class="btn ghost" href="priser.html">Se priser</a>
-    </div>
-    <div class="trust-lines reveal">
-      <span>Ingen bindingstid</span>
-      <span class="trust-sep">—</span>
-      <span>Koden er din eiendom</span>
-      <span class="trust-sep">—</span>
-      <span>Resultater før du betaler</span>
-      <a href="priser.html" class="trust-link">Se priser →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ───── FOOTER ───── -->
-</main>
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
         <span class="brand-big">
           <span class="dot"></span>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert på 3–5 dager.</p>
-        <span class="org">Org.nr — 934 626 009</span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
         <ul>
-          <li><a href="#top">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
           <li><a href="chatbots.html">Chatbots</a></li>
-          <li><a href="priser.html">Priser</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
-          <li><a href="#blogg">Blogg</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Selskap</h3>
         <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Fra bloggen</h3>
+        <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -506,6 +673,7 @@
 </footer>
 
 <script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

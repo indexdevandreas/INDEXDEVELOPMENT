@@ -3,168 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Drift & vedlikehold — index dev.</title>
-<meta name="description" content="Cloudflare-hosting, SSL, 24/7 overvåking og support for 199,-/mnd. Ingen bindingstid — kanseller når som helst.">
+<title>Drift &amp; vedlikehold — index dev.</title>
+<meta name="description" content="Hosting på Cloudflare, SSL, sikkerhetsoppdateringer og overvåking i én avtale. 199,-/mnd for nettsider, uten bindingstid. Drift av systemer prises separat.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/drift.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
-<style>
-  .promo { --r: 1; }
-  .nav   { --r: 1; }
-
-  /* ─── Hero ─── */
-  .page-hero {
-    padding: 200px 32px 120px;
-    border-bottom: 1px solid var(--line);
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="drift.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Drift og vedlikehold av nettsider",
+  "name": "Drift & vedlikehold",
+  "description": "Hosting via Cloudflare, SSL-sertifikat, sikkerhetsoppdateringer, overvåking og mindre innholdsendringer i én månedlig avtale.",
+  "url": "https://indexdevelopment.no/drift.html",
+  "areaServed": "NO",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "url": "https://indexdevelopment.no",
+    "telephone": "+4748459686",
+    "email": "andreas@indexdevelopment.no",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Drammen",
+      "addressRegion": "Viken",
+      "addressCountry": "NO"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "NOK",
+    "description": "199 kr per måned for drift av nettsider, uten bindingstid. Drift av systemer med database, booking eller AI-agent prises separat."
   }
-  .eyebrow {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 28px;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .page-hero h1 {
-    font-size: clamp(72px, 12vw, 180px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
-  }
-  .d-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
-  .hero-sub {
-    margin-top: 48px; font-size: clamp(17px, 1.6vw, 21px);
-    line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 520px;
-  }
-  .hero-meta {
-    margin-top: 48px; display: flex; gap: 48px; flex-wrap: wrap;
-  }
-  .hm-label {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 6px;
-  }
-  .hm-val {
-    font-size: clamp(22px, 2.5vw, 32px);
-    font-weight: 800; letter-spacing: -0.03em;
-  }
-
-  /* ─── What's included ─── */
-  .included { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .included-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; padding-bottom: 80px;
-  }
-  .included-header h2 {
-    font-size: clamp(48px, 6.5vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-  }
-  .included-header p {
-    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
-  }
-  .inc-rows { display: flex; flex-direction: column; }
-  .inc-row {
-    display: grid; grid-template-columns: 56px 1fr 1fr;
-    gap: 0 56px; padding: 56px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: start;
-  }
-  .inc-row:first-child { border-top: 1px solid var(--line); }
-  .inc-n {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); padding-top: 6px;
-  }
-  .inc-row h3 {
-    font-size: clamp(20px, 2.2vw, 28px); font-weight: 700;
-    letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 12px;
-  }
-  .inc-row p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
-  .inc-row .detail {
-    font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.45);
-  }
-
-  /* ─── Pricing ─── */
-  .pricing-section {
-    padding: 120px 32px; border-top: 1px solid var(--line);
-  }
-  .pricing-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .price-left h2 {
-    font-size: clamp(48px, 6.5vw, 88px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-    margin-bottom: 24px;
-  }
-  .price-left p {
-    font-size: 17px; line-height: 1.6;
-    color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 440px;
-  }
-  .price-card {
-    border: 1px solid var(--line); border-radius: 20px;
-    padding: 56px 48px; background: rgba(255,255,255,0.015);
-  }
-  .pc-amount {
-    font-size: clamp(64px, 9vw, 120px);
-    font-weight: 800; letter-spacing: -0.06em; line-height: 0.88;
-    margin-bottom: 6px;
-  }
-  .pc-period {
-    font-size: 14px; color: var(--muted); letter-spacing: 0.08em;
-    text-transform: uppercase; margin-bottom: 40px;
-  }
-  .pc-divider { height: 1px; background: var(--line); margin-bottom: 32px; }
-  .pc-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
-  .pc-features li {
-    font-size: 15px; color: rgba(255,255,255,0.8);
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .pc-features li::before {
-    content: "✓"; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px;
-  }
-  .pc-cancel {
-    font-size: 13px; color: rgba(255,255,255,0.35);
-    margin-top: 16px; display: block; text-align: center;
-  }
-
-  @media (max-width: 980px) {
-    .page-hero { padding: 140px 20px 80px; }
-    .hero-meta { gap: 32px; }
-    .included, .pricing-section { padding: 80px 20px 0; }
-    .included-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
-    .inc-row { grid-template-columns: 1fr; gap: 12px; padding: 40px 0; }
-    .inc-n { padding-top: 0; }
-    .pricing-grid { grid-template-columns: 1fr; gap: 48px; }
-    .pricing-section { padding-bottom: 80px; }
-  }
-  @media (max-width: 480px) {
-    .page-hero { padding: 120px 16px 64px; }
-    .included { padding: 64px 16px 0; }
-    .inc-row { padding: 32px 0; }
-    .pricing-section { padding: 64px 16px; }
-    .price-card { padding: 36px 24px; }
-    .pc-amount { font-size: clamp(56px, 14vw, 120px); }
-  }
-</style>
+}
+</script>
 </head>
 <body>
 
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid</strong>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
+<div class="dr-progress" aria-hidden="true"></div>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
@@ -182,126 +65,229 @@
   </address>
 </div>
 
+
 <main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero photo-hero ph-band" id="top">
+  <img class="ph-img"
+       src="bilder/hero/drift-1600.jpg"
+       srcset="bilder/hero/drift-800.jpg 800w, bilder/hero/drift-1600.jpg 1600w"
+       sizes="100vw" width="1600" height="1067"
+       alt="" fetchpriority="high" decoding="async">
+  <div class="ph-veil" aria-hidden="true"></div>
 
-<section class="page-hero">
-  <div class="container">
-    <p class="eyebrow">Tjeneste 02</p>
-    <h1 class="reveal">Drift &amp;<br><span class="d-outline">vedlikehold.</span></h1>
-    <p class="hero-sub reveal">Vi holder siden din rask, sikker og oppdatert 24/7 — så du kan fokusere på bedriften.</p>
-    <div class="hero-meta reveal">
-      <div>
-        <p class="hm-label">Pris</p>
-        <p class="hm-val">199,-/mnd</p>
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <div>
-        <p class="hm-label">Binding</p>
-        <p class="hm-val">Ingen</p>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-body">
+    <p class="ph-kicker">Drift &amp; vedlikehold</p>
+    <h1 class="ph-title">Du driver bedriften.<br>Vi driver nettsiden.</h1>
+    <p class="ph-lead">Hosting, sikkerhet og overvåking i én avtale. Du skal aldri trenge å lure på om siden er oppe.</p>
+    <a class="ph-link" href="kontakt.html">Start driftsavtale <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="ph-obj dr-strip">
+    <div class="dr-cell"><span class="dr-dot"></span>Cloudflare<em>Aktiv</em></div>
+    <div class="dr-cell"><span class="dr-dot"></span>SSL<em>Gyldig</em></div>
+    <div class="dr-cell"><span class="dr-dot"></span>Oppetidssjekk<em>Hvert 5. min</em></div>
+    <div class="dr-cell"><span class="dr-dot"></span>Sikkerhetskopi<em>Ukentlig</em></div>
+  </div>
+</section>
+
+
+<!-- ───── INKLUDERT ───── -->
+<section class="dr-incl">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>INKLUDERT</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Alt som skal til for at siden<br><span class="pf-grey">bare virker.</span></h2>
+      <div class="pf-aside">
+        <p>Én avtale dekker infrastrukturen, sikkerheten og de små endringene du trenger underveis. Du skal aldri måtte logge inn noe sted for å fikse en pris eller en åpningstid.</p>
+        <a class="pf-link" href="priser.html">Se alle priser <span class="pf-link-arrow">→</span></a>
       </div>
-      <div>
-        <p class="hm-label">Kansellering</p>
-        <p class="hm-val">Når som helst</p>
+    </div>
+  </div>
+
+  <div class="bento">
+    <article class="bn bn-wide bn-dark">
+      <div class="bn-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="bn-label">Infrastruktur</p>
+      <h3>Hosting på Cloudflare</h3>
+      <p>Siden ligger på Cloudflares nettverk med over 300 lokasjoner. Besøkende hentes fra serveren nærmest dem, og nettverket tar unna trafikktopper og angrep før de når siden din.</p>
+      <p class="bn-stat">300+<small>lokasjoner verden over</small></p>
+    </article>
+
+    <article class="bn bn-lime">
+      <p class="bn-label">Sertifikat</p>
+      <svg class="bn-shield" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 8.5-4.1-.9-7-4.3-7-8.5V6l7-3z"/>
+        <path class="bolt" d="M9.5 12.2l1.9 1.9 3.4-3.7"/>
+      </svg>
+      <h3>SSL som fornyer seg selv</h3>
+      <p>HTTPS er alltid på, og sertifikatet fornyes automatisk. Ingen «ikke sikker»-advarsel i nettleseren, aldri.</p>
+    </article>
+
+    <article class="bn">
+      <p class="bn-label">Overvåking</p>
+      <h3>Vi sjekker hvert femte minutt</h3>
+      <p>Svarer ikke siden, får vi varsel med en gang — ikke når en kunde ringer og forteller det.</p>
+    </article>
+
+    <article class="bn">
+      <p class="bn-label">Sikkerhet</p>
+      <h3>Oppdateringer i bakgrunnen</h3>
+      <p>Brannmurregler, bot-filtrering og oppdateringer holdes ved like uten at du merker noe.</p>
+    </article>
+
+    <article class="bn bn-wide">
+      <p class="bn-label">Support</p>
+      <h3>Småendringer er inkludert</h3>
+      <p>Ny pris, nye åpningstider, et nytt bilde eller en tekst som skal rettes? Send en melding, så er det gjort innen én arbeidsdag. Større endringer og nye sider avtaler vi separat — du får pris før noe gjøres.</p>
+      <p class="bn-stat">1 dag<small>svartid på småendringer</small></p>
+    </article>
+
+    <article class="bn bn-dark">
+      <p class="bn-label">Trygghet</p>
+      <h3>Sikkerhetskopi hver uke</h3>
+      <p>En kopi av hele siden lagres jevnlig, så alt kan settes tilbake om noe skulle gå galt.</p>
+    </article>
+  </div>
+</section>
+
+
+<!-- ───── PRIS ───── -->
+<section class="dr-price">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>PRIS</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">199,- i måneden. <span class="pf-grey">For nettsider.</span></h2>
+      <div class="pf-aside">
+        <a class="pf-link" href="kontakt.html">Start avtalen <span class="pf-link-arrow">→</span></a>
       </div>
+    </div>
+  </div>
+
+  <div class="dp-grid">
+    <div class="dp-card dp-main">
+      <p class="dp-label">Driftsavtale — nettside</p>
+      <p class="dp-amount">199<span class="kr">,-</span></p>
+      <p class="dp-per">per måned, uten bindingstid</p>
+      <ul class="dp-list">
+        <li><span class="dp-check" aria-hidden="true">✓</span>Hosting på Cloudflare</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>SSL-sertifikat</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Oppetidsovervåking</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Sikkerhetsoppdateringer</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Ukentlig sikkerhetskopi</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Småendringer på teksten</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Domeneadministrasjon</li>
+        <li><span class="dp-check" aria-hidden="true">✓</span>Support direkte fra utvikleren</li>
+      </ul>
+      <a class="btn-circle dp-btn" href="kontakt.html">
+        <span>START DRIFTSAVTALE</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+
+    <div class="dp-card dp-note">
+      <p class="dp-label">Viktig å vite</p>
+      <h3>Har du mer enn en nettside?</h3>
+      <p>199,- i måneden gjelder drift av <strong>nettsider</strong>. Har løsningen din database, innlogging, booking eller en AI-agent, koster driften mer — den krever egen serverkapasitet, databasedrift og tettere oppfølging.</p>
+      <p>Hva den koster avhenger av hva som kjører. Du får en fast månedspris skriftlig før vi setter i gang, så det aldri dukker opp noe uventet på fakturaen.</p>
+      <a class="pf-link" href="systemutvikling.html">Se systemutvikling <span class="pf-link-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="included">
-  <div class="container">
-    <div class="included-header">
-      <h2 class="reveal">Alt som er<br><span class="blue">inkludert.</span></h2>
-      <p class="reveal">199,- per måned dekker absolutt alt du trenger for å holde nettsiden din live og i toppform.</p>
+
+<!-- ───── TRYGGHET ───── -->
+<section class="dr-safe">
+  <div class="dr-band" aria-hidden="true">
+    <div class="dr-band-track">
+      <span class="dr-band-item">Ingen bindingstid</span>
+      <span class="dr-band-item">Koden er din</span>
+      <span class="dr-band-item">Si opp når du vil</span>
+      <span class="dr-band-item">Fast pris hver måned</span>
+      <span class="dr-band-item">Ingen bindingstid</span>
+      <span class="dr-band-item">Koden er din</span>
+      <span class="dr-band-item">Si opp når du vil</span>
+      <span class="dr-band-item">Fast pris hver måned</span>
     </div>
-    <div class="inc-rows">
+  </div>
 
-      <div class="inc-row reveal">
-        <p class="inc-n">01</p>
-        <div>
-          <h3>Cloudflare hosting</h3>
-          <p>Nettsiden din serveres fra Cloudflares globale CDN med over 300 servere verden over. Raskere lastetid uansett hvor kunden befinner seg.</p>
-        </div>
-        <div class="detail">
-          <p>Globalt CDN — DDoS-beskyttelse — automatisk komprimering — HTTP/3</p>
-        </div>
-      </div>
-
-      <div class="inc-row reveal">
-        <p class="inc-n">02</p>
-        <div>
-          <h3>SSL-sertifikat</h3>
-          <p>Automatisk HTTPS og sertifikatfornyelse. Ingen manuell jobb, aldri utløpt sertifikat.</p>
-        </div>
-        <div class="detail">
-          <p>TLS 1.3 — automatisk fornyelse — HSTS aktivert</p>
-        </div>
-      </div>
-
-      <div class="inc-row reveal">
-        <p class="inc-n">03</p>
-        <div>
-          <h3>24/7 oppetidsovervåking</h3>
-          <p>Vi overvåker nettsiden din kontinuerlig. Er det nedetid, vet vi om det før du gjør — og vi fikser det umiddelbart.</p>
-        </div>
-        <div class="detail">
-          <p>Automatiske varsler — responstid under 5 min — månedlig rapport</p>
-        </div>
-      </div>
-
-      <div class="inc-row reveal">
-        <p class="inc-n">04</p>
-        <div>
-          <h3>Sikkerhetsoppdateringer</h3>
-          <p>Vi holder infrastrukturen oppdatert og patchet. Ingen sårbarheter, ingen gammelt programvare.</p>
-        </div>
-        <div class="detail">
-          <p>Firewall-regler — bot-blokkering — sikkerhetsskanninger</p>
-        </div>
-      </div>
-
-      <div class="inc-row reveal">
-        <p class="inc-n">05</p>
-        <div>
-          <h3>Mindre innholdsendringer</h3>
-          <p>Trenger du å endre en tekst, en pris eller et bilde? Send oss en melding — vi ordner det innen én arbeidsdag.</p>
-        </div>
-        <div class="detail">
-          <p>Tekst- og bildeendringer — åpningstider — kontaktinfo</p>
-        </div>
-      </div>
-
+  <div class="dr-safe-grid">
+    <div class="ds-card">
+      <h3>Ingen bindingstid</h3>
+      <p>Du sier opp når du vil, med én måneds varsel. Vi holder på kundene med å gjøre jobben, ikke med en kontrakt.</p>
+    </div>
+    <div class="ds-card">
+      <h3>Koden er din</h3>
+      <p>Avslutter du avtalen, får du hele nettsiden som en ZIP-fil. Den er din eiendom — du kan ta den med hvor du vil.</p>
+    </div>
+    <div class="ds-card">
+      <h3>Du snakker med utvikleren</h3>
+      <p>Ingen supportkø og ingen saksnummer. Du sender en melding og får svar fra den som faktisk har bygget siden.</p>
     </div>
   </div>
 </section>
 
-<section class="pricing-section">
-  <div class="container">
-    <div class="pricing-grid">
 
-      <div class="price-left reveal">
-        <h2>199,-<br><span class="blue">per måned.</span></h2>
-        <p>Ingen bindingstid. Ingen oppstartskostnader utover nettsidebyggingen. Kanseller med én måneds varsel — alltid.</p>
-        <div class="cta-buttons">
-          <a class="btn" href="kontakt.html">Kom i gang →</a>
-          <a class="btn ghost" href="priser.html">Se alle priser</a>
-        </div>
-      </div>
-
-      <div class="price-card reveal">
-        <p class="pc-amount">199,-</p>
-        <p class="pc-period">Per måned</p>
-        <div class="pc-divider"></div>
-        <ul class="pc-features">
-          <li>Cloudflare-hosting (globalt CDN)</li>
-          <li>SSL-sertifikat — automatisk fornyelse</li>
-          <li>24/7 oppetidsovervåking</li>
-          <li>Sikkerhetsoppdateringer og patching</li>
-          <li>Mindre innholdsendringer inkludert</li>
-          <li>Månedlig ytelsesrapport</li>
-        </ul>
-        <a class="btn" href="kontakt.html" style="width:100%;justify-content:center;">Start driftsavtale →</a>
-        <span class="pc-cancel">Ingen binding — kanseller når som helst</span>
-      </div>
-
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">La oss holde siden<br><span class="dm-lime">oppe for deg.</span></h2>
+      <p class="dm-text">Har du allerede en nettside vi ikke har bygget? Send den over, så ser vi på hva som skal til for å flytte den inn på en driftsavtale — og hva det vil koste.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>SNAKK OM DRIFT</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>199,-/mnd for nettsider</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Fast pris, skriftlig</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -310,24 +296,46 @@
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
-        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
-        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
-        <span class="org">Org.nr — 934 626 009</span>
+        <span class="brand-big">
+          <span class="dot"></span>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
+        <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
         <ul>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -340,15 +348,22 @@
         </ul>
       </div>
     </div>
-    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
     <div class="foot-base">
       <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge</span>
+      <span>Drammen, Norge — bygget av oss selv.</span>
     </div>
   </div>
 </footer>
 
-<script src="subpage.js" defer></script>
+
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
+<script src="drift.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

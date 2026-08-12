@@ -11,12 +11,17 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://indexdevelopment.no/prosess.html</loc>
+    <loc>https://indexdevelopment.no/webdesign.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://indexdevelopment.no/prosjekter.html</loc>
+    <loc>https://indexdevelopment.no/drift.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/chatbots.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,6 +29,26 @@
     <loc>https://indexdevelopment.no/systemutvikling.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/ai-agenter.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/api-integrasjoner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/booking-systemer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/priser.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://indexdevelopment.no/om-meg.html</loc>
@@ -34,6 +59,36 @@
     <loc>https://indexdevelopment.no/kontakt.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/kompetanse.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/konvertering.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/ingen-bindingstid.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/blogg-seo.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/blogg-pris.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://indexdevelopment.no/blogg-tlf.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://indexdevelopment.no/personvern.html</loc>

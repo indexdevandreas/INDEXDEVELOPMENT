@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking- og bestillingssystem — index dev.</title>
+<meta name="description" content="Kunden ser ledige tider, velger en og får bekreftelse på e-post. Alt lagres i din egen database — ikke i en booking-app du betaler abonnement til. Fastpris avtales før oppstart.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://indexdevelopment.no/booking-systemer.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
+<link rel="stylesheet" href="hjemmeside.css">
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="booking-systemer.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Booking- og bestillingssystem",
+  "name": "Booking- og bestillingssystem",
+  "description": "Skreddersydd booking- og bestillingssystem bygget inn i nettsiden, med egen database, automatisk bekreftelse på e-post og adminpanel.",
+  "url": "https://indexdevelopment.no/booking-systemer.html",
+  "areaServed": "NO",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "url": "https://indexdevelopment.no",
+    "telephone": "+4748459686",
+    "email": "andreas@indexdevelopment.no",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Drammen",
+      "addressRegion": "Viken",
+      "addressCountry": "NO"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NOK",
+    "description": "Fastpris for oppsett avtales skriftlig per prosjekt, pluss en fast månedspris for drift."
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu-nav">
+    <a href="index.html">Forside</a>
+    <a href="tjenester.html">Tjenester</a>
+    <a href="chatbots.html">Chatbots</a>
+    <a href="priser.html">Priser</a>
+    <a href="om-meg.html">Om meg</a>
+    <a href="index.html#blogg">Blogg</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <address class="mobile-menu-foot">
+    <a href="tel:+4748459686">+47 484 59 686</a>
+    <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+  </address>
+</div>
+
+
+<main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero photo-hero ph-frame" id="top">
+  <img class="ph-img"
+       src="bilder/hero/booking-1600.jpg"
+       srcset="bilder/hero/booking-800.jpg 800w, bilder/hero/booking-1600.jpg 1600w"
+       sizes="100vw" width="1600" height="1068"
+       alt="" fetchpriority="high" decoding="async">
+  <div class="ph-veil" aria-hidden="true"></div>
+
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-body">
+    <p class="ph-kicker">Booking- og bestillingssystem</p>
+    <h1 class="ph-title">Ledige tider,<br>uten en telefon.</h1>
+    <p class="ph-lead">Kunden ser hva som er ledig og booker selv. Alt lagres hos deg, ikke hos en tredjepart.</p>
+    <a class="ph-link" href="kontakt.html">Snakk om et bookingsystem <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="ph-obj bo-times">
+    <div class="bo-col is-taken"><b>08:00</b><span>Opptatt</span></div>
+    <div class="bo-col is-free"><b>09:30</b><span>Ledig</span></div>
+    <div class="bo-col is-taken"><b>11:00</b><span>Opptatt</span></div>
+    <div class="bo-col is-free"><b>12:30</b><span>Ledig</span></div>
+    <div class="bo-col is-free"><b>14:00</b><span>Ledig</span></div>
+  </div>
+</section>
+
+
+<!-- ───── SLIK GJØR KUNDEN DET ───── -->
+<section class="bo-flow">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>SLIK GJØR KUNDEN DET</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Tre valg, og det<br><span class="pf-grey">står i kalenderen din.</span></h2>
+      <div class="pf-aside">
+        <p>Jo færre felter og jo færre steg, jo flere fullfører. Vi spør bare om det du faktisk trenger å vite på forhånd.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fl-grid">
+    <div class="fl-step">
+      <p class="fl-n">01</p>
+      <h3>Velger tjeneste og tid</h3>
+      <p>Kunden ser bare tidene som er ledige. Det som allerede er opptatt, vises ikke i det hele tatt — da kan det heller ikke bookes to ganger.</p>
+    </div>
+    <div class="fl-step">
+      <p class="fl-n">02</p>
+      <h3>Legger igjen det nødvendige</h3>
+      <p>Navn, telefon og det du må vite på forhånd. Ikke ett felt mer. Ingen konto som må opprettes, ingen app som må lastes ned.</p>
+    </div>
+    <div class="fl-step">
+      <p class="fl-n">03</p>
+      <h3>Får bekreftelse med en gang</h3>
+      <p>Kunden får e-post automatisk, og du får den samme beskjeden. Bookingen ligger i databasen din og i adminpanelet ditt.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── HVA DU SLIPPER ───── -->
+<section class="bo-skip">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>HVA DU SLIPPER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Fire ting som forsvinner.</h2>
+      <div class="pf-aside">
+        <a class="pf-link" href="systemutvikling.html">Se all systemutvikling <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sk-list">
+    <div class="sk-row">
+      <p class="sk-claim"><s>Abonnement til en booking-app</s></p>
+      <p class="sk-why">Systemet er en del av nettsiden din, ikke en tjeneste du leier. Du betaler for å få det bygget, ikke for å få lov til å bruke det.</p>
+    </div>
+    <div class="sk-row">
+      <p class="sk-claim"><s>Dobbeltbookinger</s></p>
+      <p class="sk-why">Ledige tider hentes fra én kilde — din database. Når en time er tatt, er den borte fra nettsiden i samme øyeblikk.</p>
+    </div>
+    <div class="sk-row">
+      <p class="sk-claim"><s>Telefonen midt i en jobb</s></p>
+      <p class="sk-why">Kunder som vil avtale et tidspunkt trenger ikke deg for å gjøre det. Du ringer bare dem som faktisk har noe å spørre om.</p>
+    </div>
+    <div class="sk-row">
+      <p class="sk-claim"><s>Kundedata du ikke rår over</s></p>
+      <p class="sk-why">Navn og telefonnumre ligger i din egen base, ikke hos en tredjepart. Du kan eksportere alt, når som helst.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── PRIS ───── -->
+<section class="bo-price">
+  <div class="platform-top pt-reverse">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>PRIS</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Ett tall for å bygge det.<br><span class="pf-grey">Ett for å holde det i gang.</span></h2>
+      <div class="pf-aside">
+        <p>Et bookingsystem er en avgrenset jobb med et tydelig resultat, og skal prises som det.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bp-band">
+    <p class="bp-head">Vi har ikke bygget dette for noen ennå.</p>
+    <p class="bp-text">Booking er en ny tjeneste hos oss. Vi har databasen, innloggingen og e-postutsendingen på plass fra andre prosjekter, men selve bookingsystemet har vi ikke levert til en kunde før. Det synes vi du skal vite når du vurderer oss.</p>
+    <p class="bp-text">Til gjengjeld betyr det tett oppfølging, at du får være med og bestemme hvordan det skal fungere, og en pris som gjenspeiler at du er blant de første. Du får fastprisen for oppsettet og månedsprisen for <a href="drift.html">drift</a> skriftlig før vi setter i gang — begge tallene, før du sier ja.</p>
+    <div class="bp-foot">
+      <p class="bp-fine">Koden er din ved fullført betaling, og databasen er din egen. Drift av et system koster mer enn de 199,- som gjelder vanlige nettsider.</p>
+      <a class="btn-circle bp-btn" href="kontakt.html">
+        <span>FÅ ET FASTPRIS-TILBUD</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Hvor mange timer<br><span class="dm-lime">avtaler du på telefon?</span></h2>
+      <p class="dm-text">Fortell oss hvordan folk booker hos deg i dag, og hva som pleier å gå galt. Så bygger vi et utkast du kan klikke deg gjennom før du bestemmer deg for noe.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>SNAKK OM ET BOOKINGSYSTEM</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Din egen database</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-top foot-top-wide">
+      <div class="foot-brand">
+        <span class="brand-big">
+          <span class="dot"></span>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
+      </div>
+      <div class="foot-col">
+        <h3>Tjenester</h3>
+        <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Fra bloggen</h3>
+        <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
+          <li><a href="personvern.html">Personvernerklæring</a></li>
+          <li><a href="vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div class="foot-col contact">
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="tel:+4748459686">+47 484 59 686</a></li>
+          <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
+    <div class="foot-base">
+      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
+      <span>Drammen, Norge — bygget av oss selv.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
+<script src="chatbot-widget.js" defer></script>
+</body>
+</html>

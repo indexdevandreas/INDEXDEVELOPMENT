@@ -1,0 +1,315 @@
+/* ───────────────────────────────────────────────────────────
+   chatbots.css — kun for chatbots.html.
+   Delt designsystem ligger i sider.css og må lastes først.
+
+   Heroen viser produktet i stedet for å beskrive det: et ekte
+   chatvindu som spiller av en samtale, mens spørsmålene kundene
+   faktisk stiller driver oppover i bakgrunnen. Bevegelsen styres
+   av chatbots.js, utseendet ligger her.
+   ─────────────────────────────────────────────────────────── */
+
+/* Skallet til heroen ligger i sider.css. Her er bare objektet den viser. */
+
+/* ═══ Chatvinduet i heroen ═══ */
+.cb-win { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.16); background: rgba(8,9,9,.62); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.cb-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 12.5px; color: rgba(255,255,255,.6); }
+.cb-av { width: 28px; height: 28px; border-radius: 50%; background: #fff; color: #0a0a0a; font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+.cb-live { width: 7px; height: 7px; border-radius: 50%; background: #3ee07a; }
+.cb-log { height: 230px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%); mask-image: linear-gradient(180deg, transparent 0%, #000 16%); }
+.cb-msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.42; animation: cbPop .4s cubic-bezier(.22,1,.36,1) both; }
+@keyframes cbPop { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.cb-msg-bot { align-self: flex-start; background: rgba(255,255,255,.12); color: #fff; border-bottom-left-radius: 4px; }
+.cb-msg-user { align-self: flex-end; background: var(--lime); color: #0a0a0a; border-bottom-right-radius: 4px; }
+.cb-typing { align-self: flex-start; display: flex; gap: 5px; background: rgba(255,255,255,.12); border-radius: 14px; border-bottom-left-radius: 4px; padding: 13px 14px; }
+.cb-typing i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.6); animation: cbDot 1.3s ease-in-out infinite; }
+.cb-typing i:nth-child(2){animation-delay:.18s} .cb-typing i:nth-child(3){animation-delay:.36s}
+@keyframes cbDot { 0%,60%,100%{transform:translateY(0);opacity:.45} 30%{transform:translateY(-4px);opacity:1} }
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   TO NIVÅER — guidet flyt vs. AI trent på bedriften
+   ═══════════════════════════════════════════════════════════ */
+.cb-levels { background: #fff; padding: 130px 0 110px; }
+.lv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.lv-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 36px 36px 34px;
+  display: flex;
+  flex-direction: column;
+  background: #f1f1ef;
+  color: #0a0a0a;
+}
+.lv-card.is-dark { background: #0d0d0d; color: #fff; }
+.lv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 7px 15px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(10,10,10,0.07);
+  color: rgba(10,10,10,0.65);
+  margin-bottom: 26px;
+}
+.is-dark .lv-tag { background: rgba(212,255,61,0.15); color: var(--lime); }
+.lv-card h3 {
+  font-size: clamp(25px, 2.4vw, 33px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.14;
+  margin-bottom: 12px;
+  color: inherit;
+}
+.lv-card > p {
+  font-size: 15.5px;
+  line-height: 1.62;
+  opacity: 0.7;
+  margin-bottom: 26px;
+  max-width: 460px;
+}
+.lv-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+.lv-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.lv-check {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 9.5px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.is-dark .lv-list li { color: rgba(255,255,255,0.86); }
+.lv-foot {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+  font-size: 13.5px;
+  opacity: 0.62;
+}
+.is-dark .lv-foot { border-top-color: rgba(255,255,255,0.14); }
+
+@media (max-width: 900px) {
+  .cb-levels { padding: 90px 0 70px; }
+  .lv-grid { grid-template-columns: 1fr; }
+  .lv-card { padding: 30px 26px 28px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SPØRSMÅL — trykk for å se hva boten svarer
+   ═══════════════════════════════════════════════════════════ */
+.cb-qa { background: #fff; padding: 20px 0 120px; }
+.qa-list {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+}
+.qa-item { border-bottom: 1px solid rgba(10,10,10,0.12); }
+.qa-item summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 26px 4px;
+  cursor: pointer;
+  list-style: none;
+  transition: padding-left 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.qa-item summary::-webkit-details-marker { display: none; }
+.qa-item summary:hover { padding-left: 12px; }
+.qa-q {
+  font-size: clamp(18px, 1.9vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  color: #0a0a0a;
+}
+.qa-plus {
+  margin-left: auto;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(10,10,10,0.06);
+  color: #0a0a0a;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  transition: transform 0.32s cubic-bezier(0.22,1,0.36,1), background 0.25s;
+}
+.qa-item[open] .qa-plus { transform: rotate(45deg); background: var(--lime); }
+
+/* Utvidelsen animeres med grid-rader — ingen faste høyder å vedlikeholde */
+.qa-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.qa-item[open] .qa-body { grid-template-rows: 1fr; }
+.qa-body-inner { overflow: hidden; }
+/* Avataren ligger absolutt plassert, ikke som flex-barn — ellers blir
+   <em> inne i svaret sin egen flex-kolonne og setningen brekker opp. */
+.qa-answer {
+  position: relative;
+  max-width: 760px;
+  margin: 0 4px 30px;
+  padding: 16px 20px 16px 58px;
+  border-radius: 16px;
+  border-bottom-left-radius: 5px;
+  background: #f1f1ef;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.72);
+}
+.qa-answer::before {
+  content: "";
+  position: absolute;
+  left: 18px; top: 17px;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+.qa-answer em { font-style: normal; color: #0a0a0a; font-weight: 600; }
+
+@media (max-width: 700px) {
+  .cb-qa { padding: 0 0 90px; }
+  .qa-item summary { padding: 20px 2px; gap: 14px; }
+  .qa-answer { margin-bottom: 22px; padding: 14px 16px 14px 50px; font-size: 14.5px; }
+  .qa-answer::before { left: 14px; top: 15px; width: 24px; height: 24px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SLIK LAGER VI DEN + pris
+   ═══════════════════════════════════════════════════════════ */
+.cb-build { background: #fff; padding: 20px 0 130px; }
+.bd-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 56px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: start;
+}
+
+/* Stegene henger på en loddrett linje */
+.bd-steps { position: relative; padding-left: 40px; }
+.bd-steps::before {
+  content: "";
+  position: absolute;
+  left: 7px; top: 8px; bottom: 8px;
+  width: 1.5px;
+  background: rgba(10,10,10,0.14);
+}
+.bd-step { position: relative; padding-bottom: 34px; }
+.bd-step:last-child { padding-bottom: 0; }
+.bd-step::before {
+  content: "";
+  position: absolute;
+  left: -40px; top: 5px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(10,10,10,0.2);
+}
+.bd-step:first-child::before {
+  background: var(--lime);
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px rgba(212,255,61,0.32);
+}
+.bd-step h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+  color: #0a0a0a;
+}
+.bd-step p { font-size: 14.5px; line-height: 1.6; color: rgba(10,10,10,0.62); max-width: 520px; }
+
+.bd-price {
+  position: sticky;
+  top: 28px;
+  border-radius: 20px;
+  padding: 34px 32px 30px;
+  background: #0d0d0d;
+  color: #fff;
+}
+.bd-price-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+.bd-price h3 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.bd-price p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 14px;
+}
+.bd-price-rule { height: 1px; background: rgba(255,255,255,0.13); margin: 22px 0; }
+.bd-price-rows { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
+.bd-price-rows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+}
+.bd-price-rows li span:last-child { color: #fff; font-weight: 600; white-space: nowrap; }
+.bd-price-btn {
+  --cap: 40px;
+  --pad: 6px;
+  gap: 16px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+@media (max-width: 980px) {
+  .cb-build { padding: 0 0 90px; }
+  .bd-grid { grid-template-columns: 1fr; gap: 44px; }
+  .bd-price { position: static; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Bevegelse av
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .qa-item summary, .qa-plus, .qa-body { transition: none !important; }
+}

@@ -4,183 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tjenester — index dev.</title>
-<meta name="description" content="Webdesign, SEO, drift, chatbots og systemutvikling (AI-agenter, API og database) for norske bedrifter. Håndkodet fra bunnen. Ingen betaling før du er fornøyd.">
+<meta name="description" content="Nettsider, AI-agenter, systemutvikling, API-integrasjoner, booking-systemer og drift. Håndkodet fra bunnen for norske bedrifter — gratis utkast før du betaler.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/tjenester.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
-<style>
-  .promo { --r: 1; }
-  .nav   { --r: 1; }
-
-  /* ─── Hero ─── */
-  .page-hero {
-    padding: 200px 32px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .eyebrow {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 28px;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; padding-bottom: 80px;
-  }
-  .page-hero h1 {
-    font-size: clamp(72px, 11vw, 160px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
-  }
-  .t-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
-  .hero-svc-list { display: flex; flex-direction: column; }
-  .hero-svc-item {
-    padding: 24px 0;
-    border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    text-decoration: none; color: inherit;
-    transition: opacity 0.2s;
-  }
-  .hero-svc-item:last-child { border-bottom: 1px solid var(--line); }
-  .hero-svc-item:hover { opacity: 0.6; }
-  .hero-svc-num { font-size: 11px; letter-spacing: 0.18em; color: var(--muted); flex-shrink: 0; }
-  .hero-svc-name { font-size: clamp(16px, 1.6vw, 20px); font-weight: 600; letter-spacing: -0.02em; flex: 1; }
-  .hero-svc-arrow { color: var(--blue); flex-shrink: 0; }
-
-  /* ─── Service rows ─── */
-  .svc-list { padding: 0 32px; }
-  .svc-row {
-    display: grid;
-    grid-template-columns: 56px 1fr 180px;
-    gap: 0 56px; align-items: start;
-    padding: 80px 0; border-bottom: 1px solid var(--line);
-    transition: opacity 0.35s;
-  }
-  .svc-row:first-child { border-top: 1px solid var(--line); }
-  .svc-list:hover .svc-row { opacity: 0.4; }
-  .svc-list:hover .svc-row:hover { opacity: 1; }
-  a.svc-row { text-decoration: none; color: inherit; cursor: pointer; }
-  a.svc-row:hover .svc-main h2 { color: var(--blue); transition: color 0.2s; }
-  .svc-n {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); padding-top: 14px;
-  }
-  .svc-main h2 {
-    font-size: clamp(36px, 4.5vw, 62px);
-    font-weight: 800; letter-spacing: -0.04em; line-height: 0.95;
-    margin-bottom: 24px;
-  }
-  .svc-main p {
-    font-size: 16px; line-height: 1.65;
-    color: rgba(255,255,255,0.65); max-width: 580px; margin-bottom: 28px;
-  }
-  .svc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .svc-tag {
-    padding: 6px 14px; border-radius: 999px;
-    border: 1px solid var(--line);
-    font-size: 12px; letter-spacing: 0.06em; color: var(--muted);
-  }
-  .svc-price { text-align: right; padding-top: 10px; }
-  .svc-price .amt {
-    font-size: clamp(30px, 3vw, 44px);
-    font-weight: 800; letter-spacing: -0.04em; display: block;
-  }
-  .svc-price .per {
-    font-size: 11px; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    display: block; margin-top: 6px;
-  }
-  .svc-price .note {
-    font-size: 12px; color: rgba(255,255,255,0.3);
-    display: block; margin-top: 14px; line-height: 1.55;
-  }
-
-  /* ─── Process ─── */
-  .process { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .process-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end;
-    padding-bottom: 80px;
-  }
-  .process-header h2 {
-    font-size: clamp(52px, 7vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-  }
-  .process-header p {
-    font-size: 17px; line-height: 1.6;
-    color: rgba(255,255,255,0.6);
-  }
-  .steps-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
-  }
-  .step {
-    padding: 64px 40px;
-    border-right: 1px solid var(--line);
-  }
-  .step:last-child { border-right: none; }
-  .step-n-big {
-    font-size: clamp(80px, 10vw, 120px);
-    font-weight: 800; letter-spacing: -0.06em;
-    color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-    line-height: 0.88; margin-bottom: 32px;
-    display: block;
-  }
-  .step-label {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 14px;
-  }
-  .step h3 {
-    font-size: clamp(20px, 2.2vw, 28px); font-weight: 700;
-    letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 14px;
-  }
-  .step p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
-
-  @media (max-width: 980px) {
-    .page-hero { padding: 140px 20px 0; }
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .svc-list { padding: 0 20px; }
-    .svc-row { grid-template-columns: 1fr; gap: 20px; padding: 56px 0; }
-    .svc-list:hover .svc-row { opacity: 1; }
-    .svc-price { text-align: left; }
-    .process { padding: 80px 20px 0; }
-    .process-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .step { border-right: none; border-bottom: 1px solid var(--line); padding: 48px 24px; }
-    .step:last-child { border-bottom: none; }
-  }
-  @media (max-width: 480px) {
-    .page-hero { padding: 120px 16px 0; }
-    .hero-grid { gap: 32px; padding-bottom: 48px; }
-    .svc-list { padding: 0 16px; }
-    .svc-row { padding: 40px 0; gap: 16px; }
-    .process { padding: 64px 16px 0; }
-    .step { padding: 36px 16px; }
-  }
-</style>
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="tjenester.css">
 </head>
 <body>
-
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid</strong>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
@@ -198,181 +33,273 @@
   </address>
 </div>
 
+
 <main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero" id="top">
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">Tjenester</p>
-        <h1 class="reveal">Hva vi<br><span class="t-outline">leverer.</span></h1>
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <div class="hero-svc-list reveal">
-        <a class="hero-svc-item" href="webdesign.html">
-          <span class="hero-svc-num">01</span>
-          <span class="hero-svc-name">Webdesign, SEO &amp; utvikling</span>
-          <span class="hero-svc-arrow">→</span>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-grid">
+    <div class="ph-left">
+      <p class="ph-eyebrow">TJENESTER</p>
+      <h1>Sju måter å gjøre bedriften din <span class="ph-lime">bedre på nett.</span></h1>
+      <p class="ph-sub">Start med en nettside, eller bygg et helt system. Du velger omfanget — vi holder alt i samme kodebase og samme drift, så du har én leverandør å forholde deg til.</p>
+      <div class="ph-cta">
+        <a class="btn-circle ph-btn" href="kontakt.html">
+          <span>BOOK UFORPLIKTENDE DEMO</span>
+          <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </a>
-        <a class="hero-svc-item" href="drift.html">
-          <span class="hero-svc-num">02</span>
-          <span class="hero-svc-name">Drift &amp; vedlikehold</span>
-          <span class="hero-svc-arrow">→</span>
-        </a>
-        <a class="hero-svc-item" href="chatbots.html">
-          <span class="hero-svc-num">03</span>
-          <span class="hero-svc-name">Chatbot</span>
-          <span class="hero-svc-arrow">→</span>
-        </a>
-        <a class="hero-svc-item" href="systemutvikling.html">
-          <span class="hero-svc-num">04</span>
-          <span class="hero-svc-name">Systemutvikling</span>
-          <span class="hero-svc-arrow">→</span>
-        </a>
+        <span class="ph-note">Gratis utkast før du betaler</span>
       </div>
+    </div>
+
+    <nav class="ph-right" aria-label="Alle tjenester">
+      <p class="pi-head"><span>Innhold</span><span>07 tjenester</span></p>
+      <ol class="ph-index">
+        <li><a href="#webdesign">
+          <span class="pi-n">01</span>
+          <span class="pi-name">Webdesign, SEO &amp; utvikling</span>
+          <span class="pi-price">fra 1 999,-</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#ai-agenter">
+          <span class="pi-n">02</span>
+          <span class="pi-name">AI-agenter &amp; chatbots</span>
+          <span class="pi-price">per prosjekt</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#chatbots">
+          <span class="pi-n">03</span>
+          <span class="pi-name">Chatbot på nettsiden</span>
+          <span class="pi-price">per prosjekt</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#systemutvikling">
+          <span class="pi-n">04</span>
+          <span class="pi-name">Systemutvikling</span>
+          <span class="pi-price">fastpris</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#api-integrasjoner">
+          <span class="pi-n">05</span>
+          <span class="pi-name">API-integrasjoner</span>
+          <span class="pi-price">fastpris</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#booking-systemer">
+          <span class="pi-n">06</span>
+          <span class="pi-name">Booking og bestilling</span>
+          <span class="pi-price">fastpris</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#drift">
+          <span class="pi-n">07</span>
+          <span class="pi-name">Drift &amp; vedlikehold</span>
+          <span class="pi-price">199,-/mnd</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ───── TJENESTELISTE ───── -->
+<section class="svc-list">
+  <div class="platform-top pt-reverse">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>OVERSIKT</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Alt vi leverer, <span class="pf-grey">med pris og omfang i klartekst.</span></h2>
+      <div class="pf-aside">
+        <p>Ingen «ta kontakt for et tilbud» på det som kan prises. Der omfanget varierer, sier vi det rett ut — og du får fastpris før noe arbeid starter.</p>
+        <a class="pf-link" href="priser.html">Se alle priser <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="svc-rows">
+      <a class="svc-row" id="webdesign" href="webdesign.html">
+        <span class="svc-i">01</span>
+        <h3 class="svc-name">Webdesign, SEO<br>&amp; utvikling</h3>
+        <div class="svc-body">
+          <p>Komplett nettside fra strategi til lansering. Håndkodet i HTML, CSS og JavaScript — ingen WordPress, ingen maler. Optimalisert for Google og bygget for at besøkende skal bli kunder.</p>
+          <div class="svc-tags"><span>Håndkodet</span><span>Teknisk SEO</span><span>Lighthouse 100</span><span>Mobil-først</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price">1 999<span class="kr">,-</span></span>
+          <span class="svc-per">fra</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="ai-agenter" href="ai-agenter.html">
+        <span class="svc-i">02</span>
+        <h3 class="svc-name">AI-agenter<br>&amp; chatbots</h3>
+        <div class="svc-body">
+          <p>Skreddersydd AI for din bedrift — fra chatboten som møter kundene på nettsiden, til agenter som jobber i bakgrunnen mot dine egne systemer. Trent på dine tekster og rutiner.</p>
+          <div class="svc-tags"><span>Norsk språk</span><span>Claude / GPT</span><span>24/7</span><span>Lead-fangst</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Kontakt</span>
+          <span class="svc-per">pris per prosjekt</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="chatbots" href="chatbots.html">
+        <span class="svc-i">03</span>
+        <h3 class="svc-name">Chatbot på<br>nettsiden</h3>
+        <div class="svc-body">
+          <p>Den mest synlige AI-agenten: svarer på spørsmål, fanger opp henvendelser og hjelper besøkende hele døgnet. Integrert direkte i siden din.</p>
+          <div class="svc-tags"><span>Trent på din bedrift</span><span>Lead-innsamling</span><span>Integrert</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Kontakt</span>
+          <span class="svc-per">pris per prosjekt</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="systemutvikling" href="systemutvikling.html">
+        <span class="svc-i">04</span>
+        <h3 class="svc-name">System-<br>utvikling</h3>
+        <div class="svc-body">
+          <p>For deg som trenger mer enn en statisk side. Database og innlogging med Supabase, adminpanel der du styrer innholdet selv, og funksjonalitet bygget for din arbeidsflyt.</p>
+          <div class="svc-tags"><span>Supabase</span><span>PostgreSQL</span><span>Adminpanel</span><span>Row Level Security</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Kontakt</span>
+          <span class="svc-per">fastpris avtales</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="api-integrasjoner" href="api-integrasjoner.html">
+        <span class="svc-i">05</span>
+        <h3 class="svc-name">API-<br>integrasjoner</h3>
+        <div class="svc-body">
+          <p>Vi kobler nettsiden til systemene du allerede bruker, slik at data flyter automatisk i stedet for å tastes inn for hånd.</p>
+          <div class="svc-tags"><span>Stripe / Vipps</span><span>CRM</span><span>E-post</span><span>Kalender</span><span>Webhooks</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Kontakt</span>
+          <span class="svc-per">fastpris avtales</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="booking-systemer" href="booking-systemer.html">
+        <span class="svc-i">06</span>
+        <h3 class="svc-name">Booking- og<br>bestillingssystem</h3>
+        <div class="svc-body">
+          <p>Kunder booker direkte på nettsiden, alt lagres i din egen database, og du får automatisk bekreftelse på e-post — uten abonnement til en tredjeparts booking-app.</p>
+          <div class="svc-tags"><span>Egen database</span><span>Automatisk bekreftelse</span><span>Adminpanel</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Kontakt</span>
+          <span class="svc-per">fastpris avtales</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="drift" href="drift.html">
+        <span class="svc-i">07</span>
+        <h3 class="svc-name">Drift &amp;<br>vedlikehold</h3>
+        <div class="svc-body">
+          <p>Vi holder siden rask, sikker og oppdatert mens du driver bedriften. Hosting via Cloudflare, SSL, sikkerhetsoppdateringer og overvåking — alt inkludert.</p>
+          <div class="svc-tags"><span>Cloudflare</span><span>SSL</span><span>Overvåking</span><span>Ingen bindingstid</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price">199<span class="kr">,-</span></span>
+          <span class="svc-per">per måned</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+  </div>
+</section>
+
+<!-- ───── PROSESS ───── -->
+<section class="proc">
+  <div class="platform-top pt-center">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>SLIK FOREGÅR DET</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Tre steg, uansett<br>hva du bestiller.</h2>
+      <div class="pf-aside">
+        <p>Du får se noe konkret før du forplikter deg. På større prosjekter avtaler vi fastpris og betalingsplan skriftlig først.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="proc-grid">
+    <div class="proc-card">
+      <span class="proc-n">01</span>
+      <h3>Du forteller hva du trenger</h3>
+      <p>Send en melding eller book en demo. Vi går gjennom hva bedriften faktisk trenger — ikke hva som er dyrest å bygge.</p>
+    </div>
+    <div class="proc-card is-lime">
+      <span class="proc-n">02</span>
+      <h3>Vi bygger et utkast</h3>
+      <p>Du får se et utkast eller en demo av løsningen før du betaler noe. Da vet du nøyaktig hva du får.</p>
+    </div>
+    <div class="proc-card is-dark">
+      <span class="proc-n">03</span>
+      <h3>Du bestemmer</h3>
+      <p>Liker du det, setter vi det i produksjon og du eier koden. Gjør du ikke det, koster det deg ingenting.</p>
     </div>
   </div>
 </section>
 
-<div class="svc-list">
-  <div class="container">
-
-    <a class="svc-row reveal" href="webdesign.html">
-      <p class="svc-n">01</p>
-      <div class="svc-main">
-        <h2>Webdesign,<br>SEO &amp; utvikling</h2>
-        <p>Komplett nettside håndkodet fra bunnen. Vi designer, utvikler og optimaliserer for Google og konvertering — alt i ett. Du ser resultatet før du betaler.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">HTML / CSS / JS</span>
-          <span class="svc-tag">SEO</span>
-          <span class="svc-tag">Lighthouse 100</span>
-          <span class="svc-tag">Mobil-first</span>
-          <span class="svc-tag">3–5 dager</span>
-        </div>
-      </div>
-      <div class="svc-price">
-        <span class="amt">1 999,-</span>
-        <span class="per">Fra</span>
-        <span class="note">Ingen betaling<br>før du er fornøyd.</span>
-      </div>
-    </a>
-
-    <a class="svc-row reveal" href="kontakt.html">
-      <p class="svc-n">02</p>
-      <div class="svc-main">
-        <h2>Total<br>redesign</h2>
-        <p>Har du allerede en nettside som ikke leverer? Vi river den ned og bygger noe som faktisk konverterer. Samme garanti — du betaler bare om du er fornøyd.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Fullstendig ombygging</span>
-          <span class="svc-tag">Ny strategi</span>
-          <span class="svc-tag">CRO</span>
-          <span class="svc-tag">Migrering</span>
-        </div>
-      </div>
-      <div class="svc-price">
-        <span class="amt">6 999,-</span>
-        <span class="per">Fra</span>
-        <span class="note">Ingen betaling<br>før du er fornøyd.</span>
-      </div>
-    </a>
-
-    <a class="svc-row reveal" href="drift.html">
-      <p class="svc-n">03</p>
-      <div class="svc-main">
-        <h2>Drift &amp;<br>vedlikehold</h2>
-        <p>Vi holder siden din rask, sikker og oppdatert 24/7. Hosting via Cloudflare, sikkerhetsoppdateringer, ytelsesovervåking og mindre endringer — alt inkludert.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Cloudflare hosting</span>
-          <span class="svc-tag">SSL</span>
-          <span class="svc-tag">Overvåking</span>
-          <span class="svc-tag">Support</span>
-          <span class="svc-tag">Ingen binding</span>
-        </div>
-      </div>
-      <div class="svc-price">
-        <span class="amt">199,-</span>
-        <span class="per">Per måned</span>
-        <span class="note">Kanseller<br>når som helst.</span>
-      </div>
-    </a>
-
-    <a class="svc-row reveal" href="chatbots.html">
-      <p class="svc-n">04</p>
-      <div class="svc-main">
-        <h2>Chatbot</h2>
-        <p>En chatbot skreddersydd for din bedrift — trent på dine tjenester og tekster, integrert direkte på nettsiden. Svarer på spørsmål, fanger leads og hjelper besøkende døgnet rundt.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">24/7 tilgjengelig</span>
-          <span class="svc-tag">Lead-innsamling</span>
-          <span class="svc-tag">Skreddersydd</span>
-          <span class="svc-tag">Integrert på nettside</span>
-        </div>
-      </div>
-      <div class="svc-price">
-        <span class="amt">Kontakt</span>
-        <span class="per">oss</span>
-        <span class="note">Pris avtales<br>per kunde.</span>
-      </div>
-    </a>
-
-    <a class="svc-row reveal" href="systemutvikling.html">
-      <p class="svc-n">05</p>
-      <div class="svc-main">
-        <h2>Systemutvikling</h2>
-        <p>For deg som trenger mer enn en statisk nettside. Jeg bygger AI-agenter, API-integrasjoner mot dine eksisterende systemer, og database-løsninger med Supabase — som «logg inn», bestillingssystemer og adminpanel.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">AI-agenter</span>
-          <span class="svc-tag">API-integrasjoner</span>
-          <span class="svc-tag">Supabase</span>
-          <span class="svc-tag">Database</span>
-          <span class="svc-tag">Automatisering</span>
-        </div>
-      </div>
-      <div class="svc-price">
-        <span class="amt">Kontakt</span>
-        <span class="per">oss</span>
-        <span class="note">Pris avtales<br>per prosjekt.</span>
-      </div>
-    </a>
-
-  </div>
-</div>
-
-<section class="process">
-  <div class="container">
-    <div class="process-header">
-      <h2 class="reveal">Tre steg til<br><span class="t-outline">ny nettside.</span></h2>
-      <p class="reveal">Ingen kompliserte prosesser. Du forteller hva du trenger — vi leverer.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step reveal">
-        <span class="step-n-big">01</span>
-        <p class="step-label">Strategi</p>
-        <h3>Send en melding</h3>
-        <p>Beskriv bedriften og hva du trenger. Du får et fastpris-tilbud med en gang — ingen estimater, ingen overraskelser.</p>
-      </div>
-      <div class="step reveal">
-        <span class="step-n-big">02</span>
-        <p class="step-label">Bygging</p>
-        <h3>Vi bygger gratis</h3>
-        <p>Ingen betaling på forhånd. Vi leverer en privat forhåndsvisning på 3–5 dager. Du ser resultatet før du bestemmer deg.</p>
-      </div>
-      <div class="step reveal">
-        <span class="step-n-big">03</span>
-        <p class="step-label">Din beslutning</p>
-        <h3>Betal kun om fornøyd</h3>
-        <p>Liker du det? Da betaler du. Ikke fornøyd? Det koster deg ingenting. Risikoen ligger 100% hos oss.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="container">
-    <h2 class="reveal">Klar for en<br><span class="blue">ny nettside?</span></h2>
-    <p class="reveal" style="font-size:18px;line-height:1.55;color:rgba(255,255,255,0.65);max-width:480px;margin:24px auto 48px;">Send en melding. Gratis og uforpliktende — og du ser resultatet før du betaler én krone.</p>
-    <div class="cta-buttons reveal">
-      <a class="btn" href="kontakt.html">Send en melding →</a>
-      <a class="btn ghost" href="priser.html">Se priser</a>
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
+      <p class="dm-text">Det er helt greit. Book en uforpliktende demo, så går vi gjennom situasjonen din og foreslår det som gir mest igjen for pengene — også hvis det er mindre enn du trodde.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>BOOK UFORPLIKTENDE DEMO</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast og demo</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -381,24 +308,46 @@
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
-        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
-        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
-        <span class="org">Org.nr — 934 626 009</span>
+        <span class="brand-big">
+          <span class="dot"></span>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
+        <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
         <ul>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -411,15 +360,21 @@
         </ul>
       </div>
     </div>
-    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
     <div class="foot-base">
       <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge</span>
+      <span>Drammen, Norge — bygget av oss selv.</span>
     </div>
   </div>
 </footer>
 
-<script src="subpage.js" defer></script>
+
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

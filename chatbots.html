@@ -4,283 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chatbot for bedriften din — index dev.</title>
-<meta name="description" content="En chatbot som svarer på kundespørsmål, fanger opp leads og hjelper besøkende — døgnet rundt. Skreddersydd for din bedrift og integrert direkte på nettsiden.">
+<meta name="description" content="En chatbot som svarer kundene dine døgnet rundt og fanger opp henvendelser mens du sover. Guidet flyt eller AI trent på din bedrift — begge deler bygget og driftet av oss.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/chatbots.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
-<style>
-  .promo { --r: 1; }
-  .nav   { --r: 1; }
-
-  /* ─── Hero ─── */
-  .page-hero {
-    padding: 200px 32px 0;
-    border-bottom: 1px solid var(--line);
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="chatbots.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Chatbot for nettsider",
+  "name": "Chatbot",
+  "description": "Chatbot integrert på nettsiden som svarer på spørsmål fra kunder og samler inn henvendelser døgnet rundt. Leveres som guidet knappeflyt eller som AI-chatbot trent på bedriftens egen informasjon.",
+  "url": "https://indexdevelopment.no/chatbots.html",
+  "areaServed": "NO",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "url": "https://indexdevelopment.no",
+    "telephone": "+4748459686",
+    "email": "andreas@indexdevelopment.no",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Drammen",
+      "addressRegion": "Viken",
+      "addressCountry": "NO"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NOK",
+    "description": "Fastpris for oppsett avtales per prosjekt, pluss en fast månedspris for drift. Alt avtales skriftlig før oppstart."
   }
-  .eyebrow {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 28px;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .hero-text { padding-bottom: 80px; max-width: 820px; }
-  .page-hero h1 {
-    font-size: clamp(64px, 11vw, 160px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
-  }
-  .w-outline { -webkit-text-stroke: 2px #fff; color: transparent; }
-  .hero-sub {
-    margin-top: 32px; font-size: clamp(17px, 1.6vw, 21px);
-    line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 520px;
-  }
-  .hero-meta {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
-  }
-  .hero-meta-item {
-    padding: 32px 0;
-    border-right: 1px solid var(--line);
-    padding-right: 40px;
-  }
-  .hero-meta-item:last-child { border-right: none; padding-left: 40px; padding-right: 0; }
-  .hero-meta-item:nth-child(2) { padding-left: 40px; padding-right: 40px; }
-  .hero-meta-item .hm-label {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 8px;
-  }
-  .hero-meta-item .hm-val {
-    font-size: clamp(20px, 2.2vw, 28px);
-    font-weight: 800; letter-spacing: -0.03em;
-  }
-
-  /* ─── Why / value props ─── */
-  .why { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .why-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; padding-bottom: 80px;
-  }
-  .why-header h2 {
-    font-size: clamp(48px, 6.5vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-  }
-  .why-header p {
-    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
-  }
-  .why-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-  .why-item {
-    padding: 56px 48px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .why-n {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 20px;
-  }
-  .why-item h3 {
-    font-size: clamp(22px, 2.5vw, 30px); font-weight: 700;
-    letter-spacing: -0.03em; margin-bottom: 16px;
-  }
-  .why-item p {
-    font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6);
-  }
-
-  /* ─── What we build ─── */
-  .what-we-build { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .wb-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: start;
-  }
-  .wb-left h2 {
-    font-size: clamp(48px, 6.5vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-    margin-bottom: 32px;
-  }
-  .wb-left p {
-    font-size: 17px; line-height: 1.65;
-    color: rgba(255,255,255,0.6); margin-bottom: 20px;
-  }
-  .wb-right {
-    border: 1px solid var(--line); border-radius: 16px;
-    padding: 48px 40px; background: rgba(255,255,255,0.02);
-    display: flex; flex-direction: column; gap: 28px;
-  }
-  .wb-feature {
-    display: flex; gap: 20px; align-items: flex-start;
-  }
-  .wb-feature-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: rgba(74,144,226,0.12); border: 1px solid rgba(74,144,226,0.25);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; color: var(--blue); font-size: 16px;
-  }
-  .wb-feature-body h4 {
-    font-size: 16px; font-weight: 700; margin-bottom: 6px;
-    letter-spacing: -0.02em;
-  }
-  .wb-feature-body p {
-    font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.55);
-    margin: 0;
-  }
-
-  /* ─── Use cases ─── */
-  .usecases { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .usecases-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; padding-bottom: 80px;
-  }
-  .usecases-header h2 {
-    font-size: clamp(48px, 6.5vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-  }
-  .usecases-header p {
-    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
-  }
-  .usecases-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-  .uc-item {
-    padding: 40px 40px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .uc-num {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 14px;
-  }
-  .uc-item h3 {
-    font-size: clamp(18px, 2vw, 24px); font-weight: 700;
-    letter-spacing: -0.02em; margin-bottom: 10px;
-  }
-  .uc-item p {
-    font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.55);
-  }
-
-  /* ─── Process ─── */
-  .process { padding: 120px 32px 0; border-top: 1px solid var(--line); }
-  .process-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; padding-bottom: 80px;
-  }
-  .process-header h2 {
-    font-size: clamp(48px, 6.5vw, 96px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-  }
-  .process-header p {
-    font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.6);
-  }
-  .proc-list { display: flex; flex-direction: column; }
-  .proc-row {
-    display: grid; grid-template-columns: 80px 1fr;
-    gap: 0 48px; align-items: start;
-    padding: 48px 0; border-bottom: 1px solid var(--line);
-  }
-  .proc-row:first-child { border-top: 1px solid var(--line); }
-  .proc-n {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); padding-top: 4px;
-  }
-  .proc-row h3 {
-    font-size: clamp(20px, 2.2vw, 28px); font-weight: 700;
-    letter-spacing: -0.02em; margin-bottom: 10px;
-  }
-  .proc-row p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.6); }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    padding: 120px 32px; border-top: 1px solid var(--line);
-  }
-  .cta-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .cta-left h2 {
-    font-size: clamp(48px, 6.5vw, 88px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-    margin-bottom: 24px;
-  }
-  .cta-left p {
-    font-size: 17px; line-height: 1.6;
-    color: rgba(255,255,255,0.6); margin-bottom: 40px;
-  }
-  .cta-right {
-    border: 1px solid var(--line); border-radius: 20px;
-    padding: 48px 40px; background: rgba(255,255,255,0.015);
-  }
-  .cta-right h3 {
-    font-size: clamp(22px, 2.5vw, 32px); font-weight: 700;
-    letter-spacing: -0.03em; margin-bottom: 16px;
-  }
-  .cta-right p {
-    font-size: 15px; line-height: 1.65;
-    color: rgba(255,255,255,0.6); margin-bottom: 32px;
-  }
-  .cta-divider { height: 1px; background: var(--line); margin-bottom: 28px; }
-  .cta-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
-  .cta-list li {
-    list-style: none; font-size: 15px;
-    color: rgba(255,255,255,0.8);
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .cta-list li::before {
-    content: "✓"; color: var(--blue); font-weight: 700; flex-shrink: 0;
-  }
-
-  @media (max-width: 980px) {
-    .page-hero { padding: 140px 20px 80px; }
-    .hero-meta { grid-template-columns: 1fr; gap: 0; }
-    .hero-meta-item { border-right: none; border-bottom: 1px solid var(--line); padding: 20px 0 !important; }
-    .hero-meta-item:last-child { border-bottom: none; }
-    .why, .what-we-build, .usecases, .process, .cta-section { padding: 80px 20px 0; }
-    .why-header, .usecases-header, .process-header { grid-template-columns: 1fr; gap: 24px; padding-bottom: 56px; }
-    .why-grid { grid-template-columns: 1fr; border-left: none; }
-    .why-item { border-right: none; padding: 40px 24px; }
-    .wb-inner, .cta-inner { grid-template-columns: 1fr; gap: 48px; }
-    .usecases-grid { grid-template-columns: 1fr 1fr; border-left: none; }
-    .uc-item { border-right: none; padding: 32px 20px; }
-    .proc-row { grid-template-columns: 1fr; gap: 8px; }
-    .proc-n { padding-top: 0; }
-    .cta-section { padding-bottom: 80px; }
-  }
-  @media (max-width: 480px) {
-    .page-hero { padding: 120px 16px 64px; }
-    .why, .what-we-build, .usecases, .process, .cta-section { padding: 64px 16px 0; }
-    .why-item { padding: 32px 16px; }
-    .usecases-grid { grid-template-columns: 1fr; }
-    .wb-right { padding: 32px 24px; }
-    .cta-right { padding: 32px 24px; }
-    .cta-section { padding-bottom: 64px; }
-  }
-</style>
+}
+</script>
 </head>
 <body>
-
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid</strong>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
@@ -298,210 +62,267 @@
   </address>
 </div>
 
+
 <main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero photo-hero ph-mirror" id="top">
+  <img class="ph-img"
+       src="bilder/hero/chatbots-1600.jpg"
+       srcset="bilder/hero/chatbots-800.jpg 800w, bilder/hero/chatbots-1600.jpg 1600w"
+       sizes="100vw" width="1600" height="1063"
+       alt="" fetchpriority="high" decoding="async">
+  <div class="ph-veil" aria-hidden="true"></div>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="hero-text">
-      <p class="eyebrow">Tjeneste 04</p>
-      <h1 class="reveal">En ansatt<br>som aldri<br><span class="w-outline">sover.</span></h1>
-      <p class="hero-sub reveal">Chatboten svarer på kundespørsmål, fanger opp leads og hjelper besøkende — også kl. 23 på en søndag. Skreddersydd for din bedrift, integrert direkte på nettsiden din.</p>
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
     </div>
-    <div class="hero-meta reveal">
-      <div class="hero-meta-item">
-        <p class="hm-label">Tilgjengelighet</p>
-        <p class="hm-val">24/7</p>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="chatbots.html">Chatbots</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <div class="hero-meta-item">
-        <p class="hm-label">Responstid</p>
-        <p class="hm-val">Under 1 sek</p>
-      </div>
-      <div class="hero-meta-item">
-        <p class="hm-label">Oppsett</p>
-        <p class="hm-val">1–2 uker</p>
-      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
     </div>
+  </header>
+
+  <div class="ph-body">
+    <p class="ph-kicker">Chatbot</p>
+    <h1 class="ph-title">Kundene spør.<br>Noen svarer.</h1>
+    <p class="ph-lead">Kundene dine spør når du står i noe annet. Chatboten svarer, og gir deg den som er verdt å ringe tilbake.</p>
+    <a class="ph-link" href="kontakt.html">Snakk om en chatbot <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="ph-obj cb-win" aria-hidden="true">
+    <div class="cb-head"><span class="cb-av">id</span><span class="cb-live"></span>Svarer med en gang</div>
+    <div class="cb-log" id="js-cb-log"></div>
   </div>
 </section>
 
-<section class="why">
-  <div class="container">
-    <div class="why-header">
-      <h2 class="reveal">Hvorfor en<br><span class="blue">chatbot.</span></h2>
-      <p class="reveal">Mesteparten av de som besøker nettsiden din, gjør det utenom arbeidstiden din. En chatbot sørger for at de alltid får svar.</p>
-    </div>
-    <div class="why-grid">
 
-      <div class="why-item reveal">
-        <p class="why-n">01</p>
-        <h3>Svarer automatisk på vanlige spørsmål</h3>
-        <p>Pris, åpningstider, hva dere tilbyr, how to booke — de samme spørsmålene stilles om og om igjen. Chatboten håndterer dem uten at du trenger å løfte en finger.</p>
-      </div>
-
-      <div class="why-item reveal">
-        <p class="why-n">02</p>
-        <h3>Fanger opp leads utenom arbeidstid</h3>
-        <p>En potensiell kunde som er interessert kl. 22 forsvinner ikke til konkurrenten. Chatboten samler inn kontaktinfo og beskrivelse av behovet, slik at du kan følge opp neste morgen.</p>
-      </div>
-
-      <div class="why-item reveal">
-        <p class="why-n">03</p>
-        <h3>Sparer tid på enkle henvendelser</h3>
-        <p>Jo færre enkle spørsmål som lander i innboksen din, jo mer tid har du til det som faktisk krever deg. La chatboten ta støyten — du tar de viktige samtalene.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="what-we-build">
-  <div class="container">
-    <div class="wb-inner">
-      <div class="wb-left reveal">
-        <h2>Hva vi<br><span class="blue">bygger.</span></h2>
-        <p>Dette er ikke en generisk chatbot som gjentar de samme standardsvara til alle. Vi lager noe som faktisk kan svare som om det er deg — fordi den er trent på din egen informasjon.</p>
-        <p>Chatboten kjenner tjenestene dine, prisene dine (om du vil), og hvordan du pleier å kommunisere. For en besøkende føles det som å snakke med bedriften, ikke med en robot.</p>
-        <p>Alt integreres direkte på nettsiden din — ingen eksterne lenker, ingen app å laste ned. Bare en liten knapp som er der når kunden trenger den.</p>
-      </div>
-      <div class="wb-right reveal">
-        <div class="wb-feature">
-          <div class="wb-feature-icon">✦</div>
-          <div class="wb-feature-body">
-            <h4>Trent på din bedrift</h4>
-            <p>Vi mater chatboten med informasjon fra nettsiden din, tjenestelisten din og svarene på vanlige spørsmål du allerede gir. Den snakker ikke generelt — den snakker om deg.</p>
-          </div>
-        </div>
-        <div class="wb-feature">
-          <div class="wb-feature-icon">⬡</div>
-          <div class="wb-feature-body">
-            <h4>Integrert på nettsiden</h4>
-            <p>En diskret chat-knapp i hjørnet av siden. Åpen for alle, alltid tilgjengelig, og tilpasset fargene og stilen din slik at den ikke ser fremmed ut.</p>
-          </div>
-        </div>
-        <div class="wb-feature">
-          <div class="wb-feature-icon">◈</div>
-          <div class="wb-feature-body">
-            <h4>Vi vedlikeholder den</h4>
-            <p>Bedriften din endrer seg. Vi sørger for at chatboten følger med — oppdaterte priser, nye tjenester, sesongvarianter. Du slipper å tenke på det.</p>
-          </div>
-        </div>
+<!-- ───── TO NIVÅER ───── -->
+<section class="cb-levels">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>TO NIVÅER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">To måter å svare på.<br><span class="pf-grey">Du velger hvor smart den skal være.</span></h2>
+      <div class="pf-aside">
+        <p>Den enkle varianten koster mindre og er helt forutsigbar. Den avanserte forstår fritekst og svarer med egne ord. Begge bygges og driftes av oss.</p>
+        <a class="pf-link" href="ai-agenter.html">Se AI-agenter <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
-</section>
 
-<section class="usecases">
-  <div class="container">
-    <div class="usecases-header">
-      <h2 class="reveal">Hva den kan<br><span class="blue">hjelpe med.</span></h2>
-      <p class="reveal">Eksempler på hva en chatbot håndterer for de bedriftene vi jobber med.</p>
-    </div>
-    <div class="usecases-grid">
+  <div class="lv-grid">
+    <article class="lv-card">
+      <span class="lv-tag">Nivå 1 — guidet</span>
+      <h3>Knapper og faste svar</h3>
+      <p>Kunden klikker seg gjennom spørsmålene du oftest får, og får svaret du selv har skrevet. Den finner aldri på noe, fordi den ikke kan.</p>
+      <ul class="lv-list">
+        <li><span class="lv-check" aria-hidden="true">✓</span>Du bestemmer hvert eneste svar</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Kan aldri svare feil</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Sender kunden videre til skjema, telefon eller booking</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Raskest og rimeligst å sette opp</li>
+      </ul>
+      <p class="lv-foot">Boblen nede i høyre hjørne på denne siden er en slik chat. Klikk på den, så ser du nøyaktig hva kunden din møter.</p>
+    </article>
 
-      <div class="uc-item reveal">
-        <p class="uc-num">01</p>
-        <h3>Priser og tilbud</h3>
-        <p>«Hva koster det?» er det mest stilte spørsmålet på nesten alle nettsider. Chatboten svarer med en gang — med korrekt info fra deg.</p>
-      </div>
-
-      <div class="uc-item reveal">
-        <p class="uc-num">02</p>
-        <h3>Åpningstider og tilgjengelighet</h3>
-        <p>Ikke la kunden lete i footeren. Chatboten forteller når dere holder åpent og hva som skjer om de kontakter dere utenom.</p>
-      </div>
-
-      <div class="uc-item reveal">
-        <p class="uc-num">03</p>
-        <h3>Booking og henvendelser</h3>
-        <p>Chatboten guider kunden til bookingskjemaet, samler inn forespørsler eller sender dem videre til e-post — avhengig av hva som passer best for deg.</p>
-      </div>
-
-      <div class="uc-item reveal">
-        <p class="uc-num">04</p>
-        <h3>Akuttsituasjoner</h3>
-        <p>Rørleggere, elektrikere, låsesmeder. Chatboten fanger opp og sender deg varsel, slik at du kan ta kontakt umiddelbart.</p>
-      </div>
-
-      <div class="uc-item reveal">
-        <p class="uc-num">05</p>
-        <h3>Ofte stilte spørsmål</h3>
-        <p>Hva er inkludert? Hvor lang ventetid? Hvor holder dere til? Alt som pleier å gå til telefon eller e-post — chatboten tar det.</p>
-      </div>
-
-      <div class="uc-item reveal">
-        <p class="uc-num">06</p>
-        <h3>Lead-innsamling</h3>
-        <p>Kunden er interessert, men du er ikke tilgjengelig. Chatboten samler inn navn, nummer og behov — og du ringer tilbake på dine premisser.</p>
-      </div>
-
-    </div>
+    <article class="lv-card is-dark">
+      <span class="lv-tag">Nivå 2 — AI</span>
+      <h3>Forstår fritekst og svarer selv</h3>
+      <p>Bygget på Claude eller GPT, men matet med dine tekster, priser og rutiner. Kunden kan skrive spørsmålet sitt som de vil, og få et svar som høres ut som bedriften din.</p>
+      <ul class="lv-list">
+        <li><span class="lv-check" aria-hidden="true">✓</span>Trent på din informasjon, ikke generell kunnskap</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Håndterer spørsmål du ikke har tenkt på</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Samler inn navn, nummer og hva kunden trenger</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Vi setter grensene for hva den får lov til å svare på</li>
+      </ul>
+      <p class="lv-foot">Trenger du en AI som også jobber i bakgrunnen mot systemene dine, er det en AI-agent — se egen side.</p>
+    </article>
   </div>
 </section>
 
-<section class="process">
-  <div class="container">
-    <div class="process-header">
-      <h2 class="reveal">Slik fungerer<br><span class="blue">det.</span></h2>
-      <p class="reveal">Vi tar oss av det tekniske. Du forteller oss om bedriften din — resten ordner vi.</p>
-    </div>
-    <div class="proc-list">
-      <div class="proc-row reveal">
-        <p class="proc-n">01</p>
-        <div>
-          <h3>Vi setter oss inn i bedriften din</h3>
-          <p>Du forteller oss hvilke spørsmål du oftest får, hva bedriften tilbyr og hvordan du vil bli fremstilt. Vi tar notater — chatboten skal høres ut som deg, ikke som alle andre.</p>
-        </div>
-      </div>
-      <div class="proc-row reveal">
-        <p class="proc-n">02</p>
-        <div>
-          <h3>Vi trener chatboten på din info</h3>
-          <p>Tjenestebeskrivelser, prislister, åpningstider, ofte stilte spørsmål — alt du gir oss, bruker vi til å gjøre chatboten presis og nyttig. Ingenting generisk.</p>
-        </div>
-      </div>
-      <div class="proc-row reveal">
-        <p class="proc-n">03</p>
-        <div>
-          <h3>Vi integrerer den på nettsiden din</h3>
-          <p>Chatboten settes inn på siden din og tilpasses fargene og stilen din. Du ser den og godkjenner den før vi publiserer.</p>
-        </div>
-      </div>
-      <div class="proc-row reveal">
-        <p class="proc-n">04</p>
-        <div>
-          <h3>Du betaler en fast månedspris for drift</h3>
-          <p>Hosting, vedlikehold og oppdateringer er inkludert. Endrer bedriften seg, oppdaterer vi chatboten. Du slipper å tenke på det tekniske.</p>
-        </div>
+
+<!-- ───── SPØRSMÅL ───── -->
+<section class="cb-qa">
+  <div class="platform-top pt-reverse">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>I PRAKSIS</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Spørsmålene som<br><span class="pf-grey">ellers hadde blitt til en telefon.</span></h2>
+      <div class="pf-aside">
+        <p>Dette er den typen henvendelser en chatbot tar unna. Trykk på et spørsmål for å se hvordan et svar kan se ut.</p>
       </div>
     </div>
   </div>
+
+  <div class="qa-list">
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hva koster det?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">En vanlig nettside starter på <em>1 999 kr</em>, og du betaler ikke før du har sett den ferdig. Skal du ha noe mer enn en nettside, får du fastpris før vi setter i gang. Vil du at Andreas ringer deg?</p>
+      </div></div>
+    </details>
+
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Har dere ledig kapasitet nå?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Ja — vi har ledig kapasitet denne uka. Legg igjen navn og telefonnummer, så tar vi kontakt i løpet av <em>én arbeidsdag</em>.</p>
+      </div></div>
+    </details>
+
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hvor lang tid tar det?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">En nettside er ferdig på <em>3–5 dager</em>. Chatbot og systemer varierer med omfanget, men du får alltid en tidsplan sammen med prisen.</p>
+      </div></div>
+    </details>
+
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Kan jeg snakke med et menneske?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Selvsagt. Du når Andreas direkte på <em>484 59 686</em>. Vil du heller bli oppringt, skriver du nummeret ditt her, så tar han kontakt.</p>
+      </div></div>
+    </details>
+
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Det haster — kan noen komme i dag?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Da varsler jeg med en gang. Skriv hva det gjelder og hvor du er, så får den som er på vakt beskjed på telefonen sin <em>umiddelbart</em>.</p>
+      </div></div>
+    </details>
+
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hva er inkludert?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Design, utvikling, tekst, mobiltilpasning og teknisk SEO er med i prisen. Drift og hosting kommer på <em>199 kr i måneden</em> for nettsider, uten bindingstid.</p>
+      </div></div>
+    </details>
+  </div>
 </section>
 
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-left reveal">
-        <h2>Klar for å<br><span class="blue">prøve?</span></h2>
-        <p>Dette er en tjeneste vi nettopp har lansert, og vi er på jakt etter de første bedriftene som vil teste det ut. Send oss en melding — så tar vi en prat om hva som passer for deg.</p>
-        <div class="cta-buttons">
-          <a class="btn" href="kontakt.html">Ta kontakt →</a>
-          <a class="btn ghost" href="tjenester.html">Se alle tjenester</a>
-        </div>
+
+<!-- ───── SLIK LAGER VI DEN ───── -->
+<section class="cb-build">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>SLIK LAGER VI DEN</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Du forteller. Vi bygger.</h2>
+      <div class="pf-aside">
+        <a class="pf-link" href="kontakt.html">Book en prat <span class="pf-link-arrow">→</span></a>
       </div>
-      <div class="cta-right reveal">
-        <h3>Hva du får</h3>
-        <p>En chatbot som er satt opp, trent og klar til bruk — med løpende vedlikehold fra oss.</p>
-        <div class="cta-divider"></div>
-        <ul class="cta-list">
-          <li>Skreddersydd for din bedrift og dine tjenester</li>
-          <li>Integrert direkte på nettsiden din</li>
-          <li>Tilgjengelig 24/7 — ingen pauser</li>
-          <li>Fanger opp leads mens du sover</li>
-          <li>Vi oppdaterer den når bedriften din endrer seg</li>
-          <li>Fast månedspris — ingen skjulte kostnader</li>
-        </ul>
-        <a class="btn" href="kontakt.html" style="width:100%;justify-content:center;">Send en melding →</a>
+    </div>
+  </div>
+
+  <div class="bd-grid">
+    <div class="bd-steps">
+      <div class="bd-step">
+        <h3>Vi går gjennom spørsmålene du får</h3>
+        <p>Hva blir du oftest ringt om? Hva står i e-postene du besvarer hver uke? Det er den lista chatboten skal kunne utenat.</p>
       </div>
+      <div class="bd-step">
+        <h3>Vi skriver svarene sammen med deg</h3>
+        <p>Du godkjenner hvert svar før noe går live. Er du usikker på om noe bør stå der, lar vi være — chatboten skal aldri love noe du ikke kan holde.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Vi setter den inn på nettsiden</h3>
+        <p>En diskret boble i hjørnet, i dine farger. Ingen ekstern tjeneste kunden må godta, ingen app som skal lastes ned.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Du ser den før den publiseres</h3>
+        <p>Du får en privat lenke og kan teste den i fred. Er det noe som skurrer, retter vi det før noen kunde møter den.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Vi holder den oppdatert</h3>
+        <p>Nye priser, nye tjenester, ny sesong. Send en melding, så oppdaterer vi svarene — du trenger ikke logge inn noe sted.</p>
+      </div>
+    </div>
+
+    <aside class="bd-price">
+      <p class="bd-price-label">Pris</p>
+      <h3>Fastpris for oppsett, fast pris per måned</h3>
+      <p>Hva en chatbot koster avhenger av hvilket nivå du velger og hvor mange svar den skal kunne. En guidet flyt er en liten jobb; en AI trent på hele bedriften er en større en.</p>
+      <p>Du får ett tall for oppsettet og ett for driften — skriftlig, før vi begynner.</p>
+      <div class="bd-price-rule"></div>
+      <ul class="bd-price-rows">
+        <li><span>Oppsett</span><span>Fastpris</span></li>
+        <li><span>Drift</span><span>Fast månedspris</span></li>
+        <li><span>Endringer i svarene</span><span>Inkludert</span></li>
+        <li><span>Avtales</span><span>Skriftlig først</span></li>
+      </ul>
+      <a class="btn-circle bd-price-btn" href="kontakt.html">
+        <span>FÅ ET PRISTILBUD</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Vi er ute etter de<br><span class="dm-lime">første som vil prøve.</span></h2>
+      <p class="dm-text">Chatbot er en fersk tjeneste hos oss, og vi vil gjerne bygge de første sammen med bedrifter som tør å teste. Det betyr tett oppfølging, god pris og at du får si hva den skal kunne.</p>
+      <a class="btn-circle dm-btn" href="kontakt.html">
+      <span>SNAKK OM EN CHATBOT</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Du godkjenner hvert svar</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Vi oppdaterer den for deg</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -510,25 +331,46 @@
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
-        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
-        <p class="tag">Vi bygger nettsider som skaffer kunder for norske bedrifter.</p>
-        <span class="org">Org.nr — 934 626 009</span>
+        <span class="brand-big">
+          <span class="dot"></span>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
+        <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
         <ul>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="chatbots.html">Chatbots</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -541,15 +383,22 @@
         </ul>
       </div>
     </div>
-    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
     <div class="foot-base">
       <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge</span>
+      <span>Drammen, Norge — bygget av oss selv.</span>
     </div>
   </div>
 </footer>
 
-<script src="subpage.js" defer></script>
+
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
+<script src="chatbots.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

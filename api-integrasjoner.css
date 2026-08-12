@@ -1,0 +1,277 @@
+/* ───────────────────────────────────────────────────────────
+   api-integrasjoner.css — kun for api-integrasjoner.html.
+   Delt designsystem ligger i sider.css og må lastes først.
+
+   Heroen er bevisst bygget motsatt av de andre undersidene: ingen
+   tekstspalte til venstre og et panel til høyre, men brede rader
+   som ligger oppå hverandre og fyller flaten. Overskriften er selve
+   grafikken — systemnavnene er satt inn som brikker midt i setningen
+   — og nederst går en rørgate tvers over hele flaten der pakkene
+   faktisk beveger seg fra venstre mot høyre.
+   ─────────────────────────────────────────────────────────── */
+
+/* Skallet til heroen ligger i sider.css. Her er bare objektet den viser. */
+
+/* ═══ Rørgata i heroen ═══ */
+.ai-pipe { display: flex; align-items: center; }
+.ai-stop { flex-shrink: 0; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: rgba(8,9,9,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: 11px 18px; font-size: 13px; color: rgba(255,255,255,.92); white-space: nowrap; }
+.ai-stop.is-core { background: var(--lime); border-color: var(--lime); color: #0a0a0a; font-weight: 700; }
+.ai-seg { flex: 1; min-width: 20px; height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(212,255,61), transparent) 0 0 / 40% 100% no-repeat, rgba(255,255,255,.16);
+  animation: aiSeg 2.4s linear infinite; }
+.ai-seg:nth-of-type(2){animation-delay:.6s} .ai-seg:nth-of-type(3){animation-delay:1.2s} .ai-seg:nth-of-type(4){animation-delay:1.8s}
+@keyframes aiSeg { from{background-position-x:-45%} to{background-position-x:145%} }
+@media (prefers-reduced-motion: reduce) { .ai-seg { animation: none; background-image: none; background-color: rgba(212,255,61,.5); } }
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   FØR / ETTER — to spalter satt rett mot hverandre
+   ═══════════════════════════════════════════════════════════ */
+.ai-vs { background: #fff; padding: 130px 0 110px; }
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+}
+.vs-col { padding: 34px 0 8px; }
+.vs-col + .vs-col {
+  border-left: 1px solid rgba(10,10,10,0.12);
+  padding-left: 44px;
+}
+.vs-col:first-child { padding-right: 44px; }
+.vs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-bottom: 22px;
+}
+.vs-after .vs-tag { color: #0a0a0a; }
+.vs-tag::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(10,10,10,0.22);
+}
+.vs-after .vs-tag::before { background: var(--lime); }
+.vs-col h3 {
+  font-size: clamp(23px, 2.2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
+  color: #0a0a0a;
+  margin-bottom: 26px;
+}
+.vs-steps { list-style: none; counter-reset: vs; }
+.vs-steps li {
+  counter-increment: vs;
+  display: flex;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px dashed rgba(10,10,10,0.16);
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.68);
+}
+.vs-steps li::before {
+  content: counter(vs, decimal-leading-zero);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(10,10,10,0.34);
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+.vs-after .vs-steps li { border-bottom-style: solid; border-bottom-color: rgba(10,10,10,0.1); }
+.vs-after .vs-steps li::before { color: #0a0a0a; }
+.vs-foot {
+  margin-top: 26px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.55);
+}
+.vs-after .vs-foot { color: #0a0a0a; font-weight: 500; }
+
+@media (max-width: 860px) {
+  .ai-vs { padding: 90px 0 70px; }
+  .vs-grid { grid-template-columns: 1fr; }
+  .vs-col:first-child { padding-right: 0; padding-bottom: 26px; }
+  .vs-col + .vs-col {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid rgba(10,10,10,0.12);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   KOBLINGSLISTE — som et koblingsskjema, ikke kort
+   ═══════════════════════════════════════════════════════════ */
+.ai-wire { background: #fff; padding: 20px 0 120px; }
+.wr-list {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.wr-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 0 44px;
+  align-items: start;
+  padding: 30px 0;
+  border-top: 1px solid rgba(10,10,10,0.12);
+}
+.wr-list .wr-row:last-child { border-bottom: 1px solid rgba(10,10,10,0.12); }
+.wr-cat {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #0a0a0a;
+  padding-top: 2px;
+}
+.wr-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.wr-chips span {
+  border-radius: 999px;
+  background: #f1f1ef;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: rgba(10,10,10,0.72);
+}
+.wr-chips .wr-open {
+  background: transparent;
+  border: 1px dashed rgba(10,10,10,0.3);
+  color: rgba(10,10,10,0.5);
+}
+.wr-what {
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: rgba(10,10,10,0.6);
+  padding-top: 3px;
+}
+
+.wr-note {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.wr-note p {
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: rgba(10,10,10,0.66);
+  max-width: 680px;
+}
+.wr-note strong { color: #0a0a0a; font-weight: 600; }
+
+@media (max-width: 980px) {
+  .ai-wire { padding: 0 0 90px; }
+  .wr-row { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+  .wr-cat { padding-top: 0; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   PRIS — ett bredt bånd, ikke to kort
+   ═══════════════════════════════════════════════════════════ */
+.ai-price { background: #fff; padding: 20px 0 130px; }
+.pr-band {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #0d0d0d;
+  color: #fff;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 46px 48px 42px;
+}
+.pr-band::before {
+  content: "";
+  position: absolute;
+  width: 140%; height: 220%;
+  left: -50%; top: -70%;
+  background: radial-gradient(ellipse 30% 26% at 62% 50%, rgba(212,255,61,0.20) 0%, rgba(212,255,61,0.05) 46%, transparent 72%);
+  pointer-events: none;
+}
+.pr-band > * { position: relative; z-index: 1; }
+.pr-head {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(30px, 3.3vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+  margin-bottom: 38px;
+  max-width: 18ch;
+}
+.pr-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.pr-cell {
+  padding: 28px 32px 28px 0;
+  border-right: 1px solid rgba(255,255,255,0.14);
+}
+.pr-cell:last-child { border-right: 0; padding-right: 0; }
+.pr-cell:not(:first-child) { padding-left: 32px; }
+.pr-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 12px;
+}
+.pr-val {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  margin-bottom: 10px;
+}
+.pr-cell p { font-size: 14px; line-height: 1.58; color: rgba(255,255,255,0.6); }
+
+.pr-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 38px;
+}
+.pr-fine { font-size: 13.5px; color: rgba(255,255,255,0.45); max-width: 520px; }
+.pr-btn {
+  --cap: 40px;
+  --pad: 6px;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+@media (max-width: 900px) {
+  .ai-price { padding: 0 0 90px; }
+  .pr-band { margin: 0 24px; padding: 34px 26px 32px; }
+  .pr-cols { grid-template-columns: 1fr; }
+  .pr-cell,
+  .pr-cell:not(:first-child) {
+    padding: 22px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+  }
+  .pr-cell:last-child { border-bottom: 0; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Bevegelse av
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .wr-chips span, .pr-btn { transition: none !important; }
+}

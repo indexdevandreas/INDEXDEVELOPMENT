@@ -1,0 +1,199 @@
+/* ───────────────────────────────────────────────────────────
+   tjenester.css — kun for tjenester.html.
+   Delt designsystem ligger i sider.css og må lastes først.
+   ─────────────────────────────────────────────────────────── */
+
+/* ═══ Sidehero — mørk flate med tjenesteregister.
+   Selve skallet (.page-hero) ligger i sider.css og deles med de
+   andre undersidene. Her ligger kun det som er unikt for denne
+   siden: gløden og registeret til høyre. ═══ */
+/* Svakt limeskjær i hjørnet så flaten ikke blir helt død */
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: -22%; right: -8%;
+  width: 58%; height: 88%;
+  background: radial-gradient(ellipse at center, rgba(212,255,61,0.16) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.ph-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: 80px;
+  align-items: center;
+  padding: 74px 48px 84px;
+}
+
+.ph-eyebrow {
+  display: inline-flex; align-items: center; gap: 11px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 12px; letter-spacing: 0.19em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 30px;
+}
+.ph-eyebrow::before { content: ""; width: 5px; height: 5px; background: var(--lime); }
+.ph-left h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(44px, 4.6vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.04;
+  color: #fff;
+  max-width: 14ch;
+}
+.ph-lime { color: var(--lime); }
+.ph-sub {
+  margin-top: 26px;
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: rgba(255,255,255,0.6);
+  max-width: 460px;
+}
+.ph-cta { margin-top: 38px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.ph-btn { --cap: 42px; --pad: 7px; gap: 20px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.1em; }
+.ph-note { font-size: 13.5px; color: rgba(255,255,255,0.5); }
+
+/* ─── Tjenesteregisteret til høyre ─── */
+.pi-head {
+  display: flex; justify-content: space-between;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+}
+.ph-index { list-style: none; }
+.ph-index a {
+  display: grid;
+  grid-template-columns: 34px 1fr auto 22px;
+  align-items: center;
+  gap: 16px;
+  padding: 17px 10px 17px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  transition: background 0.22s, padding-left 0.26s;
+}
+.ph-index a:hover { background: rgba(255,255,255,0.05); padding-left: 14px; }
+.pi-n {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.38);
+}
+.pi-name { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; }
+.pi-price {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+.pi-arrow { color: var(--lime); font-size: 14px; opacity: 0; transition: opacity 0.22s, transform 0.22s; }
+.ph-index a:hover .pi-arrow { opacity: 1; transform: translateX(3px); }
+.ph-index a:hover .pi-name { color: var(--lime); }
+
+@media (max-width: 1050px) {
+  .ph-grid { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px 64px; }
+}
+
+/* ═══ Tjenesterader — brede rader, ikke kortrutenett ═══ */
+.svc-list { background: #fff; padding: 20px 0 40px; }
+.svc-rows { max-width: 1290px; margin: 0 auto; padding: 0 24px; }
+.svc-row {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) minmax(0, 1.15fr) 190px;
+  gap: 0 44px;
+  align-items: start;
+  padding: 46px 0;
+  border-top: 1px solid rgba(10,10,10,0.12);
+  color: #0a0a0a;
+  transition: background 0.25s;
+}
+.svc-rows .svc-row:last-child { border-bottom: 1px solid rgba(10,10,10,0.12); }
+.svc-row:hover { background: #f7f7f5; }
+.svc-i {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 0.16em;
+  color: rgba(10,10,10,0.4);
+  padding-top: 10px;
+}
+.svc-name {
+  font-size: clamp(24px, 2.3vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.12;
+}
+.svc-body p {
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: rgba(10,10,10,0.62);
+  margin-bottom: 18px;
+}
+.svc-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.svc-tags span {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  background: #f1f1ef; border-radius: 999px;
+  padding: 7px 13px; color: rgba(10,10,10,0.62);
+}
+.svc-row:hover .svc-tags span { background: #fff; }
+.svc-side { text-align: right; padding-top: 6px; }
+.svc-price {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 34px; letter-spacing: -0.02em; line-height: 1;
+  display: block; margin-bottom: 4px;
+}
+.svc-price .kr { font-size: 0.5em; }
+.svc-per {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(10,10,10,0.45); margin-bottom: 18px;
+}
+.svc-go {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; font-weight: 600;
+  padding-bottom: 3px; border-bottom: 1.5px solid currentColor;
+}
+.svc-go .pf-link-arrow { transition: transform 0.22s; }
+.svc-row:hover .pf-link-arrow { transform: translateX(4px); }
+
+/* ═══ Prosess — nummererte felt i lime/sort ═══ */
+.proc { background: #fff; padding: 40px 0 120px; }
+.proc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  max-width: 1290px; margin: 0 auto; padding: 0 24px;
+}
+.proc-card {
+  border-radius: 18px; padding: 34px 32px 32px;
+  min-height: 260px; display: flex; flex-direction: column;
+  background: #f1f1ef; color: #0a0a0a;
+}
+.proc-card.is-lime { background: var(--lime); }
+.proc-card.is-dark { background: #0d0d0d; color: #fff; }
+.proc-n {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 54px; line-height: 1; letter-spacing: -0.03em;
+  margin-bottom: auto; opacity: 0.32;
+}
+.proc-card.is-dark .proc-n { opacity: 0.5; }
+.proc-card h3 {
+  font-size: 21px; font-weight: 600; letter-spacing: -0.025em;
+  margin: 26px 0 10px; color: inherit;
+}
+.proc-card p { font-size: 14.5px; line-height: 1.58; opacity: 0.7; }
+
+@media (max-width: 1000px) {
+  .svc-row { grid-template-columns: 1fr; gap: 16px; }
+  .svc-side { text-align: left; }
+  .proc-grid { grid-template-columns: 1fr; }
+  .ph-inner { padding: 70px 24px 56px; }
+}
+
+/* «Kontakt» er en etikett, ikke et beløp — skal ikke settes i
+   prisfonten, da leses det som en pris. */
+.svc-price.is-text {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
