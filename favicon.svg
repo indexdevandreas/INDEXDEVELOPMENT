@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
-  <g fill="#d4ff3d">
-    <path d="M8.5 46 L28.5 9 L37.5 9 L17.5 46 Z"/>
-    <path d="M21.5 46 L41.5 9 L48.5 9 L28.5 46 Z"/>
-    <path d="M33 46 L53 9 L57.5 15 L40 46 Z"/>
-    <path d="M44 46 L57.5 22 L57.5 33 L49.5 46 Z"/>
+  <!-- Merket trekkes inn fra kanten så det ikke klistrer seg til
+       hjørnene på den avrundede flaten. -->
+  <g fill="#d4ff3d" transform="translate(8 8) scale(0.75)">
+    <path d="M0 60 L7.5 60 L23.5 4 L16 4 Z"/>
+    <path d="M13.5 60 L21 60 L37 4 L29.5 4 Z"/>
+    <path d="M27 60 L34.5 60 L50.5 4 L43 4 Z"/>
+    <path d="M40.5 60 L48 60 L64 4 L56.5 4 Z"/>
   </g>
 </svg>

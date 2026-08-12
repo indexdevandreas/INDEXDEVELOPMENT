@@ -526,12 +526,8 @@
 .cv-step-title { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; }
 .cv-step-sub { display: block; font-size: 13px; color: rgba(255,255,255,0.52); margin-top: 3px; }
 
-/* ─── Mobilmeny (hamburger-panelet): hvit, ikke sort ─── */
-.mobile-menu { background: #fff; }
-.mobile-menu-nav a { color: rgba(10,10,10,0.85); }
-.mobile-menu-nav a:hover { color: var(--blue); }
-.mobile-menu-foot a { color: var(--blue); }
-.mobile-menu-foot a:hover { color: #0a0a0a; }
+/* Mobilmenyen defineres nå i sider.css, så den er lik på alle sider.
+   Den sto hvit her og mørk overalt ellers. */
 
 /* ─── Intro-splash: hvit, ikke sort ─── */
 #intro-overlay { background: #fff; }

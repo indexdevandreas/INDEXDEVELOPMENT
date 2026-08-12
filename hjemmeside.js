@@ -106,3 +106,37 @@ document.querySelectorAll('.reveal').forEach(el => {
   if (idx > 0) el.style.setProperty('--reveal-delay', (idx * 80) + 'ms');
   revealObs.observe(el);
 });
+
+
+/* ─── Nav: fest i toppen når heroen er passert ───
+   Baren bytter fra å flyte inne i heroen til å være en hvit bar i
+   full bredde. .is-dark er den samme varianten som brukes på den
+   lyse heroen, så fargelogikken finnes bare ett sted. */
+(function () {
+  var nav  = document.querySelector('.hero-nav');
+  var hero = document.querySelector('.hero, .page-hero');
+  if (!nav || !hero) return;
+
+  var lysHero = nav.classList.contains('is-dark');   /* kompetanse er lys fra før */
+  var fest = false;
+
+  function sjekk() {
+    /* Terskelen er heroens bunn minus barhøyden — da bytter den
+       nøyaktig i det heroen forlater skjermen. */
+    var grense = Math.max(120, hero.getBoundingClientRect().height - 140);
+    var skalFeste = window.scrollY > grense;
+    if (skalFeste === fest) return;
+    fest = skalFeste;
+    nav.classList.toggle('is-stuck', fest);
+    if (!lysHero) nav.classList.toggle('is-dark', fest);
+  }
+
+  var venter = false;
+  window.addEventListener('scroll', function () {
+    if (venter) return;
+    venter = true;
+    requestAnimationFrame(function () { venter = false; sjekk(); });
+  }, { passive: true });
+  window.addEventListener('resize', sjekk);
+  sjekk();
+})();

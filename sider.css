@@ -1008,3 +1008,277 @@ img[loading="lazy"] {
 .hero-tagline { font-family: 'Geist', 'Inter', sans-serif; }
 /* Dropdown-panelet arver nav-en — der er det lenketekst, ikke display */
 .nav-dropdown-panel a { font-family: 'Geist', 'Inter', sans-serif; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILMENY
+   Lå igjen fra forrige designgenerasjon: mørk flate, hvit tekst,
+   og en overstyring til hvit som bare gjaldt forsiden — altså to
+   forskjellige menyer avhengig av hvor du sto. Defineres her, én
+   gang, for alle sider.
+   ═══════════════════════════════════════════════════════════ */
+.mobile-menu {
+  background: #fff;
+  justify-content: space-between;
+  text-align: left;
+  align-items: stretch;
+  padding: 26px 26px 34px;
+}
+
+/* Toppen: merket, så man ser hvor man er mens menyen er åpen */
+.mm-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #0a0a0a;
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(10,10,10,0.10);
+  opacity: 0;
+}
+.mm-top .mark { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
+.mobile-menu.open .mm-top {
+  animation: menuItemIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.mobile-menu-nav {
+  flex: 1;
+  justify-content: center;
+  gap: 2px;
+}
+.mobile-menu-nav a {
+  /* Samme skrift som nav-lenkene på desktop */
+  font-family: 'Syne', 'Geist', sans-serif;
+  font-size: clamp(2rem, 5.6vh, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: #0a0a0a;
+  padding: clamp(5px, 0.9vh, 11px) 0;
+  transition: color 0.2s, transform 0.2s cubic-bezier(0.22,1,0.36,1);
+}
+.mobile-menu-nav a:hover,
+.mobile-menu-nav a:active {
+  color: #0a0a0a;
+  transform: translateX(6px);
+}
+
+/* Kontaktinfoen nederst — limegrønn med glød, samme aksent som resten */
+.mobile-menu-foot {
+  margin-top: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(10,10,10,0.10);
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+.mobile-menu-foot a {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: #7a9c14;
+  /* Ren lime (#d4ff3d) er uleselig på hvitt. Teksten settes i en mørkere
+     tone av samme farge, og gløden legges bak med text-shadow. */
+  text-shadow:
+    0 0 14px rgba(212, 255, 61, 0.85),
+    0 0 30px rgba(212, 255, 61, 0.45);
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.mobile-menu-foot a:hover {
+  color: #0a0a0a;
+  text-shadow: 0 0 18px rgba(212, 255, 61, 1), 0 0 36px rgba(212, 255, 61, 0.6);
+}
+.mm-foot-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.4);
+  margin-bottom: 4px;
+}
+
+/* Menyknappen står oppå den hvite flaten når menyen er åpen */
+body.menu-open .hero-nav .menu-btn { color: #0a0a0a; }
+body.menu-open .hero-nav .menu-btn .bars,
+body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   NAV PÅ LYS FLATE
+   Nav-en er bygget for mørk/farget bakgrunn: hvit tekst og en
+   gjennomskinnelig hvit bar. På en lys hero forsvinner den helt.
+   Denne varianten snur den — og gjenbrukes til den hvite baren
+   som legger seg på ved scrolling.
+   ═══════════════════════════════════════════════════════════ */
+.hero-nav.is-dark {
+  background: rgba(10,10,10,0.045);
+  border-color: rgba(10,10,10,0.10);
+  box-shadow: 0 10px 28px rgba(10,10,10,0.07);
+}
+.hero-nav.is-dark .brand { color: #0a0a0a; }
+.hero-nav.is-dark .hero-tagline {
+  color: rgba(10,10,10,0.6);
+  border-left-color: rgba(10,10,10,0.18);
+}
+.hero-nav.is-dark .hero-nav-links > a,
+.hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger { color: rgba(10,10,10,0.82); }
+.hero-nav.is-dark .hero-nav-links > a:hover,
+.hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger:hover { color: #0a0a0a; }
+.hero-nav.is-dark .nav-btn-ghost { color: rgba(10,10,10,0.75); }
+.hero-nav.is-dark .nav-btn-ghost:hover { color: #0a0a0a; }
+.hero-nav.is-dark .menu-btn { color: #0a0a0a; }
+.hero-nav.is-dark .menu-btn .bars,
+.hero-nav.is-dark .menu-btn .bars::before { background: #0a0a0a; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   KORT-HOVER
+   Halvparten av kortene på nettstedet reagerte ikke på musa i
+   det hele tatt — de leste som bilder, ikke som noe man kan
+   forholde seg til. Én felles behandling: kortet løftes, får
+   en myk skygge, og det som er kortets «anker» (ikon, tall,
+   nummer) rører litt på seg. Ingen farge­eksplosjon — det er
+   bevegelsen som gjør at siden kjennes levende, ikke effekten.
+   ═══════════════════════════════════════════════════════════ */
+.pf-card, .s2-card, .cv-card,
+.sp-card, .pk-card, .hw-step,
+.ph-card, .ag-card, .wy-card,
+.nk-card, .st-step, .in-price,
+.bg-next-card, .rc-card, .ci-card {
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease,
+    background 0.25s ease;
+  will-change: transform;
+}
+
+.pf-card:hover, .s2-card:hover, .cv-card:hover,
+.sp-card:hover, .pk-card:hover,
+.ph-card:hover, .ag-card:hover, .wy-card:hover,
+.nk-card:hover, .in-price:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(10, 10, 10, 0.11);
+}
+/* Mørke kort trenger en dypere skygge for at løftet skal leses */
+.pf-dark-card:hover, .s2-dark:hover, .cv-dark:hover,
+.sp-quote:hover, .pk-featured:hover,
+.ph-dark:hover, .ag-dark:hover, .wy-card.is-dark:hover,
+.nk-dark:hover, .in-price:hover {
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.34);
+}
+
+/* Ankeret i kortet: ikonet, tallet eller nummeret */
+.pf-badge,
+.pf-val, .s2-num, .nk-stat,
+.ag-n, .ph-n, .wy-n, .sv-num, .pk-price {
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pf-card:hover .pf-badge,
+.ag-card:hover .ag-n,
+.ph-card:hover .ph-n,
+.wy-card:hover .wy-n,
+.sv-card:hover .sv-num { transform: translateY(-2px) scale(1.06); }
+.pf-card:hover .pf-val,
+.s2-card:hover .s2-num,
+.nk-card:hover .nk-stat,
+.pk-card:hover .pk-price { transform: translateY(-2px); }
+
+/* Stegene i prosessene: prikken på tidslinja lyser opp */
+.hw-step::before, .st-step::before {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+.hw-step:hover::before, .st-step:hover::before {
+  transform: scale(1.5);
+  background: var(--lime);
+  box-shadow: 0 0 0 5px rgba(212, 255, 61, 0.28);
+}
+.hw-step:hover h3, .st-step:hover h3 { color: #0a0a0a; }
+
+/* Kortene som allerede løftet seg får samme kurve, så alt på
+   siden beveger seg med samme «vekt». */
+.sv-card, .bl-card, .rv-card {
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease,
+    background 0.25s ease;
+}
+.sv-card:hover, .bl-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(10, 10, 10, 0.11);
+}
+.sv-dark:hover { box-shadow: 0 24px 52px rgba(0, 0, 0, 0.34); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-card, .s2-card, .cv-card, .sp-card, .pk-card, .hw-step,
+  .ph-card, .ag-card, .wy-card, .nk-card, .st-step, .in-price,
+  .bg-next-card, .rc-card, .ci-card, .sv-card, .bl-card, .rv-card {
+    transition: none;
+  }
+  .pf-card:hover, .s2-card:hover, .cv-card:hover, .sp-card:hover,
+  .pk-card:hover, .ph-card:hover, .ag-card:hover, .wy-card:hover,
+  .nk-card:hover, .in-price:hover, .sv-card:hover, .bl-card:hover {
+    transform: none;
+  }
+  .hw-step:hover::before, .st-step:hover::before { transform: none; }
+}
+
+/* Berøringsskjermer har ingen hover — der ville løftet blitt
+   hengende igjen etter et trykk. */
+@media (hover: none) {
+  .pf-card:hover, .s2-card:hover, .cv-card:hover, .sp-card:hover,
+  .pk-card:hover, .ph-card:hover, .ag-card:hover, .wy-card:hover,
+  .nk-card:hover, .in-price:hover, .sv-card:hover, .bl-card:hover,
+  .rv-card:hover, .bg-next-card:hover, .rc-card:hover, .ci-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NAV — inngang og fast bar
+   Ved lasting glir baren ned ovenfra og legger seg på plass.
+   Ruller man forbi heroen, festes den i toppen som en hvit bar
+   i full bredde, med sort tekst.
+   ═══════════════════════════════════════════════════════════ */
+.hero-nav {
+  animation: navNed 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.1s backwards;
+}
+@keyframes navNed {
+  from { opacity: 0; transform: translateY(-140%); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Fast bar. Settes av hjemmeside.js når man har rullet forbi heroen.
+   position: fixed gjør at den forlater heroen — derfor egen
+   inngangsanimasjon, ellers ville den bare poppet inn. */
+.hero-nav.is-stuck {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(10,10,10,0.09);
+  background: rgba(255,255,255,0.94);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  backdrop-filter: blur(16px) saturate(1.1);
+  box-shadow: 0 6px 26px rgba(10,10,10,0.07);
+  /* Innholdet holdes på samme 1290px som resten av siden */
+  padding: 12px max(22px, calc((100% - 1290px) / 2 + 22px));
+  z-index: 60;
+  animation: navFest 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes navFest {
+  from { transform: translateY(-100%); }
+  to   { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-nav { animation: none; }
+  .hero-nav.is-stuck { animation: none; }
+}

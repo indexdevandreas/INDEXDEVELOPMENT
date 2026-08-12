@@ -17,9 +17,12 @@
 .om-photo {
   position: absolute;
   z-index: 0;
-  right: 6%; bottom: 0;
-  width: 33%;
-  height: 88%;
+  /* Sto på 33 % bredde og 0.72 opasitet — han forsvant nesten i
+     flaten, og heroen ble dermed lik priser og kompetanse. Nå er
+     portrettet det som skiller siden. */
+  right: 4%; bottom: 0;
+  width: 42%;
+  height: 96%;
   pointer-events: none;
 }
 .om-photo img {
@@ -29,10 +32,10 @@
   display: block;
   /* Samme behandling som forsiden: litt gjennomskinnelig så
      gradienten slipper gjennom og han legger seg rolig inn i flaten. */
-  opacity: 0.72;
-  filter: saturate(0.92);
-  -webkit-mask-image: linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.6) 84%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.6) 84%, transparent 100%);
+  opacity: 0.95;
+  filter: saturate(0.98) contrast(1.03);
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, rgba(0,0,0,0.55) 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 74%, rgba(0,0,0,0.55) 90%, transparent 100%);
 }
 .om-hero { margin-top: auto; padding: 0 56px 62px; max-width: 720px; }
 .om-hero .ph-title { font-size: clamp(38px, 4.6vw, 68px); }

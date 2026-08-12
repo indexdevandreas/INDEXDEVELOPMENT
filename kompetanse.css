@@ -149,3 +149,60 @@
   .kp-cols { grid-template-columns: 1fr; gap: 30px; padding: 4px 4px 32px; }
   .kp-text p { font-size: 16px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — bygget om. Sto identisk med priser og om-meg: samme
+   blå gradient, samme tekstblokk nede til venstre. Tre sider
+   som ikke var til å skille fra hverandre.
+
+   Denne blir nettstedets eneste LYSE hero. Kompetanse er en
+   oversiktsside — en rolig, lys flate passer innholdet, og
+   den skiller seg fra alt annet uten å bli et triks.
+   ═══════════════════════════════════════════════════════════ */
+.page-hero {
+  min-height: min(62vh, 580px);
+  background: #f1f1ef;
+}
+/* Svakt rutenett så flaten ikke blir helt død */
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(10,10,10,0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.032) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(100% 80% at 20% 40%, #000 0%, transparent 74%);
+  mask-image: radial-gradient(100% 80% at 20% 40%, #000 0%, transparent 74%);
+}
+.kp-hero .ph-kicker { color: rgba(10,10,10,0.5); }
+.kp-hero .ph-title  { color: #0a0a0a; }
+.kp-hero .ph-lead   { color: rgba(10,10,10,0.66); }
+.kp-hero .ph-link   { background: #0a0a0a; color: #fff; }
+.kp-hero .ph-link:hover { background: var(--lime); color: #0a0a0a; }
+
+/* De sju disiplinene som en stille kolonne til høyre — sier hva
+   siden handler om før man har scrollet en piksel. */
+.kp-index {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-40%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: right;
+}
+.kp-index span {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.34);
+}
+.kp-index span:nth-child(odd) { color: rgba(10,10,10,0.5); }
+
+@media (max-width: 1080px) { .kp-index { display: none; } }

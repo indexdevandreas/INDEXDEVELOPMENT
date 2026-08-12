@@ -8,13 +8,69 @@
    dette er en side man kommer til for å lese tall, ikke for
    å bli imponert av et landskap.
    ═══════════════════════════════════════════════════════════ */
+/* Sto med nøyaktig samme blå gradient og tekstplassering som om-meg
+   og kompetanse — tre sider man ikke kunne skille fra hverandre.
+   Prissiden får sort flate og en prislapp: motivet er tallet. */
 .page-hero {
   min-height: min(66vh, 620px);
-  background:
-    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
-    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+  background: #0a0a0a;
 }
-.pr-hero { margin-top: auto; padding: 0 56px 62px; max-width: 900px; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0; z-index: 0;
+  background: radial-gradient(58% 62% at 74% 46%, rgba(212,255,61,0.13) 0%, transparent 68%);
+  pointer-events: none;
+}
+.pr-hero {
+  margin-top: auto;
+  padding: 0 56px 62px;
+  max-width: 660px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prislappen — samme serif-tall som resten av nettstedet */
+.pr-lapp {
+  position: absolute;
+  right: 64px;
+  top: 50%;
+  transform: translateY(-38%);
+  z-index: 2;
+  width: 268px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 20px;
+  padding: 24px 26px 22px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.pr-lapp-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+.pr-lapp-sum {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 44px; line-height: 1; letter-spacing: -0.025em;
+  color: #fff;
+}
+.pr-lapp-sum em { font-style: normal; font-size: 0.45em; color: var(--lime); margin-left: 0.05em; }
+.pr-lapp-linje { height: 1px; background: rgba(255,255,255,0.14); margin: 20px 0 16px; }
+.pr-lapp-rad {
+  display: flex; justify-content: space-between; gap: 14px;
+  font-size: 13.5px; padding: 5px 0;
+  color: rgba(255,255,255,0.58);
+}
+.pr-lapp-rad em { font-style: normal; color: #fff; font-weight: 600; }
+
+@media (max-width: 1080px) {
+  .pr-lapp { display: none; }
+  .pr-hero { max-width: 900px; }
+}
 .pr-hero .ph-title { font-size: clamp(32px, 3.7vw, 56px); }
 .pr-hero .ph-lead { max-width: 54ch; }
 
