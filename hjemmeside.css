@@ -47,29 +47,66 @@ button { font-family: inherit; cursor: pointer; }
 .intro-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 22px;
 }
-.intro-dot {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--blue);
-  transform: scale(0);
+/* Merket tegnes bjelke for bjelke, i samme retning som de heller */
+.intro-mark {
+  width: clamp(56px, 8vw, 86px);
+  height: clamp(56px, 8vw, 86px);
   flex-shrink: 0;
+  fill: #0a0a0a;
 }
-.intro-dot.animate {
-  animation: introDotIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-.intro-text {
-  font-size: clamp(40px, 7vw, 80px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #fff;
+.intro-mark path {
   opacity: 0;
-  transform: translateX(-18px);
+  transform: translate(-14px, 22px);
 }
-.intro-text.animate {
-  animation: introTextIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+.intro-overlay-go .intro-mark path {
+  animation: introBjelke 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+.intro-overlay-go .intro-mark path:nth-child(1) { animation-delay: 0.05s; }
+.intro-overlay-go .intro-mark path:nth-child(2) { animation-delay: 0.14s; }
+.intro-overlay-go .intro-mark path:nth-child(3) { animation-delay: 0.23s; }
+.intro-overlay-go .intro-mark path:nth-child(4) { animation-delay: 0.32s; }
+@keyframes introBjelke {
+  to { opacity: 1; transform: none; }
+}
+
+.intro-words { display: flex; flex-direction: column; gap: 6px; }
+.intro-name {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(34px, 5.2vw, 58px);
+  font-weight: 300;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  color: #0a0a0a;
+  opacity: 0;
+  transform: translateX(-14px);
+}
+.intro-tag {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(12.5px, 1.2vw, 15px);
+  line-height: 1.45;
+  color: rgba(10,10,10,0.55);
+  opacity: 0;
+  transform: translateX(-14px);
+}
+.intro-overlay-go .intro-name {
+  animation: introOrd 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.46s forwards;
+}
+.intro-overlay-go .intro-tag {
+  animation: introOrd 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.62s forwards;
+}
+@keyframes introOrd {
+  to { opacity: 1; transform: none; }
+}
+
+/* Slår brukeren av bevegelse, vises alt med én gang og forsvinner raskt */
+@media (prefers-reduced-motion: reduce) {
+  .intro-mark path, .intro-name, .intro-tag {
+    opacity: 1 !important; transform: none !important; animation: none !important;
+  }
+}
+
 #intro-overlay.fade-out {
   animation: introFadeOut 0.4s ease forwards;
 }
@@ -877,7 +914,11 @@ footer {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: clamp(70px, 12vh, 130px) 40px clamp(40px, 6vh, 80px);
+  padding: clamp(58px, 10vh, 110px) 40px clamp(32px, 5vh, 70px);
+  /* Siste forsvar: blir lista likevel for høy, skal den kunne rulles
+     — ikke bli stående uleselig utenfor skjermkanten. */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   transition: opacity .4s ease, visibility .4s;
@@ -892,10 +933,13 @@ footer {
   gap: 0;
 }
 .mobile-menu-nav a {
-  font-size: clamp(3.5rem, 8vh, 6rem);
+  /* Var clamp(3.5rem, 8vh, 6rem). Med sju oppføringer fikk den så vidt
+     plass på en iPhone SE — footeren endte på 627 av 667px. Ett menyvalg
+     til hadde sprengt den, så typografien er trukket ned et hakk. */
+  font-size: clamp(2.8rem, 7.2vh, 5rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1.0;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
   color: rgba(255,255,255,0.85);
   padding: clamp(4px, 0.7vh, 10px) 0;
   opacity: 0;
@@ -903,14 +947,20 @@ footer {
 }
 .mobile-menu.open .mobile-menu-nav a {
   animation: menuItemIn 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+  /* Forsinkelsen regnes ut fra posisjonen i stedet for én regel per
+     oppføring — den gamle lista stoppet på nth-child(7), så den
+     åttende lenken kom inn uten forsinkelse og brøt rytmen. */
+  animation-delay: calc(60ms + var(--mi, 0) * 80ms);
 }
-.mobile-menu.open .mobile-menu-nav a:nth-child(1) { animation-delay: 0.06s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(2) { animation-delay: 0.14s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(3) { animation-delay: 0.22s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(4) { animation-delay: 0.30s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(5) { animation-delay: 0.38s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(6) { animation-delay: 0.46s; }
-.mobile-menu.open .mobile-menu-nav a:nth-child(7) { animation-delay: 0.54s; }
+.mobile-menu-nav a:nth-child(1) { --mi: 0; }
+.mobile-menu-nav a:nth-child(2) { --mi: 1; }
+.mobile-menu-nav a:nth-child(3) { --mi: 2; }
+.mobile-menu-nav a:nth-child(4) { --mi: 3; }
+.mobile-menu-nav a:nth-child(5) { --mi: 4; }
+.mobile-menu-nav a:nth-child(6) { --mi: 5; }
+.mobile-menu-nav a:nth-child(7) { --mi: 6; }
+.mobile-menu-nav a:nth-child(8) { --mi: 7; }
+.mobile-menu-nav a:nth-child(9) { --mi: 8; }
 .mobile-menu-nav a:hover { color: var(--blue); }
 .mobile-menu-foot {
   margin-top: auto;
@@ -1035,4 +1085,16 @@ body.menu-open .nav .brand {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  /* Menylenkene ligger på opacity: 0 og avdekkes kun av animasjonen.
+     Uten dette blir hele menyen et blankt panel for den som har slått
+     av bevegelse. */
+  .mobile-menu.open .mobile-menu-nav a,
+  .mobile-menu.open .mobile-menu-foot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
+
+/* Rullelås mens introen spiller */
+html.intro-kjorer, html.intro-kjorer body { overflow: hidden; }

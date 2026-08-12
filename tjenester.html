@@ -9,19 +9,20 @@
 <link rel="canonical" href="https://indexdevelopment.no/tjenester.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="tjenester.css">
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
     <a href="index.html">Forside</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
     <a href="tjenester.html">Tjenester</a>
-    <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
     <a href="index.html#blogg">Blogg</a>
@@ -40,7 +41,7 @@
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
-        <span class="dot"></span>
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
         <span>index dev.</span>
       </a>
       <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
@@ -55,9 +56,8 @@
         <div class="nav-dropdown-panel">
           <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
           <a href="drift.html">Drift &amp; vedlikehold</a>
-          <a href="chatbots.html">Chatbots</a>
           <a href="systemutvikling.html">Systemutvikling</a>
-          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
           <a href="api-integrasjoner.html">API-integrasjoner</a>
           <a href="booking-systemer.html">Booking-systemer</a>
           <span class="nav-dropdown-sep" aria-hidden="true"></span>
@@ -72,7 +72,7 @@
 
     <div class="hero-nav-actions">
       <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
-      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
       <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
         <span class="menu-label">Meny</span>
         <span class="bars"></span>
@@ -86,8 +86,8 @@
       <h1>Sju måter å gjøre bedriften din <span class="ph-lime">bedre på nett.</span></h1>
       <p class="ph-sub">Start med en nettside, eller bygg et helt system. Du velger omfanget — vi holder alt i samme kodebase og samme drift, så du har én leverandør å forholde deg til.</p>
       <div class="ph-cta">
-        <a class="btn-circle ph-btn" href="kontakt.html">
-          <span>BOOK UFORPLIKTENDE DEMO</span>
+        <a class="btn-circle ph-btn" href="kom-i-gang.html">
+          <span>FINN UT HVA DU TRENGER</span>
           <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </a>
         <span class="ph-note">Gratis utkast før du betaler</span>
@@ -184,7 +184,7 @@
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="chatbots" href="chatbots.html">
+      <a class="svc-row" id="chatbots" href="ai-agenter.html">
         <span class="svc-i">03</span>
         <h3 class="svc-name">Chatbot på<br>nettsiden</h3>
         <div class="svc-body">
@@ -290,9 +290,9 @@
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
       <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
-      <p class="dm-text">Det er helt greit. Book en uforpliktende demo, så går vi gjennom situasjonen din og foreslår det som gir mest igjen for pengene — også hvis det er mindre enn du trodde.</p>
-      <a class="btn-circle dm-btn" href="kontakt.html">
-      <span>BOOK UFORPLIKTENDE DEMO</span>
+      <p class="dm-text">Det er helt greit. Ta veiviseren — den stiller spørsmålene for deg, og du sender meg en ferdig beskrivelse av hva du trenger. Du får svar med forslag og pris, skriftlig.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
       <ul class="dm-points">
@@ -311,7 +311,7 @@
     <div class="foot-top foot-top-wide">
       <div class="foot-brand">
         <span class="brand-big">
-          <span class="dot"></span>
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
           <span>index dev.</span>
         </span>
         <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
@@ -323,9 +323,8 @@
           <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="chatbots.html">Chatbots</a></li>
           <li><a href="systemutvikling.html">Systemutvikling</a></li>
-          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
           <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
           <li><a href="booking-systemer.html">Booking-systemer</a></li>
         </ul>
@@ -333,6 +332,7 @@
       <div class="foot-col">
         <h3>Selskap</h3>
         <ul>
+          <li><a href="kom-i-gang.html">Kom i gang</a></li>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
           <li><a href="kompetanse.html">Kompetanse</a></li>
@@ -366,13 +366,14 @@
     </div>
 
     <div class="foot-base">
-      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge — bygget av oss selv.</span>
+      <span>© <span data-ar>2026</span> Index Development. Alle rettigheter reservert.</span>
+      <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
 </footer>
 
 
+<script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>

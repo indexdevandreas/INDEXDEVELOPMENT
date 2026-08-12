@@ -1163,10 +1163,12 @@ html, body { overflow-x: clip; }
 
   /* Portrettet forankres i nedre høyre hjørne så det ligger utenfor
      tekstblokken i stedet for bak den. */
-  .hero-photo {
-    top: auto; bottom: 0; right: -8%;
-    width: 60%; height: 62%;
-  }
+  /* Portrettet ble en blek klatt nede i hjørnet: 60 % bredde, nedre
+     halvdel maskert bort og 0.7 opasitet over en blå flate. Man så
+     toppen av et hode og ingenting mer.
+     Heroen er full av tekst på mobil — det er ikke plass til et
+     portrett i tillegg. Andreas står i full størrelse på om-meg. */
+  .hero-photo { display: none; }
 
   .platform { padding: 84px 0 80px; }
   .stats2, .convert, .reviews,

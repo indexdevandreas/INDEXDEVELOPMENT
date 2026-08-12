@@ -1,0 +1,430 @@
+/* ───────────────────────────────────────────────────────────
+   kom-i-gang.css — veiviseren.
+   Delt designsystem ligger i sider.css, som må lastes først.
+   ─────────────────────────────────────────────────────────── */
+
+.page-hero {
+  min-height: min(48vh, 440px);
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.kg-hero { margin-top: auto; padding: 0 56px 50px; max-width: 800px; }
+.kg-hero .ph-title { font-size: clamp(32px, 3.8vw, 54px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   SKALLET — ett smalt kort midt på siden. Alt annet er ryddet
+   bort med vilje: har man først begynt å svare, skal ingenting
+   konkurrere om oppmerksomheten.
+   ═══════════════════════════════════════════════════════════ */
+.wiz { background: #fff; padding: 76px 24px 110px; }
+.wz-shell {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #f1f1ef;
+  border-radius: 24px;
+  padding: 34px 38px 40px;
+}
+
+/* ─── Fremdrift ─── */
+.wz-top { margin-bottom: 34px; }
+.wz-bar {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(10,10,10,0.10);
+  overflow: hidden;
+}
+.wz-bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--lime);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wz-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  min-height: 22px;
+}
+.wz-count {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-left: auto;
+}
+.wz-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(10,10,10,0.55);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.wz-back:hover { color: #0a0a0a; }
+/* Nettleserens [hidden] er «display: none», men den taper mot
+   display: inline-flex over. Uten dette står Tilbake på trinn 1. */
+.wz-back[hidden] { display: none; }
+.wz-back span { transition: transform 0.22s ease; }
+.wz-back:hover span { transform: translateX(-4px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   TRINN
+   ═══════════════════════════════════════════════════════════ */
+.wz-stage { position: relative; }
+/* Mens et enkeltvalg «lander» skal ingen rekke å klikke to ganger */
+.wz-stage.is-locked { pointer-events: none; }
+
+.wz-q {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.15;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+}
+.wz-help {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(10,10,10,0.6);
+  margin-bottom: 26px;
+  max-width: 52ch;
+}
+.wz-q + .wz-options { margin-top: 26px; }
+
+
+/* ─── Valgkortene ─── */
+.wz-options { display: flex; flex-direction: column; gap: 10px; }
+
+.wz-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1.5px solid rgba(10,10,10,0.10);
+  border-radius: 14px;
+  padding: 17px 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.18s ease;
+  /* Trinnvis innkomst — hvert kort litt etter det forrige */
+  animation: wzInn 0.42s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i) * 42ms);
+}
+@keyframes wzInn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.wz-opt:hover {
+  border-color: rgba(10,10,10,0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(10,10,10,0.07);
+}
+.wz-opt:focus-visible {
+  outline: none;
+  border-color: #0a0a0a;
+  box-shadow: 0 0 0 4px rgba(212,255,61,0.5);
+}
+.wz-opt.is-on {
+  border-color: #0a0a0a;
+  background: var(--lime-soft, #f2ffcc);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Haken: tom sirkel som fylles og «spretter» litt ved valg */
+.wz-mark {
+  position: relative;
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(10,10,10,0.22);
+  margin-top: 1px;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.wz-mark::after {
+  content: "";
+  position: absolute;
+  left: 7px; top: 4px;
+  width: 6px; height: 11px;
+  border-right: 2.4px solid #0a0a0a;
+  border-bottom: 2.4px solid #0a0a0a;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.28s cubic-bezier(0.34, 1.7, 0.5, 1);
+}
+.wz-opt.is-on .wz-mark {
+  background: var(--lime);
+  border-color: #0a0a0a;
+}
+.wz-opt.is-on .wz-mark::after { transform: rotate(45deg) scale(1); }
+/* Flervalg leser som avkryssing, enkeltvalg som radioknapp */
+.is-multi .wz-mark { border-radius: 8px; }
+
+.wz-opt-txt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.wz-opt-t {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+  line-height: 1.3;
+}
+.wz-opt-d {
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: rgba(10,10,10,0.58);
+}
+
+.wz-next, .wz-send {
+  margin-top: 26px;
+  --cap: 42px;
+  --pad: 7px;
+  gap: 18px;
+  padding: var(--pad) var(--pad) var(--pad) 28px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+}
+.wz-next:disabled, .wz-send:disabled { opacity: 0.4; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wz-opt { animation: none; }
+  .wz-opt:hover { transform: none; }
+  .wz-mark::after { transition: none; }
+  .wz-bar i { transition: none; }
+}
+
+
+/* ─── Overganger mellom trinn ─── */
+.inn-fram { animation: wzFram 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.inn-bak  { animation: wzBak  0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes wzFram {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes wzBak {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .inn-fram, .inn-bak { animation: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   KONTAKTSTEGET
+   ═══════════════════════════════════════════════════════════ */
+.wz-form { margin-top: 26px; }
+.wz-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.wz-field { display: flex; flex-direction: column; gap: 8px; }
+.wz-field-wide { margin-top: 16px; }
+.wz-field label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.55);
+}
+.wz-opt-lbl { opacity: 0.5; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.wz-field input,
+.wz-field textarea {
+  font-family: inherit;
+  font-size: 16px;
+  color: #0a0a0a;
+  background: #fff;
+  border: 1.5px solid rgba(10,10,10,0.12);
+  border-radius: 12px;
+  padding: 14px 16px;
+  width: 100%;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.wz-field textarea { resize: vertical; min-height: 92px; line-height: 1.55; }
+.wz-field input::placeholder,
+.wz-field textarea::placeholder { color: rgba(10,10,10,0.32); }
+.wz-field input:focus,
+.wz-field textarea:focus {
+  outline: none;
+  border-color: #0a0a0a;
+  box-shadow: 0 0 0 4px rgba(212,255,61,0.45);
+}
+.wz-err {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #b3261e;
+}
+
+/* Oppsummeringen står UNDER skjemaet: den skal berolige,
+   ikke stjele plassen fra det som faktisk skal fylles ut. */
+.wz-sum {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+}
+.wz-sum-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-bottom: 16px;
+}
+.wz-sum-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 20px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(10,10,10,0.08);
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.wz-sum-row:last-child { border-bottom: 0; }
+.wz-sum-row span { color: rgba(10,10,10,0.55); }
+.wz-sum-row strong { color: #0a0a0a; font-weight: 600; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   KVITTERINGEN
+   ═══════════════════════════════════════════════════════════ */
+.wz-done { text-align: center; padding: 22px 0 10px; }
+.wz-done-mark {
+  width: 74px; height: 74px;
+  border-radius: 50%;
+  background: var(--lime);
+  display: grid; place-items: center;
+  margin: 0 auto 26px;
+  animation: wzSprett 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+.wz-done-mark svg {
+  width: 34px; height: 34px;
+  fill: none;
+  stroke: #0a0a0a;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* Haken tegnes opp i stedet for bare å dukke opp */
+  stroke-dasharray: 32;
+  stroke-dashoffset: 32;
+  animation: wzTegn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards;
+}
+@keyframes wzSprett { from { transform: scale(0.5); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes wzTegn   { to { stroke-dashoffset: 0; } }
+
+.wz-done-h {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: #0a0a0a;
+  margin-bottom: 14px;
+}
+.wz-done-p {
+  font-size: 17px;
+  line-height: 1.62;
+  color: rgba(10,10,10,0.68);
+  max-width: 46ch;
+  margin: 0 auto 32px;
+}
+.wz-done-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: left;
+}
+.wz-done-card {
+  background: #fff;
+  border: 1.5px solid rgba(10,10,10,0.10);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #0a0a0a;
+  transition: border-color 0.18s, transform 0.22s cubic-bezier(0.22,1,0.36,1);
+}
+.wz-done-card:hover { border-color: rgba(10,10,10,0.3); transform: translateY(-2px); }
+.wz-done-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+}
+.wz-done-val { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wz-done-mark { animation: none; }
+  .wz-done-mark svg { animation: none; stroke-dashoffset: 0; }
+}
+
+
+/* ─── Under kortet ─── */
+.wz-assure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 780px;
+  margin: 26px auto 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.58);
+  text-align: center;
+}
+.wz-assure-mark {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 11px;
+  font-weight: 700;
+  display: grid; place-items: center;
+}
+.wz-noscript {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 26px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.72);
+}
+.wz-noscript a { color: #0a0a0a; border-bottom: 1.5px solid var(--lime); }
+
+
+@media (max-width: 720px) {
+  .wiz { padding: 46px 16px 80px; }
+  .wz-shell { padding: 24px 20px 30px; border-radius: 20px; }
+  .wz-opt { padding: 15px 16px; gap: 13px; }
+  .wz-opt-t { font-size: 16px; }
+  .wz-opt-d { font-size: 13.5px; }
+  .wz-fields { grid-template-columns: 1fr; }
+  .wz-done-cards { grid-template-columns: 1fr; }
+  .wz-sum-row { grid-template-columns: 1fr; gap: 4px; }
+  .wz-next, .wz-send { width: 100%; justify-content: space-between; }
+}

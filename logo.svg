@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Index Development">
+  <title>Index Development</title>
+  <!-- Fire diagonale bjelker som trappes ned mot høyre og danner en
+       kileform. Alt tegnes i currentColor, så merket arver fargen fra
+       der det står — sort i footeren, hvitt i nav-en. -->
+  <g fill="currentColor">
+    <path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/>
+    <path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/>
+    <path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/>
+    <path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/>
+  </g>
+</svg>

@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>API-integrasjoner — index dev.</title>
-<meta name="description" content="Vi kobler systemene du allerede bruker til hverandre — betaling, regnskap, e-post, kalender og CRM — slik at data flyter automatisk i stedet for å tastes inn to ganger.">
+<meta name="description" content="Vi kobler systemene du allerede bruker til hverandre — betaling, kalender, e-post og CRM — slik at data flyter automatisk i stedet for å tastes inn to ganger. Har systemet et API, kan vi koble det.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/api-integrasjoner.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="api-integrasjoner.css">
@@ -20,7 +20,7 @@
   "@type": "Service",
   "serviceType": "API-integrasjoner",
   "name": "API-integrasjoner",
-  "description": "Vi kobler nettsiden og systemene en bedrift allerede bruker til hverandre via API — betaling, regnskap, e-post, CRM, kalender og varsling — slik at data flyter automatisk mellom dem.",
+  "description": "Vi kobler nettsiden og systemene en bedrift allerede bruker til hverandre via API — betaling, kalender, e-post, CRM og varsling — slik at data flyter automatisk mellom dem.",
   "url": "https://indexdevelopment.no/api-integrasjoner.html",
   "areaServed": "NO",
   "provider": {
@@ -43,14 +43,15 @@
   }
 }
 </script>
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
     <a href="index.html">Forside</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
     <a href="tjenester.html">Tjenester</a>
-    <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
     <a href="index.html#blogg">Blogg</a>
@@ -65,18 +66,12 @@
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero photo-hero ph-edge" id="top">
-  <img class="ph-img"
-       src="bilder/hero/api-1600.jpg"
-       srcset="bilder/hero/api-800.jpg 800w, bilder/hero/api-1600.jpg 1600w"
-       sizes="100vw" width="1600" height="1066"
-       alt="" fetchpriority="high" decoding="async">
-  <div class="ph-veil" aria-hidden="true"></div>
+<section class="page-hero api-hero" id="top">
 
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
-        <span class="dot"></span>
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
         <span>index dev.</span>
       </a>
       <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
@@ -91,9 +86,8 @@
         <div class="nav-dropdown-panel">
           <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
           <a href="drift.html">Drift &amp; vedlikehold</a>
-          <a href="chatbots.html">Chatbots</a>
           <a href="systemutvikling.html">Systemutvikling</a>
-          <a href="ai-agenter.html">AI-agenter</a>
+          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
           <a href="api-integrasjoner.html">API-integrasjoner</a>
           <a href="booking-systemer.html">Booking-systemer</a>
           <span class="nav-dropdown-sep" aria-hidden="true"></span>
@@ -108,7 +102,7 @@
 
     <div class="hero-nav-actions">
       <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
-      <a class="nav-btn-lime" href="kontakt.html">BOOK DEMO</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
       <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
         <span class="menu-label">Meny</span>
         <span class="bars"></span>
@@ -116,7 +110,7 @@
     </div>
   </header>
 
-  <div class="ph-body">
+  <div class="ph-body api-body">
     <p class="ph-kicker">API-integrasjoner</p>
     <h1 class="ph-title">Systemene dine<br>snakker ikke sammen.</h1>
     <p class="ph-lead">Vi kobler sammen systemene du allerede bruker, så du slutter å taste det samme inn to ganger.</p>
@@ -130,7 +124,7 @@
     <span class="ai-seg" aria-hidden="true"></span>
     <span class="ai-stop is-core">Integrasjonen</span>
     <span class="ai-seg" aria-hidden="true"></span>
-    <span class="ai-stop">Regnskap</span>
+    <span class="ai-stop">Kunderegister</span>
     <span class="ai-seg" aria-hidden="true"></span>
     <span class="ai-stop">Varsel</span>
   </div>
@@ -156,8 +150,8 @@
       <ol class="vs-steps">
         <li>Kunden bestiller på nettsiden</li>
         <li>Du får en e-post om bestillingen</li>
-        <li>Du taster den inn i regnskapssystemet</li>
-        <li>Du sjekker manuelt om betalingen er kommet inn</li>
+        <li>Du fører den inn i kalenderen</li>
+        <li>Du sjekker om betalingen er kommet inn</li>
         <li>Du sender bekreftelse tilbake til kunden</li>
       </ol>
       <p class="vs-foot">Fire av stegene er ren tasting. Og før eller siden er det ett av dem som blir glemt en travel dag.</p>
@@ -170,7 +164,7 @@
         <li>Kunden bestiller på nettsiden</li>
         <li>Resten skjer av seg selv</li>
       </ol>
-      <p class="vs-foot">Bestillingen havner i regnskapet, betalingen matches, bekreftelsen går ut — og du får ett varsel om at det er gjort.</p>
+      <p class="vs-foot">Bestillingen legger seg i kalenderen, betalingen matches mot riktig ordre, bekreftelsen går ut — og du får ett varsel om at det er gjort.</p>
     </div>
   </div>
 </section>
@@ -183,10 +177,16 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Har systemet et API, kan vi koble det.</h2>
       <div class="pf-aside">
+        <p>To ting avgjør om det går: at systemet har et åpent API, og at du får tak i nøkkelen til din egen konto. Er begge på plass, er koblingen som regel en kjapp jobb.</p>
         <a class="pf-link" href="systemutvikling.html">Se all systemutvikling <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
+
+  <p class="wr-note">
+    <span class="wr-note-mark" aria-hidden="true">i</span>
+    Vi kobler systemene sammen — vi drifter dem ikke. Skal noe settes opp inne i regnskapet eller CRM-et ditt, er det regnskapsføreren eller leverandøren din som eier den biten.
+  </p>
 
   <div class="wr-list">
     <div class="wr-row">
@@ -202,7 +202,7 @@
       <div class="wr-chips">
         <span>Fiken</span><span>Tripletex</span><span>PowerOffice</span><span class="wr-open">andre med API</span>
       </div>
-      <p class="wr-what">Salg og fakturagrunnlag sendes rett inn, så regnskapsføreren slipper å etterlyse bilag.</p>
+      <p class="wr-what">Har systemet et åpent API og du har tilgang til nøkkelen, er selve koblingen en kjapp jobb. Vi sender salgsdataene dit — men vi setter ikke opp regnskapet ditt.</p>
     </div>
 
     <div class="wr-row">
@@ -296,8 +296,8 @@
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
       <h2 class="dm-head">Hva taster du inn<br><span class="dm-lime">to ganger i uka?</span></h2>
       <p class="dm-text">Det er som regel der den første integrasjonen skal ligge. Fortell oss hvilke systemer du bruker og hva du flytter mellom dem for hånd, så sier vi om det lar seg automatisere.</p>
-      <a class="btn-circle dm-btn" href="kontakt.html">
-      <span>SNAKK OM EN INTEGRASJON</span>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>SEND EN BESKRIVELSE</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
       <ul class="dm-points">
@@ -316,7 +316,7 @@
     <div class="foot-top foot-top-wide">
       <div class="foot-brand">
         <span class="brand-big">
-          <span class="dot"></span>
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
           <span>index dev.</span>
         </span>
         <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
@@ -328,9 +328,8 @@
           <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="chatbots.html">Chatbots</a></li>
           <li><a href="systemutvikling.html">Systemutvikling</a></li>
-          <li><a href="ai-agenter.html">AI-agenter</a></li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
           <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
           <li><a href="booking-systemer.html">Booking-systemer</a></li>
         </ul>
@@ -338,6 +337,7 @@
       <div class="foot-col">
         <h3>Selskap</h3>
         <ul>
+          <li><a href="kom-i-gang.html">Kom i gang</a></li>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
           <li><a href="kompetanse.html">Kompetanse</a></li>
@@ -371,13 +371,14 @@
     </div>
 
     <div class="foot-base">
-      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge — bygget av oss selv.</span>
+      <span>© <span data-ar>2026</span> Index Development. Alle rettigheter reservert.</span>
+      <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
 </footer>
 
 
+<script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>

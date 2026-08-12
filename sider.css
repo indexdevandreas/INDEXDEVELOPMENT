@@ -100,9 +100,9 @@ body { background: #fff; color: #0a0a0a; }
   text-wrap: balance;
 }
 .ph-lead {
-  margin-top: 20px; max-width: 52ch;
-  font-size: 15.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.7);
+  margin-top: 20px; max-width: 50ch;
+  font-size: 17px; line-height: 1.6;
+  color: rgba(255,255,255,0.78);
 }
 .ph-link {
   display: inline-flex; align-items: center; gap: 11px; margin-top: 24px;
@@ -267,9 +267,24 @@ body { background: #fff; color: #0a0a0a; }
   align-items: center;
   gap: 9px;
 }
-.hero-nav .brand .dot {
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--lime);
+/* Logomerket erstatter den limegrønne prikken. Tegnes i currentColor,
+   så det arver navfargen — hvitt over heroen, sort når baren blir hvit. */
+.brand .mark,
+.brand-big .mark {
+  width: 26px; height: 26px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: block;
+}
+.brand-big .mark { width: 30px; height: 30px; }
+/* Footerens wordmark skal ha samme tynne behandling som i nav-en —
+   det er logoteksten, ikke brødtekst. Resten av footeren står urørt. */
+.foot-brand .brand-big {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 27px;
+  letter-spacing: 0.05em;
+  gap: 14px;
 }
 .hero-nav-links {
   display: flex;
@@ -406,7 +421,10 @@ body { background: #fff; color: #0a0a0a; }
   top: -7px; left: 0;
 }
 
-@media (max-width: 1080px) {
+/* Var 1080px. Målt: ved 1081px var innholdet 1030px bredt i en bar på
+   1025 — lenkene hadde allerede begynt å klemmes sammen. Byttet skjer nå
+   FØR baren blir trang, ikke etter. */
+@media (max-width: 1150px) {
   .hero-nav { padding: 12px 18px; gap: 18px; }
   .hero-nav-links,
   .hero-nav-actions .nav-btn-ghost { display: none; }
@@ -462,12 +480,21 @@ body { background: #fff; color: #0a0a0a; }
   text-wrap: balance;
 }
 .pf-grey { color: #b3b3b3; }
+/* Uthever ett ord inne i den grå halvdelen av en overskrift. Holder seg
+   i gråfamilien så to-tone-grepet består — det er vekten som markerer. */
+.pf-em {
+  font-style: normal;
+  font-weight: 700;
+  color: #4a4a4a;
+}
 
 .pf-aside { padding-bottom: 6px; }
 .pf-aside p {
-  font-size: 15.5px;
-  line-height: 1.62;
-  color: rgba(10,10,10,0.6);
+  /* 15.5px var for spinkelt ved siden av en overskrift på 32–52px.
+     Dette er brødtekst folk faktisk skal lese, ikke en bildetekst. */
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.66);
   margin-bottom: 20px;
   max-width: 340px;
 }
@@ -616,7 +643,7 @@ footer {
   overflow: hidden;
 }
 /* Logo-prikken i footeren skal være lime som resten av merkevaren */
-.foot-brand .brand-big .dot { background: var(--lime); }
+/* .dot er erstattet av .mark — merket arver footerens tekstfarge */
 
 /* Den brede varianten med alle undersidene — fem kolonner */
 .foot-top-wide { grid-template-columns: 1.3fr 1fr 1fr 1fr 0.9fr; gap: 40px; }
@@ -826,3 +853,158 @@ footer {
   .say { padding: 74px 20px; }
   .say p { font-size: 19px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   SMÅ LIVSTEGN
+   Fire ting, alle diskré. Poenget er at siden skal kjennes
+   som noe noen steller med — ikke som en animasjonsdemo.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 1. Trykkfølelse ───
+   Uten dette skjer det ingenting mellom klikk og sidebytte, og
+   på mobil kjennes knappen død i det halve sekundet det tar. */
+.btn-circle,
+.nav-btn-lime,
+.ph-link,
+.pf-link,
+.sp-go {
+  transition:
+    transform 0.14s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.btn-circle:active,
+.nav-btn-lime:active,
+.ph-link:active,
+.sp-go:active { transform: scale(0.972); }
+/* Kort som allerede løftes ved hover skal presses litt ned igjen */
+.sv-card:active,
+.bl-card:active,
+.rv-card:active,
+.ci-card:active,
+.rc-card:active,
+.wz-opt:active { transform: translateY(0) scale(0.994); }
+
+
+/* ─── 2. Bilder toner inn ───
+   Bildene poppet inn ferdig lastet, ett og ett, etter hvert som
+   nettet rakk. Fadeen gjør rekkefølgen umerkelig. */
+img[loading="lazy"] {
+  opacity: 0;
+  animation: bildeInn 0.6s ease forwards;
+}
+/* Ligger bildet i cache er det ferdig før animasjonen rekker å
+   starte — derfor forwards og ingen forsinkelse. */
+@keyframes bildeInn { to { opacity: 1; } }
+
+
+/* ─── 3. Logoprikken puster ───
+   Merkevarens eneste bevegelse når man bare står stille på siden. */
+.brand .mark,
+.brand-big .mark {
+  animation: prikkPust 6s ease-in-out infinite;
+}
+/* Merket puster svakere og saktere enn prikken gjorde — et logomerke
+   som pumper blir påtrengende. */
+@keyframes prikkPust {
+  0%, 100% { opacity: 1;    }
+  50%      { opacity: 0.82; }
+}
+
+
+/* ─── 4. Klokke og status i footeren ───
+   Ekte tid i Drammen. Det er det eneste på hele siden som
+   forteller den besøkende at det finnes en person i andre enden. */
+.foot-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.fl-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+  position: relative;
+}
+.fl-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lime);
+  opacity: 0.6;
+  animation: flPing 2.6s ease-out infinite;
+}
+@keyframes flPing {
+  0%   { transform: scale(0.7); opacity: 0.7; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.foot-live time {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.fl-sep { opacity: 0.4; }
+/* Utenfor arbeidstid dempes prikken — statusteksten sier det samme,
+   men fargen sier det først. */
+.foot-live [data-status].is-sen { opacity: 0.72; }
+.foot-live:has([data-status].is-sen) .fl-dot { background: #9aa0a6; }
+.foot-live:has([data-status].is-sen) .fl-dot::after { border-color: #9aa0a6; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .brand .mark, .brand-big .mark,
+  .fl-dot::after { animation: none; }
+  img[loading="lazy"] { opacity: 1; animation: none; }
+  .btn-circle:active, .nav-btn-lime:active,
+  .ph-link:active, .sp-go:active,
+  .sv-card:active, .bl-card:active, .rv-card:active,
+  .ci-card:active, .rc-card:active, .wz-opt:active { transform: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NAV-TYPOGRAFI — Syne
+   Nav-en gikk i Geist, samme skrift som brødteksten, og ble
+   dermed helt nøytral. Syne er en byrå-grotesk med markert
+   karakter i store bokstaver og et bredt, geometrisk snitt —
+   den står allerede nevnt som tiltenkt display-skrift øverst i
+   denne fila, men ble aldri lastet. Nå brukes den KUN i nav-en,
+   så den blir sidens signatur og ikke støy i brødteksten.
+   ═══════════════════════════════════════════════════════════ */
+/* Wordmarken skal IKKE i Syne — den ble tung og bred ved siden av
+   et grafisk merke. Tynn Geist med litt luft mellom bokstavene leser
+   som noe dyrt, og gir kontrast mot det massive logomerket. */
+.hero-nav .brand {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  letter-spacing: 0.05em;
+}
+.hero-nav-links > a,
+.hero-nav-links .nav-dropdown-trigger,
+.nav-btn-ghost,
+.nav-btn-lime {
+  font-family: 'Syne', 'Geist', sans-serif;
+  font-weight: 600;
+}
+.hero-nav-links > a,
+.hero-nav-links .nav-dropdown-trigger {
+  font-size: 14.5px;
+  letter-spacing: 0.002em;
+}
+/* Syne er merkbart bredere enn Geist — «Kompetanse» går fra 91 til
+   98px. Grad og mellomrom trekkes ned tilsvarende, ellers måtte
+   hamburger-brytepunktet flyttes helt opp mot 1300px. */
+.hero-nav-links { gap: 28px; }
+.nav-btn-ghost,
+.nav-btn-lime { font-size: 12px; letter-spacing: 0.1em; }
+/* Slagordet forblir i Geist. Syne er en display-skrift og blir
+   sliten å lese på 12,5px over to linjer. */
+.hero-tagline { font-family: 'Geist', 'Inter', sans-serif; }
+/* Dropdown-panelet arver nav-en — der er det lenketekst, ikke display */
+.nav-dropdown-panel a { font-family: 'Geist', 'Inter', sans-serif; }

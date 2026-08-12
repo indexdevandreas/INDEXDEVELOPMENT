@@ -1,0 +1,249 @@
+/* ───────────────────────────────────────────────────────────
+   om-meg.css — kun det som er spesifikt for om-meg.html.
+   Delt designsystem ligger i sider.css, som må lastes først.
+   ─────────────────────────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — samme blå flate som forsiden, med portrettutklippet
+   til høyre. Samme bilde som forsidens hero, så det er tydelig
+   samme person og samme nettsted.
+   ═══════════════════════════════════════════════════════════ */
+.page-hero {
+  min-height: min(70vh, 660px);
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.om-photo {
+  position: absolute;
+  z-index: 0;
+  right: 6%; bottom: 0;
+  width: 33%;
+  height: 88%;
+  pointer-events: none;
+}
+.om-photo img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  /* Samme behandling som forsiden: litt gjennomskinnelig så
+     gradienten slipper gjennom og han legger seg rolig inn i flaten. */
+  opacity: 0.72;
+  filter: saturate(0.92);
+  -webkit-mask-image: linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.6) 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.6) 84%, transparent 100%);
+}
+.om-hero { margin-top: auto; padding: 0 56px 62px; max-width: 720px; }
+.om-hero .ph-title { font-size: clamp(38px, 4.6vw, 68px); }
+
+@media (max-width: 900px) {
+  .om-photo { width: 60%; right: -6%; height: 52%; opacity: 0.4; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HVORFOR — to avsnitt brødtekst i lesbar bredde
+   ═══════════════════════════════════════════════════════════ */
+.why2 { background: #fff; padding: 110px 0 110px; }
+.wh-text {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.wh-text p {
+  /* Bevisst større enn vanlig brødtekst — dette er det eneste
+     stedet på nettstedet der det står en sammenhengende historie. */
+  font-size: 19px;
+  line-height: 1.65;
+  color: rgba(10,10,10,0.78);
+  max-width: 62ch;
+}
+.wh-text p + p { margin-top: 22px; }
+
+@media (max-width: 900px) {
+  .why2 { padding: 80px 0 80px; }
+  .wh-text p { font-size: 17px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FILOSOFI — tre prinsippkort
+   ═══════════════════════════════════════════════════════════ */
+.phil { background: #fff; padding: 20px 0 110px; }
+.ph-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+/* NB: .ph-card / .ph-n kolliderer ikke med foto-heroens .ph-*
+   i sider.css — de er alle prefikset .photo-hero der. */
+.ph-card {
+  background: #f1f1ef;
+  border-radius: 20px;
+  padding: 32px 30px 30px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  color: #0a0a0a;
+}
+.ph-lime { background: var(--lime); }
+.ph-dark { background: #0d0d0d; color: #fff; }
+.ph-n {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  opacity: 0.45;
+  margin-bottom: auto;
+}
+.ph-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  margin: 30px 0 12px;
+  color: inherit;
+}
+.ph-card p { font-size: 16px; line-height: 1.6; opacity: 0.74; }
+
+@media (max-width: 900px) {
+  .phil { padding-bottom: 80px; }
+  .ph-grid { grid-template-columns: 1fr; }
+  .ph-card { min-height: 0; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   KONTAKTINFO — ligger på om-meg fordi det er én person som
+   svarer. Telefon og e-post er klikkbare kort, sted og org.nr
+   er ren informasjon.
+   ═══════════════════════════════════════════════════════════ */
+.cinfo { background: #fff; padding: 20px 0 110px; }
+.ci-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ci-card {
+  position: relative;
+  background: #f1f1ef;
+  border-radius: 20px;
+  padding: 30px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  color: #0a0a0a;
+  transition: background 0.22s, transform 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+a.ci-card:hover { background: #eaeae7; transform: translateY(-3px); }
+.ci-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-bottom: 16px;
+}
+.ci-val {
+  font-size: clamp(22px, 2.1vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+/* E-postadressen er for lang til å skaleres som de andre verdiene */
+.ci-val-mail { font-size: clamp(17px, 1.6vw, 23px); word-break: break-word; }
+.ci-sub {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.6);
+  max-width: 40ch;
+}
+.ci-go {
+  position: absolute;
+  top: 26px; right: 28px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(10,10,10,0.25);
+  display: grid; place-items: center;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity 0.25s, transform 0.25s;
+}
+a.ci-card:hover .ci-go { opacity: 1; transform: translateX(4px); }
+
+@media (max-width: 760px) {
+  .cinfo { padding-bottom: 80px; }
+  .ci-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   TO MÅTER — sort bånd som lukker siden før CTA-en
+   ═══════════════════════════════════════════════════════════ */
+.ways { background: #fff; padding: 0 0 110px; }
+.wy2-band {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.wy2-inner {
+  background: #0d0d0d;
+  color: #fff;
+  border-radius: 22px;
+  padding: 54px 56px 50px;
+}
+.wy2-eyebrow { color: rgba(255,255,255,0.62); margin-bottom: 28px; }
+.wy2-eyebrow .pf-sq { background: var(--lime); }
+.wy2-head {
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 40px;
+}
+.wy2-em { font-style: normal; color: var(--lime); font-weight: 500; }
+.wy2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 38px;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.wy2-n {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 14px;
+}
+.wy2-col p:not(.wy2-n) {
+  font-size: 16px;
+  line-height: 1.62;
+  color: rgba(255,255,255,0.74);
+}
+.wy2-btn {
+  margin-top: 36px;
+  --cap: 42px;
+  --pad: 7px;
+  gap: 20px;
+  align-self: flex-start;
+  padding: var(--pad) var(--pad) var(--pad) 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+}
+
+@media (max-width: 900px) {
+  .ways { padding-bottom: 80px; }
+  .wy2-inner { padding: 38px 26px 34px; border-radius: 18px; }
+  .wy2-cols { grid-template-columns: 1fr; gap: 28px; }
+}

@@ -4,173 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kompetanse — index dev.</title>
-<meta name="description" content="Webdesign, SEO, tekstforfatning, grafisk design, AI-agenter, API-integrasjoner og databaser (Supabase). Les om kompetansen bak Index Development.">
+<meta name="description" content="Webdesign, SEO, tekstforfatning, grafisk design, AI-agenter, API-integrasjoner og databaser. Sju disipliner, én leverandør — håndkodet for norske bedrifter.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/kompetanse.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
-<style>
-  .promo { --r: 1; }
-  .nav   { --r: 1; }
-
-  /* ─── Hero heading ─── */
-  .page-hero {
-    padding: 200px 32px 100px;
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-  }
-  .eyebrow {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 28px;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  .eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .k-heading {
-    font-size: clamp(80px, 16vw, 240px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.85;
-    display: flex; align-items: baseline; gap: 0;
-  }
-  .k-heading .word { display: inline; }
-  .k-o {
-    color: #fff;
-    text-shadow: 6px 6px 0 var(--blue);
-  }
-  .hero-sub {
-    margin-top: 48px; font-size: clamp(17px, 1.6vw, 21px);
-    line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 560px;
-  }
-
-  /* ─── Accordion ─── */
-  .acc-section { padding: 0 32px 120px; }
-  .acc-list { display: flex; flex-direction: column; }
-
-  .acc-item {
-    border-bottom: 1px solid var(--line);
-  }
-  .acc-item:first-child { border-top: 1px solid var(--line); }
-
-  .acc-trigger {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 52px 1fr 56px;
-    gap: 0 32px;
-    align-items: center;
-    padding: 44px 0;
-    background: transparent; border: none;
-    color: var(--fg);
-    font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer; text-align: left;
-    transition: opacity 0.2s;
-  }
-  .acc-list:hover .acc-trigger { opacity: 0.45; }
-  .acc-list:hover .acc-item:hover .acc-trigger,
-  .acc-item.open .acc-trigger { opacity: 1; }
-
-  .acc-n {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); align-self: center;
-  }
-  .acc-title {
-    font-size: clamp(32px, 5vw, 72px);
-    font-weight: 800; letter-spacing: -0.04em; line-height: 0.95;
-  }
-  .acc-arrow {
-    font-size: clamp(22px, 2.8vw, 36px);
-    color: var(--blue);
-    text-shadow: 0 0 20px rgba(37,71,255,0.9), 0 0 40px rgba(37,71,255,0.5);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                text-shadow 0.3s;
-    display: block; text-align: right;
-    user-select: none;
-  }
-  .acc-item.open .acc-arrow {
-    transform: rotate(90deg);
-    text-shadow: 0 0 28px rgba(37,71,255,1), 0 0 56px rgba(37,71,255,0.7);
-  }
-
-  /* Body */
-  .acc-body {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .acc-content {
-    padding: 8px 0 64px 84px;
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 64px;
-    align-items: start;
-  }
-  .acc-desc {
-    font-size: clamp(16px, 1.6vw, 19px);
-    line-height: 1.7; color: rgba(255,255,255,0.7);
-    margin-bottom: 32px;
-  }
-  .acc-points { display: flex; flex-direction: column; gap: 14px; }
-  .acc-point {
-    font-size: 15px; color: rgba(255,255,255,0.65);
-    display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
-  }
-  .acc-point::before {
-    content: "→"; color: var(--blue); flex-shrink: 0;
-    font-size: 14px; margin-top: 2px;
-  }
-  .acc-tags-block { padding-top: 8px; }
-  .acc-tags-label {
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 16px;
-  }
-  .acc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .acc-tag {
-    padding: 7px 14px; border-radius: 999px;
-    border: 1px solid var(--line);
-    font-size: 12px; letter-spacing: 0.04em; color: var(--muted);
-  }
-
-  @media (max-width: 980px) {
-    .page-hero { padding: 140px 20px 72px; }
-    .acc-section { padding: 0 20px 80px; }
-    .acc-trigger { grid-template-columns: 40px 1fr 40px; gap: 0 16px; padding: 32px 0; }
-    .acc-content { grid-template-columns: 1fr; gap: 32px; padding: 8px 0 48px 56px; }
-    .acc-list:hover .acc-trigger { opacity: 1; }
-  }
-  @media (max-width: 480px) {
-    .page-hero { padding: 120px 16px 56px; }
-    .acc-section { padding: 0 16px 60px; }
-    .acc-trigger { grid-template-columns: 32px 1fr 32px; gap: 0 12px; padding: 24px 0; }
-    .acc-content { padding: 4px 0 36px 44px; gap: 24px; }
-    .acc-title { font-size: clamp(28px, 8vw, 72px); }
-  }
-</style>
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="kompetanse.css">
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
-
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid på nettsider</strong>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span><span>index dev.</span></a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
     <a href="index.html">Forside</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
     <a href="tjenester.html">Tjenester</a>
-    <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
     <a href="index.html#blogg">Blogg</a>
@@ -182,277 +34,325 @@
   </address>
 </div>
 
-<main>
 
-<section class="page-hero">
-  <div class="container">
-    <p class="eyebrow">Hva jeg kan</p>
-    <h1 class="k-heading reveal">
-      K<span class="k-o">o</span>mpet<span class="k-o">a</span>ns<span class="k-o">e</span>.
-    </h1>
-    <p class="hero-sub reveal">Klikk på en disiplin for å lese mer om hva jeg kan, hvordan jeg jobber og hva du kan forvente.</p>
+<main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero" id="top">
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-body kp-hero">
+    <p class="ph-kicker">KOMPETANSE</p>
+    <h1 class="ph-title">Sju disipliner.<br>Én som gjør alle sju.</h1>
+    <p class="ph-lead">De fleste byråer setter deg i kontakt med en designer, en utvikler og en tekstforfatter som aldri har snakket sammen. Her er det én person — og alt henger sammen fordi det må.</p>
+    <a class="ph-link" href="kontakt.html">Ta veiviseren <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<section class="acc-section">
-  <div class="container">
-    <div class="acc-list">
 
-      <!-- 01 Webdesign -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">01</span>
-          <span class="acc-title">Webdesign</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">Jeg designer og bygger nettsider fullstendig fra bunnen — ingen maler, ingen snarveier. Hvert layout er tenkt ut for å lede besøkende mot én konkret handling: ta kontakt, kjøpe eller bestille.</p>
-              <p class="acc-desc">Designet er alltid mobil-first. Det betyr at siden ser bra ut og fungerer perfekt på telefon, nettbrett og desktop — i den rekkefølgen, fordi det er der kundene dine er.</p>
-              <div class="acc-points">
-                <div class="acc-point">Fullstendig skreddersydd layout for din merkevare og bransje</div>
-                <div class="acc-point">Lighthouse-score 100 på ytelse, tilgjengelighet og SEO</div>
-                <div class="acc-point">CSS-animasjoner og overganger som føles high-end</div>
-                <div class="acc-point">Konsekvent visuelt språk — typografi, farger og spacing</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy og teknologi</p>
-              <div class="acc-tags">
-                <span class="acc-tag">HTML5</span>
-                <span class="acc-tag">CSS3</span>
-                <span class="acc-tag">JavaScript</span>
-                <span class="acc-tag">Figma</span>
-                <span class="acc-tag">Mobil-first</span>
-                <span class="acc-tag">CSS Grid</span>
-                <span class="acc-tag">Flexbox</span>
-                <span class="acc-tag">Animasjoner</span>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- ───── DISIPLINENE ───── -->
+<section class="komp2">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>HVA JEG KAN</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Åpne en disiplin<br><span class="pf-grey">og se hva den faktisk betyr.</span></h2>
+      <div class="pf-aside">
+        <p>Ingen av dem selges hver for seg. De ligger her så du vet hva som er med når du bestiller.</p>
+        <a class="pf-link" href="tjenester.html">Se tjenestene <span class="pf-link-arrow">→</span></a>
       </div>
-
-      <!-- 02 SEO -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">02</span>
-          <span class="acc-title">SEO</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">En pen nettside som ingen finner på Google er bortkastet investering. SEO bygges inn fra starten — ikke limt på etterpå. Koden er semantisk, strukturen er logisk, og innholdet er skrevet slik Google forstår det.</p>
-              <p class="acc-desc">Jeg setter opp Google Search Console og Google Bedriftsprofil, slik at du kan følge med på hvem som finner deg og hva de søker etter.</p>
-              <div class="acc-points">
-                <div class="acc-point">Teknisk SEO — meta-tags, canonical, robots.txt, sitemap</div>
-                <div class="acc-point">JSON-LD structured data for rich results i Google</div>
-                <div class="acc-point">Semantisk HTML-struktur (H1→H6, schema, landmarks)</div>
-                <div class="acc-point">Core Web Vitals optimalisering — LCP, CLS, FID</div>
-                <div class="acc-point">Lokal SEO og Google Bedriftsprofil</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy og teknologi</p>
-              <div class="acc-tags">
-                <span class="acc-tag">JSON-LD</span>
-                <span class="acc-tag">Schema.org</span>
-                <span class="acc-tag">Search Console</span>
-                <span class="acc-tag">Sitemap</span>
-                <span class="acc-tag">Core Web Vitals</span>
-                <span class="acc-tag">Lighthouse</span>
-                <span class="acc-tag">Lokal SEO</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 Tekstforfatning -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">03</span>
-          <span class="acc-title">Tekstforfatning</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">De fleste nettsider er fulle av tekst som beskriver bedriften — men ikke overtaler kunden. Jeg skriver copy med ett mål: at den som leser skal ta kontakt.</p>
-              <p class="acc-desc">Hvert ord er valgt med omhu. Overskrifter som stopper scrolling, brødtekst som bygger tillit, og en CTA som er umulig å overse.</p>
-              <div class="acc-points">
-                <div class="acc-point">Landingssider skrevet for konvertering, ikke for å imponere</div>
-                <div class="acc-point">Tjenestebeskrivelser som selger uten å virke påtrengende</div>
-                <div class="acc-point">Overskrifter som stopper thumbstopping på mobil</div>
-                <div class="acc-point">Konsekvent tone og stemme tilpasset din merkevare</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Hva jeg skriver</p>
-              <div class="acc-tags">
-                <span class="acc-tag">Landingssider</span>
-                <span class="acc-tag">Hero-tekster</span>
-                <span class="acc-tag">CTA-copy</span>
-                <span class="acc-tag">Tjenestesider</span>
-                <span class="acc-tag">Om oss</span>
-                <span class="acc-tag">E-poster</span>
-                <span class="acc-tag">Norsk (nb-NO)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 Grafisk design -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">04</span>
-          <span class="acc-title">Grafisk design</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">En sterk merkevareidentitet gjør at du huskes. Jeg designer visuell identitet som fungerer konsistent på tvers av alle flater — fra nettsted til visittkort til Instagram.</p>
-              <p class="acc-desc">Det starter gjerne med logo og fargepalett, og bygges ut til et komplett designsystem som du og teamet ditt kan bruke videre.</p>
-              <div class="acc-points">
-                <div class="acc-point">Logo — wordmark, symbol og kombinasjonsversjon</div>
-                <div class="acc-point">Fargepalett og typografisystem</div>
-                <div class="acc-point">Visittkort og trykkmateriell</div>
-                <div class="acc-point">Maler for sosiale medier</div>
-                <div class="acc-point">Brandbook / designguide</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy</p>
-              <div class="acc-tags">
-                <span class="acc-tag">Figma</span>
-                <span class="acc-tag">Logo</span>
-                <span class="acc-tag">Typografi</span>
-                <span class="acc-tag">Fargesystem</span>
-                <span class="acc-tag">Brandbook</span>
-                <span class="acc-tag">Visittkort</span>
-                <span class="acc-tag">Sosiale medier</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 05 Programvareutvikling & AI-agenter -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">05</span>
-          <span class="acc-title">Programvare &amp; AI-agenter</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">Jeg bygger ikke bare nettsider — jeg utvikler programvare og AI-agenter som løser konkrete oppgaver for bedriften din. Fra egne interne verktøy til AI-agenter som utfører arbeid automatisk, uten at noen må gjøre det manuelt.</p>
-              <p class="acc-desc">En AI-agent er mer enn en chatbot som svarer på spørsmål — det er kode som leser data, tar beslutninger og utfører handlinger på egen hånd. Alt skreddersydd for akkurat dine arbeidsflyter, ikke en ferdig mal.</p>
-              <div class="acc-points">
-                <div class="acc-point">Skreddersydde AI-agenter for automatisering av oppgaver</div>
-                <div class="acc-point">Egenutviklede verktøy og interne systemer</div>
-                <div class="acc-point">Integrasjon med KI-modeller (som Claude og GPT) i egne løsninger</div>
-                <div class="acc-point">Solid, testet kode — ikke løse no-code-snarveier</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy og teknologi</p>
-              <div class="acc-tags">
-                <span class="acc-tag">AI-agenter</span>
-                <span class="acc-tag">Python</span>
-                <span class="acc-tag">Node.js</span>
-                <span class="acc-tag">Claude API</span>
-                <span class="acc-tag">OpenAI API</span>
-                <span class="acc-tag">Automatisering</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 06 API-integrasjoner & automatisering -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">06</span>
-          <span class="acc-title">API-integrasjoner</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">Mange bedrifter mister tid på manuelt arbeid som egentlig kan automatiseres — en bestilling som må legges inn i kalenderen for hånd, en lead som må sendes til CRM-et, eller en ordre som må registreres i regnskapssystemet. Jeg kobler systemene dine sammen via API-er, slik at data flyter automatisk mellom dem.</p>
-              <p class="acc-desc">API-nøkler og hemmeligheter håndteres sikkert bak kulissene — aldri eksponert i frontend-kode eller offentlige repoer.</p>
-              <div class="acc-points">
-                <div class="acc-point">Automatisering av manuelle arbeidsflyter mellom systemer</div>
-                <div class="acc-point">Kobler nettsiden til tredjepartstjenester — betaling, CRM, e-post, kalender</div>
-                <div class="acc-point">Webhooks som trigger handlinger automatisk</div>
-                <div class="acc-point">Sikker håndtering av API-nøkler og autentisering</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy og teknologi</p>
-              <div class="acc-tags">
-                <span class="acc-tag">REST API</span>
-                <span class="acc-tag">Webhooks</span>
-                <span class="acc-tag">API-nøkler</span>
-                <span class="acc-tag">Autentisering</span>
-                <span class="acc-tag">Automatisering</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 07 Databaser (Supabase) -->
-      <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
-          <span class="acc-n">07</span>
-          <span class="acc-title">Databaser (Supabase)</span>
-          <span class="acc-arrow" aria-hidden="true">→</span>
-        </button>
-        <div class="acc-body" role="region">
-          <div class="acc-content">
-            <div>
-              <p class="acc-desc">En statisk nettside er ikke nok når du trenger ekte funksjonalitet — innlogging, bestillinger, medlemskap eller et adminpanel du kan redigere innhold i selv. Jeg bygger dette på Supabase, en Postgres-database med innebygd autentisering og sanntidsdata.</p>
-              <p class="acc-desc">Det betyr at nettsiden din kan lagre og hente ekte data — ikke bare vise statisk innhold — samtidig som den fortsatt er rask og sikker.</p>
-              <div class="acc-points">
-                <div class="acc-point">"Logg inn"-funksjonalitet og brukerkontoer</div>
-                <div class="acc-point">Bestillings- og reservasjonssystemer koblet til database</div>
-                <div class="acc-point">Adminpanel hvor du redigerer innhold selv, uten kode</div>
-                <div class="acc-point">Row Level Security — riktig person ser riktig data</div>
-              </div>
-            </div>
-            <div class="acc-tags-block">
-              <p class="acc-tags-label">Verktøy og teknologi</p>
-              <div class="acc-tags">
-                <span class="acc-tag">Supabase</span>
-                <span class="acc-tag">PostgreSQL</span>
-                <span class="acc-tag">Row Level Security</span>
-                <span class="acc-tag">Autentisering</span>
-                <span class="acc-tag">Sanntidsdata</span>
-                <span class="acc-tag">Adminpanel</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <div class="kp-list">
+    <details class="kp-item" open>
+      <summary>
+        <span class="kp-n">01</span>
+        <span class="kp-title">Webdesign</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>Jeg designer og bygger nettsider fullstendig fra bunnen — ingen maler, ingen snarveier. Hvert layout er tenkt ut for å lede besøkende mot én konkret handling: ta kontakt, kjøpe eller bestille.</p>
+            <p>Designet er alltid mobil-first. Det betyr at siden ser bra ut og fungerer perfekt på telefon, nettbrett og desktop — i den rekkefølgen, fordi det er der kundene dine er.</p>
+            <ul class="kp-points">
+              <li>Fullstendig skreddersydd layout for din merkevare og bransje</li>
+              <li>Lighthouse-score 100 på ytelse, tilgjengelighet og SEO</li>
+              <li>CSS-animasjoner og overganger som føles high-end</li>
+              <li>Konsekvent visuelt språk — typografi, farger og spacing</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy og teknologi</p>
+            <div class="kp-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>Figma</span>
+              <span>Mobil-first</span>
+              <span>CSS Grid</span>
+              <span>Flexbox</span>
+              <span>Animasjoner</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">02</span>
+        <span class="kp-title">SEO</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>En pen nettside som ingen finner på Google er bortkastet investering. SEO bygges inn fra starten — ikke limt på etterpå. Koden er semantisk, strukturen er logisk, og innholdet er skrevet slik Google forstår det.</p>
+            <p>Jeg setter opp Google Search Console og Google Bedriftsprofil, slik at du kan følge med på hvem som finner deg og hva de søker etter.</p>
+            <ul class="kp-points">
+              <li>Teknisk SEO — meta-tags, canonical, robots.txt, sitemap</li>
+              <li>JSON-LD structured data for rich results i Google</li>
+              <li>Semantisk HTML-struktur (H1→H6, schema, landmarks)</li>
+              <li>Core Web Vitals optimalisering — LCP, CLS, FID</li>
+              <li>Lokal SEO og Google Bedriftsprofil</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy og teknologi</p>
+            <div class="kp-tags">
+              <span>JSON-LD</span>
+              <span>Schema.org</span>
+              <span>Search Console</span>
+              <span>Sitemap</span>
+              <span>Core Web Vitals</span>
+              <span>Lighthouse</span>
+              <span>Lokal SEO</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">03</span>
+        <span class="kp-title">Tekstforfatning</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>De fleste nettsider er fulle av tekst som beskriver bedriften — men ikke overtaler kunden. Jeg skriver copy med ett mål: at den som leser skal ta kontakt.</p>
+            <p>Hvert ord er valgt med omhu. Overskrifter som stopper scrolling, brødtekst som bygger tillit, og en CTA som er umulig å overse.</p>
+            <ul class="kp-points">
+              <li>Landingssider skrevet for konvertering, ikke for å imponere</li>
+              <li>Tjenestebeskrivelser som selger uten å virke påtrengende</li>
+              <li>Overskrifter som stopper thumbstopping på mobil</li>
+              <li>Konsekvent tone og stemme tilpasset din merkevare</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Hva jeg skriver</p>
+            <div class="kp-tags">
+              <span>Landingssider</span>
+              <span>Hero-tekster</span>
+              <span>CTA-copy</span>
+              <span>Tjenestesider</span>
+              <span>Om oss</span>
+              <span>E-poster</span>
+              <span>Norsk (nb-NO)</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">04</span>
+        <span class="kp-title">Grafisk design</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>En sterk merkevareidentitet gjør at du huskes. Jeg designer visuell identitet som fungerer konsistent på tvers av alle flater — fra nettsted til visittkort til Instagram.</p>
+            <p>Det starter gjerne med logo og fargepalett, og bygges ut til et komplett designsystem som du og teamet ditt kan bruke videre.</p>
+            <ul class="kp-points">
+              <li>Logo — wordmark, symbol og kombinasjonsversjon</li>
+              <li>Fargepalett og typografisystem</li>
+              <li>Visittkort og trykkmateriell</li>
+              <li>Maler for sosiale medier</li>
+              <li>Brandbook / designguide</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy</p>
+            <div class="kp-tags">
+              <span>Figma</span>
+              <span>Logo</span>
+              <span>Typografi</span>
+              <span>Fargesystem</span>
+              <span>Brandbook</span>
+              <span>Visittkort</span>
+              <span>Sosiale medier</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">05</span>
+        <span class="kp-title">Programvare &amp; AI-agenter</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>Jeg bygger ikke bare nettsider — jeg utvikler programvare og AI-agenter som løser konkrete oppgaver for bedriften din. Fra egne interne verktøy til AI-agenter som utfører arbeid automatisk, uten at noen må gjøre det manuelt.</p>
+            <p>En AI-agent er mer enn en chatbot som svarer på spørsmål — det er kode som leser data, tar beslutninger og utfører handlinger på egen hånd. Alt skreddersydd for akkurat dine arbeidsflyter, ikke en ferdig mal.</p>
+            <ul class="kp-points">
+              <li>Skreddersydde AI-agenter for automatisering av oppgaver</li>
+              <li>Egenutviklede verktøy og interne systemer</li>
+              <li>Integrasjon med KI-modeller (som Claude og GPT) i egne løsninger</li>
+              <li>Solid, testet kode — ikke løse no-code-snarveier</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy og teknologi</p>
+            <div class="kp-tags">
+              <span>AI-agenter</span>
+              <span>Python</span>
+              <span>Node.js</span>
+              <span>Claude API</span>
+              <span>OpenAI API</span>
+              <span>Automatisering</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">06</span>
+        <span class="kp-title">API-integrasjoner</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>Mange bedrifter mister tid på manuelt arbeid som egentlig kan automatiseres — en bestilling som må legges inn i kalenderen for hånd, en lead som må sendes til CRM-et, eller en ordre som må registreres i regnskapssystemet. Jeg kobler systemene dine sammen via API-er, slik at data flyter automatisk mellom dem.</p>
+            <p>API-nøkler og hemmeligheter håndteres sikkert bak kulissene — aldri eksponert i frontend-kode eller offentlige repoer.</p>
+            <ul class="kp-points">
+              <li>Automatisering av manuelle arbeidsflyter mellom systemer</li>
+              <li>Kobler nettsiden til tredjepartstjenester — betaling, CRM, e-post, kalender</li>
+              <li>Webhooks som trigger handlinger automatisk</li>
+              <li>Sikker håndtering av API-nøkler og autentisering</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy og teknologi</p>
+            <div class="kp-tags">
+              <span>REST API</span>
+              <span>Webhooks</span>
+              <span>API-nøkler</span>
+              <span>Autentisering</span>
+              <span>Automatisering</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+    <details class="kp-item">
+      <summary>
+        <span class="kp-n">07</span>
+        <span class="kp-title">Databaser (Supabase)</span>
+        <span class="kp-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="kp-body"><div class="kp-body-inner">
+        <div class="kp-cols">
+          <div class="kp-text">
+            <p>En statisk nettside er ikke nok når du trenger ekte funksjonalitet — innlogging, bestillinger, medlemskap eller et adminpanel du kan redigere innhold i selv. Jeg bygger dette på Supabase, en Postgres-database med innebygd autentisering og sanntidsdata.</p>
+            <p>Det betyr at nettsiden din kan lagre og hente ekte data — ikke bare vise statisk innhold — samtidig som den fortsatt er rask og sikker.</p>
+            <ul class="kp-points">
+              <li>"Logg inn"-funksjonalitet og brukerkontoer</li>
+              <li>Bestillings- og reservasjonssystemer koblet til database</li>
+              <li>Adminpanel hvor du redigerer innhold selv, uten kode</li>
+              <li>Row Level Security — riktig person ser riktig data</li>
+            </ul>
+          </div>
+          <div class="kp-tags-block">
+            <p class="kp-tags-label">Verktøy og teknologi</p>
+            <div class="kp-tags">
+              <span>Supabase</span>
+              <span>PostgreSQL</span>
+              <span>Row Level Security</span>
+              <span>Autentisering</span>
+              <span>Sanntidsdata</span>
+              <span>Adminpanel</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </details>
+  </div>
 </section>
 
-<section class="cta">
-  <div class="container">
-    <h2 class="reveal">Klar for å<br><span class="blue">komme i gang?</span></h2>
-    <p class="reveal" style="font-size:18px;line-height:1.55;color:rgba(255,255,255,0.65);max-width:480px;margin:24px auto 48px;">30 minutter er alt vi trenger. Gratis og uforpliktende samtale om det du trenger hjelp med.</p>
-    <div class="cta-buttons reveal">
-      <a class="btn" href="kontakt.html">Book gratis samtale →</a>
-      <a class="btn ghost" href="priser.html">Se priser</a>
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
+      <p class="dm-text">Det er helt greit. Ta veiviseren — den stiller spørsmålene for deg, og du sender meg en ferdig beskrivelse av hva du trenger. Du får svar med forslag og pris, skriftlig.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast og demo</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -461,24 +361,46 @@
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
-        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter.</p>
+        <span class="brand-big">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
         <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
+        <ul>
+          <li><a href="kom-i-gang.html">Kom i gang</a></li>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -491,43 +413,22 @@
         </ul>
       </div>
     </div>
-    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
     <div class="foot-base">
-      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge</span>
+      <span>© <span data-ar>2026</span> Index Development. Alle rettigheter reservert.</span>
+      <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
 </footer>
 
-<script src="subpage.js" defer></script>
-<script>
-(function () {
-  const items = document.querySelectorAll('.acc-item');
 
-  items.forEach(function (item) {
-    const trigger = item.querySelector('.acc-trigger');
-    const body    = item.querySelector('.acc-body');
-
-    trigger.addEventListener('click', function () {
-      const isOpen = item.classList.contains('open');
-
-      /* close all */
-      items.forEach(function (i) {
-        i.classList.remove('open');
-        i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
-        i.querySelector('.acc-body').style.maxHeight = null;
-      });
-
-      /* open clicked one if it was closed */
-      if (!isOpen) {
-        item.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-        body.style.maxHeight = body.scrollHeight + 'px';
-      }
-    });
-  });
-})();
-</script>
+<script src="liv.js" defer></script>
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

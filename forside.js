@@ -46,6 +46,20 @@
     /* booking-systemer.html */
     '.fl-grid',
     '.sk-list',
+    /* priser.html */
+    '.sp-grid',
+    '.pk-grid',
+    '.hw-track',
+    /* om-meg.html */
+    '.ph-grid',
+    '.ci-grid',
+    /* kontakt.html */
+    '.rc-cards',
+    '.kf-list',
+    /* kompetanse.html */
+    '.kp-list',
+    /* bloggartiklene */
+    '.bg-next-grid',
   ];
 
   var STEP = 70;   // ms mellom hvert element i en gruppe

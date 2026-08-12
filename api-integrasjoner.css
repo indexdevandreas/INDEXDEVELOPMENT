@@ -275,3 +275,106 @@
 @media (prefers-reduced-motion: reduce) {
   .wr-chips span, .pr-btn { transition: none !important; }
 }
+
+/* Grensen for hva vi tar ansvar for. Sto ikke noe sted før, og siden
+   listet opp Fiken og Tripletex som om vi var regnskapsfolk. */
+.wr-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  max-width: 1290px;
+  margin: 0 auto 30px;
+  width: calc(100% - 48px);
+  padding: 22px 26px;
+  background: #f1f1ef;
+  border-radius: 16px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.7);
+}
+.wr-note-mark {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 12px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  margin-top: 1px;
+}
+@media (max-width: 760px) {
+  .wr-note { padding: 20px 20px; font-size: 15px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — bygget om. Lå før som .ph-edge: fotoet var en smal
+   stripe helt til høyre og midten var et stort svart tomrom.
+   Med grayscale(.55) + brightness(.62) i .ph-img ble det
+   dessuten samme grå fjellmasse som på drift og AI-siden —
+   tre sider som leste som samme mørke rektangel.
+
+   Nå: ingen foto. Sentrert tekst, og rørledningen — som ER
+   produktet — går i full bredde under. Sparer 412 kB.
+   ═══════════════════════════════════════════════════════════ */
+.api-hero {
+  min-height: min(72vh, 700px);
+  background: #08090a;
+  justify-content: flex-start;
+}
+/* Fint rutenett som antyder kretskort, uten å ta oppmerksomhet */
+.api-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 62px 62px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 12%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(120% 90% at 50% 12%, #000 0%, transparent 72%);
+}
+/* Limegrønt lysskjær bak der rørledningen ligger */
+.api-hero::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: -180px;
+  transform: translateX(-50%);
+  width: min(1100px, 92%);
+  height: 420px;
+  z-index: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(212,255,61,0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.api-body {
+  margin: auto auto 0;
+  max-width: 860px;
+  text-align: center;
+  /* Toppmargen holder kickeren klar av den svevende nav-baren */
+  padding: 46px 32px 210px;
+}
+.api-body .ph-title { font-size: clamp(34px, 4.2vw, 62px); }
+.api-body .ph-lead { margin-left: auto; margin-right: auto; max-width: 50ch; }
+
+/* Rørledningen forfremmes fra pynt i hjørnet til hovedmotiv */
+.api-hero .ai-pipe {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 64px;
+  width: min(1180px, calc(100% - 64px));
+  z-index: 3;
+}
+.api-hero .ai-stop { padding: 13px 22px; font-size: 13.5px; }
+.api-hero .ai-stop.is-core { padding: 15px 26px; font-size: 14.5px; }
+
+@media (max-width: 900px) {
+  .api-hero { min-height: 0; }
+  .api-body { padding: 0 22px 44px; text-align: left; }
+  .api-body .ph-lead { margin-left: 0; }
+  /* Rørledningen blir en uleselig klump på mobil — den finnes
+     som ren tekst i seksjonen «Hva som kan kobles» uansett. */
+  .api-hero .ai-pipe { display: none; }
+}

@@ -1,0 +1,357 @@
+/* ───────────────────────────────────────────────────────────
+   priser.css — kun det som er spesifikt for priser.html.
+   Delt designsystem ligger i sider.css, som må lastes først.
+   ─────────────────────────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — merkevarens blå flate, som forsiden. Ingen foto:
+   dette er en side man kommer til for å lese tall, ikke for
+   å bli imponert av et landskap.
+   ═══════════════════════════════════════════════════════════ */
+.page-hero {
+  min-height: min(66vh, 620px);
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.pr-hero { margin-top: auto; padding: 0 56px 62px; max-width: 900px; }
+.pr-hero .ph-title { font-size: clamp(32px, 3.7vw, 56px); }
+.pr-hero .ph-lead { max-width: 54ch; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   DE TO MÅTENE — sidens hovedbudskap, rett under hero.
+   Fastpris til venstre, «pris etter samtale» til høyre, like
+   store. Poenget er at det andre ikke skal føles som et smutthull.
+   ═══════════════════════════════════════════════════════════ */
+.split { background: #fff; padding: 110px 0 110px; }
+.sp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: stretch;
+}
+.sp-card {
+  border-radius: 20px;
+  padding: 34px 34px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.sp-fixed { background: #f1f1ef; color: #0a0a0a; }
+.sp-quote { background: #0d0d0d; color: #fff; }
+
+.sp-tag {
+  align-self: flex-start;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+.sp-fixed .sp-tag { background: var(--lime); color: #0a0a0a; }
+.sp-quote .sp-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+
+.sp-card h3 {
+  font-size: clamp(20px, 1.7vw, 25px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.2;
+  color: inherit;
+  margin-bottom: 18px;
+  max-width: 22ch;
+}
+/* Samme tallbehandling som resten av nettstedet: Instrument Serif
+   med limegrønn enhet. «Avtales» settes i samme grad, så de to
+   kortene veier likt visuelt. */
+.sp-amount {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(38px, 3.6vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.022em;
+  margin-bottom: 18px;
+}
+.sp-unit { color: var(--lime); margin-left: 0.04em; }
+.sp-fixed .sp-unit {
+  -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
+  paint-order: stroke fill;
+}
+.sp-amount-word { color: var(--lime); }
+
+.sp-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 26px;
+  max-width: 42ch;
+}
+.sp-fixed .sp-desc { color: rgba(10,10,10,0.7); }
+.sp-quote .sp-desc { color: rgba(255,255,255,0.68); }
+
+.sp-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: auto; }
+.sp-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+.sp-fixed .sp-list li { color: rgba(10,10,10,0.78); }
+.sp-quote .sp-list li { color: rgba(255,255,255,0.78); }
+.sp-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+}
+.sp-go {
+  margin-top: 30px;
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 14.5px; font-weight: 600;
+  color: inherit;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid currentColor;
+}
+.sp-go span { transition: transform 0.22s ease; }
+.sp-go:hover span { transform: translateX(4px); }
+
+@media (max-width: 900px) {
+  .split { padding: 80px 0 80px; }
+  .sp-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NETTSIDEPAKKER
+   ═══════════════════════════════════════════════════════════ */
+.pkg { background: #fff; padding: 20px 0 110px; }
+.pk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: stretch;
+}
+.pk-card {
+  position: relative;
+  background: #f1f1ef;
+  border-radius: 20px;
+  padding: 34px 32px 30px;
+  display: flex;
+  flex-direction: column;
+  color: #0a0a0a;
+}
+/* Det anbefalte kortet er sort i stedet for større — da kan alle tre
+   stå på samme linje uten at rutenettet blir skjevt. */
+.pk-featured { background: #0d0d0d; color: #fff; }
+.pk-badge {
+  position: absolute;
+  top: 22px; right: 24px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--lime);
+  color: #0a0a0a;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.pk-name {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.pk-card .pk-name { color: rgba(10,10,10,0.5); }
+.pk-featured .pk-name { color: rgba(255,255,255,0.55); }
+.pk-price {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(46px, 4.4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.pk-kr { font-size: 0.42em; color: var(--lime); margin-left: 0.04em; }
+.pk-card:not(.pk-featured) .pk-kr {
+  -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
+  paint-order: stroke fill;
+}
+.pk-once {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.pk-card .pk-once { color: rgba(10,10,10,0.42); }
+.pk-featured .pk-once { color: rgba(255,255,255,0.45); }
+.pk-for {
+  margin-top: 20px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(10,10,10,0.12);
+}
+.pk-card .pk-for { color: rgba(10,10,10,0.7); }
+.pk-featured .pk-for { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.16); }
+
+.pk-list {
+  list-style: none;
+  margin: 24px 0 auto;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pk-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.pk-card .pk-list li { color: rgba(10,10,10,0.82); }
+.pk-featured .pk-list li { color: rgba(255,255,255,0.82); }
+.pk-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 7px;
+  width: 12px; height: 7px;
+  border-left: 2px solid var(--lime);
+  border-bottom: 2px solid var(--lime);
+  transform: rotate(-45deg);
+}
+.pk-btn {
+  margin-top: 30px;
+  --cap: 38px;
+  --pad: 6px;
+  gap: 14px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+/* Driftsraden under pakkene — 199,- gjelder alle tre, så den skal
+   stå én gang under dem, ikke gjentas i hvert kort. */
+.pk-drift {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  max-width: 1290px;
+  margin: 22px auto 0;
+  padding: 30px 34px;
+  width: calc(100% - 48px);
+  background: #f1f1ef;
+  border-radius: 20px;
+}
+.pk-drift-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-bottom: 8px;
+}
+.pk-drift-num {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+.pk-drift-txt {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.68);
+  max-width: 70ch;
+}
+
+@media (max-width: 1080px) {
+  .pk-grid { grid-template-columns: 1fr; }
+  .pk-card { min-height: 0; }
+}
+@media (max-width: 760px) {
+  .pkg { padding-bottom: 80px; }
+  .pk-drift { grid-template-columns: 1fr; gap: 18px; padding: 26px 24px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SLIK SETTES PRISEN — fire steg for alt som ikke er nettside
+   ═══════════════════════════════════════════════════════════ */
+.how { background: #fff; padding: 20px 0 120px; }
+.hw-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.hw-step {
+  position: relative;
+  padding-top: 26px;
+  border-top: 1.5px solid rgba(10,10,10,0.14);
+}
+.hw-step::before {
+  content: "";
+  position: absolute;
+  top: -5.5px; left: 0;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+.hw-step:first-child::before {
+  background: var(--lime);
+  box-shadow: 0 0 0 4px rgba(212,255,61,0.35);
+}
+.hw-when {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.42);
+  margin-bottom: 16px;
+}
+.hw-step h3 {
+  font-size: 21.5px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #0a0a0a;
+}
+.hw-step p { font-size: 16px; line-height: 1.6; color: rgba(10,10,10,0.66); }
+
+/* Forskudd på store prosjekter er det ene forbeholdet i hele
+   «0 kr»-løftet. Det skal stå tydelig, ikke gjemmes i liten skrift. */
+.hw-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 1290px;
+  margin: 54px auto 0;
+  padding: 26px 30px;
+  width: calc(100% - 48px);
+  background: #f1f1ef;
+  border-radius: 16px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.72);
+}
+.hw-note-mark {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  margin-top: 1px;
+}
+
+@media (max-width: 900px) {
+  .how { padding-bottom: 80px; }
+  .hw-track { grid-template-columns: 1fr; gap: 0; }
+  .hw-step { padding: 24px 0 26px; }
+  .hw-step:last-child { padding-bottom: 0; }
+  .hw-note { margin-top: 36px; padding: 22px 22px; }
+}

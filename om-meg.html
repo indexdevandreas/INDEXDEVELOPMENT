@@ -3,131 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Om meg — index dev.</title>
-<meta name="description" content="Andreas Melheim, grunnlegger av Index Development. Skreddersydd digital tjeneste for din bedrift — nettsider, AI-agenter og systemutvikling.">
+<title>Om meg — Andreas Melheim, index dev.</title>
+<meta name="description" content="Andreas Melheim, grunnlegger av Index Development i Drammen. Jeg håndkoder nettsider, AI-agenter og systemer for norske bedrifter — du ser resultatet før du betaler.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/om-meg.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
-<style>
-  .promo { --r: 1; }
-  .nav   { --r: 1; }
-
-  .page-top { padding-top: 180px; padding-bottom: 80px; border-bottom: 1px solid var(--line); }
-  .page-eyebrow {
-    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
-  }
-  .page-eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .page-top h1 {
-    font-size: clamp(72px, 12vw, 180px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
-  }
-
-  /* Intro with photo */
-  .about-intro { padding: 120px 32px; }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .about-photo {
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 4/5;
-    position: relative;
-  }
-  .about-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top;
-    display: block;
-  }
-  .about-copy h2 {
-    font-size: clamp(36px, 4.5vw, 60px);
-    font-weight: 800; letter-spacing: -0.04em; line-height: 0.95;
-    margin-bottom: 28px;
-  }
-  .about-copy h2 .blue { color: var(--blue); }
-  .about-copy p {
-    font-size: 17px; line-height: 1.65;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 20px; max-width: 520px;
-  }
-  .about-copy p:last-of-type { margin-bottom: 40px; }
-
-  /* Philosophy */
-  .philosophy { padding: 120px 32px; border-top: 1px solid var(--line); }
-  .phil-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 32px; margin-top: 80px;
-  }
-  .phil-card {
-    padding: 40px 36px; border: 1px solid var(--line); border-radius: 16px;
-    background: rgba(255,255,255,0.015);
-  }
-  .phil-n {
-    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 20px;
-  }
-  .phil-card h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; }
-  .phil-card p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.6); }
-
-  /* Guarantee */
-  .about-guarantee { padding: 120px 32px; }
-  .ag-inner {
-    max-width: 820px; margin: 0 auto; text-align: center;
-  }
-  .ag-inner h2 {
-    font-size: clamp(40px, 6vw, 88px);
-    font-weight: 800; letter-spacing: -0.05em; line-height: 0.9;
-    margin-bottom: 28px;
-  }
-  .ag-inner h2 .blue { color: var(--blue); }
-  .ag-inner p {
-    font-size: 18px; line-height: 1.55;
-    color: rgba(255,255,255,0.65); margin-bottom: 48px;
-  }
-
-  @media (max-width: 980px) {
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .about-photo { aspect-ratio: 3/4; }
-    .phil-grid { grid-template-columns: 1fr; }
-    .about-intro, .philosophy, .about-guarantee { padding: 80px 20px; }
-    .page-top { padding: 140px 20px 60px; }
-  }
-</style>
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="om-meg.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andreas Melheim",
+  "jobTitle": "Grunnlegger og utvikler",
+  "url": "https://indexdevelopment.no/om-meg.html",
+  "telephone": "+4748459686",
+  "email": "andreas@indexdevelopment.no",
+  "worksFor": {
+    "@type": "ProfessionalService",
+    "name": "Index Development",
+    "url": "https://indexdevelopment.no"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Drammen",
+    "addressRegion": "Viken",
+    "addressCountry": "NO"
+  },
+  "knowsAbout": ["Webdesign", "SEO", "Webutvikling", "AI-agenter", "Systemutvikling", "API-integrasjoner"]
+}
+</script>
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
-
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid på nettsider</strong>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<header class="nav">
-  <a class="brand" href="index.html">
-    <span class="dot"></span>
-    <span>index dev.</span>
-  </a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
     <a href="index.html">Forside</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
     <a href="tjenester.html">Tjenester</a>
-    <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
     <a href="index.html#blogg">Blogg</a>
@@ -139,88 +57,246 @@
   </address>
 </div>
 
-<section class="page-top">
-  <div class="container">
-    <p class="page-eyebrow">Om meg</p>
-    <h1 class="reveal">Andreas<br>Melheim.</h1>
-    <p class="reveal" style="margin-top:32px;font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:rgba(255,255,255,0.6);max-width:520px;">Grunnlegger av Index Development. Jeg bygger digitale løsninger som faktisk skaffer kunder for norske bedrifter.</p>
+
+<main>
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero" id="top">
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
+
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
+
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="om-photo" aria-hidden="true">
+    <img src="bilder/andreas-utklipp-myk.png" alt="" width="443" height="563" fetchpriority="high">
+  </div>
+
+  <div class="ph-body om-hero">
+    <p class="ph-kicker">OM MEG</p>
+    <h1 class="ph-title">Andreas Melheim.</h1>
+    <p class="ph-lead">Grunnlegger av Index Development. Jeg håndkoder nettsider, AI-agenter og systemer som faktisk skaffer kunder for norske bedrifter — fra Drammen.</p>
+    <a class="ph-link" href="#kontaktinfo">Ta kontakt <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<section class="about-intro">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-photo reveal">
-        <img src="bilder/kontakt.png" alt="Andreas Melheim — Index Development" loading="eager">
+
+<!-- ───── HVORFOR ───── -->
+<section class="why2">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>HVORFOR JEG STARTET</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Digitale løsninger som <em class="pf-em">selger</em><br><span class="pf-grey">— ikke bare ser pene ut.</span></h2>
+      <div class="pf-aside">
+        <p>Risikoen ligger hos meg. Resultatet ligger hos deg.</p>
+        <a class="pf-link" href="tjenester.html">Se hva jeg bygger <span class="pf-link-arrow">→</span></a>
       </div>
-      <div class="about-copy reveal">
-        <h2>Digitale løsninger som<br><span class="blue">selger</span> — ikke bare ser pene ut.</h2>
-        <p>Jeg startet Index Development fordi jeg så at for mange bedrifter betalte mye for nettsider og digitale løsninger som ikke leverte resultater. Maler fra WordPress, generisk tekst, kjøpte systemer ingen forsto, og en leverandør som var borte etter lansering.</p>
-        <p>Jeg gjør det annerledes. Alt jeg leverer — nettsider, AI-agenter, systemutvikling — er skreddersydd fra bunnen for din bedrift, ikke satt sammen av maler. Nettsider kommer med en egen garanti: du ser et utkast før du betaler én krone.</p>
-        <p>Risikoen er hos meg. Resultatet er hos deg.</p>
-        <a class="btn" href="kontakt.html">Ta kontakt →</a>
+    </div>
+  </div>
+
+  <div class="wh-text">
+    <p>Jeg startet Index Development fordi jeg så at altfor mange bedrifter betalte mye for nettsider og digitale løsninger som ikke leverte noe tilbake. Maler fra WordPress, generisk tekst, kjøpte systemer ingen forsto — og en leverandør som var borte dagen etter lansering.</p>
+    <p>Jeg gjør det annerledes. Alt jeg leverer — nettsider, AI-agenter, chatbots, systemer og integrasjoner — skreddersys fra bunnen for din bedrift, ikke settes sammen av maler. Og du ser løsningen fungere før du betaler én krone.</p>
+  </div>
+</section>
+
+
+<!-- ───── FILOSOFI ───── -->
+<section class="phil">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>FILOSOFI</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Slik tenker jeg.</h2>
+      <div class="pf-aside">
+        <p>Tre regler jeg ikke fraviker, uansett hvor stort eller lite prosjektet er.</p>
       </div>
+    </div>
+  </div>
+
+  <div class="ph-grid">
+    <article class="ph-card">
+      <span class="ph-n">01</span>
+      <h3>Ingen maler</h3>
+      <p>Nettsider håndkodes i HTML, CSS og JavaScript. AI-agenter og systemer skreddersys for din arbeidsflyt. Ingen WordPress, ingen Wix, ingen ferdigmal — uansett hva jeg bygger.</p>
+    </article>
+    <article class="ph-card ph-lime">
+      <span class="ph-n">02</span>
+      <h3>Bygget for å selge</h3>
+      <p>Design og funksjon er ikke pynt, det er strategi. Hvert valg — fra hvor knappen står til hvordan en AI-agent svarer — er tatt for at det skal komme penger inn til deg.</p>
+    </article>
+    <article class="ph-card ph-dark">
+      <span class="ph-n">03</span>
+      <h3>Ærlighet først</h3>
+      <p>Jeg tar ikke prosjekter jeg ikke tror jeg kan levere på. På nettsider krever jeg aldri betaling for noe du ikke er fornøyd med. På større prosjekter avtales betalingsplanen skriftlig før vi starter.</p>
+    </article>
+  </div>
+</section>
+
+
+<!-- ───── KONTAKTINFO ───── -->
+<section class="cinfo" id="kontaktinfo">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>KONTAKT</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Det er meg du snakker med.<br><span class="pf-grey">Ingen supportkø, ingen selger.</span></h2>
+      <div class="pf-aside">
+        <p>Ta veiviseren, så har jeg alt jeg trenger for å svare deg skikkelig. Foretrekker du telefon, går det også — men skriftlig går fortest.</p>
+        <a class="pf-link" href="kontakt.html">Send en melding <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ci-grid">
+    <a class="ci-card" href="tel:+4748459686">
+      <span class="ci-label">Telefon</span>
+      <span class="ci-val">+47 484 59 686</span>
+      <span class="ci-sub">Ring eller send SMS — hverdager 08–20</span>
+      <span class="ci-go" aria-hidden="true">→</span>
+    </a>
+    <a class="ci-card" href="mailto:andreas@indexdevelopment.no">
+      <span class="ci-label">E-post</span>
+      <span class="ci-val ci-val-mail">andreas@indexdevelopment.no</span>
+      <span class="ci-sub">Svar samme dag, som regel innen et par timer</span>
+      <span class="ci-go" aria-hidden="true">→</span>
+    </a>
+    <div class="ci-card ci-static">
+      <span class="ci-label">Sted</span>
+      <span class="ci-val">Drammen</span>
+      <span class="ci-sub">Jobber for bedrifter i hele Norge — digitalt eller på besøk</span>
+    </div>
+    <div class="ci-card ci-static">
+      <span class="ci-label">Organisasjonsnummer</span>
+      <span class="ci-val">936 933 661</span>
+      <span class="ci-sub">Index Development, registrert i Brønnøysund</span>
     </div>
   </div>
 </section>
 
-<section class="philosophy">
-  <div class="container">
-    <p class="page-eyebrow reveal">Filosofi</p>
-    <h2 class="reveal" style="font-size:clamp(40px,5vw,72px);font-weight:800;letter-spacing:-0.04em;margin-top:16px;">Slik tenker jeg.</h2>
-    <div class="phil-grid">
-      <div class="phil-card reveal">
-        <p class="phil-n">01</p>
-        <h3>Ingen maler</h3>
-        <p>Nettsider håndkodes i HTML, CSS og JavaScript. AI-agenter og systemer skreddersys for din arbeidsflyt. Ingen WordPress, ingen Wix, ingen ferdigmaler — uansett hva jeg bygger.</p>
+
+<!-- ───── TO MÅTER ───── -->
+<section class="ways">
+  <div class="wy2-band">
+    <div class="wy2-inner">
+      <p class="pf-eyebrow wy2-eyebrow"><span class="pf-sq"></span>UANSETT HVA DU TRENGER</p>
+      <h2 class="wy2-head">To måter å jobbe <em class="wy2-em">trygt</em> på.</h2>
+      <div class="wy2-cols">
+        <div class="wy2-col">
+          <p class="wy2-n">For nettsider</p>
+          <p>Jeg bygger et utkast gratis. Du ser hele siden ferdig og bestemmer selv om du vil betale for å fullføre og lansere. Sier du nei, koster det deg ingenting.</p>
+        </div>
+        <div class="wy2-col">
+          <p class="wy2-n">For alt annet</p>
+          <p>Systemutvikling, AI-agenter, chatbots og integrasjoner: du får en fungerende demo først, deretter fastpris og betalingsplan skriftlig før vi begynner å bygge.</p>
+        </div>
       </div>
-      <div class="phil-card reveal">
-        <p class="phil-n">02</p>
-        <h3>Bygget for å selge</h3>
-        <p>Design og funksjon er ikke bare estetikk — det er strategi. Hvert valg, enten det er knappeplassering på en nettside eller hvordan en AI-agent svarer, er tatt for å skape resultater for deg.</p>
-      </div>
-      <div class="phil-card reveal">
-        <p class="phil-n">03</p>
-        <h3>Ærlighet først</h3>
-        <p>Jeg tar ikke prosjekter jeg ikke tror jeg kan levere resultater på. På nettside-prosjekter krever jeg aldri betaling for et arbeid du ikke er fornøyd med. På større prosjekter — systemutvikling, AI-agenter, API-integrasjoner — avtaler vi alltid betalingsplan skriftlig før vi starter.</p>
-      </div>
+      <a class="btn-circle wy2-btn" href="kontakt.html">
+        <span>TA VEIVISEREN</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="about-guarantee">
-  <div class="container">
-    <div class="ag-inner">
-      <h2 class="reveal">To måter å<br>jobbe <span class="blue">trygt</span> på.</h2>
-      <p class="reveal">For nettsider bygger jeg et utkast gratis — du ser resultatet og bestemmer selv om du vil betale for å fullføre og lansere. For systemutvikling, AI-agenter og andre prosjektbaserte tjenester avtaler vi alltid fastpris og betalingsplan skriftlig før vi starter. Uansett hva du trenger hjelp med, vet du hva du får og hva det koster før noe forplikter deg.</p>
-      <div class="cta-buttons reveal">
-        <a class="btn" href="kontakt.html">Book gratis samtale →</a>
-        <a class="btn ghost" href="tjenester.html">Se tjenester</a>
-      </div>
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
+      <p class="dm-text">Det er helt greit. Ta veiviseren — den stiller spørsmålene for deg, og du sender meg en ferdig beskrivelse av hva du trenger. Du får svar med forslag og pris, skriftlig.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast og demo</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
-        <span class="brand-big"><span class="dot"></span><span>index dev.</span></span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter.</p>
+        <span class="brand-big">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
+          <span>index dev.</span>
+        </span>
+        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
         <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
+        <ul>
+          <li><a href="kom-i-gang.html">Kom i gang</a></li>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -233,15 +309,22 @@
         </ul>
       </div>
     </div>
-    <div class="foot-mark"><div class="big">INDEX DEVELOPMENT</div></div>
+
+    <div class="foot-mark">
+      <div class="big">INDEX DEVELOPMENT</div>
+    </div>
+
     <div class="foot-base">
-      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge</span>
+      <span>© <span data-ar>2026</span> Index Development. Alle rettigheter reservert.</span>
+      <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
 </footer>
 
-<script src="subpage.js" defer></script>
+
+<script src="liv.js" defer></script>
+<script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

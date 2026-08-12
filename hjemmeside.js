@@ -1,32 +1,38 @@
 'use strict';
 
-/* ─── Intro overlay ─── */
+/* ─── Intro overlay ───
+   Logomerket tegnes bjelke for bjelke, så kommer navnet og slagordet.
+   Vises én gang per fane — sessionStorage hindrer at den spilles på
+   hvert eneste sidebytte. */
 (function () {
   const overlay = document.getElementById('intro-overlay');
   if (!overlay) return;
 
   if (sessionStorage.getItem('intro-seen')) {
-    overlay.style.display = 'none';
+    overlay.remove();
+    document.documentElement.classList.add('intro-ferdig');
     return;
   }
 
-  const dot  = overlay.querySelector('.intro-dot');
-  const text = overlay.querySelector('.intro-text');
+  /* Låser rullingen mens introen står — ellers kan man scrolle bak den */
+  document.documentElement.classList.add('intro-kjorer');
+  overlay.classList.add('intro-overlay-go');
 
-  // Dot scales in immediately
-  dot.classList.add('animate');
+  const stille = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vent   = stille ? 700 : 2050;
 
-  // Text slides in after dot finishes (400 ms)
-  setTimeout(() => text.classList.add('animate'), 400);
-
-  // Fade out: dot (400ms) + text (500ms) + hold (1000ms) = 1900ms
   setTimeout(() => {
     overlay.classList.add('fade-out');
-    overlay.addEventListener('animationend', () => {
-      overlay.style.display = 'none';
+    const ferdig = () => {
+      overlay.remove();
+      document.documentElement.classList.remove('intro-kjorer');
+      document.documentElement.classList.add('intro-ferdig');
       sessionStorage.setItem('intro-seen', '1');
-    }, { once: true });
-  }, 1900);
+    };
+    overlay.addEventListener('animationend', ferdig, { once: true });
+    /* Sikkerhetsnett: kommer aldri animationend, skal introen uansett vekk */
+    setTimeout(ferdig, 800);
+  }, vent);
 })();
 
 /* ─── Mobile menu ─── */

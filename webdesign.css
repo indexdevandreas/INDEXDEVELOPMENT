@@ -280,3 +280,15 @@
   color: rgba(255,255,255,0.82);
   max-width: 46ch;
 }
+
+@media (max-width: 900px) {
+  /* Nettleservinduet skjules på mobil, og fotoet er borte. Da sto den
+     reserverte hero-høyden igjen som et tomt blått felt over tittelen. */
+  .photo-hero.ph-split { min-height: 0; }
+  /* sider.css setter «.ph-body { padding: … !important }» på under 560px.
+     Uten !important her blir toppluften spist av den. */
+  .ph-split .ph-body { padding: 92px 24px 44px !important; }
+}
+@media (max-width: 560px) {
+  .ph-split .ph-body { padding: 78px 18px 38px !important; }
+}

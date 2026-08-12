@@ -9,44 +9,71 @@
   ────────────────────────────────────────────────────────── */
   const FLOW = {
     start: {
-      message: 'Hei! 👋 Hva kan jeg hjelpe deg med?',
+      message: 'Hei! 👋 Hva lurer du på?',
       buttons: [
-        { label: 'Hva koster en nettside?', action: 'pricing' },
+        { label: 'Hva koster det?', action: 'pricing' },
         { label: 'Hvor lang tid tar det?', action: 'timeline' },
-        { label: 'Hva er inkludert?', action: 'included' },
-        { label: 'Jeg vil ta kontakt', action: 'contact' },
+        { label: 'Hva kan dere bygge?', action: 'services' },
+        { label: 'Jeg vet ikke helt hva jeg trenger', action: 'usikker' },
+        { label: 'Jeg vil bare ta kontakt', action: 'contact', style: 'secondary' },
       ],
     },
     pricing: {
       message:
-        'Prisen avhenger av hva du trenger. Vi har pakker fra <strong>1 999 kr</strong> — og du betaler ikke én krone før du er 100% fornøyd med resultatet.',
+        'Nettsider har fastpris — fra <strong>1 999 kr</strong>, og tallene står på prissiden.<br><br>' +
+        'AI-agenter, systemer og integrasjoner prises etter at du har beskrevet hva du trenger. ' +
+        'Du får alltid fastpris skriftlig før noe bygges.',
       buttons: [
-        { label: 'Se priser →', action: 'link:priser.html' },
-        { label: 'Tilbake til start', action: 'start', style: 'secondary' },
+        { label: 'Se prisene →', action: 'link:priser.html' },
+        { label: 'Beskriv hva jeg trenger →', action: 'link:kom-i-gang.html' },
+        { label: 'Tilbake', action: 'start', style: 'secondary' },
       ],
     },
     timeline: {
       message:
-        'En standard nettside er klar på <strong>3–5 dager</strong>. Vi starter med et utkast du kan gi tilbakemelding på — ingen lang og dyr prosess.',
+        '<strong>Fem dager</strong> fra du tar kontakt til du ser din egen løsning live.<br><br>' +
+        'For nettsider er det et ferdig utkast. For større systemer en fungerende demo — ' +
+        'selve byggetiden avtaler vi etterpå, med skriftlig tidsplan.',
       buttons: [
-        { label: 'Tilbake til start', action: 'start', style: 'secondary' },
+        { label: 'Sett i gang →', action: 'link:kom-i-gang.html' },
+        { label: 'Tilbake', action: 'start', style: 'secondary' },
       ],
     },
-    included: {
+    services: {
       message:
-        'Alt er inkludert: design, utvikling, tekst, mobiloptimalisering og Google-synlighet (SEO). Du betaler ikke før du er fornøyd — ingen skjulte kostnader.',
+        'Seks ting, alt håndkodet fra bunnen:<br><br>' +
+        '• Nettsider, SEO og utvikling<br>' +
+        '• AI-agenter og chatbots<br>' +
+        '• Systemutvikling<br>' +
+        '• API-integrasjoner<br>' +
+        '• Booking-systemer<br>' +
+        '• Drift og vedlikehold',
       buttons: [
-        { label: 'Tilbake til start', action: 'start', style: 'secondary' },
+        { label: 'Se alle tjenester →', action: 'link:tjenester.html' },
+        { label: 'Tilbake', action: 'start', style: 'secondary' },
+      ],
+    },
+    usikker: {
+      message:
+        'Det er de fleste som ikke gjør — og det er helt greit.<br><br>' +
+        'Veiviseren stiller spørsmålene for deg, så slipper du å formulere det selv. ' +
+        'Svarene blir til en beskrivelse Andreas får rett i innboksen, og du får forslag ' +
+        'og pris tilbake skriftlig. Tar under to minutter.',
+      buttons: [
+        { label: 'Ta veiviseren →', action: 'link:kom-i-gang.html' },
+        { label: 'Tilbake', action: 'start', style: 'secondary' },
       ],
     },
     contact: {
       message:
-        'Ta gjerne kontakt — vi svarer raskt!<br><br>' +
+        'Raskeste vei er å beskrive hva du trenger — da har Andreas alt han trenger for å svare skikkelig.<br><br>' +
+        'Vil du heller skrive fritt:<br>' +
         '📧 <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a><br>' +
         '📞 <a href="tel:+4748459686">484 59 686</a>',
       buttons: [
-        { label: 'Gå til kontaktside', action: 'link:kontakt.html' },
-        { label: 'Tilbake til start', action: 'start', style: 'secondary' },
+        { label: 'Beskriv hva jeg trenger →', action: 'link:kom-i-gang.html' },
+        { label: 'Gå til kontaktsiden', action: 'link:kontakt.html', style: 'secondary' },
+        { label: 'Tilbake', action: 'start', style: 'secondary' },
       ],
     },
   };
@@ -82,7 +109,7 @@
       const closeIcon = bubble.querySelector('.cw-icon-close');
       if (closeIcon) {
         closeIcon.style.fill = 'none';
-        closeIcon.style.stroke = '#fff';
+        closeIcon.style.stroke = '#0a0a0a';   /* boblen er limegrønn */
         closeIcon.style.strokeWidth = '2.5';
         closeIcon.style.strokeLinecap = 'round';
       }

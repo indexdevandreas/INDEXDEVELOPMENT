@@ -3,57 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hvorfor Google ikke finner bedriften din — Index Development</title>
-<meta name="description" content="De fleste nettsider er usynlige for Google. Her er de vanligste grunnene – og hva du konkret kan gjøre med det.">
+<title>Hvorfor Google ikke finner bedriften din — index dev.</title>
+<meta name="description" content="De vanligste tekniske grunnene til at nettsiden din ikke dukker opp i Google — og hva som faktisk skal til for å bli funnet.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/blogg-seo.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
+<link rel="stylesheet" href="sider.css">
+<link rel="stylesheet" href="blogg.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Hvorfor Google ikke finner bedriften din",
+  "description": "De vanligste tekniske grunnene til at nettsiden din ikke dukker opp i Google — og hva som faktisk skal til for å bli funnet.",
   "datePublished": "2026-06-01",
+  "inLanguage": "nb-NO",
+  "mainEntityOfPage": "https://indexdevelopment.no/blogg-seo.html",
   "author": { "@type": "Person", "name": "Andreas Melheim" },
-  "publisher": { "@type": "Organization", "name": "Index Development" },
-  "url": "https://indexdevelopment.no/blogg-seo.html"
+  "publisher": { "@type": "Organization", "name": "Index Development", "url": "https://indexdevelopment.no" }
 }
 </script>
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
-
-<!-- ───── Promo bar ───── -->
-<div class="promo">
-  <span class="green-dot"></span>
-  <strong>Ingen bindingstid på nettsider</strong>
-  <span class="sep">—</span>
-  <span>Koden er din eiendom</span>
-  <span class="sep">—</span>
-  <span>Resultater før du betaler</span>
-  <a class="link" href="priser.html">Se priser →</a>
-</div>
-
-<!-- ───── Nav ───── -->
-<header class="nav">
-  <a class="brand" href="index.html">
-    <span class="dot"></span>
-    <span>index dev.</span>
-  </a>
-  <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-    <span class="menu-label">Meny</span>
-    <span class="bars"></span>
-  </button>
-</header>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <nav class="mobile-menu-nav">
     <a href="index.html">Forside</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
     <a href="tjenester.html">Tjenester</a>
-    <a href="chatbots.html">Chatbots</a>
     <a href="priser.html">Priser</a>
     <a href="om-meg.html">Om meg</a>
     <a href="index.html#blogg">Blogg</a>
@@ -65,16 +47,69 @@
   </address>
 </div>
 
+
 <main>
-<article class="blog-article">
+<!-- ───── SIDEHERO ───── -->
+<section class="page-hero" id="top">
+  <header class="hero-nav">
+    <div class="hero-brand">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
+        <span>index dev.</span>
+      </a>
+      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+    </div>
 
-  <div class="blog-article-content">
-    <div class="container">
-      <p class="blog-date">01.06.2026</p>
-      <h1>Hvorfor Google ikke finner bedriften din</h1>
+    <nav class="hero-nav-links">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
+          <a href="drift.html">Drift &amp; vedlikehold</a>
+          <a href="systemutvikling.html">Systemutvikling</a>
+          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
+          <a href="api-integrasjoner.html">API-integrasjoner</a>
+          <a href="booking-systemer.html">Booking-systemer</a>
+          <span class="nav-dropdown-sep" aria-hidden="true"></span>
+          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <a href="kompetanse.html">Kompetanse</a>
+      <a href="om-meg.html">Om meg</a>
+      <a href="index.html#blogg">Blogg</a>
+      <a href="priser.html">Priser</a>
+    </nav>
 
-      <div class="blog-text">
-        <p>De fleste bedriftseiere tenker at det er nok å ha en nettside. Du registrerer et domene, lager en side, og venter på at kundene skal strømme inn. Så skjer det ingenting.</p>
+    <div class="hero-nav-actions">
+      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
+      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+        <span class="menu-label">Meny</span>
+        <span class="bars"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="ph-body bg-hero">
+    <a class="bg-back" href="index.html#blogg"><span aria-hidden="true">←</span> Alle artikler</a>
+    <p class="ph-kicker">SEO · 01.06.2026</p>
+    <h1 class="ph-title">Hvorfor Google ikke finner bedriften din</h1>
+    <p class="ph-lead">De vanligste tekniske grunnene til at nettsiden din ikke dukker opp i Google — og hva som faktisk skal til for å bli funnet.</p>
+  </div>
+</section>
+
+
+<!-- ───── ARTIKKEL ───── -->
+<article class="bg-article">
+  <figure class="bg-figure">
+    <img src="https://images.unsplash.com/photo-1586125674857-4eb86880905d?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Google-søkefeltet på en skjerm" loading="lazy" width="1600" height="900">
+  </figure>
+
+  <div class="bg-text">
+<p>De fleste bedriftseiere tenker at det er nok å ha en nettside. Du registrerer et domene, lager en side, og venter på at kundene skal strømme inn. Så skjer det ingenting.</p>
 
         <p>Problemet er at Google ikke automatisk vet at siden din finnes. Og selv om den vet det, betyr ikke det at du rangerer for noe som helst. Usynlighet på Google er den vanligste – og dyreste – feilen norske småbedrifter gjør.</p>
 
@@ -99,46 +134,110 @@
         <p>Deretter handler det om systematisk arbeid: teknisk optimalisering, lokalt og relevant innhold, og gradvis bygge autoritet over tid. Det er ikke hokuspokus – det er håndverk.</p>
 
         <p>En nettside som er usynlig for Google er som en butikk midt i skogen. Den kan være aldri så fin innenfor – ingen finner den likevel.</p>
-      </div>
+  </div>
 
-      <div class="blog-cta-box">
-        <p>Vil du vite hvorfor Google ikke finner <em>din</em> bedrift? Vi ser på nettsiden din og gir deg en ærlig vurdering – helt gratis, uten forpliktelser.</p>
-        <div>
-          <a class="btn" href="kontakt.html">Ta kontakt <span class="arrow">→</span></a>
-        </div>
+  <aside class="bg-cta">
+    <p class="bg-cta-label">Kom i gang</p>
+    <p class="bg-cta-head">Vil du vite hvordan din side ligger an?</p>
+    <p class="bg-cta-sub">Ta veiviseren, så ser jeg på siden din og sier ærlig hva som er verdt å gjøre noe med. Svar skriftlig, ingen telefontid nødvendig.</p>
+    <a class="btn-circle bg-cta-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+    </a>
+  </aside>
+</article>
+
+
+<!-- ───── FLERE ARTIKLER ───── -->
+<section class="bg-next">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>LES OGSÅ</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Mer fra bloggen.</h2>
+      <div class="pf-aside">
+        <p>Korte tekster om det som avgjør om nettsiden tjener penger.</p>
       </div>
     </div>
   </div>
+  <div class="bg-next-grid">
+      <a class="bg-next-card" href="blogg-pris.html">
+        <span class="bg-next-tag">Priser</span>
+        <span class="bg-next-title">Hva du faktisk betaler for</span>
+        <span class="bg-next-go" aria-hidden="true">→</span>
+      </a>
+      <a class="bg-next-card" href="blogg-tlf.html">
+        <span class="bg-next-tag">Konvertering</span>
+        <span class="bg-next-title">Hvorfor ringer ikke telefonen</span>
+        <span class="bg-next-go" aria-hidden="true">→</span>
+      </a>
+  </div>
+</section>
 
-</article>
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <img class="dm-bg" src="bilder/norge.png" alt="Norden sett fra verdensrommet" loading="lazy" width="1408" height="768">
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
+      <p class="dm-text">Det er helt greit. Ta veiviseren — den stiller spørsmålene for deg, og du sender meg en ferdig beskrivelse av hva du trenger. Du får svar med forslag og pris, skriftlig.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast og demo</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="container">
-    <div class="foot-top">
+    <div class="foot-top foot-top-wide">
       <div class="foot-brand">
         <span class="brand-big">
-          <span class="dot"></span>
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4.5 47.5 L27.5 4.5 L38.5 4.5 L15.5 47.5 Z"/><path d="M19.5 47.5 L42.5 4.5 L51.5 4.5 L28.5 47.5 Z"/><path d="M32.5 47.5 L55.5 4.5 L62.5 10.5 L41.5 47.5 Z"/><path d="M45.5 47.5 L62.5 19.5 L62.5 32.5 L52.5 47.5 Z"/></svg>
           <span>index dev.</span>
         </span>
         <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <div class="foot-col">
-        <h3>Sider</h3>
+        <h3>Tjenester</h3>
         <ul>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
+          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+          <li><a href="systemutvikling.html">Systemutvikling</a></li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Selskap</h3>
+        <ul>
+          <li><a href="kom-i-gang.html">Kom i gang</a></li>
           <li><a href="index.html">Forside</a></li>
-          <li><a href="tjenester.html">Tjenester</a></li>
-          <li><a href="chatbots.html">Chatbots</a></li>
-          <li><a href="priser.html">Priser</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
-          <li><a href="index.html#blogg">Blogg</a></li>
+          <li><a href="kompetanse.html">Kompetanse</a></li>
+          <li><a href="konvertering.html">Konvertering</a></li>
+          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
+          <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h3>Annet</h3>
+        <h3>Fra bloggen</h3>
         <ul>
+          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
+          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
+          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
@@ -151,17 +250,22 @@
         </ul>
       </div>
     </div>
+
     <div class="foot-mark">
       <div class="big">INDEX DEVELOPMENT</div>
     </div>
+
     <div class="foot-base">
-      <span>© 2026 Index Development. Alle rettigheter reservert.</span>
-      <span>Drammen, Norge — bygget av oss selv.</span>
+      <span>© <span data-ar>2026</span> Index Development. Alle rettigheter reservert.</span>
+      <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
 </footer>
 
+
+<script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

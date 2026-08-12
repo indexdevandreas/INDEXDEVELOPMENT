@@ -1,0 +1,287 @@
+/* ───────────────────────────────────────────────────────────
+   kontakt.css — kun det som er spesifikt for kontakt.html.
+   Delt designsystem ligger i sider.css, som må lastes først.
+   FAQ-en gjenbruker .fq-item / .fq-plus / .fq-body fra forsiden,
+   men de reglene bor i forside.css — derfor står de også her.
+   ─────────────────────────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — kort. Dette er en side folk skal handle på, ikke lese.
+   ═══════════════════════════════════════════════════════════ */
+.page-hero {
+  min-height: min(52vh, 480px);
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.ko-hero { margin-top: auto; padding: 0 56px 54px; max-width: 780px; }
+.ko-hero .ph-title { font-size: clamp(36px, 4.4vw, 64px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   KONTAKT + SKJEMA — direkte­kanalene til venstre, skjemaet
+   til høyre. Telefon og e-post står FØR skjemaet med vilje:
+   den som vil ringe skal slippe å scrolle forbi et skjema.
+   ═══════════════════════════════════════════════════════════ */
+.reach { background: #fff; padding: 100px 0 110px; }
+.rc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 64px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: start;
+}
+.rc-head {
+  font-size: clamp(30px, 3.1vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #0a0a0a;
+  margin: 30px 0 18px;
+  max-width: 16ch;
+}
+.rc-em { font-style: normal; font-weight: 700; color: #4a4a4a; }
+.rc-lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(10,10,10,0.66);
+  max-width: 46ch;
+  margin-bottom: 34px;
+}
+
+.rc-cards { display: flex; flex-direction: column; gap: 14px; }
+.rc-card {
+  position: relative;
+  background: #f1f1ef;
+  border-radius: 16px;
+  padding: 24px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  color: #0a0a0a;
+  transition: background 0.22s, transform 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.rc-card:hover { background: #eaeae7; transform: translateY(-3px); }
+.rc-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  margin-bottom: 12px;
+}
+.rc-val {
+  font-size: clamp(21px, 2vw, 27px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+.rc-val-mail { font-size: clamp(16px, 1.5vw, 21px); word-break: break-word; }
+.rc-sub { font-size: 14px; color: rgba(10,10,10,0.55); }
+.rc-go {
+  position: absolute;
+  top: 22px; right: 24px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(10,10,10,0.25);
+  display: grid; place-items: center;
+  font-size: 13px;
+  opacity: 0.5;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.rc-card:hover .rc-go { opacity: 1; transform: translateX(4px); }
+
+.rc-points {
+  list-style: none;
+  margin: 30px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rc-points li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 15.5px;
+  color: rgba(10,10,10,0.78);
+}
+.rc-check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 10px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+/* Forbeholdet står synlig, ikke som juridisk småskrift nederst */
+.rc-fine {
+  margin-top: 20px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(10,10,10,0.5);
+  max-width: 52ch;
+}
+
+
+/* ─── Skjemakortet ─── */
+.rc-form-card {
+  background: #0d0d0d;
+  color: #fff;
+  border-radius: 22px;
+  padding: 36px 36px 34px;
+}
+.rc-form-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 26px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 9px; }
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.field-opt {
+  opacity: 0.45;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.field input,
+.field textarea {
+  font-family: inherit;
+  font-size: 15.5px;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+.field textarea { resize: vertical; min-height: 118px; line-height: 1.55; }
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(255,255,255,0.32); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--lime);
+  background: rgba(255,255,255,0.09);
+}
+
+.form-submit {
+  margin-top: 8px;
+  --cap: 42px;
+  --pad: 7px;
+  gap: 18px;
+  width: 100%;
+  justify-content: space-between;
+  padding: var(--pad) var(--pad) var(--pad) 28px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 0;
+  cursor: pointer;
+}
+.form-submit:disabled { opacity: 0.6; cursor: default; }
+
+.form-success { text-align: center; padding: 20px 0 8px; }
+.s-icon {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 20px;
+  font-weight: 700;
+  display: grid; place-items: center;
+  margin: 0 auto 18px;
+}
+.s-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+.s-sub { font-size: 15px; color: rgba(255,255,255,0.6); }
+
+@media (max-width: 980px) {
+  .reach { padding: 70px 0 80px; }
+  .rc-grid { grid-template-columns: 1fr; gap: 44px; }
+  .rc-head { max-width: none; }
+  .rc-form-card { padding: 28px 24px 26px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ — samme trekkspill som forsiden. Reglene bor i
+   forside.css, som denne siden ikke laster, så de gjentas her.
+   ═══════════════════════════════════════════════════════════ */
+.kfaq { background: #fff; padding: 20px 0 120px; }
+.kf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.fq-item {
+  background: #f1f1ef;
+  border-radius: 14px;
+  transition: background 0.22s;
+}
+.fq-item:hover,
+.fq-item[open] { background: #ebebe8; }
+.fq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 26px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.fq-item summary::-webkit-details-marker { display: none; }
+.fq-plus {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: var(--lime);
+  color: #0a0a0a;
+  font-size: 18px;
+  line-height: 1;
+  display: grid; place-items: center;
+  transition: transform 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.fq-item[open] .fq-plus { transform: rotate(45deg); }
+.fq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.22,1,0.36,1);
+}
+.fq-item[open] .fq-body { grid-template-rows: 1fr; }
+.fq-body-inner { overflow: hidden; }
+.fq-body p {
+  padding: 0 26px 26px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(10,10,10,0.66);
+  max-width: 76ch;
+}
+
+@media (max-width: 620px) {
+  .kfaq { padding-bottom: 80px; }
+  .fq-item summary { padding: 20px; font-size: 15.5px; gap: 16px; }
+  .fq-body p { padding: 0 20px 22px; }
+}
