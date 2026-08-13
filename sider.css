@@ -53,9 +53,11 @@ body { background: #fff; color: #0a0a0a; }
   margin: 10px;
   border-radius: 22px;
   background: #0a0a0a;
-  /* hjemmeside.css gir alle section 120px padding — den må nulles,
-     ellers dyttes headeren ned fra toppen av flaten. */
-  padding: 0;
+  /* hjemmeside.css gir alle section 120px padding — den må nulles.
+     Toppen beholder 94px: nav-baren er «fixed» og ligger ikke i flyten,
+     så uten dette havner hero-teksten bak den.
+     94 = 16 marg + 12 + 12 padding + ~54 innhold. */
+  padding: 94px 0 0;
 }
 /* Løfter innholdet over bakgrunnsglød og mønstre.
    Må stå FØR nav-regelen under, ellers vinner denne (lik
@@ -224,13 +226,26 @@ body { background: #fff; color: #0a0a0a; }
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  /* Følger samme 1290px innholdsbredde som resten av siden, i stedet for
-     å strekke seg helt ut i heroens kant. width-regelen gir 18px luft på
-     hver side når vinduet er smalere enn det. */
+  /* Fast fra start. Lå tidligere i flyten og byttet til «fixed» ved
+     rulling — men position kan ikke animeres, så baren hoppet i stedet
+     for å utvide seg. Nå endres bare bredde, marg, radius og farge, og
+     alt det lar seg overgangsanimere. */
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
   max-width: 1290px;
   width: calc(100% - 36px);
   margin: 16px auto 0;
   padding: 12px 12px 12px 22px;
+  transition:
+    max-width 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    margin 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.42s ease,
+    box-shadow 0.42s ease,
+    border-color 0.42s ease;
   border-radius: 18px;
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.18);
@@ -255,9 +270,11 @@ body { background: #fff; color: #0a0a0a; }
   border-left: 1px solid rgba(255,255,255,0.28);
 }
 /* Må matche spesifisiteten til «.hero > *:not(.hero-photo)» (0,2,0),
-   ellers vinner den og dropdownen havner bak hero-teksten. */
+   ellers vinner den regelen og dropdownen havner bak hero-teksten.
+   NB: «position» settes IKKE her lenger — baren er «fixed», og en
+   relative-regel med høyere spesifisitet ville låst den i flyten. */
 .hero > .hero-nav,
-.page-hero > .hero-nav { position: relative; z-index: 20; }
+.page-hero > .hero-nav { z-index: 60; }
 .hero-nav .brand {
   color: #fff;
   font-size: 21px;
@@ -267,16 +284,21 @@ body { background: #fff; color: #0a0a0a; }
   align-items: center;
   gap: 9px;
 }
-/* Logomerket erstatter den limegrønne prikken. Tegnes i currentColor,
-   så det arver navfargen — hvitt over heroen, sort når baren blir hvit. */
+/* Logomerket males med mask-image i stedet for å ligge inline. Sebraen
+   er 13 kB path-data — inline ville den ligget tre ganger på hver av 20
+   sider. Som maske hentes logo.svg én gang og caches, og «background:
+   currentColor» gir samme fargearv som fill: currentColor ga. */
 .brand .mark,
-.brand-big .mark {
-  width: 26px; height: 26px;
+.brand-big .mark,
+.mm-top .mark {
+  width: 30px; height: 30px;
   flex-shrink: 0;
-  fill: currentColor;
   display: block;
+  background: currentColor;
+  -webkit-mask: var(--logo-maske) center / contain no-repeat;
+  mask: var(--logo-maske) center / contain no-repeat;
 }
-.brand-big .mark { width: 30px; height: 30px; }
+.brand-big .mark { width: 34px; height: 34px; }
 /* Footerens wordmark skal ha samme tynne behandling som i nav-en —
    det er logoteksten, ikke brødtekst. Resten av footeren står urørt. */
 .foot-brand .brand-big {
@@ -1039,7 +1061,7 @@ img[loading="lazy"] {
   border-bottom: 1px solid rgba(10,10,10,0.10);
   opacity: 0;
 }
-.mm-top .mark { width: 24px; height: 24px; fill: currentColor; flex-shrink: 0; }
+.mm-top .mark { width: 26px; height: 26px; }
 .mobile-menu.open .mm-top {
   animation: menuItemIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
 }
@@ -1252,33 +1274,24 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
   to   { opacity: 1; transform: none; }
 }
 
-/* Fast bar. Settes av hjemmeside.js når man har rullet forbi heroen.
-   position: fixed gjør at den forlater heroen — derfor egen
-   inngangsanimasjon, ellers ville den bare poppet inn. */
+/* Fast bar. Settes av hjemmeside.js i det man begynner å rulle.
+   Her endres kun bredde, marg, radius og farge — baren ligger allerede
+   fast, så utvidelsen glir i stedet for å hoppe. */
 .hero-nav.is-stuck {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  max-width: 100%;
   width: 100%;
-  max-width: none;
   margin: 0;
   border-radius: 0;
-  border: 0;
+  border-color: transparent;
   border-bottom: 1px solid rgba(10,10,10,0.09);
   background: rgba(255,255,255,0.94);
   -webkit-backdrop-filter: blur(16px) saturate(1.1);
   backdrop-filter: blur(16px) saturate(1.1);
   box-shadow: 0 6px 26px rgba(10,10,10,0.07);
-  /* Innholdet holdes på samme 1290px som resten av siden */
   padding: 12px max(22px, calc((100% - 1290px) / 2 + 22px));
-  z-index: 60;
-  animation: navFest 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes navFest {
-  from { transform: translateY(-100%); }
-  to   { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-nav { animation: none; }
-  .hero-nav.is-stuck { animation: none; }
+  .hero-nav.is-stuck { transition: none; }
 }

@@ -113,18 +113,17 @@ document.querySelectorAll('.reveal').forEach(el => {
    full bredde. .is-dark er den samme varianten som brukes på den
    lyse heroen, så fargelogikken finnes bare ett sted. */
 (function () {
-  var nav  = document.querySelector('.hero-nav');
-  var hero = document.querySelector('.hero, .page-hero');
-  if (!nav || !hero) return;
+  var nav = document.querySelector('.hero-nav');
+  if (!nav) return;
 
   var lysHero = nav.classList.contains('is-dark');   /* kompetanse er lys fra før */
   var fest = false;
 
   function sjekk() {
-    /* Terskelen er heroens bunn minus barhøyden — da bytter den
-       nøyaktig i det heroen forlater skjermen. */
-    var grense = Math.max(120, hero.getBoundingClientRect().height - 140);
-    var skalFeste = window.scrollY > grense;
+    /* Festes med én gang man begynner å rulle. Sto tidligere på
+       heroens høyde, altså først når heroen var passert — da lå
+       baren ute av syne i mellomtiden. */
+    var skalFeste = window.scrollY > 8;
     if (skalFeste === fest) return;
     fest = skalFeste;
     nav.classList.toggle('is-stuck', fest);

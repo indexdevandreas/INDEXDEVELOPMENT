@@ -15,7 +15,9 @@
   overflow: hidden;
   margin: 10px;
   border-radius: 22px;
-  padding: 0;
+  /* Nav-baren er «fixed» — denne paddingen erstatter plassen den tok
+     da den lå i flyten. */
+  padding: 94px 0 0;
   background:
     radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
     linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
