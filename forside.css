@@ -1185,10 +1185,24 @@ html, body { overflow-x: clip; }
     height: 290px;
     object-fit: contain;
     object-position: center bottom;
-    opacity: 1;
-    filter: none;
-    -webkit-mask-image: linear-gradient(to bottom, #000 84%, rgba(0,0,0,0.45) 95%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 84%, rgba(0,0,0,0.45) 95%, transparent 100%);
+    /* Samme prinsipp som på desktop: gradienten skal så vidt gjennom
+       ham, slik at han leser som en del av flaten og ikke som et
+       utklipp limt oppå. 0.72 er litt høyere enn desktopens 0.70 —
+       her ligger han i flyten uten .hero::after-sløret over seg, og på
+       en telefonskjerm tipper alt under 0.8 over til rent blått. */
+    opacity: 0.82;
+    filter: saturate(0.94);
+    /* Fade i tre retninger: bunnen tones lengst ut (skuldrene er
+       beskåret), toppen får en kort fade så hårfestet ikke ender i en
+       hard kant, og sidene mykes så silhuetten ikke tegner en boks. */
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0%, #000 14%, #000 62%, rgba(0,0,0,0.55) 84%, transparent 100%),
+      linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    mask-image:
+      linear-gradient(to bottom, transparent 0%, #000 14%, #000 62%, rgba(0,0,0,0.55) 84%, transparent 100%),
+      linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
   .hero-body { order: 2; align-items: flex-start; padding-top: 10px; }
   .hero-services { order: 4; position: relative; z-index: 4; margin-top: 0; }

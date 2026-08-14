@@ -461,7 +461,13 @@ body { background: #fff; color: #0a0a0a; }
    1025 — lenkene hadde allerede begynt å klemmes sammen. Byttet skjer nå
    FØR baren blir trang, ikke etter. */
 @media (max-width: 1150px) {
-  .hero-nav { padding: 12px 18px; gap: 18px; }
+  /* Paddingen må ligge INNENFOR pillen, ikke på samme koordinat som den.
+     «12px 18px» satte innholdet 4px over pillens overkant (den starter på
+     top:16px) og helt inntil sidekantene (left/right:18px) — logo og
+     meny-knapp stakk derfor ut av boksen så lenge man ikke hadde scrollet.
+     Her legges 10px luft på toppen og 14px inn fra sidene, som speiler
+     den samme innrammingen baren har på desktop. */
+  .hero-nav { padding: 26px 32px 12px; gap: 18px; }
   .hero-nav-links,
   .hero-nav-actions .nav-btn-ghost { display: none; }
   .hero-nav .menu-btn { display: inline-flex; padding: 8px 0; }
