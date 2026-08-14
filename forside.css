@@ -899,6 +899,10 @@
     rgba(212,255,61,0.03) 100%);
 }
 
+/* Bylinen hører til mobil-layouten. På desktop står signaturen allerede
+   under teksten, og portrettet skal lese som en flate — ikke et kort. */
+.mg-cap { display: none; }
+
 /* ─── Tekstsiden ─── */
 .mg-text { position: relative; z-index: 2; max-width: 560px; }
 .mg-eyebrow { color: rgba(255,255,255,0.72); margin-bottom: 30px; }
@@ -944,17 +948,27 @@
   /* Full bredde ga et nesten kvadratisk portrett på ~330px som spiste
      halve mobilskjermen og dyttet overskriften under fold. På mobil
      skal bildet lese som et byline-portrett ved siden av avsenderen:
-     lite, kvadratisk crop på ansiktet, venstrestilt mot teksten. */
+     lite, kvadratisk crop på ansiktet, med navnet på plassen som ellers
+     står tom til høyre. Figuren slipper aspect-ratio her fordi den nå
+     er en rad, ikke en bilderamme. */
   .mg-media {
-    width: 128px;
+    width: auto;
     max-width: none;
-    aspect-ratio: 1 / 1;
-    justify-self: start;
+    aspect-ratio: auto;
+    justify-self: stretch;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
   /* Den myke utoningen er laget for et stort bilde. I småformat spiser
      den halve motivet og etterlater en grumsete kant — der trengs en
      definert ramme i stedet. */
   .mg-frame {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    width: 152px;
+    aspect-ratio: 1 / 1;
     -webkit-mask-image: none;
     mask-image: none;
     border-radius: 18px;
@@ -964,13 +978,66 @@
       0 14px 30px rgba(3,28,60,0.30);
   }
   .mg-frame img { object-position: 50% 24%; border-radius: 18px; }
-  /* Glowen er relativ til rammen, så den må skaleres opp når rammen
-     krymper — ellers blir den en flekk bak bildet. */
-  .mg-glow { width: 210%; height: 190%; }
+  /* Glowen lå sentrert i figuren. Nå som figuren er en rad må den
+     flyttes tilbake over selve portrettet, ellers gløder tomrommet. */
+  .mg-glow { left: 76px; width: 300px; height: 270px; }
+
+  /* ─── Byline ved siden av portrettet ─── */
+  .mg-cap {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .mg-cap-name {
+    font-family: 'Syne', 'Geist', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .mg-cap-role {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+  .mg-cap-loc {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 3px;
+    font-size: 12.5px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.62);
+  }
+  .mg-cap-dot {
+    flex: 0 0 auto;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 0 3px rgba(212,255,61,0.18);
+  }
+  /* Signaturen under teksten sier det samme som bylinen — den ville
+     bare gjentatt navnet 200px lenger ned. */
+  .mg-sign { display: none; }
   .mg-dots { -webkit-mask-image: radial-gradient(88% 34% at 26% 14%, #000 0%, transparent 84%); mask-image: radial-gradient(88% 34% at 26% 14%, #000 0%, transparent 84%); }
   .mg-eyebrow { margin-bottom: 18px; }
   .mg-lead { font-size: 15.5px; margin-top: 18px; }
   .mg-foot { margin-top: 26px; gap: 12px 22px; }
+}
+/* Under 380px blir det ~150px igjen til bylinen ved siden av et 152px
+   portrett, og stedslinjen brekker i tre. Litt mindre ramme gir teksten
+   pusterommet den trenger. */
+@media (max-width: 380px) {
+  .mg-frame { width: 128px; }
+  .mg-glow { left: 64px; }
+  .mg-cap-name { font-size: 16px; }
+  .mg-cap-loc { font-size: 12px; }
 }
 
 .norsk { background: #fff; padding: 20px 0 120px; }
