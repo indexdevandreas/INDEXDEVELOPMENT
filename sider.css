@@ -1191,16 +1191,29 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
    nummer) rører litt på seg. Ingen farge­eksplosjon — det er
    bevegelsen som gjør at siden kjennes levende, ikke effekten.
    ═══════════════════════════════════════════════════════════ */
+/* Disse klassene er samtidig .rv-avsløringens kort (forside.js legger
+   .rv på dem ved scroll). .rv i denne fila setter transition: opacity
+   0.75s, transform 0.75s — men transition er en shorthand, og siden
+   regelen under her har høyere kildeordre, VANT den hele shorthanden,
+   ikke bare transform/box-shadow/background den selv nevnte. Opacity
+   sto dermed helt uten transition: kortene poppet momentant synlige
+   og fortsatte så å skli inn — et lite etterrykk rett etter at de
+   dukket opp, på samme sted, gjentatt for hvert eneste kort på hele
+   siden. Opacity og transform er nå med i basisregelen på 0.75s, likt
+   .rv, så avsløringen blir én sammenhengende bevegelse. Det raske,
+   klikkbare hover-løftet flyttes til :hover-regelen under, som uansett
+   vinner på spesifisitet mens musepekeren er der. */
 .pf-card, .s2-card, .cv-card,
 .sp-card, .pk-card, .hw-step,
 .ph-card, .ag-card, .wy-card,
 .nk-card, .st-step, .in-price,
 .bg-next-card, .rc-card, .ci-card {
   transition:
-    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.32s ease,
     background 0.25s ease;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .pf-card:hover, .s2-card:hover, .cv-card:hover,
@@ -1209,6 +1222,9 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 .nk-card:hover, .in-price:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 44px rgba(10, 10, 10, 0.11);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease;
 }
 /* Mørke kort trenger en dypere skygge for at løftet skal leses */
 .pf-dark-card:hover, .s2-dark:hover, .cv-dark:hover,
@@ -1246,16 +1262,24 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 .hw-step:hover h3, .st-step:hover h3 { color: #0a0a0a; }
 
 /* Kortene som allerede løftet seg får samme kurve, så alt på
-   siden beveger seg med samme «vekt». */
+   siden beveger seg med samme «vekt». Samme opacity-hull som over:
+   .sv-card overstyrte i tillegg hele denne regelen igjen i forside.css
+   (lastes etter sider.css), UTEN opacity i det hele tatt — de kortene
+   hoppet rett til full synlighet med null overgang. Fjernet der,
+   samlet her. */
 .sv-card, .bl-card, .rv-card {
   transition:
-    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.32s ease,
     background 0.25s ease;
 }
 .sv-card:hover, .bl-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 44px rgba(10, 10, 10, 0.11);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease;
 }
 .sv-dark:hover { box-shadow: 0 24px 52px rgba(0, 0, 0, 0.34); }
 

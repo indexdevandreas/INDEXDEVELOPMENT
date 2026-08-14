@@ -27,7 +27,16 @@
 }
 .kp-item {
   border-bottom: 1px solid rgba(10,10,10,0.12);
-  transition: background 0.22s;
+  /* .kp-item er også .rv-avsløringens kort (forside.js legger .rv på
+     .kp-list sine barn). transition er én shorthand — «background
+     0.22s» alene her overkjørte hele .rv sin opacity+transform-
+     overgang i sider.css (denne fila lastes sist), så radene poppet
+     inn i stedet for å tone inn. Opacity+transform er lagt til her,
+     matchet til .rv sine 0.75s. */
+  transition:
+    background 0.22s,
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .kp-item:hover { background: #fafaf8; }
 .kp-item[open] { background: #f6f6f4; }

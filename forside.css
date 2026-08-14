@@ -710,7 +710,13 @@
   display: flex;
   flex-direction: column;
   color: #0a0a0a;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.25s;
+  /* INGEN transition her, med vilje: den styres av den delte regelen
+     i sider.css (transform+opacity+box-shadow+background i ÉN
+     shorthand). transition er ikke additiv på tvers av regler — selv
+     «transition: background 0.25s» alene her ville overkjørt HELE
+     sider.css-regelen igjen (denne fila lastes sist), og opacity ville
+     mistet sin transition på nytt. sider.css sin regel har samme
+     background-varighet (0.25s), så ingenting endrer seg visuelt. */
 }
 .sv-card:hover { transform: translateY(-4px); background: #eaeae7; }
 .sv-lime { background: var(--lime); }
@@ -852,7 +858,9 @@
   display: flex;
   flex-direction: column;
   color: #0a0a0a;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  /* transition eies av .sv-card, .bl-card, .rv-card i sider.css — se
+     forklaringen ved .sv-card lenger opp i denne fila. Samme mønster,
+     samme fiks. */
 }
 .bl-card:hover { transform: translateY(-4px); }
 .bl-img { height: 190px; overflow: hidden; background: #e6e6e3; }
@@ -964,7 +972,14 @@
 .fq-item {
   background: #f1f1ef;
   border-radius: 14px;
-  transition: background 0.22s;
+  /* .fq-item er også .rv-avsløringens kort (fq-list-barn, glir inn fra
+     høyre — se .fq-item.rv i sider.css). «background 0.22s» alene
+     overkjørte hele transition-shorthanden fra .rv (denne fila lastes
+     sist), så FAQ-radene poppet inn i stedet for å skli. */
+  transition:
+    background 0.22s,
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .fq-item:hover { background: #ebebe8; }
 .fq-item[open] { background: #ebebe8; }

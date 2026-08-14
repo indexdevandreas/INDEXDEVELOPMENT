@@ -181,7 +181,11 @@
   flex-direction: column;
   color: #0a0a0a;
   min-height: 160px;
-  transition: background 0.22s, transform 0.28s cubic-bezier(0.22,1,0.36,1);
+  /* transition eies av den delte kort-regelen i sider.css (KORT-HOVER)
+     — den dekker transform+opacity+box-shadow+background i én
+     shorthand. En egen transition her ville overkjørt hele den
+     regelen (denne fila lastes sist) og latt opacity stå uten
+     overgang under scroll-avsløringen, se forklaringen der. */
 }
 .bg-next-card:hover { background: #eaeae7; transform: translateY(-3px); }
 .bg-next-tag {
