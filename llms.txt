@@ -12,7 +12,8 @@ Index Development er et enkeltpersonforetak drevet av Andreas Melheim, basert i 
 - [Systemutvikling](https://indexdevelopment.no/systemutvikling.html): Skreddersydde systemer — database, innlogging, adminpanel.
 - [API-integrasjoner](https://indexdevelopment.no/api-integrasjoner.html): Kobler sammen systemer og tredjepartstjenester.
 - [Booking- og bestillingssystem](https://indexdevelopment.no/booking-systemer.html): Bygget inn i nettsiden, ikke et separat abonnement.
-- [Drift & vedlikehold](https://indexdevelopment.no/drift.html): Hosting på Cloudflare, SSL, oppetidssjekk og sikkerhetskopi.
+- [Google Bedriftsprofil](https://indexdevelopment.no/google-bedriftsprofil.html): Oppsett og lokal SEO, så bedriften vises i lokalt søk og på Google Maps. Ofte inkludert i nettsidepakkene.
+- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren.
 
 ## Priser og oppstart
 

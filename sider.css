@@ -325,9 +325,17 @@ body { background: #fff; color: #0a0a0a; }
 .hero-nav-links {
   display: flex;
   align-items: center;
+}
+/* Lenkene ligger i en <ul> — en meny er en liste, og crawlere leser
+   hierarkiet tydeligere slik. Flex-oppsettet eies derfor av lista,
+   ikke av <nav>, og selektorene under går via > ul > li. */
+.hero-nav-links > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
   gap: 34px;
 }
-.hero-nav-links > a,
+.hero-nav-links > ul > li > a,
 .hero-nav-links .nav-dropdown-trigger {
   font-size: 15px;
   font-weight: 500;
@@ -342,7 +350,7 @@ body { background: #fff; color: #0a0a0a; }
   gap: 7px;
   transition: opacity 0.18s;
 }
-.hero-nav-links > a:hover,
+.hero-nav-links > ul > li > a:hover,
 .hero-nav-links .nav-dropdown-trigger:hover { opacity: 0.72; }
 .hero-nav-links .chev {
   width: 13px; height: 13px;
@@ -369,6 +377,13 @@ body { background: #fff; color: #0a0a0a; }
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+/* Samme grep som .hero-nav-links: undermenyen er en liste, så flex-
+   stablingen flyttes fra panelet til <ul>-en inni. */
+.nav-dropdown-panel > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 .nav-dropdown:hover .nav-dropdown-panel,
 .nav-dropdown:focus-within .nav-dropdown-panel {
@@ -1027,14 +1042,14 @@ img[loading="lazy"] {
   font-size: 21px;
   letter-spacing: 0.05em;
 }
-.hero-nav-links > a,
+.hero-nav-links > ul > li > a,
 .hero-nav-links .nav-dropdown-trigger,
 .nav-btn-ghost,
 .nav-btn-lime {
   font-family: 'Syne', 'Geist', sans-serif;
   font-weight: 600;
 }
-.hero-nav-links > a,
+.hero-nav-links > ul > li > a,
 .hero-nav-links .nav-dropdown-trigger {
   font-size: 14.5px;
   letter-spacing: 0.002em;
@@ -1042,7 +1057,7 @@ img[loading="lazy"] {
 /* Syne er merkbart bredere enn Geist — «Kompetanse» går fra 91 til
    98px. Grad og mellomrom trekkes ned tilsvarende, ellers måtte
    hamburger-brytepunktet flyttes helt opp mot 1300px. */
-.hero-nav-links { gap: 28px; }
+.hero-nav-links > ul { gap: 28px; }
 .nav-btn-ghost,
 .nav-btn-lime { font-size: 12px; letter-spacing: 0.1em; }
 /* Slagordet forblir i Geist. Syne er en display-skrift og blir
@@ -1089,8 +1104,8 @@ img[loading="lazy"] {
 .mobile-menu-nav {
   flex: 1;
   justify-content: center;
-  gap: 2px;
 }
+.mobile-menu-nav > ul { gap: 2px; }
 .mobile-menu-nav a {
   /* Samme skrift som nav-lenkene på desktop */
   font-family: 'Syne', 'Geist', sans-serif;
@@ -1162,7 +1177,7 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 }
 .hero-nav .brand,
 .hero-nav .hero-tagline,
-.hero-nav-links > a,
+.hero-nav-links > ul > li > a,
 .hero-nav-links .nav-dropdown-trigger,
 .nav-btn-ghost,
 .hero-nav .menu-btn { transition: color 0.55s ease; }
@@ -1171,9 +1186,9 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
   color: rgba(10,10,10,0.6);
   border-left-color: rgba(10,10,10,0.18);
 }
-.hero-nav.is-dark .hero-nav-links > a,
+.hero-nav.is-dark .hero-nav-links > ul > li > a,
 .hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger { color: rgba(10,10,10,0.82); }
-.hero-nav.is-dark .hero-nav-links > a:hover,
+.hero-nav.is-dark .hero-nav-links > ul > li > a:hover,
 .hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger:hover { color: #0a0a0a; }
 .hero-nav.is-dark .nav-btn-ghost { color: rgba(10,10,10,0.75); }
 .hero-nav.is-dark .nav-btn-ghost:hover { color: #0a0a0a; }

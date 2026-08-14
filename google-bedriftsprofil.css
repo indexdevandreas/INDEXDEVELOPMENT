@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════════════════
+   GOOGLE BEDRIFTSPROFIL
+   Egen, enkel side — samme mønster som kompetanse.css/om-meg.css:
+   blå gradient-hero, delte pf- og platform-top-klasser fra sider.css
+   for seksjonsoverskrifter, og noen få sidespesifikke klasser for
+   det som er unikt her.
+   ═══════════════════════════════════════════════════════════ */
+
+.page-hero {
+  min-height: min(58vh, 540px);
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.gb-hero { margin-top: auto; padding: 0 56px 58px; max-width: 760px; }
+
+
+/* ─── Hva som settes opp ─── */
+.gb-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px 56px;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.gb-item { padding-top: 24px; border-top: 1px solid rgba(10,10,10,0.14); }
+.gb-n {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: rgba(10,10,10,0.4);
+  margin-bottom: 20px;
+}
+.gb-item h3 {
+  font-size: clamp(19px, 1.7vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+}
+.gb-item p { font-size: 15px; line-height: 1.62; color: rgba(10,10,10,0.62); }
+
+@media (max-width: 700px) {
+  .gb-grid { grid-template-columns: 1fr; gap: 0; }
+  .gb-item { padding: 22px 0 26px; }
+}
+
+
+/* ─── Pris-notis ─── */
+.gb-note {
+  border-radius: 22px;
+  background: #0d0d0d;
+  color: #fff;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 44px 44px 40px;
+}
+.gb-note-head {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 1.14;
+  max-width: 20ch;
+  margin-bottom: 16px;
+}
+.gb-note-text {
+  font-size: 15.5px;
+  line-height: 1.64;
+  color: rgba(255,255,255,0.66);
+  max-width: 580px;
+}
+.gb-note-text + .gb-note-text { margin-top: 12px; }
+.gb-note-text a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; }
+.gb-note-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.gb-note-fine { font-size: 13px; color: rgba(255,255,255,0.45); max-width: 420px; }
+.gb-note-btn {
+  --cap: 40px;
+  --pad: 6px;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  padding: var(--pad) var(--pad) var(--pad) 24px;
+}
+
+@media (max-width: 700px) {
+  .gb-note { padding: 34px 26px 30px; }
+  .gb-note-foot { flex-direction: column; align-items: flex-start; }
+}

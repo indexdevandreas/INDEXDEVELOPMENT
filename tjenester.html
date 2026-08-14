@@ -26,14 +26,16 @@
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <span class="mm-top"><svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg><span>index dev.</span></span>
-  <nav class="mobile-menu-nav">
-    <a href="index.html">Forside</a>
-    <a href="kom-i-gang.html">Kom i gang</a>
-    <a href="tjenester.html">Tjenester</a>
-    <a href="priser.html">Priser</a>
-    <a href="om-meg.html">Om meg</a>
-    <a href="index.html#blogg">Blogg</a>
-    <a href="kontakt.html">Kontakt</a>
+  <nav class="mobile-menu-nav" aria-label="Mobilmeny">
+    <ul>
+      <li><a href="index.html">Forside</a></li>
+      <li><a href="kom-i-gang.html">Kom i gang</a></li>
+      <li><a href="tjenester.html">Tjenester</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="om-meg.html">Om meg</a></li>
+      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
   </nav>
   <address class="mobile-menu-foot">
     <span class="mm-foot-label">Direkte til Andreas</span>
@@ -55,27 +57,32 @@
       <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
     </div>
 
-    <nav class="hero-nav-links">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          Tjenester
-          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
-          <a href="drift.html">Drift &amp; vedlikehold</a>
-          <a href="systemutvikling.html">Systemutvikling</a>
-          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
-          <a href="api-integrasjoner.html">API-integrasjoner</a>
-          <a href="booking-systemer.html">Booking-systemer</a>
-          <span class="nav-dropdown-sep" aria-hidden="true"></span>
-          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-      <a href="kompetanse.html">Kompetanse</a>
-      <a href="om-meg.html">Om meg</a>
-      <a href="index.html#blogg">Blogg</a>
-      <a href="priser.html">Priser</a>
+    <nav class="hero-nav-links" aria-label="Hovedmeny">
+      <ul>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Tjenester
+            <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <ul>
+              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+              <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+              <li><a href="systemutvikling.html">Systemutvikling</a></li>
+              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+              <li><a href="booking-systemer.html">Booking-systemer</a></li>
+              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+              <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
+              <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="kompetanse.html">Kompetanse</a></li>
+        <li><a href="om-meg.html">Om meg</a></li>
+        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="priser.html">Priser</a></li>
+      </ul>
     </nav>
 
     <div class="hero-nav-actions">
@@ -103,7 +110,7 @@
     </div>
 
     <nav class="ph-right" aria-label="Alle tjenester">
-      <p class="pi-head"><span>Innhold</span><span>07 tjenester</span></p>
+      <p class="pi-head"><span>Innhold</span><span>08 tjenester</span></p>
       <ol class="ph-index">
         <li><a href="#webdesign">
           <span class="pi-n">01</span>
@@ -141,8 +148,14 @@
           <span class="pi-price">fastpris</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
         </a></li>
-        <li><a href="#drift">
+        <li><a href="#google-bedriftsprofil">
           <span class="pi-n">07</span>
+          <span class="pi-name">Google Bedriftsprofil</span>
+          <span class="pi-price">ofte inkludert</span>
+          <span class="pi-arrow" aria-hidden="true">→</span>
+        </a></li>
+        <li><a href="#drift">
+          <span class="pi-n">08</span>
           <span class="pi-name">Drift &amp; vedlikehold</span>
           <span class="pi-price">199,-/mnd</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
@@ -244,8 +257,21 @@
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="drift" href="drift.html">
+      <a class="svc-row" id="google-bedriftsprofil" href="google-bedriftsprofil.html">
         <span class="svc-i">07</span>
+        <h3 class="svc-name">Google<br>Bedriftsprofil</h3>
+        <div class="svc-body">
+          <p>Riktig opprettet eller ryddet opp, koblet til nettsiden og til Google Search Console — så du vises i lokalt søk og på kartet.</p>
+          <div class="svc-tags"><span>Lokal SEO</span><span>Google Maps</span><span>Search Console</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Ofte inkl.</span>
+          <span class="svc-per">i nettsidepakken</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="svc-row" id="drift" href="drift.html">
+        <span class="svc-i">08</span>
         <h3 class="svc-name">Drift &amp;<br>vedlikehold</h3>
         <div class="svc-body">
           <p>Vi holder siden rask, sikker og oppdatert mens du driver bedriften. Hosting via Cloudflare, SSL, sikkerhetsoppdateringer og overvåking — alt inkludert.</p>
@@ -325,7 +351,7 @@
         <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
-      <div class="foot-col">
+      <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
           <li><a href="tjenester.html">Alle tjenester</a></li>
@@ -335,9 +361,10 @@
           <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
           <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
           <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
         </ul>
-      </div>
-      <div class="foot-col">
+      </nav>
+      <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
           <li><a href="kom-i-gang.html">Kom i gang</a></li>
@@ -349,8 +376,8 @@
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
-      </div>
-      <div class="foot-col">
+      </nav>
+      <nav class="foot-col" aria-label="Fra bloggen">
         <h3>Fra bloggen</h3>
         <ul>
           <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
@@ -359,7 +386,7 @@
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
-      </div>
+      </nav>
       <div class="foot-col contact">
         <h3>Kontakt</h3>
         <ul>

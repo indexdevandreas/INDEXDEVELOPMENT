@@ -1206,7 +1206,18 @@ html, body { overflow-x: clip; }
        her ligger han i flyten uten .hero::after-sløret over seg, og på
        en telefonskjerm tipper alt under 0.8 over til rent blått. */
     opacity: 0.82;
-    filter: saturate(0.94);
+    /* Glorien som omkranser ham på desktop kommer fra heroens radial-
+       gradient på «76% 14%» — oppe til høyre, akkurat der portrettet
+       står. På mobil flytter portrettet seg ned i flyten mens glorien
+       blir igjen i hjørnet, og han ender på flat blåfarge.
+       drop-shadow legger lyset etter alfakanalen i utklippet, så det
+       følger silhuetten hans i stedet for å tegne en firkant — og det
+       treffer uansett skjermbredde, uten å regne på hvor bildet havner.
+       To lag: ett tett for kanten, ett bredt for selve gløden. */
+    filter:
+      saturate(0.94)
+      drop-shadow(0 0 18px rgba(171,219,250,0.55))
+      drop-shadow(0 0 52px rgba(138,198,242,0.42));
     /* Fade i tre retninger: bunnen tones lengst ut (skuldrene er
        beskåret), toppen får en kort fade så hårfestet ikke ender i en
        hard kant, og sidene mykes så silhuetten ikke tegner en boks. */

@@ -35,22 +35,89 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Index Development",
-  "description": "Vi bygger lynraske nettsider, AI-agenter og skreddersydde systemer som henter inn kunder for norske bedrifter.",
-  "url": "https://indexdevelopment.no",
-  "telephone": "+4748459686",
-  "email": "andreas@indexdevelopment.no",
-  "founder": { "@type": "Person", "name": "Andreas Melheim" },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Drammen",
-    "addressRegion": "Viken",
-    "addressCountry": "NO"
-  },
-  "areaServed": "NO",
-  "priceRange": "1999–12990 NOK",
-  "knowsAbout": ["Webdesign", "SEO", "Webutvikling", "Tekstforfatning", "Grafisk design", "AI-agenter", "Chatbots", "Systemutvikling", "API-integrasjoner", "Booking-systemer", "Drift og vedlikehold", "Supabase", "Databaser"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://indexdevelopment.no/#website",
+      "url": "https://indexdevelopment.no/",
+      "name": "Index Development",
+      "alternateName": "index dev.",
+      "description": "Nettsider, AI-agenter og skreddersydde systemer for norske småbedrifter.",
+      "inLanguage": "nb-NO",
+      "publisher": { "@id": "https://indexdevelopment.no/#organization" }
+    },
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://indexdevelopment.no/#organization",
+      "name": "Index Development",
+      "alternateName": "index dev.",
+      "legalName": "Index Development",
+      "description": "Index Development bygger, kobler sammen og drifter nettsider, AI-agenter, booking-systemer og skreddersydde systemer for små og mellomstore bedrifter i Norge. Kunden ser løsningen fungere før den betaler, og får skriftlig fastpris på forhånd.",
+      "slogan": "Digitale løsninger som skaffer kunder",
+      "url": "https://indexdevelopment.no/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://indexdevelopment.no/bilder/logo.PNG",
+        "width": 1024,
+        "height": 1024
+      },
+      "image": "https://indexdevelopment.no/bilder/logo.PNG",
+      "telephone": "+4748459686",
+      "email": "andreas@indexdevelopment.no",
+      "vatID": "NO936933661",
+      "taxID": "936933661",
+      "founder": { "@type": "Person", "name": "Andreas Melheim" },
+      "employee": { "@type": "Person", "name": "Andreas Melheim" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Drammen",
+        "addressRegion": "Buskerud",
+        "addressCountry": "NO"
+      },
+      "areaServed": { "@type": "Country", "name": "Norge" },
+      "priceRange": "1999-12990 NOK",
+      "currenciesAccepted": "NOK",
+      "knowsLanguage": ["nb-NO", "en"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+4748459686",
+        "email": "andreas@indexdevelopment.no",
+        "areaServed": "NO",
+        "availableLanguage": "Norwegian"
+      },
+      "knowsAbout": ["Webdesign", "SEO", "Webutvikling", "Tekstforfatning", "Grafisk design", "AI-agenter", "Chatbots", "Systemutvikling", "API-integrasjoner", "Booking-systemer", "Google Bedriftsprofil", "Drift og vedlikehold", "Supabase", "Databaser"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tjenester for små og mellomstore bedrifter",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webdesign, SEO og utvikling", "url": "https://indexdevelopment.no/webdesign.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-agenter og chatbots", "url": "https://indexdevelopment.no/ai-agenter.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Systemutvikling", "url": "https://indexdevelopment.no/systemutvikling.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API-integrasjoner", "url": "https://indexdevelopment.no/api-integrasjoner.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Booking- og bestillingssystem", "url": "https://indexdevelopment.no/booking-systemer.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Bedriftsprofil og lokal SEO", "url": "https://indexdevelopment.no/google-bedriftsprofil.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drift, vedlikehold og support", "url": "https://indexdevelopment.no/drift.html" } }
+        ]
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://indexdevelopment.no/#hovedmeny",
+      "name": "Hovedmeny",
+      "description": "Toppnivåsidene på indexdevelopment.no.",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 6,
+      "itemListElement": [
+        { "@type": "SiteNavigationElement", "position": 1, "name": "Tjenester", "description": "Alle tjenester samlet: nettsider, AI-agenter, systemer, integrasjoner, booking, drift.", "url": "https://indexdevelopment.no/tjenester.html" },
+        { "@type": "SiteNavigationElement", "position": 2, "name": "Priser", "description": "Fastpris på nettsider fra 1 999,-, og 199,-/mnd for drift uten bindingstid.", "url": "https://indexdevelopment.no/priser.html" },
+        { "@type": "SiteNavigationElement", "position": 3, "name": "Kom i gang", "description": "Veiviser som kartlegger hva bedriften din trenger før pris gis.", "url": "https://indexdevelopment.no/kom-i-gang.html" },
+        { "@type": "SiteNavigationElement", "position": 4, "name": "Om meg", "description": "Andreas Melheim, grunnlegger av Index Development i Drammen.", "url": "https://indexdevelopment.no/om-meg.html" },
+        { "@type": "SiteNavigationElement", "position": 5, "name": "Kompetanse", "description": "Fagområder: webdesign, SEO, tekstforfatning, grafisk design, AI, API og databaser.", "url": "https://indexdevelopment.no/kompetanse.html" },
+        { "@type": "SiteNavigationElement", "position": 6, "name": "Kontakt", "description": "Ring, send e-post eller fyll ut skjemaet — du snakker direkte med utvikleren.", "url": "https://indexdevelopment.no/kontakt.html" }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="stylesheet" href="chatbot-widget.css">
@@ -75,14 +142,16 @@
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <span class="mm-top"><svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg><span>index dev.</span></span>
-  <nav class="mobile-menu-nav">
-    <a href="index.html">Forside</a>
-    <a href="kom-i-gang.html">Kom i gang</a>
-    <a href="tjenester.html">Tjenester</a>
-    <a href="priser.html">Priser</a>
-    <a href="om-meg.html">Om meg</a>
-    <a href="index.html#blogg">Blogg</a>
-    <a href="kontakt.html">Kontakt</a>
+  <nav class="mobile-menu-nav" aria-label="Mobilmeny">
+    <ul>
+      <li><a href="index.html">Forside</a></li>
+      <li><a href="kom-i-gang.html">Kom i gang</a></li>
+      <li><a href="tjenester.html">Tjenester</a></li>
+      <li><a href="priser.html">Priser</a></li>
+      <li><a href="om-meg.html">Om meg</a></li>
+      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
   </nav>
   <address class="mobile-menu-foot">
     <span class="mm-foot-label">Direkte til Andreas</span>
@@ -105,27 +174,32 @@
       <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
     </div>
 
-    <nav class="hero-nav-links">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          Tjenester
-          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="webdesign.html">Webdesign, SEO &amp; utvikling</a>
-          <a href="drift.html">Drift &amp; vedlikehold</a>
-          <a href="systemutvikling.html">Systemutvikling</a>
-          <a href="ai-agenter.html">AI-agenter &amp; chatbots</a>
-          <a href="api-integrasjoner.html">API-integrasjoner</a>
-          <a href="booking-systemer.html">Booking-systemer</a>
-          <span class="nav-dropdown-sep" aria-hidden="true"></span>
-          <a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-      <a href="kompetanse.html">Kompetanse</a>
-      <a href="om-meg.html">Om meg</a>
-      <a href="index.html#blogg">Blogg</a>
-      <a href="priser.html">Priser</a>
+    <nav class="hero-nav-links" aria-label="Hovedmeny">
+      <ul>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Tjenester
+            <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <ul>
+              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+              <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
+              <li><a href="systemutvikling.html">Systemutvikling</a></li>
+              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+              <li><a href="booking-systemer.html">Booking-systemer</a></li>
+              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+              <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
+              <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="kompetanse.html">Kompetanse</a></li>
+        <li><a href="om-meg.html">Om meg</a></li>
+        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="priser.html">Priser</a></li>
+      </ul>
     </nav>
 
     <div class="hero-nav-actions">
@@ -167,6 +241,7 @@
     <a href="systemutvikling.html">Systemutvikling</a>
     <a href="api-integrasjoner.html">API-integrasjoner</a>
     <a href="booking-systemer.html">Booking-systemer</a>
+    <a href="google-bedriftsprofil.html">Google Bedriftsprofil</a>
     <a href="drift.html">Drift &amp; vedlikehold</a>
   </nav>
 </section>
@@ -418,7 +493,7 @@
   <div class="platform-top">
     <p class="pf-eyebrow"><span class="pf-sq"></span>TJENESTER</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Seks tjenester,<br>én leverandør.</h2>
+      <h2 class="pf-head">Sju tjenester,<br>én leverandør.</h2>
       <div class="pf-aside">
         <p>Start med en nettside, eller bygg et helt system. Samme kodebase, samme drift, én å ringe.</p>
         <a class="pf-link" href="tjenester.html">Se alle tjenester <span class="pf-link-arrow">→</span></a>
@@ -457,8 +532,14 @@
       <p>Kunder booker direkte på nettsiden, alt lagres i din egen database.</p>
       <span class="sv-go" aria-hidden="true">→</span>
     </a>
-    <a class="sv-card sv-dark sv-wide" href="drift.html">
+    <a class="sv-card sv-lime" href="google-bedriftsprofil.html">
       <span class="sv-num">06</span>
+      <h3>Google Bedriftsprofil</h3>
+      <p>Riktig satt opp og koblet til nettsiden, så du vises i lokalt søk og på kartet.</p>
+      <span class="sv-go" aria-hidden="true">→</span>
+    </a>
+    <a class="sv-card sv-dark sv-wide" href="drift.html">
+      <span class="sv-num">07</span>
       <h3>Drift &amp; vedlikehold</h3>
       <p>Det eneste som løper videre etter lansering: vi holder siden rask, sikker og oppdatert for 199,-/mnd. Cloudflare, SSL, overvåking og småendringer.</p>
       <span class="sv-go" aria-hidden="true">→</span>
@@ -644,7 +725,7 @@
         <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
-      <div class="foot-col">
+      <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
           <li><a href="tjenester.html">Alle tjenester</a></li>
@@ -654,9 +735,10 @@
           <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
           <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
           <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
         </ul>
-      </div>
-      <div class="foot-col">
+      </nav>
+      <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
           <li><a href="kom-i-gang.html">Kom i gang</a></li>
@@ -668,8 +750,8 @@
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
-      </div>
-      <div class="foot-col">
+      </nav>
+      <nav class="foot-col" aria-label="Fra bloggen">
         <h3>Fra bloggen</h3>
         <ul>
           <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
@@ -678,7 +760,7 @@
           <li><a href="personvern.html">Personvernerklæring</a></li>
           <li><a href="vilkar.html">Vilkår</a></li>
         </ul>
-      </div>
+      </nav>
       <div class="foot-col contact">
         <h3>Kontakt</h3>
         <ul>

@@ -35,15 +35,16 @@
     {
       id: 'behov',
       type: 'multi',
-      q: 'Hva trenger du hjelp med?',
-      hjelp: 'Kryss av alt som passer — det er lov å velge flere, og det er lov å ikke vite.',
+      q: 'Hei! Hva trenger du hjelp med?',
+      hjelp: 'Jeg er Andreas, og jeg leser svarene selv — ingen skjema forsvinner inn i et system. Kryss av alt som passer, det er lov å velge flere, og det er lov å ikke vite.',
       valg: [
         { v: 'Nettside',            d: 'Ny side, eller erstatte den du har i dag' },
         { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, eller jobber i bakgrunnen' },
         { v: 'Systemutvikling',     d: 'Database, innlogging eller et adminpanel' },
         { v: 'API-integrasjon',     d: 'Koble sammen systemene du allerede bruker' },
         { v: 'Booking-system',      d: 'Kunder bestiller time selv' },
-        { v: 'Drift og vedlikehold',   d: 'Hosting, sikkerhet og oppdateringer — løpende' },
+        { v: 'Google Bedriftsprofil', d: 'Vises i lokalt søk og på Google Maps' },
+        { v: 'Drift, vedlikehold og support', d: 'Hosting, sikkerhet og oppdateringer — løpende' },
         { v: 'Jeg vet ikke helt',   d: 'Helt greit — da finner vi ut av det sammen' }
       ]
     },
@@ -51,7 +52,7 @@
       id: 'nettside_idag',
       type: 'single',
       q: 'Har du en nettside i dag?',
-      vis: function () { return harNoen('behov', ['Nettside', 'Drift og vedlikehold', 'Jeg vet ikke helt']); },
+      vis: function () { return harNoen('behov', ['Nettside', 'Drift, vedlikehold og support', 'Jeg vet ikke helt']); },
       valg: [
         { v: 'Nei, ingen ennå',              d: 'Vi starter med blanke ark' },
         { v: 'Ja, men den skaffer ingen kunder', d: 'Den finnes, men telefonen ringer ikke' },
@@ -124,13 +125,13 @@
     {
       id: 'budsjett',
       type: 'single',
-      q: 'Har du en ramme du forholder deg til?',
-      hjelp: 'Ingen felle. Enkeltdelene er rimelige hver for seg, men de bygger seg fort opp — derfor spør jeg før jeg foreslår noe.',
+      q: 'Har du en sum i bakhodet?',
+      hjelp: 'Ikke en felle, og ikke en høy terskel — nettsidene våre starter på 1 999,-. Dette hjelper meg bare å treffe riktig med forslaget.',
       valg: [
-        { v: 'Under 15 000',       d: 'Nettside, eller én avgrenset kobling' },
-        { v: '15 000 – 50 000',    d: 'Nettsted med flere deler, eller et mindre system' },
-        { v: '50 000 – 150 000',   d: 'System, integrasjoner og AI som henger sammen' },
-        { v: 'Over 150 000',       d: 'Større utvikling, gjerne i flere etapper' },
+        { v: 'Under 5 000',        d: 'Nettside, eller én avgrenset oppgave' },
+        { v: '5 000 – 15 000',     d: 'Nettsted med flere deler' },
+        { v: '15 000 – 40 000',    d: 'System, integrasjoner eller AI som henger sammen' },
+        { v: 'Over 40 000',        d: 'Større utvikling, gjerne i flere etapper' },
         { v: 'Vet ikke — si hva det koster', d: 'Du får fastpris skriftlig før noe avgjøres' }
       ]
     }
@@ -403,7 +404,9 @@
     /* Aldri helt tom: en synlig stripe fra start gjør at linja leses
      som fremdrift og ikke som noe ødelagt. */
   if (fill) fill.style.width = Math.max(5, Math.round((i / totalt) * 100)) + '%';
-    if (counter) counter.textContent = 'Spørsmål ' + (i + 1) + ' av ' + totalt;
+    /* «Steg», ikke «Spørsmål»: det første leser som en reise du er på
+       sammen med noen, det andre som et skjema du blir avhørt med. */
+    if (counter) counter.textContent = 'Steg ' + (i + 1) + ' av ' + totalt;
     if (backBtn) backBtn.hidden = !kanTilbake;
   }
 
