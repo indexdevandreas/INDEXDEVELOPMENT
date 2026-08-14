@@ -222,37 +222,53 @@ body { background: #fff; color: #0a0a0a; }
    blur-en lett med vilje: gradienten bak skal fortsatt leses tydelig
    gjennom baren — den skal bare løfte seg fra den, ikke dekke den. */
 .hero-nav {
+  /* Baren er alltid fast og i full bredde. «Pillen» og den hvite baren
+     er to lag (::before og ::after) som krysstoner — geometrien flytter
+     seg ikke i det hele tatt, så overgangen er en ren fade. Å animere
+     bredden så hakkete ut. */
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  z-index: 60;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  /* Fast fra start. Lå tidligere i flyten og byttet til «fixed» ved
-     rulling — men position kan ikke animeres, så baren hoppet i stedet
-     for å utvide seg. Nå endres bare bredde, marg, radius og farge, og
-     alt det lar seg overgangsanimere. */
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 60;
-  max-width: 1290px;
-  width: calc(100% - 36px);
-  margin: 16px auto 0;
-  padding: 12px 12px 12px 22px;
-  transition:
-    max-width 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-    width 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-    margin 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-    background 0.42s ease,
-    box-shadow 0.42s ease,
-    border-color 0.42s ease;
+  padding: 28px max(40px, calc((100% - 1246px) / 2)) 12px;
+}
+/* Laget som ser ut som en svevende pille */
+.hero-nav::before {
+  content: "";
+  position: absolute;
+  top: 16px; bottom: 0;
+  left: max(18px, calc((100% - 1290px) / 2));
+  right: max(18px, calc((100% - 1290px) / 2));
   border-radius: 18px;
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(9px) saturate(1.2);
   -webkit-backdrop-filter: blur(9px) saturate(1.2);
+  backdrop-filter: blur(9px) saturate(1.2);
   box-shadow: 0 14px 34px rgba(3,24,58,0.15);
+  transition: opacity 0.55s ease;
 }
+/* Laget som ser ut som en hvit bar i full bredde */
+.hero-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid rgba(10,10,10,0.09);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  backdrop-filter: blur(16px) saturate(1.1);
+  box-shadow: 0 6px 26px rgba(10,10,10,0.07);
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+/* Innholdet skal ligge over begge lagene */
+.hero-nav > * { position: relative; z-index: 1; }
+
+.hero-nav.is-stuck::before { opacity: 0; }
+.hero-nav.is-stuck::after  { opacity: 1; }
 
 /* Logo + slagord, skilt med en tynn strek — venstre blokk i baren */
 .hero-brand {
@@ -294,9 +310,7 @@ body { background: #fff; color: #0a0a0a; }
   width: 30px; height: 30px;
   flex-shrink: 0;
   display: block;
-  background: currentColor;
-  -webkit-mask: var(--logo-maske) center / contain no-repeat;
-  mask: var(--logo-maske) center / contain no-repeat;
+  fill: currentColor;
 }
 .brand-big .mark { width: 34px; height: 34px; }
 /* Footerens wordmark skal ha samme tynne behandling som i nav-en —
@@ -1140,6 +1154,12 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
   border-color: rgba(10,10,10,0.10);
   box-shadow: 0 10px 28px rgba(10,10,10,0.07);
 }
+.hero-nav .brand,
+.hero-nav .hero-tagline,
+.hero-nav-links > a,
+.hero-nav-links .nav-dropdown-trigger,
+.nav-btn-ghost,
+.hero-nav .menu-btn { transition: color 0.55s ease; }
 .hero-nav.is-dark .brand { color: #0a0a0a; }
 .hero-nav.is-dark .hero-tagline {
   color: rgba(10,10,10,0.6);
@@ -1277,19 +1297,8 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 /* Fast bar. Settes av hjemmeside.js i det man begynner å rulle.
    Her endres kun bredde, marg, radius og farge — baren ligger allerede
    fast, så utvidelsen glir i stedet for å hoppe. */
-.hero-nav.is-stuck {
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
-  border-color: transparent;
-  border-bottom: 1px solid rgba(10,10,10,0.09);
-  background: rgba(255,255,255,0.94);
-  -webkit-backdrop-filter: blur(16px) saturate(1.1);
-  backdrop-filter: blur(16px) saturate(1.1);
-  box-shadow: 0 6px 26px rgba(10,10,10,0.07);
-  padding: 12px max(22px, calc((100% - 1290px) / 2 + 22px));
-}
+/* Selve .is-stuck-regelen er tom nå: alt som skiller de to
+   tilstandene ligger i ::before og ::after over. */
 
 @media (prefers-reduced-motion: reduce) {
   .hero-nav { animation: none; }

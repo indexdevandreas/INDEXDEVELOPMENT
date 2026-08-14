@@ -1161,12 +1161,37 @@ html, body { overflow-x: clip; }
 
   /* Portrettet forankres i nedre høyre hjørne så det ligger utenfor
      tekstblokken i stedet for bak den. */
-  /* Portrettet ble en blek klatt nede i hjørnet: 60 % bredde, nedre
-     halvdel maskert bort og 0.7 opasitet over en blå flate. Man så
-     toppen av et hode og ingenting mer.
-     Heroen er full av tekst på mobil — det er ikke plass til et
-     portrett i tillegg. Andreas står i full størrelse på om-meg. */
-  .hero-photo { display: none; }
+  /* Portrettet var først en blek klatt (60 % bredde, halve maskert bort,
+     0.7 opasitet), så ble det skjult helt, så lagt bak teksten. Ingen av
+     delene fungerte: heroen er full av tekst på mobil, og et absolutt
+     plassert portrett havner alltid bak noe.
+     Her tas det ut av absoluttplasseringen og får en egen rad i flyten,
+     mellom teksten og tjenestelenkene. Da kolliderer det ikke med noe. */
+  .hero { min-height: 0; }
+  .hero-photo {
+    display: block;
+    position: relative;
+    order: 3;
+    top: auto; right: auto; bottom: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 22px;
+    /* .hero::after legger en kopi av gradienten oppå fotoet (z-index 1)
+       for å dekke bunnkanten på desktop. I flyten her havner portrettet
+       under det sløret og blekner — derfor over. */
+    z-index: 2;
+  }
+  .hero-photo img {
+    height: 290px;
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 1;
+    filter: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 84%, rgba(0,0,0,0.45) 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 84%, rgba(0,0,0,0.45) 95%, transparent 100%);
+  }
+  .hero-body { order: 2; align-items: flex-start; padding-top: 10px; }
+  .hero-services { order: 4; position: relative; z-index: 4; margin-top: 0; }
 
   .platform { padding: 84px 0 80px; }
   .stats2, .convert, .reviews,
