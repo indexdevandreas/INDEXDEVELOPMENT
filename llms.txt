@@ -1,0 +1,38 @@
+# Index Development
+
+> Index Development bygger og drifter nettsider, AI-agenter/chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift for små og mellomstore bedrifter i Norge. Fastpris ved oppstart, deretter 199 kr/måned for hosting og drift på Cloudflare.
+
+Index Development er et enkeltpersonforetak drevet av Andreas Melheim, basert i Drammen, Norge. Nettsidene bygges håndkodet (HTML/CSS/JS), er optimalisert for ytelse og SEO, og skrives på norsk (nb-NO). Kontakt: andreas@indexdevelopment.no, +47 484 59 686.
+
+## Tjenester
+
+- [Tjenester — oversikt](https://indexdevelopment.no/tjenester.html): Alle tjenester samlet ett sted.
+- [Webdesign, SEO & utvikling](https://indexdevelopment.no/webdesign.html): Håndkodede nettsider med fokus på ytelse og konvertering.
+- [AI-agenter og chatbots](https://indexdevelopment.no/ai-agenter.html): Chatbot for bedriften, trent på egne data.
+- [Systemutvikling](https://indexdevelopment.no/systemutvikling.html): Skreddersydde systemer — database, innlogging, adminpanel.
+- [API-integrasjoner](https://indexdevelopment.no/api-integrasjoner.html): Kobler sammen systemer og tredjepartstjenester.
+- [Booking- og bestillingssystem](https://indexdevelopment.no/booking-systemer.html): Bygget inn i nettsiden, ikke et separat abonnement.
+- [Drift & vedlikehold](https://indexdevelopment.no/drift.html): Hosting på Cloudflare, SSL, oppetidssjekk og sikkerhetskopi.
+
+## Priser og oppstart
+
+- [Priser](https://indexdevelopment.no/priser.html): Fastpris for nettsider, pris på forespørsel for resten.
+- [Kom i gang](https://indexdevelopment.no/kom-i-gang.html): Veiviser som kartlegger behov før pris gis skriftlig.
+- [Ingen bindingstid](https://indexdevelopment.no/ingen-bindingstid.html): Vilkår for oppsigelse av driftsavtalen.
+
+## Om oss
+
+- [Om meg](https://indexdevelopment.no/om-meg.html): Andreas Melheim, grunnlegger.
+- [Kompetanse](https://indexdevelopment.no/kompetanse.html): Fagområder — webdesign, SEO, tekstforfatning, grafisk design, AI-agenter, API-integrasjoner, databaser.
+- [Kontakt](https://indexdevelopment.no/kontakt.html): Direkte kontakt med Andreas, ikke et team.
+
+## Blogg
+
+- [Hvorfor byråer tar 30 000 for noe som koster 5 000](https://indexdevelopment.no/blogg-pris.html)
+- [Hvorfor Google ikke finner bedriften din](https://indexdevelopment.no/blogg-seo.html)
+- [Hvorfor ringer ikke telefonen, selv om du har nettside?](https://indexdevelopment.no/blogg-tlf.html)
+
+## Juridisk
+
+- [Personvernerklæring](https://indexdevelopment.no/personvern.html)
+- [Vilkår og betingelser](https://indexdevelopment.no/vilkar.html)
