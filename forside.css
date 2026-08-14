@@ -778,6 +778,173 @@
 /* ═══════════════════════════════════════════════════════════
    NORSKE AI-AGENTER
    ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   UTVIKLEREN — portrettet i et blått bånd
+   Bildet er tatt mot en trepanelvegg: varme brunkulører som
+   kolliderer med den blå/limegrønne paletten. Derfor gråtones
+   det først og farges blått igjen av et tonelag over — da leser
+   det som en del av flaten i stedet for et innlimt fotografi.
+   Kantene tones ut med maske, og rundt ligger et punktraster og
+   et par tynne ringer, slik at bildet flyter ut i båndet.
+   ═══════════════════════════════════════════════════════════ */
+.meg { background: #fff; padding: 20px 0 120px; }
+.mg-band {
+  position: relative;
+  overflow: hidden;
+  max-width: 1290px;
+  margin: 0 auto;
+  border-radius: 26px;
+  padding: 66px 66px 66px 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+  /* Samme gradient som heroen — båndet skal lese som en retur til
+     merkefargen, ikke som enda et mørkt kort etter Drift-kortet. */
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+
+/* ─── Abstrakte lag ─── */
+.mg-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.20) 1.1px, transparent 1.1px);
+  background-size: 26px 26px;
+  /* Rasteret samles rundt portrettet og forsvinner ut mot teksten,
+     så det aldri konkurrerer med lesningen. */
+  -webkit-mask-image: radial-gradient(64% 74% at 24% 50%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(64% 74% at 24% 50%, #000 0%, transparent 80%);
+}
+.mg-ring {
+  position: absolute;
+  left: -110px; bottom: -150px;
+  width: 430px; height: 430px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  pointer-events: none;
+}
+.mg-ring::before {
+  content: "";
+  position: absolute;
+  inset: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ─── Portrettet ─── */
+.mg-media {
+  position: relative;
+  margin: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 864 / 918;
+}
+.mg-glow {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 132%; height: 120%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side,
+    rgba(196,231,253,0.50) 0%,
+    rgba(150,205,242,0.24) 54%,
+    transparent 100%);
+}
+/* Masken ligger på rammen, ikke på <img>, slik at både bildet og
+   tonelaget under klippes likt. Uten det ville tonelaget tegne en
+   skarp firkant der bildekantene allerede er tonet ut. */
+.mg-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  isolation: isolate;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 11%, #000 85%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 11%, #000 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.mg-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 34%;
+  display: block;
+  border-radius: 20px;
+  /* Ansiktet ligger i skygge i originalen, og øynene forsvant. Det er
+     den senkede kontrasten som løfter dem — brightness alene vasker
+     bare ut hele bildet. Saturation får et lite påslag fordi lavere
+     kontrast tar noe av fargen med seg. Over ~1.25 metning går
+     trepanelet mot oransje og slåss med det blå. */
+  filter: saturate(1.18) contrast(0.95) brightness(1.13);
+}
+.mg-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  /* Sløret er trukket ned til nesten ingenting — det skal bare knytte
+     kantene til båndet, ikke ta farge ut av bildet. */
+  background: linear-gradient(152deg,
+    rgba(37,71,255,0.09) 0%,
+    rgba(22,112,201,0.06) 48%,
+    rgba(212,255,61,0.03) 100%);
+}
+
+/* ─── Tekstsiden ─── */
+.mg-text { position: relative; z-index: 2; max-width: 560px; }
+.mg-eyebrow { color: rgba(255,255,255,0.72); margin-bottom: 30px; }
+.mg-eyebrow .pf-sq { background: var(--lime); }
+.mg-head { color: #fff; }
+.mg-lead {
+  margin-top: 22px;
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: rgba(255,255,255,0.78);
+  max-width: 50ch;
+}
+.mg-sign {
+  margin-top: 20px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.mg-foot { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 34px; }
+.mg-link { color: #fff; border-bottom-color: var(--lime); }
+.mg-link:hover .pf-link-arrow { transform: translateX(5px); }
+.mg-link-ghost { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.32); }
+.mg-link-ghost:hover { color: #fff; }
+
+@media (max-width: 980px) {
+  .mg-band {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 44px 30px 48px;
+    text-align: left;
+  }
+  /* Stablet ligger portrettet over teksten. 330px lot en tredjedel av
+     båndet stå tom ved siden av det på nettbrett — 430 fyller raden
+     uten å bli et plakatbilde. */
+  .mg-media { max-width: 430px; justify-self: start; }
+  .mg-dots { -webkit-mask-image: radial-gradient(78% 42% at 30% 24%, #000 0%, transparent 82%); mask-image: radial-gradient(78% 42% at 30% 24%, #000 0%, transparent 82%); }
+  .mg-ring { left: auto; right: -150px; bottom: -180px; }
+}
+@media (max-width: 620px) {
+  .mg-band { padding: 34px 22px 40px; border-radius: 22px; }
+  .mg-media { max-width: 100%; }
+  .mg-lead { font-size: 15.5px; }
+}
+
 .norsk { background: #fff; padding: 20px 0 120px; }
 .nk-grid {
   display: grid;

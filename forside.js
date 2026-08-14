@@ -16,6 +16,7 @@
     '.cv-grid',
     '.rv-grid',
     '.sv-grid',
+    '.mg-band',
     '.nk-grid',
     '.bl-grid',
     '.fq-left',
@@ -75,6 +76,14 @@
           group.querySelector('.pf-eyebrow'),
           group.querySelector('.pf-head'),
           group.querySelector('.pf-aside')
+        ].filter(Boolean);
+      } else if (group.classList.contains('mg-band')) {
+        /* Bare portrettet og teksten. Punktrasteret og ringene ligger
+           absolutt plassert som dekor — de skal stå i ro, ellers sklir
+           hele bakgrunnen 26px når båndet kommer inn i bildet. */
+        kids = [
+          group.querySelector('.mg-media'),
+          group.querySelector('.mg-text')
         ].filter(Boolean);
       } else {
         kids = Array.prototype.slice.call(group.children);
