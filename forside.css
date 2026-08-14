@@ -940,9 +940,37 @@
   .mg-ring { left: auto; right: -150px; bottom: -180px; }
 }
 @media (max-width: 620px) {
-  .mg-band { padding: 34px 22px 40px; border-radius: 22px; }
-  .mg-media { max-width: 100%; }
-  .mg-lead { font-size: 15.5px; }
+  .mg-band { padding: 32px 22px 38px; border-radius: 22px; gap: 24px; }
+  /* Full bredde ga et nesten kvadratisk portrett på ~330px som spiste
+     halve mobilskjermen og dyttet overskriften under fold. På mobil
+     skal bildet lese som et byline-portrett ved siden av avsenderen:
+     lite, kvadratisk crop på ansiktet, venstrestilt mot teksten. */
+  .mg-media {
+    width: 128px;
+    max-width: none;
+    aspect-ratio: 1 / 1;
+    justify-self: start;
+  }
+  /* Den myke utoningen er laget for et stort bilde. I småformat spiser
+     den halve motivet og etterlater en grumsete kant — der trengs en
+     definert ramme i stedet. */
+  .mg-frame {
+    -webkit-mask-image: none;
+    mask-image: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.24),
+      0 14px 30px rgba(3,28,60,0.30);
+  }
+  .mg-frame img { object-position: 50% 24%; border-radius: 18px; }
+  /* Glowen er relativ til rammen, så den må skaleres opp når rammen
+     krymper — ellers blir den en flekk bak bildet. */
+  .mg-glow { width: 210%; height: 190%; }
+  .mg-dots { -webkit-mask-image: radial-gradient(88% 34% at 26% 14%, #000 0%, transparent 84%); mask-image: radial-gradient(88% 34% at 26% 14%, #000 0%, transparent 84%); }
+  .mg-eyebrow { margin-bottom: 18px; }
+  .mg-lead { font-size: 15.5px; margin-top: 18px; }
+  .mg-foot { margin-top: 26px; gap: 12px 22px; }
 }
 
 .norsk { background: #fff; padding: 20px 0 120px; }
