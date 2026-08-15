@@ -154,3 +154,58 @@
   .legal-card { padding: 26px 22px; border-radius: 14px; }
   .legal-partners { grid-template-columns: 1fr; }
 }
+
+/* ─── Delte blokker for konvertering.html og ingen-bindingstid.html ─── */
+
+.lx-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.lx-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.lx-grid2 > .legal-card, .lx-grid3 > .legal-card { margin: 0; }
+
+/* Mørk kortvariant — samme flate som sidens hero */
+.legal-card.is-dark { background: #0a0a0a; }
+.legal-card.is-dark h2 { color: #fff; }
+.legal-card.is-dark p { color: rgba(255,255,255,0.72); }
+.legal-card.is-dark .legal-num { color: rgba(255,255,255,0.55); }
+.legal-card.is-dark .legal-list li { color: rgba(255,255,255,0.72); }
+.legal-card.is-dark strong { color: #fff; }
+.legal-card.is-dark a { color: #fff; }
+
+/* Statistikk-fliser */
+.lx-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+.lx-stat { background: #fff; border-radius: 12px; padding: 22px 24px; }
+.lx-stat-num {
+  font-size: 40px; font-weight: 700; letter-spacing: -0.03em;
+  color: #0a0a0a; line-height: 1;
+}
+.lx-stat-num .u { font-size: 19px; font-weight: 600; margin-left: 2px; }
+.lx-stat p { font-size: 13.5px; line-height: 1.5; color: rgba(10,10,10,0.55); margin: 8px 0 0; }
+.legal-card.is-dark .lx-stat { background: rgba(255,255,255,0.07); }
+.legal-card.is-dark .lx-stat-num { color: var(--lime, #d4ff32); }
+.legal-card.is-dark .lx-stat p { color: rgba(255,255,255,0.6); }
+
+/* Liste-varianter til sammenligning: ✕ mot ✓ */
+.lx-x li::before, .lx-check li::before {
+  background: none; width: auto; height: auto; top: 0;
+  font-weight: 700; font-size: 14px;
+}
+.lx-x li::before { content: "✕"; color: rgba(10,10,10,0.35); }
+.lx-check li::before { content: "✓"; color: var(--lime, #d4ff32); }
+
+/* Filliste i «koden er din»-boksen */
+.lx-files { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.lx-file {
+  display: flex; justify-content: space-between; gap: 14px;
+  background: #fff; border-radius: 10px; padding: 13px 18px;
+  font-family: 'Geist Mono', monospace; font-size: 13px; color: #0a0a0a;
+}
+.lx-file span { color: rgba(10,10,10,0.45); font-family: 'Geist', sans-serif; }
+
+/* CTA-kort nederst */
+.lx-cta { text-align: left; }
+.lx-cta .btn-circle { margin-top: 24px; }
+.lx-cta-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 20px; }
+.lx-cta-links a { font-weight: 600; }
+
+@media (max-width: 860px) {
+  .lx-grid2, .lx-grid3, .lx-stats { grid-template-columns: 1fr; }
+}
