@@ -36,7 +36,7 @@
       id: 'behov',
       type: 'multi',
       q: 'Hei! Hva trenger du hjelp med?',
-      hjelp: 'Jeg er Andreas, og jeg leser svarene selv — ingen skjema forsvinner inn i et system. Kryss av alt som passer, det er lov å velge flere, og det er lov å ikke vite.',
+      hjelp: 'Jeg er Andreas, og jeg leser svarene selv — ingenting forsvinner inn i et system. Kryss av alt som passer, og det er helt lov å ikke vite.',
       valg: [
         { v: 'Nettside',            d: 'Ny side, eller erstatte den du har i dag' },
         { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, eller jobber i bakgrunnen' },
@@ -64,7 +64,7 @@
       id: 'nettside_omfang',
       type: 'single',
       q: 'Hvor stor ser du for deg at siden blir?',
-      hjelp: 'Bare et grovt anslag. Vi justerer når vi har snakket.',
+      hjelp: 'Bare et grovt anslag. Vi justerer når vi har snakket sammen.',
       vis: function () { return har('behov', 'Nettside'); },
       valg: [
         { v: 'Én landingsside',   d: 'Én god side som gjør én jobb' },
