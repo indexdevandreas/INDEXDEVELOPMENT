@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /design-test/
+Disallow: /demos/
+Disallow: /BS/
+Disallow: /verktoy/
+Disallow: /renrask/
+Disallow: /hanshaugerud/
 
 Sitemap: https://indexdevelopment.no/sitemap.xml

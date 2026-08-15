@@ -1,0 +1,15 @@
+# Interne mapper og arbeidskopier skal ikke indekseres av søkemotorer.
+# (Cloudflare Pages leser denne filen; stien er fortsatt tilgjengelig,
+# den holdes bare ute av Google.)
+/design-test/*
+  X-Robots-Tag: noindex
+/demos/*
+  X-Robots-Tag: noindex
+/BS/*
+  X-Robots-Tag: noindex
+/verktoy/*
+  X-Robots-Tag: noindex
+/renrask/*
+  X-Robots-Tag: noindex
+/hanshaugerud/*
+  X-Robots-Tag: noindex
