@@ -390,7 +390,12 @@ body { background: #fff; color: #0a0a0a; }
   opacity: 1; visibility: visible;
   transform: translate(-50%, 0);
 }
+/* «display: block» er ikke pynt: uten den er lenkene inline, og da
+   ignorerer layouten den vertikale paddingen samtidig som hover-flaten
+   krymper til tekstbredden. Radene ble liggende tett i tett, og
+   markeringen la seg som en løs boks oppå naboradene. */
 .nav-dropdown-panel a {
+  display: block;
   padding: 11px 14px;
   border-radius: 10px;
   font-size: 14px;
