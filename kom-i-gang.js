@@ -126,10 +126,10 @@
       id: 'budsjett',
       type: 'single',
       q: 'Har du en sum i bakhodet?',
-      hjelp: 'Ikke en felle, og ikke en høy terskel — nettsidene våre starter på 1 999,-. Dette hjelper meg bare å treffe riktig med forslaget.',
+      hjelp: 'Ikke en felle, og ikke en høy terskel — nettsidene våre starter på 2 900,-. Dette hjelper meg bare å treffe riktig med forslaget.',
       valg: [
-        { v: 'Under 5 000',        d: 'Nettside, eller én avgrenset oppgave' },
-        { v: '5 000 – 15 000',     d: 'Nettsted med flere deler' },
+        { v: 'Under 5 000',        d: 'Nettside, chatbot eller en enkel integrasjon' },
+        { v: '5 000 – 15 000',     d: 'Større nettsted, AI-chatbot eller booking' },
         { v: '15 000 – 40 000',    d: 'System, integrasjoner eller AI som henger sammen' },
         { v: 'Over 40 000',        d: 'Større utvikling, gjerne i flere etapper' },
         { v: 'Vet ikke — si hva det koster', d: 'Du får fastpris skriftlig før noe avgjøres' }
@@ -330,21 +330,24 @@
       + 'SVAR\n----\n' + linjer.join('\n\n') + '\n\n'
       + 'MELDING\n-------\n' + (melding || '(ingen)') + '\n';
 
+    /* FormSubmit: gratis og uten konto — adressen er base64 for å slippe
+       scraper-spam, og AJAX-endepunktet svarer med success som STRENG. */
     var fd = new FormData();
-    fd.append('access_key', atob('NWY0NjI1NWUtNDI4Ni00ZTc4LTk3N2UtM2U4MGQ2ZTMyNGI5'));
-    fd.append('subject', 'Veiviser — ' + bedrift + ' (' + navn + ')');
-    fd.append('from_name', navn + ' — ' + bedrift);
+    fd.append('_subject', 'Veiviser — ' + bedrift + ' (' + navn + ')');
+    fd.append('_template', 'box');
+    fd.append('_captcha', 'false');
+    fd.append('name', navn + ' — ' + bedrift);
     fd.append('email', epost);
     fd.append('message', tekst);
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://formsubmit.co/ajax/' + atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ=='), {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: fd
     })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        if (!d.success) throw new Error('web3forms');
+        if (String(d.success) !== 'true') throw new Error('formsubmit');
         sendt = true;
         kvittering(navn);
       })

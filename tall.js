@@ -15,10 +15,10 @@
     '.pf-val',           // forsiden: 0 maler, 100/100, 24/7
     '.s2-num',           // forsiden: 0 kr, 5 dager, 0 mnd
     '.nk-stat',          // forsiden: <1 sek
-    '.in-price-amount',  // webdesign: 1 999
+    '.in-price-amount',  // webdesign: fra 2 900
     '.pk-price',         // priser: pakkeprisene
-    '.pk-drift-num',     // priser: 199
-    '.sp-amount'         // priser: fra 1 999
+    '.pk-drift-num',     // priser: 199 / fra 14 900
+    '.sp-amount'         // priser: fra 2 900
   ].join(', ');
 
   var el = document.querySelectorAll(SELEKTORER);

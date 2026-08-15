@@ -138,7 +138,7 @@
         <a class="rc-card" href="tel:+4748459686">
           <span class="rc-label">Telefon</span>
           <span class="rc-val">+47 484 59 686</span>
-          <span class="rc-sub">Hverdager 08–20</span>
+          <span class="rc-sub">Hverdager etter 16 — SMS når som helst</span>
           <span class="rc-go" aria-hidden="true">→</span>
         </a>
         <a class="rc-card" href="mailto:andreas@indexdevelopment.no">
@@ -161,7 +161,10 @@
       <div class="rc-form-card">
         <p class="rc-form-label">Send en melding</p>
         <form class="contact-form" id="contact-form" novalidate>
-          <input type="hidden" name="subject" value="Ny henvendelse — Index Development">
+          <input type="hidden" name="_subject" value="Ny henvendelse — Index Development">
+          <!-- Honningfelle for spam-boter: mennesker ser ikke feltet, boter fyller det ut,
+               og FormSubmit forkaster innsendingen i stillhet. -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="field">
             <label for="bedrift">Bedrift</label>
@@ -330,16 +333,19 @@
     btn.disabled = true;
 
     var fd = new FormData(form);
-    fd.append('access_key', atob('NWY0NjI1NWUtNDI4Ni00ZTc4LTk3N2UtM2U4MGQ2ZTMyNGI5'));
+    fd.append('_template', 'box');
+    fd.append('_captcha', 'false');
 
-    fetch('https://api.web3forms.com/submit', {
+    /* FormSubmit: gratis og uten konto — adressen er base64 for å slippe
+       scraper-spam, og AJAX-endepunktet svarer med success som STRENG. */
+    fetch('https://formsubmit.co/ajax/' + atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ=='), {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: fd
     })
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (!data.success) throw new Error('web3forms');
+        if (String(data.success) !== 'true') throw new Error('formsubmit');
         form.style.display = 'none';
         success.removeAttribute('hidden');
       })

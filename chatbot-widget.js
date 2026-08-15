@@ -20,7 +20,7 @@
     },
     pricing: {
       message:
-        'Nettsider har fastpris — fra <strong>1 999 kr</strong>, og tallene står på prissiden.<br><br>' +
+        'Nettsider har fastpris — fra <strong>2 900 kr</strong>, og tallene står på prissiden.<br><br>' +
         'AI-agenter, systemer og integrasjoner prises etter at du har beskrevet hva du trenger. ' +
         'Du får alltid fastpris skriftlig før noe bygges.',
       buttons: [
