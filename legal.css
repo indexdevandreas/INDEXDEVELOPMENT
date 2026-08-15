@@ -1,0 +1,156 @@
+/* ───────────────────────────────────────────────────────────
+   legal.css — personvern.html, vilkar.html og 404.html.
+   Bygger på sider.css (lyst tema, page-hero, footer) og legger
+   bare til selve innholdsflaten for juridisk tekst.
+   ─────────────────────────────────────────────────────────── */
+
+.legal { padding: 46px 24px 110px; }
+.legal-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Hvert punkt er et kort — samme grå flate som FAQ og bloggkortene */
+.legal-card {
+  background: #f4f4f2;
+  border-radius: 18px;
+  padding: 38px 42px;
+}
+.legal-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.55);
+  margin-bottom: 14px;
+}
+.legal-num::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--lime, #d4ff32);
+  border-radius: 2px;
+}
+.legal-card h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+  margin-bottom: 16px;
+}
+.legal-card p {
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: rgba(10,10,10,0.68);
+  margin-bottom: 13px;
+}
+.legal-card p:last-child { margin-bottom: 0; }
+.legal-card a { color: #0a0a0a; text-decoration: underline; text-underline-offset: 3px; }
+.legal-card strong { color: #0a0a0a; font-weight: 600; }
+
+/* Punktlister med lime-markør, som ellers på siden */
+.legal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.legal-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(10,10,10,0.68);
+}
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 8px; height: 8px;
+  border-radius: 2px;
+  background: var(--lime, #d4ff32);
+}
+
+/* Uthevet boks inne i et kort */
+.legal-infobox {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.legal-infobox p { margin: 0; font-size: 14.5px; }
+
+/* Underleverandører som små fliser */
+.legal-partners {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+.legal-partner {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.legal-partner strong {
+  display: block;
+  font-size: 14.5px;
+  color: #0a0a0a;
+  margin-bottom: 6px;
+}
+.legal-partner span {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(10,10,10,0.55);
+}
+
+.legal-foot {
+  text-align: center;
+  margin-top: 34px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.35);
+}
+
+/* ─── 404 ─── */
+.nf-body { text-align: left; }
+.nf-code {
+  font-family: 'Geist Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--lime, #d4ff32);
+  margin-bottom: 18px;
+}
+.nf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 26px;
+}
+.nf-links a {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255,255,255,0.35);
+  transition: color 0.15s;
+}
+.nf-links a:hover { color: #fff; }
+
+@media (max-width: 720px) {
+  .legal { padding: 30px 14px 80px; }
+  .legal-card { padding: 26px 22px; border-radius: 14px; }
+  .legal-partners { grid-template-columns: 1fr; }
+}
