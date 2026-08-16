@@ -827,6 +827,14 @@ footer {
      atmosfæren i toppen — motivets beste del — blir stående. */
   object-position: center 14%;
 }
+/* Zebra-utgaven av båndet (innholdssidene): dyret står til høyre og
+   solen i venstre kant — lavere utsnitt enn Norden-bildet, så både
+   himmel og dyr får plass. På mobil skyves utsnittet mot høyre, ellers
+   ender zebraen utenfor rammen når sidene beskjæres. */
+.dm-bg-zebra { object-position: center 30%; }
+@media (max-width: 900px) {
+  .dm-bg-zebra { object-position: 68% 30%; }
+}
 /* Mørkner nede til venstre der teksten står. Oppe til høyre ligger
    jordkrumningen og atmosfæren urørt — det er motivet. */
 .dm-band::before {
