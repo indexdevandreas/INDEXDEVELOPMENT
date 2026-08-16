@@ -88,6 +88,19 @@
 /* Mens et enkeltvalg «lander» skal ingen rekke å klikke to ganger */
 .wz-stage.is-locked { pointer-events: none; }
 
+.wz-intro {
+  margin-bottom: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wz-intro-line {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(10,10,10,0.65);
+}
+
 .wz-q {
   font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 600;

@@ -111,7 +111,7 @@
       "itemListElement": [
         { "@type": "SiteNavigationElement", "position": 1, "name": "Tjenester", "description": "Alle tjenester samlet: nettsider, AI-agenter, systemer, integrasjoner, booking, drift.", "url": "https://indexdevelopment.no/tjenester.html" },
         { "@type": "SiteNavigationElement", "position": 2, "name": "Priser", "description": "Fastpris på nettsider fra 2 900,-, og 199,-/mnd for drift uten bindingstid.", "url": "https://indexdevelopment.no/priser.html" },
-        { "@type": "SiteNavigationElement", "position": 3, "name": "Kom i gang", "description": "Veiviser som kartlegger hva bedriften din trenger før pris gis.", "url": "https://indexdevelopment.no/kom-i-gang.html" },
+        { "@type": "SiteNavigationElement", "position": 3, "name": "Finn ut hva du trenger", "description": "Veiviser som kartlegger hva bedriften din trenger før pris gis.", "url": "https://indexdevelopment.no/kom-i-gang.html" },
         { "@type": "SiteNavigationElement", "position": 4, "name": "Om meg", "description": "Andreas Melheim, grunnlegger av Index Development i Drammen.", "url": "https://indexdevelopment.no/om-meg.html" },
         { "@type": "SiteNavigationElement", "position": 5, "name": "Kompetanse", "description": "Fagområder: webdesign, SEO, tekstforfatning, grafisk design, AI, API og databaser.", "url": "https://indexdevelopment.no/kompetanse.html" },
         { "@type": "SiteNavigationElement", "position": 6, "name": "Kontakt", "description": "Ring, send e-post eller fyll ut skjemaet — du snakker direkte med utvikleren.", "url": "https://indexdevelopment.no/kontakt.html" }
@@ -145,7 +145,7 @@
   <nav class="mobile-menu-nav" aria-label="Mobilmeny">
     <ul>
       <li><a href="index.html">Forside</a></li>
-      <li><a href="kom-i-gang.html">Kom i gang</a></li>
+      <li><a href="kom-i-gang.html">Finn ut hva du trenger</a></li>
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
@@ -162,7 +162,10 @@
 
 <section class="hero" id="top">
   <div class="hero-photo">
-    <img src="bilder/andreas-utklipp-myk.png" alt="Andreas Melheim, utvikler i Index Development" width="900" height="1200" fetchpriority="high">
+    <picture>
+      <source srcset="bilder/andreas-utklipp-myk.webp" type="image/webp">
+      <img src="bilder/andreas-utklipp-myk.png" alt="Andreas Melheim, utvikler i Index Development" width="900" height="1200" fetchpriority="high">
+    </picture>
   </div>
 
   <header class="hero-nav">
@@ -203,8 +206,11 @@
     </nav>
 
     <div class="hero-nav-actions">
-      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
-      <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
+      <a class="nav-text-link" href="kontakt.html">Kontakt</a>
+      <a class="nav-btn-lime" href="kom-i-gang.html">
+        <span class="nav-long">FINN UT HVA DU TRENGER</span>
+        <span class="nav-short">Hva trenger du?</span>
+      </a>
       <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
         <span class="menu-label">Meny</span>
         <span class="bars"></span>
@@ -218,9 +224,11 @@
     <p class="hero-sub">Nettside, booking, AI-chatbot eller hele systemet — håndkodet for at flere skal finne deg og velge deg. Og du ser en demo av løsningen før du betaler én krone.</p>
 
     <a class="btn-circle hero-btn" href="kom-i-gang.html">
-      <span>KOM I GANG</span>
+      <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
     </a>
+
+    <p class="hero-note">Fire spørsmål. Rundt to minutter. Du får forslag og pris skriftlig, som regel samme dag, uten forpliktelse.</p>
 
     <a class="hero-pill" href="ai-agenter.html">
       <span class="hp-tag">NYHET</span>
@@ -773,7 +781,7 @@
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a href="kom-i-gang.html">Kom i gang</a></li>
+          <li><a href="kom-i-gang.html">Finn ut hva du trenger</a></li>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
           <li><a href="kompetanse.html">Kompetanse</a></li>

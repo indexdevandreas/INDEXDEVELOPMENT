@@ -35,8 +35,14 @@
     {
       id: 'behov',
       type: 'multi',
-      q: 'Hei! Hva trenger du hjelp med?',
-      hjelp: 'Jeg er Andreas, og jeg leser svarene selv — ingenting forsvinner inn i et system. Kryss av alt som passer, og det er helt lov å ikke vite.',
+      intro: true,
+      introLines: [
+        'Fire spørsmål.',
+        'Rundt to minutter.',
+        'Du får forslag og pris skriftlig, som regel samme dag.'
+      ],
+      q: 'Hva trenger du hjelp med?',
+      hjelp: 'Jeg er Andreas, og jeg leser svarene selv. Ingenting forsvinner inn i et system. Kryss av alt som passer, og det er helt lov å ikke vite.',
       valg: [
         { v: 'Nettside',            d: 'Ny side, eller erstatte den du har i dag' },
         { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, eller jobber i bakgrunnen' },
@@ -163,8 +169,15 @@
 
     var valgt = svar[t.id] || (t.type === 'multi' ? [] : null);
 
-    var html = '<div class="wz-step">'
-      + '<h2 class="wz-q">' + t.q + '</h2>'
+    var html = '<div class="wz-step">';
+
+    if (t.intro && t.introLines) {
+      html += '<div class="wz-intro">'
+        + t.introLines.map(function (line) { return '<p class="wz-intro-line">' + line + '</p>'; }).join('')
+        + '</div>';
+    }
+
+    html += '<h2 class="wz-q">' + t.q + '</h2>'
       + (t.hjelp ? '<p class="wz-help">' + t.hjelp + '</p>' : '')
       + '<div class="wz-options' + (t.type === 'multi' ? ' is-multi' : '') + '" role="group" aria-label="' + t.q + '">';
 
@@ -380,9 +393,8 @@
       + '<span class="wz-done-mark" aria-hidden="true">'
       +   '<svg viewBox="0 0 32 32"><path d="M8 16.5l5.5 5.5L24 11"/></svg>'
       + '</span>'
-      + '<h2 class="wz-done-h">Andreas har fått beskjed.</h2>'
-      + '<p class="wz-done-p">Takk, ' + esc(navn.split(' ')[0]) + '. Svarene dine ligger i innboksen hans nå. '
-      +   'Han leser gjennom og sender deg forslag og pris skriftlig — som regel samme dag.</p>'
+      + '<h2 class="wz-done-h">Takk.</h2>'
+      + '<p class="wz-done-p">Jeg går gjennom svarene dine og sender forslag og pris på e-post, som regel samme dag.</p>'
       + '<div class="wz-done-cards">'
       +   '<a class="wz-done-card" href="tel:+4748459686">'
       +     '<span class="wz-done-label">Haster det?</span>'

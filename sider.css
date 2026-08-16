@@ -433,20 +433,30 @@ body { background: #fff; color: #0a0a0a; }
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   white-space: nowrap;
 }
-/* Inne i den gjennomskinnelige baren ble en kantet knapp for mye ramme
-   oppå ramme. Den er nå en ren lenke, så CTA-en står alene som knapp. */
-.nav-btn-ghost {
+/* Kontakt er nå en diskret tekstlenke i stedet for knapp, så CTA-en står alene. */
+.nav-text-link {
   border: 0;
+  background: none;
   color: rgba(255,255,255,0.88);
   padding: 12px 10px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
 }
-.nav-btn-ghost:hover { color: #fff; }
+.nav-text-link:hover { color: #fff; }
 .nav-btn-lime {
   background: var(--lime);
   color: #0a0a0a;
   border: 1.5px solid var(--lime);
 }
 .nav-btn-lime:hover { background: #c2f01e; border-color: #c2f01e; }
+.nav-short { display: none; }
+
+@media (max-width: 980px) {
+  .nav-long { display: none; }
+  .nav-short { display: inline; }
+}
 
 /* ─── Menyknapp i heroen: skjult på desktop, eneste navigasjon på mobil.
    hjemmeside.css styler kun «.nav .menu-btn», så den må stiles her. ─── */
@@ -489,15 +499,12 @@ body { background: #fff; color: #0a0a0a; }
      den samme innrammingen baren har på desktop. */
   .hero-nav { padding: 26px 32px 12px; gap: 18px; }
   .hero-nav-links,
-  .hero-nav-actions .nav-btn-ghost { display: none; }
+  .hero-nav-actions .nav-text-link { display: none; }
   .hero-nav .menu-btn { display: inline-flex; padding: 8px 0; }
 }
 @media (max-width: 820px) {
   /* Slagordet er det første som må vike når baren blir trang */
   .hero-tagline { display: none; }
-}
-@media (max-width: 560px) {
-  .hero-nav-actions .nav-btn-lime { display: none; }
 }
 
 
