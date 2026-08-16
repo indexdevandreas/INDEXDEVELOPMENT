@@ -186,31 +186,15 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ZEBRA-DEKORASJON — tykke horisontale striper i hjørnet
+   ZEBRA-DEKOR — organiske striper fra logoen, i ett hjørne av
+   utvalgte seksjoner. Tegnet som SVG-kurver, ikke rette linjer:
+   bånd med ulik tykkelse som bølger og smalner mot en spiss,
+   slik pelsen i merket gjør. Maskeres ut mot hjørnet så mønsteret
+   smelter inn i flaten i stedet for å stå som en firkant, og
+   ligger på ~6 % opasitet — synlig når man ser etter, aldri i
+   veien for teksten. (Footer-varianten ligger i sider.css, den
+   deles av alle sidene.)
    ═══════════════════════════════════════════════════════════ */
-.platform::after,
-.services2::after,
-.meg::after,
-.faq2::after {
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  right: -80px;
-  width: 600px;
-  height: 400px;
-  background: repeating-linear-gradient(
-    0deg,
-    #000 0px,
-    #000 28px,
-    transparent 28px,
-    transparent 56px
-  );
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-}
-
 .platform,
 .services2,
 .meg,
@@ -218,7 +202,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .platform > *,
 .services2 > *,
 .meg > *,
@@ -226,35 +209,28 @@
   position: relative;
   z-index: 1;
 }
-
-/* ───── Zebra-mønster i footeren ───── */
-footer {
-  position: relative;
-  overflow: hidden;
-}
-
-footer::before {
+.platform::after,
+.services2::after,
+.meg::after,
+.faq2::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: -100px;
-  width: 500px;
-  height: 300px;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.08) 0px,
-    rgba(255,255,255,0.08) 24px,
-    transparent 24px,
-    transparent 48px
-  );
+  right: -70px;
+  bottom: -36px;
+  width: 560px;
+  height: 380px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420"><g fill="%23000000"><path d="M0,30 C140,6 300,58 640,18 C360,66 170,34 0,58 Z"/><path d="M640,88 C420,64 230,116 0,76 C240,126 430,96 640,126 Z"/><path d="M0,168 C150,140 330,196 640,150 L640,184 C400,224 180,168 0,206 Z"/><path d="M0,244 C130,238 250,240 360,246 C470,234 570,228 640,224 C560,242 460,250 392,256 C470,264 570,276 640,288 C550,286 450,282 360,274 C250,270 130,268 0,266 Z"/><path d="M640,318 C410,292 240,342 0,304 C250,356 430,324 640,354 Z"/><path d="M0,392 C180,366 400,408 640,372 L640,420 L0,420 Z"/></g></svg>') center / 100% 100% no-repeat;
+  opacity: 0.06;
   pointer-events: none;
   z-index: 0;
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  -webkit-mask-image: radial-gradient(130% 130% at 100% 100%, #000 36%, transparent 74%);
+  mask-image: radial-gradient(130% 130% at 100% 100%, #000 36%, transparent 74%);
 }
-
-footer .container {
-  position: relative;
-  z-index: 1;
+@media (max-width: 700px) {
+  .platform::after,
+  .services2::after,
+  .meg::after,
+  .faq2::after { width: 380px; height: 260px; right: -50px; bottom: -24px; }
 }
 
 /* ═══════════════════════════════════════════════════════════

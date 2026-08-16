@@ -352,10 +352,17 @@ body { background: #fff; color: #0a0a0a; }
 }
 .hero-nav-links > ul > li > a:hover,
 .hero-nav-links .nav-dropdown-trigger:hover { opacity: 0.72; }
+/* Aktiv side/seksjon: lime tekst og en lime strek under lenken.
+   På den lyse baren (.is-dark) ville lime tekst druknet i hvitt —
+   der overtar mørk tekst mens streken bærer markeringen. De
+   overstyringene ligger rett etter .is-dark-blokka lenger ned,
+   ellers taper denne regelen på spesifisitet og rekkefølge. */
 .hero-nav-links > ul > li > a.nav-active,
-.hero-nav-links .nav-dropdown-trigger.nav-active {
+.hero-nav-links .nav-dropdown-trigger.nav-active,
+.hero-nav-actions .nav-text-link.nav-active,
+.hero-nav-actions .nav-btn-ghost.nav-active {
   color: var(--lime);
-  transition: color 0.3s ease;
+  box-shadow: 0 2px 0 0 var(--lime);
 }
 .hero-nav-links .chev {
   width: 13px; height: 13px;
@@ -410,6 +417,8 @@ body { background: #fff; color: #0a0a0a; }
   transition: background 0.15s, color 0.15s;
 }
 .nav-dropdown-panel a:hover { background: rgba(10,10,10,0.05); color: #0a0a0a; }
+/* Siden man står på markeres også i selve dropdownen */
+.nav-dropdown-panel a.nav-active { background: var(--lime-soft); color: #0a0a0a; }
 .nav-dropdown-all {
   margin-top: 8px;
   padding: 12px 14px !important;
@@ -1207,8 +1216,17 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 .hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger { color: rgba(10,10,10,0.82); }
 .hero-nav.is-dark .hero-nav-links > ul > li > a:hover,
 .hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger:hover { color: #0a0a0a; }
+/* Aktiv lenke på lys bar: mørk, leselig tekst — den lime streken fra
+   .nav-active-regelen lenger opp blir stående og bærer markeringen. */
+.hero-nav.is-dark .hero-nav-links > ul > li > a.nav-active,
+.hero-nav.is-dark .hero-nav-links .nav-dropdown-trigger.nav-active,
+.hero-nav.is-dark .hero-nav-actions .nav-text-link.nav-active,
+.hero-nav.is-dark .hero-nav-actions .nav-btn-ghost.nav-active { color: #0a0a0a; }
 .hero-nav.is-dark .nav-btn-ghost { color: rgba(10,10,10,0.75); }
 .hero-nav.is-dark .nav-btn-ghost:hover { color: #0a0a0a; }
+/* Kontakt-tekstlenken manglet lys variant — den sto hvit på hvit bar. */
+.hero-nav.is-dark .nav-text-link { color: rgba(10,10,10,0.75); }
+.hero-nav.is-dark .nav-text-link:hover { color: #0a0a0a; }
 .hero-nav.is-dark .menu-btn { color: #0a0a0a; }
 .hero-nav.is-dark .menu-btn .bars,
 .hero-nav.is-dark .menu-btn .bars::before { background: #0a0a0a; }
@@ -1365,4 +1383,39 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 @media (prefers-reduced-motion: reduce) {
   .hero-nav { animation: none; }
   .hero-nav.is-stuck { transition: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ZEBRA I FOOTEREN — merket får siste ord på hver side.
+   Samme organiske striper som i seksjonshjørnene på forsiden
+   (se forside.css), men hvite på den mørke flaten og forankret
+   nede til venstre, bak INDEX DEVELOPMENT-merket. Kurvene er
+   tegnet som SVG så de bølger og smalner som pelsen i logoen,
+   og masken toner dem ut mot hjørnet. Ligger her og ikke i
+   forside.css fordi footeren deles av alle sidene.
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  overflow: hidden; /* position: relative står alt i hjemmeside.css */
+}
+footer > * {
+  position: relative;
+  z-index: 1;
+}
+footer::after {
+  content: "";
+  position: absolute;
+  left: -60px;
+  bottom: -28px;
+  width: 520px;
+  height: 340px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420"><g fill="%23ffffff"><path d="M0,30 C140,6 300,58 640,18 C360,66 170,34 0,58 Z"/><path d="M640,88 C420,64 230,116 0,76 C240,126 430,96 640,126 Z"/><path d="M0,168 C150,140 330,196 640,150 L640,184 C400,224 180,168 0,206 Z"/><path d="M0,244 C130,238 250,240 360,246 C470,234 570,228 640,224 C560,242 460,250 392,256 C470,264 570,276 640,288 C550,286 450,282 360,274 C250,270 130,268 0,266 Z"/><path d="M640,318 C410,292 240,342 0,304 C250,356 430,324 640,354 Z"/><path d="M0,392 C180,366 400,408 640,372 L640,420 L0,420 Z"/></g></svg>') center / 100% 100% no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(130% 130% at 0% 100%, #000 36%, transparent 74%);
+  mask-image: radial-gradient(130% 130% at 0% 100%, #000 36%, transparent 74%);
+}
+@media (max-width: 700px) {
+  footer::after { width: 360px; height: 240px; left: -40px; bottom: -20px; }
 }
