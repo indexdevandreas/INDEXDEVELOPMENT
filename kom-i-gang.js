@@ -441,9 +441,20 @@
        mot footeren, så det opplevdes som at siden «blar seg ned». */
     var topp = document.querySelector('.wz-top');
     if (topp) {
-      var y = Math.max(0, topp.getBoundingClientRect().top + window.scrollY - 96);
-      var mykt = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: y, behavior: mykt ? 'smooth' : 'auto' });
+      /* rAF: vent til nettleseren har klippet scrollposisjonen etter at
+         dokumentet krympet (langt trinn → kort trinn). Klippingen
+         kansellerer en myk rulling som alt er i gang — derfor tas store
+         hopp direkte, og bare små justeringer rulles mykt. */
+      requestAnimationFrame(function () {
+        var y = Math.max(0, topp.getBoundingClientRect().top + window.scrollY - 96);
+        var stort = Math.abs(window.scrollY - y) > window.innerHeight * 0.9;
+        var mykt = !stort && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if ('scrollBehavior' in document.documentElement.style) {
+          window.scrollTo({ top: y, behavior: mykt ? 'smooth' : 'instant' });
+        } else {
+          window.scrollTo(0, y);
+        }
+      });
     }
 
     /* Første fokuserbare element får fokus, så tastaturbrukere
