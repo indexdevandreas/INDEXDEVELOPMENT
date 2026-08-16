@@ -526,6 +526,12 @@ body { background: #fff; color: #0a0a0a; }
   /* Slagordet er det første som må vike når baren blir trang */
   .hero-tagline { display: none; }
 }
+@media (max-width: 700px) {
+  /* På telefon dekket CTA-pillen nesten hele baren. Der bor den i
+     menyen i stedet — som den fremhevede «Finn ut hva du trenger»-
+     lenken (.mm-cta) — og baren består av merke + Meny alene. */
+  .hero-nav-actions .nav-btn-lime { display: none; }
+}
 
 
 /* ═══════════════════════════════════════════════════════════
@@ -1162,6 +1168,17 @@ img[loading="lazy"] {
   color: #0a0a0a;
   transform: translateX(6px);
 }
+/* Veiviser-lenken er menyens CTA nå som lime-pillen er skjult på
+   telefon — samme mørke lime med glød som kontaktlenkene nederst,
+   så den lyser uten å bli uleselig på hvitt. */
+.mobile-menu-nav a.mm-cta {
+  color: #7a9c14;
+  text-shadow:
+    0 0 18px rgba(212, 255, 61, 0.85),
+    0 0 40px rgba(212, 255, 61, 0.45);
+}
+.mobile-menu-nav a.mm-cta:hover,
+.mobile-menu-nav a.mm-cta:active { color: #0a0a0a; }
 
 /* Kontaktinfoen nederst — limegrønn med glød, samme aksent som resten */
 .mobile-menu-foot {
