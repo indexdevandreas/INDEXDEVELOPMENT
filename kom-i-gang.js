@@ -434,9 +434,20 @@
     var el = stage.firstElementChild;
     if (!el) return;
     el.classList.add(retning === 'tilbake' ? 'inn-bak' : 'inn-fram');
+    if (forste) { forste = false; return; }
+
+    /* Hvert trinnbytte starter ved fremdriftslinja igjen. Uten dette
+       ble man stående der forrige trinn sluttet — på mobil gjerne nede
+       mot footeren, så det opplevdes som at siden «blar seg ned». */
+    var topp = document.querySelector('.wz-top');
+    if (topp) {
+      var y = Math.max(0, topp.getBoundingClientRect().top + window.scrollY - 96);
+      var mykt = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: y, behavior: mykt ? 'smooth' : 'auto' });
+    }
+
     /* Første fokuserbare element får fokus, så tastaturbrukere
        ikke sendes tilbake til toppen for hvert trinn. */
-    if (forste) { forste = false; return; }
     var f = el.querySelector('.wz-opt, input, textarea');
     if (f && window.matchMedia('(min-width: 900px)').matches) {
       try { f.focus({ preventScroll: true }); } catch (e) { }
