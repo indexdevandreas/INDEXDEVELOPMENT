@@ -146,6 +146,7 @@
   var forste = true;    // ikke ta fokus ved sidelasting
   var visKontakt = false;
   var sendt = false;
+  var siste = null;   // kontaktinfo fra forrige innsending, så ettersending går fort
 
   /* ─── Tegning ─── */
 
@@ -278,6 +279,15 @@
 
     bytt(html, retning);
     document.getElementById('wz-form').addEventListener('submit', send);
+
+    /* Kommer man tilbake etter å ha sendt, står kontaktinfoen klar —
+       bare meldingsfeltet er tomt, så det er raskt å ettersende noe. */
+    if (siste) {
+      document.getElementById('wz-navn').value = siste.navn;
+      document.getElementById('wz-bedrift').value = siste.bedrift;
+      document.getElementById('wz-epost').value = siste.epost;
+      document.getElementById('wz-telefon').value = siste.telefon;
+    }
   }
 
   function felt(id, label, type, ph, pakrevd, ac) {
@@ -349,6 +359,7 @@
       .then(function (d) {
         if (String(d.success) !== 'true') throw new Error('formsubmit');
         sendt = true;
+        siste = { navn: navn, bedrift: bedrift, epost: epost, telefon: telefon };
         kvittering(navn);
       })
       .catch(function () {
@@ -382,9 +393,18 @@
       +     '<span class="wz-done-val">Se hva vi bygger →</span>'
       +   '</a>'
       + '</div>'
+      + '<button type="button" class="wz-again" id="wz-again">Kom du på noe mer? Send en melding til</button>'
       + '</div>', 'fram');
 
     if (fill) fill.style.width = '100%';
+
+    /* Veien tilbake: åpner kontaktsteget igjen, så det er lett å
+       ettersende noe man glemte. */
+    var again = document.getElementById('wz-again');
+    if (again) again.addEventListener('click', function () {
+      sendt = false;
+      tegn('tilbake');
+    });
   }
 
   /* ─── Småting ─── */

@@ -191,11 +191,15 @@
             <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
           </button>
 
-          <div class="form-success" hidden>
-            <span class="s-icon">✓</span>
+          <div class="form-success" role="status" hidden>
+            <span class="s-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M8 16.5l5.5 5.5L24 11"/></svg>
+            </span>
             <p class="s-title">Takk for meldingen.</p>
             <p class="s-sub">Du får svar fra meg samme dag.</p>
           </div>
+
+          <p class="form-note" hidden>Meldingen er sendt. Kom du på noe mer? Bare send en ny.</p>
         </form>
       </div>
     </div>
@@ -324,9 +328,11 @@
   var btn = form.querySelector('.form-submit');
   var btnLabel = btn.querySelector('span');
   var success = form.querySelector('.form-success');
+  var note = form.querySelector('.form-note');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (note) note.setAttribute('hidden', '');
     btnLabel.textContent = 'SENDER …';
     btn.disabled = true;
 
@@ -344,8 +350,22 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (String(data.success) !== 'true') throw new Error('formsubmit');
-        form.style.display = 'none';
+        /* Kvittering med animasjon, så tilbake til skjemaet etterpå
+           i tilfelle noe ble glemt og det skal ettersendes. */
+        form.classList.add('is-sent');
         success.removeAttribute('hidden');
+        setTimeout(function () {
+          success.classList.add('is-ut');
+          setTimeout(function () {
+            success.setAttribute('hidden', '');
+            success.classList.remove('is-ut');
+            form.classList.remove('is-sent');
+            document.getElementById('melding').value = '';
+            btnLabel.textContent = 'SEND MELDING';
+            btn.disabled = false;
+            if (note) note.removeAttribute('hidden');
+          }, 320);
+        }, 4600);
       })
       .catch(function () {
         btnLabel.textContent = 'NOE GIKK GALT — PRØV IGJEN';

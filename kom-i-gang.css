@@ -377,6 +377,22 @@
 }
 .wz-done-val { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
 
+.wz-again {
+  display: block;
+  margin: 26px auto 0;
+  padding: 4px 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14.5px;
+  color: rgba(10,10,10,0.55);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.18s;
+}
+.wz-again:hover { color: #0a0a0a; }
+
 @media (prefers-reduced-motion: reduce) {
   .wz-done-mark { animation: none; }
   .wz-done-mark svg { animation: none; stroke-dashoffset: 0; }
