@@ -120,6 +120,97 @@
 
 
 /* ═══════════════════════════════════════════════════════════
+   DERFOR ZEBRAEN — merkevareblokken. Fotoet står til høyre og
+   ser inn mot teksten; et slør fra båndfargen over venstre
+   bildekant syr det fast i flaten, så det leser som én mørk
+   komposisjon og ikke et innlimt fotografi. Bildet er beskåret
+   fra 5472px-originalen til 1600px WebP (93 KB) med JPEG-fallback.
+   ═══════════════════════════════════════════════════════════ */
+.zebra { background: #fff; padding: 20px 0 110px; }
+.zb-band {
+  max-width: 1290px;
+  margin: 0 auto;
+  border-radius: 26px;
+  background: #0d0d0d;
+  color: #fff;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  align-items: stretch;
+}
+.zb-text {
+  padding: 64px 54px 64px 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.zb-eyebrow { color: rgba(255,255,255,0.72); margin-bottom: 28px; }
+.zb-eyebrow .pf-sq { background: var(--lime); }
+.zb-head {
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: #fff;
+}
+.zb-grey { color: rgba(255,255,255,0.45); }
+.zb-lead {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  max-width: 52ch;
+}
+.zb-link { color: #fff; border-bottom-color: var(--lime); margin-top: 30px; }
+.zb-link:hover .pf-link-arrow { transform: translateX(5px); }
+.zb-media {
+  margin: 0;
+  position: relative;
+  min-height: 440px;
+}
+.zb-media picture,
+.zb-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.zb-media img {
+  object-fit: cover;
+  /* Hodet står midt-venstre i originalen — dette holder blikket i ramma */
+  object-position: 46% 28%;
+  display: block;
+  /* Savannen er varm brunoransje og slåss med den mørke flaten —
+     dempes til den leser som skygge bak dyret. */
+  filter: saturate(0.78) contrast(1.03) brightness(0.96);
+}
+.zb-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #0d0d0d 0%, rgba(13,13,13,0.4) 16%, transparent 38%);
+}
+@media (max-width: 980px) {
+  .zb-band { grid-template-columns: 1fr; }
+  /* Stablet: bildet øverst, og sløret flyttes til bunnkanten så
+     zebraen toner over i teksten under i stedet for mot siden. */
+  .zb-media { order: -1; min-height: 0; height: 320px; }
+  .zb-media::after {
+    background: linear-gradient(180deg, transparent 52%, rgba(13,13,13,0.45) 80%, #0d0d0d 100%);
+  }
+  .zb-text { padding: 30px 28px 46px; }
+}
+@media (max-width: 620px) {
+  .zb-media { height: 250px; }
+  .zb-media img { object-position: 44% 22%; }
+  .zb-text { padding: 26px 22px 40px; }
+  .zb-head { font-size: clamp(26px, 7vw, 32px); }
+  .zb-lead { font-size: 15px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
    KONTAKTINFO — ligger på om-meg fordi det er én person som
    svarer. Telefon og e-post er klikkbare kort, sted og org.nr
    er ren informasjon.
