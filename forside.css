@@ -186,6 +186,48 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
+   ZEBRA-DEKORASJON — tykke horisontale striper i hjørnet
+   ═══════════════════════════════════════════════════════════ */
+.platform::after,
+.services2::after,
+.meg::after,
+.faq2::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  right: -80px;
+  width: 600px;
+  height: 400px;
+  background: repeating-linear-gradient(
+    0deg,
+    #000 0px,
+    #000 28px,
+    transparent 28px,
+    transparent 56px
+  );
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.platform,
+.services2,
+.meg,
+.faq2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.platform > *,
+.services2 > *,
+.meg > *,
+.faq2 > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
    PLATTFORMEN — seksjonen rett under hero
    ═══════════════════════════════════════════════════════════ */
 /* Seksjonsoverskriftene (.platform-top / .pf-*) og ikon-badgene
