@@ -167,6 +167,11 @@
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="field">
+            <label for="navn">Navn</label>
+            <input type="text" id="navn" name="name" placeholder="Ola Nordmann" required autocomplete="name">
+          </div>
+
+          <div class="field">
             <label for="bedrift">Bedrift</label>
             <input type="text" id="bedrift" name="company" placeholder="Bedriften din AS" required autocomplete="organization">
           </div>
@@ -330,9 +335,40 @@
   var success = form.querySelector('.form-success');
   var note = form.querySelector('.form-note');
 
+  /* Feilmeldingen under knappen lages ved behov og gjenbrukes. */
+  function visFeil(html) {
+    var feil = document.getElementById('form-feil');
+    if (!feil) {
+      feil = document.createElement('p');
+      feil.id = 'form-feil';
+      feil.className = 'form-note';
+      btn.insertAdjacentElement('afterend', feil);
+    }
+    feil.innerHTML = html;
+    feil.removeAttribute('hidden');
+    return feil;
+  }
+  function skjulFeil() {
+    var feil = document.getElementById('form-feil');
+    if (feil) feil.setAttribute('hidden', '');
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (note) note.setAttribute('hidden', '');
+    skjulFeil();
+
+    /* Skjemaet står med novalidate, så uten denne sjekken kunne det
+       sendes helt tomt — og avsenderen fikk «Takk» for ingenting. */
+    var navn = document.getElementById('navn').value.trim();
+    var bedrift = document.getElementById('bedrift').value.trim();
+    var epost = document.getElementById('epost').value.trim();
+    var melding = document.getElementById('melding').value.trim();
+    if (!navn || !bedrift || !epost || epost.indexOf('@') === -1 || !melding) {
+      visFeil('Fyll inn navn, bedrift, en gyldig e-postadresse og et par ord om hva du trenger.');
+      return;
+    }
+
     btnLabel.textContent = 'SENDER …';
     btn.disabled = true;
 
@@ -373,25 +409,17 @@
         /* Aldri en blindvei: glipper innsendingen åpner lenken e-post-
            appen med hele meldingen ferdig utfylt, så henvendelsen
            uansett kommer frem. */
-        var feil = document.getElementById('form-feil');
-        if (!feil) {
-          feil = document.createElement('p');
-          feil.id = 'form-feil';
-          feil.className = 'form-note';
-          btn.insertAdjacentElement('afterend', feil);
-        }
-        var adr = atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ==');
-        var mailto = 'mailto:' + adr
-          + '?subject=' + encodeURIComponent('Henvendelse fra ' + (document.getElementById('bedrift').value || 'nettsiden'))
+        var mailto = 'mailto:' + atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ==')
+          + '?subject=' + encodeURIComponent('Henvendelse fra ' + bedrift + ' (' + navn + ')')
           + '&body=' + encodeURIComponent(
-              'Bedrift: ' + document.getElementById('bedrift').value + '\n'
-            + 'E-post: ' + document.getElementById('epost').value + '\n'
-            + 'Telefon: ' + (document.getElementById('telefon').value || '(ikke oppgitt)') + '\n\n'
-            + document.getElementById('melding').value);
-        feil.innerHTML = 'Innsendingen glapp, sikkert nettet. Prøv igjen om et øyeblikk, '
+              'Navn: ' + navn + '\n'
+            + 'Bedrift: ' + bedrift + '\n'
+            + 'E-post: ' + epost + '\n'
+            + 'Telefon: ' + (document.getElementById('telefon').value.trim() || '(ikke oppgitt)') + '\n\n'
+            + melding);
+        visFeil('Innsendingen glapp, sikkert nettet. Prøv igjen om et øyeblikk, '
           + '<a href="' + mailto + '">eller trykk her for å sende meldingen ferdig utfylt på e-post</a>. '
-          + 'Ringe går også fint: <a href="tel:+4748459686">+47 484 59 686</a>.';
-        feil.removeAttribute('hidden');
+          + 'Ringe går også fint: <a href="tel:+4748459686">+47 484 59 686</a>.');
       });
   });
 })();
