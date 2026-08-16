@@ -352,6 +352,11 @@ body { background: #fff; color: #0a0a0a; }
 }
 .hero-nav-links > ul > li > a:hover,
 .hero-nav-links .nav-dropdown-trigger:hover { opacity: 0.72; }
+.hero-nav-links > ul > li > a.nav-active,
+.hero-nav-links .nav-dropdown-trigger.nav-active {
+  color: var(--lime);
+  transition: color 0.3s ease;
+}
 .hero-nav-links .chev {
   width: 13px; height: 13px;
   stroke: currentColor; fill: none; stroke-width: 2.4;

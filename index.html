@@ -180,7 +180,7 @@
     <nav class="hero-nav-links" aria-label="Hovedmeny">
       <ul>
         <li class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-nav="tjenester">
             Tjenester
             <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
           </button>
@@ -198,10 +198,10 @@
             </ul>
           </div>
         </li>
-        <li><a href="kompetanse.html">Kompetanse</a></li>
-        <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
-        <li><a href="priser.html">Priser</a></li>
+        <li><a href="kompetanse.html" data-nav="kompetanse">Kompetanse</a></li>
+        <li><a href="om-meg.html" data-nav="meg">Om meg</a></li>
+        <li><a href="index.html#blogg" data-nav="blogg">Blogg</a></li>
+        <li><a href="priser.html" data-nav="priser">Priser</a></li>
       </ul>
     </nav>
 
@@ -821,6 +821,7 @@
 
 <script src="tall.js" defer></script>
 <script src="liv.js" defer></script>
+<script src="nav-scroll-tracker.js" defer></script>
 <script src="hjemmeside.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
