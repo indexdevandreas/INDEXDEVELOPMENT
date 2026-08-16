@@ -378,7 +378,15 @@
       .catch(function () {
         lbl.textContent = 'PRØV IGJEN';
         btn.disabled = false;
-        err.textContent = 'Noe gikk galt underveis. Prøv igjen, eller ring +47 484 59 686 — det går like fint.';
+        /* Aldri en blindvei: glipper innsendingen får man hele
+           beskrivelsen ferdig utfylt i sin egen e-postapp med ett
+           trykk. En død feilmelding er stedet folk gir opp. */
+        var mailto = 'mailto:' + atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ==')
+          + '?subject=' + encodeURIComponent('Veiviser — ' + bedrift + ' (' + navn + ')')
+          + '&body=' + encodeURIComponent(tekst);
+        err.innerHTML = 'Innsendingen glapp, sikkert nettet. Prøv igjen om et øyeblikk, '
+          + '<a href="' + mailto + '">eller trykk her for å sende svarene ferdig utfylt på e-post</a>. '
+          + 'Ringe går også fint: <a href="tel:+4748459686">+47 484 59 686</a>.';
         err.hidden = false;
       });
   }

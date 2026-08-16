@@ -108,7 +108,7 @@
     </nav>
 
     <div class="hero-nav-actions">
-      <a class="nav-btn-ghost" href="kontakt.html">KONTAKT</a>
+      <a class="nav-text-link" href="kontakt.html">Kontakt</a>
       <a class="nav-btn-lime" href="kom-i-gang.html">KOM I GANG</a>
       <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
         <span class="menu-label">Meny</span>
@@ -368,8 +368,30 @@
         }, 4600);
       })
       .catch(function () {
-        btnLabel.textContent = 'NOE GIKK GALT — PRØV IGJEN';
+        btnLabel.textContent = 'PRØV IGJEN';
         btn.disabled = false;
+        /* Aldri en blindvei: glipper innsendingen åpner lenken e-post-
+           appen med hele meldingen ferdig utfylt, så henvendelsen
+           uansett kommer frem. */
+        var feil = document.getElementById('form-feil');
+        if (!feil) {
+          feil = document.createElement('p');
+          feil.id = 'form-feil';
+          feil.className = 'form-note';
+          btn.insertAdjacentElement('afterend', feil);
+        }
+        var adr = atob('aW5kZXhkZXZhbmRyZWFzQGdtYWlsLmNvbQ==');
+        var mailto = 'mailto:' + adr
+          + '?subject=' + encodeURIComponent('Henvendelse fra ' + (document.getElementById('bedrift').value || 'nettsiden'))
+          + '&body=' + encodeURIComponent(
+              'Bedrift: ' + document.getElementById('bedrift').value + '\n'
+            + 'E-post: ' + document.getElementById('epost').value + '\n'
+            + 'Telefon: ' + (document.getElementById('telefon').value || '(ikke oppgitt)') + '\n\n'
+            + document.getElementById('melding').value);
+        feil.innerHTML = 'Innsendingen glapp, sikkert nettet. Prøv igjen om et øyeblikk, '
+          + '<a href="' + mailto + '">eller trykk her for å sende meldingen ferdig utfylt på e-post</a>. '
+          + 'Ringe går også fint: <a href="tel:+4748459686">+47 484 59 686</a>.';
+        feil.removeAttribute('hidden');
       });
   });
 })();

@@ -236,6 +236,12 @@
 .s-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
 .s-sub { font-size: 15px; color: rgba(255,255,255,0.6); }
 
+.form-note a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .form-note {
   margin-top: 14px;
   font-size: 13.5px;

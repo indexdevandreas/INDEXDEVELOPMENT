@@ -292,6 +292,14 @@
   line-height: 1.5;
   color: #b3261e;
 }
+/* Redningslenkene i feilmeldingen (e-post og telefon) skal være
+   tydelige handlinger, ikke drukne i rødfargen. */
+.wz-err a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* Oppsummeringen står UNDER skjemaet: den skal berolige,
    ikke stjele plassen fra det som faktisk skal fylles ut. */
