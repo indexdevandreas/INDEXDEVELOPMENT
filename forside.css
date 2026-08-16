@@ -94,7 +94,7 @@
   color: #fff;
   transition: background 0.2s;
 }
-.hero-pill:hover { background: #161c26; }
+.hero-pill:hover { background: #0f1419; box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
 /* Smalt lysglimt som sveiper over pillen med jevne mellomrom */
 .hero-pill::after {
   content: "";
@@ -728,11 +728,11 @@
      mistet sin transition på nytt. sider.css sin regel har samme
      background-varighet (0.25s), så ingenting endrer seg visuelt. */
 }
-.sv-card:hover { transform: translateY(-4px); background: #eaeae7; }
+.sv-card:hover { background: #dcdcd8; }
 .sv-lime { background: var(--lime); }
-.sv-lime:hover { background: #c8f52d; }
+.sv-lime:hover { background: #d4ff22; }
 .sv-dark { background: #0d0d0d; color: #fff; }
-.sv-dark:hover { background: #171717; }
+.sv-dark:hover { background: #1f1f1f; }
 .sv-num {
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 11px;
@@ -1134,7 +1134,7 @@
      forklaringen ved .sv-card lenger opp i denne fila. Samme mønster,
      samme fiks. */
 }
-.bl-card:hover { transform: translateY(-4px); }
+.bl-card:hover { background: #e8e8e4; }
 .bl-img { height: 190px; overflow: hidden; background: #e6e6e3; }
 .bl-img img {
   width: 100%; height: 100%;
@@ -1142,7 +1142,7 @@
   display: block;
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
-.bl-card:hover .bl-img img { transform: scale(1.05); }
+.bl-card:hover .bl-img img { transform: scale(1.08); }
 .bl-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
 .bl-tag {
   align-self: flex-start;
@@ -1251,9 +1251,10 @@
   transition:
     background 0.22s,
     opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease;
 }
-.fq-item:hover { background: #ebebe8; }
+.fq-item:hover { background: #e6e6e2; box-shadow: 0 8px 18px rgba(10, 10, 10, 0.08); }
 .fq-item[open] { background: #ebebe8; }
 .fq-item summary {
   list-style: none;
