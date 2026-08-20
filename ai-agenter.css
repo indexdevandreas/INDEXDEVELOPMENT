@@ -290,6 +290,13 @@
   color: rgba(255,255,255,0.72);
 }
 .bd-price-rows li span:last-child { color: #fff; font-weight: 600; white-space: nowrap; }
+/* Avgrensningen under prisradene — informasjon, ikke salgspunkt. */
+.bd-price-note {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.55);
+}
 .bd-price-btn {
   --cap: 40px;
   --pad: 6px;

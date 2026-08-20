@@ -239,7 +239,9 @@
   margin-top: 10px;
 }
 .pk-card .pk-once { color: rgba(10,10,10,0.42); }
-.pk-featured .pk-once { color: rgba(255,255,255,0.45); }
+/* Hvit på det mørke kortet — 45 % hvit druknet, og månedsprisen er
+   en del av tilbudet, ikke småskrift. */
+.pk-featured .pk-once { color: #fff; }
 .pk-for {
   margin-top: 20px;
   font-size: 15.5px;
@@ -272,6 +274,15 @@
   border-bottom: 2px solid var(--lime);
   transform: rotate(-45deg);
 }
+/* Avgrensningen nederst i kortet — informasjon, ikke salgspunkt.
+   Derfor uten hake, i dempet farge, men med samme grad som punktene. */
+.pk-note {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(10,10,10,0.55);
+}
+.pk-featured .pk-note { color: rgba(255,255,255,0.55); }
 .pk-btn {
   margin-top: 30px;
   --cap: 38px;
