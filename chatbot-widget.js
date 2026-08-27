@@ -1,121 +1,80 @@
 (function () {
   'use strict';
 
-  /* ── Conversation tree ─────────────────────────────────────
-     Each node: { message, buttons: [{ label, action, style? }] }
-     action: string key → navigate to that node
-             'link:<url>' → open url
-             'start' → go back to root
+  /* ── Ekte AI-chat ──────────────────────────────────────────
+     Widgeten snakker med /api/chat (Cloudflare Pages Function)
+     som proxyer til Anthropic-API-et og streamer svaret som SSE.
+     API-nøkkelen finnes kun på serversiden.
+     Historikken ligger i sessionStorage så samtalen overlever
+     sidebytte, men nullstilles når fanen lukkes.
   ────────────────────────────────────────────────────────── */
-  const FLOW = {
-    start: {
-      message: 'Hei! 👋 Hva lurer du på?',
-      buttons: [
-        { label: 'Hva koster det?', action: 'pricing' },
-        { label: 'Hvor lang tid tar det?', action: 'timeline' },
-        { label: 'Hva kan dere bygge?', action: 'services' },
-        { label: 'Jeg vet ikke helt hva jeg trenger', action: 'usikker' },
-        { label: 'Jeg vil bare ta kontakt', action: 'contact', style: 'secondary' },
-      ],
-    },
-    pricing: {
-      message:
-        'Nettsider har fastpris — fra <strong>2 900 kr</strong>, og tallene står på prissiden.<br><br>' +
-        'AI-agenter, systemer og integrasjoner prises etter at du har beskrevet hva du trenger. ' +
-        'Du får alltid fastpris skriftlig før noe bygges.',
-      buttons: [
-        { label: 'Se prisene →', action: 'link:priser.html' },
-        { label: 'Beskriv hva jeg trenger →', action: 'link:kom-i-gang.html' },
-        { label: 'Tilbake', action: 'start', style: 'secondary' },
-      ],
-    },
-    timeline: {
-      message:
-        '<strong>Fem dager</strong> fra du tar kontakt til du ser din egen løsning live.<br><br>' +
-        'For nettsider er det et ferdig utkast. For større systemer en fungerende demo — ' +
-        'selve byggetiden avtaler vi etterpå, med skriftlig tidsplan.',
-      buttons: [
-        { label: 'Sett i gang →', action: 'link:kom-i-gang.html' },
-        { label: 'Tilbake', action: 'start', style: 'secondary' },
-      ],
-    },
-    services: {
-      message:
-        'Seks ting, alt håndkodet fra bunnen:<br><br>' +
-        '• Nettsider, SEO og utvikling<br>' +
-        '• AI-agenter og chatbots<br>' +
-        '• Systemutvikling<br>' +
-        '• API-integrasjoner<br>' +
-        '• Booking-systemer<br>' +
-        '• Drift og vedlikehold',
-      buttons: [
-        { label: 'Se alle tjenester →', action: 'link:tjenester.html' },
-        { label: 'Tilbake', action: 'start', style: 'secondary' },
-      ],
-    },
-    usikker: {
-      message:
-        'Det er de fleste som ikke gjør — og det er helt greit.<br><br>' +
-        'Veiviseren stiller spørsmålene for deg, så slipper du å formulere det selv. ' +
-        'Svarene blir til en beskrivelse Andreas får rett i innboksen, og du får forslag ' +
-        'og pris tilbake skriftlig. Tar under to minutter.',
-      buttons: [
-        { label: 'Ta veiviseren →', action: 'link:kom-i-gang.html' },
-        { label: 'Tilbake', action: 'start', style: 'secondary' },
-      ],
-    },
-    contact: {
-      message:
-        'Raskeste vei er å beskrive hva du trenger — da har Andreas alt han trenger for å svare skikkelig.<br><br>' +
-        'Vil du heller skrive fritt:<br>' +
-        '📧 <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a><br>' +
-        '📞 <a href="tel:+4748459686">484 59 686</a>',
-      buttons: [
-        { label: 'Beskriv hva jeg trenger →', action: 'link:kom-i-gang.html' },
-        { label: 'Gå til kontaktsiden', action: 'link:kontakt.html', style: 'secondary' },
-        { label: 'Tilbake', action: 'start', style: 'secondary' },
-      ],
-    },
-  };
+
+  const API_URL = '/api/chat';
+  const STORE_KEY = 'cw-history-v1';
+  const WELCOME =
+    'Hei! 👋 Jeg er AI-assistenten til Index Development. ' +
+    'Spør meg om priser, tjenester eller hvordan du kommer i gang.';
+  const STARTERS = [
+    'Hva koster en nettside?',
+    'Hva kan dere bygge?',
+    'Hvor lang tid tar det?',
+  ];
+  const ERROR_MSG =
+    'Beklager, jeg fikk ikke kontakt med serveren akkurat nå. ' +
+    'Prøv igjen om litt, eller send en e-post til ' +
+    '<a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>.';
+
+  /* Samtalehistorikk i API-format: [{role, content}] */
+  let history = [];
+  let busy = false;
+
+  function loadHistory() {
+    try {
+      const raw = sessionStorage.getItem(STORE_KEY);
+      if (raw) history = JSON.parse(raw);
+    } catch { history = []; }
+  }
+  function saveHistory() {
+    try { sessionStorage.setItem(STORE_KEY, JSON.stringify(history)); } catch {}
+  }
+
+  /* ── Formatering av modellsvar ─────────────────────────────
+     Alt escapes først (XSS-vern), deretter enkel markdown:
+     **fet**, interne stier (/side.html) og e-post blir lenker. */
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+  function formatMessage(text) {
+    let html = escapeHtml(text);
+    html = html.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(
+      /(^|[\s(])(\/[a-z0-9-]+\.html)/g,
+      '$1<a href="$2">$2</a>'
+    );
+    html = html.replace(
+      /([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})/gi,
+      '<a href="mailto:$1">$1</a>'
+    );
+    return html.replace(/\n/g, '<br>');
+  }
 
   /* ── Build DOM ──────────────────────────────────────────── */
   function buildWidget() {
-    /* Inject CSS link if not already present */
-    if (!document.querySelector('link[href*="chatbot-widget.css"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = new URL('chatbot-widget.css', document.currentScript
-        ? document.currentScript.src
-        : window.location.href).href;
-      document.head.appendChild(link);
-    }
+    const logoImg = '<img src="/logo.svg" alt="" width="24" height="24">';
 
-    /* Bubble button */
     const bubble = document.createElement('button');
     bubble.id = 'cw-bubble';
     bubble.setAttribute('aria-label', 'Åpne chat');
     bubble.setAttribute('aria-expanded', 'false');
     bubble.innerHTML = `
-      <svg class="cw-icon-chat" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/>
-      </svg>
+      <span class="cw-icon-chat">${logoImg}</span>
       <svg class="cw-icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M18 6 6 18M6 6l12 12"/>
       </svg>
       <span id="cw-badge" aria-hidden="true"></span>`;
 
-    /* Fix close icon to use stroke instead of fill */
-    setTimeout(() => {
-      const closeIcon = bubble.querySelector('.cw-icon-close');
-      if (closeIcon) {
-        closeIcon.style.fill = 'none';
-        closeIcon.style.stroke = '#0a0a0a';   /* boblen er limegrønn */
-        closeIcon.style.strokeWidth = '2.5';
-        closeIcon.style.strokeLinecap = 'round';
-      }
-    }, 0);
-
-    /* Chat window */
     const win = document.createElement('div');
     win.id = 'cw-window';
     win.setAttribute('role', 'dialog');
@@ -123,58 +82,140 @@
     win.setAttribute('aria-modal', 'false');
     win.innerHTML = `
       <div id="cw-header">
-        <div class="cw-avatar">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/>
-          </svg>
-        </div>
+        <div class="cw-avatar">${logoImg}</div>
         <div class="cw-header-info">
           <span class="cw-header-name">Index Development</span>
           <span class="cw-header-status">
             <span class="cw-status-dot"></span>
-            Tilgjengelig nå
+            AI-assistent
           </span>
         </div>
       </div>
-      <div id="cw-messages"></div>
-      <div id="cw-buttons"></div>`;
+      <div id="cw-messages" aria-live="polite"></div>
+      <div id="cw-buttons"></div>
+      <form id="cw-inputrow" autocomplete="off">
+        <input id="cw-input" type="text" maxlength="1000"
+               placeholder="Skriv en melding …" aria-label="Skriv en melding">
+        <button id="cw-send" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11.5 21 3l-8.5 18-2.4-7.1L3 11.5Z"/>
+          </svg>
+        </button>
+      </form>`;
 
     document.body.appendChild(win);
     document.body.appendChild(bubble);
-
     return { bubble, win };
   }
 
-  /* ── Render a conversation node ─────────────────────────── */
-  function renderNode(key, messagesEl, buttonsEl) {
-    const node = FLOW[key];
-    if (!node) return;
-
-    /* Add message bubble */
+  /* ── Meldingsbobler ────────────────────────────────────── */
+  function addBubble(messagesEl, html, who) {
     const msg = document.createElement('div');
-    msg.className = 'cw-msg';
+    msg.className = 'cw-msg' + (who === 'user' ? ' cw-user' : '');
     const bub = document.createElement('div');
     bub.className = 'cw-bubble-msg';
-    bub.innerHTML = node.message;
+    bub.innerHTML = html;
     msg.appendChild(bub);
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;
+    return bub;
+  }
 
-    /* Render buttons */
+  function addTyping(messagesEl) {
+    const bub = addBubble(
+      messagesEl,
+      '<span class="cw-dot"></span><span class="cw-dot"></span><span class="cw-dot"></span>',
+      'bot'
+    );
+    bub.classList.add('cw-typing');
+    return bub;
+  }
+
+  function renderStarters(buttonsEl, onPick) {
     buttonsEl.innerHTML = '';
-    node.buttons.forEach(({ label, action, style }) => {
+    STARTERS.forEach((label) => {
       const btn = document.createElement('button');
-      btn.className = 'cw-btn' + (style ? ` ${style}` : '');
+      btn.className = 'cw-btn';
+      btn.type = 'button';
       btn.textContent = label;
-      btn.addEventListener('click', () => {
-        if (action.startsWith('link:')) {
-          window.location.href = action.slice(5);
-        } else {
-          renderNode(action, messagesEl, buttonsEl);
-        }
-      });
+      btn.addEventListener('click', () => onPick(label));
       buttonsEl.appendChild(btn);
     });
+  }
+
+  /* ── Send + stream ─────────────────────────────────────── */
+  async function send(text, ui) {
+    if (busy || !text.trim()) return;
+    busy = true;
+    ui.buttonsEl.innerHTML = '';
+    ui.input.disabled = true;
+    ui.sendBtn.disabled = true;
+
+    addBubble(ui.messagesEl, escapeHtml(text), 'user');
+    history.push({ role: 'user', content: text });
+    saveHistory();
+
+    const typing = addTyping(ui.messagesEl);
+    let answer = '';
+    let answerBubble = null;
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      if (!res.ok || !res.body) throw new Error('HTTP ' + res.status);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+
+        const lines = buffer.split('\n');
+        buffer = lines.pop(); /* siste linje kan være ufullstendig */
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          let ev;
+          try { ev = JSON.parse(line.slice(6)); } catch { continue; }
+
+          if (ev.type === 'content_block_delta' && ev.delta && ev.delta.type === 'text_delta') {
+            answer += ev.delta.text;
+            if (!answerBubble) {
+              typing.remove();
+              answerBubble = addBubble(ui.messagesEl, '', 'bot');
+            }
+            answerBubble.innerHTML = formatMessage(answer);
+            ui.messagesEl.scrollTop = ui.messagesEl.scrollHeight;
+          } else if (ev.type === 'error') {
+            throw new Error(ev.error && ev.error.message);
+          }
+        }
+      }
+
+      if (!answer) throw new Error('Tomt svar');
+      history.push({ role: 'assistant', content: answer });
+      saveHistory();
+    } catch (err) {
+      typing.remove();
+      if (answerBubble) answerBubble.remove();
+      /* Rull tilbake brukermeldingen så historikken forblir gyldig */
+      if (history.length && history[history.length - 1].role === 'user') {
+        history.pop();
+        saveHistory();
+      }
+      addBubble(ui.messagesEl, ERROR_MSG, 'bot');
+    } finally {
+      busy = false;
+      ui.input.disabled = false;
+      ui.sendBtn.disabled = false;
+      ui.input.focus();
+    }
   }
 
   /* ── Init ───────────────────────────────────────────────── */
@@ -182,8 +223,29 @@
     const { bubble, win } = buildWidget();
     const messagesEl = win.querySelector('#cw-messages');
     const buttonsEl = win.querySelector('#cw-buttons');
+    const form = win.querySelector('#cw-inputrow');
+    const input = win.querySelector('#cw-input');
+    const sendBtn = win.querySelector('#cw-send');
     const badge = bubble.querySelector('#cw-badge');
+    const ui = { messagesEl, buttonsEl, input, sendBtn };
     let opened = false;
+
+    loadHistory();
+
+    function renderExisting() {
+      addBubble(messagesEl, WELCOME, 'bot');
+      if (history.length === 0) {
+        renderStarters(buttonsEl, (label) => send(label, ui));
+      } else {
+        history.forEach((m) => {
+          addBubble(
+            messagesEl,
+            m.role === 'user' ? escapeHtml(m.content) : formatMessage(m.content),
+            m.role === 'user' ? 'user' : 'bot'
+          );
+        });
+      }
+    }
 
     function open() {
       win.classList.add('open');
@@ -192,8 +254,9 @@
       badge.classList.add('hidden');
       if (!opened) {
         opened = true;
-        renderNode('start', messagesEl, buttonsEl);
+        renderExisting();
       }
+      input.focus();
     }
 
     function close() {
@@ -206,12 +269,17 @@
       win.classList.contains('open') ? close() : open();
     });
 
-    /* Close on Escape */
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = input.value;
+      input.value = '';
+      send(text, ui);
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && win.classList.contains('open')) close();
     });
 
-    /* Auto-show badge after 3s to attract attention */
     setTimeout(() => {
       if (!opened) badge.classList.remove('hidden');
     }, 3000);

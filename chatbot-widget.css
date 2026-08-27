@@ -29,16 +29,28 @@
   transform: scale(1.1);
   box-shadow: 0 6px 32px rgba(212, 255, 61, 0.6);
 }
-#cw-bubble svg {
-  width: 26px;
-  height: 26px;
-  fill: #0a0a0a;
+#cw-bubble .cw-icon-chat,
+#cw-bubble .cw-icon-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.25s ease, opacity 0.2s ease;
+}
+#cw-bubble .cw-icon-chat img {
+  width: 30px;
+  height: 30px;
+  display: block; /* logoen er sort — synlig rett på den limegrønne boblen */
 }
 #cw-bubble .cw-icon-close {
   position: absolute;
+  width: 24px;
+  height: 24px;
   opacity: 0;
   transform: rotate(-90deg) scale(0.7);
+  fill: none;
+  stroke: #0a0a0a;
+  stroke-width: 2.5;
+  stroke-linecap: round;
 }
 #cw-bubble.open .cw-icon-chat {
   opacity: 0;
@@ -112,10 +124,10 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.cw-avatar svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
+.cw-avatar img {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 .cw-header-info {
   display: flex;
@@ -225,6 +237,85 @@
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+/* Brukermeldinger — høyrestilt, limegrønn boble */
+.cw-msg.cw-user { align-items: flex-end; }
+.cw-msg.cw-user .cw-bubble-msg {
+  background: var(--lime, #d4ff3d);
+  color: #0a0a0a;
+  border-radius: 14px 14px 4px 14px;
+}
+
+/* Skriveindikator (tre pulserende prikker) */
+.cw-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 20px;
+}
+.cw-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  animation: cwDot 1.1s infinite ease-in-out;
+}
+.cw-dot:nth-child(2) { animation-delay: 0.15s; }
+.cw-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes cwDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Tomt knappefelt skal ikke ta plass */
+#cw-buttons:empty { display: none; }
+
+/* ── Inputrad ─────────────────────────────────────────────── */
+#cw-inputrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+#cw-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+#cw-input::placeholder { color: rgba(255, 255, 255, 0.35); }
+#cw-input:focus { border-color: rgba(212, 255, 61, 0.55); }
+#cw-input:disabled { opacity: 0.5; }
+#cw-send {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: none;
+  background: var(--lime, #d4ff3d);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.12s ease, opacity 0.15s ease;
+}
+#cw-send:hover { transform: scale(1.06); }
+#cw-send:active { transform: scale(0.95); }
+#cw-send:disabled { opacity: 0.5; cursor: default; transform: none; }
+#cw-send svg {
+  width: 17px;
+  height: 17px;
+  fill: #0a0a0a;
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */

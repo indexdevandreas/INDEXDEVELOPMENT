@@ -134,8 +134,8 @@
       q: 'Har du en sum i bakhodet?',
       hjelp: 'Ikke en felle, og ikke en høy terskel — nettsidene våre starter på 2 900,-. Dette hjelper meg bare å treffe riktig med forslaget.',
       valg: [
-        { v: 'Under 5 000',        d: 'Nettside, chatbot eller en enkel integrasjon' },
-        { v: '5 000 – 15 000',     d: 'Større nettsted, AI-chatbot eller booking' },
+        { v: 'Under 5 000',        d: 'Nettside eller en enkel integrasjon' },
+        { v: '5 000 – 15 000',     d: 'Større nettsted eller booking' },
         { v: '15 000 – 40 000',    d: 'System, integrasjoner eller AI som henger sammen' },
         { v: 'Over 40 000',        d: 'Større utvikling, gjerne i flere etapper' },
         { v: 'Vet ikke — si hva det koster', d: 'Du får fastpris skriftlig før noe avgjøres' }
