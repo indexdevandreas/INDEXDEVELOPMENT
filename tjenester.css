@@ -92,7 +92,10 @@
 .ph-index a:hover .pi-name { color: var(--lime); }
 
 @media (max-width: 1050px) {
-  .ph-grid { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px 64px; }
+  /* minmax(0, 1fr) og ikke bare «1fr»: sistnevnte har min-content som
+     minstemål, så innholdsregisteret sprengte kolonnen 38px bredere
+     enn forelderen på smale telefoner. */
+  .ph-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 60px 24px 64px; }
 }
 
 /* ═══ Tjenesterader — brede rader, ikke kortrutenett ═══ */

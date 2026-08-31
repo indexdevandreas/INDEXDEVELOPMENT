@@ -1306,6 +1306,21 @@ html, body { overflow-x: clip; }
 
   .sv-card,
   .nk-card { min-height: 0; }
+
+  /* .sv-grid.sv-tre er sterkere enn .sv-grid alene og vant derfor over
+     regelen over: de tre kategorikortene ble stående i to kolonner på
+     telefon. Samme grunn til at .sv-lead må gjentas for å slippe
+     minstehøyden sin. */
+  .sv-grid.sv-tre { grid-template-columns: 1fr; }
+  .sv-tre .sv-lead { min-height: 0; }
+  .sv-tre .sv-lead p { max-width: 100%; }
+
+  /* Linjeskiftene i heroen er satt for den brede spalten på skjerm.
+     På telefon får førstelinja ikke plass uansett, og da brekker
+     teksten to steder samtidig og blir ujevn. Her slippes skiftene,
+     så nettleseren fordeler linjene selv. */
+  .hero-inner h1 br { display: none; }
+  .hero-inner h1 { text-wrap: balance; }
   .s2-card { min-height: 0; padding: 26px 24px 24px; }
   .s2-text { max-width: 100%; }
 
@@ -1316,4 +1331,21 @@ html, body { overflow-x: clip; }
   .cv-card { padding: 26px 22px 24px; }
   .fq-item summary { padding: 20px 20px; font-size: 15.5px; gap: 16px; }
   .fq-body p { padding: 0 20px 22px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SMALESTE TELEFONER (320px, f.eks. iPhone SE 1. gen)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  /* .hero-inner .hero-btn står på «width: max-content» og krympet
+     derfor aldri. På 320px stakk den 20px utenfor og sirkelen med
+     pilen ble klippet bort. Her strammes luften og sperringen inn,
+     så hele knappen får plass uten at teksten brekker. */
+  .hero-btn {
+    padding: var(--pad) var(--pad) var(--pad) 20px;
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    gap: 12px;
+    --cap: 38px;
+  }
 }

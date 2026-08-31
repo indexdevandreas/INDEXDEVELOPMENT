@@ -309,7 +309,10 @@
 
 @media (max-width: 980px) {
   .cb-build { padding: 0 0 90px; }
-  .bd-grid { grid-template-columns: 1fr; gap: 44px; }
+  /* minmax(0, 1fr), ikke 1fr: «1fr» har min-content som automatisk
+     minstemål, så en lang tekstrad inni sprenger kolonnen bredere enn
+     forelderen. Kolonnen ble 351px i en 312px-boks på telefon. */
+  .bd-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .bd-price { position: static; }
 }
 
