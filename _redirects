@@ -1,0 +1,15 @@
+# Cloudflare Pages — permanente omdirigeringer.
+# Sidene under ble slått sammen med sider som dekker samme tema. De
+# beholdes som 301 og ikke som 404, så eventuelle innkommende lenker og
+# opparbeidet rangering følger med til siden som overtok innholdet.
+#
+# ingen-bindingstid  var i praksis ett FAQ-svar. Svaret står nå i FAQ-en
+#                    på forsiden og på kontaktsiden, og det juridiske i
+#                    vilkårene. Prissiden er der folk spør om binding.
+# konvertering       konkurrerte med kontakt-oppfolging på samme søk:
+#                    å gjøre besøkende til henvendelser.
+# kompetanse         handlet om Andreas, det samme som om-meg gjør.
+
+/ingen-bindingstid.html   /priser.html               301
+/konvertering.html        /kontakt-oppfolging.html   301
+/kompetanse.html          /om-meg.html               301

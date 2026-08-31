@@ -116,7 +116,7 @@ document.querySelectorAll('.reveal').forEach(el => {
   var nav = document.querySelector('.hero-nav');
   if (!nav) return;
 
-  var lysHero = nav.classList.contains('is-dark');   /* kompetanse er lys fra før */
+  var lysHero = nav.classList.contains('is-dark');   /* lyse heroer setter .is-dark selv */
   var fest = false;
 
   function sjekk() {

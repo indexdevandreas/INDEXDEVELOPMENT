@@ -33,32 +33,65 @@
   /* ─── Spørsmålene ─── */
   var TRINN = [
     {
-      id: 'behov',
-      type: 'multi',
+      /* Første spørsmål er gjenkjenning, ikke produktvalg. En håndverker
+         vet ikke om han trenger en API-integrasjon; han vet at telefonen
+         ikke ringer. Svaret her styrer hvilke tjenester som i det hele
+         tatt vises på neste trinn. */
+      id: 'gjenkjenning',
+      type: 'single',
       intro: true,
       introLines: [
         'Fire spørsmål.',
         'Rundt to minutter.',
         'Du får forslag og pris skriftlig, som regel samme dag.'
       ],
-      q: 'Hva trenger du hjelp med?',
-      hjelp: 'Jeg er Andreas, og jeg leser svarene selv. Ingenting forsvinner inn i et system. Kryss av alt som passer, og det er helt lov å ikke vite.',
+      q: 'Hva kjenner du deg igjen i?',
+      hjelp: 'Jeg er Andreas, og jeg leser svarene selv. Ingenting forsvinner inn i et system. Velg det som ligner mest. Det trenger ikke treffe helt.',
       valg: [
-        { v: 'Nettside',            d: 'Ny side, eller erstatte den du har i dag' },
-        { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, eller jobber i bakgrunnen' },
-        { v: 'Systemutvikling',     d: 'Database, innlogging eller et adminpanel' },
-        { v: 'API-integrasjon',     d: 'Koble sammen systemene du allerede bruker' },
-        { v: 'Booking-system',      d: 'Kunder bestiller time selv' },
-        { v: 'Google Bedriftsprofil', d: 'Vises i lokalt søk og på Google Maps' },
-        { v: 'Drift, vedlikehold og support', d: 'Hosting, sikkerhet og oppdateringer — løpende' },
-        { v: 'Jeg vet ikke helt',   d: 'Helt greit — da finner vi ut av det sammen' }
+        { v: 'Folk finner meg ikke',    d: 'Du dukker ikke opp når noen søker etter det du gjør' },
+        { v: 'Jeg mister henvendelser', d: 'De tar kontakt, men noe glipper før de blir kunder' },
+        { v: 'For mye manuelt arbeid',  d: 'Du taster det samme flere ganger, uke etter uke' }
       ]
+    },
+    {
+      id: 'behov',
+      type: 'multi',
+      q: 'Hva tror du selv du trenger?',
+      hjelp: 'Kryss av alt som passer, og det er helt lov å ikke vite. Drift trenger du ikke velge, det følger med på alt vi bygger.',
+      /* Listen følger svaret over, så man slipper å ta stilling til
+         tjenester som ikke løser problemet man akkurat beskrev. */
+      valg: function () {
+        var pakker = {
+          'Folk finner meg ikke': [
+            { v: 'Nettside',              d: 'Ny side, eller erstatte den du har i dag' },
+            { v: 'Google Bedriftsprofil', d: 'Vises i lokalt søk og på Google Maps' }
+          ],
+          'Jeg mister henvendelser': [
+            { v: 'Ubesvarte anrop',        d: 'Rekker du ikke telefonen, tas anropet imot for deg' },
+            { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, døgnet rundt' },
+            { v: 'Booking-system',         d: 'Kunder bestiller time selv' },
+            { v: 'Kontaktskjema',          d: 'Kort skjema som lander rett i innboksen din' }
+          ],
+          'For mye manuelt arbeid': [
+            { v: 'Systemutvikling', d: 'Database, innlogging eller et adminpanel' },
+            { v: 'API-integrasjon', d: 'Koble sammen systemene du allerede bruker' }
+          ]
+        };
+        var liste = (pakker[svar.gjenkjenning] || []).slice();
+        liste.push({ v: 'Jeg vet ikke helt', d: 'Helt greit — da finner vi ut av det sammen' });
+        return liste;
+      }
     },
     {
       id: 'nettside_idag',
       type: 'single',
       q: 'Har du en nettside i dag?',
-      vis: function () { return harNoen('behov', ['Nettside', 'Drift, vedlikehold og support', 'Jeg vet ikke helt']); },
+      /* Også på henvendelses-sporet: en chatbot eller et skjema må stå
+         et sted, så svaret avgjør hva forslaget kan bygge på. */
+      vis: function () {
+        return har('gjenkjenning', 'Jeg mister henvendelser')
+            || harNoen('behov', ['Nettside', 'Jeg vet ikke helt']);
+      },
       valg: [
         { v: 'Nei, ingen ennå',              d: 'Vi starter med blanke ark' },
         { v: 'Ja, men den skaffer ingen kunder', d: 'Den finnes, men telefonen ringer ikke' },
@@ -132,14 +165,38 @@
       id: 'budsjett',
       type: 'single',
       q: 'Har du en sum i bakhodet?',
-      hjelp: 'Ikke en felle, og ikke en høy terskel — nettsidene våre starter på 2 900,-. Dette hjelper meg bare å treffe riktig med forslaget.',
-      valg: [
-        { v: 'Under 5 000',        d: 'Nettside eller en enkel integrasjon' },
-        { v: '5 000 – 15 000',     d: 'Større nettsted eller booking' },
-        { v: '15 000 – 40 000',    d: 'System, integrasjoner eller AI som henger sammen' },
-        { v: 'Over 40 000',        d: 'Større utvikling, gjerne i flere etapper' },
-        { v: 'Vet ikke — si hva det koster', d: 'Du får fastpris skriftlig før noe avgjøres' }
-      ]
+      /* Beskrivelsene følger sporet man er på. Sto tidligere med
+         nettsider i alle fem, så den som spurte om en AI-agent fikk
+         «Nettside eller en enkel integrasjon» tilbake.
+         Ingen priser her: veiviseren skal spørre hva kunden har å
+         rutte med, ikke antyde hva det kommer til å koste. Tallene
+         står på prissiden, og fastprisen kommer skriftlig etterpå. */
+      hjelp: 'Ikke en felle, og ikke en høy terskel. Dette hjelper meg bare å treffe riktig med forslaget, og du får fastpris skriftlig uansett hva du svarer.',
+      valg: function () {
+        var nivaa = {
+          'Jeg mister henvendelser': [
+            'En enkel løsning som tar imot henvendelsene',
+            'Booking eller chatbot satt opp på din bedrift',
+            'Flere ting som spiller sammen, for eksempel booking og AI'
+          ],
+          'For mye manuelt arbeid': [
+            'Én enkel kobling mellom to systemer',
+            'Flere integrasjoner, eller et lite system',
+            'Skreddersydd system med database og innlogging'
+          ]
+        }[svar.gjenkjenning] || [
+          'En enkel nettside som gjør én jobb',
+          'Større nettsted med flere sider',
+          'Nettsted, profil og innhold som henger sammen'
+        ];
+        return [
+          { v: 'Under 5 000',    d: nivaa[0] },
+          { v: '5 000 – 15 000', d: nivaa[1] },
+          { v: '15 000 – 40 000', d: nivaa[2] },
+          { v: 'Over 40 000',    d: 'Større utvikling, gjerne i flere etapper' },
+          { v: 'Vet ikke — si hva det koster', d: 'Du får fastpris skriftlig før noe avgjøres' }
+        ];
+      }
     }
   ];
 
@@ -181,7 +238,11 @@
       + (t.hjelp ? '<p class="wz-help">' + t.hjelp + '</p>' : '')
       + '<div class="wz-options' + (t.type === 'multi' ? ' is-multi' : '') + '" role="group" aria-label="' + t.q + '">';
 
-    t.valg.forEach(function (o, i) {
+    /* «valg» kan være en funksjon når alternativene avhenger av et
+       tidligere svar — se «behov». */
+    var alternativer = typeof t.valg === 'function' ? t.valg() : t.valg;
+
+    alternativer.forEach(function (o, i) {
       var av = t.type === 'multi' ? valgt.indexOf(o.v) !== -1 : valgt === o.v;
       html += '<button type="button" class="wz-opt' + (av ? ' is-on' : '') + '"'
            +  ' data-v="' + esc(o.v) + '" aria-pressed="' + av + '" style="--i:' + i + '">'
@@ -238,6 +299,11 @@
     });
     btn.classList.add('is-on');
     btn.setAttribute('aria-pressed', 'true');
+
+    /* Går man tilbake og velger en annen kategori, hører ikke tjenestene
+       man alt har krysset av hjemme lenger. Uten dette ble de liggende i
+       svar-objektet og fulgte med i e-posten. */
+    if (t.id === 'gjenkjenning' && svar[t.id] && svar[t.id] !== v) delete svar.behov;
     svar[t.id] = v;
 
     stage.classList.add('is-locked');

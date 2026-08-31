@@ -9,7 +9,10 @@
    ═══════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: calc(100vh - 20px);
+  /* Taket kom til da pillen og tjenesteraden ble fjernet: på høye
+     skjermer sto en hel viewport-høyde igjen med bare tekstblokken
+     sentrert i seg, og flaten leste som tom. */
+  min-height: min(calc(100vh - 20px), 880px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -49,9 +52,13 @@
   padding: 78px 48px 0;
   max-width: 1000px;
 }
+/* Overskriften bærer to løfter, ikke ett, og er lengre enn den var.
+   Den lengste linja er 29 tegn, og i heroens 820-spalte gir 66px
+   omtrent 29 tegn per linje. Graden er satt etter det, så bruddet
+   kommer etter kommaet i stedet for midt i «til å ringe». */
 .hero-inner h1 {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(56px, 6.1vw, 96px);
+  font-size: clamp(44px, 5.6vw, 66px);
   font-weight: 400;
   letter-spacing: -0.018em;
   line-height: 1.02;
@@ -59,10 +66,12 @@
 }
 .hero-sub {
   margin-top: 26px;
-  font-size: 16.5px;
+  font-size: 17px;
   line-height: 1.62;
   color: rgba(255,255,255,0.9);
-  max-width: 440px;
+  /* Følger den bredere overskriften, men stopper på ca. 62 tegn så
+     linjelengden fortsatt er behagelig å lese. */
+  max-width: 520px;
 }
 .hero-btn {
   --cap: 42px;
@@ -79,51 +88,6 @@
 
 .hero-inner .hero-btn { display: flex; width: max-content; }
 
-/* Invite-pille */
-.hero-pill {
-  position: relative;
-  overflow: hidden;
-  margin-top: 22px;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #0d1117;
-  border-radius: 999px;
-  padding: 8px 22px 8px 10px;
-  color: #fff;
-  transition: background 0.2s;
-}
-.hero-pill:hover { background: #0f1419; box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
-/* Smalt lysglimt som sveiper over pillen med jevne mellomrom */
-.hero-pill::after {
-  content: "";
-  position: absolute;
-  top: -20%;
-  bottom: -20%;
-  left: -60%;
-  width: 30%;
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    rgba(255,255,255,0.10) 28%,
-    rgba(255,255,255,0.52) 50%,
-    rgba(255,255,255,0.10) 72%,
-    transparent 100%
-  );
-  transform: skewX(-16deg);
-  pointer-events: none;
-  animation: pillShine 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-@keyframes pillShine {
-  0%, 22%   { left: -60%; }
-  72%, 100% { left: 130%; }
-}
-.hero-pill > * { position: relative; z-index: 1; }
-@media (prefers-reduced-motion: reduce) {
-  .hero-pill::after { animation: none; opacity: 0; }
-}
-
 .hero-note {
   margin-top: 16px;
   font-size: 12px;
@@ -131,58 +95,6 @@
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.7);
   line-height: 1.6;
-}
-
-.hp-tag {
-  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
-  background: #fff; color: #0a0a0a;
-  padding: 5px 12px; border-radius: 999px;
-}
-.hp-icon {
-  width: 22px; height: 22px; border-radius: 6px;
-  background: #e8502e; color: #fff;
-  font-size: 10px; font-weight: 700;
-  display: grid; place-items: center;
-}
-.hp-title { font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em; }
-.hp-sep { width: 1px; height: 15px; background: rgba(255,255,255,0.22); }
-.hp-text { font-size: 13.5px; color: rgba(255,255,255,0.68); }
-.hp-arrow { font-size: 14px; color: rgba(255,255,255,0.68); }
-
-/* ─── Tjeneste-raden nederst i heroen ───
-   Sto tidligere «BYGGET MED — Cloudflare · Supabase · Claude» her. De tre
-   navnene ruller uansett forbi i tag-båndet i Plattform-kortet rett under,
-   og de svarer på hva VI liker, ikke på hva kunden kan kjøpe. Sju
-   tjenestenavn på én linje gjør bredden tydelig over folden, og den ligger
-   utenfor .hero-inner så den kan bruke hele bredden. */
-.hero-services {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 12px 26px;
-  margin: 0 48px;
-  padding: 22px 0 34px;
-  border-top: 1px solid rgba(255,255,255,0.18);
-}
-.hsv-label {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.17em;
-  color: rgba(255,255,255,0.55);
-  margin-right: 4px;
-}
-.hero-services a {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: rgba(255,255,255,0.82);
-  padding-bottom: 3px;
-  border-bottom: 1.5px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-}
-.hero-services a:hover {
-  color: #fff;
-  border-bottom-color: var(--lime);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -195,21 +107,18 @@
    veien for teksten. (Footer-varianten ligger i sider.css, den
    deles av alle sidene.)
    ═══════════════════════════════════════════════════════════ */
-.platform,
 .services2,
 .meg,
 .faq2 {
   position: relative;
   overflow: hidden;
 }
-.platform > *,
 .services2 > *,
 .meg > *,
 .faq2 > * {
   position: relative;
   z-index: 1;
 }
-.platform::after,
 .services2::after,
 .meg::after,
 .faq2::after {
@@ -230,11 +139,10 @@
   -webkit-mask-image: radial-gradient(130% 130% at 100% 100%, #000 36%, transparent 74%);
   mask-image: radial-gradient(130% 130% at 100% 100%, #000 36%, transparent 74%);
 }
-/* Hjørnene varieres: høyre, venstre, høyre, venstre nedover siden —
-   samme mønster i samme hjørne fire ganger på rad så stemplet ut.
+/* Hjørnene varieres nedover siden: venstre, høyre, venstre —
+   samme mønster i samme hjørne flere ganger på rad så stemplet ut.
    Venstre-utgavene speilvendes (scaleX(-1)); masken følger med i
    speilingen, så utfasingen havner riktig av seg selv. */
-.platform::after { right: -70px; }
 .meg::after { right: -60px; width: 460px; height: 320px; }
 .services2::after,
 .faq2::after {
@@ -243,186 +151,17 @@
 }
 .services2::after { width: 500px; height: 340px; }
 @media (max-width: 700px) {
-  .platform::after,
   .services2::after,
   .meg::after,
   .faq2::after { width: 380px; height: 260px; bottom: -24px; }
-  .platform::after, .meg::after { right: -50px; }
+  .meg::after { right: -50px; }
   .services2::after, .faq2::after { left: -50px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .platform::after,
   .services2::after,
   .meg::after,
   .faq2::after { transform: none; }
 }
-
-/* ═══════════════════════════════════════════════════════════
-   PLATTFORMEN — seksjonen rett under hero
-   ═══════════════════════════════════════════════════════════ */
-/* Seksjonsoverskriftene (.platform-top / .pf-*) og ikon-badgene
-   ligger nå i sider.css og deles med undersidene. Under her
-   følger kun det som er unikt for forsiden. */
-
-.pf-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  max-width: 1290px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.pf-card {
-  border-radius: 16px;
-  padding: 26px 26px 28px;
-  min-height: 272px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 26px;
-}
-.pf-card { overflow: hidden; }
-.pf-grey-card { background: #f1f1ef; color: #0a0a0a; }
-.pf-lime-card { background: var(--lime); color: #0a0a0a; }
-.pf-dark-card {
-  background: #0d0d0d; color: #fff;
-  position: relative;
-  justify-content: space-between;
-}
-
-.pf-label { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 4px; }
-/* ÉN behandling av tall på hele forsiden: Instrument Serif med limegrønn
-   enhet, akkurat som .s2-num og .nk-stat. Kortstørrelsen styrer bare
-   graden — ikke skriftsnittet. */
-.pf-val {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 46px;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  line-height: 1;
-  display: flex;
-  align-items: baseline;
-}
-.pf-unit {
-  font-size: 0.6em;
-  font-weight: 400;
-  color: var(--lime);
-  margin-left: 0.04em;
-}
-/* Lime på lyst kort trenger konturen for å ikke forsvinne — samme
-   grep som .s2-unit. På limekortet snus det: da er enheten sort. */
-.pf-grey-card .pf-unit {
-  /* Tynnere kontur enn på .s2-unit — enheten er under halvparten så
-     stor her, og 1px ble grøtete. */
-  -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
-  paint-order: stroke fill;
-}
-.pf-lime-card .pf-unit { color: rgba(10,10,10,0.55); }
-.pf-desc { font-size: 14px; line-height: 1.5; opacity: 0.78; }
-.pf-dark-card .pf-desc { opacity: 0.82; }
-.pf-card-foot { display: flex; flex-direction: column; gap: 6px; }
-/* Det mørke kortet bærer ingen tallverdi — da må labelen ha samme
-   tyngde som tallene på naboene, ellers faller kortet sammen. */
-.pf-foot-statement .pf-label {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 34px;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  line-height: 1.08;
-  margin-bottom: 10px;
-}
-
-/* Skjold-ikonet er kun i bruk på forsiden — de øvrige ic-* ligger i
-   sider.css. Haken tegnes opp med jevne mellomrom. */
-.ic-shield .tick {
-  stroke-dasharray: 12;
-  animation: shieldTick 4.2s ease-in-out infinite;
-}
-@keyframes shieldTick {
-  0%, 8%    { stroke-dashoffset: 12; }
-  32%, 78%  { stroke-dashoffset: 0; }
-  100%      { stroke-dashoffset: 12; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ic-shield .tick { animation: none; stroke-dashoffset: 0; }
-}
-
-/* ─── Teknologi-tagger som veldig sakte rullebånd ─── */
-.pf-tagrows {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  /* Sto med -2px og klistret seg opp i badgen. Positiv toppmarg gir
-     raden luft; sidene går fortsatt helt ut i kortkanten. */
-  margin: 18px -26px 0;
-}
-.pf-tagrow {
-  overflow: hidden;
-  /* Fade i prosent skalerte med kortbredden og spiste hele pillen —
-     «JavaScript» ble stående som «…ipt». Faste 18px tar bare kanten,
-     uansett hvor bredt kortet blir. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-}
-.pf-tagtrack {
-  display: flex;
-  width: max-content;
-  gap: 7px;
-  animation: tagScroll 46s linear infinite;
-}
-.pf-tagtrack.rev { animation-name: tagScrollRev; animation-duration: 54s; }
-@keyframes tagScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.3333%); }
-}
-@keyframes tagScrollRev {
-  from { transform: translateX(-33.3333%); }
-  to   { transform: translateX(0); }
-}
-.pf-tagtrack span {
-  background: #fff;
-  border-radius: 999px;
-  padding: 7px 13px;
-  font-size: 12.5px;
-  font-weight: 500;
-  white-space: nowrap;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  flex-shrink: 0;
-}
-.pf-tags-sr {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .pf-tagtrack { animation: none; }
-}
-.pf-lines {
-  position: absolute;
-  inset: 22px 26px auto;
-  height: 118px;
-  z-index: 1;
-}
-/* Strekene er ren dekor og ligger på faste piksler fra kortets topp.
-   Teksten må derfor legge seg over dem, ellers krysser en lime strek
-   overskriften så snart kortet blir lavere enn på desktop. */
-.pf-dark-card .pf-card-foot { position: relative; z-index: 2; }
-.pf-lines span {
-  position: absolute;
-  height: 5px;
-  border-radius: 3px;
-  background: var(--lime);
-}
-.pf-lines span:nth-child(1) { width: 30px; top: 6px;  left: 58%; }
-.pf-lines span:nth-child(2) { width: 22px; top: 34px; left: 18%; background: rgba(255,255,255,0.5); }
-.pf-lines span:nth-child(3) { width: 34px; top: 52px; left: 64%; }
-.pf-lines span:nth-child(4) { width: 26px; top: 74px; left: 6%;  background: rgba(255,255,255,0.35); }
-.pf-lines span:nth-child(5) { width: 30px; top: 92px; left: 40%; }
-.pf-lines span:nth-child(6) { width: 20px; top: 20px; left: 88%; background: rgba(255,255,255,0.45); }
 
 /* ═══════════════════════════════════════════════════════════
    VISSTE DU AT — statistikk-kort
@@ -533,6 +272,10 @@
   max-width: 420px;
 }
 .cv-dark .cv-desc { color: rgba(255,255,255,0.62); }
+/* Hvert steg peker videre til kategorien som løser det. .pf-link er
+   sort på sort inne i det mørke kortet, så den snus her. */
+.cv-card .pf-link { margin-top: 20px; align-self: flex-start; }
+.cv-dark .pf-link { color: #fff; border-bottom-color: rgba(255,255,255,0.45); }
 
 /* Google-mock */
 .cv-mock {
@@ -839,23 +582,14 @@
 }
 .sv-card:hover .sv-go { opacity: 1; transform: translateX(4px); }
 
-/* Drift er den eneste tjenesten som løper videre etter levering — den
-   får en egen bred rad under de seks prosjektbaserte, i stedet for å
-   stå som en syvende, halvtom celle i et tre-kolonners rutenett. */
-.sv-wide {
-  grid-column: 1 / -1;
-  min-height: 0;
-  display: grid;
-  grid-template-columns: auto minmax(0, 0.85fr) minmax(0, 1.35fr) auto;
-  align-items: center;
-  gap: 32px;
-  padding: 28px 30px;
-}
-.sv-wide .sv-num { margin-bottom: 0; }
-.sv-wide h3 { margin-bottom: 0; }
-.sv-wide p { margin-bottom: 0; max-width: 100%; }
-.sv-wide .sv-go { margin-top: 0; }
-.sv-wide:hover { transform: none; }
+/* Tre kategorier i stedet for sju tjenester. Den viktigste — kontakt og
+   oppfølging — tar hele øverste rad, de to andre deler raden under.
+   Vekten ligger i flaten kortet får, ikke i en ny kortstil: det er
+   samme .sv-card. To kolonner deler seg jevnt på to kort, der tre
+   kolonner ville latt det siste kortet stå igjen alene. */
+.sv-grid.sv-tre { grid-template-columns: repeat(2, 1fr); }
+.sv-tre .sv-lead { grid-column: 1 / -1; min-height: 300px; }
+.sv-tre .sv-lead p { max-width: 560px; }
 
 /* ═══════════════════════════════════════════════════════════
    NORSKE AI-AGENTER
@@ -1461,7 +1195,10 @@ html, body { overflow-x: clip; }
      flaten, og portrettet får være det eneste som bærer bunnen. */
   padding: 0 48px;
 }
-.hero-body .hero-inner { padding: 0; max-width: 620px; }
+/* 820, ikke 620: overskriften bærer to løfter og har en linje på 29
+   tegn. I en 620-spalte brakk den i fire til fem ujevne linjer, og
+   flaten rundt ble stående tom. */
+.hero-body .hero-inner { padding: 0; max-width: 820px; }
 
 
 /* ═══════════════════════════════════════════════════════════
@@ -1473,7 +1210,6 @@ html, body { overflow-x: clip; }
    den bryter opp gridene og heroen, uten å røre desktop-oppsettet.
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1080px) {
-  .pf-cards,
   .sv-grid,
   .nk-grid,
   .bl-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1497,27 +1233,6 @@ html, body { overflow-x: clip; }
   .hero-inner h1 { font-size: clamp(34px, 9.4vw, 56px); }
   .hero-sub { max-width: 100%; margin-top: 20px; font-size: 15.5px; }
   .hero-btn { margin-top: 30px; }
-
-  /* Pillen er for lang til å stå på én linje — undertittelen ryker,
-     merkelappen og navnet bærer budskapet alene. */
-  .hero-pill { max-width: 100%; padding-right: 16px; }
-  .hp-sep, .hp-text { display: none; }
-
-  .hero-services {
-    margin: 0 24px;
-    padding: 18px 0 26px;
-    gap: 10px 18px;
-  }
-  .hero-services a { font-size: 13.5px; }
-
-  /* Bred drift-rad stables tilbake til et vanlig kort */
-  .sv-wide {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 12px;
-    padding: 28px 28px 26px;
-  }
-  .sv-wide .sv-num { margin-bottom: 14px; }
 
   /* Portrettet forankres i nedre høyre hjørne så det ligger utenfor
      tekstblokken i stedet for bak den. */
@@ -1576,9 +1291,7 @@ html, body { overflow-x: clip; }
     mask-composite: intersect;
   }
   .hero-body { order: 2; align-items: flex-start; padding-top: 10px; }
-  .hero-services { order: 4; position: relative; z-index: 4; margin-top: 0; }
 
-  .platform { padding: 84px 0 80px; }
   .stats2, .convert, .reviews,
   .services2, .norsk, .blogg2 { padding-bottom: 80px; }
   .faq2 { padding-bottom: 90px; }
@@ -1586,17 +1299,13 @@ html, body { overflow-x: clip; }
 }
 
 @media (max-width: 620px) {
-  .pf-cards,
   .s2-grid,
   .sv-grid,
   .nk-grid,
   .bl-grid { grid-template-columns: 1fr; }
 
-  .pf-card,
   .sv-card,
   .nk-card { min-height: 0; }
-  /* Kortet er for lavt til å romme dekorstrekene under badgen. */
-  .pf-lines { display: none; }
   .s2-card { min-height: 0; padding: 26px 24px 24px; }
   .s2-text { max-width: 100%; }
 

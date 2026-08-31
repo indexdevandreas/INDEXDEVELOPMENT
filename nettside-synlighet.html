@@ -3,18 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Google-synlighet &amp; konvertering | index dev.</title>
-<meta name="description" content="Vi bygger ikke nettsider for porteføljen — vi bygger dem for å skaffe deg kunder. Slik kombinerer vi teknisk SEO og konverteringsdesign, og du ser resultatet før du betaler.">
+<title>Nettside & synlighet — så folk finner deg når de søker | index dev.</title>
+<meta name="description" content="Håndkodet nettside og riktig oppsatt Google Bedriftsprofil, så du dukker opp når noen i området søker etter det du gjør.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://indexdevelopment.no/konvertering.html">
+<link rel="canonical" href="https://indexdevelopment.no/nettside-synlighet.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="tjenester.css">
 <link rel="stylesheet" href="chatbot-widget.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Nettside og synlighet",
+  "description": "Håndkodet nettside og riktig oppsatt Google Bedriftsprofil, så du dukker opp når noen i området søker etter det du gjør.",
+  "url": "https://indexdevelopment.no/nettside-synlighet.html",
+  "areaServed": { "@type": "Country", "name": "Norge" },
+  "provider": { "@id": "https://indexdevelopment.no/#organization" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Nettside og synlighet",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Webdesign, SEO og utvikling", "item": "https://indexdevelopment.no/webdesign.html" },
+        { "@type": "ListItem", "position": 2, "name": "Google Bedriftsprofil og lokal SEO", "item": "https://indexdevelopment.no/google-bedriftsprofil.html" }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
@@ -47,7 +66,7 @@
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero" id="top">
+<section class="page-hero ph-kategori" id="top">
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
@@ -66,19 +85,33 @@
           </button>
           <div class="nav-dropdown-panel">
             <ul>
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+              <li>
+                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+                  <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+                  <li><a href="booking-systemer.html">Booking-systemer</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="systemutvikling.html">Systemutvikling</a></li>
+                  <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+                </ul>
+              </li>
               <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
               <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
             </ul>
           </div>
         </li>
-        <li><a href="kompetanse.html">Kompetanse</a></li>
         <li><a href="om-meg.html">Om meg</a></li>
         <li><a href="index.html#blogg">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
@@ -94,99 +127,81 @@
       </button>
     </div>
   </header>
-
   <div class="ph-body">
-    <p class="ph-kicker">FILOSOFI</p>
-    <h1 class="ph-title">Synlighet.<br>Konvertering.</h1>
-    <p class="ph-lead">Vi bygger ikke nettsider for å se pene ut i porteføljen — vi bygger dem for at de som finner deg, skal bli betalende kunder. Hver beslutning, fra typografi til lastetid, handler om det.</p>
+    <p class="ph-kicker">NETTSIDE &amp; SYNLIGHET</p>
+    <h1 class="ph-title">Så folk finner deg<br>når de søker.</h1>
+    <p class="ph-lead">De som trenger deg søker etter det du gjør, ikke etter navnet ditt. Dukker du ikke opp der, finnes du ikke for dem.</p>
+    <a class="ph-link" href="kom-i-gang.html">Finn ut hva du trenger <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-
-<section class="legal">
-  <div class="legal-wrap">
-
-    <div class="legal-card">
-      <p class="legal-num">01 / Synlighet</p>
-      <h2>Det hjelper ikke med en god side om ingen finner den</h2>
-      <p>Teknisk SEO er ikke et etterslep — det er grunnmuren hele siden hviler på. Dette er bakt inn fra første linje kode:</p>
-      <ul class="legal-list">
-        <li>Semantisk HTML som Google faktisk forstår</li>
-        <li>JSON-LD strukturerte data for lokale søk</li>
-        <li>Lastetid under ett sekund — kritisk for rangering</li>
-        <li>Mobil først — de fleste lokale søk skjer på mobil</li>
-        <li>Korrekte heading-hierarkier og meta-tags</li>
-      </ul>
-      <div class="lx-stats">
-        <div class="lx-stat">
-          <p class="lx-stat-num">76<span class="u">%</span></p>
-          <p>av de som googler lokalt på mobil, besøker en bedrift innen et døgn (Google)</p>
-        </div>
-        <div class="lx-stat">
-          <p class="lx-stat-num">53<span class="u">%</span></p>
-          <p>forlater siden om lastetiden passerer tre sekunder (Google)</p>
-        </div>
+<!-- ───── I DENNE KATEGORIEN ───── -->
+<section class="svc-list">
+  <div class="platform-top pt-reverse">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>BLI FUNNET</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Synlig i søket,<br><span class="pf-grey">og på kartet.</span></h2>
+      <div class="pf-aside">
+        <p>To ting avgjør om noen i nærheten finner deg: at du har en side Google forstår, og at bedriftsprofilen din er satt opp riktig. Vi gjør begge deler.</p>
+        <p>Alt vi bygger driftes for 199,-/mnd. <a class="pf-link" href="drift.html">Se hva drift dekker <span class="pf-link-arrow">→</span></a></p>
       </div>
     </div>
+  </div>
 
-    <div class="legal-card">
-      <p class="legal-num">02 / Konvertering</p>
-      <h2>Trafikk uten henvendelser er ingenting verdt</h2>
-      <p>Vi designer og skriver for å gjøre valget enkelt for den besøkende: hva du tilbyr, hvorfor deg, og hva de skal gjøre nå.</p>
-      <ul class="legal-list">
-        <li>Tydelig verditilbud før man ruller</li>
-        <li>Tekst som selger, ikke bare informerer</li>
-        <li>Handlingsknapper plassert etter lesemønstre</li>
-        <li>Tillitssignaler synlig tidlig</li>
-        <li>Ingen friksjon — ingen unødvendige klikk</li>
-      </ul>
-      <div class="lx-stats">
-        <div class="lx-stat">
-          <p class="lx-stat-num">0<span class="u">,-</span></p>
-          <p>koster det å se din egen side ferdig før du bestemmer deg</p>
+  <div class="svc-rows">
+      <a class="svc-row" id="webdesign" href="webdesign.html">
+        <span class="svc-i">01</span>
+        <h3 class="svc-name">Webdesign, SEO<br>&amp; utvikling</h3>
+        <div class="svc-body">
+          <p>Komplett nettside fra strategi til lansering. Håndkodet i HTML, CSS og JavaScript — ingen WordPress, ingen maler. Bygget rundt ordene folk faktisk søker på.</p>
+          <div class="svc-tags"><span>Håndkodet</span><span>Teknisk SEO</span><span>Lighthouse 100</span><span>Mobil-først</span></div>
         </div>
-        <div class="lx-stat">
-          <p class="lx-stat-num">5<span class="u">dager</span></p>
-          <p>fra du tar kontakt til utkastet ditt er klart</p>
+        <div class="svc-side">
+          <span class="svc-price">2 900<span class="kr">,-</span></span>
+          <span class="svc-per">fra</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
-      </div>
-    </div>
-
-    <div class="legal-card">
-      <p class="legal-num">03 / Metoden</p>
-      <h2>Slik bygger vi det</h2>
-      <div class="lx-grid2" style="margin-top:6px">
-        <div class="legal-infobox">
-          <p><strong>1 — Strategi først.</strong> Hvem er kunden din, hva søker de etter, og hva skal til for at de tar kontakt? Dette svarer vi på før vi skriver én linje kode.</p>
-        </div>
-        <div class="legal-infobox">
-          <p><strong>2 — Design for konvertering.</strong> Hvert designvalg er tatt med konvertering i bakhodet. Ingenting eksisterer bare for å se bra ut.</p>
-        </div>
-        <div class="legal-infobox">
-          <p><strong>3 — Tekst som selger.</strong> Vi skriver alle tekstene. Hvert avsnitt er ett steg nærmere at besøkende tar kontakt.</p>
-        </div>
-        <div class="legal-infobox">
-          <p><strong>4 — SEO bakt inn fra start.</strong> Lighthouse 100/100, semantisk HTML og lynrask lastetid fra første linje — ikke lagt til etterpå.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="legal-card is-dark lx-cta">
-      <p class="legal-num">SE DET SELV</p>
-      <h2>Se resultatet før du betaler.</h2>
-      <p>Vi bygger et utkast gratis. Du ser nettsiden din i privat forhåndsvisning — og bestemmer etterpå.</p>
-      <a class="btn-circle" href="kom-i-gang.html">
-        <span>KOM I GANG</span>
-        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <div class="lx-cta-links">
-        <a href="tjenester.html">Se tjenester →</a>
-        <a href="priser.html">Se priser →</a>
-      </div>
-    </div>
-
+      <a class="svc-row" id="google-bedriftsprofil" href="google-bedriftsprofil.html">
+        <span class="svc-i">02</span>
+        <h3 class="svc-name">Google<br>Bedriftsprofil</h3>
+        <div class="svc-body">
+          <p>Riktig opprettet eller ryddet opp, koblet til nettsiden og til Google Search Console — så du vises i lokalt søk og på kartet, med åpningstider og telefonnummer som stemmer.</p>
+          <div class="svc-tags"><span>Lokal SEO</span><span>Google Maps</span><span>Search Console</span></div>
+        </div>
+        <div class="svc-side">
+          <span class="svc-price is-text">Ofte inkl.</span>
+          <span class="svc-per">i nettsidepakken</span>
+          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
+        </div>
+      </a>
   </div>
 </section>
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <picture>
+      <source srcset="bilder/zebra-cta.webp" type="image/webp">
+      <img class="dm-bg dm-bg-zebra" src="bilder/zebra-cta.jpg" alt="Zebra på en gresslette i solnedgang" loading="lazy" width="1600" height="900">
+    </picture>
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Sjekk om du<br><span class="dm-lime">vises i dag.</span></h2>
+      <p class="dm-text">Ta veiviseren, så ser jeg på hvordan du ligger an i søk i dag og hva som skal til for å komme høyere. Du får forslag og pris skriftlig, uten forpliktelse.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <ul class="dm-points">
+      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast og demo</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
+      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -203,14 +218,30 @@
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
-          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li>
+            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+            <ul class="foot-sub">
+              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+              <li><a href="booking-systemer.html">Booking-systemer</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+            <ul class="foot-sub">
+              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+            <ul class="foot-sub">
+              <li><a href="systemutvikling.html">Systemutvikling</a></li>
+              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+            </ul>
+          </li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="systemutvikling.html">Systemutvikling</a></li>
-          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-          <li><a href="booking-systemer.html">Booking-systemer</a></li>
-          <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
@@ -219,9 +250,6 @@
           <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
-          <li><a href="kompetanse.html">Kompetanse</a></li>
-          <li><a href="konvertering.html">Konvertering</a></li>
-          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
@@ -254,8 +282,10 @@
   </div>
 </footer>
 
+
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>
 </body>

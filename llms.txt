@@ -6,25 +6,41 @@ Index Development er et enkeltpersonforetak drevet av Andreas Melheim, basert i 
 
 ## Tjenester
 
-- [Tjenester — oversikt](https://indexdevelopment.no/tjenester.html): Alle tjenester samlet ett sted.
-- [Webdesign, SEO & utvikling](https://indexdevelopment.no/webdesign.html): Håndkodede nettsider med fokus på ytelse og konvertering.
+Tjenestene er gruppert i tre områder. Tjenestesidene ligger under sitt område.
+
+- [Tjenester — oversikt](https://indexdevelopment.no/tjenester.html): Alle tre områdene samlet ett sted.
+
+### Kontakt og oppfølging — så du ikke mister dem som tar kontakt
+
+- [Kontakt og oppfølging](https://indexdevelopment.no/kontakt-oppfolging.html): Området som handler om å ta imot henvendelser: chatbot, booking, ubesvarte anrop og kontaktskjema.
 - [AI-agenter og chatbots](https://indexdevelopment.no/ai-agenter.html): Chatbot for bedriften, trent på egne data.
+- [Booking- og bestillingssystem](https://indexdevelopment.no/booking-systemer.html): Bygget inn i nettsiden, ikke et separat abonnement.
+- [Ubesvarte anrop og AI-telefonsvarer](https://indexdevelopment.no/ubesvarte-anrop.html): Rekker bedriften ikke telefonen, følges anropet opp automatisk. Nivå 1 sender SMS i bedriftens navn og henter inn hva saken gjelder. Nivå 2 lar en AI ta selve samtalen og sende beskjeden videre på SMS og e-post. Prises med skriftlig tilbud, uten bindingstid.
+
+### Nettside og synlighet — så folk finner deg når de søker
+
+- [Nettside og synlighet](https://indexdevelopment.no/nettside-synlighet.html): Området som handler om å bli funnet i søk og på kartet.
+- [Webdesign, SEO & utvikling](https://indexdevelopment.no/webdesign.html): Håndkodede nettsider med fokus på ytelse og konvertering.
+- [Google Bedriftsprofil](https://indexdevelopment.no/google-bedriftsprofil.html): Oppsett og lokal SEO, så bedriften vises i lokalt søk og på Google Maps. Ofte inkludert i nettsidepakkene.
+
+### Systemer og automatisering — så du slipper å taste det samme flere ganger
+
+- [Systemer og automatisering](https://indexdevelopment.no/systemer-automatisering.html): Området som handler om å fjerne dobbeltarbeid.
 - [Systemutvikling](https://indexdevelopment.no/systemutvikling.html): Skreddersydde systemer — database, innlogging, adminpanel.
 - [API-integrasjoner](https://indexdevelopment.no/api-integrasjoner.html): Kobler sammen systemer og tredjepartstjenester.
-- [Booking- og bestillingssystem](https://indexdevelopment.no/booking-systemer.html): Bygget inn i nettsiden, ikke et separat abonnement.
-- [Google Bedriftsprofil](https://indexdevelopment.no/google-bedriftsprofil.html): Oppsett og lokal SEO, så bedriften vises i lokalt søk og på Google Maps. Ofte inkludert i nettsidepakkene.
-- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren.
+
+### Drift — ligger under alt
+
+- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Ikke et fjerde område, men det som holder alt det andre oppe. Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren. 199 kr/måned.
 
 ## Priser og oppstart
 
 - [Priser](https://indexdevelopment.no/priser.html): Fastpris for nettsider, pris på forespørsel for resten.
 - [Kom i gang](https://indexdevelopment.no/kom-i-gang.html): Veiviser som kartlegger behov før pris gis skriftlig.
-- [Ingen bindingstid](https://indexdevelopment.no/ingen-bindingstid.html): Vilkår for oppsigelse av driftsavtalen.
 
 ## Om oss
 
 - [Om meg](https://indexdevelopment.no/om-meg.html): Andreas Melheim, grunnlegger.
-- [Kompetanse](https://indexdevelopment.no/kompetanse.html): Fagområder — webdesign, SEO, tekstforfatning, grafisk design, AI-agenter, API-integrasjoner, databaser.
 - [Kontakt](https://indexdevelopment.no/kontakt.html): Direkte kontakt med Andreas, ikke et team.
 
 ## Blogg

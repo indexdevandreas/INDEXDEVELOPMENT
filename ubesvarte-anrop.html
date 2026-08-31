@@ -3,18 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ingen bindingstid — garantien vår | index dev.</title>
-<meta name="description" content="Ingen forskudd, ingen bindingstid, og koden er din eiendom. Les nøyaktig hva garantien betyr i praksis — og hva som skjer hvis du sier opp.">
+<title>Ubesvarte anrop og AI-telefonsvarer | index dev.</title>
+<meta name="description" content="Rekker du ikke telefonen, tar vi imot anropet for deg. Nivå 1 sender SMS i ditt navn og henter inn hva det gjelder. Nivå 2 lar en AI ta samtalen. Du får beskjeden samlet.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://indexdevelopment.no/ingen-bindingstid.html">
+<link rel="canonical" href="https://indexdevelopment.no/ubesvarte-anrop.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="ai-agenter.css">
 <link rel="stylesheet" href="chatbot-widget.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Oppfølging av ubesvarte anrop",
+  "alternateName": "AI-telefonsvarer",
+  "description": "Rekker bedriften ikke telefonen, tas anropet imot automatisk. Nivå 1 sender SMS i bedriftens navn og henter inn hva saken gjelder. Nivå 2 lar en AI ta selve samtalen og sende beskjeden videre.",
+  "url": "https://indexdevelopment.no/ubesvarte-anrop.html",
+  "serviceType": "Automatisk oppfølging av ubesvarte anrop",
+  "areaServed": { "@type": "Country", "name": "Norge" },
+  "provider": { "@id": "https://indexdevelopment.no/#organization" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NOK",
+    "description": "Begge nivåer prises med et skriftlig tilbud, uten bindingstid. Fastpris avtales skriftlig før noe bygges."
+  }
+}
+</script>
 </head>
 <body>
 
@@ -47,7 +65,7 @@
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero" id="top">
+<section class="page-hero ph-kategori" id="top">
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
@@ -66,19 +84,33 @@
           </button>
           <div class="nav-dropdown-panel">
             <ul>
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+              <li>
+                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+                  <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+                  <li><a href="booking-systemer.html">Booking-systemer</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <ul class="nav-dd-sub">
+                  <li><a href="systemutvikling.html">Systemutvikling</a></li>
+                  <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+                </ul>
+              </li>
               <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
               <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
             </ul>
           </div>
         </li>
-        <li><a href="kompetanse.html">Kompetanse</a></li>
         <li><a href="om-meg.html">Om meg</a></li>
         <li><a href="index.html#blogg">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
@@ -96,100 +128,202 @@
   </header>
 
   <div class="ph-body">
-    <p class="ph-kicker">GARANTIEN VÅR</p>
-    <h1 class="ph-title">Ingen<br>bindingstid.</h1>
-    <p class="ph-lead">Vi tror så sterkt på arbeidet vi leverer at vi aldri trenger å låse deg inne. Du betaler fordi du vil — ikke fordi du må. Garantien gjelder nettsider og drift; systemer, AI og booking avtales per prosjekt.</p>
+    <p class="ph-kicker">UBESVARTE ANROP</p>
+    <h1 class="ph-title">Telefonen ringte.<br>Du sto i en jobb.</h1>
+    <p class="ph-lead">Den som ringer venter ikke. Han ringer nummer to på lista, og da er jobben borte uten at du engang vet at den fantes. Vi tar imot anropet for deg.</p>
+    <a class="ph-link" href="kom-i-gang.html">Få et pristilbud <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-
-<section class="legal">
-  <div class="legal-wrap">
-
-    <div class="lx-grid3">
-      <div class="legal-card">
-        <p class="legal-num">0,-</p>
-        <h2>Ingen forskudd</h2>
-        <p>Vi bygger et utkast av nettsiden din vederlagsfritt og viser deg resultatet. Første krone betales etter at du har godkjent det du ser.</p>
+<!-- ───── TO NIVÅER ───── -->
+<section class="cb-levels">
+  <div class="platform-top">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>TO NIVÅER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">To måter å ta imot på.<br><span class="pf-grey">Du velger hvor langt du vil gå.</span></h2>
+      <div class="pf-aside">
+        <p>Nivå 1 er ren tekst og krever ingen stemme. Nivå 2 lar AI-en ta selve samtalen. Begge ender på det samme: du får vite hvem som ringte og hva det gjaldt.</p>
+        <a class="pf-link" href="kontakt-oppfolging.html">Se hele kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
       </div>
-      <div class="legal-card">
-        <p class="legal-num">0 mnd</p>
-        <h2>Null binding</h2>
-        <p>Driftsavtalen løper måned for måned. Ingen årskontrakt, ingen straffegebyr. Si opp med én måneds varsel — ferdig snakket.</p>
+    </div>
+  </div>
+
+  <div class="lv-grid">
+    <article class="lv-card">
+      <span class="lv-tag">Nivå 1 — SMS</span>
+      <h3>Kunden får svar på tekst</h3>
+      <p>Rekker du ikke telefonen, går det ut en melding i ditt navn med en gang: at du står i en jobb, og at du ringer tilbake i dag. Kunden skriver hva det gjelder.</p>
+      <ul class="lv-list">
+        <li><span class="lv-check" aria-hidden="true">✓</span>Ingen stemme, ingen talegjenkjenning som kan bomme</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Meldingen står i ditt navn og din tone</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Kunden svarer når det passer ham</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Du får hvem, hva og hvor mye det haster</li>
+      </ul>
+      <p class="lv-foot">Raskest å sette opp, og ingenting kan misforstås. Det kunden skriver står svart på hvitt.</p>
+    </article>
+
+    <article class="lv-card">
+      <span class="lv-tag">Nivå 2 — AI</span>
+      <h3>AI-en tar samtalen</h3>
+      <p>En stemme svarer, presenterer bedriften, hører hva det gjelder og svarer på enkle spørsmål fra din egen informasjon. Etterpå får du beskjeden oppsummert.</p>
+      <ul class="lv-list">
+        <li><span class="lv-check" aria-hidden="true">✓</span>Presenterer bedriften din, ikke en robothilsen</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Svarer på det du har lært den opp til</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Sender deg beskjeden på SMS og e-post</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Forstår den ikke, tar den beskjeden og legger på pent</li>
+      </ul>
+      <p class="lv-foot">Er du i tvil, start på nivå 1 og gå videre når du har sett at det virker. Det du alt har betalt trekkes fra.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ───── SLIK FUNGERER DET ───── -->
+<section class="cb-build">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>SLIK FUNGERER DET</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Fra ubesvart anrop<br>til beskjed i lomma.</h2>
+      <div class="pf-aside">
+        <a class="pf-link" href="kom-i-gang.html">Ta veiviseren <span class="pf-link-arrow">→</span></a>
       </div>
-      <div class="legal-card">
-        <p class="legal-num">ZIP</p>
-        <h2>Koden er din</h2>
-        <p>Betaler du oppsettsfakturaen, eier du koden fullstendig. Sier du opp driften, får du en ZIP-fil med alt — og kan ta siden med deg hvor som helst.</p>
+    </div>
+  </div>
+
+  <div class="bd-grid">
+    <div class="bd-steps">
+      <div class="bd-step">
+        <h3>Telefonen ringer som normalt</h3>
+        <p>Ingenting endrer seg for deg. Rekker du den, tar du den, og systemet gjør ikke noe som helst.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Går anropet ubesvart, tar vi over</h3>
+        <p>Etter et kort opphold slår løsningen inn. Nivå 1 sender melding, nivå 2 svarer med stemme. Du bestemmer hvor lenge det skal ringe først.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Kunden forteller hva det gjelder</h3>
+        <p>Han skriver det eller sier det, og slipper å sitte og lure på om noen ringer tilbake. Han har fått svar én gang allerede.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Du får beskjeden samlet</h3>
+        <p>Hvem som ringte, hva det gjaldt og hvor mye det haster. På SMS og e-post, så du ser det når du kommer ut av jobben.</p>
+      </div>
+      <div class="bd-step">
+        <h3>Du ringer tilbake når du er ferdig</h3>
+        <p>Da vet du hva samtalen handler om før du slår nummeret, og kunden har ikke rukket å gå videre til neste.</p>
       </div>
     </div>
 
-    <div class="legal-card">
-      <p class="legal-num">I PRAKSIS</p>
-      <h2>Hva betyr dette, konkret?</h2>
-      <p><strong>Hva skjer hvis jeg ikke liker nettsiden?</strong><br>Da betaler du ingenting. Vi bygger utkastet på egen regning og tar risikoen fullt ut. Er du ikke fornøyd, er prosjektet avsluttet uten kostnad.</p>
-      <p><strong>Kan jeg slutte å betale 199,-/mnd når jeg vil?</strong><br>Ja. Send en e-post med én måneds varsel, så avsluttes avtalen — ingen spørsmål, ingen gebyrer. Du får kildekoden i en ZIP-fil innen tre virkedager.</p>
-      <p><strong>Hva skjer med nettsiden om jeg sier opp?</strong><br>Siden tas offline når driftsavtalen avsluttes, siden vi håndterer all infrastruktur. Men du eier koden — du kan hoste den selv eller ta den med til en annen leverandør.</p>
-      <p><strong>Hva om jeg vil bytte til WordPress eller en annen plattform?</strong><br>Fullt mulig. Koden er ren HTML, CSS og JavaScript — den kan konverteres eller brukes som grunnlag av enhver utvikler. Ingen proprietære systemer.</p>
-      <p><strong>Hvorfor tilbyr dere ingen bindingstid?</strong><br>Fordi vi ikke trenger det. Kunder som ser at siden gir trafikk og henvendelser, fortsetter å betale fordi det lønner seg — ikke fordi de er låst.</p>
-    </div>
-
-    <div class="legal-card">
-      <p class="legal-num">EIERSKAP</p>
-      <h2>Du får alltid koden din</h2>
-      <p>Når oppsettsfakturaen er betalt, sender vi en komplett ZIP-fil med all kildekode. Sier du opp driften senere, får du en oppdatert versjon med endringene som er gjort underveis — du sitter alltid med det nyeste.</p>
-      <div class="lx-files">
-        <div class="lx-file">din-bedrift-nettside.zip <span>alt samlet, 100 % ditt</span></div>
-        <div class="lx-file">index.html <span>ren, håndkodet HTML</span></div>
-        <div class="lx-file">style.css <span>komplett stilark — ingen rammeverk</span></div>
-        <div class="lx-file">app.js <span>ren JavaScript — ingen avhengigheter</span></div>
-        <div class="lx-file">/bilder <span>alle bilder og grafikk</span></div>
-      </div>
-    </div>
-
-    <div class="lx-grid2">
-      <div class="legal-card">
-        <p class="legal-num">TRADISJONELT WEBBYRÅ</p>
-        <h2>Slik fungerer det ofte</h2>
-        <ul class="legal-list lx-x">
-          <li>Tusenvis av kroner på forhånd</li>
-          <li>Årskontrakt med automatisk fornyelse</li>
-          <li>Koden eies av byrået, ikke deg</li>
-          <li>Låst til proprietær plattform</li>
-          <li>Dyre timepriser for enkle endringer</li>
-          <li>Vanskelig å bytte leverandør</li>
-        </ul>
-      </div>
-      <div class="legal-card is-dark">
-        <p class="legal-num">INDEX DEVELOPMENT</p>
-        <h2>Slik gjør vi det</h2>
-        <ul class="legal-list lx-check">
-          <li>Null betaling før du er fornøyd</li>
-          <li>Månedlig drift — si opp når du vil</li>
-          <li>Koden er din eiendom</li>
-          <li>Ren HTML/CSS/JS — ingen innlåsing</li>
-          <li>Småendringer inkludert i driften</li>
-          <li>ZIP med kildekoden ved oppsigelse</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="legal-card is-dark lx-cta">
-      <p class="legal-num">INGENTING Å TAPE</p>
-      <h2>Se resultatet, så bestemmer du.</h2>
-      <p>Vi bygger et utkast gratis, du ser det ferdig, og så tar du valget. Ingen kontrakt, ingen risiko.</p>
-      <a class="btn-circle" href="kom-i-gang.html">
-        <span>TA VEIVISEREN</span>
+    <aside class="bd-price">
+      <p class="bd-price-label">Pris</p>
+      <h3>Skriftlig tilbud, fastpris før vi bygger</h3>
+      <p>Nivå 1 er tekst og har den laveste løpende kostnaden. Nivå 2 bruker tale, og tale koster per minutt, så den prises etter hvor mange anrop du faktisk har. Begge deler settes opp punkt for punkt i ett skriftlig tilbud.</p>
+      <p>Starter du på nivå 1 og oppgraderer senere, trekkes det du alt har betalt fra.</p>
+      <div class="bd-price-rule"></div>
+      <ul class="bd-price-rows">
+        <li><span>Nivå 1 — SMS-svar</span><span>Skriftlig tilbud</span></li>
+        <li><span>Nivå 2 — AI tar telefonen</span><span>Skriftlig tilbud</span></li>
+        <li><span>Endringer i teksten</span><span>Inkludert</span></li>
+        <li><span>Bindingstid</span><span>Ingen</span></li>
+        <li><span>Oppgradering fra nivå 1</span><span>Det du har betalt trekkes fra</span></li>
+      </ul>
+      <p class="bd-price-note">Har du mange anrop i døgnet, si fra når du tar kontakt, så tar vi høyde for forbruket i tilbudet.</p>
+      <a class="btn-circle bd-price-btn" href="kom-i-gang.html">
+        <span>FÅ ET PRISTILBUD</span>
         <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <div class="lx-cta-links">
-        <a href="priser.html">Se priser →</a>
-        <a href="vilkar.html">Les vilkårene →</a>
-      </div>
-    </div>
-
+    </aside>
   </div>
 </section>
+
+<!-- ───── SPØRSMÅL ───── -->
+<section class="cb-qa">
+  <div class="platform-top pt-inline">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>SPØRSMÅL</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Det folk lurer på først.</h2>
+      <div class="pf-aside">
+        <p>Er det noe annet du lurer på, ring 484 59 686 eller skriv til andreas@indexdevelopment.no.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-list">
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Må jeg bytte telefonnummer?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Nei. Du beholder nummeret du har i dag. Vi setter opp en viderekobling som slår inn <em>bare</em> når anropet er ubesvart.</p>
+      </div></div>
+    </details>
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hva skjer hvis jeg rekker telefonen?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Ingenting. Systemet ligger helt stille så lenge du svarer selv. Det slår inn først når anropet går ubesvart.</p>
+      </div></div>
+    </details>
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hører kunden at det er en robot?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">På nivå 1 er det ingen stemme i det hele tatt, bare en melding fra deg. På nivå 2 presenterer AI-en seg som bedriftens svartjeneste. <em>Vi later ikke som den er et menneske.</em></p>
+      </div></div>
+    </details>
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Hva om AI-en ikke forstår kunden?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Da tar den beskjeden og avslutter høflig. Den gjetter aldri på hva kunden mente. Du får beskjeden akkurat slik den kom inn.</p>
+      </div></div>
+    </details>
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Virker det på norsk?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Norsk tale er vanskeligere enn engelsk, særlig med dialekt og støy fra en bil eller en byggeplass. Derfor tester vi på <em>ekte anrop</em> før noe settes på nummeret ditt. Holder det ikke mål for din bransje, sier vi det og anbefaler nivå 1 i stedet.</p>
+      </div></div>
+    </details>
+    <details class="qa-item">
+      <summary>
+        <span class="qa-q">Kan jeg se det virke før jeg betaler?</span>
+        <span class="qa-plus" aria-hidden="true">+</span>
+      </summary>
+      <div class="qa-body"><div class="qa-body-inner">
+        <p class="qa-answer">Ja, som på alt annet vi bygger. Du får se løsningen i drift, og fastprisen skriftlig, før du bestemmer deg.</p>
+      </div></div>
+    </details>
+  </div>
+</section>
+
+<!-- ───── DEMO-CTA ───── -->
+<section class="demo2" id="kontakt">
+  <div class="dm-band">
+    <picture>
+      <source srcset="bilder/zebra-cta.webp" type="image/webp">
+      <img class="dm-bg dm-bg-zebra" src="bilder/zebra-cta.jpg" alt="Zebra på en gresslette i solnedgang" loading="lazy" width="1600" height="900">
+    </picture>
+    <div class="dm-inner">
+      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
+      <h2 class="dm-head">Hvor mange ringer<br><span class="dm-lime">forgjeves?</span></h2>
+      <p class="dm-text">Du hører aldri fra dem du mister, for de sier ikke fra. Ta veiviseren, så ser vi på hvordan anropene dine tas imot i dag, og du får forslag og pris skriftlig.</p>
+      <a class="btn-circle dm-btn" href="kom-i-gang.html">
+      <span>FINN UT HVA DU TRENGER</span>
+      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -206,14 +340,30 @@
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
-          <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+          <li>
+            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+            <ul class="foot-sub">
+              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+              <li><a href="booking-systemer.html">Booking-systemer</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+            <ul class="foot-sub">
+              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+            <ul class="foot-sub">
+              <li><a href="systemutvikling.html">Systemutvikling</a></li>
+              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+            </ul>
+          </li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="systemutvikling.html">Systemutvikling</a></li>
-          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-          <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-          <li><a href="booking-systemer.html">Booking-systemer</a></li>
-          <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
@@ -222,9 +372,6 @@
           <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-meg.html">Om meg</a></li>
-          <li><a href="kompetanse.html">Kompetanse</a></li>
-          <li><a href="konvertering.html">Konvertering</a></li>
-          <li><a href="ingen-bindingstid.html">Ingen bindingstid</a></li>
           <li><a href="priser.html">Priser</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
@@ -257,8 +404,10 @@
   </div>
 </footer>
 
+
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>
 </body>

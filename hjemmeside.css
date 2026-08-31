@@ -852,6 +852,10 @@ footer {
   transition: color 0.2s;
 }
 .foot-col li a:hover { color: var(--lime); }
+/* Tjenestekolonnen er gruppert under de tre kategoriene. Undersidene
+   står innrykket og dempet, så kolonnen leses som tre valg. */
+.foot-col ul.foot-sub { gap: 9px; margin-top: 11px; padding-left: 13px; }
+.foot-col ul.foot-sub a { font-size: 14px; color: rgba(255,255,255,0.5); }
 .foot-col.contact a { color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 500; }
 .foot-col.contact a:hover { text-decoration: underline; }
 

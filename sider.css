@@ -74,6 +74,11 @@ body { background: #fff; color: #0a0a0a; }
    ═══════════════════════════════════════════════════════════ */
 .photo-hero { min-height: min(84vh, 840px); background: #0a0a0a; }
 
+/* Kategorisidene har bare tittel og ingress i heroen, ingen figur ved
+   siden av. Uten en bunn blir flaten bare så høy som de tre linjene,
+   og leses som en melding heller enn som toppen av en side. */
+.page-hero.ph-kategori { min-height: min(62vh, 620px); }
+
 /* Må stå etter «.page-hero > *» — den setter position: relative på
    alle barn, og bildet må kunne ligge absolutt. */
 .ph-img {
@@ -419,6 +424,22 @@ body { background: #fff; color: #0a0a0a; }
 .nav-dropdown-panel a:hover { background: rgba(10,10,10,0.05); color: #0a0a0a; }
 /* Siden man står på markeres også i selve dropdownen */
 .nav-dropdown-panel a.nav-active { background: var(--lime-soft); color: #0a0a0a; }
+/* Tre kategorier er valget; de sju tjenestesidene ligger under sin
+   kategori. Kategorien bærer vekten, undersidene står innrykket i
+   lavere grad — ellers leser man ni like lenker og er like langt. */
+.nav-dropdown-panel > ul > li > a:not(.nav-dropdown-all) { font-weight: 600; }
+.nav-dropdown-panel .nav-dd-sub {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+}
+.nav-dropdown-panel .nav-dd-sub a {
+  padding: 6px 14px 6px 28px;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: rgba(10,10,10,0.52);
+}
 .nav-dropdown-all {
   margin-top: 8px;
   padding: 12px 14px !important;
@@ -878,6 +899,10 @@ footer {
   text-shadow: 0 2px 24px rgba(0,0,0,0.45);
 }
 .dm-lime { color: var(--lime); }
+/* Står knappen rett under overskriften, er brødteksten fjernet med
+   vilje. Da må luften brødteksten ga tilbake, ellers klistrer knappen
+   seg til tittelen. Gjelder kun der de to er naboer. */
+.dm-head + .dm-btn { margin-top: 16px; }
 .dm-text {
   font-size: 16px;
   line-height: 1.6;

@@ -57,8 +57,6 @@
     /* kontakt.html */
     '.rc-cards',
     '.kf-list',
-    /* kompetanse.html */
-    '.kp-list',
     /* bloggartiklene */
     '.bg-next-grid',
   ];
