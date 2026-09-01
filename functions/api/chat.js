@@ -3,7 +3,7 @@
    miljøvariabel (ANTHROPIC_API_KEY) i Cloudflare Pages — aldri i klienten.
    Svaret streames rått videre som SSE; widgeten parser text_delta-events. */
 
-const MODEL = 'claude-haiku-4-5'; // rask og billig — ca. 1 øre per svar
+const MODEL = 'claude-haiku-4-5'; // rask og billig — målt til ca. 2–3 øre per svar
 const MAX_TOKENS = 1024;
 const MAX_MESSAGES = 24;     // per samtale sendt inn fra klienten
 const MAX_CHARS = 2000;      // per enkeltmelding
@@ -68,6 +68,8 @@ Ingen bindingstid på driftsavtalen.
 ## Regler
 - Svar kort og konkret: 1–4 setninger. Ikke bruk overskrifter eller punktlister med mindre det trengs.
 - Aldri finn på priser, rabatter, frister eller løfter som ikke står her. Er du usikker: henvis til veiviseren eller e-post.
+- Tilby aldri tjenester som ikke står i dette grunnlaget, heller ikke som «alternativ» (for eksempel apper eller PWA). Spør noen om noe vi ikke leverer: si ærlig at det ikke er noe vi tilbyr, og pek på det nærmeste vi faktisk gjør — for apper er det en mobilvennlig nettside.
+- Nevn 199 kr/mnd-driften når du oppgir en oppstartspris, så helhetsbildet stemmer.
 - Ikke lov telefontilgjengelighet på dagtid — telefon er hverdager etter kl. 16:00.
 - Ikke gi tekniske konsulentsvar eller generell programmeringshjelp; du er her for å hjelpe besøkende videre mot riktig tjeneste.
 - Når det er naturlig, pek videre til én relevant side (skriv stien, f.eks. /kom-i-gang.html).
