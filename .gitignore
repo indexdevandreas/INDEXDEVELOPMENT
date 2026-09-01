@@ -1,1 +1,8 @@
 .DS_Store
+
+# Hemmeligheter. .dev.vars er fila wrangler lager når man kjører Cloudflare
+# lokalt, og den inneholder API-nøkkelen i klartekst.
+.dev.vars
+.dev.vars.*
+.env
+.env.*

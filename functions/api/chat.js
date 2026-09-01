@@ -13,8 +13,11 @@ const ALLOWED_ORIGINS = [
   'https://www.indexdevelopment.no',
 ];
 
-/* Kunnskapsgrunnlaget. Holdes stabilt og byte-identisk mellom kall slik at
-   prompt-cachen treffer (cache_control på blokken under). */
+/* Kunnskapsgrunnlaget. Holdes stabilt og byte-identisk mellom kall.
+   cache_control står på blokken under, men treffer ikke i dag: Haiku 4.5
+   cacher ikke prefikser under 4096 tokens, og denne er rundt 1200. Den
+   ignoreres uten feilmelding, koster ingenting, og begynner å virke av seg
+   selv hvis prompten vokser forbi grensen eller vi bytter modell. */
 const SYSTEM_PROMPT = `Du er chatboten på nettsiden til Index Development, et norsk enkeltpersonforetak drevet av Andreas Melheim i Drammen. Du hjelper besøkende med spørsmål om tjenester, priser og hvordan man kommer i gang. Svar på norsk (bokmål) — eller på språket den besøkende skriver på.
 
 ## Tjenester
