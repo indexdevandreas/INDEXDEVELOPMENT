@@ -68,7 +68,7 @@
           ],
           'Jeg mister henvendelser': [
             { v: 'Ubesvarte anrop',        d: 'Rekker du ikke telefonen, tas anropet imot for deg' },
-            { v: 'AI-agent eller chatbot', d: 'Svarer kunder på nettsiden, døgnet rundt' },
+            { v: 'AI-chatbot', d: 'Ekte AI som svarer kundene dine, døgnet rundt' },
             { v: 'Booking-system',         d: 'Kunder bestiller time selv' },
             { v: 'Kontaktskjema',          d: 'Kort skjema som lander rett i innboksen din' }
           ],
@@ -86,11 +86,12 @@
       id: 'nettside_idag',
       type: 'single',
       q: 'Har du en nettside i dag?',
-      /* Også på henvendelses-sporet: en chatbot eller et skjema må stå
-         et sted, så svaret avgjør hva forslaget kan bygge på. */
+      /* Spørsmålet stilles bare når svaret faktisk trengs: en chatbot,
+         booking eller et skjema må stå på en nettside — en telefonsvarer
+         må ikke. Valgte man kun ubesvarte anrop, hoppes dette over. */
       vis: function () {
-        return har('gjenkjenning', 'Jeg mister henvendelser')
-            || harNoen('behov', ['Nettside', 'Jeg vet ikke helt']);
+        return harNoen('behov', ['Nettside', 'Jeg vet ikke helt',
+                                 'AI-chatbot', 'Booking-system', 'Kontaktskjema']);
       },
       valg: [
         { v: 'Nei, ingen ennå',              d: 'Vi starter med blanke ark' },
@@ -116,7 +117,7 @@
       id: 'ai_oppgave',
       type: 'multi',
       q: 'Hva skal AI-en gjøre for deg?',
-      vis: function () { return har('behov', 'AI-agent eller chatbot'); },
+      vis: function () { return har('behov', 'AI-chatbot'); },
       valg: [
         { v: 'Svare kunder på nettsiden',    d: 'Åpningstider, priser, hva du tilbyr — en chatbot' },
         { v: 'Fange opp henvendelser',       d: 'Samle navn og nummer mens du sover' },

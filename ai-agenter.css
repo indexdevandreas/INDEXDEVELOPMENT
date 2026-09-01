@@ -32,6 +32,9 @@
    TO NIVÅER — guidet flyt vs. AI trent på bedriften
    ═══════════════════════════════════════════════════════════ */
 .cb-levels { background: #fff; padding: 130px 0 110px; }
+/* Én chatbot: kortet sentreres i samme bredde som før, i stedet for å
+   stå alene i venstre halvdel av et tomt to-kolonners rutenett. */
+.lv-grid.lv-solo { grid-template-columns: minmax(0, 640px); justify-content: center; }
 .lv-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

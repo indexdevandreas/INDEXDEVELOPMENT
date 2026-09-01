@@ -178,6 +178,9 @@
    NETTSIDEPAKKER
    ═══════════════════════════════════════════════════════════ */
 .pkg { background: #fff; padding: 20px 0 110px; }
+/* Én chatbot, ett kort: samme mål som da det sto tre, bare sentrert.
+   Strukket over hele raden ville kortet ropt at noe mangler. */
+.pk-grid.pk-solo { grid-template-columns: minmax(0, 560px); justify-content: center; }
 .pk-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

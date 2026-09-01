@@ -1,6 +1,6 @@
 # Index Development
 
-> Index Development bygger og drifter nettsider, AI-agenter/chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift for små og mellomstore bedrifter i Norge. Fastpris ved oppstart. Nettsider driftes for 199 kr/mnd på Cloudflare; månedspris for booking og systemer avtales skriftlig.
+> Index Development bygger og drifter nettsider, AI-agenter/chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift for små og mellomstore bedrifter i Norge. Fastpris ved oppstart. Nettsider driftes for 449 kr/mnd på Cloudflare; månedspris for booking og systemer avtales skriftlig.
 
 Index Development er et enkeltpersonforetak drevet av Andreas Melheim, basert i Drammen, Norge. Nettsidene bygges håndkodet (HTML/CSS/JS), er optimalisert for ytelse og SEO, og skrives på norsk (nb-NO). Kontakt: andreas@indexdevelopment.no, +47 484 59 686.
 
@@ -15,7 +15,7 @@ Tjenestene er gruppert i tre områder. Tjenestesidene ligger under sitt område.
 - [Kontakt og oppfølging](https://indexdevelopment.no/kontakt-oppfolging.html): Området som handler om å ta imot henvendelser: chatbot, booking, ubesvarte anrop og kontaktskjema.
 - [AI-agenter og chatbots](https://indexdevelopment.no/ai-agenter.html): Chatbot for bedriften, trent på egne data.
 - [Booking- og bestillingssystem](https://indexdevelopment.no/booking-systemer.html): Bygget inn i nettsiden, ikke et separat abonnement.
-- [Ubesvarte anrop og AI-telefonsvarer](https://indexdevelopment.no/ubesvarte-anrop.html): Rekker bedriften ikke telefonen, følges anropet opp automatisk. Nivå 1 sender SMS i bedriftens navn og henter inn hva saken gjelder. Nivå 2 lar en AI ta selve samtalen og sende beskjeden videre på SMS og e-post. Prises med skriftlig tilbud, uten bindingstid.
+- [Ubesvarte anrop og AI-telefonsvarer](https://indexdevelopment.no/ubesvarte-anrop.html): Rekker bedriften ikke telefonen, følges anropet opp automatisk. Nivå 1 sender SMS i bedriftens navn og henter inn hva saken gjelder. Nivå 2 lar en AI ta selve samtalen og sende beskjeden videre på SMS og e-post. Prises med skriftlig tilbud.
 
 ### Nettside og synlighet — så folk finner deg når de søker
 
@@ -31,7 +31,7 @@ Tjenestene er gruppert i tre områder. Tjenestesidene ligger under sitt område.
 
 ### Drift — ligger under alt
 
-- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Ikke et fjerde område, men det som holder alt det andre oppe. Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren. Nettsider 199 kr/mnd; månedspris for booking og systemer avtales skriftlig.
+- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Ikke et fjerde område, men det som holder alt det andre oppe. Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren. Nettsider 449 kr/mnd inkludert småendringer inntil én time per måned; månedspris for booking og systemer avtales skriftlig.
 
 ## Priser og oppstart
 
