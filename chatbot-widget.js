@@ -90,6 +90,11 @@
             AI-assistent
           </span>
         </div>
+        <button id="cw-close" type="button" aria-label="Lukk chat">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
       <div id="cw-messages" aria-live="polite"></div>
       <div id="cw-buttons"></div>
@@ -252,22 +257,30 @@
       bubble.classList.add('open');
       bubble.setAttribute('aria-expanded', 'true');
       badge.classList.add('hidden');
+      /* cw-open på <html> lar CSS-en låse bakgrunnsrullingen når
+         vinduet dekker hele skjermen på mobil. */
+      document.documentElement.classList.add('cw-open');
       if (!opened) {
         opened = true;
         renderExisting();
       }
-      input.focus();
+      /* Ikke auto-fokus på mobil: fokus åpner tastaturet oppå et vindu
+         som nettopp gled inn, og på småskrift zoomer iOS hele siden. */
+      if (window.matchMedia('(min-width: 481px)').matches) input.focus();
     }
 
     function close() {
       win.classList.remove('open');
       bubble.classList.remove('open');
       bubble.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('cw-open');
     }
 
     bubble.addEventListener('click', () => {
       win.classList.contains('open') ? close() : open();
     });
+
+    win.querySelector('#cw-close').addEventListener('click', close);
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();

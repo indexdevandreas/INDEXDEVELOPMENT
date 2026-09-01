@@ -57,7 +57,7 @@
       id: 'behov',
       type: 'multi',
       q: 'Hva tror du selv du trenger?',
-      hjelp: 'Kryss av alt som passer, og det er helt lov å ikke vite. Drift trenger du ikke velge, det følger med på alt vi bygger.',
+      hjelp: 'Kryss av alt som passer, og det er helt lov å ikke vite. Drift trenger du ikke velge, for alt vi bygger driftes av oss.',
       /* Listen følger svaret over, så man slipper å ta stilling til
          tjenester som ikke løser problemet man akkurat beskrev. */
       valg: function () {

@@ -105,6 +105,32 @@
   pointer-events: all;
 }
 
+/* Lukkeknappen i headeren. Alltid der, viktigst på mobil der vinduet
+   dekker hele skjermen og boblen er skjult. */
+#cw-close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+#cw-close:hover { background: rgba(255, 255, 255, 0.14); }
+#cw-close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
 /* Header */
 #cw-header {
   display: flex;
@@ -320,14 +346,33 @@
 
 /* ── Mobile ───────────────────────────────────────────────── */
 @media (max-width: 480px) {
+  /* Hele skjermen, ikke et frimerke nederst i hjørnet. Lukking skjer
+     med knappen i headeren; boblen skjules mens vinduet er åpent,
+     ellers hadde den ligget oppå send-knappen. */
   #cw-window {
-    right: 12px;
-    bottom: 88px;
-    width: calc(100vw - 24px);
-    max-height: 72dvh;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+    transform-origin: center bottom;
   }
   #cw-bubble {
     right: 16px;
     bottom: 16px;
   }
+  #cw-window.open ~ #cw-bubble {
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* 16px er iOS-grensen: alt mindre får Safari til å zoome inn hele
+     siden når feltet får fokus. Det var det som skjedde. */
+  #cw-input { font-size: 16px; }
+  /* Litt større trykkflater, og luft for kamerahakk og hjemlinje */
+  #cw-close { width: 44px; height: 44px; }
+  #cw-header { padding-top: calc(14px + env(safe-area-inset-top)); }
+  #cw-inputrow { padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+  /* Bakgrunnen skal ikke rulle bak et fullskjermsvindu */
+  html.cw-open, html.cw-open body { overflow: hidden; }
 }

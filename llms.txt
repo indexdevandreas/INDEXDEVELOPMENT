@@ -1,6 +1,6 @@
 # Index Development
 
-> Index Development bygger og drifter nettsider, AI-agenter/chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift for små og mellomstore bedrifter i Norge. Fastpris ved oppstart, deretter 199 kr/måned for hosting og drift på Cloudflare.
+> Index Development bygger og drifter nettsider, AI-agenter/chatbots, systemutvikling, API-integrasjoner, booking-systemer og drift for små og mellomstore bedrifter i Norge. Fastpris ved oppstart. Nettsider driftes for 199 kr/mnd på Cloudflare; månedspris for booking og systemer avtales skriftlig.
 
 Index Development er et enkeltpersonforetak drevet av Andreas Melheim, basert i Drammen, Norge. Nettsidene bygges håndkodet (HTML/CSS/JS), er optimalisert for ytelse og SEO, og skrives på norsk (nb-NO). Kontakt: andreas@indexdevelopment.no, +47 484 59 686.
 
@@ -31,7 +31,7 @@ Tjenestene er gruppert i tre områder. Tjenestesidene ligger under sitt område.
 
 ### Drift — ligger under alt
 
-- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Ikke et fjerde område, men det som holder alt det andre oppe. Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren. 199 kr/måned.
+- [Drift, vedlikehold og support](https://indexdevelopment.no/drift.html): Ikke et fjerde område, men det som holder alt det andre oppe. Hosting på Cloudflare, SSL, oppetidssjekk, sikkerhetskopi og løpende support direkte fra utvikleren. Nettsider 199 kr/mnd; månedspris for booking og systemer avtales skriftlig.
 
 ## Priser og oppstart
 
