@@ -163,6 +163,33 @@
       ]
     },
     {
+      /* Avslutningen åpner døra i stedet for å smøre tjenester opp i
+         trynet underveis: de to områdene man IKKE valgte, pluss et
+         ærlig nei. Svaret følger med i e-posten som alt annet. */
+      id: 'mer',
+      type: 'single',
+      q: 'Noe mer vi bør se på samtidig?',
+      valg: function () {
+        var andre = {
+          'Folk finner meg ikke': [
+            { v: 'Ta imot henvendelser bedre', d: 'Chatbot, booking eller telefonsvarer' },
+            { v: 'Mindre manuelt arbeid',      d: 'Systemer og integrasjoner' }
+          ],
+          'Jeg mister henvendelser': [
+            { v: 'Bli mer synlig i søk',   d: 'Nettside eller Google Bedriftsprofil' },
+            { v: 'Mindre manuelt arbeid',  d: 'Systemer og integrasjoner' }
+          ],
+          'For mye manuelt arbeid': [
+            { v: 'Bli mer synlig i søk',        d: 'Nettside eller Google Bedriftsprofil' },
+            { v: 'Ta imot henvendelser bedre',  d: 'Chatbot, booking eller telefonsvarer' }
+          ]
+        };
+        var liste = (andre[svar.gjenkjenning] || []).slice();
+        liste.push({ v: 'Nei, det var det viktigste', d: 'Vi holder oss til det du har beskrevet' });
+        return liste;
+      }
+    },
+    {
       id: 'budsjett',
       type: 'single',
       q: 'Har du en sum i bakhodet?',
