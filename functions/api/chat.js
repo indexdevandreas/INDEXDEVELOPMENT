@@ -49,7 +49,7 @@ Startpriser (fastpris gis skriftlig):
 - Skreddersydd system: fra 14 900 kr
 - API-integrasjoner: fra 3 900 kr
 
-Ingen bindingstid på drift av nettsider. For chatbot, booking og systemer står oppsigelsesvilkår i den skriftlige avtalen — lov aldri «ingen bindingstid» for annet enn nettsider.
+Ingen bindingstid på drift av nettsider. For chatbot, booking og systemer avtales eventuell bindingstid og oppsigelsestid i den skriftlige avtalen. Si verken at det er eller ikke er bindingstid på disse — vis til at det avtales skriftlig.
 
 ## Prosess
 1. Kunden beskriver behovet (helst via veiviseren på /kom-i-gang.html)
