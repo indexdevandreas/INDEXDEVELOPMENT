@@ -71,6 +71,9 @@
   text-decoration-color: var(--lime, #d4ff3d);
   text-decoration-thickness: 5px;
   text-underline-offset: 9px;
+  /* Uten dette lager nettleseren hull i streken der g-en henger
+     ned gjennom den. Streken skal være ubrutt. */
+  text-decoration-skip-ink: none;
 }
 .hero-sub {
   margin-top: 26px;
