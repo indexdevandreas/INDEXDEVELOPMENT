@@ -239,119 +239,83 @@
    SYNLIGHET & KONVERTERING
    ═══════════════════════════════════════════════════════════ */
 .convert { background: #fff; padding: 20px 0 120px; }
-.cv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+/* ═══ KONVERTERING — 3D-panelet ═══
+   Sebrastripene er merkevaren; her tegnes de av en WebGL-shader i
+   forside-3d.js som et bølgende felt med falsk dybde. Teksten ligger
+   oppå i venstre halvdel. Uten WebGL (cv3d-fallback) står panelet
+   igjen med den mørke flaten og lime-gløden fra CSS-en alene. */
+.cv3d {
+  position: relative;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-.cv-card {
-  background: #f1f1ef;
-  border-radius: 16px;
-  padding: 30px 30px 28px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 120% at 82% 85%, rgba(212,255,61,0.16) 0%, transparent 55%),
+    #0b0b0c;
+  min-height: 420px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
-.cv-dark { background: #0d0d0d; color: #fff; }
-.cv-label {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(10,10,10,0.5);
-  margin-bottom: 24px;
+/* Rammen får sidemarger av forelderen .convert sitt oppsett */
+.convert .cv3d { margin-left: 24px; margin-right: 24px; }
+@media (min-width: 1339px) { .convert .cv3d { margin-left: auto; margin-right: auto; } }
+#cv3d-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-.cv-dark .cv-label { color: rgba(255,255,255,0.5); }
-.cv-desc {
-  margin-top: 26px;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: rgba(10,10,10,0.6);
-  max-width: 420px;
-}
-.cv-dark .cv-desc { color: rgba(255,255,255,0.62); }
-/* Hvert steg peker videre til kategorien som løser det. .pf-link er
-   sort på sort inne i det mørke kortet, så den snus her. */
-.cv-card .pf-link { margin-top: 20px; align-self: flex-start; }
-.cv-dark .pf-link { color: #fff; border-bottom-color: rgba(255,255,255,0.45); }
-
-/* Google-mock */
-.cv-mock {
-  background: #fff;
-  border-radius: 13px;
-  padding: 14px;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.07);
-}
-.cv-search {
-  display: flex; align-items: center; gap: 10px;
-  background: #f4f4f2;
-  border-radius: 999px;
-  padding: 10px 16px;
-  font-size: 13.5px;
-  color: rgba(10,10,10,0.72);
-  margin-bottom: 12px;
-}
-.cv-mag {
-  width: 14px; height: 14px; flex-shrink: 0;
-  fill: none; stroke: rgba(10,10,10,0.45);
-  stroke-width: 2; stroke-linecap: round;
-}
-.cv-res {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 12px;
-  border-radius: 10px;
-}
-.cv-res-top {
-  background: var(--lime-soft);
-  box-shadow: inset 0 0 0 1.5px var(--lime);
-}
-.cv-rank {
-  width: 21px; height: 21px; border-radius: 6px;
-  background: var(--lime); color: #0a0a0a;
-  font-size: 11px; font-weight: 700;
-  display: grid; place-items: center;
-  flex-shrink: 0;
-}
-.cv-rank.muted { background: rgba(10,10,10,0.08); color: rgba(10,10,10,0.45); }
-.cv-res-title { display: block; font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em; color: #0a0a0a; }
-.cv-res:not(.cv-res-top) .cv-res-title { color: rgba(10,10,10,0.5); font-weight: 500; }
-.cv-res-url { display: block; font-size: 11.5px; color: rgba(10,10,10,0.42); margin-top: 2px; }
-.cv-badge {
-  margin-left: auto;
-  font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
-  background: #0a0a0a; color: #fff;
-  padding: 4px 9px; border-radius: 999px;
-}
-
-/* Konverterings-steg */
-.cv-steps { display: flex; flex-direction: column; }
-.cv-step {
-  position: relative;
-  display: flex; gap: 16px;
-  padding: 0 0 26px 0;
-}
-.cv-step::before {
+/* Fast scrim bak tekstspalten: lesbarheten skal aldri avhenge av
+   hvilken fase stripene tilfeldigvis står i. */
+.cv3d::before {
   content: "";
   position: absolute;
-  left: 5px; top: 16px; bottom: 2px;
-  width: 1.5px;
-  background: rgba(255,255,255,0.16);
-}
-.cv-step-end::before { display: none; }
-.cv-step-end { padding-bottom: 0; }
-.cv-step-dot {
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--lime);
-  flex-shrink: 0;
-  margin-top: 4px;
-  position: relative;
+  inset: 0;
   z-index: 1;
+  background: linear-gradient(100deg,
+    rgba(8,8,9,0.94) 0%, rgba(8,8,9,0.72) 34%, rgba(8,8,9,0.28) 52%, transparent 66%);
+  pointer-events: none;
 }
-.cv-step-title { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.015em; }
-.cv-step-sub { display: block; font-size: 13px; color: rgba(255,255,255,0.52); margin-top: 3px; }
+.cv3d-body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 34px;
+  padding: 52px 56px;
+  max-width: 560px;
+}
+.cv3d-step { display: flex; gap: 18px; align-items: flex-start; }
+.cv3d-n {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--lime);
+  opacity: 0.9;
+}
+.cv3d-step h3 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 7px;
+}
+.cv3d-step p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  max-width: 40ch;
+  /* leselig oppå stripene uten å legge en plate bak */
+  text-shadow: 0 1px 14px rgba(0,0,0,0.65), 0 0 28px rgba(0,0,0,0.5);
+}
+.cv3d-step h3 { text-shadow: 0 1px 14px rgba(0,0,0,0.7); }
+.cv3d-step .pf-link {
+  margin-top: 12px;
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.45);
+}
+
 
 /* Mobilmenyen defineres nå i sider.css, så den er lik på alle sider.
    Den sto hvit her og mørk overalt ellers. */
@@ -1224,7 +1188,16 @@ html, body { overflow-x: clip; }
 }
 
 @media (max-width: 900px) {
-  .cv-grid { grid-template-columns: 1fr; }
+  .cv3d { min-height: 0; }
+  .cv3d-body { padding: 36px 24px; gap: 24px; max-width: 100%; }
+  .cv3d-step { gap: 14px; }
+  .cv3d-n { font-size: 28px; }
+  .cv3d-step p { max-width: none; }
+  /* stablet layout: scrimmen dekker hele flaten jevnere */
+  .cv3d::before {
+    background: linear-gradient(160deg,
+      rgba(8,8,9,0.92) 0%, rgba(8,8,9,0.6) 55%, rgba(8,8,9,0.25) 100%);
+  }
 
   /* Hero: teksten fikk 48px luft på hver side og en ingress låst til
      440px — til sammen bredere enn en telefon. */
@@ -1328,7 +1301,6 @@ html, body { overflow-x: clip; }
   .rv-foot { flex-wrap: wrap; gap: 12px 10px; }
   .rv-link { margin-left: 0; }
 
-  .cv-card { padding: 26px 22px 24px; }
   .fq-item summary { padding: 20px 20px; font-size: 15.5px; gap: 16px; }
   .fq-body p { padding: 0 20px 22px; }
 }

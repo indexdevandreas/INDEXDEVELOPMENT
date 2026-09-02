@@ -13,7 +13,7 @@
     '.platform-top',
     '.pf-cards',
     '.s2-grid',
-    '.cv-grid',
+    '.cv3d',
     '.rv-grid',
     '.sv-grid',
     '.mg-band',
