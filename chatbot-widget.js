@@ -12,8 +12,8 @@
   const API_URL = '/api/chat';
   const STORE_KEY = 'cw-history-v1';
   const WELCOME =
-    'Hei! 👋 Jeg er AI-assistenten til Index Development. ' +
-    'Spør meg om priser, tjenester eller hvordan du kommer i gang.';
+    'Hei. Spør meg om priser, tjenester eller hvordan vi jobber, ' +
+    'så svarer jeg med en gang.';
   const STARTERS = [
     'Hva koster en nettside?',
     'Hva kan dere bygge?',
@@ -82,12 +82,12 @@
     win.setAttribute('aria-modal', 'false');
     win.innerHTML = `
       <div id="cw-header">
-        <div class="cw-avatar">${logoImg}</div>
+        <div class="cw-mark">${logoImg}</div>
         <div class="cw-header-info">
-          <span class="cw-header-name">Index Development</span>
+          <span class="cw-header-name">index dev.</span>
           <span class="cw-header-status">
             <span class="cw-status-dot"></span>
-            AI-assistent
+            KI-assistent
           </span>
         </div>
         <button id="cw-close" type="button" aria-label="Lukk chat">
@@ -100,10 +100,10 @@
       <div id="cw-buttons"></div>
       <form id="cw-inputrow" autocomplete="off">
         <input id="cw-input" type="text" maxlength="1000"
-               placeholder="Skriv en melding …" aria-label="Skriv en melding">
+               placeholder="Skriv et spørsmål …" aria-label="Skriv en melding">
         <button id="cw-send" type="submit" aria-label="Send">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 11.5 21 3l-8.5 18-2.4-7.1L3 11.5Z"/>
+            <path d="M7 17L17 7M9 7h8v8"/>
           </svg>
         </button>
       </form>`;

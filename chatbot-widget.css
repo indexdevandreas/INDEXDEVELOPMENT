@@ -21,13 +21,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(212, 255, 61, 0.45);
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.2s ease;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 #cw-bubble:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 32px rgba(212, 255, 61, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
 }
 #cw-bubble .cw-icon-chat,
 #cw-bubble .cw-icon-close {
@@ -68,9 +67,9 @@
   right: 2px;
   width: 12px;
   height: 12px;
-  background: #22c55e;
+  background: var(--lime, #d4ff3d);
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 2px solid #0d0d0d;
   transition: opacity 0.2s ease;
 }
 #cw-badge.hidden { opacity: 0; pointer-events: none; }
@@ -90,13 +89,13 @@
   flex-direction: column;
   overflow: hidden;
   font-family: 'Geist', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 255, 61, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
 
   /* hidden state */
   opacity: 0;
   transform: translateY(16px) scale(0.97);
   pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.22s ease, transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: bottom right;
 }
 #cw-window.open {
@@ -140,17 +139,17 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   flex-shrink: 0;
 }
-.cw-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+.cw-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
   background: var(--lime, #d4ff3d);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.cw-avatar img {
+.cw-mark img {
   width: 20px;
   height: 20px;
   display: block;
@@ -161,23 +160,26 @@
   gap: 1px;
 }
 .cw-header-name {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
 }
 .cw-header-status {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
+  margin-top: 2px;
 }
 .cw-status-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
+  background: var(--lime, #d4ff3d);
   flex-shrink: 0;
 }
 
@@ -209,15 +211,16 @@
 
 .cw-bubble-msg {
   max-width: 88%;
-  padding: 10px 13px;
-  border-radius: 14px 14px 14px 4px;
-  background: rgba(255, 255, 255, 0.07);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 13.5px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
 }
 .cw-bubble-msg a {
-  color: #6b8eff;
+  color: var(--lime, #d4ff3d);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -227,32 +230,31 @@
 #cw-buttons {
   padding: 8px 14px 14px;
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  flex-wrap: wrap;
+  gap: 8px;
   flex-shrink: 0;
 }
 
 .cw-btn {
-  width: 100%;
-  padding: 9px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(212, 255, 61, 0.35);
-  background: rgba(212, 255, 61, 0.08);
-  color: #fff;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-align: left;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-  letter-spacing: -0.01em;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .cw-btn:hover {
-  background: rgba(212, 255, 61, 0.2);
-  border-color: rgba(212, 255, 61, 0.65);
-  transform: translateX(2px);
+  background: rgba(212, 255, 61, 0.08);
+  border-color: rgba(212, 255, 61, 0.6);
+  color: var(--lime, #d4ff3d);
 }
-.cw-btn:active { transform: translateX(2px) scale(0.98); }
+.cw-btn:active { transform: scale(0.98); }
 
 .cw-btn.secondary {
   background: rgba(255, 255, 255, 0.04);
@@ -270,7 +272,8 @@
 .cw-msg.cw-user .cw-bubble-msg {
   background: var(--lime, #d4ff3d);
   color: #0a0a0a;
-  border-radius: 14px 14px 4px 14px;
+  border: none;
+  border-radius: 12px;
 }
 
 /* Skriveindikator (tre pulserende prikker) */
@@ -309,8 +312,8 @@
 #cw-input {
   flex: 1;
   min-width: 0;
-  padding: 10px 13px;
-  border-radius: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
@@ -323,9 +326,9 @@
 #cw-input:focus { border-color: rgba(212, 255, 61, 0.55); }
 #cw-input:disabled { opacity: 0.5; }
 #cw-send {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   border: none;
   background: var(--lime, #d4ff3d);
   cursor: pointer;
@@ -339,9 +342,13 @@
 #cw-send:active { transform: scale(0.95); }
 #cw-send:disabled { opacity: 0.5; cursor: default; transform: none; }
 #cw-send svg {
-  width: 17px;
-  height: 17px;
-  fill: #0a0a0a;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #0a0a0a;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */

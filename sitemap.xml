@@ -104,20 +104,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://indexdevelopment.no/blogg-anrop.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://indexdevelopment.no/blogg-seo.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://indexdevelopment.no/blogg-pris.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://indexdevelopment.no/blogg-tlf.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -45,6 +45,7 @@ Tjenestene er gruppert i tre områder. Tjenestesidene ligger under sitt område.
 
 ## Blogg
 
+- [Hva skjer med anropene du ikke rekker å ta?](https://indexdevelopment.no/blogg-anrop.html)
 - [Hvorfor byråer tar 30 000 for noe som koster 5 000](https://indexdevelopment.no/blogg-pris.html)
 - [Hvorfor Google ikke finner bedriften din](https://indexdevelopment.no/blogg-seo.html)
 - [Hvorfor ringer ikke telefonen, selv om du har nettside?](https://indexdevelopment.no/blogg-tlf.html)

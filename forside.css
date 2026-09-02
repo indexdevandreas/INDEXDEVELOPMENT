@@ -840,13 +840,15 @@
 }
 .bl-card:hover { background: #e8e8e4; }
 .bl-img { height: 190px; overflow: hidden; background: #e6e6e3; }
-.bl-img img {
+.bl-img img,
+.bl-img .bl-ill {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
-.bl-card:hover .bl-img img { transform: scale(1.08); }
+.bl-card:hover .bl-img img,
+.bl-card:hover .bl-img .bl-ill { transform: scale(1.06); }
 .bl-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
 .bl-tag {
   align-self: flex-start;

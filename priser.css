@@ -230,6 +230,7 @@
   letter-spacing: -0.025em;
 }
 .pk-kr { font-size: 0.42em; color: var(--lime); margin-left: 0.04em; }
+.pk-fra { font-size: 0.34em; font-weight: 500; letter-spacing: 0.02em; opacity: 0.55; margin-right: 0.1em; }
 /* Chatbot prises med tilbud — ordet settes i samme serif og grad som
    tallene, så kortene veier likt mot pakkene med prislapp. Lime kun
    på det mørke kortet; på lys bakgrunn ville den druknet. */
