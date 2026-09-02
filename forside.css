@@ -57,12 +57,20 @@
    omtrent 29 tegn per linje. Graden er satt etter det, så bruddet
    kommer etter kommaet i stedet for midt i «til å ringe». */
 .hero-inner h1 {
-  font-family: 'Geist', 'Inter', sans-serif;
-  font-size: clamp(40px, 5.1vw, 60px);
-  font-weight: 700;
-  letter-spacing: -0.038em;
-  line-height: 1.06;
+  /* Switzer — samme display-font som sidetitlene og seksjons-
+     overskriftene (@font-face i sider.css). Tett og høy x-høyde. */
+  font-family: 'Switzer', 'Geist', sans-serif;
+  font-size: clamp(40px, 5vw, 58px);
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  line-height: 1.07;
   color: #fff;
+}
+.h1-strek {
+  text-decoration: underline;
+  text-decoration-color: var(--lime, #d4ff3d);
+  text-decoration-thickness: 5px;
+  text-underline-offset: 9px;
 }
 .hero-sub {
   margin-top: 26px;
@@ -1139,7 +1147,8 @@ html, body { overflow-x: clip; }
      440px — til sammen bredere enn en telefon. */
   .hero-body { padding: 0 24px; }
   .hero-body .hero-inner { max-width: 100%; }
-  .hero-inner h1 { font-size: clamp(31px, 8.6vw, 50px); }
+  .hero-inner h1 { font-size: clamp(30px, 8.2vw, 46px); }
+  .h1-strek { text-decoration-thickness: 4px; text-underline-offset: 7px; }
   .hero-sub { max-width: 100%; margin-top: 20px; font-size: 15.5px; }
   .hero-btn { margin-top: 30px; }
 

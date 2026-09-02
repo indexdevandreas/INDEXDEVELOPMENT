@@ -4,7 +4,7 @@
 :root {
   --bg: #000;
   --bg-light: #f4f4f1;
-  --fg: #ffffff;
+  --fg: %23ffffff;
   --fg-dark: #000;
   --blue: #2547ff;
   --blue-soft: rgba(37, 71, 255, 0.12);
@@ -863,6 +863,9 @@ footer {
   padding: 80px 0 56px;
   text-align: center;
   overflow: hidden;
+  /* Ut av containerbredden: ordmerket skal kuttes av sidekanten,
+     ikke stoppe med luft inne i footeren. */
+  margin-inline: calc(50% - 50vw);
 }
 .foot-mark .big {
   font-size: clamp(80px, 18vw, 280px);
@@ -874,13 +877,14 @@ footer {
   white-space: nowrap;
   user-select: none;
 }
-/* Sebrastripene inni bokstavene — samme vinkel som stripefeltet i
-   3D-panelet (-24°). Nettlesere uten text-clip beholder konturen. */
+/* Sebrastripene inni bokstavene — brede, organiske og hvite, tegnet
+   som SVG-bånd i stedet for rette gradientlinjer. Nettlesere uten
+   text-clip beholder konturen. */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .foot-mark .big {
-    background: repeating-linear-gradient(-24deg,
-      rgba(236,234,223,0.48) 0 16px,
-      rgba(236,234,223,0.03) 16px 34px);
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20420%20240%22%3E%20%3Cg%20fill=%22%23ffffff%22%20fill-opacity=%220.94%22%3E%20%3Cpath%20d=%22M38,0%20C58,50%2018,110%2044,170%20C56,196%2040,222%2050,240%20L118,240%20C100,196%20132,140%20106,84%20C94,56%20112,24%20100,0%20Z%22/%3E%20%3Cpath%20d=%22M180,0%20C170,54%20208,104%20188,158%20C178,190%20196,218%20186,240%20L258,240%20C272,192%20240,140%20262,86%20C272,58%20256,22%20266,0%20Z%22/%3E%20%3Cpath%20d=%22M318,0%20C338,46%20306,112%20330,168%20C342,196%20326,222%20336,240%20L392,240%20C382,196%20408,130%20386,76%20C376,48%20392,20%20380,0%20Z%22/%3E%20%3C/g%3E%3C/svg%3E"), linear-gradient(rgba(255,255,255,0.13), rgba(255,255,255,0.13));
+    background-size: 420px 100%, auto;
+    background-repeat: repeat-x, no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-stroke: 1px rgba(255,255,255,0.10);

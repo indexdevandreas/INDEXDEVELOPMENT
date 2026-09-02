@@ -14,10 +14,24 @@
 /* ─── Font: Geist overalt på forsiden (hjemmeside.css hardkoder
    Space Grotesk på en del enkeltklasser — disse listes eksplisitt
    under i stedet for en blanket !important-overstyring) ─── */
-/* Referansen (staffer.com) kjører Inter i brødtekst og Season Sans på
-   display. Season Sans er lisensiert — til den eventuelt kjøpes,
-   faller alt tilbake på Inter, som er nøyaktig det referansen
-   bruker til alt annet enn overskriftene. */
+/* Referansen (staffer.com) kjører Season Sans på display — en
+   prøvefont vi ikke har lisens til. Switzer (Indian Type Foundry,
+   gratis også kommersielt) har samme tetthet og høye x-høyde, og
+   ligger selvhostet i fonter/ så ingen ekstern host er involvert. */
+@font-face {
+  font-family: 'Switzer';
+  src: url('fonter/switzer-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('fonter/switzer-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 html, body,
 .nav .menu-btn,
 .section-label,
@@ -98,7 +112,7 @@ body { background: #fff; color: #0a0a0a; }
   margin-bottom: 22px;
 }
 .ph-title {
-  font-family: 'Season Sans', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: -0.038em;
   line-height: 1.04;
@@ -587,7 +601,7 @@ body { background: #fff; color: #0a0a0a; }
   align-items: end;
 }
 .pf-head {
-  font-family: 'Season Sans', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
   font-size: clamp(32px, 3.15vw, 52px);
   font-weight: 500;
   letter-spacing: -0.035em;
@@ -965,7 +979,7 @@ footer {
    ═══════════════════════════════════════════════════════════ */
 .say { background: #fff; padding: 110px 24px; }
 .say p {
-  font-family: 'Season Sans', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
   max-width: 780px;
   margin: 0 auto;
   text-align: center;
