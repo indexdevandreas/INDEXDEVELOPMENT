@@ -57,11 +57,11 @@
    omtrent 29 tegn per linje. Graden er satt etter det, så bruddet
    kommer etter kommaet i stedet for midt i «til å ringe». */
 .hero-inner h1 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(44px, 5.6vw, 66px);
-  font-weight: 400;
-  letter-spacing: -0.018em;
-  line-height: 1.02;
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(40px, 5.1vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.038em;
+  line-height: 1.06;
   color: #fff;
 }
 .hero-sub {
@@ -1139,7 +1139,7 @@ html, body { overflow-x: clip; }
      440px — til sammen bredere enn en telefon. */
   .hero-body { padding: 0 24px; }
   .hero-body .hero-inner { max-width: 100%; }
-  .hero-inner h1 { font-size: clamp(34px, 9.4vw, 56px); }
+  .hero-inner h1 { font-size: clamp(31px, 8.6vw, 50px); }
   .hero-sub { max-width: 100%; margin-top: 20px; font-size: 15.5px; }
   .hero-btn { margin-top: 30px; }
 

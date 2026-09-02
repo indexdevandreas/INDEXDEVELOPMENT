@@ -874,6 +874,18 @@ footer {
   white-space: nowrap;
   user-select: none;
 }
+/* Sebrastripene inni bokstavene — samme vinkel som stripefeltet i
+   3D-panelet (-24°). Nettlesere uten text-clip beholder konturen. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .foot-mark .big {
+    background: repeating-linear-gradient(-24deg,
+      rgba(236,234,223,0.48) 0 16px,
+      rgba(236,234,223,0.03) 16px 34px);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.10);
+  }
+}
 
 .foot-base {
   display: flex;
