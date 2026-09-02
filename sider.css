@@ -1454,31 +1454,4 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
 footer {
   overflow: hidden; /* position: relative står alt i hjemmeside.css */
 }
-footer > * {
-  position: relative;
-  z-index: 1;
-}
-footer::after {
-  content: "";
-  position: absolute;
-  left: -60px;
-  bottom: -28px;
-  width: 520px;
-  height: 340px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420"><g fill="%23ffffff"><path d="M0,30 C140,6 300,58 640,18 C360,66 170,34 0,58 Z"/><path d="M640,88 C420,64 230,116 0,76 C240,126 430,96 640,126 Z"/><path d="M0,168 C150,140 330,196 640,150 L640,184 C400,224 180,168 0,206 Z"/><path d="M0,244 C130,238 250,240 360,246 C470,234 570,228 640,224 C560,242 460,250 392,256 C470,264 570,276 640,288 C550,286 450,282 360,274 C250,270 130,268 0,266 Z"/><path d="M640,318 C410,292 240,342 0,304 C250,356 430,324 640,354 Z"/><path d="M0,392 C180,366 400,408 640,372 L640,420 L0,420 Z"/></g></svg>') center / 100% 100% no-repeat;
-  opacity: 0.07;
-  pointer-events: none;
-  z-index: 0;
-  /* --zs settes av scroll-lytteren i nav-scroll-tracker.js — mønsteret
-     vokser svakt mens footeren kommer til syne. */
-  transform: scale(var(--zs, 1));
-  transform-origin: 50% 100%;
-  -webkit-mask-image: radial-gradient(130% 130% at 0% 100%, #000 36%, transparent 74%);
-  mask-image: radial-gradient(130% 130% at 0% 100%, #000 36%, transparent 74%);
-}
-@media (max-width: 700px) {
-  footer::after { width: 360px; height: 240px; left: -40px; bottom: -20px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  footer::after { transform: none; }
-}
+

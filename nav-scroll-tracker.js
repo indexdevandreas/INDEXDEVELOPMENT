@@ -10,10 +10,6 @@
       Forsiden: seksjonene #tjenester, #meg, #blogg og #kontakt
       markeres mens de passerer øvre del av skjermen.
 
-   2) ZEBRA-VEKST
-      Dekor-stripene (::after på utvalgte seksjoner og footeren)
-      leser CSS-variabelen --zs og vokser fra 0.8 til 1.2 mens
-      flaten ruller gjennom skjermen.
    ─────────────────────────────────────────────────────────── */
 (function () {
 
@@ -104,34 +100,7 @@
     oppdater();
   }
 
-  /* ── 2) Zebra-vekst ── */
-  function zebra() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var flater = document.querySelectorAll('.platform, .services2, .meg, .faq2, footer');
-    if (!flater.length) return;
-
-    var venter = false;
-    function oppdater() {
-      venter = false;
-      var vh = window.innerHeight;
-      flater.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.bottom < -80 || r.top > vh + 80) return; // utenfor skjermen
-        // 0 når toppen så vidt er under skjermkanten, 1 når bunnen
-        // forlater den — mønsteret gror sakte hele veien gjennom.
-        var p = (vh - r.top) / (vh + r.height);
-        p = Math.max(0, Math.min(1, p));
-        el.style.setProperty('--zs', (0.8 + p * 0.4).toFixed(3));
-      });
-    }
-    window.addEventListener('scroll', function () {
-      if (!venter) { venter = true; requestAnimationFrame(oppdater); }
-    }, { passive: true });
-    window.addEventListener('resize', oppdater);
-    oppdater();
-  }
-
-  function init() { nav(); zebra(); }
+  function init() { nav(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
