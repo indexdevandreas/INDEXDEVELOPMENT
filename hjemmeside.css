@@ -4,7 +4,7 @@
 :root {
   --bg: #000;
   --bg-light: #f4f4f1;
-  --fg: %23ffffff;
+  --fg: #ffffff;
   --fg-dark: #000;
   --blue: #2547ff;
   --blue-soft: rgba(37, 71, 255, 0.12);
@@ -868,7 +868,10 @@ footer {
   margin-inline: calc(50% - 50vw);
 }
 .foot-mark .big {
-  font-size: clamp(80px, 18vw, 280px);
+  /* «INDEX DEV» er merkenavnet slik det brukes ellers. Kortere ord,
+     så skriftstørrelsen økes tilsvarende for å fylle bredden. */
+  font-size: clamp(50px, 18.2vw, 280px);
+  opacity: 0.3;
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.85;
