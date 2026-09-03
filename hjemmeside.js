@@ -119,11 +119,22 @@ document.querySelectorAll('.reveal').forEach(el => {
   var lysHero = nav.classList.contains('is-dark');   /* lyse heroer setter .is-dark selv */
   var fest = false;
 
+  /* Forsiden: heroen er festet og står stille mens neste seksjon glir
+     over den (data-stuck-after="hero"). Da skal baren bli hvit først
+     når arket når den — ikke ved første rulle-piksel, mens heroen
+     fortsatt fyller skjermen. Andre sider: 8px, som før. */
+  var etterHero = nav.getAttribute('data-stuck-after') === 'hero';
+  function terskel() {
+    if (!etterHero) return 8;
+    var hero = document.querySelector('.hero');
+    return hero ? Math.max(8, hero.offsetHeight - 70) : 8;
+  }
+
   function sjekk() {
     /* Festes med én gang man begynner å rulle. Sto tidligere på
        heroens høyde, altså først når heroen var passert — da lå
        baren ute av syne i mellomtiden. */
-    var skalFeste = window.scrollY > 8;
+    var skalFeste = window.scrollY > terskel();
     if (skalFeste === fest) return;
     fest = skalFeste;
     nav.classList.toggle('is-stuck', fest);

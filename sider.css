@@ -1394,7 +1394,12 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
     box-shadow 0.32s ease,
     background 0.25s ease;
 }
-.sv-card:hover, .bl-card:hover {
+/* De to siste selektorene er ikke pynt: forside.js setter .rv og .on
+   på kortene, og «.sv-card.rv.on { transform: none }» over (0,3,0)
+   slo hover-regelen (0,2,0) — løftet virket aldri på et kort som var
+   rullet inn, altså på alle kort. (0,4,0) vinner tilbake. */
+.sv-card:hover, .bl-card:hover,
+.sv-card.rv.on:hover, .bl-card.rv.on:hover {
   transform: translateY(-10px) scale(1.01);
   box-shadow: 0 28px 54px rgba(10, 10, 10, 0.18);
   transition:
@@ -1411,7 +1416,8 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
   }
   .pf-card:hover, .s2-card:hover, .cv-card:hover, .sp-card:hover,
   .pk-card:hover, .ph-card:hover, .ag-card:hover, .wy-card:hover,
-  .nk-card:hover, .in-price:hover, .sv-card:hover, .bl-card:hover {
+  .nk-card:hover, .in-price:hover, .sv-card:hover, .bl-card:hover,
+  .sv-card.rv.on:hover, .bl-card.rv.on:hover {
     transform: none;
   }
   .hw-step:hover::before, .st-step:hover::before { transform: none; }
@@ -1423,7 +1429,8 @@ body.menu-open .hero-nav .menu-btn .bars::before { background: #0a0a0a; }
   .pf-card:hover, .s2-card:hover, .cv-card:hover, .sp-card:hover,
   .pk-card:hover, .ph-card:hover, .ag-card:hover, .wy-card:hover,
   .nk-card:hover, .in-price:hover, .sv-card:hover, .bl-card:hover,
-  .rv-card:hover, .bg-next-card:hover, .rc-card:hover, .ci-card:hover {
+  .rv-card:hover, .bg-next-card:hover, .rc-card:hover, .ci-card:hover,
+  .sv-card.rv.on:hover, .bl-card.rv.on:hover {
     transform: none;
     box-shadow: none;
   }

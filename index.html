@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>index dev. — flere kunder inn, og ingen som går tapt</title>
-<meta name="description" content="De fleste tar kontakt bare én gang. Jeg bygger nettsider og systemer som sørger for at den ene gangen ikke går tapt. Håndkodet, med fastpris før vi starter.">
+<meta name="description" content="De fleste tar kontakt bare én gang. Jeg bygger det som gjør at den ene kontakten faktisk blir en kunde. Nettsider, AI-agenter og systemer for norske bedrifter.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/">
 
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:site_name" content="index dev.">
 <meta property="og:title" content="index dev. — flere kunder inn, og ingen som går tapt">
-<meta property="og:description" content="De fleste tar kontakt bare én gang. Jeg bygger nettsider og systemer som sørger for at den ene gangen ikke går tapt. Håndkodet, med fastpris før vi starter.">
+<meta property="og:description" content="De fleste tar kontakt bare én gang. Jeg bygger det som gjør at den ene kontakten faktisk blir en kunde. Nettsider, AI-agenter og systemer for norske bedrifter.">
 <meta property="og:image" content="https://indexdevelopment.no/bilder/logo.PNG">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
@@ -155,15 +155,6 @@
   </symbol>
 </svg>
 
-<div id="intro-overlay" aria-hidden="true">
-  <div class="intro-brand">
-    <svg class="intro-mark" aria-hidden="true"><use href="#idlogo"/></svg>
-    <div class="intro-words">
-      <span class="intro-name">index dev.</span>
-      <span class="intro-tag">Der design og teknologi<br>gir deg flere kunder</span>
-    </div>
-  </div>
-</div>
 
 <div class="mobile-menu" id="js-mobile-menu" aria-hidden="true">
   <span class="mm-top"><svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg><span>index dev.</span></span>
@@ -185,97 +176,112 @@
   </address>
 </div>
 
+<!-- Nav-baren er «fixed» og ligger utenfor heroen med vilje: heroen
+     festes og skaleres ved rulling (transform), og en transform gjør
+     forelderen til referanse for fixed-barn. sider.css gir baren
+     z-index 60 uansett hvor den står. -->
+<header class="hero-nav" data-stuck-after="hero">
+  <div class="hero-brand">
+    <a class="brand" href="#top">
+      <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
+      <span>index dev.</span>
+    </a>
+    <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
+  </div>
+
+  <nav class="hero-nav-links" aria-label="Hovedmeny">
+    <ul>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Tjenester
+          <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <ul>
+            <li>
+              <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+              <ul class="nav-dd-sub">
+                <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+                <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+                <li><a href="booking-systemer.html">Booking-systemer</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+              <ul class="nav-dd-sub">
+                <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
+                <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+              <ul class="nav-dd-sub">
+                <li><a href="systemutvikling.html">Systemutvikling</a></li>
+                <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
+              </ul>
+            </li>
+            <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
+            <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="om-meg.html">Om meg</a></li>
+      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="priser.html">Priser</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-nav-actions">
+    <a class="nav-text-link" href="kontakt.html">Kontakt</a>
+    <a class="nav-btn-lime" href="kom-i-gang.html">
+      <span class="nav-long">FINN UT HVA DU TRENGER</span>
+      <span class="nav-short">Hva trenger du?</span>
+    </a>
+    <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
+      <span class="menu-label">Meny</span>
+      <span class="bars"></span>
+    </button>
+  </div>
+</header>
+
 <section class="hero" id="top">
+  <!-- Lag 0: stripefeltet. forside-3d.js (WebGL) tegner sebrastripene
+       som et bølgende, nesten monokromt felt med svak lime-glød, som
+       driver sakte og lener seg etter pekeren. Roer seg til sort bak
+       teksten. Toner inn når første bilde er tegnet; uten WebGL står
+       den sorte flaten alene. -->
+  <canvas class="hero-field" data-striper="hero" aria-hidden="true"></canvas>
+
+  <div class="hero-body">
+    <!-- Lag 2: teksten. Synker og tones ut når man ruller (--sp). -->
+    <div class="hero-inner">
+      <p class="pf-eyebrow hero-kicker"><span class="pf-sq"></span>NETTSIDER · AI-AGENTER · SYSTEMER</p>
+      <!-- Linjeskift ETTER hver <br> er ikke pynt: under 620px skjules
+           br-ene, og uten mellomrom rundt limes tekstnodene sammen til
+           «ringe,og … til åbli». -->
+      <h1>De fleste tar kontakt<br>
+        bare én gang.</h1>
+      <p class="hero-sub">Jeg bygger det som gjør at den ene kontakten faktisk blir en kunde.</p>
+
+      <a class="btn-circle hero-btn" href="kom-i-gang.html" data-magnet>
+        <span>FINN UT HVA DU TRENGER</span>
+        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+
+      <p class="hero-note">Fire spørsmål, rundt to minutter. Forslag og pris skriftlig, som regel samme dag, uten forpliktelse.</p>
+    </div>
+  </div>
+
+  <!-- Lag 2: portrettet. Utklipp med alfakanal, forankret i bunnen,
+       med en glød i flatens egen lyseblå bak. Ruller litt saktere enn
+       teksten, så det leser som et eget lag mellom feltet og teksten. -->
   <div class="hero-photo">
     <picture>
       <source srcset="bilder/andreas-utklipp-myk.webp" type="image/webp">
-      <img src="bilder/andreas-utklipp-myk.png" alt="Andreas Melheim, utvikler i Index Development" width="900" height="1200" fetchpriority="high">
+      <img src="bilder/andreas-utklipp-myk.png" alt="Andreas Melheim, utvikler i Index Development" width="443" height="563" fetchpriority="high">
     </picture>
   </div>
 
-  <header class="hero-nav">
-    <div class="hero-brand">
-      <a class="brand" href="#top">
-        <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
-        <span>index dev.</span>
-      </a>
-      <p class="hero-tagline">Der design og teknologi<br>gir deg flere kunder</p>
-    </div>
-
-    <nav class="hero-nav-links" aria-label="Hovedmeny">
-      <ul>
-        <li class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Tjenester
-            <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="nav-dropdown-panel">
-            <ul>
-              <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-                <ul class="nav-dd-sub">
-                  <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-                  <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-                  <li><a href="booking-systemer.html">Booking-systemer</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-                <ul class="nav-dd-sub">
-                  <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-                <ul class="nav-dd-sub">
-                  <li><a href="systemutvikling.html">Systemutvikling</a></li>
-                  <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-                </ul>
-              </li>
-              <li class="nav-dropdown-sep" role="separator" aria-hidden="true"></li>
-              <li><a href="tjenester.html" class="nav-dropdown-all">Alle tjenester <span aria-hidden="true">→</span></a></li>
-            </ul>
-          </div>
-        </li>
-        <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
-        <li><a href="priser.html">Priser</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero-nav-actions">
-      <a class="nav-text-link" href="kontakt.html">Kontakt</a>
-      <a class="nav-btn-lime" href="kom-i-gang.html">
-        <span class="nav-long">FINN UT HVA DU TRENGER</span>
-        <span class="nav-short">Hva trenger du?</span>
-      </a>
-      <button class="menu-btn" id="js-menu-btn" aria-label="Åpne meny" aria-expanded="false">
-        <span class="menu-label">Meny</span>
-        <span class="bars"></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="hero-body">
-  <div class="hero-inner">
-    <!-- Linjeskift ETTER hver <br> er ikke pynt: under 620px skjules
-         br-ene, og uten mellomrom rundt limes tekstnodene sammen til
-         «ringe,og … til åbli». -->
-    <h1>De fleste tar kontakt<br>
-      bare <span class="h1-strek">én gang</span>.</h1>
-    <p class="hero-sub">Jeg bygger nettsider og systemer som sørger for at den ene gangen ikke går tapt. Håndkodet, med fastpris skriftlig før vi starter.</p>
-
-    <a class="btn-circle hero-btn" href="kom-i-gang.html">
-      <span>FINN UT HVA DU TRENGER</span>
-      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-    </a>
-
-    <p class="hero-note">Fire spørsmål. Rundt to minutter. Du får forslag og pris skriftlig, som regel samme dag, uten forpliktelse.</p>
-
-
-  </div>
-  </div>
 </section>
 
 
@@ -292,25 +298,67 @@
     </div>
   </div>
 
-  <div class="sv-grid sv-tre">
-    <a class="sv-card sv-dark sv-lead" href="kontakt-oppfolging.html">
-      <span class="sv-num">01</span>
-      <h3>Kontakt &amp; oppfølging</h3>
-      <p>Så du ikke mister dem som tar kontakt. Rekker du ikke telefonen, tar systemet imot for deg. Chatbot som svarer med en gang, booking kunden ordner selv, og skjema som lander der du ser det. De fleste tar kontakt bare én gang.</p>
-      <span class="sv-go" aria-hidden="true">→</span>
-    </a>
-    <a class="sv-card" href="nettside-synlighet.html">
-      <span class="sv-num">02</span>
-      <h3>Nettside &amp; synlighet</h3>
-      <p>Så folk finner deg når de søker. Håndkodet nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
-      <span class="sv-go" aria-hidden="true">→</span>
-    </a>
-    <a class="sv-card sv-lime" href="systemer-automatisering.html">
-      <span class="sv-num">03</span>
-      <h3>Systemer &amp; automatisering</h3>
-      <p>Så du slipper å taste det samme flere ganger. Vi kobler sammen det du bruker, og bygger det som mangler.</p>
-      <span class="sv-go" aria-hidden="true">→</span>
-    </a>
+  <!-- Tre paneler som stabler seg når man ruller. Hvert panel ligger i
+       en sticky .sv-slot (forside.css) og legger seg oppå det forrige,
+       som får --cover fra forside.js og krymper litt bakover. Bakgrunnen
+       er hvit hele veien — det er bare panelene som beveger seg.
+       Hele panelet er lenken, så undertjenestene står som tekst. -->
+  <div class="sv-stack" data-stack data-stack-offset="18">
+    <div class="sv-slot">
+      <a class="sv-card sv-dark" data-tilt="1.6" href="kontakt-oppfolging.html">
+        <span class="sv-ghost" aria-hidden="true">01</span>
+        <div class="sv-main">
+          <span class="sv-num">01</span>
+          <h3>Kontakt &amp; oppfølging</h3>
+          <p>Så du ikke mister dem som tar kontakt. Rekker du ikke telefonen, tar systemet imot for deg. Chatbot som svarer med en gang, booking kunden ordner selv, og skjema som lander der du ser det.</p>
+        </div>
+        <div class="sv-side">
+          <span class="sv-list-lab">Omfatter</span>
+          <ul class="sv-list">
+            <li>Ubesvarte anrop</li>
+            <li>AI-agenter &amp; chatbots</li>
+            <li>Booking-systemer</li>
+          </ul>
+          <span class="sv-go" aria-hidden="true">→</span>
+        </div>
+      </a>
+    </div>
+    <div class="sv-slot">
+      <a class="sv-card sv-grey" data-tilt="1.6" href="nettside-synlighet.html">
+        <span class="sv-ghost" aria-hidden="true">02</span>
+        <div class="sv-main">
+          <span class="sv-num">02</span>
+          <h3>Nettside &amp; synlighet</h3>
+          <p>Så folk finner deg når de søker. Håndkodet nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
+        </div>
+        <div class="sv-side">
+          <span class="sv-list-lab">Omfatter</span>
+          <ul class="sv-list">
+            <li>Webdesign, SEO &amp; utvikling</li>
+            <li>Google Bedriftsprofil</li>
+          </ul>
+          <span class="sv-go" aria-hidden="true">→</span>
+        </div>
+      </a>
+    </div>
+    <div class="sv-slot">
+      <a class="sv-card sv-lime" data-tilt="1.6" href="systemer-automatisering.html">
+        <span class="sv-ghost" aria-hidden="true">03</span>
+        <div class="sv-main">
+          <span class="sv-num">03</span>
+          <h3>Systemer &amp; automatisering</h3>
+          <p>Så du slipper å taste det samme flere ganger. Vi kobler sammen det du bruker, og bygger det som mangler.</p>
+        </div>
+        <div class="sv-side">
+          <span class="sv-list-lab">Omfatter</span>
+          <ul class="sv-list">
+            <li>Systemutvikling</li>
+            <li>API-integrasjoner</li>
+          </ul>
+          <span class="sv-go" aria-hidden="true">→</span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -359,7 +407,7 @@
   </div>
 
   <div class="rv-grid">
-    <article class="rv-card">
+    <article class="rv-card" data-tilt="5">
       <div class="rv-img">
         <img src="bilder/renrask-bilvask.avif" alt="Renrask Bilvask sjekker en nyvasket bil sammen med kunden" loading="lazy" width="1280" height="720">
         <span class="rv-chip">Renrask Bilvask</span>
@@ -381,7 +429,7 @@
       </div>
     </article>
 
-    <article class="rv-card">
+    <article class="rv-card" data-tilt="5">
       <div class="rv-img">
         <img src="bilder/boska-ror.avif" alt="Tommy fra Boska Rør og Ventilasjon ved firmabilen" loading="lazy" width="1000" height="667">
         <span class="rv-chip">Boska Rør og Ventilasjon</span>
@@ -407,23 +455,32 @@
 
 <!-- ───── TALL ───── -->
 <section class="stats2">
-  <div class="platform-top s2-top">
+  <div class="platform-top">
     <p class="pf-eyebrow"><span class="pf-sq"></span>HVA DET KOSTER Å PRØVE</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Ingenting, før du<br>har sett resultatet.</h2>
+      <div class="pf-aside">
+        <p>Nettsiden eller chatboten din bygges ferdig først. Sier du nei, koster det deg ingenting.</p>
+        <a class="pf-link" href="priser.html">Se prisene <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
   </div>
 
+  <!-- Tallene ruller opp fra bunnen av kortet når de kommer i bildet
+       (.s2-digit, forside.css), og streken under tegnes etterpå. -->
   <div class="s2-grid">
-    <div class="s2-card s2-dark">
-      <p class="s2-num">0<span class="s2-unit">kr</span></p>
+    <div class="s2-card s2-dark" data-tilt="6">
+      <p class="s2-num"><span class="s2-digit">0</span><span class="s2-unit">kr</span></p>
       <p class="s2-text">i forskudd. Nettsiden eller chatboten din ser du ferdig først, og betaler når du sier ja.</p>
       <p class="s2-src">Gjelder nettsider og chatbots</p>
     </div>
-    <div class="s2-card">
-      <p class="s2-num">5<span class="s2-unit">dager</span></p>
+    <div class="s2-card s2-lime" data-tilt="6">
+      <p class="s2-num"><span class="s2-digit">5</span><span class="s2-unit">dager</span></p>
       <p class="s2-text">til du har et ferdig utkast av nettsiden din å se på, uten å ha betalt noe.</p>
       <p class="s2-src">Gjelder nettsider. Alt annet får sin egen tidsplan</p>
     </div>
-    <div class="s2-card">
-      <p class="s2-num">0<span class="s2-unit">mnd</span></p>
+    <div class="s2-card" data-tilt="6">
+      <p class="s2-num"><span class="s2-digit">0</span><span class="s2-unit">mnd</span></p>
       <p class="s2-text">bindingstid. Koden er din, og du kan si opp eller flytte siden når du vil.</p>
       <p class="s2-src">Gjelder nettsider</p>
     </div>
@@ -443,64 +500,38 @@
     </div>
   </div>
 
-  <div class="cv3d">
-    <canvas id="cv3d-canvas" aria-hidden="true"></canvas>
-    <div class="cv3d-body">
-      <div class="cv3d-step">
-        <span class="cv3d-n">01</span>
-        <div>
-          <h3>Bli funnet</h3>
-          <p>Teknisk SEO og struktur som gjør at Google viser deg frem når noen i området søker.</p>
-          <a class="pf-link" href="nettside-synlighet.html">Nettside &amp; synlighet <span class="pf-link-arrow">→</span></a>
+  <!-- Panelet festes mens man ruller gjennom .cv-wrap (forside.js
+       setter høyden og --cp 0 → 1). Kort 01 står stort alene, og
+       tones ut mens kort 02 tones inn på nøyaktig samme sted. Uten JS
+       eller med redusert bevegelse står begge kortene side om side. -->
+  <div class="cv-wrap">
+    <!-- cv-flip: kortene sentrert; 01 vipper bakover mens 02 svinger
+         inn nedenfra på samme sted, ordskyggen bak glir, og lyset i
+         glasset vandrer over panelet i takt med rullingen. Uten klassen
+         er det en flat krysstoning. -->
+    <div class="cv3d cv-flip">
+      <canvas id="cv3d-canvas" data-striper="konv" aria-hidden="true"></canvas>
+      <div class="cv3d-ghost" aria-hidden="true"><span class="cv3d-ghost-1">Funnet</span><span class="cv3d-ghost-2">Valgt</span></div>
+      <div class="cv3d-prog" aria-hidden="true"><span>01</span><i></i><span>02</span></div>
+      <div class="cv3d-body">
+        <div class="cv3d-step cv3d-step-1">
+          <span class="cv3d-n">01</span>
+          <div>
+            <h3>Bli funnet</h3>
+            <p>Teknisk SEO og struktur som gjør at Google viser deg frem når noen i området søker.</p>
+            <a class="pf-link" href="nettside-synlighet.html">Nettside &amp; synlighet <span class="pf-link-arrow">→</span></a>
+          </div>
+        </div>
+        <span class="cv3d-arrow" aria-hidden="true">→</span>
+        <div class="cv3d-step cv3d-step-2">
+          <span class="cv3d-n">02</span>
+          <div>
+            <h3>Bli valgt</h3>
+            <p>Siden svarer på det de lurer på, og noe står klart til å ta imot dem når de tar kontakt.</p>
+            <a class="pf-link" href="kontakt-oppfolging.html">Kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
+          </div>
         </div>
       </div>
-      <div class="cv3d-step">
-        <span class="cv3d-n">02</span>
-        <div>
-          <h3>Bli valgt</h3>
-          <p>Siden svarer på det de lurer på, og noe står klart til å ta imot dem når de tar kontakt.</p>
-          <a class="pf-link" href="kontakt-oppfolging.html">Kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<div class="stack">
-
-<!-- ───── NORSK AI ───── -->
-<section class="norsk">
-  <div class="platform-top pt-center">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>BYGGET FOR NORSKE BEDRIFTER</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">AI som snakker norsk <span class="pf-grey">— og faktisk kjenner bedriften din.</span></h2>
-      <div class="pf-aside">
-        <p>Ikke en generisk assistent. Trent på dine tekster, dine priser og dine rutiner.</p>
-        <a class="pf-link" href="ai-agenter.html">Les mer om AI-agenter <span class="pf-link-arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="nk-grid">
-    <div class="nk-card">
-      <span class="nk-check" aria-hidden="true">✓</span>
-      <h3>Svarer på norsk</h3>
-      <p>Naturlig norsk, ikke oversatt engelsk. Kundene merker forskjellen med en gang.</p>
-    </div>
-    <div class="nk-card">
-      <span class="nk-check" aria-hidden="true">✓</span>
-      <h3>Kjenner tjenestene dine</h3>
-      <p>Matet med din egen informasjon — priser, åpningstider og hva du faktisk tilbyr.</p>
-    </div>
-    <div class="nk-card">
-      <span class="nk-check" aria-hidden="true">✓</span>
-      <h3>Fanger opp henvendelser</h3>
-      <p>Samler navn, nummer og behov mens du sover, så du kan følge opp neste morgen.</p>
-    </div>
-    <div class="nk-card nk-dark">
-      <p class="nk-stat-label">Åpen</p>
-      <p class="nk-stat">24<span class="nk-stat-unit">/7</span></p>
     </div>
   </div>
 </section>
@@ -519,7 +550,7 @@
   </div>
 
   <div class="bl-grid">
-    <a class="bl-card" href="blogg-anrop.html">
+    <a class="bl-card" data-tilt="6" href="blogg-anrop.html">
       <div class="bl-img">
         <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: ubesvart anrop får automatisk SMS-svar">
           <rect width="900" height="380" fill="#0d0d0d"/>
@@ -543,10 +574,10 @@
         <span class="bl-tag">Kontakt</span>
         <h3>Anropene du ikke rekker å ta</h3>
         <p>Den som ikke får svar, ringer ofte neste på lista. Slik fanger du dem opp.</p>
-        <span class="bl-more">Les artikkelen <span class="pf-link-arrow">→</span></span>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
       </div>
     </a>
-    <a class="bl-card" href="blogg-seo.html">
+    <a class="bl-card" data-tilt="6" href="blogg-seo.html">
       <div class="bl-img">
         <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: søkeresultater der din bedrift ligger øverst">
           <rect width="900" height="380" fill="#0d0d0d"/>
@@ -576,7 +607,7 @@
         <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
       </div>
     </a>
-        <a class="bl-card" href="blogg-tlf.html">
+        <a class="bl-card" data-tilt="6" href="blogg-tlf.html">
       <div class="bl-img">
         <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en telefon som ikke ringer">
           <rect width="900" height="380" fill="#0d0d0d"/>
@@ -601,6 +632,79 @@
         <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
       </div>
     </a>
+    <a class="bl-card" href="blogg-pris.html" data-tilt="6">
+      <div class="bl-img">
+        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en kvittering med fastpris">
+          <rect width="900" height="380" fill="#0d0d0d"/>
+          <path d="M330 40h240v298l-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14z" fill="#f1f1ef"/>
+          <rect x="362" y="76" width="118" height="10" rx="5" fill="rgba(10,10,10,0.85)"/>
+          <rect x="362" y="108" width="176" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <rect x="362" y="128" width="140" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <rect x="362" y="148" width="160" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <line x1="362" y1="186" x2="538" y2="186" stroke="rgba(10,10,10,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+          <text x="362" y="230" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2" fill="rgba(10,10,10,0.6)">FASTPRIS</text>
+          <rect x="446" y="206" width="92" height="34" rx="17" fill="#d4ff3d"/>
+          <text x="492" y="229" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" font-weight="700" fill="#0a0a0a">2 900,-</text>
+          <text x="362" y="270" font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="2" fill="rgba(10,10,10,0.45)">INGEN BINDINGSTID</text>
+        </svg>
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">Pris</span>
+        <h3>Hva du faktisk betaler for</h3>
+        <p>Hva som ligger i prisen på en nettside når et byrå fakturerer, og hva av det du trenger.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="stack">
+
+<!-- ───── NORSK AI ───── -->
+<section class="norsk">
+  <div class="platform-top pt-center">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>BYGGET FOR NORSKE BEDRIFTER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">AI som snakker norsk <span class="pf-grey">— og faktisk kjenner bedriften din.</span></h2>
+      <div class="pf-aside">
+        <p>Ikke en generisk assistent. Trent på dine tekster, dine priser og dine rutiner.</p>
+        <a class="pf-link" href="ai-agenter.html">Les mer om AI-agenter <span class="pf-link-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ett panel i stedet for fire småkort: punktene til venstre, og
+       «24/7» stort til høyre — tallet ruller opp når panelet kommer i
+       bildet (.nk-digit). Panelet tipper svakt etter pekeren. -->
+  <div class="nk-panel" data-tilt="1.2">
+    <div class="nk-list">
+      <div class="nk-row">
+        <span class="nk-check" aria-hidden="true">✓</span>
+        <div>
+          <h3>Svarer på norsk</h3>
+          <p>Naturlig norsk, ikke oversatt engelsk. Kundene merker forskjellen med en gang.</p>
+        </div>
+      </div>
+      <div class="nk-row">
+        <span class="nk-check" aria-hidden="true">✓</span>
+        <div>
+          <h3>Kjenner tjenestene dine</h3>
+          <p>Matet med din egen informasjon — priser, åpningstider og hva du faktisk tilbyr.</p>
+        </div>
+      </div>
+      <div class="nk-row">
+        <span class="nk-check" aria-hidden="true">✓</span>
+        <div>
+          <h3>Fanger opp henvendelser</h3>
+          <p>Samler navn, nummer og behov mens du sover, så du kan følge opp neste morgen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="nk-open">
+      <p class="nk-stat-label">Åpen</p>
+      <p class="nk-stat"><span class="nk-digit">24</span><span class="nk-stat-unit">/7</span></p>
+      <p class="nk-note">Hele døgnet, alle dager. Også når du ikke rekker telefonen.</p>
+    </div>
   </div>
 </section>
 
