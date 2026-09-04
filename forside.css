@@ -71,10 +71,8 @@
    den festede heroen synlig i 10px-luften rundt footeren og CTA-båndet,
    siden den males over body-bakgrunnen. */
 .hero.is-past { visibility: hidden; }
-/* Festes bare når hele heroen får plass i vinduet — ellers ville
-   bunnen aldri blitt synlig. forside.js måler og setter klassen, på
-   alle skjermstørrelser. Uten klassen ruller heroen vanlig, uten
-   vignett og parallakse. */
+/* Klassen settes av forside.js. Uten JS (eller med redusert
+   bevegelse) ruller heroen vanlig, uten vignett og parallakse. */
 /* Overgangen til Tjenester: heroen er et ark som legger seg bakover og
    ned i rommet mens det hvite arket glir opp over det. perspective()
    ligger i selve transformen (heroen har ingen forelder å legge den
@@ -84,6 +82,10 @@
    betrakteren, og vi vil motsatt vei. */
 .hero.is-pinnable {
   position: sticky;
+  /* Høyere enn vinduet? Da festes den med bunnen mot skjermbunnen i
+     stedet for toppen mot toppen (negativ top). --vh og --hh settes av
+     forside.js ved hver måling. */
+  top: min(10px, calc(var(--vh, 100dvh) - var(--hh, 0px) - 10px));
   transform:
     perspective(1100px)
     rotateX(calc(var(--sp) * -7deg))
@@ -267,6 +269,83 @@
   .hero { position: relative; transform: none; }
   .hero-inner, .hero-field, .hero-photo { transform: none; opacity: 1; }
   .hero::after { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INTRO — merket på sort, så glir flaten opp og avdekker heroen
+   Rask med vilje: inn på 0,5 s, står til 0,65 s, borte ved 1,2 s.
+   Samme kurve og retning som arket over heroen, så det er én
+   bevegelse gjennom hele toppen av siden. Kun når <html> har
+   «intro-on»; heroens egne inngangsanimasjoner venter til flaten er
+   på vei opp (delay under), ellers hadde de spilt seg av bak den.
+   ═══════════════════════════════════════════════════════════ */
+.splash { display: none; }
+html.splash-on .splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  color: #fff;
+  pointer-events: none;
+  animation: splashWipe 0.55s cubic-bezier(0.76, 0, 0.24, 1) 0.65s both;
+}
+@keyframes splashWipe {
+  to { transform: translateY(-100%); visibility: hidden; }
+}
+.splash-mark {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  animation: splashLift 0.55s cubic-bezier(0.76, 0, 0.24, 1) 0.65s forwards;
+}
+@keyframes splashLift { to { transform: translateY(-36px); opacity: 0.6; } }
+.splash-logo {
+  width: 66px;
+  height: 66px;
+  color: #fff;
+  animation: splashMark 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+@keyframes splashMark {
+  from { transform: scale(0.82); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.splash-word {
+  display: block;
+  overflow: hidden;
+  font-family: 'Switzer', 'Geist', sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.splash-word > span {
+  display: block;
+  animation: splashWord 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+@keyframes splashWord {
+  from { transform: translateY(110%); }
+  to   { transform: none; }
+}
+.splash-word i {
+  display: inline-block;
+  font-style: normal;
+  color: var(--lime);
+  animation: splashDot 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.36s both;
+}
+@keyframes splashDot {
+  from { transform: scale(0); }
+  to   { transform: none; }
+}
+/* Heroen venter på flaten */
+html.splash-on .hero-inner h1 { animation-delay: 0.75s; }
+html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
+@media (max-width: 900px) {
+  .splash-mark { gap: 14px; }
+  .splash-logo { width: 48px; height: 48px; }
+  .splash-word { font-size: 30px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -642,9 +721,6 @@
    Den sto hvit her og mørk overalt ellers. */
 
 /* ─── Intro-splash: hvit, ikke sort ─── */
-#intro-overlay { background: #fff; }
-.intro-dot { background: var(--lime); }
-.intro-text { color: #0a0a0a !important; }
 
 /* ─── Lyst tema for alt innhold under hero ─── */
 .light-section {

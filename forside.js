@@ -131,11 +131,24 @@
     el.classList.add('rv');
     el.style.setProperty('--d', (80 + i * 75) + 'ms');
   });
-  requestAnimationFrame(function () {
+  /* Med introen (html.splash-on) venter inngangen til flaten er på vei
+     opp — samme 0,7 s som h1 og portrettet får i CSS-en. Overlegget
+     fjernes fra DOM-en når det er ferdig, så ingen fixed-flate blir
+     liggende over siden. Klassen på <html> beholdes: h1 sin
+     animation-delay ligger under den, og å endre delay på en
+     animasjon som går, starter den på nytt. */
+  var splashOn = document.documentElement.classList.contains('splash-on');
+  var splash = document.getElementById('splash');
+  if (splash && splashOn) {
+    splash.addEventListener('animationend', function (e) { if (e.target === splash) splash.remove(); });
+  } else if (splash) {
+    splash.remove();
+  }
+  setTimeout(function () {
     requestAnimationFrame(function () {
       heroKids.forEach(function (el) { el.classList.add('on'); });
     });
-  });
+  }, splashOn ? 750 : 0);
 
   /* ═══ 3. Hero-lag: rulling og peker ═══ */
   (function () {
@@ -148,25 +161,32 @@
        CSS-en gjør resten: teksten synker og tones ut, scenen og feltet
        går hver sin vei. Skrives bare når verdien faktisk endrer seg,
        så under heroen koster lytteren ingenting. */
-    var high = 1, sp = -1, ticking = false, lastW = 0, lastH = 0;
-    /* Heroen festes bare når hele den får plass i vinduet (10px marg
-       over og under) — ellers ville bunnen aldri blitt synlig. Måles
-       på alle skjermstørrelser, så telefoner som har plass får samme
-       effekt. Adresselinja på mobil endrer vindushøyden litt ved
-       rulling; små høydeendringer ignoreres så klassen ikke flimrer. */
+    var high = 1, vh = 1, pinStart = 0, span = 1, sp = -1, ticking = false;
+    /* Heroen festes alltid. Før ble den bare festet når hele den fikk
+       plass i vinduet — og på en iPhone med adresselinja framme, eller
+       en PC med zoom, manglet det noen piksler, så overgangen kom «ikke
+       alltid». Er den høyere enn vinduet, festes den nå med bunnen mot
+       skjermbunnen (negativ top i CSS via --vh/--hh), og overgangen
+       (--sp) løper fra der den blir stående til arket har dekket den.
+       Måles på nytt ved hver størrelsesendring: på iOS kommer det en
+       når adresselinja klapper sammen, og da skal bunnen følge med. */
     function measure() {
       high = hero.offsetHeight || 1;
-      hero.classList.toggle('is-pinnable', high + 20 <= window.innerHeight);
-      lastW = window.innerWidth; lastH = window.innerHeight;
+      vh = window.innerHeight || 1;
+      pinStart = Math.max(0, high + 20 - vh);
+      span = Math.max(1, high + 20 - pinStart);
+      hero.style.setProperty('--hh', high + 'px');
+      hero.style.setProperty('--vh', vh + 'px');
+      hero.classList.add('is-pinnable');
     }
     function onResize() {
-      if (window.innerWidth !== lastW || Math.abs(window.innerHeight - lastH) > 150) measure();
+      measure();
       sp = -1;
       onScroll();
     }
     function frame() {
       ticking = false;
-      var p = window.scrollY / high;
+      var p = (window.scrollY - pinStart) / span;
       p = p < 0 ? 0 : p > 1 ? 1 : p;
       if (p === sp) return;
       sp = p;
