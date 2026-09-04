@@ -62,7 +62,7 @@
   opacity: 0;
   transition: opacity 0.9s ease;
   /* Zoomer sakte inn mens arket glir over. */
-  transform: scale(calc(1 + var(--sp) * 0.08));
+  transform: scale(calc(1 + var(--sp) * 0.14));
   transform-origin: 50% 40%;
 }
 .hero-field.is-on { opacity: 1; }
@@ -75,9 +75,19 @@
    bunnen aldri blitt synlig. forside.js måler og setter klassen, på
    alle skjermstørrelser. Uten klassen ruller heroen vanlig, uten
    vignett og parallakse. */
+/* Overgangen til Tjenester: heroen er et ark som legger seg bakover og
+   ned i rommet mens det hvite arket glir opp over det. perspective()
+   ligger i selve transformen (heroen har ingen forelder å legge den
+   på); fluktpunktet havner da i transform-origin — 50% 0, altså rett
+   under nav-baren, så toppkanten står stille og bunnen svinger vekk.
+   Negativ rotateX: med origo i toppen sender positiv vinkel bunnen mot
+   betrakteren, og vi vil motsatt vei. */
 .hero.is-pinnable {
   position: sticky;
-  transform: scale(calc(1 - var(--sp) * 0.05));
+  transform:
+    perspective(1100px)
+    rotateX(calc(var(--sp) * -7deg))
+    scale(calc(1 - var(--sp) * 0.07));
 }
 .hero:not(.is-pinnable)::after { display: none; }
 .hero:not(.is-pinnable) .hero-inner,
@@ -186,7 +196,10 @@
   width: min(38%, 580px);
   height: 84%;
   pointer-events: none;
-  transform: translate3d(0, calc(var(--sp) * -40px), 0);
+  /* Portrettet ligger nærmest betrakteren: det løftes mer og vokser
+     litt mens flaten bak trekker seg vekk. Det er den forskjellen som
+     leser som dybde — ikke effekten på hvert lag for seg. */
+  transform: translate3d(0, calc(var(--sp) * -64px), 0) scale(calc(1 + var(--sp) * 0.05));
 }
 .hero-photo::before {
   content: "";
@@ -242,11 +255,11 @@
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  background: radial-gradient(ellipse 72% 62% at 50% 44%,
-    rgba(3,18,48,0.10) 0%,
-    rgba(3,18,48,0.55) 60%,
-    rgba(3,18,48,0.97) 100%);
-  opacity: calc(var(--sp) * 1.15);
+  background: radial-gradient(ellipse 70% 58% at 50% 42%,
+    rgba(3,18,48,0.12) 0%,
+    rgba(3,18,48,0.62) 58%,
+    rgba(3,18,48,0.99) 100%);
+  opacity: calc(var(--sp) * 1.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -686,17 +699,30 @@
   align-items: stretch;
 }
 .rv-card {
+  position: relative;
   background: #f1f1ef;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+/* Sitattegn som spøkelse bak teksten, som tallene i tjenestepanelene */
+.rv-card::after {
+  content: "\201D";
+  position: absolute;
+  right: 26px;
+  bottom: -0.32em;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 220px;
+  line-height: 1;
+  color: rgba(10,10,10,0.06);
+  pointer-events: none;
 }
 
 /* Bildebånd øverst */
 .rv-img {
   position: relative;
-  height: 260px;
+  height: 300px;
   overflow: hidden;
   background: #e6e6e3;
 }
@@ -710,8 +736,8 @@
 .rv-chip {
   position: absolute;
   left: 20px; bottom: 20px;
-  background: rgba(10,10,10,0.86);
-  color: #fff;
+  background: var(--lime);
+  color: #0a0a0a;
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 10.5px;
   letter-spacing: 0.12em;
@@ -737,13 +763,17 @@
   paint-order: stroke fill;
 }
 .rv-quote {
-  font-size: 17.5px;
-  line-height: 1.55;
-  letter-spacing: -0.012em;
-  color: rgba(10,10,10,0.86);
+  position: relative;
+  z-index: 1;
+  font-family: 'Switzer', 'Geist', sans-serif;
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: rgba(10,10,10,0.88);
   margin-bottom: auto;
 }
-.rv-em { color: #0a0a0a; font-weight: 600; }
+.rv-em { color: #0a0a0a; font-weight: 600; background: linear-gradient(transparent 62%, rgba(212,255,61,0.55) 62%); }
 
 .rv-foot {
   display: flex;
@@ -811,7 +841,7 @@
   background: #fff;
   padding: 64px 0 120px;
   border-radius: 28px 28px 0 0;
-  box-shadow: 0 -30px 80px rgba(3,16,42,0.35);
+  box-shadow: 0 -34px 90px rgba(3,16,42,0.5);
 }
 .sv-stack {
   --stack-top: 104px;   /* nav-baren er ~80px høy og fast */
@@ -1517,7 +1547,7 @@
 .fq-list { display: flex; flex-direction: column; gap: 12px; }
 .fq-item {
   background: #f1f1ef;
-  border-radius: 14px;
+  border-radius: 16px;
   /* .fq-item er også .rv-avsløringens kort (fq-list-barn, glir inn fra
      høyre — se .fq-item.rv i sider.css). «background 0.22s» alene
      overkjørte hele transition-shorthanden fra .rv (denne fila lastes
@@ -1533,9 +1563,10 @@
 .fq-item summary {
   list-style: none;
   cursor: pointer;
-  padding: 24px 26px;
-  font-size: 16.5px;
-  font-weight: 600;
+  padding: 26px 28px;
+  font-family: 'Switzer', 'Geist', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: #0a0a0a;
   display: flex;
@@ -1565,11 +1596,11 @@
 .fq-item[open] .fq-body { grid-template-rows: 1fr; }
 .fq-body-inner { overflow: hidden; }
 .fq-body p {
-  padding: 0 26px 26px;
-  font-size: 15px;
+  padding: 0 28px 28px;
+  font-size: 16px;
   line-height: 1.65;
-  color: rgba(10,10,10,0.62);
-  max-width: 620px;
+  color: rgba(10,10,10,0.66);
+  max-width: 640px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1706,12 +1737,62 @@ html, body { overflow-x: clip; }
 }
 
 @media (max-width: 900px) {
-  .cv3d { min-height: 0; padding-top: 180px; }
-  .cv3d-body { grid-template-columns: 1fr; padding: 22px; gap: 14px; }
-  .cv3d-step { gap: 14px; padding: 22px; }
-  .cv3d-n { font-size: 36px; }
-  .cv3d-step p { max-width: none; }
-  .cv3d-arrow { transform: rotate(90deg); justify-self: center; animation: none; }
+  /* Panelet åpnet med 180px tomt glass og la så to kort med en
+     roterad pil imellom — halve telefonskjermen gikk til ingenting.
+     Nå er glasset en smal ramme rundt stegene, tallet er en skygge i
+     hjørnet slik som i tjenestekortene, og pila er en lime-skinne som
+     fylles mens man ruller (forside.js setter --cp også på telefon,
+     uten å ta over rullingen). */
+  .cv3d { min-height: 0; padding: 88px 0 0; align-items: stretch; }
+  .cv3d-body { grid-template-columns: 1fr; padding: 14px; gap: 0; }
+  .cv3d-step {
+    position: relative;
+    display: block;
+    padding: 26px 22px 24px;
+    overflow: hidden;
+  }
+  .cv3d-step p { max-width: none; font-size: 15px; }
+  .cv3d-step h3 { font-size: 21px; }
+  /* Tallet sto som en 92px skygge i hjørnet — lime på marineblått blir
+     olivengrønt og grumsete i den alfaen. Her står det heller lesbart
+     over tittelen, samme rekkefølge som på PC. */
+  .cv3d-n {
+    display: block;
+    font-size: 34px;
+    line-height: 0.85;
+    margin-bottom: 10px;
+  }
+  .cv3d-arrow {
+    position: relative;
+    justify-self: center;
+    width: 2px;
+    height: 44px;
+    font-size: 0;
+    color: transparent;
+    text-shadow: none;
+    background: rgba(255,255,255,0.24);
+    transform: none;
+    animation: none;
+  }
+  .cv3d-arrow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--lime);
+    box-shadow: 0 0 14px rgba(212,255,61,0.65);
+    transform: scaleY(var(--cp, 0));
+    transform-origin: 50% 0;
+  }
+  /* Glassbåndet over kortene får innhold: ordskyggen og 01 —— 02. */
+  .cv3d.cv-flip .cv3d-ghost { display: block; }
+  .cv3d-ghost span { left: 20px; top: 12px; font-size: 60px; }
+  .cv3d-ghost-1 { transform: translateX(calc(var(--cp, 0) * -70px)); }
+  .cv3d-ghost-2 { transform: translateX(calc((1 - var(--cp, 0)) * 70px)); }
+  .cv3d-prog { display: flex; top: 30px; right: 22px; }
+  .cv3d-prog i { width: 48px; }
+  /* Innglidningen fra siden skjøv hele stabelen 22px ut av senter på
+     en skjerm som ikke har 22px å gi. Løftes i stedet. */
+  .cv3d-body.rv:not(.on) { transform: translateY(20px); }
 
   /* Hero: teksten fikk 48px luft på hver side og en ingress låst til
      440px — til sammen bredere enn en telefon. */
@@ -1735,8 +1816,14 @@ html, body { overflow-x: clip; }
     height: min(300px, 34svh);
     margin-top: 6px;
     z-index: 2;
-    transform: none;
+    /* Portrettet ligger nå i flyten, men skal fortsatt trekke fra
+       flaten bak når arket kommer — ellers er overgangen flat på
+       telefon. */
+    transform: translate3d(0, calc(var(--sp) * -10px), 0);
   }
+  /* Portrettet står rett under notisen her, så teksten må være borte
+     før det løftes — ellers ligger håret over «Fire spørsmål …». */
+  .hero-inner { opacity: calc(1 - var(--sp) * 2); }
   .hero-photo::before { width: 300px; bottom: 0; }
   .services2 { border-radius: 22px 22px 0 0; }
 
@@ -1791,6 +1878,11 @@ html, body { overflow-x: clip; }
 }
 .mg-text.rv { transform: translateX(26px); }
 .cv3d-body.rv { transform: translateX(-22px); }
+/* Sluttilstanden må stå her: «.rv.on» i sider.css er 0,2,0, det samme
+   som de tre reglene over — og denne fila lastes sist, så de vant.
+   Utvikler-portrettet ble stående 10° skjevt og teksten 26px ut av
+   spor for godt, og konverteringspanelets kort 22px ut av senter. */
+.mg-media.rv.on, .mg-text.rv.on, .cv3d-body.rv.on { transform: none; }
 
 /* ═══════════════════════════════════════════════════════════
    KORT SOM TIPPER — [data-tilt] (forside.js setter transform inline

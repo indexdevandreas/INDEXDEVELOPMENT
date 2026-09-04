@@ -60,7 +60,7 @@
       dark: [0, 0, 0], light: [0, 0, 0],
       glow: [0, 0], glowAmt: 0, vig: 0,
       rib: 0.019, mag: 2.0,
-      speed: 0.8, dpr: 1.5, scale: 1, still: 5.0,
+      speed: 1.1, dpr: 1.5, scale: 1, still: 5.0, drift: 1.0,
       fade: function () { return [-10, -9, 9, 10]; }
     },
     hero: {
@@ -75,7 +75,7 @@
       /* Rolig i seg selv: bølgene driver sakte, et lysstreif går over
          glasset hvert åttende sekund, og gløden i flaten flytter seg.
          Det sterke skjer der pekeren er (uM/uP i shaderen). */
-      speed: 1.0, dpr: 1.25, scale: 1, still: 11.0,
+      speed: 1.5, dpr: 1.25, scale: 1, still: 11.0, drift: 1.0,
       /* uv er normalisert på høyden: y går fra -0.5 (bunn) til 0.5
          (topp), x fra -aspekt/2 til aspekt/2.
          Landskap: teksten står til venstre → roes mot venstre og
@@ -229,6 +229,9 @@
     /* Peker i uv-koordinater (x: ±aspekt/2, y: ±0.5), og pa = om den
        er over flaten (0–1). Alle tre glir mot målet sitt per bilde. */
     var mx = 0, my = 0, tmx = 0, tmy = 0, pa = 0, tpa = 0;
+    /* asp settes i size(); hovering/driven sier om noen andre enn
+       driften nedenfor styrer punktet akkurat nå. */
+    var asp = 1, hovering = false, driven = false;
 
     function size() {
       var dpr = Math.min(window.devicePixelRatio || 1, P.dpr) * P.scale;
@@ -240,6 +243,7 @@
         canvas.height = H;
         gl.viewport(0, 0, W, H);
         gl.uniform2f(U.uR, W, H);
+        asp = w / (h || 1);
         var f = P.fade(w, h);
         gl.uniform4f(U.uFade, f[0], f[1], f[2], f[3]);
         if (P.rib) gl.uniform1f(U.uRib, Math.max(24, w * P.rib) * (W / w));
@@ -281,6 +285,7 @@
       var host = canvas.parentElement, rect = null;
       host.addEventListener('pointerenter', function () {
         rect = host.getBoundingClientRect();
+        hovering = true;
         tpa = 1;
       });
       host.addEventListener('pointermove', function (e) {
@@ -289,7 +294,7 @@
         tmx = ((e.clientX - rect.left) / w - 0.5) * (w / h);
         tmy = 0.5 - (e.clientY - rect.top) / h;
       }, { passive: true });
-      host.addEventListener('pointerleave', function () { rect = null; tpa = 0; });
+      host.addEventListener('pointerleave', function () { rect = null; hovering = false; tpa = 0; });
     }
 
     /* Andre skript kan styre lyset: forside.js sender rulleposisjonen
@@ -299,11 +304,23 @@
       var w = canvas.clientWidth || 1, h = canvas.clientHeight || 1;
       if (typeof d.x === 'number') tmx = (d.x - 0.5) * (w / h);
       if (typeof d.y === 'number') tmy = 0.5 - d.y;
+      driven = !!d.on;
       tpa = d.on ? 1 : 0;
     });
 
+    /* ── Glasset skal leve av seg selv ──
+       Det sterke punktet fulgte bare musepekeren. På telefon finnes
+       ingen pointerenter, så flaten sto helt stille bortsett fra den
+       langsomme bølgen bak — den leste som et stillbilde. Uten peker
+       (og når pekeren er utenfor) vandrer punktet nå selv i en rolig
+       figur som aldri gjentar seg helt. Ingen ekstra kostnad: samme
+       tegning, bare et annet mål for uM/uP. */
+    var drift = P.drift || 0;
     var raf = 0, prev = 0, acc = P.still;
-    var minGap = fine ? 0 : 28;   /* ~30 fps på berøringsskjermer */
+    /* Full bildefrekvens også på telefon: 30 fps så hakkete ut ved
+       siden av PC-versjonen, og shaderen er lett nok (dpr er alt
+       tatt ned i presetene) til at det holder seg kjølig. */
+    var minGap = 0;
     var parent = canvas.parentElement;
     function loop(now) {
       raf = requestAnimationFrame(loop);
@@ -314,6 +331,14 @@
       if (now - prev < minGap) return;
       if (prev) acc += (now - prev) / 1000 * P.speed;
       prev = now;
+      if (drift && !hovering && !driven) {
+        /* Uten peker går punktet raskere og videre enn en hånd ville
+           gjort — det er hele livet i flaten på en telefon. */
+        var a = acc * (fine ? 0.22 : 0.34);
+        tmx = Math.sin(a) * (fine ? 0.3 : 0.38) * asp;
+        tmy = Math.sin(a * 0.61 + 1.9) * (fine ? 0.26 : 0.32);
+        tpa = drift;
+      }
       draw(acc);
     }
 

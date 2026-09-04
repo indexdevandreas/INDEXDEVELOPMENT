@@ -312,26 +312,42 @@
      festet. --cp (0 → 1) driver overgangen i forside.css. */
   (function () {
     var panel = document.querySelector('.cv-wrap > .cv3d');
-    /* Bare på PC med presis peker: NN/g fant at kapret rulling
-       desorienterer mest på mobil. Der står begge kortene under
-       hverandre i stedet. Strekningen er kort (under en halv skjerm)
-       så ett sveip på hjulet kommer gjennom. */
-    if (!panel || reduce || !fine || window.innerWidth <= 900) return;
+    if (!panel || reduce) return;
     var wrap = panel.parentElement;
     var canvas = panel.querySelector('canvas[data-striper]');
-    panel.classList.add('is-live');
 
-    var travel = 0, start = 0, inView = false, ticking = false, cp = -1, lastW = 0, lastH = 0;
+    /* To moduser, samme --cp.
+       PC (presis peker, bred skjerm): panelet festes og kort 01 byttes
+       til 02 på samme sted — «is-live».
+       Telefon: NN/g fant at kapret rulling desorienterer mest der, så
+       kortene står under hverandre og --cp driver bare skinna mellom
+       dem og 01——02 oppe i hjørnet. Ingen rulling blir stjålet. */
+    var live = false, travel = 0, start = 0, inView = false, ticking = false;
+    var cp = -1, lastW = 0, lastH = 0;
     var TOP = 100;
+
     function measure() {
       lastW = window.innerWidth; lastH = window.innerHeight;
-      var top = window.innerWidth <= 900 ? 84 : TOP;
-      travel = Math.round(Math.max(280, Math.min(460, window.innerHeight * 0.45)));
-      wrap.style.height = (panel.offsetHeight + travel) + 'px';
-      start = wrap.getBoundingClientRect().top + window.scrollY - top;
+      var want = fine && window.innerWidth > 900;
+      if (want !== live) {
+        live = want;
+        panel.classList.toggle('is-live', live);
+      }
+      if (live) {
+        travel = Math.round(Math.max(280, Math.min(460, window.innerHeight * 0.45)));
+        wrap.style.height = (panel.offsetHeight + travel) + 'px';
+        start = wrap.getBoundingClientRect().top + window.scrollY - TOP;
+      } else {
+        /* Fri høyde igjen, og en strekning som løper mens panelet er
+           på vei gjennom skjermen — ingen festing, ingen ekstra høyde. */
+        wrap.style.height = '';
+        travel = Math.round(panel.offsetHeight * 0.72);
+        start = wrap.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.72;
+      }
       cp = -1;
       frame();
     }
+
     function frame() {
       ticking = false;
       var p = travel ? (window.scrollY - start) / travel : 0;
@@ -340,18 +356,20 @@
       cp = p;
       panel.style.setProperty('--cp', p.toFixed(4));
       panel.classList.toggle('is-2', p >= 0.5);
-      /* Lyset i glasset vandrer fra venstre til høyre i takt med
-         rullingen (forside-3d.js lytter). Også på berøringsskjermer,
-         der det ikke finnes noen peker som ellers ville styrt det. */
-      if (canvas) canvas.dispatchEvent(new CustomEvent('striper:point', { detail: { x: 0.18 + p * 0.64, y: 0.5, on: true } }));
+      /* Lyset i glasset vandrer med rullingen mens panelet er festet.
+         På telefon lar vi det være: der vandrer glasset av seg selv
+         (drift i forside-3d.js), og to kilder som drar i samme punkt
+         gir bare rykk. */
+      if (live && canvas) canvas.dispatchEvent(new CustomEvent('striper:point', { detail: { x: 0.18 + p * 0.64, y: 0.5, on: true } }));
     }
+
     function onScroll() {
       if (inView && !ticking) { ticking = true; requestAnimationFrame(frame); }
     }
     new IntersectionObserver(function (en) {
       inView = en[0].isIntersecting;
       if (inView) onScroll();
-      else if (canvas) canvas.dispatchEvent(new CustomEvent('striper:point', { detail: { x: 0.5, y: 0.5, on: false } }));
+      else if (live && canvas) canvas.dispatchEvent(new CustomEvent('striper:point', { detail: { x: 0.5, y: 0.5, on: false } }));
     }, { rootMargin: '20% 0px' }).observe(wrap);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', function () {
