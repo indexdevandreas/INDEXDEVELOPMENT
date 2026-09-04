@@ -909,7 +909,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 /* Arket: hele resten av siden glir over den festede heroen. De første
    seksjonene må være posisjonert med z-index over heroen (som er
    sticky og dermed selv posisjonert), ellers ville de gått bak den. */
-.services2, .meg, .reviews, .stats2, .convert, .blogg2, .stack, .demo2, footer {
+.services2, .meg, .reviews, .stats2, .convert, .norsk, .blogg2, .faq2, .demo2, footer {
   position: relative;
   z-index: 2;
 }
@@ -1187,26 +1187,24 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 /* Masken ligger på rammen, ikke på <img>, slik at både bildet og
    tonelaget under klippes likt. Uten det ville tonelaget tegne en
    skarp firkant der bildekantene allerede er tonet ut. */
+/* Fotoet står som et skarpt kort — samme hjørner og skygge som resten
+   av kortene på siden. Den myke masken som lå her før tonet trepanelet
+   ut i flaten, og det leste som «limt inn med uskarpe kanter». Et ekte
+   arbeidsbilde med kanter er ærligere, og dyrere å se på. */
 .mg-frame {
   position: absolute;
   inset: 0;
   display: block;
   isolation: isolate;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 11%, #000 85%, transparent 100%);
-  mask-image:
-    linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 11%, #000 85%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 44px 90px -34px rgba(3,18,48,0.75), 0 2px 0 rgba(255,255,255,0.10);
 }
 .mg-frame img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: 50% 34%;
   display: block;
-  border-radius: 20px;
   /* Ansiktet ligger i skygge i originalen, og øynene forsvant. Det er
      den senkede kontrasten som løfter dem — brightness alene vasker
      bare ut hele bildet. Saturation får et lite påslag fordi lavere
@@ -1218,8 +1216,10 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  border-radius: 22px;
   pointer-events: none;
+  /* Hårstrek innenfor kanten, som glasskortene */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.30);
   /* Sløret er trukket ned til nesten ingenting — det skal bare knytte
      kantene til båndet, ikke ta farge ut av bildet. */
   background: linear-gradient(152deg,
@@ -1228,9 +1228,29 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
     rgba(212,255,61,0.03) 100%);
 }
 
-/* Bylinen hører til mobil-layouten. På desktop står signaturen allerede
-   under teksten, og portrettet skal lese som en flate — ikke et kort. */
+/* Bylinen: på PC en liten mørk brikke nede på fotoet (navn, rolle,
+   sted) — mobil-layouten lenger ned har sin egen variant. */
 .mg-cap { display: none; }
+@media (min-width: 901px) {
+  .mg-cap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    z-index: 2;
+    padding: 12px 16px 12px 14px;
+    border-radius: 12px;
+    background: rgba(3,14,38,0.78);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #fff;
+  }
+  .mg-cap-name { font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em; }
+  .mg-cap-role { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .mg-cap-loc { display: flex; align-items: center; gap: 7px; margin-top: 4px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  .mg-cap-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px var(--lime); }
+}
 
 /* ─── Tekstsiden ─── */
 .mg-text { position: relative; z-index: 2; max-width: 560px; }
@@ -1371,7 +1391,10 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 
 /* Bunnpaddingen er lav med vilje: seksjonen er sticky i bunken og
    må få plass i én skjermhøyde sammen med overskriften og panelet. */
-.norsk { background: #fff; padding: 20px 0 64px; }
+.norsk { background: #fff; padding: 20px 0 120px; }
+/* «Prøv agenten» — demoen er beviset. Lime på sort, som CTA-ene ellers. */
+.nk-try { margin-top: 26px; }
+.nk-try-note { margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.62); }
 .norsk .platform-top { margin-bottom: 44px; }
 .norsk .pt-center .pf-eyebrow { margin-bottom: 18px; }
 /* Ett sort panel: punktene til venstre som rader med skillelinjer,

@@ -281,6 +281,9 @@
     });
 
     win.querySelector('#cw-close').addEventListener('click', close);
+    /* Knapper i siden kan åpne agenten direkte («Prøv agenten» på
+       forsiden) — det er demoen som er beviset for AI-tilbudet. */
+    document.querySelectorAll('[data-open-chat]').forEach((b) => b.addEventListener('click', open));
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
