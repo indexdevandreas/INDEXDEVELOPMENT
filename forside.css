@@ -92,6 +92,13 @@
     scale(calc(1 - var(--sp) * 0.07));
 }
 .hero:not(.is-pinnable)::after { display: none; }
+/* På telefon får heroen sitt eget lag: rotasjonen og krympingen blir da
+   bare re-komponering, ikke ny opptegning av hele flaten for hvert
+   rullebilde. Bare touch — på PC var det aldri hakkete, og et ekstra
+   lag der er bare minne. */
+@media (pointer: coarse) {
+  .hero.is-pinnable { will-change: transform; }
+}
 .hero:not(.is-pinnable) .hero-inner,
 .hero:not(.is-pinnable) .hero-field,
 .hero:not(.is-pinnable) .hero-photo { transform: none; opacity: 1; }
@@ -128,7 +135,7 @@
 .hero-inner h1 {
   /* Switzer — samme display-font som sidetitlene og seksjons-
      overskriftene (@font-face i sider.css). Tett og høy x-høyde. */
-  font-family: 'Switzer', 'Geist', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: clamp(42px, 4.75vw, 68px);
   font-weight: 500;
   letter-spacing: -0.032em;
@@ -261,6 +268,11 @@
     rgba(3,18,48,0.12) 0%,
     rgba(3,18,48,0.62) 58%,
     rgba(3,18,48,0.99) 100%);
+  /* Eget lag: opasiteten endres for hvert rullebilde, og uten dette
+     males hele gradienten på nytt hver gang — på en 3×-telefon er det
+     tre millioner piksler per bilde. Det var det som hakket. Med laget
+     er det bare re-komponering. */
+  will-change: opacity;
   opacity: calc(var(--sp) * 1.35);
 }
 
@@ -315,7 +327,7 @@ html.splash-on .splash {
 .splash-word {
   display: block;
   overflow: hidden;
-  font-family: 'Switzer', 'Geist', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: 42px;
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -379,7 +391,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   overflow: hidden;
 }
 .s2-card.s2-dark { background: #0d0d0d; color: #fff; }
-.s2-card.s2-lime { background: var(--lime); }
+.s2-card.s2-lime { background: #fff; box-shadow: inset 0 0 0 1.5px var(--lime); }
 
 .s2-num {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -393,9 +405,9 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   align-items: baseline;
   /* Klipper tallet mens det ruller opp. Litt luft over så serif-
      toppene ikke kappes. */
-  overflow: hidden;
-  padding-top: 0.06em;
+  white-space: nowrap;
 }
+.s2-clip { display: inline-block; overflow: hidden; padding-top: 0.06em; }
 .s2-digit {
   display: inline-block;
   transform: translateY(108%);
@@ -413,11 +425,10 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 .s2-card.rv.on .s2-digit,
 .s2-card.rv.on .s2-unit { transform: none; opacity: 1; }
 /* Limegrønn på hvitt/lime trenger annen behandling enn på sort */
-.s2-card:not(.s2-dark):not(.s2-lime) .s2-unit {
+.s2-card:not(.s2-dark) .s2-unit {
   -webkit-text-stroke: 1px rgba(10,10,10,0.28);
   paint-order: stroke fill;
 }
-.s2-lime .s2-unit { color: #0a0a0a; }
 
 .s2-text {
   font-size: 16.5px;
@@ -617,7 +628,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 .cv3d-ghost span {
   position: absolute;
   left: 50%; top: 50%;
-  font-family: 'Switzer', 'Geist', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: clamp(120px, 17vw, 270px);
   font-weight: 500;
   letter-spacing: -0.045em;
@@ -764,129 +775,6 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 /* ═══════════════════════════════════════════════════════════
    ANMELDELSER / LEVERT ARBEID
    ═══════════════════════════════════════════════════════════ */
-.reviews { background: #fff; padding: 20px 0 120px; }
-.rv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  max-width: 1290px;
-  margin: 0 auto;
-  padding: 0 24px;
-  align-items: stretch;
-}
-.rv-card {
-  position: relative;
-  background: #f1f1ef;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-/* Sitattegn som spøkelse bak teksten, som tallene i tjenestepanelene */
-.rv-card::after {
-  content: "\201D";
-  position: absolute;
-  right: 26px;
-  bottom: -0.32em;
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 220px;
-  line-height: 1;
-  color: rgba(10,10,10,0.06);
-  pointer-events: none;
-}
-
-/* Bildebånd øverst */
-.rv-img {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-  background: #e6e6e3;
-}
-.rv-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
-}
-.rv-card:hover .rv-img img { transform: scale(1.04); }
-.rv-chip {
-  position: absolute;
-  left: 20px; bottom: 20px;
-  background: var(--lime);
-  color: #0a0a0a;
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 9px 15px;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-}
-
-.rv-body {
-  padding: 30px 32px 28px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.rv-stars {
-  display: inline-flex;
-  gap: 3px;
-  font-size: 15px;
-  color: var(--lime);
-  margin-bottom: 20px;
-  -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
-  paint-order: stroke fill;
-}
-.rv-quote {
-  position: relative;
-  z-index: 1;
-  font-family: 'Switzer', 'Geist', sans-serif;
-  font-size: clamp(19px, 1.6vw, 23px);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-  color: rgba(10,10,10,0.88);
-  margin-bottom: auto;
-}
-.rv-em { color: #0a0a0a; font-weight: 600; background: linear-gradient(transparent 62%, rgba(212,255,61,0.55) 62%); }
-
-.rv-foot {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(10,10,10,0.1);
-}
-.rv-avatar {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: var(--lime);
-  color: #0a0a0a;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  display: grid; place-items: center;
-  flex-shrink: 0;
-}
-.rv-person { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.rv-name { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; }
-.rv-role { font-size: 11.5px; color: rgba(10,10,10,0.5); line-height: 1.3; }
-.rv-link {
-  margin-left: auto;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 600;
-  padding-bottom: 3px;
-  border-bottom: 1.5px solid currentColor;
-  white-space: nowrap;
-}
-.rv-link .pf-link-arrow { transition: transform 0.22s ease; }
-.rv-link:hover .pf-link-arrow { transform: translateX(4px); }
 
 @media (max-width: 900px) {
   .rv-grid { grid-template-columns: 1fr; }
@@ -909,7 +797,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 /* Arket: hele resten av siden glir over den festede heroen. De første
    seksjonene må være posisjonert med z-index over heroen (som er
    sticky og dermed selv posisjonert), ellers ville de gått bak den. */
-.services2, .meg, .reviews, .stats2, .convert, .norsk, .blogg2, .faq2, .demo2, footer {
+.services2, .meg, .quote2, .stats2, .convert, .norsk, .blogg2, .faq2, .demo2, footer {
   position: relative;
   z-index: 2;
 }
@@ -965,10 +853,19 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   transition: background 0.3s ease;
 }
 .sv-dark { background: #0d0d0d; color: #fff; }
-.sv-lime { background: var(--lime); }
+/* 03 var en hel lime flate. Lime i den metningen over 500px er
+   slitsom å se på og trekker siden mot «startup» — det motsatte av
+   rolig og dyrt. Kortet er nå hvitt med lime hårstrek, så limen
+   fortsatt merker kortet uten å eie det. Samme grep på «5 dager». */
+.sv-lime {
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--lime);
+}
+.sv-lime .sv-ghost { color: var(--lime); opacity: 0.42; }
+.sv-lime .sv-go { background: var(--lime); border-color: var(--lime); color: #0a0a0a; }
 .sv-grey:hover { background: #e9e9e5; }
 .sv-dark:hover { background: #171717; }
-.sv-lime:hover { background: #d4ff22; }
+.sv-lime:hover { background: #fcfff4; }
 /* Hover-løftet fra sider.css passer små kort i et rutenett, ikke et
    panel som står festet i en bunke. Pilen svarer i stedet. */
 .sv-stack .sv-card:hover { transform: none; box-shadow: none; }
@@ -1004,7 +901,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   margin-bottom: auto;
 }
 .sv-card h3 {
-  font-family: 'Switzer', 'Geist', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: clamp(34px, 3.4vw, 54px);
   font-weight: 500;
   letter-spacing: -0.035em;
@@ -1465,18 +1362,22 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
 }
+/* «/7» forsvant: overflow:hidden lå på hele raden, og klipper man
+   loddrett klipper man også vannrett — var kolonnen smalere enn
+   «24/7», ble enheten borte. Klippet ligger nå bare rundt tallet som
+   ruller (.nk-clip), og raden får flyte. */
 .nk-stat {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(100px, 10vw, 160px);
+  font-size: clamp(84px, 8.6vw, 140px);
   line-height: 0.9;
   letter-spacing: -0.03em;
   color: #fff;
   margin: 8px 0 12px;
   display: flex;
   align-items: baseline;
-  overflow: hidden;
-  padding-top: 0.06em;
+  white-space: nowrap;
 }
+.nk-clip { display: inline-block; overflow: hidden; padding-top: 0.06em; }
 .nk-digit {
   display: inline-block;
   transform: translateY(108%);
@@ -1502,7 +1403,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 @media (max-width: 900px) {
   .nk-panel { grid-template-columns: 1fr; gap: 28px; padding: 26px 24px 30px; }
   .nk-open { border-left: 0; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
-  .nk-stat { font-size: 110px; }
+  .nk-stat { font-size: 96px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1513,90 +1414,25 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
    ble de kappet. Vanlig loddrett rulling. Den kaprede horisontale
    versjonen er tatt ut etter NN/g sin forskning på scrolljacking:
    flertallet ble desorientert av at siden flyttet seg sidelengs. */
-.blogg2 { background: #fff; padding: 20px 0 120px; }
-.bl-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  max-width: 1290px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.bl-card {
-  background: #f1f1ef;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  color: #0a0a0a;
-  /* transition eies av .sv-card, .bl-card, .rv-card i sider.css — se
-     forklaringen ved .sv-card lenger opp i denne fila. */
-}
-.bl-card:hover { background: #e8e8e4; }
-.bl-img { height: 260px; overflow: hidden; background: #0d0d0d; }
-.bl-img img,
-.bl-img .bl-ill {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
-}
-.bl-card:hover .bl-img img,
-.bl-card:hover .bl-img .bl-ill { transform: scale(1.06); }
-.bl-body { padding: 26px 30px 28px; display: flex; flex-direction: column; flex: 1; }
-.bl-tag {
-  align-self: flex-start;
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: #fff;
-  border-radius: 999px;
-  padding: 6px 12px;
-  margin-bottom: 16px;
-  color: rgba(10,10,10,0.6);
-}
-.bl-body h3 {
-  font-size: clamp(20px, 1.7vw, 24px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  color: #0a0a0a;
-}
-.bl-body p {
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: rgba(10,10,10,0.6);
-  margin-bottom: auto;
-}
-.bl-read {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 22px;
-  font-size: 14.5px;
-  font-weight: 600;
-}
-.bl-read .pf-link-arrow { transition: transform 0.22s ease; }
-.bl-card:hover .pf-link-arrow { transform: translateX(4px); }
 @media (max-width: 1080px) {
-  .bl-img { height: 220px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
    FAQ
    ═══════════════════════════════════════════════════════════ */
 .faq2 { background: #fff; padding: 20px 0 130px; }
+/* Sentrert: tittelen over, spoersmaalene i en smal spalte under.
+   To kolonner ga en tom hoeyrekant naar kontaktkortet forsvant, og
+   en midtstilt kolonne leser roligere — oeyet foelger én linje ned. */
 .fq-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
-  gap: 70px;
-  max-width: 1290px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 0 24px;
-  align-items: start;
+  text-align: center;
 }
+.fq-left { margin-bottom: 56px; }
+.fq-left .pf-eyebrow { justify-content: center; }
+.fq-list { text-align: left; }
 .fq-left .pf-eyebrow { margin-bottom: 30px; }
 .fq-title {
   font-size: clamp(36px, 3.4vw, 54px);
@@ -1607,63 +1443,40 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   margin-bottom: 20px;
 }
 .fq-lead {
-  font-size: 15.5px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.65;
   color: rgba(10,10,10,0.6);
-  max-width: 330px;
-  margin-bottom: 44px;
+  max-width: 48ch;
+  margin: 0 auto;
 }
-.fq-contact {
-  background: #0d0d0d;
-  color: #fff;
-  border-radius: 16px;
-  padding: 28px 28px 26px;
-}
-.fq-contact-head {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  margin-bottom: 8px;
-}
-.fq-contact-sub {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 24px;
-}
-.fq-contact-btn {
-  --cap: 34px;
-  --pad: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  gap: 14px;
-  padding: var(--pad) var(--pad) var(--pad) 22px;
-}
-
-.fq-contact-btn .bc-circle svg { width: 13px; height: 13px; }
-
-.fq-list { display: flex; flex-direction: column; gap: 12px; }
+.fq-list { display: flex; flex-direction: column; gap: 10px; }
 .fq-item {
-  background: #f1f1ef;
-  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(10,10,10,0.10);
+  border-radius: 18px;
   /* .fq-item er også .rv-avsløringens kort (fq-list-barn, glir inn fra
      høyre — se .fq-item.rv i sider.css). «background 0.22s» alene
      overkjørte hele transition-shorthanden fra .rv (denne fila lastes
      sist), så FAQ-radene poppet inn i stedet for å skli. */
   transition:
-    background 0.22s,
+    background 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.22s ease;
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.fq-item:hover { background: #e6e6e2; box-shadow: 0 8px 18px rgba(10, 10, 10, 0.08); }
-.fq-item[open] { background: #ebebe8; }
+.fq-item:hover {
+  border-color: rgba(10,10,10,0.22);
+  box-shadow: 0 10px 26px -14px rgba(10,10,10,0.35);
+}
+.fq-item[open] { background: #fafaf8; border-color: rgba(10,10,10,0.20); }
+.fq-item[open] summary { padding-bottom: 20px; }
 .fq-item summary {
   list-style: none;
   cursor: pointer;
   padding: 26px 28px;
-  font-family: 'Switzer', 'Geist', sans-serif;
+  transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: 19px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -1676,26 +1489,48 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 .fq-item summary::-webkit-details-marker { display: none; }
 .fq-plus {
   flex-shrink: 0;
-  width: 30px; height: 30px;
-  border-radius: 9px;
-  background: var(--lime);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(10,10,10,0.05);
   color: #0a0a0a;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1;
   display: grid; place-items: center;
-  transition: transform 0.28s cubic-bezier(0.22,1,0.36,1);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease,
+    color 0.4s ease;
 }
-.fq-item[open] .fq-plus { transform: rotate(45deg); }
+.fq-item:hover .fq-plus { background: var(--lime); }
+.fq-item[open] .fq-plus { transform: rotate(135deg); background: #0a0a0a; color: #fff; }
+/* Aapningen: raden vokser med en lang ut-kurve (expo), og selve
+   svaret toner inn og glir opp litt etterpaa — uten den forsinkelsen
+   staar teksten ferdig fra foerste bilde og hele bevegelsen leser som
+   et hopp. Lukking gaar raskere enn aapning, slik oeyet forventer. */
 .fq-body {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.38s cubic-bezier(0.22,1,0.36,1);
+  transition: grid-template-rows 0.42s cubic-bezier(0.33, 0, 0.2, 1);
 }
-.fq-item[open] .fq-body { grid-template-rows: 1fr; }
-.fq-body-inner { overflow: hidden; }
+.fq-item[open] .fq-body {
+  grid-template-rows: 1fr;
+  transition-duration: 0.62s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fq-body-inner {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.fq-item[open] .fq-body-inner {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.45s ease 0.16s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
 .fq-body p {
-  padding: 0 28px 28px;
+  padding: 0 28px 30px;
   font-size: 16px;
   line-height: 1.65;
   color: rgba(10,10,10,0.66);
@@ -1934,7 +1769,6 @@ html, body { overflow-x: clip; }
 
 @media (max-width: 620px) {
   .s2-grid,
-  .bl-grid { grid-template-columns: 1fr; }
 
   /* Linjeskiftene i heroen er satt for den brede spalten på skjerm.
      På telefon får førstelinja ikke plass uansett, og da brekker
@@ -1967,7 +1801,7 @@ html, body { overflow-x: clip; }
    Utvikler-båndet åpner seg fra midten: portrettet svinger inn fra
    venstre, teksten fra høyre.
    ═══════════════════════════════════════════════════════════ */
-.s2-card.rv, .bl-card.rv, .rv-card.rv {
+.s2-card.rv, .bl-card.rv {
   transform: perspective(1200px) translateY(38px) rotateX(7deg) scale(0.98);
   transform-origin: 50% 100%;
 }
@@ -2058,7 +1892,7 @@ html, body { overflow-x: clip; }
    TASTATUR — synlig fokus på alt som kan klikkes på forsiden.
    Lime ring med sort kant, så den synes på hvitt, sort og blått.
    ═══════════════════════════════════════════════════════════ */
-.sv-card:focus-visible, .bl-card:focus-visible, .rv-card:focus-visible,
+.sv-card:focus-visible, .bl-card:focus-visible,
 .btn-circle:focus-visible, .pf-link:focus-visible, .nav-btn-lime:focus-visible,
 .cv3d-step .pf-link:focus-visible, .fq-item summary:focus-visible {
   outline: 3px solid var(--lime);

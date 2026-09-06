@@ -9,8 +9,8 @@
 <link rel="canonical" href="https://indexdevelopment.no/ai-agenter.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="ai-agenter.css">
@@ -20,7 +20,7 @@
   "@type": "Service",
   "serviceType": "Chatbot for nettsider",
   "name": "Chatbot",
-  "description": "Chatbot integrert på nettsiden som svarer på spørsmål fra kunder og samler inn henvendelser døgnet rundt. Leveres som guidet knappeflyt eller som AI-chatbot trent på bedriftens egen informasjon.",
+  "description": "Chatbot integrert på nettsiden som svarer på spørsmål fra kunder og samler inn henvendelser døgnet rundt. Leveres som guidet knappeflyt eller som AI-chatbot satt opp med bedriftens egen informasjon.",
   "url": "https://indexdevelopment.no/ai-agenter.html",
   "areaServed": "NO",
   "provider": {
@@ -62,7 +62,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -70,13 +70,15 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero ag-hero" id="top">
+<section class="page-hero ph-glass ag-hero" id="top">
+  <canvas class="ph-field" data-striper="hero" aria-hidden="true"></canvas>
 
   <header class="hero-nav">
     <div class="hero-brand">
@@ -97,7 +99,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -105,14 +107,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -124,7 +126,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -143,7 +145,7 @@
   <div class="ph-body ag-body">
     <p class="ph-kicker">AI-AGENTER &amp; CHATBOTS</p>
     <h1 class="ph-title">Kundene spør.<br>Noen svarer. Noe jobber.</h1>
-    <p class="ph-lead">To ting under samme tak: en chatbot som svarer kundene dine mens du står i noe annet, og AI-agenter som leser data, tar valg og utfører oppgaver i bakgrunnen.</p>
+    <p class="ph-lead">En chatbot som svarer kundene dine på norsk, med en gang, mens du står i noe annet — og AI-agenter som gjør rutinejobben i bakgrunnen.</p>
     <a class="ph-link" href="kom-i-gang.html">Beskriv hva du trenger <span aria-hidden="true">→</span></a>
   </div>
 
@@ -160,27 +162,42 @@
   <div class="platform-top">
     <p class="pf-eyebrow"><span class="pf-sq"></span>CHATBOTEN</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Én chatbot, ordentlig AI.<br><span class="pf-grey">Trent på bedriften din.</span></h2>
+      <h2 class="pf-head">Én chatbot, ordentlig AI.<br><span class="pf-grey">Satt opp for bedriften din.</span></h2>
       <div class="pf-aside">
-        <p>Vi bygger én type chatbot, og den kan faget sitt. Trenger du noe som ikke bare svarer, men faktisk utfører oppgaver, er det en AI-agent — les videre på siden.</p>
+        <p>Jeg bygger én type chatbot, og den kan faget ditt. Trenger du noe som ikke bare svarer, men faktisk gjør oppgaver, er det en AI-agent — lenger ned på siden.</p>
         <a class="pf-link" href="kom-i-gang.html">Beskriv hva du trenger <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="lv-grid lv-solo">
-    <article class="lv-card is-dark">
+    <article class="lv-card is-dark" data-tilt="2.5">
       <span class="lv-tag">AI-chatbot</span>
       <h3>Forstår fritekst og svarer selv</h3>
-      <p>Bygget på Claude eller GPT, men matet med dine tekster, priser og rutiner. Kunden kan skrive spørsmålet sitt som de vil, og få et svar som høres ut som bedriften din.</p>
+      <p>Ekte AI, satt opp med dine tekster, priser og rutiner. Kunden skriver spørsmålet sitt som de vil, og får et svar som høres ut som bedriften din.</p>
       <ul class="lv-list">
-        <li><span class="lv-check" aria-hidden="true">✓</span>Trent på din informasjon, ikke generell kunnskap</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Satt opp med din informasjon, ikke generell kunnskap</li>
         <li><span class="lv-check" aria-hidden="true">✓</span>Håndterer spørsmål du ikke har tenkt på</li>
         <li><span class="lv-check" aria-hidden="true">✓</span>Samler inn navn, nummer og hva kunden trenger</li>
-        <li><span class="lv-check" aria-hidden="true">✓</span>Vi setter grensene for hva den får lov til å svare på</li>
+        <li><span class="lv-check" aria-hidden="true">✓</span>Jeg setter grensene for hva den får lov til å svare på</li>
       </ul>
-      <p class="lv-foot">Boblen nede i høyre hjørne på denne siden er en slik chatbot, trent på vår egen bedrift. Klikk på den, så ser du nøyaktig hva kunden din møter.</p>
+      <p class="lv-foot">Boblen nede i høyre hjørne på denne siden er en slik chatbot, satt opp for min egen bedrift. Klikk på den, så ser du nøyaktig hva kunden din møter.</p>
     </article>
+  </div>
+
+  <!-- Prisen: ett tall for å bygge den, ett for å holde den i gang.
+       Månedsprisen er den folk spør om — den dekker forbruket. -->
+  <div class="cb-pris">
+    <div class="cb-pris-rad" data-tilt="3.5">
+      <p class="cb-pris-lab">Oppsett</p>
+      <p class="cb-pris-val">Fastpris</p>
+      <p class="cb-pris-txt">Ett tall, satt opp punkt for punkt, skriftlig før jeg bygger. Du får en gratis demo på dine egne tekster først.</p>
+    </div>
+    <div class="cb-pris-rad" data-tilt="3.5">
+      <p class="cb-pris-lab">Per måned</p>
+      <p class="cb-pris-val">Avtales</p>
+      <p class="cb-pris-txt">Månedsprisen dekker driften av chatboten og forbruket den bruker på å svare. Hver samtale koster noe hos AI-leverandøren, og det er inkludert — du får ikke en regning som spretter opp i en travel måned. Vi setter et tak sammen, og går du langt over det, sier jeg fra før prisen endres.</p>
+    </div>
   </div>
 </section>
 
@@ -188,11 +205,12 @@
 <!-- ───── SPØRSMÅL ───── -->
 <section class="cb-qa">
   <div class="platform-top pt-reverse">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>I PRAKSIS</p>
+    <p class="pf-eyebrow"><span class="pf-sq"></span>EKSEMPEL — EN RØRLEGGERS CHATBOT</p>
     <div class="pf-top-grid">
       <h2 class="pf-head">Spørsmålene som<br><span class="pf-grey">ellers hadde blitt til en telefon.</span></h2>
       <div class="pf-aside">
-        <p>Dette er den typen henvendelser en chatbot tar unna. Trykk på et spørsmål for å se hvordan et svar kan se ut.</p>
+        <p>Tenk deg en rørlegger som har fått chatbot. Dette er den typen henvendelser den tar unna for ham. Trykk på et spørsmål for å se svaret.</p>
+        <p class="qa-fine">Oppdiktet bedrift og oppdiktede priser — svarene kommer fra rørleggerens egen prisliste, ikke fra Index Development.</p>
       </div>
     </div>
   </div>
@@ -204,7 +222,7 @@
         <span class="qa-plus" aria-hidden="true">+</span>
       </summary>
       <div class="qa-body"><div class="qa-body-inner">
-        <p class="qa-answer">En vanlig nettside starter på <em>2 900 kr</em>, og du betaler ikke før du har sett den ferdig. Skal du ha noe mer enn en nettside, får du fastpris før vi setter i gang. Vil du at Andreas ringer deg?</p>
+        <p class="qa-answer">Et servicebesøk hos oss starter på <em>1 190 kr</em>, og du får fastpris før vi begynner. Skal jeg sette opp et besøk, eller vil du bli ringt?</p>
       </div></div>
     </details>
 
@@ -214,7 +232,7 @@
         <span class="qa-plus" aria-hidden="true">+</span>
       </summary>
       <div class="qa-body"><div class="qa-body-inner">
-        <p class="qa-answer">Selvsagt. Du når Andreas direkte på <em>484 59 686</em>. Vil du heller bli oppringt, skriver du nummeret ditt her, så tar han kontakt.</p>
+        <p class="qa-answer">Selvsagt. Legg igjen nummeret ditt her, så ringer rørleggeren deg tilbake — som regel <em>samme dag</em>.</p>
       </div></div>
     </details>
 
@@ -230,60 +248,6 @@
   </div>
 </section>
 
-
-<!-- ───── SLIK LAGER VI DEN ───── -->
-<section class="cb-build">
-  <div class="platform-top pt-inline">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>SLIK LAGER VI DEN</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Du forteller. Vi bygger.</h2>
-      <div class="pf-aside">
-        <a class="pf-link" href="kontakt.html">Ta veiviseren <span class="pf-link-arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="bd-grid">
-    <div class="bd-steps">
-      <div class="bd-step">
-        <h3>Vi går gjennom spørsmålene du får</h3>
-        <p>Hva blir du oftest ringt om? Hva står i e-postene du besvarer hver uke? Det er den lista chatboten skal kunne utenat.</p>
-      </div>
-      <div class="bd-step">
-        <h3>Vi skriver svarene sammen med deg</h3>
-        <p>Du godkjenner hvert svar før noe går live. Er du usikker på om noe bør stå der, lar vi være — chatboten skal aldri love noe du ikke kan holde.</p>
-      </div>
-      <div class="bd-step">
-        <h3>Vi setter den inn på nettsiden</h3>
-        <p>En diskret boble i hjørnet, i dine farger. Ingen ekstern tjeneste kunden må godta, ingen app som skal lastes ned.</p>
-      </div>
-      <div class="bd-step">
-        <h3>Vi holder den oppdatert</h3>
-        <p>Nye priser, nye tjenester, ny sesong. Send en melding, så oppdaterer vi svarene — du trenger ikke logge inn noe sted.</p>
-      </div>
-    </div>
-
-    <aside class="bd-price">
-      <p class="bd-price-label">Pris</p>
-      <h3>Skriftlig tilbud, fastpris før vi bygger</h3>
-      <p>Chatboten er ekte AI, trent på dine tekster, priser og rutiner. Den prises med et skriftlig tilbud: én fastpris, satt opp punkt for punkt, med gratis demo før du bestemmer deg.</p>
-      <div class="bd-price-rule"></div>
-      <ul class="bd-price-rows">
-        <li><span>AI-chatbot</span><span>Fastpris skriftlig</span></li>
-        <li><span>Endringer i svarene</span><span>Inkludert</span></li>
-        <li><span>AI-agenter og større løsninger</span><span>Fastpris etter demo</span></li>
-      </ul>
-      <p class="bd-price-note">Kjeder og større virksomheter: skreddersydd løsning — nevn det når du tar kontakt, så tar vi høyde for det i tilbudet.</p>
-      <a class="btn-circle bd-price-btn" href="kom-i-gang.html">
-        <span>FÅ ET PRISTILBUD</span>
-        <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      </a>
-    </aside>
-  </div>
-</section>
-
-
-
 <!-- ───── AI-AGENTER ───── -->
 <section class="ag">
   <div class="platform-top">
@@ -297,25 +261,25 @@
   </div>
 
   <div class="ag-grid">
-    <article class="ag-card">
+    <article class="ag-card" data-tilt="5">
       <span class="ag-n">01</span>
       <h3>Kundeservice som sorterer seg selv</h3>
       <p>En agent som svarer på henvendelser, kategoriserer dem og sender dem videre til deg først når det faktisk trengs et menneske.</p>
       <p class="ag-meta">Kobles på nettside, e-post eller internt system</p>
     </article>
-    <article class="ag-card ag-lime">
+    <article class="ag-card ag-lime" data-tilt="5">
       <span class="ag-n">02</span>
       <h3>Interne arbeidsflyter</h3>
       <p>Agenter som leser data fra systemene du allerede bruker og gjør rutinejobben — rapportering, sortering, oppfølging.</p>
       <p class="ag-meta">Kobles mot verktøyene dine via API</p>
     </article>
-    <article class="ag-card">
+    <article class="ag-card" data-tilt="5">
       <span class="ag-n">03</span>
       <h3>Bygget på Claude eller GPT</h3>
-      <p>Markedsledende språkmodeller, men trent på og koblet til dine egne data. Ikke en generisk assistent med ditt navn på.</p>
+      <p>Markedsledende språkmodeller, men satt opp med og koblet til dine egne data. Ikke en generisk assistent med ditt navn på.</p>
       <p class="ag-meta">Egne verktøy og handlinger agenten kan utføre</p>
     </article>
-    <article class="ag-card ag-dark">
+    <article class="ag-card ag-dark" data-tilt="5">
       <span class="ag-n">04</span>
       <h3>Overvåking og varsling</h3>
       <p>En agent som sjekker data kontinuerlig og sier fra når noe krever handling — i stedet for at du må huske å se etter.</p>
@@ -331,7 +295,7 @@
     <ul class="ag-price-list">
       <li>Skreddersydd for din arbeidsflyt</li>
       <li>Koblet mot systemene du har i dag</li>
-      <li>Fungerende demo før pris avtales</li>
+      <li>Eventuell demo avtales i tilbudet</li>
       <li>Fastpris og betalingsplan skriftlig før oppstart</li>
     </ul>
   </div>
@@ -347,17 +311,12 @@
     </picture>
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
-      <h2 class="dm-head">Vi er ute etter de<br><span class="dm-lime">første som vil prøve.</span></h2>
-      <p class="dm-text">Chatbot er en fersk tjeneste hos oss, og vi vil gjerne bygge de første sammen med bedrifter som tør å teste. Det betyr tett oppfølging, god pris og at du får si hva den skal kunne.</p>
+      <h2 class="dm-head">Prøv den før du<br><span class="dm-lime">bestemmer deg.</span></h2>
+      <p class="dm-text">Du får en gratis demo satt opp på dine egne tekster, og godkjenner hvert svar før noe går live. Chatboten nede i hjørnet her er den samme løsningen — klikk på den, så ser du nøyaktig hva kunden din møter.</p>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>SEND EN BESKRIVELSE</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Du godkjenner hvert svar</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Vi oppdaterer den for deg</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -372,55 +331,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -428,12 +360,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -446,7 +379,9 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
+<script src="forside-3d.js" defer></script>
 <script src="ai-agenter.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

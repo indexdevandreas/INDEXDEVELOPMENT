@@ -12,7 +12,7 @@
   const API_URL = '/api/chat';
   const STORE_KEY = 'cw-history-v1';
   const WELCOME =
-    'Hei. Spør meg om priser, tjenester eller hvordan vi jobber, ' +
+    'Hei. Spør meg om priser, tjenester eller hvordan Andreas jobber, ' +
     'så svarer jeg med en gang.';
   const STARTERS = [
     'Hva koster en nettside?',

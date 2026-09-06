@@ -51,7 +51,7 @@
 
     var sen = n.time < 7 || n.time >= 22;
     status.forEach(function (el) {
-      el.textContent = sen ? 'Svarer i morgen tidlig' : 'Svarer som regel samme dag';
+      el.textContent = sen ? 'Svarer i morgen tidlig' : 'Svarer som regel samme kveld';
       el.classList.toggle('is-sen', sen);
     });
   }

@@ -9,8 +9,8 @@
 <link rel="canonical" href="https://indexdevelopment.no/systemutvikling.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="systemutvikling.css">
@@ -39,7 +39,7 @@
   "offers": {
     "@type": "Offer",
     "priceCurrency": "NOK",
-    "description": "Lite system med database, innlogging og adminpanel fra 14 900 kr. Månedsprisen for drift settes i det skriftlige tilbudet. Fastpris avtales skriftlig per prosjekt etter en fungerende demo."
+    "description": "System med database, innlogging og adminpanel, priset med skriftlig fastpris. Månedsprisen for drift settes i det samme tilbudet. Fastpris avtales skriftlig per prosjekt etter en fungerende demo."
   }
 }
 </script>
@@ -62,7 +62,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -70,21 +70,17 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero photo-hero ph-poster" id="top">
-  <img class="ph-img"
-       src="bilder/hero/system-1600.jpg"
-       srcset="bilder/hero/system-800.jpg 800w, bilder/hero/system-1600.jpg 1600w"
-       sizes="100vw" width="1600" height="1060"
-       alt="" fetchpriority="high" decoding="async">
-  <div class="ph-veil" aria-hidden="true"></div>
-
-  <header class="hero-nav">
+<section class="page-hero ph-lys sy5-hero" id="top">
+  <!-- Lys flate, teksten til venstre. Til hoeyre en liten, luftig skisse
+       av et system — noder og koblinger, ingen boks, ingen tekst. -->
+<header class="hero-nav is-dark">
     <div class="hero-brand">
       <a class="brand" href="index.html">
         <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
@@ -103,7 +99,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -111,14 +107,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -130,7 +126,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -145,21 +141,94 @@
     </div>
   </header>
 
-  <div class="ph-body">
-    <p class="ph-kicker">Systemutvikling</p>
-    <h1 class="ph-title">Når en nettside<br>ikke er nok.</h1>
-    <p class="ph-lead">Database, innlogging, booking og integrasjoner — bygget rundt måten du faktisk jobber på.</p>
-    <a class="ph-link" href="kontakt.html">Fortell om prosjektet <span aria-hidden="true">→</span></a>
-  </div>
+  <div class="sy5-frame">
+    <div class="ph-body sy5-body">
+      <p class="ph-kicker">Systemutvikling</p>
+      <h1 class="ph-title">Når en nettside<br>ikke er nok.</h1>
+      <p class="ph-lead">Database, innlogging, booking og integrasjoner — bygget rundt måten du faktisk jobber på.</p>
+      <a class="ph-link" href="kontakt.html">Fortell om prosjektet <span aria-hidden="true">→</span></a>
+    </div>
 
-  <div class="ph-obj sd-map">
-    <div class="sd-row"><span>Nettside</span><span>Booking</span><span>Adminpanel</span></div>
-    <div class="sd-wires" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="sd-core">Logikken vi bygger</div>
-    <div class="sd-wires sd-up" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="sd-row"><span>Database</span><span>Betaling</span><span>AI</span></div>
+    <!-- Skissen: tre noder oppaa hverandre (det kunden ser, logikken,
+         databasen) og én stiplet til siden (systemene du har fra foer).
+         Tynne koblinger, lime pulser som gaar mellom dem. Ingen tekst. -->
+    <div class="sy5-figur" role="img" aria-label="Skisse av et system: det kunden ser, logikken og databasen koblet sammen — og til systemene du allerede har">
+      <svg class="sy5-svg" viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="sy5Skygge" x="-50%" y="-50%" width="200%" height="220%">
+            <feDropShadow dx="0" dy="12" stdDeviation="11" flood-color="#0a0a0a" flood-opacity="0.13"/>
+            <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#0a0a0a" flood-opacity="0.07"/>
+          </filter>
+        </defs>
+
+        <!-- koblingene -->
+        <g fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round">
+          <path class="sy5-linje sy5-linje-1" d="M170 92 V158" stroke-opacity="0.22"/>
+          <path class="sy5-linje sy5-linje-2" d="M170 222 V288" stroke-opacity="0.22"/>
+          <path class="sy5-linje-ekstern" d="M202 190 H254" stroke-opacity="0.3" stroke-dasharray="2.5 5"/>
+        </g>
+
+        <!-- pulsene: én reise ovenfra og ned, én fram og tilbake til det eksterne -->
+        <g class="sy5-pulser">
+          <circle class="sy5-puls" r="4.2" fill="#d4ff3d">
+            <animateMotion dur="3.2s" begin="2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.5;1" path="M170 92 V158"/>
+            <animate attributeName="opacity" dur="3.2s" begin="2s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.06;0.47;0.5;1"/>
+          </circle>
+          <circle class="sy5-puls" r="4.2" fill="#d4ff3d">
+            <animateMotion dur="3.2s" begin="2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1" keyTimes="0;0.5;1" path="M170 222 V288"/>
+            <animate attributeName="opacity" dur="3.2s" begin="2s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.5;0.53;0.96;1"/>
+          </circle>
+          <circle class="sy5-puls sy5-puls-liten" r="3.2" fill="#d4ff3d">
+            <animateMotion dur="2.6s" begin="2.6s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;0" keyTimes="0;0.5;1" path="M202 190 H254"/>
+          </circle>
+        </g>
+
+        <!-- 1: det kunden ser -->
+        <g class="sy5-node sy5-node-1" filter="url(#sy5Skygge)">
+          <rect x="138" y="28" width="64" height="64" rx="18" fill="#fff" stroke="#0a0a0a" stroke-opacity="0.07"/>
+          <g fill="none" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="157" y="50" width="26" height="20" rx="3"/>
+            <path d="M157 56.5H183"/>
+            <path d="M161 53.2h.01M165 53.2h.01" stroke-width="2.2"/>
+            <path d="M162 62h10M162 65.5h6" stroke-opacity="0.45"/>
+          </g>
+        </g>
+
+        <!-- 2: logikken -->
+        <g class="sy5-node sy5-node-2" filter="url(#sy5Skygge)">
+          <rect x="138" y="158" width="64" height="64" rx="18" fill="#fff" stroke="#0a0a0a" stroke-opacity="0.07"/>
+          <g fill="none" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="160" y="180" width="20" height="20" rx="3.5"/>
+            <rect x="166" y="186" width="8" height="8" rx="1.5"/>
+            <path d="M164 176v4M170 176v4M176 176v4M164 200v4M170 200v4M176 200v4M156 184h4M156 190h4M156 196h4M180 184h4M180 190h4M180 196h4"/>
+          </g>
+        </g>
+
+        <!-- 3: databasen — med en liten lime lampe: kundens egen -->
+        <g class="sy5-node sy5-node-3" filter="url(#sy5Skygge)">
+          <rect x="138" y="288" width="64" height="64" rx="18" fill="#fff" stroke="#0a0a0a" stroke-opacity="0.07"/>
+          <g fill="none" stroke="#0a0a0a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="170" cy="310" rx="12" ry="4.5"/>
+            <path d="M158 310v20a12 4.5 0 0 0 24 0v-20"/>
+            <path d="M158 320a12 4.5 0 0 0 24 0"/>
+          </g>
+          <circle class="sy5-lampe" cx="190" cy="340" r="3.2" fill="#d4ff3d"/>
+        </g>
+
+        <!-- 4: det du har fra foer — stiplet, for det er ikke mitt -->
+        <g class="sy5-node sy5-node-4">
+          <rect x="254" y="164" width="52" height="52" rx="15" fill="#fff" fill-opacity="0.6" stroke="#0a0a0a" stroke-opacity="0.35" stroke-dasharray="3 4"/>
+          <g fill="none" stroke="#0a0a0a" stroke-opacity="0.75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M275 180v5M285 180v5"/>
+            <rect x="270" y="185" width="20" height="11" rx="3"/>
+            <path d="M280 196v5c0 3-6 3-6 7"/>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
+
 
 
 <!-- ───── BYGGEKLOSSER ───── -->
@@ -185,7 +254,7 @@
         </svg>
       </span>
       <h3>Database &amp; innlogging</h3>
-      <p>Ekte lagring av data i en PostgreSQL-database, med brukerkontoer og innlogging. Hver bruker ser bare sitt eget.</p>
+      <p>Ekte database med brukerkontoer og innlogging. Hver bruker ser bare sitt eget.</p>
       <div class="bk-tags"><span>Supabase</span><span>PostgreSQL</span><span>Row Level Security</span></div>
     </div>
 
@@ -198,7 +267,7 @@
         </svg>
       </span>
       <h3>Adminpanel</h3>
-      <p>Et passordbeskyttet panel der du endrer priser, tekster og innhold selv — uten å skrive en linje kode eller ringe oss.</p>
+      <p>Et passordbeskyttet panel der du endrer priser, tekster og innhold selv — uten å skrive en linje kode eller ringe meg.</p>
       <div class="bk-tags"><span>Egen innlogging</span><span>Roller</span></div>
     </div>
 
@@ -225,7 +294,7 @@
         </svg>
       </span>
       <h3>API-integrasjoner</h3>
-      <p>Vi kobler systemene du allerede bruker til hverandre, slik at data flyter automatisk i stedet for å tastes inn på nytt.</p>
+      <p>Jeg kobler systemene du allerede bruker til hverandre, slik at data flyter automatisk i stedet for å tastes inn på nytt.</p>
       <div class="bk-tags"><span>Vipps / Stripe</span><span>CRM</span><span>Kalender</span><span>Webhooks</span></div>
       <span class="bk-go">Les mer <span class="pf-link-arrow">→</span></span>
     </a>
@@ -251,53 +320,11 @@
         </svg>
       </span>
       <h3>Vet du ikke hva du trenger?</h3>
-      <p>Det er det vanligste utgangspunktet. Fortell hva som tar tid i hverdagen, så foreslår vi det minste som faktisk løser det.</p>
+      <p>Det er det vanligste utgangspunktet. Fortell hva som tar tid i hverdagen, så foreslår jeg det minste som faktisk løser det.</p>
       <span class="bk-go">Ta veiviseren <span class="pf-link-arrow">→</span></span>
     </a>
   </div>
 </section>
-
-
-<!-- ───── BYGGET PÅ ───── -->
-<section class="sy-stack">
-  <div class="platform-top pt-reverse">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>BYGGET PÅ</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Kjente byggeklosser,<br><span class="pf-grey">ikke vår egen plattform.</span></h2>
-      <div class="pf-aside">
-        <p>Alt kjører på tjenester som finnes uavhengig av oss. Det gjør systemet mulig å ta over for noen andre — og det er hele poenget.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="st-strip">
-    <div class="st-cell">
-      <p class="st-name">Supabase</p>
-      <span class="st-role">Database og innlogging</span>
-      <p>Ekte PostgreSQL-database, brukerkontoer og regler for hvem som får se hva. Kan flyttes ut.</p>
-    </div>
-    <div class="st-cell">
-      <p class="st-name">Cloudflare</p>
-      <span class="st-role">Hosting og sikkerhet</span>
-      <p>Serverer systemet fra nettverket nærmest brukeren, med SSL og beskyttelse mot angrep.</p>
-    </div>
-    <div class="st-cell">
-      <p class="st-name">Claude / GPT</p>
-      <span class="st-role">AI-delen</span>
-      <p>Brukes der noe må forstås eller vurderes, innenfor rammer vi setter.</p>
-    </div>
-    <div class="st-cell">
-      <p class="st-name">Vipps, Stripe m.fl.</p>
-      <span class="st-role">Integrasjoner</span>
-      <p>Betaling, e-post, kalender og CRM kobles via de offisielle grensesnittene deres. Du beholder dine egne kontoer og avtaler.</p>
-    </div>
-  </div>
-
-  <div class="st-foot">
-    <p><strong>Ingen innlåsing i teknologien.</strong> Koden er din ved fullført betaling, og databasen er din egen. Vi vil at du blir værende fordi vi gjør en god jobb — ikke fordi det er tungvint å slutte.</p>
-  </div>
-</section>
-
 
 <!-- ───── PRIS ───── -->
 <section class="sy-price">
@@ -312,15 +339,15 @@
   </div>
 
   <div class="sp-grid">
-    <div class="sp-card sp-main">
+    <div class="sp-card sp-main" data-tilt="3.5">
       <p class="sp-label">Slik prises det</p>
-      <h3>Du får ett tall før<br>vi skriver en linje kode.</h3>
-      <p>Omfanget varierer altfor mye til at en full prisliste ville sagt deg noe ærlig. Men et startpunkt kan vi gi: et lite system — database, innlogging og adminpanel, som en jobbliste for ansatte eller et kunderegister — starter på 14 900,-, med en månedlig driftspris som avtales i tilbudet.</p>
-      <p>Vi går gjennom hva du trenger, og du får en fastpris skriftlig. På større prosjekter kan det innebære forskudd eller delbetaling underveis — det står i så fall i avtalen før vi setter i gang.</p>
+      <h3>Du får ett tall før<br>jeg skriver en linje kode.</h3>
+      <p>Omfanget varierer altfor mye til at en prisliste ville sagt deg noe ærlig. Et lite system — database, innlogging og adminpanel, som en jobbliste for ansatte eller et kunderegister — er en annen jobb enn et fagsystem for tolv ansatte. Du beskriver hva det skal gjøre, og får ett tall tilbake, med en månedlig driftspris i samme tilbud.</p>
+      <p>Jeg går gjennom hva du trenger, og du får en fastpris skriftlig. På større prosjekter kan det innebære forskudd eller delbetaling underveis — det står i så fall i avtalen før jeg setter i gang.</p>
       <div class="sp-rule"></div>
       <ul class="sp-rows">
         <li><span>Oppsett</span><span>Fastpris</span></li>
-        <li><span>Tilbud</span><span>Samme dag</span></li>
+        <li><span>Tilbud</span><span>Innen ett døgn</span></li>
         <li><span>Betalingsplan</span><span>Skriftlig først</span></li>
         <li><span>Koden</span><span>Din ved fullført betaling</span></li>
       </ul>
@@ -330,10 +357,10 @@
       </a>
     </div>
 
-    <div class="sp-card sp-note">
+    <div class="sp-card sp-note" data-tilt="3.5">
       <p class="sp-label">Viktig å vite</p>
       <h3>Drift kommer i tillegg</h3>
-      <p>Et system må kjøre et sted. Der en nettside driftes for 449,- i måneden, koster drift av et system mer — det krever serverkapasitet, databasedrift og tettere oppfølging.</p>
+      <p>Et system må kjøre et sted, og det krever serverkapasitet, databasedrift og tettere oppfølging.</p>
       <p>Hvor mye avhenger av hva som faktisk kjører. Du får en fast månedspris sammen med prosjektprisen, så begge tallene er kjent før du sier ja.</p>
       <p class="sp-note-cap">Dette er det som påvirker prisen</p>
       <ul class="sp-note-list">
@@ -358,16 +385,11 @@
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
       <h2 class="dm-head">Beskriv problemet.<br><span class="dm-lime">Ikke løsningen.</span></h2>
-      <p class="dm-text">Du trenger ikke vite om du skal ha en database, et API eller en agent. Fortell hva som tar for lang tid i hverdagen, så finner vi ut hva som må bygges — og hva som ikke må.</p>
+      <p class="dm-text">Du trenger ikke vite om du skal ha en database, et API eller en agent. Fortell hva som tar for lang tid i hverdagen, så finner jeg ut hva som må bygges — og hva som ikke må.</p>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>BOOK EN UFORPLIKTENDE PRAT</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen innlåsing i teknologien</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -382,55 +404,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -438,12 +433,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -456,6 +452,7 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

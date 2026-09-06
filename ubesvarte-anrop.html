@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ubesvarte anrop og AI-telefonsvarer | index dev.</title>
-<meta name="description" content="Rekker du ikke telefonen, tar vi imot anropet for deg. Nivå 1 sender SMS i ditt navn og henter inn hva det gjelder. Nivå 2 lar en AI ta samtalen. Du får beskjeden samlet.">
+<meta name="description" content="Rekker du ikke telefonen, tar jeg imot anropet for deg. Nivå 1 sender SMS i ditt navn og henter inn hva det gjelder. Nivå 2 lar en AI ta samtalen. Du får beskjeden samlet.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/ubesvarte-anrop.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="ai-agenter.css">
@@ -51,7 +51,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -59,13 +59,14 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero ph-kategori" id="top">
+<section class="page-hero ua-hero" id="top">
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
@@ -85,7 +86,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -93,14 +94,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -112,7 +113,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -127,11 +128,58 @@
     </div>
   </header>
 
-  <div class="ph-body">
-    <p class="ph-kicker">UBESVARTE ANROP</p>
-    <h1 class="ph-title">Telefonen ringte.<br>Du sto i en jobb.</h1>
-    <p class="ph-lead">Den som ringer venter ikke. Han ringer nummer to på lista, og da er jobben borte uten at du engang vet at den fantes. Vi tar imot anropet for deg.</p>
-    <a class="ph-link" href="kom-i-gang.html">Få et pristilbud <span aria-hidden="true">→</span></a>
+  <div class="ph-body ua-body">
+    <div class="ua-text">
+      <p class="ph-kicker">UBESVARTE ANROP</p>
+      <h1 class="ph-title">Telefonen ringte.<br>Du sto i en jobb.<br><span class="ua-lime">Kunden fikk svar likevel.</span></h1>
+      <p class="ph-lead">Den som ringer venter ikke. Han ringer nummer to på lista, og da er jobben borte uten at du engang vet at den fantes. Jeg tar imot anropet for deg.</p>
+      <a class="ph-link" href="kom-i-gang.html">Få et pristilbud <span aria-hidden="true">→</span></a>
+    </div>
+
+    <!-- Scenen: anropet kommer inn, går ubesvart, og meldingen går ut.
+         Ren CSS på en tidslinje som gjentar seg — ingen skript, og den
+         står stille ved «prefers-reduced-motion». -->
+    <div class="ua-scene" aria-hidden="true">
+      <div class="ua-phone">
+        <span class="ua-notch"></span>
+
+        <!-- Innkommende anrop, slik det ser ut paa en telefon: nummer,
+             hvor det ringer fra, og de to knappene — roed og groenn. -->
+        <div class="ua-call ua-ring">
+          <span class="ua-call-lab">Innkommende anrop</span>
+          <span class="ua-call-nr">+47 91 23 45 67</span>
+          <span class="ua-call-sub">Kunde · mobil</span>
+          <div class="ua-call-knapper">
+            <span class="ua-k ua-k-rod" title="Avvis"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><i>Avvis</i></span>
+            <span class="ua-k ua-k-gronn" title="Svar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><i>Svar</i></span>
+          </div>
+        </div>
+
+        <!-- Ubesvart, slik det staar i anropsloggen -->
+        <div class="ua-card ua-missed">
+          <span class="ua-avatar ua-avatar-red"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7 7 17M7 9v8h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="ua-line1">Ubesvart anrop</span>
+          <span class="ua-line2">+47 91 23 45 67 · 14:32</span>
+        </div>
+
+        <div class="ua-sms">
+          <span class="ua-sms-lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg>Meldinger · sendt automatisk</span>
+          <p>Så anropet ditt, ringer deg opp igjen. Hva gjelder det?</p>
+        </div>
+
+        <div class="ua-svar">
+          <p>Lekkasje under kjøkkenvasken 🙏</p>
+        </div>
+      </div>
+
+      <!-- Din side av det: beskjeden som lander hos deg etterpaa -->
+      <div class="ua-beskjed">
+        <span class="ua-beskjed-lab">Beskjed til deg · 14:34</span>
+        <div class="ua-beskjed-rad"><span>Hvem</span><b>+47 91 23 45 67</b></div>
+        <div class="ua-beskjed-rad"><span>Hva</span><b>Lekkasje under kjøkkenvask</b></div>
+        <div class="ua-beskjed-rad"><span>Haster</span><b class="ua-haster">Ja — i dag</b></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -143,13 +191,13 @@
       <h2 class="pf-head">To måter å ta imot på.<br><span class="pf-grey">Du velger hvor langt du vil gå.</span></h2>
       <div class="pf-aside">
         <p>Nivå 1 er ren tekst og krever ingen stemme. Nivå 2 lar AI-en ta selve samtalen. Begge ender på det samme: du får vite hvem som ringte og hva det gjaldt.</p>
-        <a class="pf-link" href="kontakt-oppfolging.html">Se hele kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
+        <a class="pf-link" href="tjenester.html#kontakt-oppfolging">Se hele kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="lv-grid">
-    <article class="lv-card">
+    <article class="lv-card" data-tilt="2.5">
       <span class="lv-tag">Nivå 1 — SMS</span>
       <h3>Kunden får svar på tekst</h3>
       <p>Rekker du ikke telefonen, går det ut en melding i ditt navn med en gang: at du står i en jobb, og at du ringer tilbake i dag. Kunden skriver hva det gjelder.</p>
@@ -162,7 +210,7 @@
       <p class="lv-foot">Raskest å sette opp, og ingenting kan misforstås. Det kunden skriver står svart på hvitt.</p>
     </article>
 
-    <article class="lv-card">
+    <article class="lv-card" data-tilt="2.5">
       <span class="lv-tag">Nivå 2 — AI</span>
       <h3>AI-en tar samtalen</h3>
       <p>En stemme svarer, presenterer bedriften, hører hva det gjelder og svarer på enkle spørsmål fra din egen informasjon. Etterpå får du beskjeden oppsummert.</p>
@@ -192,7 +240,7 @@
   <div class="bd-grid">
     <div class="bd-steps">
       <div class="bd-step">
-        <h3>Går anropet ubesvart, tar vi over</h3>
+        <h3>Går anropet ubesvart, tar jeg over</h3>
         <p>Rekker du telefonen, skjer ingenting. Går anropet ubesvart, slår løsningen inn: nivå 1 sender melding, nivå 2 svarer med stemme. Du bestemmer hvor lenge det skal ringe først.</p>
       </div>
       <div class="bd-step">
@@ -211,7 +259,7 @@
 
     <aside class="bd-price">
       <p class="bd-price-label">Pris</p>
-      <h3>Skriftlig tilbud, fastpris før vi bygger</h3>
+      <h3>Skriftlig tilbud, fastpris før jeg bygger</h3>
       <p>Nivå 1 er tekst og har lavest løpende kostnad. Nivå 2 bruker tale, som koster per minutt. Begge settes opp punkt for punkt i ett skriftlig tilbud.</p>
       <p>Starter du på nivå 1 og oppgraderer senere, trekkes det du alt har betalt fra.</p>
       <div class="bd-price-rule"></div>
@@ -221,7 +269,7 @@
         <li><span>Endringer i teksten</span><span>Inkludert</span></li>
         <li><span>Oppgradering fra nivå 1</span><span>Trekkes fra</span></li>
       </ul>
-      <p class="bd-price-note">Har du mange anrop i døgnet, si fra når du tar kontakt, så tar vi høyde for forbruket i tilbudet.</p>
+      <p class="bd-price-note">Har du mange anrop i døgnet, si fra når du tar kontakt, så tar jeg høyde for forbruket i tilbudet.</p>
       <a class="btn-circle bd-price-btn" href="kom-i-gang.html">
         <span>FÅ ET PRISTILBUD</span>
         <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
@@ -237,7 +285,7 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Det folk lurer på først.</h2>
       <div class="pf-aside">
-        <p>Er det noe annet du lurer på, ring 484 59 686 eller skriv til andreas@indexdevelopment.no.</p>
+        <p>Er det noe annet du lurer på, skriv til andreas@indexdevelopment.no — du får svar samme kveld — eller ring 484 59 686 etter kl. 16.</p>
       </div>
     </div>
   </div>
@@ -249,7 +297,7 @@
         <span class="qa-plus" aria-hidden="true">+</span>
       </summary>
       <div class="qa-body"><div class="qa-body-inner">
-        <p class="qa-answer">Nei. Du beholder nummeret du har i dag. Vi setter opp en viderekobling som slår inn <em>bare</em> når anropet er ubesvart.</p>
+        <p class="qa-answer">Nei. Du beholder nummeret du har i dag. Jeg setter opp en viderekobling som slår inn <em>bare</em> når anropet er ubesvart.</p>
       </div></div>
     </details>
     <details class="qa-item">
@@ -258,7 +306,7 @@
         <span class="qa-plus" aria-hidden="true">+</span>
       </summary>
       <div class="qa-body"><div class="qa-body-inner">
-        <p class="qa-answer">På nivå 1 er det ingen stemme i det hele tatt, bare en melding fra deg. På nivå 2 presenterer AI-en seg som bedriftens svartjeneste. <em>Vi later ikke som den er et menneske.</em></p>
+        <p class="qa-answer">På nivå 1 er det ingen stemme i det hele tatt, bare en melding fra deg. På nivå 2 presenterer AI-en seg som bedriftens svartjeneste. <em>Jeg later ikke som den er et menneske.</em></p>
       </div></div>
     </details>
     <details class="qa-item">
@@ -276,7 +324,7 @@
         <span class="qa-plus" aria-hidden="true">+</span>
       </summary>
       <div class="qa-body"><div class="qa-body-inner">
-        <p class="qa-answer">Norsk tale er vanskeligere enn engelsk, så vi tester på <em>ekte anrop</em> før noe settes på nummeret ditt. Holder det ikke mål, sier vi det og anbefaler nivå 1 i stedet.</p>
+        <p class="qa-answer">Norsk tale er vanskeligere enn engelsk, så jeg tester på <em>ekte anrop</em> før noe settes på nummeret ditt. Holder det ikke mål, sier jeg det og anbefaler nivå 1 i stedet.</p>
       </div></div>
     </details>
   </div>
@@ -292,7 +340,7 @@
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
       <h2 class="dm-head">Hvor mange ringer<br><span class="dm-lime">forgjeves?</span></h2>
-      <p class="dm-text">Du hører aldri fra dem du mister, for de sier ikke fra. Ta veiviseren, så ser vi på hvordan anropene dine tas imot i dag, og du får forslag og pris skriftlig.</p>
+      <p class="dm-text">Du hører aldri fra dem du mister, for de sier ikke fra. Ta veiviseren, så ser jeg på hvordan anropene dine tas imot i dag, og du får forslag og pris skriftlig.</p>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
@@ -311,55 +359,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -367,12 +388,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -385,6 +407,7 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

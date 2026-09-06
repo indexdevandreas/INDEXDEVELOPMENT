@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>API-integrasjoner — index dev.</title>
-<meta name="description" content="Vi kobler systemene du allerede bruker til hverandre — betaling, kalender, e-post og CRM — slik at data flyter automatisk i stedet for å tastes inn to ganger. Har systemet et API, kan vi koble det.">
+<meta name="description" content="Jeg kobler systemene du allerede bruker til hverandre — betaling, kalender, e-post og CRM — slik at data flyter automatisk i stedet for å tastes inn to ganger. Har systemet et API, kan jeg koble det.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/api-integrasjoner.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="api-integrasjoner.css">
@@ -20,7 +20,7 @@
   "@type": "Service",
   "serviceType": "API-integrasjoner",
   "name": "API-integrasjoner",
-  "description": "Vi kobler nettsiden og systemene en bedrift allerede bruker til hverandre via API — betaling, kalender, e-post, CRM og varsling — slik at data flyter automatisk mellom dem.",
+  "description": "Jeg kobler nettsiden og systemene en bedrift allerede bruker til hverandre via API — betaling, kalender, e-post, CRM og varsling — slik at data flyter automatisk mellom dem.",
   "url": "https://indexdevelopment.no/api-integrasjoner.html",
   "areaServed": "NO",
   "provider": {
@@ -39,7 +39,7 @@
   "offers": {
     "@type": "Offer",
     "priceCurrency": "NOK",
-    "description": "Enkel integrasjon fra 4 299 kr, betaling med Vipps eller Stripe 5 900 kr. Fagsystem, regnskap og CRM prises etter en gratis sjekk av systemene. Alt avtales skriftlig før oppstart."
+    "description": "Integrasjoner priset med skriftlig fastpris etter en gratis sjekk av systemene dine. Alt avtales skriftlig før oppstart."
   }
 }
 </script>
@@ -62,7 +62,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -70,6 +70,7 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
@@ -77,6 +78,10 @@
 <main>
 <!-- ───── SIDEHERO ───── -->
 <section class="page-hero api-hero" id="top">
+  <!-- To systemer som to loese klynger, og én linje mellom dem der
+       lyset gaar: det er hele jobben, som bakgrunn. Roerledningen med
+       navn ligger fortsatt oppaa. -->
+  <div class="sy-scene" aria-hidden="true"><svg class="ap2-graf" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="ap2Glo" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="#1b5fb0" stop-opacity="0.38"/><stop offset="1" stop-color="#0a4a92" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="800" fill="url(#ap2Glo)"/><g class="ap2-v"><circle cx="127.6" cy="452.1" r="5.2" fill="#96cdf2" fill-opacity="0.48"/><path d="M230 430L127.6 452.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="119.6" cy="426.2" r="2.6" fill="#96cdf2" fill-opacity="0.51"/><path d="M230 430L119.6 426.2" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="137.4" cy="361.1" r="2.3" fill="#96cdf2" fill-opacity="0.40"/><path d="M230 430L137.4 361.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="345.5" cy="481.8" r="4.4" fill="#96cdf2" fill-opacity="0.27"/><path d="M230 430L345.5 481.8" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="384.8" cy="417.8" r="4.3" fill="#96cdf2" fill-opacity="0.56"/><path d="M230 430L384.8 417.8" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="253" cy="454.5" r="3.8" fill="#96cdf2" fill-opacity="0.28"/><path d="M230 430L253 454.5" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="255.3" cy="475" r="2.1" fill="#96cdf2" fill-opacity="0.48"/><path d="M230 430L255.3 475" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="98.6" cy="466.1" r="3.8" fill="#96cdf2" fill-opacity="0.57"/><path d="M230 430L98.6 466.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="110.5" cy="430.1" r="3.6" fill="#96cdf2" fill-opacity="0.39"/><path d="M230 430L110.5 430.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="389.5" cy="428.3" r="4.9" fill="#96cdf2" fill-opacity="0.60"/><path d="M230 430L389.5 428.3" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="203.1" cy="473.4" r="3.0" fill="#96cdf2" fill-opacity="0.29"/><path d="M230 430L203.1 473.4" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="239" cy="368.7" r="5.0" fill="#96cdf2" fill-opacity="0.44"/><path d="M230 430L239 368.7" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="366.8" cy="404.1" r="2.0" fill="#96cdf2" fill-opacity="0.35"/><path d="M230 430L366.8 404.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="311.5" cy="393.9" r="5.4" fill="#96cdf2" fill-opacity="0.45"/><path d="M230 430L311.5 393.9" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="333.6" cy="465.8" r="4.7" fill="#96cdf2" fill-opacity="0.38"/><path d="M230 430L333.6 465.8" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="298.2" cy="459.1" r="5.4" fill="#96cdf2" fill-opacity="0.63"/><path d="M230 430L298.2 459.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/></g><g class="ap2-h"><circle cx="852.6" cy="393.2" r="4.3" fill="#96cdf2" fill-opacity="0.32"/><path d="M970 380L852.6 393.2" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1054.8" cy="384.1" r="3.0" fill="#96cdf2" fill-opacity="0.66"/><path d="M970 380L1054.8 384.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="929.1" cy="306.9" r="4.0" fill="#96cdf2" fill-opacity="0.58"/><path d="M970 380L929.1 306.9" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1026.7" cy="431.4" r="2.6" fill="#96cdf2" fill-opacity="0.70"/><path d="M970 380L1026.7 431.4" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1098.9" cy="415" r="2.3" fill="#96cdf2" fill-opacity="0.59"/><path d="M970 380L1098.9 415" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="924" cy="433" r="4.9" fill="#96cdf2" fill-opacity="0.26"/><path d="M970 380L924 433" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1109" cy="419.1" r="3.8" fill="#96cdf2" fill-opacity="0.30"/><path d="M970 380L1109 419.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1123.1" cy="371.3" r="2.4" fill="#96cdf2" fill-opacity="0.46"/><path d="M970 380L1123.1 371.3" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1021.2" cy="420.7" r="4.2" fill="#96cdf2" fill-opacity="0.33"/><path d="M970 380L1021.2 420.7" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="954.9" cy="349.5" r="2.6" fill="#96cdf2" fill-opacity="0.66"/><path d="M970 380L954.9 349.5" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="896.8" cy="417" r="4.1" fill="#96cdf2" fill-opacity="0.49"/><path d="M970 380L896.8 417" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="937.3" cy="400.3" r="4.5" fill="#96cdf2" fill-opacity="0.73"/><path d="M970 380L937.3 400.3" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1088.3" cy="367.6" r="3.2" fill="#96cdf2" fill-opacity="0.43"/><path d="M970 380L1088.3 367.6" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="925.6" cy="301.3" r="2.4" fill="#96cdf2" fill-opacity="0.37"/><path d="M970 380L925.6 301.3" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="903.8" cy="433.7" r="4.8" fill="#96cdf2" fill-opacity="0.50"/><path d="M970 380L903.8 433.7" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/><circle cx="1106.5" cy="397.1" r="3.5" fill="#96cdf2" fill-opacity="0.51"/><path d="M970 380L1106.5 397.1" stroke="#96cdf2" stroke-opacity="0.18" stroke-width="1"/></g><path d="M230 430C420 430 520 300 600 300C680 300 760 380 970 380" fill="none" stroke="#6cb0dd" stroke-opacity="0.35" stroke-width="1.6"/><path class="ap2-strom" d="M230 430C420 430 520 300 600 300C680 300 760 380 970 380" fill="none" stroke="#d4ff3d" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="70 900"/><circle cx="230" cy="430" r="6" fill="#96cdf2"/><circle cx="970" cy="380" r="6" fill="#96cdf2"/></svg></div>
 
   <header class="hero-nav">
     <div class="hero-brand">
@@ -97,7 +102,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -105,14 +110,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -124,7 +129,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -142,7 +147,7 @@
   <div class="ph-body api-body">
     <p class="ph-kicker">API-integrasjoner</p>
     <h1 class="ph-title">Systemene dine<br>snakker ikke sammen.</h1>
-    <p class="ph-lead">Vi kobler sammen systemene du allerede bruker, så du slutter å taste det samme inn to ganger.</p>
+    <p class="ph-lead">Jeg kobler sammen systemene du allerede bruker, så du slutter å taste det samme inn to ganger.</p>
     <a class="ph-link" href="kontakt.html">Sjekk om det lar seg koble <span aria-hidden="true">→</span></a>
   </div>
 
@@ -204,7 +209,7 @@
   <div class="platform-top pt-inline">
     <p class="pf-eyebrow"><span class="pf-sq"></span>HVA SOM KAN KOBLES</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Har systemet et API, kan vi koble det.</h2>
+      <h2 class="pf-head">Har systemet et API, kan jeg koble det.</h2>
       <div class="pf-aside">
         <p>To ting avgjør om det går: at systemet har et åpent API, og at du får tak i nøkkelen til din egen konto. Er begge på plass, er koblingen som regel en kjapp jobb.</p>
         <a class="pf-link" href="systemutvikling.html">Se all systemutvikling <span class="pf-link-arrow">→</span></a>
@@ -214,11 +219,11 @@
 
   <p class="wr-note">
     <span class="wr-note-mark" aria-hidden="true">i</span>
-    Vi kobler systemene sammen — vi drifter dem ikke. Skal noe settes opp inne i regnskapet eller CRM-et ditt, er det regnskapsføreren eller leverandøren din som eier den biten.
+    Jeg kobler systemene sammen — jeg drifter dem ikke. Skal noe settes opp inne i regnskapet eller CRM-et ditt, er det regnskapsføreren eller leverandøren din som eier den biten.
   </p>
 
   <div class="wr-list">
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">Betaling</p>
       <div class="wr-chips">
         <span>Vipps</span><span>Stripe</span><span>Klarna</span><span class="wr-open">andre med API</span>
@@ -226,15 +231,15 @@
       <p class="wr-what">Betalingen registreres på riktig ordre automatisk, i stedet for at du krysser av manuelt.</p>
     </div>
 
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">Regnskap</p>
       <div class="wr-chips">
         <span>Fiken</span><span>Tripletex</span><span>PowerOffice</span><span class="wr-open">andre med API</span>
       </div>
-      <p class="wr-what">Vi sender salgsdataene dit — men vi setter ikke opp regnskapet ditt.</p>
+      <p class="wr-what">Jeg sender salgsdataene dit — men jeg setter ikke opp regnskapet ditt.</p>
     </div>
 
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">E-post og CRM</p>
       <div class="wr-chips">
         <span>Mailchimp</span><span>Brevo</span><span>HubSpot</span><span class="wr-open">andre med API</span>
@@ -242,7 +247,7 @@
       <p class="wr-what">Nye kunder og henvendelser legger seg i riktig liste, med riktig merkelapp, med en gang.</p>
     </div>
 
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">Kalender</p>
       <div class="wr-chips">
         <span>Google Calendar</span><span>Outlook</span>
@@ -250,7 +255,7 @@
       <p class="wr-what">Bookinger dukker opp i kalenderen din, og opptatte tider forsvinner fra nettsiden.</p>
     </div>
 
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">Varsling</p>
       <div class="wr-chips">
         <span>SMS</span><span>E-post</span><span>Slack</span>
@@ -258,17 +263,17 @@
       <p class="wr-what">Du får beskjed når noe krever deg — og slipper å sjekke fire steder for å være sikker.</p>
     </div>
 
-    <div class="wr-row">
+    <div class="wr-row" data-tilt="2.5">
       <p class="wr-cat">Ditt eget system</p>
       <div class="wr-chips">
         <span>Webhooks</span><span>REST</span><span class="wr-open">bransjesystemer</span>
       </div>
-      <p class="wr-what">Har du et fagsystem med et åpent grensesnitt, kobler vi mot det på samme måte.</p>
+      <p class="wr-what">Har du et fagsystem med et åpent grensesnitt, kobler jeg mot det på samme måte.</p>
     </div>
   </div>
 
   <div class="wr-note">
-    <p><strong>Én ærlig forbehold:</strong> vi kan bare koble systemer som faktisk tilbyr et API. Noen eldre bransjesystemer gjør ikke det, og da hjelper ingen kode. Send oss navnet på systemet, så finner vi ut av det — det koster deg ingenting, og du får et rett svar enten det er ja eller nei.</p>
+    <p><strong>Én ærlig forbehold:</strong> jeg kan bare koble systemer som faktisk tilbyr et API. Noen eldre bransjesystemer gjør ikke det, og da hjelper ingen kode. Send meg navnet på systemet, så finner jeg ut av det — det koster deg ingenting, og du får et rett svar enten det er ja eller nei.</p>
   </div>
 </section>
 
@@ -292,17 +297,17 @@
       <div class="pr-cell">
         <p class="pr-label">Først</p>
         <p class="pr-val">Sjekk av systemene — 0,-</p>
-        <p>Vi undersøker om systemene dine kan snakke sammen i det hele tatt. Kan de ikke det, sier vi det rett ut og du har ikke betalt noe.</p>
+        <p>Jeg undersøker om systemene dine kan snakke sammen i det hele tatt. Kan de ikke det, sier jeg det rett ut og du har ikke betalt noe.</p>
       </div>
       <div class="pr-cell">
         <p class="pr-label">Deretter</p>
-        <p class="pr-val">Oppsett — fra 4 299,-</p>
-        <p>En enkel kobling — skjema, kalender eller e-post — starter på 4 299,-. Betaling med Vipps eller Stripe på nettsiden: 5 900,-. Fagsystem, regnskap og CRM prises etter sjekken, skriftlig før vi skriver kode.</p>
+        <p class="pr-val">Oppsett — fastpris skriftlig</p>
+        <p>En enkel kobling — skjema, kalender eller e-post — er en mindre jobb enn betaling, fagsystem eller regnskap. Alt prises etter sjekken, skriftlig før jeg skriver kode.</p>
       </div>
       <div class="pr-cell">
         <p class="pr-label">Løpende</p>
         <p class="pr-val">Drift — fast per måned</p>
-        <p>En integrasjon må holdes i live når systemene den kobler endrer seg. Er du alt driftskunde, inngår det i avtalen din.</p>
+        <p>En integrasjon må holdes i live når systemene den kobler endrer seg.</p>
       </div>
     </div>
 
@@ -327,16 +332,11 @@
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
       <h2 class="dm-head">Hva taster du inn<br><span class="dm-lime">to ganger i uka?</span></h2>
-      <p class="dm-text">Det er som regel der den første integrasjonen skal ligge. Fortell oss hvilke systemer du bruker og hva du flytter mellom dem for hånd, så sier vi om det lar seg automatisere.</p>
+      <p class="dm-text">Det er som regel der den første integrasjonen skal ligge. Fortell meg hvilke systemer du bruker og hva du flytter mellom dem for hånd, så sier jeg om det lar seg automatisere.</p>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>SEND EN BESKRIVELSE</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis å sjekke</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Fastpris skriftlig først</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Dine egne kontoer</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -351,55 +351,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -407,12 +380,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -425,6 +399,7 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

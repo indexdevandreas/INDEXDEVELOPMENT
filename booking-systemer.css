@@ -28,14 +28,14 @@
 /* ═══════════════════════════════════════════════════════════
    SLIK GJØR KUNDEN DET — ren typografi, ingen kort
    ═══════════════════════════════════════════════════════════ */
-.bo-flow { background: #fff; padding: 130px 0 110px; }
+.bo-flow { background: #fff; padding: 158px 0 134px; }
 .fl-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0 56px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .fl-step { padding-top: 26px; border-top: 1px solid rgba(10,10,10,0.14); }
 .fl-n {
@@ -57,9 +57,9 @@
 .fl-step p { font-size: 15.5px; line-height: 1.62; color: rgba(10,10,10,0.62); }
 
 @media (max-width: 900px) {
-  .bo-flow { padding: 90px 0 70px; }
+  .bo-flow { padding: 110px 0 86px; }
   .fl-grid { grid-template-columns: 1fr; gap: 0; }
-  .fl-step { padding: 26px 0 30px; }
+  .fl-step { padding: 32px 0 36px; }
   .fl-n { margin-bottom: 18px; }
 }
 
@@ -67,18 +67,18 @@
 /* ═══════════════════════════════════════════════════════════
    HVA DU SLIPPER — store påstander på hårfine linjer
    ═══════════════════════════════════════════════════════════ */
-.bo-skip { background: #fff; padding: 20px 0 120px; }
+.bo-skip { background: #fff; padding: 20px 0 146px; }
 .sk-list {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .sk-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
-  gap: 44px;
+  gap: 50px;
   align-items: baseline;
-  padding: 34px 0;
+  padding: 40px 0;
   border-top: 1px solid rgba(10,10,10,0.14);
 }
 .sk-list .sk-row:last-child { border-bottom: 1px solid rgba(10,10,10,0.14); }
@@ -99,22 +99,22 @@
 .sk-why { font-size: 15px; line-height: 1.62; color: rgba(10,10,10,0.6); }
 
 @media (max-width: 860px) {
-  .bo-skip { padding: 0 0 90px; }
-  .sk-row { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+  .bo-skip { padding: 0 0 110px; }
+  .sk-row { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; }
 }
 
 
 /* ═══════════════════════════════════════════════════════════
    PRIS — én rolig blokk
    ═══════════════════════════════════════════════════════════ */
-.bo-price { background: #fff; padding: 20px 0 130px; }
+.bo-price { background: #fff; padding: 20px 0 158px; }
 .bp-band {
   border-radius: 22px;
   background: #0d0d0d;
   color: #fff;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 48px 48px 44px;
+  padding: 58px 58px 52px;
 }
 .bp-head {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -137,7 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 32px;
   flex-wrap: wrap;
   margin-top: 36px;
   padding-top: 30px;
@@ -154,6 +154,29 @@
 }
 
 @media (max-width: 900px) {
-  .bo-price { padding: 0 0 90px; }
-  .bp-band { margin: 0 24px; padding: 34px 26px 32px; }
+  .bo-price { padding: 0 0 110px; }
+  .bp-band { margin: 0 24px; padding: 40px 32px 38px; }
 }
+
+/* ═══ Hero: prikkfeltet ═══
+   Fotoet er borte. Prikkene er timene i en uke; de lime er ledige.
+   Feltet er tettest nede til hoeyre og forsvinner oppe til venstre,
+   der nav-en og tittelen staar. */
+.page-hero.bo-hero2 { background: #07070a; }
+.bo-hero2 .sy-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.bo2-graf { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bo-hero2 .ph-veil {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(7,7,10,0.75) 0%, rgba(7,7,10,0.2) 30%, rgba(7,7,10,0.5) 68%, rgba(7,7,10,0.94) 100%);
+}
+@keyframes bo2Puls { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.35); } }
+.bo2-l { transform-box: fill-box; transform-origin: center; animation: bo2Puls 5s ease-in-out infinite; filter: drop-shadow(0 0 6px rgba(212,255,61,0.8)); }
+.bo2-l:nth-of-type(2) { animation-delay: 0.9s; }
+.bo2-l:nth-of-type(3) { animation-delay: 1.8s; }
+.bo2-l:nth-of-type(4) { animation-delay: 2.7s; }
+.bo2-l:nth-of-type(5) { animation-delay: 3.6s; }
+.bo2-l:nth-of-type(6) { animation-delay: 4.5s; }
+@keyframes bo2Drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-10px, 6px); } }
+.bo2-felt { animation: bo2Drift 16s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .bo2-l, .bo2-felt { animation: none; } }

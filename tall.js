@@ -18,7 +18,11 @@
     '.in-price-amount',  // webdesign: fra 2 900
     '.pk-price',         // priser: pakkeprisene
     '.pk-drift-num',     // priser: 199 / fra 14 900
-    '.sp-amount'         // priser: fra 2 900
+    '.sp-amount',        // priser: fra 2 900
+    '.sp-rows dd',       // priser: prislinjene i fastpris-kortet
+    '.ag-price-amount',  // ai-agenter
+    '.dp-amount',        // drift: 449
+    '.bp-amount',        // booking
   ].join(', ');
 
   var el = document.querySelectorAll(SELEKTORER);

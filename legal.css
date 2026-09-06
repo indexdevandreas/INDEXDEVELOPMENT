@@ -4,7 +4,7 @@
    bare til selve innholdsflaten for juridisk tekst.
    ─────────────────────────────────────────────────────────── */
 
-.legal { padding: 46px 24px 110px; }
+.legal { padding: 56px 28px 134px; }
 .legal-wrap {
   max-width: 860px;
   margin: 0 auto;
@@ -17,7 +17,7 @@
 .legal-card {
   background: #f4f4f2;
   border-radius: 18px;
-  padding: 38px 42px;
+  padding: 46px 50px;
 }
 .legal-num {
   display: inline-flex;
@@ -81,7 +81,7 @@
 .legal-infobox {
   background: #fff;
   border-radius: 12px;
-  padding: 22px 26px;
+  padding: 22px 32px;
   margin-top: 16px;
   display: flex;
   flex-direction: column;
@@ -150,8 +150,8 @@
 .nf-links a:hover { color: #fff; }
 
 @media (max-width: 720px) {
-  .legal { padding: 30px 14px 80px; }
-  .legal-card { padding: 26px 22px; border-radius: 14px; }
+  .legal { padding: 36px 14px 98px; }
+  .legal-card { padding: 32px 22px; border-radius: 14px; }
   .legal-partners { grid-template-columns: 1fr; }
 }
 
@@ -172,7 +172,7 @@
 
 /* Statistikk-fliser */
 .lx-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-.lx-stat { background: #fff; border-radius: 12px; padding: 22px 24px; }
+.lx-stat { background: #fff; border-radius: 12px; padding: 22px 28px; }
 .lx-stat-num {
   font-size: 40px; font-weight: 700; letter-spacing: -0.03em;
   color: #0a0a0a; line-height: 1;

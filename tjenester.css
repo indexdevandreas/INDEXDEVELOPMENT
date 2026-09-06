@@ -3,110 +3,131 @@
    Delt designsystem ligger i sider.css og må lastes først.
    ─────────────────────────────────────────────────────────── */
 
-/* ═══ Sidehero — mørk flate med tjenesteregister.
-   Selve skallet (.page-hero) ligger i sider.css og deles med de
-   andre undersidene. Her ligger kun det som er unikt for denne
-   siden: gløden og registeret til høyre. ═══ */
-/* Svakt limeskjær i hjørnet så flaten ikke blir helt død */
-.page-hero::before {
-  content: "";
-  position: absolute;
-  top: -22%; right: -8%;
-  width: 58%; height: 88%;
-  background: radial-gradient(ellipse at center, rgba(212,255,61,0.16) 0%, transparent 68%);
-  pointer-events: none;
+/* ═══ Sidehero — samme skall og samme typografi som de andre
+   undersidene (.page-hero, .ph-kicker, .ph-title, .ph-lead, .ph-link
+   fra sider.css). Det som er unikt her: et stille register til høyre,
+   bygget som «OMFATTER»-listen på forsidens kort — tynne streker,
+   ikke fargede bokser. ═══ */
+.page-hero.tj-hero {
+  min-height: min(80vh, 780px);
+  background:
+    radial-gradient(70% 60% at 88% 12%, rgba(26,58,120,0.42) 0%, transparent 62%),
+    radial-gradient(50% 40% at 10% 100%, rgba(10,74,146,0.22) 0%, transparent 70%),
+    #07070a;
 }
 
 .ph-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
-  gap: 80px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 96px;
   align-items: center;
-  padding: 74px 48px 84px;
+  flex: 1;
+  padding: 56px 56px 84px;
 }
 
-.ph-eyebrow {
-  display: inline-flex; align-items: center; gap: 11px;
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 12px; letter-spacing: 0.19em;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 30px;
-}
-.ph-eyebrow::before { content: ""; width: 5px; height: 5px; background: var(--lime); }
-.ph-left h1 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(44px, 4.6vw, 72px);
-  font-weight: 400;
-  letter-spacing: -0.018em;
-  line-height: 1.04;
-  color: #fff;
-  max-width: 14ch;
+.tj-hero .ph-title {
+  font-size: clamp(38px, 4.2vw, 62px);
+  max-width: 12ch;
 }
 .ph-lime { color: var(--lime); }
-.ph-sub {
-  margin-top: 26px;
-  font-size: 16.5px;
-  line-height: 1.62;
-  color: rgba(255,255,255,0.6);
-  max-width: 460px;
-}
-.ph-cta { margin-top: 38px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.ph-btn { --cap: 42px; --pad: 7px; gap: 20px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.1em; }
-.ph-note { font-size: 13.5px; color: rgba(255,255,255,0.5); }
+.tj-hero .ph-lead { max-width: 46ch; }
 
-/* ─── Tjenesteregisteret til høyre ─── */
+.ph-cta {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.tj-hero .ph-link { margin-top: 0; }
+.ph-note {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ─── Registeret til høyre ─── */
 .pi-head {
-  display: flex; justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(255,255,255,0.42);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 .ph-index { list-style: none; }
 .ph-index a {
   display: grid;
-  grid-template-columns: 34px 1fr auto 22px;
+  grid-template-columns: 30px minmax(0, 1fr) 22px;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
   align-items: center;
-  gap: 16px;
-  padding: 17px 10px 17px 4px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 18px 0 17px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   color: #fff;
-  transition: background 0.22s, padding-left 0.26s;
+  transition: padding-left 0.26s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.ph-index a:hover { background: rgba(255,255,255,0.05); padding-left: 14px; }
+.ph-index a:hover { padding-left: 6px; }
 .pi-n {
+  grid-column: 1;
+  grid-row: 1 / 3;
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.14em;
-  color: rgba(255,255,255,0.38);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.4);
 }
-.pi-name { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; }
+.pi-name {
+  grid-column: 2;
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  transition: color 0.22s;
+}
 .pi-price {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.45);
-  white-space: nowrap;
+  grid-column: 2;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.5);
 }
-.pi-arrow { color: var(--lime); font-size: 14px; opacity: 0; transition: opacity 0.22s, transform 0.22s; }
+.pi-arrow {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  color: var(--lime);
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.22s, transform 0.22s;
+}
 .ph-index a:hover .pi-arrow { opacity: 1; transform: translateX(3px); }
 .ph-index a:hover .pi-name { color: var(--lime); }
+/* Drift er ikke et fjerde område — den står med lime prikk, dempet navn */
+.pi-drift .pi-n { color: var(--lime); font-size: 26px; line-height: 0.5; }
+.pi-drift .pi-name { color: rgba(255,255,255,0.78); }
 
 @media (max-width: 1050px) {
+  .page-hero.tj-hero { min-height: 0; }
   /* minmax(0, 1fr) og ikke bare «1fr»: sistnevnte har min-content som
-     minstemål, så innholdsregisteret sprengte kolonnen 38px bredere
-     enn forelderen på smale telefoner. */
-  .ph-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 60px 24px 64px; }
+     minstemål, så registeret sprengte kolonnen på smale telefoner. */
+  .ph-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; padding: 40px 24px 56px; }
+  .tj-hero .ph-title { font-size: clamp(34px, 8vw, 46px); max-width: none; }
+  .pi-head { flex-direction: column; gap: 4px; }
+}
+@media (max-width: 560px) {
+  .ph-grid { padding: 28px 18px 44px; }
 }
 
 /* ═══ Tjenesterader — brede rader, ikke kortrutenett ═══ */
-.svc-list { background: #fff; padding: 20px 0 40px; }
-.svc-rows { max-width: 1290px; margin: 0 auto; padding: 0 24px; }
+.svc-list { background: #fff; padding: 20px 0 48px; }
+.svc-rows { max-width: 1290px; margin: 0 auto; padding: 0 28px; }
 .svc-row {
   display: grid;
   grid-template-columns: 62px minmax(0, 1fr) minmax(0, 1.15fr) 190px;
   gap: 0 44px;
   align-items: start;
-  padding: 46px 0;
+  padding: 44px 0;
   border-top: 1px solid rgba(10,10,10,0.12);
   color: #0a0a0a;
   transition: background 0.25s;
@@ -119,6 +140,8 @@
   color: rgba(10,10,10,0.4);
   padding-top: 10px;
 }
+/* Driftsraden har «·» som indeks — i 11px mono ble det et støvkorn */
+#drift .svc-i { font-size: 28px; line-height: 0.5; color: #0a0a0a; padding-top: 18px; }
 .svc-name {
   font-size: clamp(24px, 2.3vw, 34px);
   font-weight: 600;
@@ -129,16 +152,8 @@
   font-size: 15.5px;
   line-height: 1.62;
   color: rgba(10,10,10,0.62);
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
-.svc-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.svc-tags span {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
-  background: #f1f1ef; border-radius: 999px;
-  padding: 7px 13px; color: rgba(10,10,10,0.62);
-}
-.svc-row:hover .svc-tags span { background: #fff; }
 .svc-side { text-align: right; padding-top: 6px; }
 .svc-price {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -146,6 +161,15 @@
   display: block; margin-bottom: 4px;
 }
 .svc-price .kr { font-size: 0.5em; }
+/* «Tilbud» og «Ofte inkl.» er etiketter, ikke beløp — skal ikke settes
+   i prisfonten, da leses de som en pris. Alle radene bruker samme stil. */
+.svc-price.is-text {
+  font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding-top: 8px;
+}
 .svc-per {
   display: block;
   font-family: 'Geist Mono', ui-monospace, monospace;
@@ -161,13 +185,13 @@
 .svc-row:hover .pf-link-arrow { transform: translateX(4px); }
 
 /* ═══ Prosess — nummererte felt i lime/sort ═══ */
-.proc { background: #fff; padding: 40px 0 120px; }
+.proc { background: #fff; padding: 48px 0 146px; }
 .proc-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-  max-width: 1290px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+  max-width: 1290px; margin: 0 auto; padding: 0 28px;
 }
 .proc-card {
-  border-radius: 18px; padding: 34px 32px 32px;
+  border-radius: 18px; padding: 40px 38px 38px;
   min-height: 260px; display: flex; flex-direction: column;
   background: #f1f1ef; color: #0a0a0a;
 }
@@ -184,23 +208,10 @@
   margin: 26px 0 10px; color: inherit;
 }
 .proc-card p { font-size: 14.5px; line-height: 1.58; opacity: 0.7; }
-/* Kort som inviterer videre får en lenke. .pf-link er sort, så den må
-   snus på det mørke kortet — samme grep som .cv-dark .pf-link. */
-.proc-card .pf-link { margin-top: 20px; align-self: flex-start; }
-.proc-card.is-dark .pf-link { color: #fff; border-bottom-color: rgba(255,255,255,0.45); }
 
 @media (max-width: 1000px) {
-  .svc-row { grid-template-columns: 1fr; gap: 16px; }
+  .svc-row { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
   .svc-side { text-align: left; }
+  .svc-price.is-text { padding-top: 0; }
   .proc-grid { grid-template-columns: 1fr; }
-  .ph-inner { padding: 70px 24px 56px; }
-}
-
-/* «Kontakt» er en etikett, ikke et beløp — skal ikke settes i
-   prisfonten, da leses det som en pris. */
-.svc-price.is-text {
-  font-family: 'Geist', 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }

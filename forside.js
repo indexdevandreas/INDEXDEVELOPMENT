@@ -28,7 +28,6 @@
     '.pf-cards',
     '.s2-grid',
     '.cv3d',
-    '.rv-grid',
     '.sv-grid',
     '.mg-band',
     '.nk-panel',
@@ -195,6 +194,11 @@
          skjules den (visibility) — ellers titter den fram i luften
          rundt footeren og CTA-båndet — og glasset slutter å tegne. */
       hero.classList.toggle('is-past', p >= 1);
+      /* Mens heroen glir bort (0 < --sp < 1) fryser glasset — hele
+         flaten roterer og krymper uansett, så ingen ser at bølgene
+         står stille, og telefonen slipper å tegne shaderen oppå
+         rotasjonen. forside-3d.js leser klassen. */
+      hero.classList.toggle('is-receding', p > 0.002 && p < 1);
       if (fine) measureBtn();
     }
     function onScroll() {
@@ -354,7 +358,10 @@
         panel.classList.toggle('is-live', live);
       }
       if (live) {
-        travel = Math.round(Math.max(280, Math.min(460, window.innerHeight * 0.45)));
+        /* Var 0,45 skjermhøyder — byttet fra 01 til 02 gikk unna på ett
+           hjulsveip og leste som et hopp. Nå litt over én skjermhøyde,
+           så vippen og ordskyggen får tid til å skje. */
+        travel = Math.round(Math.max(640, Math.min(1100, window.innerHeight * 1.1)));
         wrap.style.height = (panel.offsetHeight + travel) + 'px';
         start = wrap.getBoundingClientRect().top + window.scrollY - TOP;
       } else {
@@ -395,6 +402,57 @@
     window.addEventListener('resize', function () {
       if (window.innerWidth !== lastW || Math.abs(window.innerHeight - lastH) > 150) measure();
     });
+    window.addEventListener('load', measure);
+    measure();
+  })();
+
+  /* ═══ 3e. Kunden sier: ordene skarpnes ett for ett ═══
+     Sitatet deles i ord (--i), og --qp går 0 → 1 mens seksjonen ruller
+     fra 85 % til 35 % av vinduet. Ingen rulling stjeles. */
+  (function () {
+    var sec = document.querySelector('.quote2');
+    var wrap = sec && sec.querySelector('[data-quote]');
+    var para = wrap && wrap.querySelector('.qt-p');
+    if (!sec || !para || reduce) return;
+    var words = para.textContent.trim().split(/\s+/);
+    para.textContent = '';
+    words.forEach(function (w, i) {
+      var sp = document.createElement('span');
+      sp.className = 'qt-w';
+      sp.style.setProperty('--i', i);
+      sp.textContent = w;
+      para.appendChild(sp);
+      if (i < words.length - 1) para.appendChild(document.createTextNode(' '));
+    });
+    para.style.setProperty('--n', words.length);
+    sec.classList.add('is-live');
+
+    var start = 0, travel = 1, inView = false, ticking = false, qp = -1;
+    /* Strekningen regnes ut av faktisk geometri, ikke av et fast tall:
+       den starter mens sitatet er på vei opp, og er ferdig i det
+       .qt-wrap slutter å stå fast (eller, uten sticky, når seksjonen er
+       på vei ut). Da varer den så lenge seksjonen er høy. */
+    function measure() {
+      var vh = window.innerHeight || 1;
+      var secTop = sec.getBoundingClientRect().top + window.scrollY;
+      var stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
+      var slutt = secTop + sec.offsetHeight - wrap.offsetHeight - stickyTop;
+      start = secTop - vh * 0.55;
+      travel = Math.max(vh * 0.5, slutt - start);
+      qp = -1; frame();
+    }
+    function frame() {
+      ticking = false;
+      var p = (window.scrollY - start) / travel;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      if (p === qp) return;
+      qp = p;
+      wrap.style.setProperty('--qp', p.toFixed(4));
+    }
+    function onScroll() { if (inView && !ticking) { ticking = true; requestAnimationFrame(frame); } }
+    new IntersectionObserver(function (en) { inView = en[0].isIntersecting; if (inView) onScroll(); }, { rootMargin: '30% 0px' }).observe(wrap);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
     window.addEventListener('load', measure);
     measure();
   })();

@@ -76,6 +76,9 @@
          glasset hvert åttende sekund, og gløden i flaten flytter seg.
          Det sterke skjer der pekeren er (uM/uP i shaderen). */
       speed: 1.5, dpr: 1.25, scale: 1, still: 11.0, drift: 1.0,
+      /* Telefon: 1× holder. 1,25× på en 3×-skjerm er uansett uskarpt,
+         og det er 36 % færre piksler å regne for hvert bilde. */
+      dprTouch: 1.0,
       /* uv er normalisert på høyden: y går fra -0.5 (bunn) til 0.5
          (topp), x fra -aspekt/2 til aspekt/2.
          Landskap: teksten står til venstre → roes mot venstre og
@@ -234,7 +237,8 @@
     var asp = 1, hovering = false, driven = false;
 
     function size() {
-      var dpr = Math.min(window.devicePixelRatio || 1, P.dpr) * P.scale;
+      var cap = (!fine && P.dprTouch) ? P.dprTouch : P.dpr;
+      var dpr = Math.min(window.devicePixelRatio || 1, cap) * P.scale;
       var w = canvas.clientWidth, h = canvas.clientHeight;
       if (!w || !h) return false;
       var W = (w * dpr) | 0, H = (h * dpr) | 0;
@@ -328,6 +332,10 @@
          for observeren. forside.js setter is-past når arket har dekket
          den — da er det ingenting å tegne for. */
       if (parent.classList.contains('is-past')) { prev = 0; return; }
+      /* … og mens den glir bort (is-receding, forside.js) står siste
+         bilde: flaten roterer og krymper, så stillstanden synes ikke,
+         og telefonen slipper shaderen oppå rotasjonen. */
+      if (parent.classList.contains('is-receding')) { prev = 0; return; }
       if (now - prev < minGap) return;
       if (prev) acc += (now - prev) / 1000 * P.speed;
       prev = now;

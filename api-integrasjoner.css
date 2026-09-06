@@ -28,16 +28,16 @@
 /* ═══════════════════════════════════════════════════════════
    FØR / ETTER — to spalter satt rett mot hverandre
    ═══════════════════════════════════════════════════════════ */
-.ai-vs { background: #fff; padding: 130px 0 110px; }
+.ai-vs { background: #fff; padding: 158px 0 134px; }
 .vs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
   border-top: 1px solid rgba(10,10,10,0.12);
 }
-.vs-col { padding: 34px 0 8px; }
+.vs-col { padding: 40px 0 8px; }
 .vs-col + .vs-col {
   border-left: 1px solid rgba(10,10,10,0.12);
   padding-left: 44px;
@@ -101,7 +101,7 @@
 .vs-after .vs-foot { color: #0a0a0a; font-weight: 500; }
 
 @media (max-width: 860px) {
-  .ai-vs { padding: 90px 0 70px; }
+  .ai-vs { padding: 110px 0 86px; }
   .vs-grid { grid-template-columns: 1fr; }
   .vs-col:first-child { padding-right: 0; padding-bottom: 26px; }
   .vs-col + .vs-col {
@@ -115,18 +115,18 @@
 /* ═══════════════════════════════════════════════════════════
    KOBLINGSLISTE — som et koblingsskjema, ikke kort
    ═══════════════════════════════════════════════════════════ */
-.ai-wire { background: #fff; padding: 20px 0 120px; }
+.ai-wire { background: #fff; padding: 20px 0 146px; }
 .wr-list {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .wr-row {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr) minmax(0, 0.9fr);
   gap: 0 44px;
   align-items: start;
-  padding: 30px 0;
+  padding: 36px 0;
   border-top: 1px solid rgba(10,10,10,0.12);
 }
 .wr-list .wr-row:last-child { border-bottom: 1px solid rgba(10,10,10,0.12); }
@@ -160,7 +160,7 @@
 .wr-note {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 32px 24px 0;
+  padding: 38px 28px 0;
 }
 .wr-note p {
   font-size: 15.5px;
@@ -171,8 +171,8 @@
 .wr-note strong { color: #0a0a0a; font-weight: 600; }
 
 @media (max-width: 980px) {
-  .ai-wire { padding: 0 0 90px; }
-  .wr-row { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+  .ai-wire { padding: 0 0 110px; }
+  .wr-row { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; }
   .wr-cat { padding-top: 0; }
 }
 
@@ -180,7 +180,7 @@
 /* ═══════════════════════════════════════════════════════════
    PRIS — ett bredt bånd, ikke to kort
    ═══════════════════════════════════════════════════════════ */
-.ai-price { background: #fff; padding: 20px 0 130px; }
+.ai-price { background: #fff; padding: 20px 0 158px; }
 .pr-band {
   position: relative;
   overflow: hidden;
@@ -189,7 +189,7 @@
   color: #fff;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 46px 48px 42px;
+  padding: 56px 58px 50px;
 }
 .pr-band::before {
   content: "";
@@ -216,7 +216,7 @@
   border-top: 1px solid rgba(255,255,255,0.14);
 }
 .pr-cell {
-  padding: 28px 32px 28px 0;
+  padding: 34px 38px 34px 0;
   border-right: 1px solid rgba(255,255,255,0.14);
 }
 .pr-cell:last-child { border-right: 0; padding-right: 0; }
@@ -241,7 +241,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 32px;
   flex-wrap: wrap;
   margin-top: 38px;
 }
@@ -256,8 +256,8 @@
 }
 
 @media (max-width: 900px) {
-  .ai-price { padding: 0 0 90px; }
-  .pr-band { margin: 0 24px; padding: 34px 26px 32px; }
+  .ai-price { padding: 0 0 110px; }
+  .pr-band { margin: 0 24px; padding: 40px 32px 38px; }
   .pr-cols { grid-template-columns: 1fr; }
   .pr-cell,
   .pr-cell:not(:first-child) {
@@ -285,7 +285,7 @@
   max-width: 1290px;
   margin: 0 auto 30px;
   width: calc(100% - 48px);
-  padding: 22px 26px;
+  padding: 22px 32px;
   background: #f1f1ef;
   border-radius: 16px;
   font-size: 15.5px;
@@ -325,7 +325,7 @@
 }
 /* Fint rutenett som antyder kretskort, uten å ta oppmerksomhet */
 .api-hero::before {
-  content: "";
+  content: none;
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -354,10 +354,14 @@
   max-width: 860px;
   text-align: center;
   /* Toppmargen holder kickeren klar av den svevende nav-baren */
-  padding: 46px 32px 210px;
+  padding: 56px 38px 256px;
 }
-.api-body .ph-title { font-size: clamp(34px, 4.2vw, 62px); }
-.api-body .ph-lead { margin-left: auto; margin-right: auto; max-width: 50ch; }
+.api-body .ph-title { font-size: clamp(36px, 4.4vw, 66px); }
+.api-body .ph-lead { margin-left: auto; margin-right: auto; max-width: 48ch; font-size: 19px; line-height: 1.6; }
+/* Kickeren hadde fast maksbredde og la seg til venstre i den sentrerte
+   blokken; teksten var ogsaa et hakk for liten mot roerledningen under. */
+.api-body .ph-kicker { display: block; max-width: none; margin-left: auto; margin-right: auto; text-align: center; font-size: 11.5px; }
+.api-body .ph-link { font-size: 15px; }
 
 /* Rørledningen forfremmes fra pynt i hjørnet til hovedmotiv */
 .api-hero .ai-pipe {
@@ -368,13 +372,27 @@
   z-index: 3;
 }
 .api-hero .ai-stop { padding: 13px 22px; font-size: 13.5px; }
-.api-hero .ai-stop.is-core { padding: 15px 26px; font-size: 14.5px; }
+.api-hero .ai-stop.is-core { padding: 15px 32px; font-size: 14.5px; }
 
 @media (max-width: 900px) {
   .api-hero { min-height: 0; }
-  .api-body { padding: 0 22px 44px; text-align: left; }
+  .api-body { padding: 0 22px 52px; text-align: left; }
   .api-body .ph-lead { margin-left: 0; }
   /* Rørledningen blir en uleselig klump på mobil — den finnes
      som ren tekst i seksjonen «Hva som kan kobles» uansett. */
   .api-hero .ai-pipe { display: none; }
 }
+
+/* ═══ Hero-bakgrunn: to systemer, én kobling ═══
+   Rutenettet er byttet med to loese klynger av noder — systemene —
+   og én linje mellom dem der lyset gaar. Roerledningen med navn
+   (.ai-pipe) ligger som foer oppaa. */
+.api-hero .sy-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.ap2-graf { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+@keyframes ap2Strom { to { stroke-dashoffset: -970; } }
+.ap2-strom { animation: ap2Strom 6s linear infinite; }
+@keyframes ap2Sv1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(6px, -8px); } }
+@keyframes ap2Sv2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-8px, 6px); } }
+.ap2-v { animation: ap2Sv1 12s ease-in-out infinite; }
+.ap2-h { animation: ap2Sv2 10s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .ap2-strom, .ap2-v, .ap2-h { animation: none; } }

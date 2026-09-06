@@ -17,11 +17,11 @@
 .wd-bar { display: flex; align-items: center; gap: 7px; padding: 12px 15px; background: #eeeeec; }
 .wd-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(10,10,10,.16); }
 .wd-url { margin-left: 12px; background: #fff; border-radius: 999px; padding: 5px 14px; font-family: 'Geist Mono', monospace; font-size: 10.5px; color: rgba(10,10,10,.5); }
-.wd-page { padding: 18px 20px 26px; }
+.wd-page { padding: 18px 20px 32px; }
 .wd-nav { display: flex; align-items: center; padding-bottom: 16px; border-bottom: 1px solid rgba(10,10,10,.07); }
 .wd-logo { width: 46px; height: 8px; border-radius: 3px; background: #0a0a0a; }
 .wd-cta { margin-left: auto; width: 54px; height: 18px; border-radius: 999px; background: var(--lime); }
-.wd-hero { display: grid; grid-template-columns: 1fr .8fr; gap: 22px; align-items: center; padding: 22px 0; }
+.wd-hero { display: grid; grid-template-columns: 1fr .8fr; gap: 26px; align-items: center; padding: 22px 0; }
 .wd-hero b { display: block; height: 12px; border-radius: 4px; background: rgba(10,10,10,.82); margin-bottom: 8px; }
 .wd-hero b.s { width: 72%; }
 .wd-btn { display: block; width: 84px; height: 22px; border-radius: 999px; background: #0a0a0a; margin-top: 16px; }
@@ -35,18 +35,18 @@
 /* ═══════════════════════════════════════════════════════════
    ENKELT FORKLART — tre korte kort
    ═══════════════════════════════════════════════════════════ */
-.why { background: #fff; padding: 130px 0 110px; }
+.why { background: #fff; padding: 158px 0 134px; }
 .wy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 26px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .wy-card {
   border-radius: 18px;
-  padding: 34px 32px 32px;
+  padding: 40px 38px 38px;
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@
 .wy-card p { font-size: 16.5px; line-height: 1.62; opacity: 0.74; }
 
 @media (max-width: 900px) {
-  .why { padding: 90px 0 70px; }
+  .why { padding: 110px 0 86px; }
   .wy-grid { grid-template-columns: 1fr; }
   .wy-card { min-height: 0; }
 }
@@ -82,17 +82,17 @@
 /* ═══════════════════════════════════════════════════════════
    INKLUDERT — enkel avkryssingsliste + prislapp
    ═══════════════════════════════════════════════════════════ */
-.incl { background: #fff; padding: 20px 0 120px; }
+.incl { background: #fff; padding: 20px 0 146px; }
 .in-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 64px;
+  gap: 74px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
   align-items: start;
 }
-.in-group { padding: 30px 0; border-top: 1px solid rgba(10,10,10,0.12); }
+.in-group { padding: 36px 0; border-top: 1px solid rgba(10,10,10,0.12); }
 .in-group:first-child { padding-top: 0; border-top: 0; }
 .in-group:last-child { padding-bottom: 0; }
 .in-group h3 {
@@ -133,7 +133,7 @@
   background: #0d0d0d;
   color: #fff;
   border-radius: 20px;
-  padding: 34px 32px 30px;
+  padding: 40px 38px 36px;
 }
 .in-price-label {
   font-family: 'Geist Mono', ui-monospace, monospace;
@@ -184,8 +184,8 @@
 }
 
 @media (max-width: 980px) {
-  .incl { padding: 0 0 90px; }
-  .in-grid { grid-template-columns: 1fr; gap: 44px; }
+  .incl { padding: 0 0 110px; }
+  .in-grid { grid-template-columns: 1fr; gap: 50px; }
   .in-price { position: static; }
 }
 @media (max-width: 560px) {
@@ -196,14 +196,14 @@
 /* ═══════════════════════════════════════════════════════════
    SLIK FOREGÅR DET — fire steg på en linje
    ═══════════════════════════════════════════════════════════ */
-.steps { background: #fff; padding: 20px 0 130px; }
+.steps { background: #fff; padding: 20px 0 158px; }
 .st-track {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 32px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .st-step { padding-top: 26px; border-top: 1.5px solid rgba(10,10,10,0.14); position: relative; }
 /* Prikken markerer starten på hvert steg langs linja */
@@ -235,9 +235,9 @@
 .st-step p { font-size: 16px; line-height: 1.6; color: rgba(10,10,10,0.66); }
 
 @media (max-width: 900px) {
-  .steps { padding: 0 0 90px; }
+  .steps { padding: 0 0 110px; }
   .st-track { grid-template-columns: 1fr; gap: 0; }
-  .st-step { padding: 24px 0 26px; }
+  .st-step { padding: 28px 0 32px; }
   .st-step:last-child { padding-bottom: 0; }
 }
 
@@ -269,7 +269,7 @@
 /* Fotoet fylte tomrommet over tittelen visuelt. På en ren flate ble
    det bare dødt blått — heroen strammes tilsvarende inn. */
 .photo-hero.ph-split { min-height: min(74vh, 720px); }
-.ph-split .ph-body { padding-bottom: 210px; }
+.ph-split .ph-body { padding-bottom: 256px; }
 
 
 /* Ingressen under hero-tittelen sto på 15.5px fra sider.css — for spinkel
@@ -287,8 +287,33 @@
   .photo-hero.ph-split { min-height: 0; }
   /* sider.css setter «.ph-body { padding: … !important }» på under 560px.
      Uten !important her blir toppluften spist av den. */
-  .ph-split .ph-body { padding: 92px 24px 44px !important; }
+  .ph-split .ph-body { padding: 112px 28px 52px !important; }
 }
 @media (max-width: 560px) {
-  .ph-split .ph-body { padding: 78px 18px 38px !important; }
+  .ph-split .ph-body { padding: 96px 18px 46px !important; }
 }
+
+/* ═══ Heroen: siden bygger seg selv ═══
+   «Klar paa fem dager» — mockupen settes sammen del for del naar
+   siden lastes: ramme, nav, hero, kort. Én gang, saa staar den og
+   svever svakt. */
+@keyframes wdBygg { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+/* .wd-mock er samme element som .ph-obj, som sentreres med translateX(-50%) —
+   derfor egne keyframes som tar sentreringen med seg. */
+@keyframes wdMockBygg { from { opacity: 0; transform: translate(-50%, 14px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@keyframes wdMockSvev { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -6px); } }
+.wd-nav   { animation: wdBygg 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both; }
+.wd-hero  { animation: wdBygg 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.25s both; }
+.wd-cards { animation: wdBygg 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.6s both; }
+.wd-cards span:nth-child(2) { animation: wdLime 0.6s ease 2.3s both; }
+@keyframes wdLime { from { background: #f4f4f2; } to { background: rgba(212,255,61,.4); } }
+@keyframes wdSvev { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.wd-mock { animation: wdMockBygg 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both, wdMockSvev 8s ease-in-out 3.2s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .wd-nav, .wd-hero, .wd-cards, .wd-cards span:nth-child(2) { animation: none; opacity: 1; transform: none; }
+  .wd-mock { animation: none; opacity: 1; transform: translateX(-50%); }
+}
+
+/* wd-kicker-senter: kickeren har en fast maksbredde i sider.css og
+   la seg til venstre i den sentrerte teksten. */
+.ph-split .ph-kicker { display: block; max-width: none; margin-left: auto; margin-right: auto; text-align: center; }

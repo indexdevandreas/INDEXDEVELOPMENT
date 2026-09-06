@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Priser — index dev.</title>
-<meta name="description" content="Fastpris på nettsider fra 2 900,- og booking fra 7 900,-. Chatbot prises med skriftlig tilbud. Alltid fastpris før vi bygger, og ingen betaling før du er fornøyd.">
+<meta name="description" content="Fastpris på nettsider fra 2 900,-. Booking, systemer, integrasjoner og chatbot prises med skriftlig tilbud. Alltid fastpris før jeg bygger, og ingen betaling før du er fornøyd.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/priser.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="priser.css">
@@ -61,7 +61,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -69,14 +69,19 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero" id="top">
-  <header class="hero-nav">
+<section class="page-hero ph-lys pr-hero5" id="top">
+  <!-- Heroen: et haandtrykk over et skriftlig tilbud. To underarmer i
+       dress som moetes — den sorte er min, den blaa er kundens — og et
+       ark under med signaturlinje. Det er avtalen: prisen staar skriftlig
+       foer noe bygges. Lys flate, saa nav-en faar is-dark i markupen. -->
+  <header class="hero-nav is-dark">
     <div class="hero-brand">
       <a class="brand" href="index.html">
         <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
@@ -95,7 +100,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -103,14 +108,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -122,7 +127,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -136,20 +141,25 @@
       </button>
     </div>
   </header>
-
-  <div class="pr-lapp" aria-hidden="true">
-    <span class="pr-lapp-label">Nettside</span>
-    <span class="pr-lapp-sum">fra 2 900<em>,-</em></span>
-    <span class="pr-lapp-linje"></span>
-    <span class="pr-lapp-rad"><span>Forskudd</span><em>0,-</em></span>
-    <span class="pr-lapp-rad"><span>Demo</span><em>5 dager</em></span>
-    <span class="pr-lapp-rad"><span>Fastpris</span><em>Skriftlig</em></span>
-  </div>
   <div class="ph-body pr-hero">
     <p class="ph-kicker">PRISER</p>
-    <h1 class="ph-title">Fastpris på det meste.<br>Resten prises når du har beskrevet det.</h1>
-    <p class="ph-lead">Nettsider, booking og system står med tall her på siden. Chatboten prises med et skriftlig tilbud. Ta kontakt, beskriv hva den skal svare på, og du får fastpris tilbake. Tallene er oppstartspriser: vi bygger referanseliste, og de stiger når den vokser.</p>
+    <h1 class="ph-title">Fast pris på nettsider.<br>Resten får du <br class="zh-br-tlf">pris på først.</h1>
+    <p class="ph-lead">Prisen på nettsider står her på siden. Booking, systemer, integrasjoner og chatbot får du et skriftlig tilbud på: du beskriver hva du trenger, og får en fast pris før noe bygges.</p>
     <a class="ph-link" href="#nettsider">Se nettsidepriser <span aria-hidden="true">→</span></a>
+  </div>
+
+  <!-- Haandtrykket ligger som et baand nederst i heroen og gaar helt ut i
+       kantene: armene kommer inn fra utsiden av flaten i stedet for aa sveve
+       i en boks. Bildet er delt i to lag — ett per arm — saa de kan gli
+       sammen én gang naar siden lastes. -->
+  <!-- Haandtrykket er bakgrunnen i hele heroen: full bredde, hele
+       tegningen, armene ut av kortets kanter. Teksten over staar i det
+       tomme feltet tegningen har over grepet. Ett bilde: det stiger opp
+       av flaten, rister som et haandtrykk, og puster saa sakte. -->
+  <div class="zh-bak" aria-hidden="true">
+    <div class="zh-klasp">
+      <img class="zh-bilde" src="bilder/handtrykk.webp" alt="" width="1407" height="592" decoding="async">
+    </div>
   </div>
 </section>
 
@@ -167,27 +177,33 @@
   </div>
 
   <div class="sp-grid">
-    <div class="sp-card sp-fixed">
+    <div class="sp-card sp-fixed" data-tilt="3.5">
       <span class="sp-tag">Fastpris</span>
-      <h3>Nettsider, booking og system</h3>
-      <p class="sp-amount">fra 2 900<span class="sp-unit">,-</span></p>
-      <p class="sp-desc">Tall du kan lese før du tar kontakt. Du vet hva det koster på forhånd, og nettsider ser du ferdig før du betaler.</p>
+      <h3>Nettside til fastpris, resten etter omfang</h3>
+      <!-- Bare nettsider har et tall som gjelder uansett hvem som spør.
+           Booking, systemer og integrasjoner varierer for mye med omfanget
+           til at en startpris sier noe sant — de får skriftlig tilbud. -->
+      <dl class="sp-rows">
+        <div><dt>Nettside</dt><dd>fra 2 900<span class="sp-unit">,-</span></dd></div>
+        <div><dt>Booking-system</dt><dd class="sp-word">Tilbud</dd></div>
+        <div><dt>Systemer og integrasjoner</dt><dd class="sp-word">Tilbud</dd></div>
+      </dl>
+      <p class="sp-desc">Nettsider har et tall du kan lese her. Booking, systemer og integrasjoner varierer for mye med omfanget til at én startpris ville sagt deg noe ærlig — der får du fastpris skriftlig når jeg vet hva som skal bygges.</p>
       <ul class="sp-list">
-        <li><span class="sp-dot" aria-hidden="true"></span>Prisen står her på siden</li>
-        <li><span class="sp-dot" aria-hidden="true"></span>Nettside: ferdig utkast på fem dager</li>
         <li><span class="sp-dot" aria-hidden="true"></span>0,- i forskudd</li>
+        <li><span class="sp-dot" aria-hidden="true"></span>Nettside: ferdig utkast på fem dager</li>
       </ul>
       <a class="sp-go" href="#nettsider">Se de tre pakkene <span aria-hidden="true">→</span></a>
     </div>
 
-    <div class="sp-card sp-quote">
+    <div class="sp-card sp-quote" data-tilt="3.5">
       <span class="sp-tag">Skriftlig tilbud</span>
       <h3>Chatbots og større integrasjoner</h3>
       <p class="sp-amount sp-amount-word">Tilbud</p>
-      <p class="sp-desc">Ingen chatbot er lik — én bilvask og en kjede med tolv avdelinger er ikke samme jobb. Å sette én pris på begge ville enten lurt deg eller lurt oss. Ta kontakt, så får du et skriftlig tilbud med fastpris.</p>
+      <p class="sp-desc">Ingen chatbot er lik — én bilvask og en kjede med tolv avdelinger er ikke samme jobb. Å sette én pris på begge ville enten lurt deg eller lurt meg. Ta kontakt, så får du et skriftlig tilbud med fastpris.</p>
       <ul class="sp-list">
         <li><span class="sp-dot" aria-hidden="true"></span>Du tar kontakt og beskriver behovet</li>
-        <li><span class="sp-dot" aria-hidden="true"></span>Du får en demo før pris avtales</li>
+        <li><span class="sp-dot" aria-hidden="true"></span>Chatbot: gratis demo først. Integrasjoner: demo avtales i tilbudet</li>
         <li><span class="sp-dot" aria-hidden="true"></span>Fastprisen står, ingen tillegg underveis</li>
       </ul>
       <a class="sp-go" href="#chatbot">Se AI-chatboten <span aria-hidden="true">→</span></a>
@@ -203,21 +219,21 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Tre pakker.<br><span class="pf-grey">Engangssum, så 449,- i måneden.</span></h2>
       <div class="pf-aside">
-        <p>Alle tre inkluderer håndkodet side, teknisk SEO og at du ser den ferdig før du betaler noe som helst. Dette er oppstartspriser — de stiger når referanselisten vokser.</p>
-        <a class="pf-link" href="kontakt.html">Book en demo <span class="pf-link-arrow">→</span></a>
+        <p>Alle tre inkluderer skreddersydd side, teknisk SEO og at du ser den ferdig før du betaler noe som helst. Tallene er lave fordi det ikke er noe kontor, ingen selgere og ingen prosjektleder inni dem. Du betaler for arbeidet.</p>
+        <a class="pf-link" href="kontakt.html">Spør om hva som passer <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="pk-grid">
-    <article class="pk-card">
+    <article class="pk-card" data-tilt="4">
       <p class="pk-name">Lokal Ekspert</p>
       <p class="pk-price">2 900<span class="pk-kr">,-</span></p>
       <p class="pk-once">engangssum</p>
       <p class="pk-for">For enkeltmannsforetak og håndverkere som trenger én solid side som skaffer oppdrag.</p>
       <ul class="pk-list">
         <li>Én kompromissløs landingsside</li>
-        <li>Håndkodet for maksimal hastighet</li>
+        <li>Skreddersydd for maksimal hastighet</li>
         <li>Perfekt på alle mobiler</li>
         <li>Kontaktskjema rett til deg</li>
         <li>Grunnleggende teknisk SEO</li>
@@ -229,7 +245,7 @@
       </a>
     </article>
 
-    <article class="pk-card pk-featured">
+    <article class="pk-card pk-featured" data-tilt="4">
       <span class="pk-badge">Mest valgt</span>
       <p class="pk-name">Bedrift Pluss</p>
       <p class="pk-price">5 999<span class="pk-kr">,-</span></p>
@@ -249,14 +265,14 @@
       </a>
     </article>
 
-    <article class="pk-card">
+    <article class="pk-card" data-tilt="4">
       <p class="pk-name">Totalpakken</p>
       <p class="pk-price">12 990<span class="pk-kr">,-</span></p>
       <p class="pk-once">engangssum</p>
-      <p class="pk-for">Vi designer, koder og skriver alle tekstene. En komplett salgsmaskin som står på døgnet rundt.</p>
+      <p class="pk-for">Jeg designer, koder og skriver alle tekstene. En komplett salgsmaskin som står på døgnet rundt.</p>
       <ul class="pk-list">
         <li>Ubegrenset antall undersider</li>
-        <li>Vi skriver alle tekster for deg</li>
+        <li>Jeg skriver alle tekster for deg</li>
         <li>Konkurransestrategi og analyse</li>
         <li>Prioritert support</li>
         <li>Google Bedriftsprofil</li>
@@ -284,27 +300,28 @@
   <div class="platform-top">
     <p class="pf-eyebrow"><span class="pf-sq"></span>CHATBOT — PRIS ETTER TILBUD</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Én chatbot, ordentlig AI.<br><span class="pf-grey">Fastpris skriftlig før vi bygger.</span></h2>
+      <h2 class="pf-head">Én chatbot, ordentlig AI.<br><span class="pf-grey">Fastpris skriftlig før jeg bygger.</span></h2>
       <div class="pf-aside">
-        <p>Vi bygger én type chatbot: ekte AI, trent på bedriften din. Ta kontakt og fortell hva den skal svare på, så får du fastpris skriftlig tilbake, og en gratis demo før du bestemmer deg.</p>
+        <p>Jeg bygger én type chatbot: ekte AI, satt opp for bedriften din. Ta kontakt og fortell hva den skal svare på, så får du fastpris skriftlig tilbake, og en gratis demo før du bestemmer deg.</p>
         <a class="pf-link" href="kontakt.html">Ta kontakt for et tilbud <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="pk-grid pk-solo">
-    <article class="pk-card pk-featured">
+    <article class="pk-card pk-featured" data-tilt="4">
       <span class="pk-badge">Ekte AI</span>
       <p class="pk-name">AI-chatbot</p>
       <p class="pk-price pk-price-word">Fastpris</p>
-      <p class="pk-once">skriftlig, punkt for punkt</p>
-      <p class="pk-for">Ekte AI på Claude eller GPT, trent på dine tekster, priser og rutiner. Kunden skriver som de vil, og får svar som høres ut som bedriften din.</p>
+      <p class="pk-once">skriftlig, punkt for punkt · månedspris avtales</p>
+      <p class="pk-for">Ekte AI på Claude eller GPT, satt opp med dine tekster, priser og rutiner. Kunden skriver som de vil, og får svar som høres ut som bedriften din.</p>
       <ul class="pk-list">
         <li>Naturlig norsk, ikke oversatt engelsk</li>
-        <li>Trent på din egen informasjon</li>
+        <li>Satt opp med din egen informasjon</li>
         <li>Fanger opp henvendelser hele døgnet</li>
         <li>Gratis demo på dine egne tekster før du bestemmer deg</li>
-        <li>Vi vedlikeholder kunnskapsbasen for deg</li>
+        <li>Jeg vedlikeholder kunnskapsbasen for deg</li>
+        <li>Månedsprisen dekker forbruket den bruker på å svare</li>
       </ul>
       <a class="btn-circle pk-btn" href="kontakt.html">
         <span>FÅ FASTPRIS PÅ AI-CHATBOT</span>
@@ -318,7 +335,7 @@
       <p class="pk-drift-label">Fastprisen står</p>
       <p class="pk-drift-num">Skriftlig</p>
     </div>
-    <p class="pk-drift-txt">Tilbudet du får er en fastpris satt opp punkt for punkt: den står, og vi kommer ikke tilbake med tillegg. Kjeder og virksomheter med flere avdelinger får en skreddersydd variant, så nevn det når du tar kontakt. Månedspris og oppsigelsesvilkår står i den skriftlige avtalen.</p>
+    <p class="pk-drift-txt">Tilbudet du får er en fastpris satt opp punkt for punkt: den står, og jeg kommer ikke tilbake med tillegg. Kjeder og virksomheter med flere avdelinger får en skreddersydd variant, så nevn det når du tar kontakt. Månedspris og oppsigelsesvilkår står i den skriftlige avtalen.</p>
   </div>
 </section>
 
@@ -330,42 +347,42 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Booking og system har tall.<br><span class="pf-grey">Startpris her, fastpris skriftlig.</span></h2>
       <div class="pf-aside">
-        <p>Prisen låses skriftlig før vi bygger, og sluttsummen kan aldri overraske deg: du har godkjent den før vi begynner.</p>
+        <p>Prisen låses skriftlig før jeg bygger, og sluttsummen kan aldri overraske deg: du har godkjent den før jeg begynner.</p>
         <a class="pf-link" href="kom-i-gang.html">Start med veiviseren <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="pk-grid">
-    <article class="pk-card">
+    <article class="pk-card" data-tilt="4">
       <p class="pk-name">Booking-system</p>
-      <p class="pk-price"><span class="pk-fra">fra</span> 7 900<span class="pk-kr">,-</span></p>
-      <p class="pk-once">engangssum · drift avtales skriftlig</p>
+      <p class="pk-price pk-price-word">Tilbud</p>
+      <p class="pk-once">fastpris skriftlig · drift avtales i tilbudet</p>
       <p class="pk-for">Kunder bestiller time selv, døgnet rundt. Alt lagres i din egen database — ingen abonnement til en tredjeparts booking-app.</p>
       <ul class="pk-list">
         <li>Booking direkte på nettsiden</li>
         <li>Din egen database — dataene er dine</li>
         <li>Automatisk bekreftelse på e-post</li>
         <li>Adminpanel med oversikt over avtalene</li>
-        <li>Fastpris skriftlig før vi bygger</li>
+        <li>Fastpris skriftlig før jeg bygger</li>
       </ul>
-      <p class="pk-note">Kjeder og større virksomheter: skreddersydd løsning, pris etter samtale.</p>
+      <p class="pk-note">Du beskriver hvordan booking skal fungere hos deg, og får ett tall tilbake skriftlig.</p>
       <a class="btn-circle pk-btn" href="kom-i-gang.html">
         <span>VELG BOOKING</span>
         <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
     </article>
 
-    <article class="pk-card">
+    <article class="pk-card" data-tilt="4">
       <p class="pk-name">Skreddersydd system</p>
-      <p class="pk-price"><span class="pk-fra">fra</span> 14 900<span class="pk-kr">,-</span></p>
-      <p class="pk-once">engangssum · drift avtales skriftlig</p>
+      <p class="pk-price pk-price-word">Tilbud</p>
+      <p class="pk-once">fastpris skriftlig · drift avtales i tilbudet</p>
       <p class="pk-for">Database, innlogging og adminpanel — for eksempel en jobbliste for ansatte, et kunderegister eller panelet bak bookingen.</p>
       <ul class="pk-list">
         <li>Database og innlogging</li>
         <li>Adminpanel bygget for din arbeidsflyt</li>
         <li>Dataene er dine, i din egen database</li>
-        <li>Fastpris skriftlig før vi bygger</li>
+        <li>Fastpris skriftlig før jeg bygger</li>
       </ul>
       <p class="pk-note">Fagsystem, regnskap og CRM prises etter samtale.</p>
       <a class="btn-circle pk-btn" href="kom-i-gang.html">
@@ -374,16 +391,16 @@
       </a>
     </article>
 
-    <article class="pk-card">
+    <article class="pk-card" data-tilt="4">
       <p class="pk-name">API-integrasjoner</p>
-      <p class="pk-price"><span class="pk-fra">fra</span> 4 299<span class="pk-kr">,-</span></p>
-      <p class="pk-once">engangssum</p>
+      <p class="pk-price pk-price-word">Tilbud</p>
+      <p class="pk-once">fastpris skriftlig</p>
       <p class="pk-for">Koble nettsiden mot systemene du allerede bruker — betaling, e-post eller fagsystem. Dataflyten går av seg selv.</p>
       <ul class="pk-list">
-        <li>Vipps- og Stripe-betaling: 5 900,-</li>
+        <li>Vipps- og Stripe-betaling</li>
         <li>Automatisk dataflyt mellom systemene</li>
         <li>Kobles mot verktøyene du har i dag</li>
-        <li>Fastpris skriftlig før vi bygger</li>
+        <li>Fastpris skriftlig før jeg bygger</li>
       </ul>
       <p class="pk-note">Fagsystem, regnskap og CRM prises etter samtale.</p>
       <a class="btn-circle pk-btn" href="kom-i-gang.html">
@@ -402,49 +419,6 @@
   </div>
 </section>
 
-
-<!-- ───── SLIK SETTES PRISEN ───── -->
-<section class="how" id="slik">
-  <div class="platform-top">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>ALT ANNET ENN NETTSIDER</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Ingen pris før vi vet<br><span class="pf-grey">hva du faktisk trenger.</span></h2>
-      <div class="pf-aside">
-        <p>Det tar to minutter i veiviseren. Du får aldri en regning du ikke har sagt ja til på forhånd.</p>
-        <a class="pf-link" href="tjenester.html">Se hva vi bygger <span class="pf-link-arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="hw-track">
-    <div class="hw-step">
-      <p class="hw-when">Steg 1 — to minutter</p>
-      <h3>Du beskriver det</h3>
-      <p>Veiviseren stiller spørsmålene for deg: hva løsningen skal gjøre, for hvem, og hva du bruker i dag. Du slipper å formulere det selv.</p>
-    </div>
-    <div class="hw-step">
-      <p class="hw-when">Steg 2 — dato avtales</p>
-      <h3>Du får et konkret forslag</h3>
-      <p>Chatbots setter vi opp en gratis demo av, på dine egne tekster. For andre AI-agenter, booking, systemer og integrasjoner beskriver vi løsningen punkt for punkt, og eventuell demo avtales i tilbudet.</p>
-    </div>
-    <div class="hw-step">
-      <p class="hw-when">Steg 3 — skriftlig</p>
-      <h3>Du får fastpris</h3>
-      <p>Én sum for hele jobben, satt opp punkt for punkt. Den står — vi kommer ikke tilbake med tillegg.</p>
-    </div>
-    <div class="hw-step">
-      <p class="hw-when">Steg 4 — du bestemmer</p>
-      <h3>Du sier ja eller nei</h3>
-      <p>Sier du nei, har det kostet deg to minutter. Sier du ja, starter vi og du betaler etter avtalen.</p>
-    </div>
-  </div>
-
-  <p class="hw-note">
-    <span class="hw-note-mark" aria-hidden="true">!</span>
-    Større systemprosjekter kan ha forskudd eller delbetaling. Det avtales i så fall skriftlig før vi begynner — aldri underveis.
-  </p>
-</section>
-
 <!-- ───── DEMO-CTA ───── -->
 <section class="demo2" id="kontakt">
   <div class="dm-band">
@@ -454,17 +428,12 @@
     </picture>
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
-      <h2 class="dm-head">Usikker på hva<br>du <span class="dm-lime">faktisk trenger?</span></h2>
-      <p class="dm-text">Det er helt greit. Ta veiviseren — den stiller spørsmålene for deg, og du sender meg en ferdig beskrivelse av hva du trenger. Du får svar med forslag og pris, skriftlig.</p>
+      <h2 class="dm-head">Finner du ikke<br>ditt <span class="dm-lime">tilfelle her?</span></h2>
+      <p class="dm-text">Beskriv hva du trenger, så får du en fastpris skriftlig tilbake. Ingen forpliktelser, og ingen som ringer deg opp etterpå.</p>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast på nettsider, demo på chatbots</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -479,55 +448,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -535,12 +477,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">

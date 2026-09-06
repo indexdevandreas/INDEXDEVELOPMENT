@@ -3,37 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nettside & synlighet — så folk finner deg når de søker | index dev.</title>
-<meta name="description" content="Håndkodet nettside og riktig oppsatt Google Bedriftsprofil, så du dukker opp når noen i området søker etter det du gjør.">
+<title>Blogg — index dev.</title>
+<meta name="description" content="Korte tekster om det som avgjør om en liten bedrift får kunder: ubesvarte anrop, lokalt søk, hva en nettside faktisk koster og hvorfor telefonen ikke ringer.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://indexdevelopment.no/nettside-synlighet.html">
+<link rel="canonical" href="https://indexdevelopment.no/blogg.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
-<link rel="stylesheet" href="tjenester.css">
-<link rel="stylesheet" href="chatbot-widget.css">
+<link rel="stylesheet" href="blogg.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Nettside og synlighet",
-  "description": "Håndkodet nettside og riktig oppsatt Google Bedriftsprofil, så du dukker opp når noen i området søker etter det du gjør.",
-  "url": "https://indexdevelopment.no/nettside-synlighet.html",
-  "areaServed": { "@type": "Country", "name": "Norge" },
-  "provider": { "@id": "https://indexdevelopment.no/#organization" },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Nettside og synlighet",
+  "@type": "Blog",
+  "name": "Index Development \u2014 blogg",
+  "url": "https://indexdevelopment.no/blogg.html",
+  "inLanguage": "nb-NO",
+  "description": "Korte tekster om det som avgj\u00f8r om en liten bedrift f\u00e5r kunder.",
+  "publisher": { "@type": "Organization", "name": "Index Development", "url": "https://indexdevelopment.no/" },
+  "mainEntity": {
+    "@type": "ItemList",
     "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Webdesign, SEO og utvikling", "item": "https://indexdevelopment.no/webdesign.html" },
-        { "@type": "ListItem", "position": 2, "name": "Google Bedriftsprofil og lokal SEO", "item": "https://indexdevelopment.no/google-bedriftsprofil.html" }
+      { "@type": "ListItem", "position": 1, "url": "https://indexdevelopment.no/blogg-anrop.html", "name": "Anropene du ikke rekker å ta" },
+      { "@type": "ListItem", "position": 2, "url": "https://indexdevelopment.no/blogg-seo.html", "name": "Hvorfor Google ikke finner deg" },
+      { "@type": "ListItem", "position": 3, "url": "https://indexdevelopment.no/blogg-tlf.html", "name": "Hvorfor ringer ikke telefonen" },
+      { "@type": "ListItem", "position": 4, "url": "https://indexdevelopment.no/blogg-pris.html", "name": "Hva du faktisk betaler for" }
     ]
   }
 }
 </script>
+<link rel="stylesheet" href="chatbot-widget.css">
 </head>
 <body>
 
@@ -52,7 +53,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -60,13 +61,15 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero ph-kategori" id="top">
+<section class="page-hero ph-ord" id="top">
+  <span class="ph-ghost" aria-hidden="true">Innsikt</span>
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
@@ -86,7 +89,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -94,14 +97,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -113,7 +116,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -127,82 +130,126 @@
       </button>
     </div>
   </header>
+
   <div class="ph-body">
-    <p class="ph-kicker">NETTSIDE &amp; SYNLIGHET</p>
-    <h1 class="ph-title">Så folk finner deg<br>når de søker.</h1>
-    <p class="ph-lead">De som trenger deg søker etter det du gjør, ikke etter navnet ditt. Dukker du ikke opp der, finnes du ikke for dem.</p>
-    <a class="ph-link" href="kom-i-gang.html">Finn ut hva du trenger <span aria-hidden="true">→</span></a>
+    <p class="ph-kicker">INNSIKT</p>
+    <h1 class="ph-title">Fire tekster om<br>hvorfor kunder forsvinner.</h1>
+    <p class="ph-lead">Korte artikler om det som avgjør om en liten bedrift får kunder — skrevet for deg som driver den, ikke for andre utviklere.</p>
   </div>
 </section>
 
-<!-- ───── I DENNE KATEGORIEN ───── -->
-<section class="svc-list">
-  <div class="platform-top pt-reverse">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>BLI FUNNET</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Synlig i søket,<br><span class="pf-grey">og på kartet.</span></h2>
-      <div class="pf-aside">
-        <p>To ting avgjør om noen i nærheten finner deg: at du har en side Google forstår, og at bedriftsprofilen din er satt opp riktig. Vi gjør begge deler.</p>
-        <p>Alt vi bygger driftes av oss. <a class="pf-link" href="drift.html">Se hva drift dekker <span class="pf-link-arrow">→</span></a></p>
+<!-- ───── ARTIKLENE ─────
+     Samme kort som sto på forsiden. De ligger her nå, så forsiden
+     holder seg kort og bloggen har sin egen adresse. -->
+<section class="blogg2">
+<div class="bl-grid">
+    <a class="bl-card" data-tilt="6" href="blogg-anrop.html">
+      <div class="bl-img">
+        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: ubesvart anrop får automatisk SMS-svar">
+          <rect width="900" height="380" fill="#0d0d0d"/>
+  <rect x="210" y="52" width="152" height="300" rx="24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3"/>
+  <rect x="262" y="70" width="48" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
+  <text x="286" y="195" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="46" fill="rgba(255,255,255,0.16)">1</text>
+  <text x="286" y="226" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="13" letter-spacing="2" fill="rgba(255,255,255,0.3)">UBESVART</text>
+  <g stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="2 14">
+    <path d="M168 140 a76 76 0 0 0 0 96"/>
+    <path d="M132 110 a122 122 0 0 0 0 156"/>
+  </g>
+  <g>
+    <polygon points="426,208 396,226 426,182" fill="#d4ff3d"/>
+    <rect x="420" y="122" width="330" height="112" rx="16" fill="#d4ff3d"/>
+    <text x="448" y="170" font-family="'Geist Mono',ui-monospace,monospace" font-size="22" font-weight="700" fill="#0a0a0a">Så anropet ditt.</text>
+    <text x="448" y="204" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" fill="rgba(10,10,10,0.65)">Ringer deg i dag.</text>
+  </g>
+        </svg>
       </div>
-    </div>
-  </div>
-
-  <div class="svc-rows">
-      <a class="svc-row" id="webdesign" href="webdesign.html">
-        <span class="svc-i">01</span>
-        <h3 class="svc-name">Webdesign, SEO<br>&amp; utvikling</h3>
-        <div class="svc-body">
-          <p>Komplett nettside fra strategi til lansering. Håndkodet i HTML, CSS og JavaScript — ingen WordPress, ingen maler. Bygget rundt ordene folk faktisk søker på.</p>
-          <div class="svc-tags"><span>Håndkodet</span><span>Teknisk SEO</span><span>Lighthouse 100</span><span>Mobil-først</span></div>
-        </div>
-        <div class="svc-side">
-          <span class="svc-price">2 900<span class="kr">,-</span></span>
-          <span class="svc-per">fra</span>
-          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
-        </div>
-      </a>
-      <a class="svc-row" id="google-bedriftsprofil" href="google-bedriftsprofil.html">
-        <span class="svc-i">02</span>
-        <h3 class="svc-name">Google<br>Bedriftsprofil</h3>
-        <div class="svc-body">
-          <p>Riktig opprettet eller ryddet opp, koblet til nettsiden og til Google Search Console — så du vises i lokalt søk og på kartet, med åpningstider og telefonnummer som stemmer.</p>
-          <div class="svc-tags"><span>Lokal SEO</span><span>Google Maps</span><span>Search Console</span></div>
-        </div>
-        <div class="svc-side">
-          <span class="svc-price is-text">Ofte inkl.</span>
-          <span class="svc-per">i nettsidepakken</span>
-          <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
-        </div>
-      </a>
+      <div class="bl-body">
+        <span class="bl-tag">Kontakt</span>
+        <h3>Anropene du ikke rekker å ta</h3>
+        <p>Den som ikke får svar, ringer ofte neste på lista. Slik fanger du dem opp.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+    <a class="bl-card" data-tilt="6" href="blogg-seo.html">
+      <div class="bl-img">
+        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: søkeresultater der din bedrift ligger øverst">
+          <rect width="900" height="380" fill="#0d0d0d"/>
+          <rect x="150" y="46" width="600" height="58" rx="29" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>
+          <circle cx="192" cy="75" r="11" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5"/>
+          <line x1="200" y1="84" x2="209" y2="93" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="228" y="82" font-family="'Geist Mono',ui-monospace,monospace" font-size="19" fill="rgba(255,255,255,0.5)">rørlegger drammen</text>
+          <rect x="150" y="136" width="600" height="72" rx="12" fill="rgba(212,255,61,0.09)" stroke="#d4ff3d" stroke-width="2.5"/>
+          <circle cx="192" cy="172" r="15" fill="#d4ff3d"/>
+          <text x="192" y="178" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" font-weight="700" fill="#0a0a0a">1</text>
+          <rect x="224" y="154" width="240" height="12" rx="6" fill="rgba(255,255,255,0.92)"/>
+          <rect x="224" y="178" width="150" height="9" rx="4.5" fill="rgba(212,255,61,0.65)"/>
+          <rect x="150" y="228" width="600" height="56" rx="12" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+          <circle cx="192" cy="256" r="13" fill="rgba(255,255,255,0.12)"/>
+          <rect x="224" y="242" width="190" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
+          <rect x="224" y="262" width="120" height="8" rx="4" fill="rgba(255,255,255,0.16)"/>
+          <rect x="150" y="304" width="600" height="56" rx="12" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+          <circle cx="192" cy="332" r="13" fill="rgba(255,255,255,0.08)"/>
+          <rect x="224" y="318" width="160" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
+          <rect x="224" y="338" width="100" height="8" rx="4" fill="rgba(255,255,255,0.12)"/>
+        </svg>
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">SEO</span>
+        <h3>Hvorfor Google ikke finner deg</h3>
+        <p>De vanligste tekniske grunnene til at siden din ikke dukker opp — og hva som skal til.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+        <a class="bl-card" data-tilt="6" href="blogg-tlf.html">
+      <div class="bl-img">
+        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en telefon som ikke ringer">
+          <rect width="900" height="380" fill="#0d0d0d"/>
+          <rect x="368" y="52" width="164" height="322" rx="26" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3"/>
+          <rect x="424" y="70" width="52" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
+          <text x="450" y="200" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="52" fill="rgba(255,255,255,0.16)">0</text>
+          <text x="450" y="232" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="15" letter-spacing="2" fill="rgba(255,255,255,0.3)">ANROP</text>
+          <g stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="2 14">
+            <path d="M578 152 a76 76 0 0 1 0 96"/>
+            <path d="M614 122 a122 122 0 0 1 0 156"/>
+            <path d="M322 152 a76 76 0 0 0 0 96"/>
+            <path d="M286 122 a122 122 0 0 0 0 156"/>
+          </g>
+          <circle cx="518" cy="86" r="17" fill="#d4ff3d"/>
+          <text x="518" y="92" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" font-weight="700" fill="#0a0a0a">?</text>
+        </svg>
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">Konvertering</span>
+        <h3>Hvorfor ringer ikke telefonen</h3>
+        <p>Du har trafikk, men ingen henvendelser. Som regel er det én ting som mangler.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
+    <a class="bl-card" href="blogg-pris.html" data-tilt="6">
+      <div class="bl-img">
+        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en kvittering med fastpris">
+          <rect width="900" height="380" fill="#0d0d0d"/>
+          <path d="M330 40h240v298l-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14z" fill="#f1f1ef"/>
+          <rect x="362" y="76" width="118" height="10" rx="5" fill="rgba(10,10,10,0.85)"/>
+          <rect x="362" y="108" width="176" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <rect x="362" y="128" width="140" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <rect x="362" y="148" width="160" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
+          <line x1="362" y1="186" x2="538" y2="186" stroke="rgba(10,10,10,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+          <text x="362" y="230" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2" fill="rgba(10,10,10,0.6)">FASTPRIS</text>
+          <rect x="446" y="206" width="92" height="34" rx="17" fill="#d4ff3d"/>
+          <text x="492" y="229" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" font-weight="700" fill="#0a0a0a">2 900,-</text>
+          <text x="362" y="270" font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="2" fill="rgba(10,10,10,0.45)">INGEN BINDINGSTID</text>
+        </svg>
+      </div>
+      <div class="bl-body">
+        <span class="bl-tag">Pris</span>
+        <h3>Hva du faktisk betaler for</h3>
+        <p>Hva som ligger i prisen på en nettside når et byrå fakturerer, og hva av det du trenger.</p>
+        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
+      </div>
+    </a>
   </div>
 </section>
-
-<!-- ───── DEMO-CTA ───── -->
-<section class="demo2" id="kontakt">
-  <div class="dm-band">
-    <picture>
-      <source srcset="bilder/zebra-cta.webp" type="image/webp">
-      <img class="dm-bg dm-bg-zebra" src="bilder/zebra-cta.jpg" alt="Zebra på en gresslette i solnedgang" loading="lazy" width="1600" height="900">
-    </picture>
-    <div class="dm-inner">
-      <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
-      <h2 class="dm-head">Sjekk om du<br><span class="dm-lime">vises i dag.</span></h2>
-      <p class="dm-text">Ta veiviseren, så ser jeg på hvordan du ligger an i søk i dag og hva som skal til for å komme høyere. Du får forslag og pris skriftlig, uten forpliktelse.</p>
-      <a class="btn-circle dm-btn" href="kom-i-gang.html">
-      <span>FINN UT HVA DU TRENGER</span>
-      <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-      </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast på nettsider, demo på chatbots</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-</main>
 
 <footer>
   <div class="container">
@@ -212,55 +259,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -268,12 +288,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -286,6 +307,7 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

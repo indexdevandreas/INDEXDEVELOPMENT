@@ -23,13 +23,12 @@
 <meta property="og:image:alt" content="index dev. — logo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="index dev. — flere kunder inn, og ingen som går tapt">
-<meta name="twitter:description" content="De fleste tar kontakt bare én gang. Vi bygger nettsiden som gjør at folk finner deg, og systemet som tar imot dem når de tar kontakt.">
+<meta name="twitter:description" content="De fleste tar kontakt bare én gang. Jeg bygger nettsiden som gjør at folk finner deg, og systemet som tar imot dem når de tar kontakt.">
 <meta name="twitter:image" content="https://indexdevelopment.no/bilder/logo.PNG">
-<link rel="preload" as="font" type="font/woff2" href="fonter/switzer-500.woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif&family=Syne:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif&family=Syne:wght@600;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&family=Syne:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&family=Syne:wght@600;700&display=swap"></noscript>
 <script>
 /* Introen (logo-splash) vises én gang per fane, og aldri med redusert
    bevegelse. Avgjøres her, før første maling, så siden ikke rekker å
@@ -82,7 +81,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
         "addressCountry": "NO"
       },
       "areaServed": { "@type": "Country", "name": "Norge" },
-      "priceRange": "449-14900 NOK",
+      "priceRange": "449-12990 NOK",
       "currenciesAccepted": "NOK",
       "knowsLanguage": ["nb-NO", "en"],
       "contactPoint": {
@@ -116,7 +115,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
             "url": "https://indexdevelopment.no/nettside-synlighet.html",
             "itemListElement": [
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webdesign, SEO og utvikling", "url": "https://indexdevelopment.no/webdesign.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Bedriftsprofil og lokal SEO", "url": "https://indexdevelopment.no/google-bedriftsprofil.html" } }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Bedriftsprofil og lokal SEO", "url": "https://indexdevelopment.no/sokemotoroptimalisering.html" } }
             ]
           },
           {
@@ -182,7 +181,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -190,6 +189,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
@@ -216,7 +216,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
         <div class="nav-dropdown-panel">
           <ul>
             <li>
-              <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+              <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
               <ul class="nav-dd-sub">
                 <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                 <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -224,14 +224,14 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
               </ul>
             </li>
             <li>
-              <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+              <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
               <ul class="nav-dd-sub">
                 <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
               </ul>
             </li>
             <li>
-              <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+              <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
               <ul class="nav-dd-sub">
                 <li><a href="systemutvikling.html">Systemutvikling</a></li>
                 <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -243,7 +243,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
         </div>
       </li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="priser.html">Priser</a></li>
     </ul>
   </nav>
@@ -322,7 +322,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
        Hele panelet er lenken, så undertjenestene står som tekst. -->
   <div class="sv-stack" data-stack data-stack-offset="18">
     <div class="sv-slot">
-      <a class="sv-card sv-dark" data-tilt="1.6" href="kontakt-oppfolging.html">
+      <a class="sv-card sv-dark" data-tilt="1.6" href="tjenester.html#kontakt-oppfolging">
         <span class="sv-ghost" aria-hidden="true">01</span>
         <div class="sv-main">
           <span class="sv-num">01</span>
@@ -341,12 +341,12 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       </a>
     </div>
     <div class="sv-slot">
-      <a class="sv-card sv-grey" data-tilt="1.6" href="nettside-synlighet.html">
+      <a class="sv-card sv-grey" data-tilt="1.6" href="tjenester.html#nettside-synlighet">
         <span class="sv-ghost" aria-hidden="true">02</span>
         <div class="sv-main">
           <span class="sv-num">02</span>
           <h3>Nettside &amp; synlighet</h3>
-          <p>Så folk finner deg — og agenten har et sted å bo. Håndkodet, rask nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
+          <p>Så folk finner deg — og agenten har et sted å bo. Rask, skreddersydd nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
         </div>
         <div class="sv-side">
           <span class="sv-list-lab">Omfatter</span>
@@ -359,12 +359,12 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       </a>
     </div>
     <div class="sv-slot">
-      <a class="sv-card sv-lime" data-tilt="1.6" href="systemer-automatisering.html">
+      <a class="sv-card sv-lime" data-tilt="1.6" href="tjenester.html#systemer-automatisering">
         <span class="sv-ghost" aria-hidden="true">03</span>
         <div class="sv-main">
           <span class="sv-num">03</span>
           <h3>Systemer &amp; automatisering</h3>
-          <p>Så du slipper å taste det samme flere ganger. Vi kobler sammen det du bruker, og bygger det som mangler.</p>
+          <p>Så du slipper å taste det samme flere ganger. Jeg kobler sammen det du bruker, og bygger det som mangler.</p>
         </div>
         <div class="sv-side">
           <span class="sv-list-lab">Omfatter</span>
@@ -409,64 +409,23 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     </div>
   </div>
 </section>
-
-<!-- ───── LEVERT ARBEID ───── -->
-<section class="reviews">
-  <div class="platform-top pt-inline">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>LEVERT ARBEID</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Sider vi faktisk har levert.</h2>
-      <div class="pf-aside">
-        <p>Ekte prosjekter, ekte tilbakemeldinger. Vi er i startfasen — det er din fordel: prosjektet ditt får all oppmerksomheten vår.</p>
-        <a class="pf-link" href="kontakt.html">Bli den neste <span class="pf-link-arrow">→</span></a>
-      </div>
+<!-- ───── KUNDEN SIER ─────
+     Én ekte anmeldelse, stor og svart. Ordene står uskarpe og tones
+     skarpe ett for ett mens man ruller (forside.js setter --qp på
+     .qt-wrap; CSS-en regner ut hvert ords tilstand fra --i). Uten JS
+     står teksten skarp med en gang. -->
+<section class="quote2" id="kunder">
+  <div class="qt-wrap" data-quote>
+    <div class="qt-top">
+      <span class="qt-stars" aria-label="5 av 5 stjerner">★★★★★</span>
     </div>
-  </div>
-
-  <div class="rv-grid">
-    <article class="rv-card" data-tilt="5">
-      <div class="rv-img">
-        <img src="bilder/renrask-bilvask.avif" alt="Renrask Bilvask sjekker en nyvasket bil sammen med kunden" loading="lazy" width="1280" height="720">
-        <span class="rv-chip">Renrask Bilvask</span>
-      </div>
-      <div class="rv-body">
-        <div class="rv-stars" aria-label="5 av 5 stjerner">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <blockquote class="rv-quote">
-          Index Development bygger ikke bare en nettside. <span class="rv-em">De bygger en salgsmaskin.</span> Med god kommunikasjon og samhandling laget de en nettside for min bedrift effektivt og tilfredsstillende. Ikke tenk mer — velg Index Development.
-        </blockquote>
-        <div class="rv-foot">
-          <span class="rv-avatar">JT</span>
-          <div class="rv-person">
-            <span class="rv-name">Jakob Tande</span>
-            <span class="rv-role">Daglig leder — Renrask Bilvask</span>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="rv-card" data-tilt="5">
-      <div class="rv-img">
-        <img src="bilder/boska-ror.avif" alt="Tommy fra Boska Rør og Ventilasjon ved firmabilen" loading="lazy" width="1000" height="667">
-        <span class="rv-chip">Boska Rør og Ventilasjon</span>
-      </div>
-      <div class="rv-body">
-        <div class="rv-stars" aria-label="5 av 5 stjerner">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <blockquote class="rv-quote">
-          Veldig fornøyd med jobben! <span class="rv-em">Profesjonell, rask og enkel å samarbeide med.</span> Anbefales!
-        </blockquote>
-        <div class="rv-foot">
-          <span class="rv-avatar">T</span>
-          <div class="rv-person">
-            <span class="rv-name">Tommy</span>
-            <span class="rv-role">Daglig leder — Boska Rør og Ventilasjon</span>
-          </div>
-        </div>
-      </div>
-    </article>
+    <blockquote class="qt-text">
+      <p class="qt-p">“Veldig fornøyd med jobben! Profesjonell, rask og enkel å samarbeide med. Anbefales!”</p>
+    </blockquote>
+    <div class="qt-who">
+      <img class="qt-pfp" src="bilder/tommy-pfp.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+      <p class="qt-person"><span class="qt-name">Tommy</span><span class="qt-role">Daglig leder, Boska Rør og Ventilasjon</span></p>
+    </div>
   </div>
 </section>
 
@@ -487,17 +446,17 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
        (.s2-digit, forside.css), og streken under tegnes etterpå. -->
   <div class="s2-grid">
     <div class="s2-card s2-dark" data-tilt="6">
-      <p class="s2-num"><span class="s2-digit">0</span><span class="s2-unit">kr</span></p>
+      <p class="s2-num"><span class="s2-clip"><span class="s2-digit">0</span></span><span class="s2-unit">kr</span></p>
       <p class="s2-text">i forskudd. Chatboten eller nettsiden din ser du ferdig først, og betaler når du sier ja.</p>
       <p class="s2-src">Gjelder chatbots og nettsider</p>
     </div>
     <div class="s2-card s2-lime" data-tilt="6">
-      <p class="s2-num"><span class="s2-digit">5</span><span class="s2-unit">dager</span></p>
+      <p class="s2-num"><span class="s2-clip"><span class="s2-digit">5</span></span><span class="s2-unit">dager</span></p>
       <p class="s2-text">til du har et ferdig utkast av nettsiden din å se på, uten å ha betalt noe.</p>
       <p class="s2-src">Gjelder nettsider. Alt annet får sin egen tidsplan</p>
     </div>
     <div class="s2-card" data-tilt="6">
-      <p class="s2-num"><span class="s2-digit">0</span><span class="s2-unit">mnd</span></p>
+      <p class="s2-num"><span class="s2-clip"><span class="s2-digit">0</span></span><span class="s2-unit">mnd</span></p>
       <p class="s2-text">bindingstid. Koden er din, og du kan si opp eller flytte siden når du vil.</p>
       <p class="s2-src">Gjelder nettsider</p>
     </div>
@@ -536,7 +495,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
           <div>
             <h3>Bli funnet</h3>
             <p>Teknisk SEO og struktur som gjør at Google viser deg frem når noen i området søker.</p>
-            <a class="pf-link" href="nettside-synlighet.html">Nettside &amp; synlighet <span class="pf-link-arrow">→</span></a>
+            <a class="pf-link" href="tjenester.html#nettside-synlighet">Nettside &amp; synlighet <span class="pf-link-arrow">→</span></a>
           </div>
         </div>
         <span class="cv3d-arrow" aria-hidden="true">→</span>
@@ -595,7 +554,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     </div>
     <div class="nk-open">
       <p class="nk-stat-label">Åpen</p>
-      <p class="nk-stat"><span class="nk-digit">24</span><span class="nk-stat-unit">/7</span></p>
+      <p class="nk-stat"><span class="nk-clip"><span class="nk-digit">24</span></span><span class="nk-stat-unit">/7</span></p>
       <p class="nk-note">Hele døgnet, alle dager. Også når du ikke rekker telefonen.</p>
       <!-- Beviset: widgeten nede til høyre er selve produktet. Knappen
            åpner den (chatbot-widget.js lytter på data-open-chat). -->
@@ -603,132 +562,10 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
         <span>PRØV AGENTEN</span>
         <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </button>
-      <p class="nk-try-note">Den kjenner denne siden. Spør om hva du vil.</p>
     </div>
   </div>
 </section>
 
-
-<!-- ───── BLOGG ───── -->
-<section class="blogg2" id="blogg">
-  <div class="platform-top pt-inline">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>INNSIKT</p>
-    <div class="pf-top-grid">
-      <h2 class="pf-head">Fra bloggen.</h2>
-      <div class="pf-aside">
-        <p>Korte tekster om det som avgjør om bedriften din får kunder.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="bl-grid">
-    <a class="bl-card" data-tilt="6" href="blogg-anrop.html">
-      <div class="bl-img">
-        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: ubesvart anrop får automatisk SMS-svar">
-          <rect width="900" height="380" fill="#0d0d0d"/>
-  <rect x="210" y="52" width="152" height="300" rx="24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3"/>
-  <rect x="262" y="70" width="48" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
-  <text x="286" y="195" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="46" fill="rgba(255,255,255,0.16)">1</text>
-  <text x="286" y="226" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="13" letter-spacing="2" fill="rgba(255,255,255,0.3)">UBESVART</text>
-  <g stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="2 14">
-    <path d="M168 140 a76 76 0 0 0 0 96"/>
-    <path d="M132 110 a122 122 0 0 0 0 156"/>
-  </g>
-  <g>
-    <polygon points="426,208 396,226 426,182" fill="#d4ff3d"/>
-    <rect x="420" y="122" width="330" height="112" rx="16" fill="#d4ff3d"/>
-    <text x="448" y="170" font-family="'Geist Mono',ui-monospace,monospace" font-size="22" font-weight="700" fill="#0a0a0a">Så anropet ditt.</text>
-    <text x="448" y="204" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" fill="rgba(10,10,10,0.65)">Ringer deg i dag.</text>
-  </g>
-        </svg>
-      </div>
-      <div class="bl-body">
-        <span class="bl-tag">Kontakt</span>
-        <h3>Anropene du ikke rekker å ta</h3>
-        <p>Den som ikke får svar, ringer ofte neste på lista. Slik fanger du dem opp.</p>
-        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
-      </div>
-    </a>
-    <a class="bl-card" data-tilt="6" href="blogg-seo.html">
-      <div class="bl-img">
-        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: søkeresultater der din bedrift ligger øverst">
-          <rect width="900" height="380" fill="#0d0d0d"/>
-          <rect x="150" y="46" width="600" height="58" rx="29" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5"/>
-          <circle cx="192" cy="75" r="11" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5"/>
-          <line x1="200" y1="84" x2="209" y2="93" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="228" y="82" font-family="'Geist Mono',ui-monospace,monospace" font-size="19" fill="rgba(255,255,255,0.5)">rørlegger drammen</text>
-          <rect x="150" y="136" width="600" height="72" rx="12" fill="rgba(212,255,61,0.09)" stroke="#d4ff3d" stroke-width="2.5"/>
-          <circle cx="192" cy="172" r="15" fill="#d4ff3d"/>
-          <text x="192" y="178" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" font-weight="700" fill="#0a0a0a">1</text>
-          <rect x="224" y="154" width="240" height="12" rx="6" fill="rgba(255,255,255,0.92)"/>
-          <rect x="224" y="178" width="150" height="9" rx="4.5" fill="rgba(212,255,61,0.65)"/>
-          <rect x="150" y="228" width="600" height="56" rx="12" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
-          <circle cx="192" cy="256" r="13" fill="rgba(255,255,255,0.12)"/>
-          <rect x="224" y="242" width="190" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
-          <rect x="224" y="262" width="120" height="8" rx="4" fill="rgba(255,255,255,0.16)"/>
-          <rect x="150" y="304" width="600" height="56" rx="12" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
-          <circle cx="192" cy="332" r="13" fill="rgba(255,255,255,0.08)"/>
-          <rect x="224" y="318" width="160" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
-          <rect x="224" y="338" width="100" height="8" rx="4" fill="rgba(255,255,255,0.12)"/>
-        </svg>
-      </div>
-      <div class="bl-body">
-        <span class="bl-tag">SEO</span>
-        <h3>Hvorfor Google ikke finner deg</h3>
-        <p>De vanligste tekniske grunnene til at siden din ikke dukker opp — og hva som skal til.</p>
-        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
-      </div>
-    </a>
-        <a class="bl-card" data-tilt="6" href="blogg-tlf.html">
-      <div class="bl-img">
-        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en telefon som ikke ringer">
-          <rect width="900" height="380" fill="#0d0d0d"/>
-          <rect x="368" y="52" width="164" height="322" rx="26" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3"/>
-          <rect x="424" y="70" width="52" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
-          <text x="450" y="200" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="52" fill="rgba(255,255,255,0.16)">0</text>
-          <text x="450" y="232" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="15" letter-spacing="2" fill="rgba(255,255,255,0.3)">ANROP</text>
-          <g stroke="rgba(255,255,255,0.14)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="2 14">
-            <path d="M578 152 a76 76 0 0 1 0 96"/>
-            <path d="M614 122 a122 122 0 0 1 0 156"/>
-            <path d="M322 152 a76 76 0 0 0 0 96"/>
-            <path d="M286 122 a122 122 0 0 0 0 156"/>
-          </g>
-          <circle cx="518" cy="86" r="17" fill="#d4ff3d"/>
-          <text x="518" y="92" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="17" font-weight="700" fill="#0a0a0a">?</text>
-        </svg>
-      </div>
-      <div class="bl-body">
-        <span class="bl-tag">Konvertering</span>
-        <h3>Hvorfor ringer ikke telefonen</h3>
-        <p>Du har trafikk, men ingen henvendelser. Som regel er det én ting som mangler.</p>
-        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
-      </div>
-    </a>
-    <a class="bl-card" href="blogg-pris.html" data-tilt="6">
-      <div class="bl-img">
-        <svg class="bl-ill" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrasjon: en kvittering med fastpris">
-          <rect width="900" height="380" fill="#0d0d0d"/>
-          <path d="M330 40h240v298l-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14z" fill="#f1f1ef"/>
-          <rect x="362" y="76" width="118" height="10" rx="5" fill="rgba(10,10,10,0.85)"/>
-          <rect x="362" y="108" width="176" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
-          <rect x="362" y="128" width="140" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
-          <rect x="362" y="148" width="160" height="7" rx="3.5" fill="rgba(10,10,10,0.22)"/>
-          <line x1="362" y1="186" x2="538" y2="186" stroke="rgba(10,10,10,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
-          <text x="362" y="230" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" letter-spacing="2" fill="rgba(10,10,10,0.6)">FASTPRIS</text>
-          <rect x="446" y="206" width="92" height="34" rx="17" fill="#d4ff3d"/>
-          <text x="492" y="229" text-anchor="middle" font-family="'Geist Mono',ui-monospace,monospace" font-size="14" font-weight="700" fill="#0a0a0a">2 900,-</text>
-          <text x="362" y="270" font-family="'Geist Mono',ui-monospace,monospace" font-size="11" letter-spacing="2" fill="rgba(10,10,10,0.45)">INGEN BINDINGSTID</text>
-        </svg>
-      </div>
-      <div class="bl-body">
-        <span class="bl-tag">Pris</span>
-        <h3>Hva du faktisk betaler for</h3>
-        <p>Hva som ligger i prisen på en nettside når et byrå fakturerer, og hva av det du trenger.</p>
-        <span class="bl-read">Les artikkelen <span class="pf-link-arrow">→</span></span>
-      </div>
-    </a>
-  </div>
-</section>
 
 <!-- ───── FAQ ───── -->
 <section class="faq2">
@@ -738,14 +575,6 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       <h2 class="fq-title">Ofte stilte<br>spørsmål</h2>
       <p class="fq-lead">Alt om agenten, pris, leveringstid, bindingstid og hva som skjer hvis du vil avslutte.</p>
 
-      <div class="fq-contact">
-        <p class="fq-contact-head">Usikker på hvor du står?</p>
-        <p class="fq-contact-sub">Send meg lenken til siden du har i dag, så får du en ærlig gjennomgang av hva som bør fikses. Gratis, uforpliktende — og din å bruke uansett hvem som gjør jobben.</p>
-        <a class="btn-circle fq-contact-btn" href="kontakt.html">
-          <span>TA KONTAKT</span>
-          <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </a>
-      </div>
     </div>
 
     <div class="fq-list">
@@ -758,31 +587,32 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       <details class="fq-item">
         <summary>Får jeg virkelig se noe før jeg betaler?<span class="fq-plus" aria-hidden="true">+</span></summary>
         <div class="fq-body"><div class="fq-body-inner">
-          <p>For nettsider bygger vi et ferdig utkast du kan se på i fred, og for chatbots en gratis demo satt opp på dine egne tekster. Sier du nei, koster det deg ingenting. Andre AI-agenter (telefon, SMS), booking, systemer og integrasjoner prises med skriftlig fastpris før vi bygger — der avtales eventuell demo i tilbudet.</p>
+          <p>For nettsider bygger jeg et ferdig utkast du kan se på i fred, og for chatbots en gratis demo satt opp på dine egne tekster. Sier du nei, koster det deg ingenting. Andre AI-agenter (telefon, SMS), booking, systemer og integrasjoner prises med skriftlig fastpris før jeg bygger — der avtales eventuell demo i tilbudet.</p>
         </div></div>
       </details>
       <details class="fq-item">
         <summary>Hvor lang tid tar det?<span class="fq-plus" aria-hidden="true">+</span></summary>
         <div class="fq-body"><div class="fq-body-inner">
-          <p>Nettsider: fem dager fra du tar kontakt til du har et ferdig utkast å se på. Chatbot, systemer, integrasjoner og telefonløsninger varierer for mye med omfanget til at vi kan love et tall. Chatbots får du en gratis demo av. For resten får du fastpris og skriftlig tidsplan før noe settes i gang.</p>
+          <p>Nettsider: fem dager fra du tar kontakt til du har et ferdig utkast å se på. Chatbot, systemer, integrasjoner og telefonløsninger varierer for mye med omfanget til at jeg kan love et tall. Chatbots får du en gratis demo av. For resten får du fastpris og skriftlig tidsplan før noe settes i gang.</p>
         </div></div>
       </details>
       <details class="fq-item">
         <summary>Hva dekker den månedlige driften?<span class="fq-plus" aria-hidden="true">+</span></summary>
         <div class="fq-body"><div class="fq-body-inner">
-          <p>Hosting via Cloudflare, SSL-sertifikat, domeneadministrasjon, sikkerhetsoppdateringer, overvåking og småendringer inntil én time per måned. Siden er alltid oppe og alltid rask.</p>
+          <p>For nettsider: hosting via Cloudflare, SSL-sertifikat, domeneadministrasjon, sikkerhetsoppdateringer, overvåking og småendringer inntil én time per måned. Siden er alltid oppe og alltid rask.</p>
+          <p>For chatboten: driften av den, vedlikehold av kunnskapsbasen, og forbruket den bruker på å svare. Hver samtale koster noe hos AI-leverandøren, og det ligger inne i månedsprisen — du får ingen regning som spretter opp i en travel måned.</p>
         </div></div>
       </details>
       <details class="fq-item">
         <summary>Hva koster AI-agenter, systemer og integrasjoner?<span class="fq-plus" aria-hidden="true">+</span></summary>
         <div class="fq-body"><div class="fq-body-inner">
-          <p>Det avhenger av omfang, og du får alltid fastpris skriftlig før vi starter. Chatbots får du en gratis demo av først; for systemer og integrasjoner avtales eventuell demo i tilbudet.</p>
+          <p>Det avhenger av omfang, og du får alltid fastpris skriftlig før jeg starter. Chatbots får du en gratis demo av først; for systemer og integrasjoner avtales eventuell demo i tilbudet.</p>
         </div></div>
       </details>
       <details class="fq-item">
         <summary>Hva skjer hvis jeg vil avslutte?<span class="fq-plus" aria-hidden="true">+</span></summary>
         <div class="fq-body"><div class="fq-body-inner">
-          <p>For nettside- og driftsavtaler er det ingen bindingstid. Du sier opp med én måneds varsel, og koden er din i en ZIP-fil så snart oppsettet er betalt. Siden tas offline når driftsavtalen slutter, siden det er vi som står for hostingen, men koden kan du ta med deg hvor du vil. Systemutvikling og andre prosjektbaserte tjenester avtales i den skriftlige kontrakten, og detaljene står i <a href="vilkar.html">vilkårene</a>.</p>
+          <p>For nettside- og driftsavtaler er det ingen bindingstid. Du sier opp med én måneds varsel, og koden er din i en ZIP-fil så snart oppsettet er betalt. Siden ligger på min hosting, så den tas ned når driftsavtalen slutter — men koden er din, og du kan ta den med deg hvor du vil. Vil du flytte, hjelper jeg deg med å få siden opp igjen hos den du velger, uten ekstra kostnad. Systemutvikling og andre prosjektbaserte tjenester avtales i den skriftlige kontrakten, og detaljene står i <a href="vilkar.html">vilkårene</a>.</p>
         </div></div>
       </details>
     </div>
@@ -799,7 +629,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     </picture>
     <div class="dm-inner">
       <p class="pf-eyebrow dm-eyebrow"><span class="pf-sq"></span>KOM I GANG</p>
-      <h2 class="dm-head">Se hva vi kan bygge<br>for <span class="dm-lime">bedriften din.</span></h2>
+      <h2 class="dm-head">Se hva jeg kan bygge<br>for <span class="dm-lime">bedriften din.</span></h2>
       <a class="btn-circle dm-btn" href="kom-i-gang.html">
       <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
@@ -816,55 +646,28 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -872,12 +675,13 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">

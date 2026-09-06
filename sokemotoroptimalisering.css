@@ -12,7 +12,7 @@
     radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
     linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
 }
-.gb-hero { margin-top: auto; padding: 0 56px 58px; max-width: 760px; }
+.gb-hero { margin-top: auto; padding: 0 68px 70px; max-width: 760px; }
 
 
 /* ─── Hva som settes opp ─── */
@@ -22,7 +22,7 @@
   gap: 34px 56px;
   max-width: 1050px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .gb-item { padding-top: 24px; border-top: 1px solid rgba(10,10,10,0.14); }
 .gb-n {
@@ -44,7 +44,7 @@
 
 @media (max-width: 700px) {
   .gb-grid { grid-template-columns: 1fr; gap: 0; }
-  .gb-item { padding: 22px 0 26px; }
+  .gb-item { padding: 22px 0 32px; }
 }
 
 
@@ -55,7 +55,7 @@
   color: #fff;
   max-width: 1050px;
   margin: 0 auto;
-  padding: 44px 44px 40px;
+  padding: 52px 52px 48px;
 }
 .gb-note-head {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 28px;
   flex-wrap: wrap;
   margin-top: 30px;
 }
@@ -94,6 +94,48 @@
 }
 
 @media (max-width: 700px) {
-  .gb-note { padding: 34px 26px 30px; }
+  .gb-note { padding: 40px 32px 36px; }
   .gb-note-foot { flex-direction: column; align-items: flex-start; }
+}
+
+/* ═══ Hero: kartet ═══
+   Et stilisert kart — gater, en hovedvei, en elv, kvartaler — og én
+   naal med lime radius: der bedriften ligger, og omraadet den skal
+   finnes i. Det er det siden handler om. Lys flate. */
+.page-hero.gb-hero2 { background: #f1f1ef; min-height: min(84vh, 800px); }
+.gb-hero2 .sy-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.gb2-graf { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.gb-hero2 .ph-veil {
+  z-index: 1;
+  background:
+    linear-gradient(100deg, rgba(241,241,239,0.96) 0%, rgba(241,241,239,0.85) 34%, rgba(241,241,239,0.2) 60%, transparent 78%),
+    linear-gradient(180deg, rgba(241,241,239,0.7) 0%, transparent 24%, transparent 70%, rgba(241,241,239,0.6) 100%);
+}
+.gb-hero2 .ph-body { position: relative; z-index: 2; max-width: 600px; }
+.gb2-etikett {
+  position: absolute;
+  z-index: 2;
+  left: 70.5%; top: 42%;
+  transform: translate(14px, -54px);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #d4ff3d;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+@keyframes gb2Radius { 0% { transform: scale(0.75); opacity: 0.9; } 100% { transform: scale(1.35); opacity: 0; } }
+.gb2-radius2 { transform-box: fill-box; transform-origin: center; animation: gb2Radius 4.5s ease-out infinite; }
+@keyframes gb2Naal { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.gb2-naal { transform-box: fill-box; transform-origin: center; animation: gb2Naal 3.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .gb2-radius2, .gb2-naal { animation: none; } }
+@media (max-width: 980px) {
+  .gb2-graf { object-position: 68% 30%; }
+  .gb2-etikett { left: auto; right: 14px; top: 30%; transform: none; }
+  .gb-hero2 .ph-veil {
+    background: linear-gradient(180deg, rgba(241,241,239,0.6) 0%, rgba(241,241,239,0.1) 22%, rgba(241,241,239,0.3) 48%, rgba(241,241,239,0.92) 64%, rgba(241,241,239,0.98) 80%);
+  }
+  .gb-hero2 .ph-body { max-width: none; }
 }

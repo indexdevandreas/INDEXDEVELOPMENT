@@ -43,7 +43,7 @@ html, body,
 .foot-brand .org,
 .foot-col h3,
 .foot-base {
-  font-family: 'Inter', 'Geist', sans-serif;
+  font-family: 'Instrument Sans', 'Inter', 'Geist', sans-serif;
 }
 
 /* hjemmeside.css setter html+body til sort. Begge må overstyres —
@@ -112,7 +112,7 @@ body { background: #fff; color: #0a0a0a; }
   margin-bottom: 22px;
 }
 .ph-title {
-  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-weight: 500;
   letter-spacing: -0.038em;
   line-height: 1.04;
@@ -121,8 +121,8 @@ body { background: #fff; color: #0a0a0a; }
   text-wrap: balance;
 }
 .ph-lead {
-  margin-top: 20px; max-width: 50ch;
-  font-size: 17px; line-height: 1.6;
+  margin-top: 26px; max-width: 50ch;
+  font-size: 17px; line-height: 1.68;
   color: rgba(255,255,255,0.78);
 }
 .ph-link {
@@ -335,7 +335,7 @@ body { background: #fff; color: #0a0a0a; }
 /* Footerens wordmark skal ha samme tynne behandling som i nav-en —
    det er logoteksten, ikke brødtekst. Resten av footeren står urørt. */
 .foot-brand .brand-big {
-  font-family: 'Geist', 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif;
   font-weight: 300;
   font-size: 27px;
   letter-spacing: 0.05em;
@@ -397,11 +397,11 @@ body { background: #fff; color: #0a0a0a; }
   top: calc(100% + 16px);
   left: 50%;
   transform: translate(-50%, -8px);
-  min-width: 268px;
+  min-width: 300px;
   background: #fff;
   border: 1px solid rgba(10,10,10,0.08);
-  border-radius: 16px;
-  padding: 10px;
+  border-radius: 18px;
+  padding: 12px 12px 14px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 24px 56px rgba(0,0,0,0.22);
@@ -446,16 +446,18 @@ body { background: #fff; color: #0a0a0a; }
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin-bottom: 6px;
+  gap: 2px;
+  margin-bottom: 4px;
 }
 .nav-dropdown-panel .nav-dd-sub a {
-  padding: 6px 14px 6px 28px;
-  font-size: 12.5px;
-  font-weight: 400;
-  color: rgba(10,10,10,0.52);
+  padding: 9px 14px 9px 22px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(10,10,10,0.72);
 }
+.nav-dropdown-panel .nav-dd-sub a:hover { color: #0a0a0a; }
 .nav-dropdown-all {
-  margin-top: 8px;
+  margin-top: 12px;
   padding: 12px 14px !important;
   background: var(--lime);
   color: #0a0a0a !important;
@@ -578,7 +580,7 @@ body { background: #fff; color: #0a0a0a; }
 }
 .platform-top {
   max-width: 1290px;
-  margin: 0 auto 84px;
+  margin: 0 auto 108px;
   padding: 0 24px;
 }
 .pf-eyebrow {
@@ -601,11 +603,11 @@ body { background: #fff; color: #0a0a0a; }
   align-items: end;
 }
 .pf-head {
-  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   font-size: clamp(32px, 3.15vw, 52px);
   font-weight: 500;
   letter-spacing: -0.035em;
-  line-height: 1.16;
+  line-height: 1.2;
   color: #0a0a0a;
   text-wrap: balance;
 }
@@ -755,7 +757,7 @@ body { background: #fff; color: #0a0a0a; }
   .pt-inline .pf-top-grid { align-items: start; }
   .pt-inline .pf-aside p { display: block; }
 
-  .platform-top { margin-bottom: 48px; }
+  .platform-top { margin-bottom: 64px; }
   .pf-eyebrow,
   .pt-reverse .pf-eyebrow { margin-bottom: 24px; }
   .pf-aside { padding-bottom: 0; }
@@ -776,7 +778,10 @@ footer {
 /* .dot er erstattet av .mark — merket arver footerens tekstfarge */
 
 /* Den brede varianten med alle undersidene — fem kolonner */
-.foot-top-wide { grid-template-columns: 1.3fr 1fr 1fr 1fr 0.9fr; gap: 40px; }
+/* Fire kolonner, ikke fem: bloggkolonnen er ute, og tjenestelista er
+   flat i stedet for tre nivaer dyp. Footeren skal kunne leses, ikke
+   skannes. */
+.foot-top-wide { grid-template-columns: 1.35fr 1fr 1fr 1.05fr; gap: 56px 48px; }
 @media (max-width: 980px) {
   .foot-top-wide { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
 }
@@ -895,7 +900,7 @@ footer {
      havet og legger seg over Norge. Trengs for at de tre punktene
      nederst skal stå på én linje. */
   max-width: 780px;
-  padding: 64px 58px 56px;
+  padding: 92px 64px 84px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -979,7 +984,7 @@ footer {
    ═══════════════════════════════════════════════════════════ */
 .say { background: #fff; padding: 110px 24px; }
 .say p {
-  font-family: 'Switzer', 'Geist', 'Inter', sans-serif;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
   max-width: 780px;
   margin: 0 auto;
   text-align: center;
@@ -1122,7 +1127,7 @@ img[loading="lazy"] {
    et grafisk merke. Tynn Geist med litt luft mellom bokstavene leser
    som noe dyrt, og gir kontrast mot det massive logomerket. */
 .hero-nav .brand {
-  font-family: 'Geist', 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif;
   font-weight: 300;
   font-size: 21px;
   letter-spacing: 0.05em;
@@ -1147,9 +1152,9 @@ img[loading="lazy"] {
 .nav-btn-lime { font-size: 12px; letter-spacing: 0.1em; }
 /* Slagordet forblir i Geist. Syne er en display-skrift og blir
    sliten å lese på 12,5px over to linjer. */
-.hero-tagline { font-family: 'Geist', 'Inter', sans-serif; }
+.hero-tagline { font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif; }
 /* Dropdown-panelet arver nav-en — der er det lenketekst, ikke display */
-.nav-dropdown-panel a { font-family: 'Geist', 'Inter', sans-serif; }
+.nav-dropdown-panel a { font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif; }
 
 
 /* ═══════════════════════════════════════════════════════════
@@ -1173,7 +1178,7 @@ img[loading="lazy"] {
   align-items: center;
   gap: 12px;
   color: #0a0a0a;
-  font-family: 'Geist', 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Geist', 'Inter', sans-serif;
   font-weight: 300;
   font-size: 20px;
   letter-spacing: 0.05em;
@@ -1476,3 +1481,217 @@ footer {
   overflow: hidden; /* position: relative står alt i hjemmeside.css */
 }
 
+
+/* Åpningstid ved nummeret: siden selger «ingen tapte anrop», og da må
+   den si når telefonen faktisk tas. Står i mobilmenyen og i footeren
+   på alle sider. */
+.mm-foot-note {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.6;
+}
+.foot-hours {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.58;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LUFT PAA UNDERSIDENE
+   Forsiden er ferdig og skal ikke roeres. :has(.page-hero) treffer
+   bare undersidene, som alle deler samme hero-skall. Lengre linje-
+   avstand og kortere linjelengde gjoer teksten roligere aa lese —
+   det er forskjellen paa en side som selger og en som forteller.
+   ═══════════════════════════════════════════════════════════ */
+body:has(.page-hero) section p { line-height: 1.72; }
+body:has(.page-hero) section li { line-height: 1.62; }
+body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not([class*="note"]) { max-width: 66ch; }
+@media (max-width: 900px) {
+  body:has(.page-hero) section p { line-height: 1.66; }
+}
+
+
+/* ═══ KUNDEN SIER — ett sitat, ord for ord (forside + undersider) ═══
+   --qp (0 → 1) settes av forside.js mens seksjonen ruller inn. Hvert
+   ord har sin --i; --k er ordets egen framdrift (0 uskarpt, 1 skarpt),
+   regnet ut i CSS så JS bare skriver én verdi per bilde. Uten
+   .is-live (ingen JS, eller redusert bevegelse) er --k 1 fra start. */
+/* Sitatet står stille en stund mens siden ruller forbi, så ordene får
+   tid til å skarpne ett for ett. Ingen rulling stjeles — .qt-wrap er
+   bare sticky inne i en høy seksjon. Slås av når vinduet er for lavt
+   til at sitatet får plass med luft. */
+.quote2 { background: #fff; padding: 60px 0 120px; }
+@media (min-height: 620px) {
+  .quote2 { min-height: 210vh; }
+  .qt-wrap { position: sticky; top: 20vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quote2 { min-height: 0; }
+  .qt-wrap { position: static; }
+}
+.qt-wrap {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.qt-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.qt-stars {
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--lime);
+  text-shadow: 0 0 1px rgba(10,10,10,0.35);
+}
+.qt-text { margin: 0; }
+.qt-p {
+  font-family: 'Instrument Sans', 'Geist', sans-serif;
+  font-size: clamp(30px, 3.9vw, 58px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.032em;
+  color: #0a0a0a;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.qt-w {
+  display: inline-block;
+  --k: 1;
+  opacity: calc(0.16 + var(--k) * 0.84);
+  filter: blur(calc((1 - var(--k)) * 12px));
+  transform: translate3d(0, calc((1 - var(--k)) * 8px), 0);
+}
+/* Hvert ord bruker ~1,8 steg på å bli skarpt, så de overlapper og det
+   leser som en bølge i stedet for en teller. +2 på slutten gir litt
+   luft etter siste ord. */
+.quote2.is-live .qt-w { --k: clamp(0, calc((var(--qp, 0) * (var(--n, 12) + 2) - var(--i, 0)) / 1.8), 1); }
+.qt-who {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 40px;
+}
+.qt-pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(10,10,10,0.14);
+}
+.qt-person { display: flex; flex-direction: column; gap: 2px; text-align: left; }
+.qt-name { font-size: 15px; font-weight: 600; letter-spacing: -0.015em; }
+.qt-role { font-size: 13px; color: rgba(10,10,10,0.56); }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO-VARIANTER
+   Fjorten undersider delte nøyaktig samme sorte flate. Skallet er
+   fortsatt det samme — marg, hjørner, nav-plass — men flaten under
+   teksten skiller sidene fra hverandre: blått glass der produktet er
+   AI, lys flate der siden er en oversikt, og et stort ord bak
+   tittelen der siden har ett tydelig tema.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── A. Blått glass — samme flate som forsidens hero ─── */
+.page-hero.ph-glass {
+  background:
+    radial-gradient(115% 85% at 76% 14%, rgba(150,205,242,0.5) 0%, transparent 58%),
+    linear-gradient(118deg, #0a4a92 0%, #0f5fb4 32%, #2b82cc 62%, #6cb0dd 100%);
+}
+.ph-glass .ph-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.ph-glass .ph-field.is-on { opacity: 1; }
+.ph-glass .ph-kicker { color: rgba(255,255,255,0.8); }
+.ph-glass .ph-lead { color: rgba(255,255,255,0.9); }
+/* Teksten trenger noe å stå på når glasset er lyst i bunnen */
+.ph-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(3,18,48,0.30) 0%, transparent 34%, rgba(3,18,48,0.62) 100%);
+}
+
+/* ─── B. Lys flate, sort tekst ─── */
+.page-hero.ph-lys { background: #f1f1ef; }
+.ph-lys .ph-title { color: #0a0a0a; }
+.ph-lys .ph-kicker { color: rgba(10,10,10,0.5); }
+.ph-lys .ph-lead { color: rgba(10,10,10,0.66); }
+.ph-lys .ph-link { color: #0a0a0a; border-bottom-color: rgba(10,10,10,0.3); }
+.ph-lys .ph-link:hover { border-bottom-color: #0a0a0a; }
+/* Lime hårstrek i bunnen, så flaten ikke bare er «lys boks» */
+.ph-lys::after {
+  content: "";
+  position: absolute;
+  left: 56px; right: 56px; bottom: 0;
+  height: 2px;
+  background: var(--lime);
+  z-index: 1;
+}
+
+/* ─── C. Stort ord bak tittelen ─── */
+.ph-ord .ph-ghost {
+  position: absolute;
+  right: -0.06em;
+  bottom: -0.24em;
+  z-index: 0;
+  font-family: 'Instrument Sans', 'Geist', sans-serif;
+  font-size: clamp(150px, 26vw, 420px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  color: rgba(255,255,255,0.055);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .ph-lys::after { left: 24px; right: 24px; }
+  .ph-ord .ph-ghost { font-size: clamp(110px, 40vw, 240px); bottom: -0.18em; }
+}
+
+/* Overskriftene i Tjenester-menyen er ikke lenger lenker — de tre
+   kategorisidene er slått sammen med tjenester.html. De står nå som
+   etiketter over sine egne undertjenester. Panelet er hvitt, så
+   fargen må være mørk: den første versjonen var hvit på hvitt. */
+.nav-dropdown-panel .nav-dd-tittel {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.42);
+  padding: 18px 14px 9px;
+  cursor: default;
+  white-space: nowrap;
+}
+.nav-dropdown-panel > ul > li:first-child .nav-dd-tittel { padding-top: 6px; }
+
+/* quote2-underside: paa forsiden er 210vh riktig — der er sitatet en
+   pause i en lang side. Paa en tjenesteside blir det tomrom. */
+@media (min-height: 620px) {
+  body:has(.page-hero) .quote2 { min-height: 140vh; }
+}
+
+/* kicker-sentrert: i heroene der teksten er sentrert (.ph-frame,
+   .ph-split, .ph-poster) hadde kickeren en fast maksbredde og la seg
+   til venstre inne i den sentrerte blokken. Gjelder alle tre. */
+.ph-frame .ph-kicker, .ph-split .ph-kicker, .ph-poster .ph-kicker {
+  display: block; max-width: none; margin-left: auto; margin-right: auto; text-align: center;
+}

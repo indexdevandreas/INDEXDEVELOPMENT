@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tjenester — index dev.</title>
-<meta name="description" content="Tre områder: at folk finner deg, at de som tar kontakt blir tatt imot, og at du slipper dobbeltarbeidet. Håndkodet fra bunnen for norske bedrifter, med gratis utkast på nettsider.">
+<meta name="description" content="Tre områder: at folk finner deg, at de som tar kontakt blir tatt imot, og at du slipper dobbeltarbeidet. Skreddersydd for norske bedrifter, med gratis utkast på nettsider.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/tjenester.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@600;700;800&amp;display=swap"></noscript>
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="tjenester.css">
@@ -33,7 +33,7 @@
       <li><a href="tjenester.html">Tjenester</a></li>
       <li><a href="priser.html">Priser</a></li>
       <li><a href="om-meg.html">Om meg</a></li>
-      <li><a href="index.html#blogg">Blogg</a></li>
+      <li><a href="blogg.html">Blogg</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
   </nav>
@@ -41,13 +41,14 @@
     <span class="mm-foot-label">Direkte til Andreas</span>
     <a href="tel:+4748459686">+47 484 59 686</a>
     <a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a>
+    <span class="mm-foot-note">Telefon hverdager etter 16. SMS og e-post svares samme kveld.</span>
   </address>
 </div>
 
 
 <main>
 <!-- ───── SIDEHERO ───── -->
-<section class="page-hero" id="top">
+<section class="page-hero tj-hero" id="top">
   <header class="hero-nav">
     <div class="hero-brand">
       <a class="brand" href="index.html">
@@ -67,7 +68,7 @@
           <div class="nav-dropdown-panel">
             <ul>
               <li>
-                <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
+                <span class="nav-dd-tittel">Kontakt &amp; oppfølging</span>
                 <ul class="nav-dd-sub">
                   <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
                   <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
@@ -75,14 +76,14 @@
                 </ul>
               </li>
               <li>
-                <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
+                <span class="nav-dd-tittel">Nettside &amp; synlighet</span>
                 <ul class="nav-dd-sub">
                   <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-                  <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
+                  <li><a href="sokemotoroptimalisering.html">Søkemotoroptimalisering</a></li>
                 </ul>
               </li>
               <li>
-                <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
+                <span class="nav-dd-tittel">Systemer &amp; automatisering</span>
                 <ul class="nav-dd-sub">
                   <li><a href="systemutvikling.html">Systemutvikling</a></li>
                   <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
@@ -94,7 +95,7 @@
           </div>
         </li>
         <li><a href="om-meg.html">Om meg</a></li>
-        <li><a href="index.html#blogg">Blogg</a></li>
+        <li><a href="blogg.html">Blogg</a></li>
         <li><a href="priser.html">Priser</a></li>
       </ul>
     </nav>
@@ -111,43 +112,40 @@
 
   <div class="ph-grid">
     <div class="ph-left">
-      <p class="ph-eyebrow">TJENESTER</p>
-      <h1>Tre ting vi løser for <span class="ph-lime">bedriften din.</span></h1>
-      <p class="ph-sub">At folk finner deg. At de som tar kontakt blir tatt imot. At du slipper å taste det samme flere ganger. Velg området som ligner mest på problemet ditt, så tar vi det derfra.</p>
+      <p class="ph-kicker">Tjenester</p>
+      <h1 class="ph-title">Tre ting jeg løser for <span class="ph-lime">bedriften din.</span></h1>
+      <p class="ph-lead">At de som tar kontakt får svar med en gang. At folk finner deg. At du slipper å taste det samme flere ganger. Velg det som ligner mest på problemet ditt, så tar jeg det derfra.</p>
       <div class="ph-cta">
-        <a class="btn-circle ph-btn" href="kom-i-gang.html">
-          <span>FINN UT HVA DU TRENGER</span>
-          <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </a>
+        <a class="ph-link" href="kom-i-gang.html">Finn ut hva du trenger <span aria-hidden="true">→</span></a>
         <span class="ph-note">Gratis utkast på nettsider</span>
       </div>
     </div>
 
     <nav class="ph-right" aria-label="Tre områder">
-      <p class="pi-head"><span>Innhold</span><span>03 områder</span></p>
+      <p class="pi-head"><span>Tre områder</span><span>Velg det som ligner på problemet ditt</span></p>
       <ol class="ph-index">
-        <li><a href="#kontakt-oppfolging">
+        <li class="pi-01"><a href="#kontakt-oppfolging" data-tilt="3">
           <span class="pi-n">01</span>
-          <span class="pi-name">Kontakt &amp; oppfølging</span>
-          <span class="pi-price">tapte henvendelser</span>
+          <span class="pi-name">AI-agent &amp; automatisk svar</span>
+          <span class="pi-price">kunder som ikke får svar</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
         </a></li>
-        <li><a href="#nettside-synlighet">
+        <li class="pi-02"><a href="#nettside-synlighet" data-tilt="3">
           <span class="pi-n">02</span>
           <span class="pi-name">Nettside &amp; synlighet</span>
-          <span class="pi-price">blir ikke funnet</span>
+          <span class="pi-price">folk som ikke finner deg</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
         </a></li>
-        <li><a href="#systemer-automatisering">
+        <li class="pi-03"><a href="#systemer-automatisering" data-tilt="3">
           <span class="pi-n">03</span>
           <span class="pi-name">Systemer &amp; automatisering</span>
-          <span class="pi-price">dobbeltarbeid</span>
+          <span class="pi-price">det samme tastet flere ganger</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
         </a></li>
-        <li><a href="#drift">
+        <li class="pi-drift"><a href="#drift" data-tilt="3">
           <span class="pi-n">·</span>
           <span class="pi-name">Drift &amp; vedlikehold</span>
-          <span class="pi-price">ligger under alt</span>
+          <span class="pi-price">holder alt oppe</span>
           <span class="pi-arrow" aria-hidden="true">→</span>
         </a></li>
       </ol>
@@ -158,23 +156,22 @@
 <!-- ───── OMRÅDE 01 — KONTAKT & OPPFØLGING ───── -->
 <section class="svc-list" id="kontakt-oppfolging">
   <div class="platform-top pt-reverse">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>01 — KONTAKT &amp; OPPFØLGING</p>
+    <p class="pf-eyebrow"><span class="pf-sq"></span>01 — AI-AGENT &amp; AUTOMATISK SVAR</p>
     <div class="pf-top-grid">
       <h2 class="pf-head">Så du ikke mister <span class="pf-grey">dem som tar kontakt.</span></h2>
       <div class="pf-aside">
-        <p>De fleste tar kontakt én gang. Dette er måtene å ta imot på, og de virker døgnet rundt.</p>
-        <a class="pf-link" href="kontakt-oppfolging.html">Om kontakt &amp; oppfølging <span class="pf-link-arrow">→</span></a>
+        <p>De fleste tar kontakt én gang. Får de svar med en gang, blir de. Dette virker døgnet rundt — også når du står i en jobb.</p>
+        <a class="pf-link" href="ai-agenter.html">Les om AI-agenter <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="svc-rows">
-      <a class="svc-row" id="ai-agenter" href="ai-agenter.html">
+      <a class="svc-row" id="ai-agenter" href="ai-agenter.html" data-tilt="1.4">
         <span class="svc-i">01</span>
         <h3 class="svc-name">AI-agenter<br>&amp; chatbots</h3>
         <div class="svc-body">
-          <p>Chatbot som møter kundene på nettsiden, og agenter som jobber i bakgrunnen mot dine egne systemer. Trent på dine tekster og rutiner.</p>
-          <div class="svc-tags"><span>Norsk språk</span><span>Claude / GPT</span><span>24/7</span><span>Lead-fangst</span></div>
+          <p>En chatbot som svarer kundene på nettsiden, på norsk, med en gang — satt opp med dine tekster, priser og rutiner. Og agenter som gjør rutinejobben i bakgrunnen.</p>
         </div>
         <div class="svc-side">
           <span class="svc-price is-text">Tilbud</span>
@@ -182,12 +179,11 @@
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="ubesvarte-anrop" href="ubesvarte-anrop.html">
-        <span class="svc-i">03</span>
+      <a class="svc-row" id="ubesvarte-anrop" href="ubesvarte-anrop.html" data-tilt="1.4">
+        <span class="svc-i">02</span>
         <h3 class="svc-name">Ubesvarte<br>anrop</h3>
         <div class="svc-body">
           <p>Rekker du ikke telefonen, tar systemet imot for deg: SMS i ditt navn, eller en AI som tar selve samtalen og sender deg beskjeden etterpå.</p>
-          <div class="svc-tags"><span>Svar på sekunder</span><span>SMS-oppsummering</span><span>To nivåer</span></div>
         </div>
         <div class="svc-side">
           <span class="svc-price is-text">Tilbud</span>
@@ -195,16 +191,15 @@
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="booking-systemer" href="booking-systemer.html">
+      <a class="svc-row" id="booking-systemer" href="booking-systemer.html" data-tilt="1.4">
         <span class="svc-i">03</span>
         <h3 class="svc-name">Booking- og<br>bestillingssystem</h3>
         <div class="svc-body">
           <p>Kunder booker direkte på nettsiden, alt lagres i din egen database, og bekreftelsen går ut automatisk.</p>
-          <div class="svc-tags"><span>Egen database</span><span>Automatisk bekreftelse</span><span>Adminpanel</span></div>
         </div>
         <div class="svc-side">
-          <span class="svc-price">7 900<span class="kr">,-</span></span>
-          <span class="svc-per">fra, drift avtales skriftlig</span>
+          <span class="svc-price is-text">Tilbud</span>
+          <span class="svc-per">fastpris skriftlig</span>
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
@@ -219,18 +214,17 @@
       <h2 class="pf-head">Så folk finner deg <span class="pf-grey">når de søker.</span></h2>
       <div class="pf-aside">
         <p>De som trenger deg søker etter det du gjør, ikke etter navnet ditt. To ting avgjør om de finner deg: siden din, og bedriftsprofilen din.</p>
-        <a class="pf-link" href="nettside-synlighet.html">Om nettside &amp; synlighet <span class="pf-link-arrow">→</span></a>
+        <a class="pf-link" href="webdesign.html">Les om nettsider <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="svc-rows">
-      <a class="svc-row" id="webdesign" href="webdesign.html">
+      <a class="svc-row" id="webdesign" href="webdesign.html" data-tilt="1.4">
         <span class="svc-i">01</span>
         <h3 class="svc-name">Webdesign, SEO<br>&amp; utvikling</h3>
         <div class="svc-body">
-          <p>Komplett nettside fra strategi til lansering. Håndkodet, uten WordPress og maler, bygget for at besøkende skal bli kunder.</p>
-          <div class="svc-tags"><span>Håndkodet</span><span>Teknisk SEO</span><span>Lighthouse 100</span><span>Mobil-først</span></div>
+          <p>Komplett nettside fra første skisse til lansering. Skreddersydd fra bunnen, uten WordPress og maler, bygget for at besøkende skal ta kontakt — og klar for chatboten.</p>
         </div>
         <div class="svc-side">
           <span class="svc-price">2 900<span class="kr">,-</span></span>
@@ -238,12 +232,11 @@
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="google-bedriftsprofil" href="google-bedriftsprofil.html">
+      <a class="svc-row" id="google-bedriftsprofil" href="sokemotoroptimalisering.html" data-tilt="1.4">
         <span class="svc-i">02</span>
-        <h3 class="svc-name">Google<br>Bedriftsprofil</h3>
+        <h3 class="svc-name">Søkemotor-<br>optimalisering</h3>
         <div class="svc-body">
-          <p>Riktig opprettet eller ryddet opp, koblet til nettsiden og til Google Search Console — så du vises i lokalt søk og på kartet.</p>
-          <div class="svc-tags"><span>Lokal SEO</span><span>Google Maps</span><span>Search Console</span></div>
+          <p>Så du dukker opp når folk i området søker etter det du gjør: teknisk SEO på siden, riktige ord, og Google Bedriftsprofil koblet til — så du vises i søket og på kartet.</p>
         </div>
         <div class="svc-side">
           <span class="svc-price is-text">Ofte inkl.</span>
@@ -261,36 +254,34 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Så du slipper å taste <span class="pf-grey">det samme flere ganger.</span></h2>
       <div class="pf-aside">
-        <p>Noen ganger mangler et system, andre ganger snakker de eksisterende bare ikke sammen. Vi starter med det som koster deg mest tid.</p>
-        <a class="pf-link" href="systemer-automatisering.html">Om systemer &amp; automatisering <span class="pf-link-arrow">→</span></a>
+        <p>Noen ganger mangler et system, andre ganger snakker de eksisterende bare ikke sammen. Jeg starter med det som koster deg mest tid.</p>
+        <a class="pf-link" href="systemutvikling.html">Les om systemer <span class="pf-link-arrow">→</span></a>
       </div>
     </div>
   </div>
 
   <div class="svc-rows">
-      <a class="svc-row" id="systemutvikling" href="systemutvikling.html">
+      <a class="svc-row" id="systemutvikling" href="systemutvikling.html" data-tilt="1.4">
         <span class="svc-i">01</span>
         <h3 class="svc-name">System-<br>utvikling</h3>
         <div class="svc-body">
           <p>Database, innlogging og adminpanel der du styrer innholdet selv. Bygget for din arbeidsflyt.</p>
-          <div class="svc-tags"><span>Supabase</span><span>PostgreSQL</span><span>Adminpanel</span><span>Row Level Security</span></div>
         </div>
         <div class="svc-side">
-          <span class="svc-price">14 900<span class="kr">,-</span></span>
-          <span class="svc-per">fra, fastpris avtales</span>
+          <span class="svc-price is-text">Tilbud</span>
+          <span class="svc-per">fastpris skriftlig</span>
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
-      <a class="svc-row" id="api-integrasjoner" href="api-integrasjoner.html">
+      <a class="svc-row" id="api-integrasjoner" href="api-integrasjoner.html" data-tilt="1.4">
         <span class="svc-i">02</span>
         <h3 class="svc-name">API-<br>integrasjoner</h3>
         <div class="svc-body">
-          <p>Vi kobler nettsiden til systemene du allerede bruker, slik at data flyter automatisk i stedet for å tastes inn for hånd.</p>
-          <div class="svc-tags"><span>Stripe / Vipps</span><span>CRM</span><span>E-post</span><span>Kalender</span><span>Webhooks</span></div>
+          <p>Jeg kobler nettsiden til systemene du allerede bruker, slik at data flyter automatisk i stedet for å tastes inn for hånd.</p>
         </div>
         <div class="svc-side">
-          <span class="svc-price">4 299<span class="kr">,-</span></span>
-          <span class="svc-per">fra</span>
+          <span class="svc-price is-text">Tilbud</span>
+          <span class="svc-per">fastpris skriftlig</span>
           <span class="svc-go">Les mer <span class="pf-link-arrow">→</span></span>
         </div>
       </a>
@@ -302,7 +293,7 @@
   <div class="platform-top pt-reverse">
     <p class="pf-eyebrow"><span class="pf-sq"></span>UNDER ALT SAMMEN</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Alt vi bygger <span class="pf-grey">driftes av oss.</span></h2>
+      <h2 class="pf-head">Alt jeg bygger <span class="pf-grey">driftes av meg.</span></h2>
       <div class="pf-aside">
         <p>Drift er ikke et fjerde område du velger mellom. Det er det som holder alt det andre oppe etter at det er levert.</p>
         <a class="pf-link" href="priser.html">Se alle priser <span class="pf-link-arrow">→</span></a>
@@ -311,12 +302,11 @@
   </div>
 
   <div class="svc-rows">
-      <a class="svc-row" href="drift.html">
+      <a class="svc-row" href="drift.html" data-tilt="1.4">
         <span class="svc-i">·</span>
         <h3 class="svc-name">Drift &amp;<br>vedlikehold</h3>
         <div class="svc-body">
-          <p>Vi holder siden rask, sikker og oppdatert mens du driver bedriften. Hosting via Cloudflare, SSL, sikkerhetsoppdateringer og overvåking — alt inkludert.</p>
-          <div class="svc-tags"><span>Cloudflare</span><span>SSL</span><span>Overvåking</span><span>Ingen bindingstid</span></div>
+          <p>Jeg holder siden rask, sikker og oppdatert mens du driver bedriften. Hosting via Cloudflare, SSL, sikkerhetsoppdateringer og overvåking — alt inkludert.</p>
         </div>
         <div class="svc-side">
           <span class="svc-price">449<span class="kr">,-</span></span>
@@ -334,7 +324,7 @@
     <div class="pf-top-grid">
       <h2 class="pf-head">Tre steg, uansett<br>hva du bestiller.</h2>
       <div class="pf-aside">
-        <p>Fastpris og betalingsplan avtales skriftlig før vi bygger.</p>
+        <p>Fastpris og betalingsplan avtales skriftlig før jeg bygger.</p>
       </div>
     </div>
   </div>
@@ -343,17 +333,17 @@
     <div class="proc-card">
       <span class="proc-n">01</span>
       <h3>Du forteller hva du trenger</h3>
-      <p>Send en melding eller book en demo. Vi går gjennom hva bedriften faktisk trenger — ikke hva som er dyrest å bygge.</p>
+      <p>Send en melding eller book en demo. Jeg går gjennom hva bedriften faktisk trenger — ikke hva som er dyrest å bygge.</p>
     </div>
     <div class="proc-card is-lime">
       <span class="proc-n">02</span>
-      <h3>Vi bygger et utkast</h3>
-      <p>Nettsider ser du som ferdig utkast og chatbots som gratis demo, før du betaler noe. Booking og systemer får fastpris skriftlig før vi bygger.</p>
+      <h3>Jeg bygger et utkast</h3>
+      <p>Nettsider ser du som ferdig utkast og chatbots som gratis demo, før du betaler noe. Booking og systemer får fastpris skriftlig før jeg bygger.</p>
     </div>
     <div class="proc-card is-dark">
       <span class="proc-n">03</span>
       <h3>Du bestemmer</h3>
-      <p>Liker du det, setter vi det i produksjon og du eier koden. Gjør du ikke det, koster det deg ingenting.</p>
+      <p>Liker du det, setter jeg det i produksjon og du eier koden. Gjør du ikke det, koster det deg ingenting.</p>
     </div>
   </div>
 </section>
@@ -373,11 +363,6 @@
       <span>FINN UT HVA DU TRENGER</span>
       <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <ul class="dm-points">
-      <li><span class="dm-check" aria-hidden="true">✓</span>Gratis utkast på nettsider, demo på chatbots</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Koden er din eiendom</li>
-      <li><span class="dm-check" aria-hidden="true">✓</span>Ingen bindingstid på nettsider</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -392,55 +377,28 @@
           <svg class="mark" aria-hidden="true"><use href="#idlogo"/></svg>
           <span>index dev.</span>
         </span>
-        <p class="tag">Vi bygger digitale løsninger som skaffer kunder for norske bedrifter. Håndkodet, skreddersydd, levert med fastpris.</p>
+        <p class="tag">Skreddersydde digitale løsninger for norske bedrifter — bygget for å skaffe kunder, levert med fastpris.</p>
         <span class="org">Org.nr — 936 933 661</span>
       </div>
       <nav class="foot-col" aria-label="Tjenester">
         <h3>Tjenester</h3>
         <ul>
-          <li>
-            <a href="kontakt-oppfolging.html">Kontakt &amp; oppfølging</a>
-            <ul class="foot-sub">
-              <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
-              <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
-              <li><a href="booking-systemer.html">Booking-systemer</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="nettside-synlighet.html">Nettside &amp; synlighet</a>
-            <ul class="foot-sub">
-              <li><a href="webdesign.html">Webdesign, SEO &amp; utvikling</a></li>
-              <li><a href="google-bedriftsprofil.html">Google Bedriftsprofil</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="systemer-automatisering.html">Systemer &amp; automatisering</a>
-            <ul class="foot-sub">
-              <li><a href="systemutvikling.html">Systemutvikling</a></li>
-              <li><a href="api-integrasjoner.html">API-integrasjoner</a></li>
-            </ul>
-          </li>
+          <li><a href="ai-agenter.html">AI-agenter &amp; chatbots</a></li>
+          <li><a href="ubesvarte-anrop.html">Ubesvarte anrop</a></li>
+          <li><a href="booking-systemer.html">Booking-systemer</a></li>
+          <li><a href="webdesign.html">Nettside, design &amp; SEO</a></li>
+          <li><a href="systemutvikling.html">Systemer &amp; integrasjoner</a></li>
           <li><a href="drift.html">Drift &amp; vedlikehold</a></li>
-          <li><a href="tjenester.html">Alle tjenester</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="Selskap">
         <h3>Selskap</h3>
         <ul>
-          <li><a class="mm-cta" href="kom-i-gang.html">Finn ut hva du trenger</a></li>
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="tjenester.html">Alle tjenester</a></li>
           <li><a href="priser.html">Priser</a></li>
+          <li><a href="om-meg.html">Om meg</a></li>
+          <li><a href="blogg.html">Blogg</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Fra bloggen">
-        <h3>Fra bloggen</h3>
-        <ul>
-          <li><a href="blogg-anrop.html">Anropene du ikke rekker å ta</a></li>
-          <li><a href="blogg-seo.html">Hvorfor Google ikke finner deg</a></li>
-          <li><a href="blogg-pris.html">Hva du faktisk betaler for</a></li>
-          <li><a href="blogg-tlf.html">Hvorfor ringer ikke telefonen</a></li>
         </ul>
       </nav>
       <div class="foot-col contact">
@@ -448,12 +406,13 @@
         <ul>
           <li><a href="tel:+4748459686">+47 484 59 686</a></li>
           <li><a href="mailto:andreas@indexdevelopment.no">andreas@indexdevelopment.no</a></li>
+          <li class="foot-hours">Telefon hverdager etter 16.<br>SMS og e-post svares samme kveld.</li>
         </ul>
       </div>
     </div>
 
     <div class="foot-mark">
-      <div class="big">INDEX DEV</div>
+      <div class="big">index dev.</div>
     </div>
 
     <div class="foot-base">
@@ -466,6 +425,7 @@
 
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
+<script src="tall.js" defer></script>
 <script src="forside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>

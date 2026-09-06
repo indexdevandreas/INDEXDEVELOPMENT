@@ -2,11 +2,8 @@
    systemutvikling.css — kun for systemutvikling.html.
    Delt designsystem ligger i sider.css og må lastes først.
 
-   Heroen er et systemkart: det kundene ser på toppen, logikken vi
-   bygger i midten, dataene og tjenestene under — med strøm som
-   renner gjennom ledningene mellom lagene. Selve «strømmen» er en
-   animert background-position på tynne striper, ikke SVG, så det
-   holder seg lett.
+   Heroen er «Tegningen»: et hvitt ark med en teknisk tegning av et
+   system i tynne blaa streker — se blokken nederst i fila.
    ─────────────────────────────────────────────────────────── */
 
 /* Skallet til heroen ligger i sider.css. Her er bare objektet den viser. */
@@ -31,19 +28,19 @@
 /* ═══════════════════════════════════════════════════════════
    BYGGEKLOSSER
    ═══════════════════════════════════════════════════════════ */
-.sy-blocks { background: #fff; padding: 130px 0 110px; }
+.sy-blocks { background: #fff; padding: 158px 0 134px; }
 .bk-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 .bk {
   position: relative;
   border-radius: 18px;
-  padding: 28px 28px 26px;
+  padding: 34px 34px 32px;
   min-height: 262px;
   display: flex;
   flex-direction: column;
@@ -125,7 +122,7 @@ a.bk:hover {
 a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 
 @media (max-width: 980px) {
-  .sy-blocks { padding: 90px 0 70px; }
+  .sy-blocks { padding: 110px 0 86px; }
   .bk-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
@@ -137,18 +134,18 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 /* ═══════════════════════════════════════════════════════════
    BYGGET PÅ — stacken, og hvorfor
    ═══════════════════════════════════════════════════════════ */
-.sy-stack { background: #fff; padding: 20px 0 120px; }
+.sy-stack { background: #fff; padding: 20px 0 146px; }
 .st-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
   border-top: 1px solid rgba(10,10,10,0.12);
 }
 .st-cell {
-  padding: 30px 26px 30px 0;
+  padding: 36px 32px 36px 0;
   border-right: 1px solid rgba(10,10,10,0.12);
 }
 .st-cell:last-child { border-right: 0; padding-right: 0; }
@@ -174,7 +171,7 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 .st-foot {
   max-width: 1290px;
   margin: 0 auto;
-  padding: 34px 24px 0;
+  padding: 40px 28px 0;
 }
 .st-foot p {
   font-size: 15.5px;
@@ -185,9 +182,9 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 .st-foot strong { color: #0a0a0a; font-weight: 600; }
 
 @media (max-width: 900px) {
-  .sy-stack { padding: 0 0 90px; }
+  .sy-stack { padding: 0 0 110px; }
   .st-strip { grid-template-columns: 1fr 1fr; }
-  .st-cell { padding: 26px 20px 26px 0; border-bottom: 1px solid rgba(10,10,10,0.12); }
+  .st-cell { padding: 32px 20px 32px 0; border-bottom: 1px solid rgba(10,10,10,0.12); }
   .st-cell:nth-child(2n) { border-right: 0; padding-right: 0; }
   .st-cell:nth-child(2n+1) { padding-left: 0; }
   .st-cell:nth-child(2n) { padding-left: 20px; }
@@ -198,7 +195,7 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
   .st-cell,
   .st-cell:nth-child(2n),
   .st-cell:nth-child(2n+1) {
-    padding: 24px 0;
+    padding: 28px 0;
     border-right: 0;
     padding-left: 0;
   }
@@ -211,17 +208,17 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 /* ═══════════════════════════════════════════════════════════
    PRIS
    ═══════════════════════════════════════════════════════════ */
-.sy-price { background: #fff; padding: 20px 0 130px; }
+.sy-price { background: #fff; padding: 20px 0 158px; }
 .sp-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 20px;
+  gap: 24px;
   max-width: 1290px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
   align-items: stretch;
 }
-.sp-card { border-radius: 20px; padding: 40px 42px 36px; }
+.sp-card { border-radius: 20px; padding: 48px 50px 44px; }
 .sp-main {
   position: relative;
   overflow: hidden;
@@ -335,9 +332,9 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 .sp-note .pf-link { margin-top: auto; padding-top: 28px; align-self: flex-start; }
 
 @media (max-width: 980px) {
-  .sy-price { padding: 0 0 90px; }
+  .sy-price { padding: 0 0 110px; }
   .sp-grid { grid-template-columns: 1fr; }
-  .sp-card { padding: 32px 26px 30px; }
+  .sp-card { padding: 38px 32px 36px; }
 }
 
 
@@ -346,4 +343,116 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
    ═══════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   a.bk:hover { transform: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — skissen
+   Lys flate med teksten til venstre. Til høyre en liten skisse av et
+   system: tre hvite noder oppå hverandre (det kunden ser, logikken,
+   databasen) og én stiplet til siden (det du har fra før), tynne
+   koblinger, og lime pulser som går mellom dem. Ingen boks rundt,
+   ingen tekst — mest luft. (Den mørke 3D-flisen før denne tok for
+   mye plass.)
+   ═══════════════════════════════════════════════════════════ */
+.page-hero.sy5-hero {
+  min-height: min(78vh, 700px);
+  background:
+    radial-gradient(38% 54% at 74% 52%, rgba(150,205,242,0.30) 0%, transparent 70%),
+    #f1f1ef;
+}
+.page-hero.sy5-hero::before { content: none; }
+.sy5-frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 370px);
+  align-items: center;
+  gap: 60px;
+  margin: auto 0;
+  padding: 24px 150px 56px 68px;
+}
+.sy5-body { margin: 0; padding: 0; max-width: 600px; }
+.sy5-hero .ph-title {
+  font-size: clamp(38px, 4.3vw, 64px);
+  letter-spacing: -0.042em;
+  line-height: 1.0;
+}
+.sy5-hero .ph-lead { margin-top: 26px; max-width: 42ch; }
+.sy5-hero .ph-link { margin-top: 32px; background: #0a0a0a; color: #fff; }
+.sy5-hero .ph-link:hover { background: var(--lime); color: #0a0a0a; }
+
+/* ── Skissen ── */
+.sy5-figur { width: 100%; }
+.sy5-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* Nodene kommer opp én etter én, og svever så svakt i utakt */
+.sy5-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    sy5Inn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    sy5Svev 5.5s ease-in-out infinite;
+}
+.sy5-node-1 { animation-delay: 0.2s, 1.2s; }
+.sy5-node-2 { animation-delay: 0.42s, 2.4s; }
+.sy5-node-3 { animation-delay: 0.64s, 0.6s; }
+.sy5-node-4 { animation-delay: 0.9s, 3.1s; }
+@keyframes sy5Inn {
+  from { opacity: 0; transform: translateY(14px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes sy5Svev {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* Koblingene tegnes etter at nodene står */
+.sy5-linje {
+  stroke-dasharray: 70;
+  stroke-dashoffset: 70;
+  animation: sy5Tegn 0.55s ease-out forwards;
+}
+.sy5-linje-1 { animation-delay: 1.0s; }
+.sy5-linje-2 { animation-delay: 1.2s; }
+@keyframes sy5Tegn { to { stroke-dashoffset: 0; } }
+.sy5-linje-ekstern { opacity: 0; animation: sy5Fram 0.6s ease-out 1.4s forwards; }
+@keyframes sy5Fram { to { opacity: 1; } }
+
+/* Pulsene har sin egen tid i SVG-en (SMIL); de er usynlige før de
+   starter, så de ikke ligger som prikker i hjørnet. */
+.sy5-puls { opacity: 0; filter: drop-shadow(0 0 4px rgba(212,255,61,0.9)); }
+.sy5-puls-liten { animation: sy5Fram 0.4s ease-out 2.6s forwards; }
+
+/* Den lille lampen på databasen puster */
+.sy5-lampe { animation: sy5Lampe 2.4s ease-in-out 1.4s infinite; }
+@keyframes sy5Lampe { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sy5-node, .sy5-linje, .sy5-linje-ekstern, .sy5-lampe, .sy5-puls-liten { animation: none; opacity: 1; transform: none; }
+  .sy5-linje { stroke-dashoffset: 0; }
+  .sy5-pulser { display: none; }
+}
+
+@media (max-width: 1180px) {
+  .sy5-frame { grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 40px; padding: 16px 90px 52px 48px; }
+  .sy5-hero .ph-title { font-size: clamp(36px, 4.4vw, 54px); }
+}
+/* Telefon: teksten først, skissen under, mindre. */
+@media (max-width: 900px) {
+  .page-hero.sy5-hero {
+    min-height: 0;
+    background:
+      radial-gradient(70% 30% at 50% 84%, rgba(150,205,242,0.30) 0%, transparent 70%),
+      #f1f1ef;
+  }
+  .sy5-frame { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 12px 28px 40px; }
+  .sy5-body { max-width: none; padding: 0; }
+  .sy5-hero .ph-lead { margin-top: 20px; }
+  .sy5-hero .ph-link { margin-top: 26px; }
+  .sy5-figur { justify-self: center; width: min(58%, 250px); }
+}
+@media (max-width: 560px) {
+  .sy5-frame { padding: 6px 16px 32px; gap: 22px; }
+  .sy5-body { padding: 0 !important; }
+  .sy5-hero .ph-title { font-size: clamp(36px, 10.8vw, 44px); }
+  .sy5-figur { width: min(62%, 230px); }
 }
