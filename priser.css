@@ -58,7 +58,7 @@
   font-size: 44px; line-height: 1; letter-spacing: -0.025em;
   color: #fff;
 }
-.pr-lapp-sum em { font-style: normal; font-size: 0.45em; color: var(--lime); margin-left: 0.05em; }
+.pr-lapp-sum em { font-style: normal; font-size: 0.45em; color: #0a0a0a; margin-left: 0.05em; }
 .pr-lapp-linje { height: 1px; background: rgba(255,255,255,0.14); margin: 20px 0 16px; }
 .pr-lapp-rad {
   display: flex; justify-content: space-between; gap: 14px;
@@ -161,12 +161,12 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
-.sp-unit { color: var(--lime); margin-left: 0.04em; }
+.sp-unit { color: #0a0a0a; margin-left: 0.04em; }
 .sp-fixed .sp-unit {
   -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
   paint-order: stroke fill;
 }
-.sp-amount-word { color: var(--lime); }
+.sp-amount-word { color: #0a0a0a; }
 
 .sp-desc {
   font-size: 16px;
@@ -265,7 +265,7 @@
   line-height: 1;
   letter-spacing: -0.025em;
 }
-.pk-kr { font-size: 0.42em; color: var(--lime); margin-left: 0.04em; }
+.pk-kr { font-size: 0.42em; color: #0a0a0a; margin-left: 0.04em; }
 .pk-fra { font-size: 0.34em; font-weight: 500; letter-spacing: 0.02em; opacity: 0.55; margin-right: 0.1em; }
 /* Chatbot prises med tilbud — ordet settes i samme serif og grad som
    tallene, så kortene veier likt mot pakkene med prislapp. Lime kun
@@ -586,12 +586,36 @@
      streker. Den gjøres dobbelt så bred som flaten og sentreres på
      grepet, så armene går ut av begge kanter og grepet fyller bredden. */
   .pr-hero5 .pr-hero { padding: 18px 24px 0; }
+  /* 170 % bred og sentrert på selve grepet (54 % inn i tegningen), så
+     begge hender er med og zebraen ikke kuttes. 200 % med midten i
+     midten la grepet til høyre og kuttet zebraens hånd. */
+  /* Flaten sentrerer barna sine, så tegningens MIDTE står alt midt på
+     skjermen. Grepet sitter 54 % inn — 4 % til høyre for midten — og
+     trekkes tilbake med en transform. Ingen left/margin: de regnet mot
+     en boks som ikke var der. */
   .zh-bak {
-    width: 200%;
-    margin-left: -50%;
+    width: 170%;
+    margin-left: 0;
+    left: auto;
+    transform: translateX(-4%);
     margin-top: -22px;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
     mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
   }
   .page-hero.pr-hero5 { background: radial-gradient(80% 22% at 50% 92%, rgba(150,205,242,0.30) 0%, transparent 74%), #f1f1ef; }
+}
+
+/* Underlinje i prisradene: oppsett og tak, i mindre skrift under
+   månedsprisen. */
+.sp-rows dd .sp-sub {
+  display: block;
+  white-space: normal;
+  max-width: 22ch;
+  margin-top: 3px;
+  font-family: 'Instrument Sans', 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: rgba(10,10,10,0.5);
 }

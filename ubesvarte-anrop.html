@@ -28,11 +28,10 @@
   "serviceType": "Automatisk oppfølging av ubesvarte anrop",
   "areaServed": { "@type": "Country", "name": "Norge" },
   "provider": { "@id": "https://indexdevelopment.no/#organization" },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "NOK",
-    "description": "Begge nivåer prises med et skriftlig tilbud. Fastpris avtales skriftlig før noe bygges."
-  }
+  "offers": [
+    { "@type": "Offer", "name": "Nivå 1 — SMS-svar", "price": "690", "priceCurrency": "NOK", "description": "690 kr per måned, pluss 2 900 kr i oppsett." },
+    { "@type": "Offer", "name": "Nivå 2 — AI tar telefonen", "price": "1490", "priceCurrency": "NOK", "description": "1 490 kr per måned, pluss 4 900 kr i oppsett. Inntil 100 samtaler i måneden." }
+  ]
 }
 </script>
 </head>
@@ -261,17 +260,17 @@
 
     <aside class="bd-price">
       <p class="bd-price-label">Pris</p>
-      <h3>Skriftlig tilbud, fastpris før jeg bygger</h3>
-      <p>Nivå 1 er tekst og har lavest løpende kostnad. Nivå 2 bruker tale, som koster per minutt. Begge settes opp punkt for punkt i ett skriftlig tilbud.</p>
+      <h3>Fast pris. Ingen overraskelser.</h3>
+      <p>Nivå 1 er tekst. Nivå 2 bruker tale, og har inntil 100 samtaler i måneden inkludert — har du flere, ta kontakt, så setter vi det opp etter forbruket. Det du får, står punkt for punkt i avtalen før noe settes opp.</p>
       <p>Starter du på nivå 1 og oppgraderer senere, trekkes det du alt har betalt fra.</p>
       <div class="bd-price-rule"></div>
       <ul class="bd-price-rows">
-        <li><span>Nivå 1 — SMS-svar</span><span>Skriftlig tilbud</span></li>
-        <li><span>Nivå 2 — AI tar telefonen</span><span>Skriftlig tilbud</span></li>
+        <li><span>Nivå 1 — SMS-svar</span><span>690,-/mnd + 2 900,- i oppsett</span></li>
+        <li><span>Nivå 2 — AI tar telefonen</span><span>1 490,-/mnd + 4 900,- i oppsett</span></li>
         <li><span>Endringer i teksten</span><span>Inkludert</span></li>
         <li><span>Oppgradering fra nivå 1</span><span>Trekkes fra</span></li>
       </ul>
-      <p class="bd-price-note">Har du mange anrop i døgnet, si fra når du tar kontakt, så tar jeg høyde for forbruket i tilbudet.</p>
+      <p class="bd-price-note">Nivå 2 dekker inntil 100 samtaler i måneden. Har du flere, ta kontakt, så setter vi det opp etter forbruket.</p>
       <a class="btn-circle bd-price-btn" href="kom-i-gang.html">
         <span>FÅ ET PRISTILBUD</span>
         <span class="bc-circle"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>

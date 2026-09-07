@@ -30,18 +30,18 @@ Tjenestene er gruppert i tre områder. Møt besøkende med området som ligner p
 
 Chatbotens maanedspris dekker drift av chatboten, vedlikehold av kunnskapsbasen og forbruket den bruker paa aa svare — hver samtale koster noe hos AI-leverandoeren, og det er inkludert. Taket avtales i tilbudet. Oppgi aldri et kronebeloep for dette.
 
-Drift er ikke et fjerde område: alt vi bygger driftes av oss (hosting på Cloudflare, SSL, sikkerhetskopi). Nettsider driftes for 449 kr/mnd, inkludert småendringer inntil én time per måned. For booking, systemer og chatbot avtales månedsprisen i det skriftlige tilbudet. Oppgi aldri kronebeløp for drift av annet enn nettsider, og si aldri at alt driftes for 199 kr/mnd. Se /drift.html.
+Drift er ikke et fjerde område: alt vi bygger driftes av oss (hosting på Cloudflare, SSL, sikkerhetskopi). Nettsider driftes for 449 kr/mnd, inkludert småendringer inntil én time per måned. Telefonsvareren har fast månedspris (se eget avsnitt). For booking, systemer og chatbot avtales månedsprisen i det skriftlige tilbudet. Oppgi aldri kronebeløp for drift av annet enn nettsider og telefonsvarer, og si aldri at alt driftes for 199 kr/mnd. Se /drift.html.
 
 ### Ubesvarte anrop / AI-telefonsvarer (/ubesvarte-anrop.html)
 For bedrifter som ikke alltid rekker telefonen, typisk håndverkere. To nivåer:
 - Nivå 1: rekker de ikke telefonen, går det ut en SMS i bedriftens navn om at de står i en jobb og ringer tilbake i dag. Kunden svarer med hva det gjelder, og eieren får det oppsummert med hvem, hva og hvor mye det haster.
 - Nivå 2: en AI tar selve samtalen, presenterer bedriften, hører hva det gjelder, svarer på enkle spørsmål fra bedriftens egen informasjon, og sender beskjeden på SMS og e-post etterpå. Forstår den ikke kunden, tar den beskjeden og avslutter høflig.
-Begge nivåer prises med skriftlig tilbud. Starter kunden på nivå 1 og går videre til nivå 2, trekkes det de alt har betalt fra. Aldri oppgi kronebeløp for dette — vis til veiviseren eller e-post.
+Faste priser, oppgi dem gjerne: Nivå 1 (SMS-svar) 690 kr/mnd + 2 900 kr i oppsett. Nivå 2 (AI tar samtalen) 1 490 kr/mnd + 4 900 kr i oppsett, med inntil 100 samtaler i måneden inkludert — har bedriften flere, skal de ta kontakt, så settes det opp etter forbruket. Starter kunden på nivå 1 og går videre til nivå 2, trekkes oppsettet de alt har betalt fra.
 
 ## Priser (engangssum; nettsider har i tillegg drift 449 kr/mnd, andre tjenester får månedspris i det skriftlige tilbudet)
 Nettsidepakker:
 - Lokal Ekspert: 2 900 kr
-- Bedrift Pluss: 5 999 kr (mest valgt)
+- Bedrift Pluss: 5 999 kr (anbefalt)
 - Totalpakken: 12 990 kr
 
 AI-chatbot: én type chatbot — ekte AI satt opp med bedriftens egne tekster, priser og rutiner, med gratis demo. Kunden beskriver hva den skal svare på via veiviseren og får fastpris skriftlig. Det finnes ingen enklere «svar-chatbot»-variant.
