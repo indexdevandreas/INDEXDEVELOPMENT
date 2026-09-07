@@ -2172,21 +2172,23 @@ html, body { overflow-x: clip; }
 
 /* Scenen: samme som i heroen, men panelet er lavere enn en hero, så
    telefonen får stikke litt mindre under kanten. */
-.sv-svarer .ua-scene { margin-bottom: -40px; }
 
-@media (max-width: 980px) {
-  .sv-svarer {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 36px 24px 0;
-    margin-bottom: 64px;
-  }
-  .sv-svarer-text { padding-bottom: 0; }
-  .sv-svarer .ua-scene { margin-bottom: -56px; }
+
+/* Kilden under tallene: kort tekst og en liten knapp som går rett til
+   undersøkelsen. */
+.sv-tall-kilde { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.sv-tall-les {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1.5px solid #0a0a0a;
+  color: #0a0a0a !important;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-@media (max-width: 520px) {
-  .sv-svarer { padding: 30px 20px 0; border-radius: 22px; }
-  .sv-svarer-h { font-size: clamp(30px, 8.4vw, 40px); }
-  .sv-svarer-lead { font-size: 15.5px; }
-  .sv-svarer-cta { gap: 12px 20px; }
-}
+.sv-tall-les span { transition: transform 0.2s ease; }
+.sv-tall-les:hover { background: var(--lime); transform: translateY(-1px); }
+.sv-tall-les:hover span { transform: translateX(3px); }
