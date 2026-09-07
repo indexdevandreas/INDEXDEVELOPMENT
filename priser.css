@@ -166,7 +166,7 @@
   -webkit-text-stroke: 0.7px rgba(10,10,10,0.3);
   paint-order: stroke fill;
 }
-.sp-amount-word { color: #0a0a0a; }
+.sp-amount-word { color: var(--lime); } /* står på det mørke kortet — der er lime riktig */
 
 .sp-desc {
   font-size: 16px;
