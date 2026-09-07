@@ -54,6 +54,7 @@
   /* Grupper som skal animeres inn, med forskyvning mellom barna */
   var GROUPS = [
     '.platform-top',
+    '.sv-tall',
     '.pf-cards',
     '.s2-grid',
     '.cv3d',

@@ -821,6 +821,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 }
 .sv-slot:nth-child(2) { --i: 1; }
 .sv-slot:nth-child(3) { --i: 2; }
+.sv-slot:nth-child(4) { --i: 3; }
 .sv-slot::after {
   content: "";
   position: absolute;
@@ -2111,4 +2112,60 @@ html, body { overflow-x: clip; }
   .cv3d-step-1,
   .cv3d-step-2 { opacity: 1; transform: none; pointer-events: auto; }
   .cv3d-arrow { display: none; }
+}
+
+/* ─── Tallene over tjenestene: hva som skjer når ingen svarer ───
+   To tall fra én navngitt, datert kilde, med kilden rett under. Teller
+   seg opp med tall.js når de kommer i syne. ─── */
+.sv-tall {
+  max-width: 1290px;
+  margin: 0 auto 38px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 56px;
+  align-items: start;
+}
+.sv-tall-item {
+  border-top: 1px solid rgba(10,10,10,0.14);
+  padding-top: 22px;
+}
+.sv-tall-num {
+  margin: 0;
+  font-family: 'Switzer', 'Instrument Sans', 'Geist', sans-serif;
+  font-size: clamp(60px, 7.2vw, 108px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  color: #0a0a0a;
+}
+.sv-tall-num strong { font-weight: inherit; }
+.sv-tall-num span {
+  font-size: 0.5em;
+  margin-left: 0.06em;
+  vertical-align: 0.42em;
+  letter-spacing: 0;
+}
+.sv-tall-txt {
+  margin: 12px 0 0;
+  font-size: 17.5px;
+  line-height: 1.45;
+  max-width: 30ch;
+  color: rgba(10,10,10,0.72);
+}
+.sv-tall-kilde {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.5);
+  max-width: 78ch;
+}
+.sv-tall-kilde a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.sv-tall-kilde a:hover { color: #0a0a0a; }
+@media (max-width: 900px) {
+  .sv-tall { grid-template-columns: 1fr; gap: 16px; margin-bottom: 26px; }
+  .sv-tall-item { padding-top: 18px; }
+  .sv-tall-num { font-size: clamp(56px, 17vw, 76px); }
+  .sv-tall-txt { font-size: 16px; }
 }
