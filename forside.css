@@ -85,7 +85,7 @@
   /* Høyere enn vinduet? Da festes den med bunnen mot skjermbunnen i
      stedet for toppen mot toppen (negativ top). --vh og --hh settes av
      forside.js ved hver måling. */
-  top: min(10px, calc(var(--vh, 100lvh) - var(--hh, 0px) - 10px));
+  top: 10px;
   transform:
     perspective(1100px)
     rotateX(calc(var(--sp) * -7deg))

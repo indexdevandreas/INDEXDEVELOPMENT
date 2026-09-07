@@ -176,42 +176,31 @@
        går hver sin vei. Skrives bare når verdien faktisk endrer seg,
        så under heroen koster lytteren ingenting. */
     var high = 1, vh = 1, pinStart = 0, span = 1, sp = -1, ticking = false;
-    /* Heroen festes alltid. Før ble den bare festet når hele den fikk
-       plass i vinduet — og på en iPhone med adresselinja framme, eller
-       en PC med zoom, manglet det noen piksler, så overgangen kom «ikke
-       alltid». Er den høyere enn vinduet, festes den nå med bunnen mot
-       skjermbunnen (negativ top i CSS via --vh/--hh), og overgangen
-       (--sp) løper fra der den blir stående til arket har dekket den.
-       Måles på nytt ved hver størrelsesendring: på iOS kommer det en
-       når adresselinja klapper sammen, og da skal bunnen følge med. */
-    /* Høyden det måles mot er den STORE viewporten — slik den er når
-       adresselinja er skjult. På iPhone klapper linja sammen på første
-       sveip, og det er alltid etter det at overgangen kjører; da er
-       dette tallet det riktige. innerHeight er den lille, og skifter
-       for hvert bilde mens linja beveger seg. */
-    function storVh() {
-      var probe = document.createElement('div');
-      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100lvh;visibility:hidden;pointer-events:none';
-      document.body.appendChild(probe);
-      var h = probe.offsetHeight;
-      probe.remove();
-      return h || window.innerHeight || 1;
-    }
+    /* Heroen festes BARE når hele den får plass i vinduet (10 px marg
+       over og under). Slik var det opprinnelig, og slik ble det igjen:
+       et forsøk på å feste den alltid — med bunnen mot skjermbunnen når
+       den er høyere enn vinduet — ga en sticky-flate i full skjerm på
+       telefon som Safari flytter for hvert bilde, og som JavaScript
+       vrir et hakk etterpå. Det så ut som vibrering, og dro med seg
+       kortene under. På telefon får heroen sjelden plass, så der ruller
+       den vanlig og arket glir over den. På PC får den plass, og
+       3D-overgangen kjører som før. */
+    var pinned = false;
     function measure() {
       high = hero.offsetHeight || 1;
-      vh = storVh();
-      pinStart = Math.max(0, high + 20 - vh);
-      span = Math.max(1, high + 20 - pinStart);
+      vh = window.innerHeight || 1;
+      pinned = high + 20 <= vh;
+      pinStart = 0;
+      span = high;
       hero.style.setProperty('--hh', high + 'px');
       hero.style.setProperty('--vh', vh + 'px');
-      hero.classList.add('is-pinnable');
+      hero.classList.toggle('is-pinnable', pinned);
+      if (!pinned) { hero.classList.remove('is-past'); hero.style.removeProperty('--sp'); }
     }
     /* iOS fyrer «resize» for hvert bilde mens adresselinja klapper
-       sammen. Ble heroen målt om da, flyttet festepunktet seg og --sp
-       hoppet fram og tilbake — det var det som fikk portrettet til å
-       krympe og vokse per bilde. En ren høydeendring under 200 px på
-       touch er adresselinja, ikke en ny skjerm: den ignoreres. Resten
-       (rotasjon, PC-vindu) samles opp og måles én gang. */
+       sammen på første sveip. Rene høydeendringer under 200 px på touch
+       er adresselinja, ikke en ny skjerm, og ignoreres; resten samles
+       opp og måles én gang. */
     var rzW = window.innerWidth, rzH = window.innerHeight, rzT = 0;
     function onResize() {
       var w = window.innerWidth, h = window.innerHeight;
@@ -222,6 +211,7 @@
     }
     function frame() {
       ticking = false;
+      if (!pinned) return;
       var p = (window.scrollY - pinStart) / span;
       p = p < 0 ? 0 : p > 1 ? 1 : p;
       if (p === sp) return;
