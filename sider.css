@@ -1583,9 +1583,15 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
 @media (pointer: coarse) {
   .qt-w {
     opacity: 1;
-    filter: none;
     color: rgba(10, 10, 10, calc(0.16 + var(--k) * 0.84));
     transform: translate3d(0, calc((1 - var(--k)) * 6px), 0);
+    /* Uskarpheten er med også her — den er ønsket. Litt lettere enn
+       på PC (8 px, ikke 12), og will-change lar GPU-en regne den i
+       stedet for at ordet males på nytt for hvert bilde. Dette er det
+       ene stedet på telefon som fortsatt koster noe per bilde; nå som
+       sitatet ikke fester seg, varer bølgen bare et halvt skjermbilde. */
+    filter: blur(calc((1 - var(--k)) * 8px));
+    will-change: filter;
   }
 }
 /* Hvert ord bruker ~1,8 steg på å bli skarpt, så de overlapper og det
