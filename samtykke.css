@@ -1,0 +1,81 @@
+/* ───────────────────────────────────────────────────────────
+   samtykke.css — boksen for informasjonskapsler (samtykke.js).
+
+   Et lite hvitt kort nede til venstre, i samme stil som resten av
+   siden: mono-etikett, Instrument Sans, pilleknapper. To like store
+   knapper — nei skal være like lett som ja. Ikke modal: siden kan
+   brukes som vanlig mens boksen står der.
+   ─────────────────────────────────────────────────────────── */
+.smt {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9100;
+  width: min(390px, calc(100vw - 40px));
+  box-sizing: border-box;
+  padding: 20px 22px 18px;
+  background: #fff;
+  color: #0a0a0a;
+  border: 1px solid rgba(10,10,10,0.08);
+  border-radius: 18px;
+  box-shadow:
+    0 28px 60px -22px rgba(10,10,10,0.38),
+    0 2px 6px rgba(10,10,10,0.06);
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  animation: smtInn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.smt-t {
+  margin: 0 0 10px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.5);
+}
+.smt-b {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(10,10,10,0.8);
+}
+.smt-b a {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(10,10,10,0.35);
+}
+.smt-b a:hover { text-decoration-color: #0a0a0a; }
+.smt-k { display: flex; gap: 8px; }
+.smt-k button {
+  flex: 1 1 0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1.5px solid #0a0a0a;
+  background: #fff;
+  color: #0a0a0a;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.smt-nei:hover { background: rgba(10,10,10,0.06); }
+.smt-ja { background: #0a0a0a; color: #fff; }
+.smt-ja:hover { background: var(--lime, #d4ff3d); color: #0a0a0a; }
+.smt-k button:focus-visible { outline: 2px solid var(--lime, #d4ff3d); outline-offset: 2px; }
+
+@keyframes smtInn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  .smt { left: 12px; right: 12px; bottom: 12px; width: auto; padding: 18px 18px 16px; }
+  /* Chat-knappen nede til høyre ville ligget under boksen — den løftes
+     over så lenge boksen står. Høyden settes av samtykke.js. */
+  body.smt-open #cw-bubble { bottom: calc(var(--smt-h, 170px) + 24px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .smt { animation: none; }
+}

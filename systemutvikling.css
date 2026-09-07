@@ -384,20 +384,21 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 .sy5-figur { width: 100%; }
 .sy5-svg { width: 100%; height: auto; display: block; overflow: visible; }
 
-/* Nodene kommer opp én etter én, og svever så svakt i utakt */
+/* Nodene samler seg: hver kommer fra sin kant med et lite overshoot,
+   som brikker som finner plassen sin. Så svever de svakt i utakt. */
 .sy5-node {
   transform-box: fill-box;
   transform-origin: center;
   animation:
-    sy5Inn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    sy5Inn 0.9s cubic-bezier(0.34, 1.45, 0.64, 1) both,
     sy5Svev 5.5s ease-in-out infinite;
 }
-.sy5-node-1 { animation-delay: 0.2s, 1.2s; }
-.sy5-node-2 { animation-delay: 0.42s, 2.4s; }
-.sy5-node-3 { animation-delay: 0.64s, 0.6s; }
-.sy5-node-4 { animation-delay: 0.9s, 3.1s; }
+.sy5-node-1 { --fra: translate(-22px, -16px) rotate(-5deg) scale(0.9); animation-delay: 0.15s, 1.2s; }
+.sy5-node-2 { --fra: translate(20px, 4px) rotate(4deg) scale(0.9);     animation-delay: 0.32s, 2.4s; }
+.sy5-node-3 { --fra: translate(-16px, 20px) rotate(-3deg) scale(0.9);  animation-delay: 0.5s, 0.6s; }
+.sy5-node-4 { --fra: translate(26px, 0) rotate(5deg) scale(0.9);       animation-delay: 0.7s, 3.1s; }
 @keyframes sy5Inn {
-  from { opacity: 0; transform: translateY(14px) scale(0.96); }
+  from { opacity: 0; transform: var(--fra, translateY(14px) scale(0.96)); }
   to   { opacity: 1; transform: none; }
 }
 @keyframes sy5Svev {
@@ -417,19 +418,17 @@ a.bk:hover .pf-link-arrow { transform: translateX(4px); }
 .sy5-linje-ekstern { opacity: 0; animation: sy5Fram 0.6s ease-out 1.4s forwards; }
 @keyframes sy5Fram { to { opacity: 1; } }
 
-/* Pulsene har sin egen tid i SVG-en (SMIL); de er usynlige før de
-   starter, så de ikke ligger som prikker i hjørnet. */
-.sy5-puls { opacity: 0; filter: drop-shadow(0 0 4px rgba(212,255,61,0.9)); }
-.sy5-puls-liten { animation: sy5Fram 0.4s ease-out 2.6s forwards; }
+/* Livet (pulser, ringer, lys) styres av SVG-ens egen tidslinje. */
+.sy5-puls { filter: drop-shadow(0 0 4px rgba(212,255,61,0.9)); }
 
 /* Den lille lampen på databasen puster */
 .sy5-lampe { animation: sy5Lampe 2.4s ease-in-out 1.4s infinite; }
 @keyframes sy5Lampe { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .sy5-node, .sy5-linje, .sy5-linje-ekstern, .sy5-lampe, .sy5-puls-liten { animation: none; opacity: 1; transform: none; }
+  .sy5-node, .sy5-linje, .sy5-linje-ekstern, .sy5-lampe { animation: none; opacity: 1; transform: none; }
   .sy5-linje { stroke-dashoffset: 0; }
-  .sy5-pulser { display: none; }
+  .sy5-liv { display: none; }
 }
 
 @media (max-width: 1180px) {

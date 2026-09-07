@@ -209,3 +209,7 @@
 @media (max-width: 860px) {
   .lx-grid2, .lx-grid3, .lx-stats { grid-template-columns: 1fr; }
 }
+
+/* «Les mer» i samtykkeboksen lenker hit; uten dette lander overskriften
+   under den faste nav-baren. */
+#kapsler { scroll-margin-top: 110px; }

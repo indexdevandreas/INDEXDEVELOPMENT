@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Personvernerklæring | index dev.</title>
-<meta name="description" content="Personvernerklæring for Index Development. Vi samler bare inn det du selv sender oss, bruker ingen informasjonskapsler og selger aldri opplysninger.">
+<meta name="description" content="Personvernerklæring for Index Development: hva vi samler inn, hvem som behandler det, og informasjonskapslene du selv sier ja eller nei til. Vi selger aldri opplysninger.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://indexdevelopment.no/personvern.html">
 <meta name="robots" content="noindex, follow">
@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="legal.css">
 <link rel="stylesheet" href="chatbot-widget.css">
+<link rel="stylesheet" href="samtykke.css">
 </head>
 <body>
 
@@ -138,16 +139,17 @@
         <li><strong>Kundeforhold:</strong> avtaler og fakturaopplysninger. Regnskapsmateriale oppbevares i fem år etter regnskapsårets slutt, slik bokføringsloven krever.</li>
       </ul>
       <div class="legal-infobox">
-        <p><strong>Besøk på siden:</strong> Vi logger ikke besøkene dine selv. Cloudflare, som leverer hosting og sikkerhet, behandler IP-adresser kortvarig for å beskytte siden mot angrep.</p>
+        <p><strong>Besøk på siden:</strong> Besøket ditt måles med Google Analytics bare hvis du har sagt ja til informasjonskapsler (se 03). Cloudflare, som leverer hosting og sikkerhet, behandler IP-adresser kortvarig for å beskytte siden mot angrep.</p>
       </div>
     </div>
 
-    <div class="legal-card">
+    <div class="legal-card" id="kapsler">
       <p class="legal-num">03 / Informasjonskapsler og sporing</p>
-      <h2>Ingen cookies, ingen sporing</h2>
-      <p>Siden bruker ingen informasjonskapsler, ingen sporingsskript og ingen annonseverktøy. Chatboten på siden kjører helt lokalt i nettleseren din og sender ingenting videre.</p>
-      <p>Nettleseren din lagrer én teknisk verdi (<strong>sessionStorage «intro-seen»</strong>) slik at intro-animasjonen ikke spilles på nytt i samme fane. Den slettes når fanen lukkes og kan ikke identifisere deg.</p>
-      <p>Til trafikkmåling bruker vi Cloudflare Web Analytics, som er informasjonskapselfritt, ikke bruker fingerprinting og ikke kan identifisere enkeltpersoner. Det er derfor siden ikke har noen samtykke-popup: det finnes ingenting å samtykke til.</p>
+      <h2>Én ting å si ja eller nei til</h2>
+      <p>Siden bruker Google Analytics for å se hvor mange som besøker den og hvilke sider som leses. Det settes ingen informasjonskapsler for dette før du har sagt ja i boksen nederst på siden — sier du nei, eller ingenting, måles ikke besøket ditt. Valget ditt lagres i nettleseren din i inntil ett år, og du kan endre det når du vil via «Informasjonskapsler» i bunnen av siden.</p>
+      <p>Sier du ja, setter Google Analytics informasjonskapslene <strong>_ga</strong> og <strong>_ga_…</strong> (inntil to år) og behandler IP-adressen din i forkortet form. Google behandler dataene på våre vegne; se <a href="https://policies.google.com/privacy" rel="noopener">Googles personvernerklæring</a>. Sier du nei etter å ha sagt ja, slettes kapslene.</p>
+      <p>Chatboten sender det du skriver til en funksjon på våre servere hos Cloudflare, som henter svaret fra Anthropic (Claude). Samtalen ligger i nettleseren din (sessionStorage) til du lukker fanen; vi lagrer den ikke. Ikke skriv sensitive opplysninger i chatten.</p>
+      <p>Ellers lagrer nettleseren din én teknisk verdi (sessionStorage «intro-seen») slik at intro-animasjonen ikke spilles på nytt i samme fane. Den slettes når fanen lukkes og kan ikke identifisere deg.</p>
     </div>
 
     <div class="legal-card">
@@ -253,7 +255,7 @@
     </div>
 
     <div class="foot-base">
-      <span>© <span data-ar>2026</span> Index Development · <a href="personvern.html">Personvern</a> · <a href="vilkar.html">Vilkår</a></span>
+      <span>© <span data-ar>2026</span> Index Development · <a href="personvern.html">Personvern</a> · <a href="vilkar.html">Vilkår</a><span data-samtykke-wrap> · <a href="#" data-samtykke>Informasjonskapsler</a></span></span>
       <span class="foot-live"><span class="fl-dot" aria-hidden="true"></span>Drammen <span class="fl-sep" aria-hidden="true">·</span> <time data-klokke>--:--</time> <span class="fl-sep" aria-hidden="true">·</span> <span data-status>Svarer som regel samme dag</span></span>
     </div>
   </div>
@@ -262,6 +264,7 @@
 <script src="liv.js" defer></script>
 <script src="hjemmeside.js" defer></script>
 <script src="chatbot-widget.js" defer></script>
+<script src="samtykke.js" data-ga="G-3J2RPMZ7ZE" defer></script>
 <script src="nav-scroll-tracker.js" defer></script>
 </body>
 </html>
