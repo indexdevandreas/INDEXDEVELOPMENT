@@ -11,9 +11,11 @@
      bare etter et ja, og aldri ellers.
    - Boksen har to like store knapper, «Nei takk» og «Ja, det er
      greit». Ingen kryss, ingen forhåndsvalg, ingen «ved å fortsette».
+   - «Les mer om cookies» går til cookies.html, som lister hver enkelt
+     kapsel: navn, hva den gjør og hvor lenge den varer.
    - Valget lagres i localStorage i inntil ett år. Etterpå spør vi
-     igjen. «Informasjonskapsler» i bunnen av siden åpner boksen på
-     nytt, så valget kan endres når som helst.
+     igjen. «Cookies» i bunnen av siden åpner boksen på nytt, så
+     valget kan endres når som helst.
    - Sier man nei etter å ha sagt ja, slettes _ga-kapslene.
 
    Måle-ID-en (G-…) står i data-ga på <script>-taggen. Mangler den,
@@ -88,10 +90,24 @@
     boks.setAttribute('aria-labelledby', 'smt-t');
     boks.setAttribute('aria-describedby', 'smt-b');
 
-    var t = el('p', 'smt-t', 'Informasjonskapsler'); t.id = 'smt-t';
+    /* Kjeksen: tegnet i SVG, ingen bildefil å laste. */
+    var topp = el('div', 'smt-topp');
+    topp.innerHTML =
+      '<svg class="smt-kjeks" viewBox="0 0 40 40" aria-hidden="true">' +
+        '<path class="smt-kjeks-b" d="M20 3a17 17 0 1 0 17 17 6.4 6.4 0 0 1-8.2-8.2A17 17 0 0 0 20 3Z"/>' +
+        '<circle class="smt-bit" cx="14" cy="13" r="2.5"/>' +
+        '<circle class="smt-bit" cx="24.5" cy="22" r="2.2"/>' +
+        '<circle class="smt-bit" cx="13" cy="25.5" r="2"/>' +
+        '<circle class="smt-bit smt-bit-sm" cx="20" cy="17" r="1.2"/>' +
+        '<circle class="smt-bit smt-bit-sm" cx="18.5" cy="30" r="1.2"/>' +
+        '<circle class="smt-bit smt-bit-sm" cx="28" cy="29" r="1.1"/>' +
+      '</svg>';
+    var t = el('p', 'smt-t', 'Cookies'); t.id = 'smt-t';
+    topp.appendChild(t);
+
     var b = el('p', 'smt-b'); b.id = 'smt-b';
-    b.appendChild(document.createTextNode('Jeg vil gjerne se hvor mange som besøker siden og hvilke sider som leses — med Google Analytics. Det settes bare hvis du sier ja. Chatboten og skjemaene virker uansett. '));
-    var lenke = el('a', null, 'Les mer'); lenke.href = 'personvern.html#kapsler';
+    b.appendChild(document.createTextNode('Jeg vil gjerne se hvor mange som besøker siden og hvilke sider som leses. Det settes ingen cookies for det før du sier ja — chatboten og skjemaene virker uansett. '));
+    var lenke = el('a', null, 'Les mer om cookies'); lenke.href = 'cookies.html';
     b.appendChild(lenke);
 
     var k = el('div', 'smt-k');
@@ -99,7 +115,7 @@
     var ja = el('button', 'smt-ja', 'Ja, det er greit'); ja.type = 'button';
     k.appendChild(nei); k.appendChild(ja);
 
-    boks.appendChild(t); boks.appendChild(b); boks.appendChild(k);
+    boks.appendChild(topp); boks.appendChild(b); boks.appendChild(k);
     document.body.appendChild(boks);
     document.body.classList.add('smt-open');
     /* Chat-knappen flyttes opp over boksen på telefon (samtykke.css) */

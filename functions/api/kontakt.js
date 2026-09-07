@@ -23,6 +23,9 @@ const FRA = 'Index Development <skjema@indexdevelopment.no>';
 /* Skjemaet er lite, og alt over dette er enten en feil eller noen som
    prøver seg. Kutt før noe sendes videre. */
 const GRENSER = { navn: 120, bedrift: 160, epost: 160, telefon: 40, melding: 4000 };
+/* Sporet henvendelsen kom av. Ikke påkrevd, og ikke en del av
+   valideringen — men det er dette som svarer på «virker kaldmailene». */
+const SPOR = { kilde: 300, side: 300 };
 
 function ren(v, maks) {
   if (typeof v !== 'string') return '';
@@ -61,13 +64,31 @@ export async function onRequestPost({ request, env }) {
     return svar({ ok: false, feil: 'mangler' }, 400);
   }
 
+  for (const k of Object.keys(SPOR)) f[k] = ren(inn && inn[k], SPOR[k]);
+
+  /* Hvor de kom fra. Cloudflare gir sted uten at noe lagres hos den
+     som besøker siden; resten er verdier nettleseren sender med. */
+  const cf = (request && request.cf) || {};
+  const sted = [cf.city, cf.country].filter(Boolean).join(', ');
+  let tid = '';
+  try {
+    tid = new Intl.DateTimeFormat('nb-NO', {
+      dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Oslo',
+    }).format(new Date());
+  } catch { tid = new Date().toISOString(); }
+
   const emne = `Henvendelse fra ${f.bedrift} (${f.navn})`;
   const tekst =
     `Navn: ${f.navn}\n` +
     `Bedrift: ${f.bedrift}\n` +
     `E-post: ${f.epost}\n` +
     `Telefon: ${f.telefon || '(ikke oppgitt)'}\n\n` +
-    `${f.melding}\n`;
+    `${f.melding}\n\n` +
+    `--\n` +
+    `Kom fra: ${f.kilde || 'direkte (lenke, e-post eller skrevet inn)'}\n` +
+    `Skjema på: ${f.side || '(ukjent)'}\n` +
+    (sted ? `Sted: ${sted}\n` : '') +
+    `Tid: ${tid}\n`;
 
   try {
     if (env && env.RESEND_API_KEY) {
