@@ -2044,3 +2044,91 @@ html, body { overflow-x: clip; }
     }
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TELEFON: KONVERTERINGSPANELET RYDDET
+   På PC festes panelet og kort 01 vipper over i 02 på samme sted, med
+   glasset og ordskyggen bak. På telefon står kortene under hverandre,
+   og da ble det bare rot: to mørke kort svevende på et stripete
+   lerret, en halvsynlig «Funnet»-skygge og en 01——02-linje som ikke
+   viste noe. Her: rolig mørk flate uten lerret og uten skygge, og et
+   lime spor mellom kortene som fylles mens man ruller — det er DET
+   som forteller at 01 leder til 02.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  #cv3d-canvas,
+  .cv3d.cv-flip .cv3d-ghost,
+  .cv3d-prog { display: none; }
+  .cv3d {
+    min-height: 0;
+    padding: 30px 20px 32px;
+    border-radius: 24px;
+    background:
+      radial-gradient(120% 70% at 84% 0%, rgba(150,205,242,0.24) 0%, transparent 62%),
+      linear-gradient(168deg, #0c2f5c 0%, #0a2649 52%, #071d3c 100%);
+  }
+  .cv3d::before { display: none; }
+  .cv3d-body { display: grid; gap: 0; }
+
+  /* Kortene: flate og rolige, uten ramme rundt — de står på panelets
+     egen flate og skilles av sporet i stedet. */
+  .cv3d-step {
+    position: relative;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0 0 46px;
+    gap: 0;
+    display: block;
+  }
+  .cv3d-step-1 { padding-bottom: 34px; }
+
+  /* Nummeret i en ring på sporet */
+  .cv3d-n {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: #071d3c;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    z-index: 2;
+  }
+  .cv3d-step-2 .cv3d-n { border-color: var(--lime); color: var(--lime); }
+
+  /* Sporet: grå linje fra 01 til 02, med et lime segment som vokser
+     nedover mens man ruller (--cp fra forside.js). */
+  .cv3d-step-1::before,
+  .cv3d-step-1::after {
+    content: "";
+    position: absolute;
+    left: 15.5px;
+    top: 38px;
+    bottom: -6px;
+    width: 1.5px;
+    border-radius: 2px;
+  }
+  .cv3d-step-1::before { background: rgba(255,255,255,0.18); }
+  .cv3d-step-1::after {
+    background: var(--lime);
+    box-shadow: 0 0 10px rgba(212,255,61,0.5);
+    transform: scaleY(var(--cp, 0));
+    transform-origin: 50% 0;
+  }
+
+  .cv3d-step h3 { margin-bottom: 8px; }
+  .cv3d-step p { max-width: none; }
+  .cv3d-step .pf-link { margin-top: 14px; }
+  /* Begge kortene er lesbare hele tiden her — ingen krysstoning */
+  .cv3d.is-live .cv3d-step-1,
+  .cv3d.is-live .cv3d-step-2,
+  .cv3d-step-1,
+  .cv3d-step-2 { opacity: 1; transform: none; pointer-events: auto; }
+  .cv3d-arrow { display: none; }
+}

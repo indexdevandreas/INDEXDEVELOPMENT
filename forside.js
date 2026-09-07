@@ -414,11 +414,15 @@
         wrap.style.height = (panel.offsetHeight + travel) + 'px';
         start = wrap.getBoundingClientRect().top + window.scrollY - TOP;
       } else {
-        /* Fri høyde igjen, og en strekning som løper mens panelet er
-           på vei gjennom skjermen — ingen festing, ingen ekstra høyde. */
+        /* Fri høyde igjen — ingen festing, ingen ekstra høyde. På
+           telefon driver --cp sporet mellom 01 og 02, så det skal
+           fylles mens man leser seg nedover kortene: begynner når
+           panelets topp er 60 % nede i vinduet, fullt når panelet
+           nesten står øverst. Før løp det ferdig mens panelet fortsatt
+           var på vei inn nedenfra. */
         wrap.style.height = '';
-        travel = Math.round(panel.offsetHeight * 0.72);
-        start = wrap.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.72;
+        travel = Math.round(panel.offsetHeight * 0.85);
+        start = wrap.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.6;
       }
       cp = -1;
       frame();
