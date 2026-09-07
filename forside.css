@@ -1932,14 +1932,18 @@ html, body { overflow-x: clip; }
     min-height: min(calc(100svh - 20px), 880px);
     padding-top: 80px;
   }
-  /* Portrettet større (30 svh), betalt med en mindre knapp og litt
-     mindre luft rundt teksten — summen må fortsatt være ≤ svh − 20,
-     ellers får heroen ikke plass og slipper festingen. */
-  .hero-photo { height: min(340px, 30svh); }
-  .hero-kicker { margin-bottom: 18px; }
-  .hero-sub { margin-top: 14px; }
-  .hero-btn { --cap: 34px; --pad: 6px; padding-left: 20px; font-size: 12px; gap: 12px; margin-top: 22px; }
-  .hero-note { margin-top: 10px; font-size: 12.5px; }
+  /* Portrettet så stort som heroen tåler (36 svh). Alt annet er
+     strammet inn for å betale for det: mindre knapp, mindre luft
+     mellom tekst og bilde, kortere marger. Summen må være ≤ svh − 20,
+     ellers får heroen ikke plass og slipper festingen — og da glir
+     ikke arket over den. */
+  .hero { padding-top: 74px; }
+  .hero-body { gap: 18px; }
+  .hero-photo { height: min(380px, 36svh); margin-top: 0; }
+  .hero-kicker { margin-bottom: 12px; }
+  .hero-sub { margin-top: 12px; }
+  .hero-btn { --cap: 34px; --pad: 6px; padding-left: 20px; font-size: 12px; gap: 12px; margin-top: 18px; }
+  .hero-note { margin-top: 8px; font-size: 12px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1983,65 +1987,32 @@ html, body { overflow-x: clip; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   TELEFON: UTVIKLER-BÅNDET DRIVES AV RULLINGEN — I CSS
-   På PC glir lagene etter pekeren, med en 0,6–0,8 s overgang så det
-   kjennes mykt. På telefon drev rullingen de samme verdiene, og hver
-   skriving (60 i sekundet) startet fire nye overganger på 3D-lag —
-   det hakket skikkelig. Her: ingen overganger på touch, og lagene
-   drives av en view-timeline på båndet (kompositoren, null
-   JavaScript). --my gikk 1 → −1 mens båndet gikk fra bunn til topp av
-   vinduet; det er «cover 0 % → 100 %» her. Teksten står stille.
-   Uten view-timeline-støtte tar forside.js over, fortsatt uten
-   overganger.
+   TELEFON: UTVIKLER-BÅNDET FADER INN — ÉN GANG
+   Lagene fulgte før rullingen (først via JavaScript, så via en
+   view-timeline). Begge deler «scrubber» med fingeren: drar man fort,
+   hopper animasjonen i store steg og leser som hakking selv når
+   bildraten er fin. Her spilles den én gang når båndet kommer i
+   bildet, med sin egen tid — portrettet og teksten fader inn og
+   løftes (.rv i sider.css), dekoren fader inn etter dem. Aggressiv
+   rulling kan da ikke ødelegge den.
    ═══════════════════════════════════════════════════════════ */
 @media (pointer: coarse) {
+  /* --mx/--my-parallaksen av: den hører pekeren til */
   .mg-band .mg-media.rv.on,
-  .mg-band .mg-text.rv.on,
-  .mg-dots,
-  .mg-ring { transition: none; }
   .mg-band .mg-text.rv.on { transform: none; }
-
-  @supports (animation-timeline: view()) {
-    .mg-band { view-timeline-name: --band; }
-    /* Portrettet vipper i rammen (ikke .mg-media — den eier
-       inngangsanimasjonen), rasteret og ringene glir motsatt vei. */
-    .mg-band .mg-media.rv.on { transform: none; }
-    .mg-frame {
-      animation: mgRamme linear both;
-      animation-timeline: --band;
-      animation-range: cover 0% cover 82%;
-    }
-    .mg-dots {
-      transform: none;
-      animation: mgRaster linear both;
-      animation-timeline: --band;
-      animation-range: cover 0% cover 100%;
-    }
-    .mg-ring {
-      transform: none;
-      animation: mgRing linear both;
-      animation-timeline: --band;
-      animation-range: cover 0% cover 100%;
-    }
-    /* Ny animasjon: portrettet kommer nedenfra og retter seg opp mens
-       båndet passerer — som om det reiser seg mot leseren — i stedet
-       for å vippe fram og tilbake. Ringene vokser rundt det, og
-       rasteret glir sakte motsatt vei. Alt er transform og opasitet,
-       så kompositoren gjør jobben. */
-    @keyframes mgRamme {
-      0%   { transform: translate3d(0, 34px, 0) scale(0.9); opacity: 0.55; }
-      45%  { transform: none; opacity: 1; }
-      100% { transform: translate3d(0, -18px, 0) scale(1.02); opacity: 1; }
-    }
-    @keyframes mgRaster {
-      from { transform: translate3d(0, 22px, 0); }
-      to   { transform: translate3d(0, -22px, 0); }
-    }
-    @keyframes mgRing {
-      0%   { transform: scale(0.72) translate3d(0, 26px, 0); opacity: 0; }
-      50%  { transform: scale(1) translate3d(0, 0, 0); opacity: 1; }
-      100% { transform: scale(1.14) translate3d(0, -14px, 0); opacity: 0.5; }
-    }
+  .mg-dots,
+  .mg-ring {
+    transform: none;
+    transition: none;
+    opacity: 0;
+    animation: mgDekor 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-play-state: paused;
+  }
+  .mg-band.dekor-inn .mg-dots { animation-play-state: running; animation-delay: 0.25s; }
+  .mg-band.dekor-inn .mg-ring { animation-play-state: running; animation-delay: 0.4s; }
+  @keyframes mgDekor {
+    from { opacity: 0; transform: translate3d(0, 16px, 0) scale(0.96); }
+    to   { opacity: 1; transform: none; }
   }
 }
 
@@ -2100,8 +2071,6 @@ html, body { overflow-x: clip; }
     color: rgba(255,255,255,0.85);
     z-index: 2;
   }
-  .cv3d-step-2 .cv3d-n { border-color: var(--lime); color: var(--lime); }
-
   /* Sporet: grå linje fra 01 til 02, med et lime segment som vokser
      nedover mens man ruller (--cp fra forside.js). */
   .cv3d-step-1::before,
@@ -2115,12 +2084,23 @@ html, body { overflow-x: clip; }
     border-radius: 2px;
   }
   .cv3d-step-1::before { background: rgba(255,255,255,0.18); }
+  /* Sporet tegnes ÉN gang når panelet kommer i bildet, ikke i takt
+     med fingeren. Rulle-koblet fylling hoppet i store steg når man
+     dro fort, og det leste som hakking. */
   .cv3d-step-1::after {
     background: var(--lime);
     box-shadow: 0 0 10px rgba(212,255,61,0.5);
-    transform: scaleY(var(--cp, 0));
+    transform: scaleY(0);
     transform-origin: 50% 0;
+    transition: transform 1.1s cubic-bezier(0.33, 1, 0.68, 1) 0.35s;
   }
+  .cv3d-body.on .cv3d-step-1::after { transform: scaleY(1); }
+  .cv3d-step-2 .cv3d-n {
+    transition: border-color 0.5s ease 1.3s, color 0.5s ease 1.3s;
+    border-color: rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.85);
+  }
+  .cv3d-body.on .cv3d-step-2 .cv3d-n { border-color: var(--lime); color: var(--lime); }
 
   .cv3d-step h3 { margin-bottom: 8px; }
   .cv3d-step p { max-width: none; }

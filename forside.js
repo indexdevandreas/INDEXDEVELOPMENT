@@ -140,15 +140,53 @@
   if (reduce) {
     items.forEach(function (el) { el.classList.add('on'); });
   } else {
+    /* threshold 0: så snart én piksel er inne, teller det. Med 0,1 —
+       ti prosent synlig — kunne en hard sveip på telefon hoppe helt
+       forbi et element uten at observatøren så det, og da ble
+       innholdet stående usynlig for godt.
+       Og skulle den likevel gå glipp av det, fanges det opp under:
+       har elementet passert OVER skjermen, settes det synlig med en
+       gang, uten animasjon. Innhold skal aldri bli borte. */
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('on');
-        io.unobserve(e.target);
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          io.unobserve(e.target);
+        } else if (e.boundingClientRect.bottom < 0) {
+          e.target.style.transition = 'none';
+          e.target.classList.add('on');
+          io.unobserve(e.target);
+        }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -7% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -7% 0px' });
 
     items.forEach(function (el) { io.observe(el); });
+
+    /* Opprydning: drar man hardt nok, rekker ikke observatøren å
+       melde fra før elementet er passert, og innholdet ble stående
+       usynlig. Når rullingen har stoppet, settes alt som ligger over
+       eller inne i skjermen synlig. Kjører bare etter at fingeren
+       slipper, så det koster ingenting under selve rullingen. */
+    var rest = items.slice(), feieT = 0;
+    function feie() {
+      var vh = window.innerHeight || 1;
+      for (var i = rest.length - 1; i >= 0; i--) {
+        var el = rest[i];
+        if (el.classList.contains('on')) { rest.splice(i, 1); continue; }
+        var r = el.getBoundingClientRect();
+        if (r.top >= vh) continue;          // ennå under folden
+        if (r.bottom < 0) el.style.transition = 'none';  // passert: ingen animasjon
+        el.classList.add('on');
+        io.unobserve(el);
+        rest.splice(i, 1);
+      }
+      if (!rest.length) window.removeEventListener('scroll', paaRull);
+    }
+    function paaRull() {
+      clearTimeout(feieT);
+      feieT = setTimeout(feie, 140);
+    }
+    window.addEventListener('scroll', paaRull, { passive: true });
   }
 
   /* ═══ 2. Hero: staggered inngang ved lasting ═══
@@ -354,29 +392,41 @@
      man ruller gjennom det. ── */
   if (!fine && !reduce) {
     var bandS = document.querySelector('.mg-band');
+    /* Dekoren (raster og ringer) fader inn én gang når båndet kommer i
+       bildet — CSS-en venter på klassen. */
+    if (bandS) {
+      var dekorT = 0;
+      function dekorInn() {
+        bandS.classList.add('dekor-inn');
+        dekorIO.disconnect();
+        window.removeEventListener('scroll', dekorRull);
+        clearTimeout(dekorT);
+      }
+      /* Samme sikring som reveal-systemet: drar man hardt forbi, når
+         ikke observatøren fram, så vi ser etter igjen når rullingen
+         har stoppet. */
+      function dekorRull() {
+        clearTimeout(dekorT);
+        dekorT = setTimeout(function () {
+          if (bandS.getBoundingClientRect().top < (window.innerHeight || 1)) dekorInn();
+        }, 140);
+      }
+      var dekorIO = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting || en[0].boundingClientRect.bottom <= 0) dekorInn();
+      }, { rootMargin: '0px 0px -12% 0px' });
+      dekorIO.observe(bandS);
+      window.addEventListener('scroll', dekorRull, { passive: true });
+    }
     /* Der nettleseren har rulle-drevne animasjoner (view-timeline),
        driver forside.css lagene selv, på kompositoren — dette skriptet
        målte geometri og satte --mx/--my for hvert bilde, og hver
        skriving startet fire nye overganger på 3D-lag. Det var det som
        hakket i båndet på telefon. Skriptet under er reserven. */
-    var bandTL = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('animation-timeline: view()');
-    if (bandS && !bandTL) {
-      var bIn = false, bTick = false;
-      function bandFrame() {
-        bTick = false;
-        if (!bIn) return;
-        var r = bandS.getBoundingClientRect();
-        var vh = window.innerHeight || 1;
-        var c = (r.top + r.height / 2 - vh / 2) / vh * 1.6;
-        c = c < -1 ? -1 : c > 1 ? 1 : c;
-        bandS.style.setProperty('--my', c.toFixed(3));
-        bandS.style.setProperty('--mx', (c * 0.5).toFixed(3));
-      }
-      new IntersectionObserver(function (en) { bIn = en[0].isIntersecting; if (bIn) bandFrame(); }, { rootMargin: '10% 0px' }).observe(bandS);
-      window.addEventListener('scroll', function () {
-        if (bIn && !bTick) { bTick = true; requestAnimationFrame(bandFrame); }
-      }, { passive: true });
-    }
+    /* Den rulle-drevne parallaksen er borte på telefon: den fulgte
+       fingeren, og ved rask rulling hoppet den i store steg. Beholdt
+       som død kode ville bare forvirre — betingelsen er nå aldri sann. */
+    /* (Den rulle-drevne parallaksen på telefon er fjernet — se
+       forside.css: båndet fader inn én gang i stedet.) */
   }
 
   /* ═══ 3d. Konvertering: 01 → 02 på samme sted ═══
@@ -494,8 +544,8 @@
            er 85 % nede i vinduet til den er 35 %. Før løp den til
            seksjonen var på vei ut — da var teksten uskarp hele tiden
            man kunne lese den. */
-        start = secTop - vh * 0.95;
-        travel = vh * 1.15;
+        start = secTop - vh * 1.05;
+        travel = vh * 1.3;
       } else {
         var stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
         var slutt = secTop + sec.offsetHeight - wrap.offsetHeight - stickyTop;
@@ -513,7 +563,18 @@
       wrap.style.setProperty('--qp', p.toFixed(4));
     }
     function onScroll() { if (inView && !ticking) { ticking = true; requestAnimationFrame(frame); } }
-    new IntersectionObserver(function (en) { inView = en[0].isIntersecting; if (inView) onScroll(); }, { rootMargin: '30% 0px' }).observe(wrap);
+    new IntersectionObserver(function (en) {
+      inView = en[0].isIntersecting;
+      if (inView) { onScroll(); return; }
+      /* Sitatet er ute av bildet: har det gått ut OVER skjermen, skal
+         ordene stå skarpe. Uten dette frøs bølgen der den var da
+         sitatet forsvant, og en for lang strekning etterlot teksten
+         uskarp for godt. */
+      if (en[0].boundingClientRect.bottom < 0 && qp !== 1) {
+        qp = 1;
+        wrap.style.setProperty('--qp', '1');
+      }
+    }, { rootMargin: '30% 0px' }).observe(wrap);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', rolig(measure));
     window.addEventListener('load', measure);
