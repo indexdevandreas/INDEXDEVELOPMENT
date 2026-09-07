@@ -38,6 +38,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
 <link rel="stylesheet" href="hjemmeside.css">
 <link rel="stylesheet" href="sider.css">
 <link rel="stylesheet" href="forside.css">
+<link rel="stylesheet" href="svarer.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -279,7 +280,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
            «ringe,og … til åbli». -->
       <h1>De fleste tar kontakt<br>
         bare én gang.</h1>
-      <p class="hero-sub">Index Svar tar telefonen når du ikke rekker den. Chatboten svarer dem som skriver. Og jeg bygger nettsiden de bor på.</p>
+      <p class="hero-sub">Rekker du ikke telefonen, får kunden svar likevel. Skriver de på nettsiden, svarer chatboten. Nettsiden bygger jeg.</p>
 
       <a class="btn-circle hero-btn" href="kom-i-gang.html" data-magnet>
         <span>FINN UT HVA DU TRENGER</span>
@@ -306,12 +307,11 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
 <!-- ───── TJENESTER ───── -->
 <section class="services2" id="tjenester">
   <div class="platform-top">
-    <p class="pf-eyebrow"><span class="pf-sq"></span>TJENESTER</p>
+    <p class="pf-eyebrow"><span class="pf-sq"></span>NÅR DU IKKE REKKER TELEFONEN</p>
     <div class="pf-top-grid">
-      <h2 class="pf-head">Telefonsvareren først.<br><span class="pf-grey">Resten bygges rundt.</span></h2>
+      <h2 class="pf-head">Den som ringer<br><span class="pf-grey">venter ikke.</span></h2>
       <div class="pf-aside">
-        <p>Index Svar tar telefonen når du ikke rekker den. Chatboten svarer dem som skriver. Nettsiden og systemene bygges rundt dem — samme drift, én å ringe.</p>
-        <p><a class="pf-link" href="drift.html">Se hva drift dekker <span class="pf-link-arrow">→</span></a></p>
+        <p>Han ringer nummer to på lista, og da er jobben borte uten at du visste at den fantes. Derfor er telefonsvareren det første jeg bygger — resten bygges rundt den.</p>
       </div>
     </div>
   </div>
@@ -334,38 +334,81 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     <p class="sv-tall-kilde">Kilde: <a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail</a>, spørreundersøkelse blant 1 000 amerikanske forbrukere, september 2025. Telenor Bedrift sier det samme uten tall: den som ikke får svar, ringer «nestemann på lista».</p>
   </div>
 
-  <!-- Fire paneler som stabler seg når man ruller. Hvert panel ligger i
+  <!-- Telefonsvareren: samme scene som heroen paa ubesvarte-anrop.html
+       (svarer.css) — det ringer, går ubesvart, meldingen går ut, kunden
+       svarer, og beskjeden lander hos deg. Teksten er hva kunden sitter
+       igjen med, ikke hvordan det er laget. -->
+  <div class="sv-svarer">
+    <div class="sv-svarer-text">
+      <p class="pf-eyebrow sv-svarer-eyebrow"><span class="pf-sq"></span>TELEFONSVARER</p>
+      <h3 class="sv-svarer-h">Telefonen ringte.<br>Du sto i en jobb.<br><span class="ua-lime">Kunden fikk svar likevel.</span></h3>
+      <p class="sv-svarer-lead">Går anropet ubesvart, tar telefonsvareren over. Kunden får en melding i ditt navn med en gang — eller en stemme som tar samtalen — og du får beskjed om hvem som ringte, hva det gjaldt og hvor mye det haster.</p>
+      <ul class="sv-svarer-liste">
+        <li>Kunden får svar én gang allerede, og slipper å lure på om noen ringer tilbake</li>
+        <li>Du får hvem, hva og hvor mye det haster — på SMS og e-post, når du kommer ut av jobben</li>
+        <li>Du ringer tilbake når du er ferdig, og vet hva det gjelder før du slår nummeret</li>
+      </ul>
+      <div class="sv-svarer-cta">
+        <a class="sv-svarer-knapp" href="ubesvarte-anrop.html">Slik virker det <span aria-hidden="true">→</span></a>
+        <a class="sv-svarer-lenke" href="kom-i-gang.html">Få et pristilbud <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="ua-scene" aria-hidden="true">
+      <div class="ua-phone">
+        <span class="ua-notch"></span>
+        <div class="ua-call ua-ring">
+          <span class="ua-call-lab">Innkommende anrop</span>
+          <span class="ua-call-nr">+47 91 23 45 67</span>
+          <span class="ua-call-sub">Kunde · mobil</span>
+          <div class="ua-call-knapper">
+            <span class="ua-k ua-k-rod"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><i>Avvis</i></span>
+            <span class="ua-k ua-k-gronn"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><i>Svar</i></span>
+          </div>
+        </div>
+        <div class="ua-card ua-missed">
+          <span class="ua-avatar ua-avatar-red"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></span>
+          <span class="ua-line1">Ubesvart anrop</span>
+          <span class="ua-line2">+47 91 23 45 67 · 14:32</span>
+        </div>
+        <div class="ua-sms">
+          <span class="ua-sms-lab">SMS · i ditt navn</span>
+          <p>Så anropet ditt, ringer deg opp igjen. Hva gjelder det?</p>
+        </div>
+        <div class="ua-svar">
+          <p>Lekkasje under kjøkkenvasken 🙏</p>
+        </div>
+      </div>
+      <div class="ua-beskjed">
+        <span class="ua-beskjed-lab">Beskjed til deg · 14:34</span>
+        <div class="ua-beskjed-rad"><span>Hvem</span><b>+47 91 23 45 67</b></div>
+        <div class="ua-beskjed-rad"><span>Hva</span><b>Lekkasje under kjøkkenvask</b></div>
+        <div class="ua-beskjed-rad"><span>Haster</span><b class="ua-haster">Ja — i dag</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-top sv-resten">
+    <p class="pf-eyebrow"><span class="pf-sq"></span>TJENESTER</p>
+    <div class="pf-top-grid">
+      <h2 class="pf-head">Resten bygges<br><span class="pf-grey">rundt den.</span></h2>
+      <div class="pf-aside">
+        <p>Chatboten svarer dem som skriver. Nettsiden gjør at de finner deg. Systemene sparer deg for tastingen — samme drift, én å ringe.</p>
+        <p><a class="pf-link" href="drift.html">Se hva drift dekker <span class="pf-link-arrow">→</span></a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tre paneler som stabler seg når man ruller. Hvert panel ligger i
        en sticky .sv-slot (forside.css) og legger seg oppå det forrige,
        som får --cover fra forside.js og krymper litt bakover. Bakgrunnen
        er hvit hele veien — det er bare panelene som beveger seg.
-       Hele panelet er lenken, så undertjenestene står som tekst.
-       Index Svar står først: det er hovedproduktet. Chatboten selges
-       til andre kunder og står for seg selv. -->
+       Hele panelet er lenken, så undertjenestene står som tekst. -->
   <div class="sv-stack" data-stack data-stack-offset="18">
     <div class="sv-slot">
-      <a class="sv-card sv-dark" data-tilt="1.6" href="ubesvarte-anrop.html">
+      <a class="sv-card sv-dark" data-tilt="1.6" href="ai-agenter.html">
         <span class="sv-ghost" aria-hidden="true">01</span>
         <div class="sv-main">
           <span class="sv-num">01</span>
-          <h3>Index Svar — telefonsvareren</h3>
-          <p>Rekker du ikke telefonen, tar Index Svar imot for deg. Kunden får svar med en gang — en melding i ditt navn, eller en stemme som tar samtalen — og du får vite hvem som ringte, hva det gjaldt og hvor mye det haster. På SMS og e-post, så du ser det når du kommer ut av jobben.</p>
-        </div>
-        <div class="sv-side">
-          <span class="sv-list-lab">Omfatter</span>
-          <ul class="sv-list">
-            <li>Nivå 1: SMS-svar i ditt navn</li>
-            <li>Nivå 2: AI-en tar samtalen</li>
-            <li>Beskjed på SMS og e-post</li>
-          </ul>
-          <span class="sv-go" aria-hidden="true">→</span>
-        </div>
-      </a>
-    </div>
-    <div class="sv-slot">
-      <a class="sv-card sv-grey" data-tilt="1.6" href="ai-agenter.html">
-        <span class="sv-ghost" aria-hidden="true">02</span>
-        <div class="sv-main">
-          <span class="sv-num">02</span>
           <h3>Chatbot på nettsiden</h3>
           <p>Svarer dem som skriver, med en gang — på norsk, med dine priser og dine rutiner. Booker om de vil, og gir deg beskjed.</p>
         </div>
@@ -381,12 +424,12 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       </a>
     </div>
     <div class="sv-slot">
-      <a class="sv-card sv-lime" data-tilt="1.6" href="tjenester.html#nettside-synlighet">
-        <span class="sv-ghost" aria-hidden="true">03</span>
+      <a class="sv-card sv-grey" data-tilt="1.6" href="tjenester.html#nettside-synlighet">
+        <span class="sv-ghost" aria-hidden="true">02</span>
         <div class="sv-main">
-          <span class="sv-num">03</span>
+          <span class="sv-num">02</span>
           <h3>Nettside &amp; synlighet</h3>
-          <p>Så folk finner deg — og chatboten har et sted å bo. Rask, skreddersydd nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
+          <p>Så folk finner deg. Rask, skreddersydd nettside og riktig oppsatt bedriftsprofil, så du dukker opp i søket og på kartet.</p>
         </div>
         <div class="sv-side">
           <span class="sv-list-lab">Omfatter</span>
@@ -399,10 +442,10 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       </a>
     </div>
     <div class="sv-slot">
-      <a class="sv-card sv-dark" data-tilt="1.6" href="tjenester.html#systemer-automatisering">
-        <span class="sv-ghost" aria-hidden="true">04</span>
+      <a class="sv-card sv-lime" data-tilt="1.6" href="tjenester.html#systemer-automatisering">
+        <span class="sv-ghost" aria-hidden="true">03</span>
         <div class="sv-main">
-          <span class="sv-num">04</span>
+          <span class="sv-num">03</span>
           <h3>Systemer, booking &amp; integrasjoner</h3>
           <p>Så du slipper å taste det samme flere ganger. Booking kunden gjør selv, kobling mellom systemene du bruker, og det som mangler bygges.</p>
         </div>
