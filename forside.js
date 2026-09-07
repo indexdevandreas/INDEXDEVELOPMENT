@@ -20,6 +20,21 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine   = window.matchMedia('(pointer: fine)').matches;
 
+  /* «resize» som ikke er adresselinja. iOS fyrer resize for hvert bilde
+     mens linja øverst klapper sammen på første sveip; alt som måler
+     geometri på resize ville da gjort det per bilde, midt i rullingen.
+     Rene høydeendringer under 200 px på touch slippes, resten samles. */
+  function rolig(fn) {
+    var w = window.innerWidth, h = window.innerHeight, t = 0;
+    return function () {
+      var nw = window.innerWidth, nh = window.innerHeight;
+      if (!fine && nw === w && Math.abs(nh - h) < 200) return;
+      w = nw; h = nh;
+      clearTimeout(t);
+      t = setTimeout(fn, 60);
+    };
+  }
+
   /* ═══ 1. Reveal ═══ */
 
   /* Grupper som skal animeres inn, med forskyvning mellom barna */
@@ -169,19 +184,41 @@
        (--sp) løper fra der den blir stående til arket har dekket den.
        Måles på nytt ved hver størrelsesendring: på iOS kommer det en
        når adresselinja klapper sammen, og da skal bunnen følge med. */
+    /* Høyden det måles mot er den STORE viewporten — slik den er når
+       adresselinja er skjult. På iPhone klapper linja sammen på første
+       sveip, og det er alltid etter det at overgangen kjører; da er
+       dette tallet det riktige. innerHeight er den lille, og skifter
+       for hvert bilde mens linja beveger seg. */
+    function storVh() {
+      var probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100lvh;visibility:hidden;pointer-events:none';
+      document.body.appendChild(probe);
+      var h = probe.offsetHeight;
+      probe.remove();
+      return h || window.innerHeight || 1;
+    }
     function measure() {
       high = hero.offsetHeight || 1;
-      vh = window.innerHeight || 1;
+      vh = storVh();
       pinStart = Math.max(0, high + 20 - vh);
       span = Math.max(1, high + 20 - pinStart);
       hero.style.setProperty('--hh', high + 'px');
       hero.style.setProperty('--vh', vh + 'px');
       hero.classList.add('is-pinnable');
     }
+    /* iOS fyrer «resize» for hvert bilde mens adresselinja klapper
+       sammen. Ble heroen målt om da, flyttet festepunktet seg og --sp
+       hoppet fram og tilbake — det var det som fikk portrettet til å
+       krympe og vokse per bilde. En ren høydeendring under 200 px på
+       touch er adresselinja, ikke en ny skjerm: den ignoreres. Resten
+       (rotasjon, PC-vindu) samles opp og måles én gang. */
+    var rzW = window.innerWidth, rzH = window.innerHeight, rzT = 0;
     function onResize() {
-      measure();
-      sp = -1;
-      onScroll();
+      var w = window.innerWidth, h = window.innerHeight;
+      if (!fine && w === rzW && Math.abs(h - rzH) < 200) return;
+      rzW = w; rzH = h;
+      clearTimeout(rzT);
+      rzT = setTimeout(function () { measure(); sp = -1; onScroll(); }, 60);
     }
     function frame() {
       ticking = false;
@@ -194,11 +231,6 @@
          skjules den (visibility) — ellers titter den fram i luften
          rundt footeren og CTA-båndet — og glasset slutter å tegne. */
       hero.classList.toggle('is-past', p >= 1);
-      /* Mens heroen glir bort (0 < --sp < 1) fryser glasset — hele
-         flaten roterer og krymper uansett, så ingen ser at bølgene
-         står stille, og telefonen slipper å tegne shaderen oppå
-         rotasjonen. forside-3d.js leser klassen. */
-      hero.classList.toggle('is-receding', p > 0.002 && p < 1);
       if (fine) measureBtn();
     }
     function onScroll() {
@@ -452,7 +484,7 @@
     function onScroll() { if (inView && !ticking) { ticking = true; requestAnimationFrame(frame); } }
     new IntersectionObserver(function (en) { inView = en[0].isIntersecting; if (inView) onScroll(); }, { rootMargin: '30% 0px' }).observe(wrap);
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', measure);
+    window.addEventListener('resize', rolig(measure));
     window.addEventListener('load', measure);
     measure();
   })();
@@ -536,7 +568,7 @@
     });
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function () { check(); onScroll(); });
+    window.addEventListener('resize', rolig(function () { check(); onScroll(); }));
     check();
   })();
 })();

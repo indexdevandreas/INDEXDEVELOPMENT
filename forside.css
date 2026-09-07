@@ -85,20 +85,13 @@
   /* Høyere enn vinduet? Da festes den med bunnen mot skjermbunnen i
      stedet for toppen mot toppen (negativ top). --vh og --hh settes av
      forside.js ved hver måling. */
-  top: min(10px, calc(var(--vh, 100dvh) - var(--hh, 0px) - 10px));
+  top: min(10px, calc(var(--vh, 100lvh) - var(--hh, 0px) - 10px));
   transform:
     perspective(1100px)
     rotateX(calc(var(--sp) * -7deg))
     scale(calc(1 - var(--sp) * 0.07));
 }
 .hero:not(.is-pinnable)::after { display: none; }
-/* På telefon får heroen sitt eget lag: rotasjonen og krympingen blir da
-   bare re-komponering, ikke ny opptegning av hele flaten for hvert
-   rullebilde. Bare touch — på PC var det aldri hakkete, og et ekstra
-   lag der er bare minne. */
-@media (pointer: coarse) {
-  .hero.is-pinnable { will-change: transform; }
-}
 .hero:not(.is-pinnable) .hero-inner,
 .hero:not(.is-pinnable) .hero-field,
 .hero:not(.is-pinnable) .hero-photo { transform: none; opacity: 1; }
@@ -268,11 +261,10 @@
     rgba(3,18,48,0.12) 0%,
     rgba(3,18,48,0.62) 58%,
     rgba(3,18,48,0.99) 100%);
-  /* Eget lag: opasiteten endres for hvert rullebilde, og uten dette
-     males hele gradienten på nytt hver gang — på en 3×-telefon er det
-     tre millioner piksler per bilde. Det var det som hakket. Med laget
-     er det bare re-komponering. */
-  will-change: opacity;
+  /* Ikke noe eget lag her, med vilje: et fullskjerms lag til for
+     opasiteten alene så bra ut i emulatoren, men på en ekte iPhone er
+     det ~12 MB GPU-minne, og med heroens lag i tillegg begynte Safari
+     å hakke over hele siden — ikke bare i heroen. */
   opacity: calc(var(--sp) * 1.35);
 }
 
@@ -821,7 +813,10 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   top: calc(var(--stack-top) + var(--i, 0) * var(--stack-step));
   transform: scale(calc(1 - var(--cover, 0) * 0.06));
   transform-origin: 50% 0;
-  will-change: transform;
+  /* Ikke will-change: transform her. Sammen med position: sticky får
+     det Safari på iPhone til å la kortet riste under rulling — det
+     festede punktet og transform-laget oppdateres hver for seg og
+     ligger et bilde fra hverandre. Uten laget er kortet rolig. */
 }
 .sv-slot:nth-child(2) { --i: 1; }
 .sv-slot:nth-child(3) { --i: 2; }
@@ -997,7 +992,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
    skjermhøyde — ellers blir bunnen av et festet panel liggende
    utilgjengelig. Lave vinduer ruller panelene vanlig i stedet. */
 @media (max-height: 600px), (prefers-reduced-motion: reduce) {
-  .sv-slot { position: static; transform: none; will-change: auto; }
+  .sv-slot { position: static; transform: none; }
   .sv-slot::after { display: none; }
 }
 
