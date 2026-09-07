@@ -1967,4 +1967,67 @@ html, body { overflow-x: clip; }
 @media (pointer: coarse) {
   .sv-slot { transform: none; will-change: auto; }
   .sv-slot::after { display: none; }
+  /* Like høye kort. Uten krympingen stakk bunnen av et høyere kort
+     fram under det som dekket det, og når stabelen slapp taket flyttet
+     det høyeste kortet seg først — kort 01 «beveget seg på slutten».
+     Med like rader dekker hvert kort det forrige helt, og alle slipper
+     samtidig. */
+  .sv-stack { grid-auto-rows: 1fr; }
+  .sv-slot { display: grid; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TELEFON: UTVIKLER-BÅNDET DRIVES AV RULLINGEN — I CSS
+   På PC glir lagene etter pekeren, med en 0,6–0,8 s overgang så det
+   kjennes mykt. På telefon drev rullingen de samme verdiene, og hver
+   skriving (60 i sekundet) startet fire nye overganger på 3D-lag —
+   det hakket skikkelig. Her: ingen overganger på touch, og lagene
+   drives av en view-timeline på båndet (kompositoren, null
+   JavaScript). --my gikk 1 → −1 mens båndet gikk fra bunn til topp av
+   vinduet; det er «cover 0 % → 100 %» her. Teksten står stille.
+   Uten view-timeline-støtte tar forside.js over, fortsatt uten
+   overganger.
+   ═══════════════════════════════════════════════════════════ */
+@media (pointer: coarse) {
+  .mg-band .mg-media.rv.on,
+  .mg-band .mg-text.rv.on,
+  .mg-dots,
+  .mg-ring { transition: none; }
+  .mg-band .mg-text.rv.on { transform: none; }
+
+  @supports (animation-timeline: view()) {
+    .mg-band { view-timeline-name: --band; }
+    /* Portrettet vipper i rammen (ikke .mg-media — den eier
+       inngangsanimasjonen), rasteret og ringene glir motsatt vei. */
+    .mg-band .mg-media.rv.on { transform: none; }
+    .mg-frame {
+      animation: mgRamme linear both;
+      animation-timeline: --band;
+      animation-range: cover 0% cover 100%;
+    }
+    .mg-dots {
+      transform: none;
+      animation: mgRaster linear both;
+      animation-timeline: --band;
+      animation-range: cover 0% cover 100%;
+    }
+    .mg-ring {
+      transform: none;
+      animation: mgRing linear both;
+      animation-timeline: --band;
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes mgRamme {
+      from { transform: perspective(1200px) rotateY(2.5deg) rotateX(-4deg) translate3d(6px, 8px, 0); }
+      to   { transform: perspective(1200px) rotateY(-2.5deg) rotateX(4deg) translate3d(-6px, -8px, 0); }
+    }
+    @keyframes mgRaster {
+      from { transform: translate3d(-9px, -12px, 0); }
+      to   { transform: translate3d(9px, 12px, 0); }
+    }
+    @keyframes mgRing {
+      from { transform: translate3d(7px, 10px, 0); }
+      to   { transform: translate3d(-7px, -10px, 0); }
+    }
+  }
 }

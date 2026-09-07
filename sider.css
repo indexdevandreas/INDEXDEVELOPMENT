@@ -1528,6 +1528,14 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
   .quote2 { min-height: 210vh; }
   .qt-wrap { position: sticky; top: 20vh; }
 }
+/* Telefon: sitatet fester seg aldri. At siden stoppet opp mens man
+   rullet gjennom anmeldelsen føltes som hakking, ikke som en pause.
+   Ordene leses i stedet mens sitatet glir forbi (forside.js regner
+   bølgen fra 85 % til 35 % av vinduet når .qt-wrap ikke er sticky). */
+@media (pointer: coarse) {
+  .quote2 { min-height: 0; }
+  .qt-wrap { position: static; }
+}
 @media (prefers-reduced-motion: reduce) {
   .quote2 { min-height: 0; }
   .qt-wrap { position: static; }
@@ -1567,24 +1575,17 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
   filter: blur(calc((1 - var(--k)) * 12px));
   transform: translate3d(0, calc((1 - var(--k)) * 8px), 0);
 }
-/* Telefon: ordet «leses» i stedet for å skarpnes. Fra lys grå til
-   svart, med et lite løft — og en lime markør som sveiper gjennom
-   ordet mens det skjer, som en tusj over teksten. Markøren er 0 bred
-   ved start, full bredde midtveis, 0 igjen når ordet er lest
-   (--m = 1 − |2k − 1|), og glir fra venstre mot høyre. Bare farge og
-   bakgrunn: ingen filter, ingen egne lag. Blur-filteret over var det
-   eneste tunge som kom til siden forsiden var sømløs på telefon. */
+/* Telefon: ordet «leses» i stedet for å skarpnes — fra lys grå til
+   svart, med et lite løft, ett ord om gangen. Ingen farge, ingen
+   filter, ingen egne lag: bare tekstfargen endres. (Blur-filteret over
+   var det eneste tunge som kom til siden forsiden var sømløs på
+   telefon, og en lime markør prøvd her ødela den dyre looken.) */
 @media (pointer: coarse) {
   .qt-w {
-    --m: calc(1 - max(var(--k) * 2 - 1, 1 - var(--k) * 2));
     opacity: 1;
     filter: none;
-    color: rgba(10, 10, 10, calc(0.2 + var(--k) * 0.8));
+    color: rgba(10, 10, 10, calc(0.16 + var(--k) * 0.84));
     transform: translate3d(0, calc((1 - var(--k)) * 6px), 0);
-    background: linear-gradient(var(--lime, #d4ff3d), var(--lime, #d4ff3d)) no-repeat;
-    background-size: calc(var(--m) * 100%) 0.46em;
-    background-position: calc(clamp(0, var(--k) * 2 - 1, 1) * 100%) 82%;
-    border-radius: 3px;
   }
 }
 /* Hvert ord bruker ~1,8 steg på å bli skarpt, så de overlapper og det

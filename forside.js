@@ -354,7 +354,13 @@
      man ruller gjennom det. ── */
   if (!fine && !reduce) {
     var bandS = document.querySelector('.mg-band');
-    if (bandS) {
+    /* Der nettleseren har rulle-drevne animasjoner (view-timeline),
+       driver forside.css lagene selv, på kompositoren — dette skriptet
+       målte geometri og satte --mx/--my for hvert bilde, og hver
+       skriving startet fire nye overganger på 3D-lag. Det var det som
+       hakket i båndet på telefon. Skriptet under er reserven. */
+    var bandTL = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('animation-timeline: view()');
+    if (bandS && !bandTL) {
       var bIn = false, bTick = false;
       function bandFrame() {
         bTick = false;
