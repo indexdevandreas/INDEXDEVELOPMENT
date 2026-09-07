@@ -2172,8 +2172,11 @@ html, body { overflow-x: clip; }
 
 /* Scenen: samme som i heroen, men panelet er lavere enn en hero, så
    telefonen får stikke litt mindre under kanten. */
-/* Kort 01 har to lenker nederst i sidekolonnen: pilen og «Se priser». */
-.sv-knapper { display: flex; align-items: center; gap: 18px; }
+/* Kort 01 har to lenker: pilen nederst i sidekolonnen (til undersiden),
+   og «Se priser» helt nede til høyre i kortet — langt fra pilen, så
+   ingen tror pilen går til prisene. */
+.sv-pris { position: absolute; right: 52px; bottom: 60px; z-index: 2; }
+@media (max-width: 900px) { .sv-pris { right: 26px; bottom: 34px; } }
 a.sv-go { text-decoration: none; color: inherit; }
 .sv-pris {
   color: rgba(255,255,255,0.8);
