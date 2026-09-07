@@ -490,8 +490,8 @@
            er 85 % nede i vinduet til den er 35 %. Før løp den til
            seksjonen var på vei ut — da var teksten uskarp hele tiden
            man kunne lese den. */
-        start = secTop - vh * 0.85;
-        travel = vh * 0.5;
+        start = secTop - vh * 0.95;
+        travel = vh * 1.15;
       } else {
         var stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
         var slutt = secTop + sec.offsetHeight - wrap.offsetHeight - stickyTop;

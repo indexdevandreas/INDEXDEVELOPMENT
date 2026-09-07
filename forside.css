@@ -1932,8 +1932,14 @@ html, body { overflow-x: clip; }
     min-height: min(calc(100svh - 20px), 880px);
     padding-top: 80px;
   }
-  .hero-photo { height: min(300px, 25svh); }
-  .hero-note { margin-top: 12px; }
+  /* Portrettet større (30 svh), betalt med en mindre knapp og litt
+     mindre luft rundt teksten — summen må fortsatt være ≤ svh − 20,
+     ellers får heroen ikke plass og slipper festingen. */
+  .hero-photo { height: min(340px, 30svh); }
+  .hero-kicker { margin-bottom: 18px; }
+  .hero-sub { margin-top: 14px; }
+  .hero-btn { --cap: 34px; --pad: 6px; padding-left: 20px; font-size: 12px; gap: 12px; margin-top: 22px; }
+  .hero-note { margin-top: 10px; font-size: 12.5px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -2003,7 +2009,7 @@ html, body { overflow-x: clip; }
     .mg-frame {
       animation: mgRamme linear both;
       animation-timeline: --band;
-      animation-range: cover 0% cover 100%;
+      animation-range: cover 0% cover 82%;
     }
     .mg-dots {
       transform: none;
@@ -2017,17 +2023,24 @@ html, body { overflow-x: clip; }
       animation-timeline: --band;
       animation-range: cover 0% cover 100%;
     }
+    /* Ny animasjon: portrettet kommer nedenfra og retter seg opp mens
+       båndet passerer — som om det reiser seg mot leseren — i stedet
+       for å vippe fram og tilbake. Ringene vokser rundt det, og
+       rasteret glir sakte motsatt vei. Alt er transform og opasitet,
+       så kompositoren gjør jobben. */
     @keyframes mgRamme {
-      from { transform: perspective(1200px) rotateY(2.5deg) rotateX(-4deg) translate3d(6px, 8px, 0); }
-      to   { transform: perspective(1200px) rotateY(-2.5deg) rotateX(4deg) translate3d(-6px, -8px, 0); }
+      0%   { transform: translate3d(0, 34px, 0) scale(0.9); opacity: 0.55; }
+      45%  { transform: none; opacity: 1; }
+      100% { transform: translate3d(0, -18px, 0) scale(1.02); opacity: 1; }
     }
     @keyframes mgRaster {
-      from { transform: translate3d(-9px, -12px, 0); }
-      to   { transform: translate3d(9px, 12px, 0); }
+      from { transform: translate3d(0, 22px, 0); }
+      to   { transform: translate3d(0, -22px, 0); }
     }
     @keyframes mgRing {
-      from { transform: translate3d(7px, 10px, 0); }
-      to   { transform: translate3d(-7px, -10px, 0); }
+      0%   { transform: scale(0.72) translate3d(0, 26px, 0); opacity: 0; }
+      50%  { transform: scale(1) translate3d(0, 0, 0); opacity: 1; }
+      100% { transform: scale(1.14) translate3d(0, -14px, 0); opacity: 0.5; }
     }
   }
 }
