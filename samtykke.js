@@ -106,7 +106,7 @@
     topp.appendChild(t);
 
     var b = el('p', 'smt-b'); b.id = 'smt-b';
-    b.appendChild(document.createTextNode('Jeg vil gjerne se hvor mange som besøker siden og hvilke sider som leses. Det settes ingen cookies for det før du sier ja — chatboten og skjemaene virker uansett. '));
+    b.appendChild(document.createTextNode('Jeg vil gjerne se hvor mange som besøker siden og hvilke sider som leses. Det settes ingenting før du har sagt ja. '));
     var lenke = el('a', null, 'Les mer om cookies'); lenke.href = 'cookies.html';
     b.appendChild(lenke);
 
