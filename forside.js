@@ -20,6 +20,15 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine   = window.matchMedia('(pointer: fine)').matches;
 
+  /* «?fps» i adressen laster måleverktøyet (fps.js): bilder per sekund
+     under rulling, lange bilder per seksjon, og brytere som skrur av én
+     effekt om gangen. Ellers er det ikke med i siden i det hele tatt. */
+  if (/[?&]fps\b/.test(location.search)) {
+    var fps = document.createElement('script');
+    fps.src = 'fps.js'; fps.defer = true;
+    document.head.appendChild(fps);
+  }
+
   /* «resize» som ikke er adresselinja. iOS fyrer resize for hvert bilde
      mens linja øverst klapper sammen på første sveip; alt som måler
      geometri på resize ville da gjort det per bilde, midt i rullingen.
