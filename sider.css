@@ -1571,6 +1571,13 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
    leser som en bølge i stedet for en teller. +2 på slutten gir litt
    luft etter siste ord. */
 .quote2.is-live .qt-w { --k: clamp(0, calc((var(--qp, 0) * (var(--n, 12) + 2) - var(--i, 0)) / 1.8), 1); }
+/* Touch: bølgen beholdes (opasitet og løft), men uten blur-filteret —
+   tolv uskarpe lag som regnes om for hvert rullebilde er mer enn en
+   telefon tar unna, og det var det eneste tunge som kom til siden
+   forsiden var sømløs. */
+@media (pointer: coarse) {
+  .qt-w { filter: none; }
+}
 .qt-who {
   display: flex;
   align-items: center;

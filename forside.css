@@ -1935,3 +1935,36 @@ html, body { overflow-x: clip; }
   .hero-photo { height: min(300px, 25svh); }
   .hero-note { margin-top: 12px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TELEFON: FLAT HERO OG FLATE KORT
+   Heroen festes (top: 10px) og arket glir over — som på PC — men uten
+   3D: ingen rotasjon, ingen skalering, ingen transformer på tekst og
+   portrett. Bare vignetten, og den drives av en rulle-drevet
+   CSS-animasjon der nettleseren kan (kompositoren, null JavaScript).
+   Uten støtte faller den tilbake på --sp fra forside.js.
+   Kortene stabler seg fortsatt, men krymper ikke og får ikke slør.
+   Grunn: tekst i et lag som transformeres blir uskarp på iPhone, og
+   rotasjon/skalering av hele skjermlag er mer enn telefonens GPU tar
+   unna mens den ruller. is-flat settes av forside.js på touch.
+   ═══════════════════════════════════════════════════════════ */
+.hero.is-pinnable.is-flat { transform: none; }
+.hero.is-flat .hero-inner,
+.hero.is-flat .hero-photo { transform: none; opacity: 1; }
+.hero.is-flat .hero-field { transform: none; }
+@supports (animation-timeline: scroll()) {
+  .hero.is-pinnable.is-flat::after {
+    animation: heroSlor linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px var(--hh, 100vh);
+  }
+  @keyframes heroSlor {
+    0%   { opacity: 0; }
+    74%  { opacity: 1; }
+    100% { opacity: 1; }
+  }
+}
+@media (pointer: coarse) {
+  .sv-slot { transform: none; will-change: auto; }
+  .sv-slot::after { display: none; }
+}

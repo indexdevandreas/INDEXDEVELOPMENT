@@ -47,7 +47,7 @@
       dark: [0.045, 0.045, 0.05], light: [0.56, 0.56, 0.54],
       glow: [0.78, -0.4], glowAmt: 0.2, vig: 1,
       rib: 0, mag: 0,
-      speed: 0.5, dpr: 1.5, scale: 1, still: 7.0,
+      speed: 0.5, dpr: 1.5, scale: 1, still: 7.0, dprTouch: 1.0, pauseOnScroll: 1,
       /* Utoning av: x-terskelen ligger langt til venstre for bildet,
          y-terskelen langt over. */
       fade: function () { return [-10, -9, 9, 10]; }
@@ -60,7 +60,7 @@
       dark: [0, 0, 0], light: [0, 0, 0],
       glow: [0, 0], glowAmt: 0, vig: 0,
       rib: 0.019, mag: 2.0,
-      speed: 1.1, dpr: 1.5, scale: 1, still: 5.0, drift: 1.0,
+      speed: 1.1, dpr: 1.5, scale: 1, still: 5.0, drift: 1.0, dprTouch: 1.0, pauseOnScroll: 1,
       fade: function () { return [-10, -9, 9, 10]; }
     },
     hero: {

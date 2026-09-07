@@ -19,6 +19,11 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine   = window.matchMedia('(pointer: fine)').matches;
+  /* Rulle-drevne CSS-animasjoner (animation-timeline) kjører på
+     kompositoren, der selve rullingen kjører. På telefon drives
+     hero-vignetten av dem der de finnes (forside.css), og da slipper
+     skriptet å skrive --sp per bilde. */
+  var TL = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('animation-timeline: scroll()');
 
   /* «?fps» i adressen laster måleverktøyet (fps.js): bilder per sekund
      under rulling, lange bilder per seksjon, og brytere som skrur av én
@@ -204,6 +209,12 @@
       hero.style.setProperty('--hh', high + 'px');
       hero.style.setProperty('--vh', vh + 'px');
       hero.classList.toggle('is-pinnable', pinned);
+      /* Telefon: heroen festes og arket glir over den som på PC, men
+         uten 3D — ingen rotasjon, ingen skalering, ingen transformer
+         på tekst og portrett. Bare vignetten. Tekst i lag som
+         transformeres blir uskarp på iPhone, og rotasjonen av en hel
+         skjerm er mer enn telefonens GPU tar unna mens den ruller. */
+      hero.classList.toggle('is-flat', !fine);
       if (!pinned) { hero.classList.remove('is-past'); hero.style.removeProperty('--sp'); }
     }
     /* iOS fyrer «resize» for hvert bilde mens adresselinja klapper
@@ -225,7 +236,8 @@
       p = p < 0 ? 0 : p > 1 ? 1 : p;
       if (p === sp) return;
       sp = p;
-      hero.style.setProperty('--sp', p.toFixed(4));
+      /* Flat hero med rulle-drevet vignett: CSS-en driver den selv */
+      if (!(TL && !fine)) hero.style.setProperty('--sp', p.toFixed(4));
       /* Heroen er festet bak hele siden. Når arket har dekket den helt,
          skjules den (visibility) — ellers titter den fram i luften
          rundt footeren og CTA-båndet — og glasset slutter å tegne. */
@@ -466,10 +478,20 @@
     function measure() {
       var vh = window.innerHeight || 1;
       var secTop = sec.getBoundingClientRect().top + window.scrollY;
-      var stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
-      var slutt = secTop + sec.offsetHeight - wrap.offsetHeight - stickyTop;
-      start = secTop - vh * 0.55;
-      travel = Math.max(vh * 0.5, slutt - start);
+      if (getComputedStyle(wrap).position !== 'sticky') {
+        /* Uten festing (telefon) ruller sitatet rett gjennom, så bølgen
+           må være ferdig mens det står midt i bildet: fra seksjonstoppen
+           er 85 % nede i vinduet til den er 35 %. Før løp den til
+           seksjonen var på vei ut — da var teksten uskarp hele tiden
+           man kunne lese den. */
+        start = secTop - vh * 0.85;
+        travel = vh * 0.5;
+      } else {
+        var stickyTop = parseFloat(getComputedStyle(wrap).top) || 0;
+        var slutt = secTop + sec.offsetHeight - wrap.offsetHeight - stickyTop;
+        start = secTop - vh * 0.55;
+        travel = Math.max(vh * 0.5, slutt - start);
+      }
       qp = -1; frame();
     }
     function frame() {
@@ -500,7 +522,11 @@
      bunken er i bildet og faktisk er sticky — på mobil og lave
      vinduer ruller alt vanlig. */
   (function () {
-    if (reduce) return;
+    /* Touch: kortene stabler seg fortsatt (sticky, kompositoren), men
+       uten krymping og slør — de krevde geometri per bilde, og tekst i
+       et lag som skaleres blir uskarp på iPhone. forside.css slår av
+       det samme for (pointer: coarse). */
+    if (reduce || !fine) return;
     var stacks = [];
 
     document.querySelectorAll('[data-stack]').forEach(function (el) {
