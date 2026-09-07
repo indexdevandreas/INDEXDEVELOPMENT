@@ -813,10 +813,11 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   top: calc(var(--stack-top) + var(--i, 0) * var(--stack-step));
   transform: scale(calc(1 - var(--cover, 0) * 0.06));
   transform-origin: 50% 0;
-  /* Ikke will-change: transform her. Sammen med position: sticky får
-     det Safari på iPhone til å la kortet riste under rulling — det
-     festede punktet og transform-laget oppdateres hver for seg og
-     ligger et bilde fra hverandre. Uten laget er kortet rolig. */
+  /* Eget lag: kortet krymper for hvert rullebilde mens neste glir
+     over, og uten laget males det på nytt hver gang. (Ble tatt bort
+     en dag i den tro at det var kilden til risting på iPhone — det
+     var heroens negative sticky-topp. Uten laget slet kortene.) */
+  will-change: transform;
 }
 .sv-slot:nth-child(2) { --i: 1; }
 .sv-slot:nth-child(3) { --i: 2; }
@@ -992,7 +993,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
    skjermhøyde — ellers blir bunnen av et festet panel liggende
    utilgjengelig. Lave vinduer ruller panelene vanlig i stedet. */
 @media (max-height: 600px), (prefers-reduced-motion: reduce) {
-  .sv-slot { position: static; transform: none; }
+  .sv-slot { position: static; transform: none; will-change: auto; }
   .sv-slot::after { display: none; }
 }
 
@@ -1910,4 +1911,27 @@ html, body { overflow-x: clip; }
     gap: 12px;
     --cap: 38px;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TELEFON: HEROEN SKAL FÅ PLASS — DA FESTES DEN MED top: 10px
+   3D-overgangen kjører bare når hele heroen får plass i vinduet
+   (forside.js: high + 20 <= innerHeight). Den sømløse versjonen på
+   telefon var nettopp den: festet med positiv topp. Forsøket på å
+   feste den «alltid» med negativ topp når den var for høy, vibrerte.
+   Så i stedet for å tvinge festingen, sørger vi for at den får plass:
+   - min-høyden regnes i svh (liten viewport, adresselinja framme) —
+     100vh på iOS er den STORE viewporten, og da manglet det alltid
+     noen piksler mens linja var framme.
+   - portrettet 25 svh i stedet for 34, toppluften 80 i stedet for 94.
+   iPhone 13/15 Pro: 705 → ~625 px av 644 tilgjengelige. Svært lave
+   skjermer (iPhone SE) får ikke plass uansett, og ruller vanlig.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero {
+    min-height: min(calc(100svh - 20px), 880px);
+    padding-top: 80px;
+  }
+  .hero-photo { height: min(300px, 25svh); }
+  .hero-note { margin-top: 12px; }
 }
