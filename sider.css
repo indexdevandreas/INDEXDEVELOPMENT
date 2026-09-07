@@ -1516,7 +1516,7 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
 
 /* ═══ KUNDEN SIER — ett sitat, ord for ord (forside + undersider) ═══
    --qp (0 → 1) settes av forside.js mens seksjonen ruller inn. Hvert
-   ord har sin --i; --k er ordets egen framdrift (0 uskarpt, 1 skarpt),
+   ord har sin --i; --k er ordets egen framdrift (0 ulest, 1 lest),
    regnet ut i CSS så JS bare skriver én verdi per bilde. Uten
    .is-live (ingen JS, eller redusert bevegelse) er --k 1 fra start. */
 /* Sitatet står stille en stund mens siden ruller forbi, så ordene får
@@ -1567,17 +1567,30 @@ body:has(.page-hero) section p:not([class*="eyebrow"]):not([class*="fine"]):not(
   filter: blur(calc((1 - var(--k)) * 12px));
   transform: translate3d(0, calc((1 - var(--k)) * 8px), 0);
 }
+/* Telefon: ordet «leses» i stedet for å skarpnes. Fra lys grå til
+   svart, med et lite løft — og en lime markør som sveiper gjennom
+   ordet mens det skjer, som en tusj over teksten. Markøren er 0 bred
+   ved start, full bredde midtveis, 0 igjen når ordet er lest
+   (--m = 1 − |2k − 1|), og glir fra venstre mot høyre. Bare farge og
+   bakgrunn: ingen filter, ingen egne lag. Blur-filteret over var det
+   eneste tunge som kom til siden forsiden var sømløs på telefon. */
+@media (pointer: coarse) {
+  .qt-w {
+    --m: calc(1 - max(var(--k) * 2 - 1, 1 - var(--k) * 2));
+    opacity: 1;
+    filter: none;
+    color: rgba(10, 10, 10, calc(0.2 + var(--k) * 0.8));
+    transform: translate3d(0, calc((1 - var(--k)) * 6px), 0);
+    background: linear-gradient(var(--lime, #d4ff3d), var(--lime, #d4ff3d)) no-repeat;
+    background-size: calc(var(--m) * 100%) 0.46em;
+    background-position: calc(clamp(0, var(--k) * 2 - 1, 1) * 100%) 82%;
+    border-radius: 3px;
+  }
+}
 /* Hvert ord bruker ~1,8 steg på å bli skarpt, så de overlapper og det
    leser som en bølge i stedet for en teller. +2 på slutten gir litt
    luft etter siste ord. */
 .quote2.is-live .qt-w { --k: clamp(0, calc((var(--qp, 0) * (var(--n, 12) + 2) - var(--i, 0)) / 1.8), 1); }
-/* Touch: bølgen beholdes (opasitet og løft), men uten blur-filteret —
-   tolv uskarpe lag som regnes om for hvert rullebilde er mer enn en
-   telefon tar unna, og det var det eneste tunge som kom til siden
-   forsiden var sømløs. */
-@media (pointer: coarse) {
-  .qt-w { filter: none; }
-}
 .qt-who {
   display: flex;
   align-items: center;
