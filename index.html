@@ -311,7 +311,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       <h2 class="pf-head">Den som ringer<br><span class="pf-grey">venter ikke.</span></h2>
       <div class="pf-aside">
         <p>Han ringer nummer to på lista, og da er jobben borte uten at du visste at den fantes. Derfor er telefonsvareren det første jeg bygger — resten bygges rundt den.</p>
-        <p><a class="pf-link" href="drift.html">Se hva drift dekker <span class="pf-link-arrow">→</span></a></p>
+        <p><a class="pf-link" href="ubesvarte-anrop.html">Les mer <span class="pf-link-arrow">→</span></a></p>
       </div>
     </div>
   </div>
@@ -331,7 +331,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
       <p class="sv-tall-num"><strong>78<span>%</span></strong></p>
       <p class="sv-tall-txt">har gitt opp en bedrift etter et ubesvart anrop.</p>
     </div>
-    <p class="sv-tall-kilde"><span>Kilde: CallRail, 2025</span> <a class="sv-tall-les" href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">Les mer <span aria-hidden="true">→</span></a></p>
+    <p class="sv-tall-kilde">Kilde: <a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a></p>
   </div>
 
   <!-- Fire paneler som stabler seg når man ruller. Hvert panel ligger i
@@ -342,7 +342,10 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
        Telefonsvareren står først: det er hovedproduktet. -->
   <div class="sv-stack" data-stack data-stack-offset="18">
     <div class="sv-slot">
-      <a class="sv-card sv-dark" data-tilt="1.6" href="ubesvarte-anrop.html">
+      <!-- Kort 01 er en div, ikke en lenke: det har to lenker i seg
+           (pilen til undersiden og «Se priser»), og lenker kan ikke
+           ligge inni lenker. -->
+      <div class="sv-card sv-dark" data-tilt="1.6">
         <span class="sv-ghost" aria-hidden="true">01</span>
         <div class="sv-main">
           <span class="sv-num">01</span>
@@ -356,9 +359,12 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
             <li>Nivå 2: AI-en tar samtalen</li>
             <li>Beskjed på SMS og e-post</li>
           </ul>
-          <span class="sv-go" aria-hidden="true">→</span>
+          <div class="sv-knapper">
+            <a class="sv-go" href="ubesvarte-anrop.html" aria-label="Les mer om telefonsvareren">→</a>
+            <a class="sv-pris" href="priser.html">Se priser <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
     <div class="sv-slot">
       <a class="sv-card sv-grey" data-tilt="1.6" href="ai-agenter.html">
