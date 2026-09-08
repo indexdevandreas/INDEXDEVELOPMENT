@@ -108,7 +108,18 @@
         </button>
       </form>`;
 
-    document.body.appendChild(win);
+    /* Innebygd modus: finnes det en [data-chat-inline] på siden, legges
+       vinduet inn DER, som en vanlig del av siden, i stedet for å flyte
+       nede til høyre. Forsiden bruker det: chatboten folk får prøve er
+       den ekte, ikke en tegnet samtale. Boblen nede til høyre blir da
+       en snarvei som ruller ned til den. */
+    const inlineHost = document.querySelector('[data-chat-inline]');
+    if (inlineHost) {
+      win.classList.add('inline');
+      inlineHost.appendChild(win);
+    } else {
+      document.body.appendChild(win);
+    }
     document.body.appendChild(bubble);
     return { bubble, win };
   }
@@ -252,7 +263,15 @@
       }
     }
 
+    const inline = win.classList.contains('inline');
     function open() {
+      if (inline) {
+        /* Vinduet står i siden: rull ned til det og sett markøren der */
+        win.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (!opened) { opened = true; renderExisting(); }
+        if (window.matchMedia('(min-width: 481px)').matches) input.focus({ preventScroll: true });
+        return;
+      }
       win.classList.add('open');
       bubble.classList.add('open');
       bubble.setAttribute('aria-expanded', 'true');
@@ -270,6 +289,7 @@
     }
 
     function close() {
+      if (inline) return;
       win.classList.remove('open');
       bubble.classList.remove('open');
       bubble.setAttribute('aria-expanded', 'false');
@@ -277,6 +297,7 @@
     }
 
     bubble.addEventListener('click', () => {
+      if (inline) { open(); return; }   /* i siden: boblen ruller ned til chatten */
       win.classList.contains('open') ? close() : open();
     });
 
@@ -284,6 +305,14 @@
     /* Knapper i siden kan åpne agenten direkte («Prøv agenten» på
        forsiden) — det er demoen som er beviset for AI-tilbudet. */
     document.querySelectorAll('[data-open-chat]').forEach((b) => b.addEventListener('click', open));
+    if (inline) {
+      /* Alltid åpent, hilsenen står klar, ingen lukkeknapp */
+      win.classList.add('open');
+      opened = true;
+      renderExisting();
+      badge.classList.add('hidden');
+      win.querySelector('#cw-close').hidden = true;
+    }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();

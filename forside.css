@@ -2524,3 +2524,51 @@ a.sv-go { text-decoration: none; color: inherit; }
 .sv-intro { grid-template-columns: minmax(0, 1fr); margin: 64px auto 72px; }
 .sv-intro-h { max-width: 18ch; }
 @media (max-width: 900px) { .sv-intro { margin: 8px auto 44px; } }
+
+/* ═══ Inngangen: teksten til venstre, tallet stort til høyre ═══ */
+.sv-intro { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px 96px; align-items: center; margin: 72px auto 96px; }
+.sv-intro-tallkol { justify-self: end; max-width: 15ch; }
+.sv-intro-stor-tall {
+  margin: 0;
+  font-size: clamp(30px, 3.3vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: rgba(10,10,10,0.55);
+}
+.sv-intro-stor-tall strong { font-weight: 500; color: #0a0a0a; }
+.sv-intro-tallkol .sv-intro-kilde { display: block; margin-top: 14px; font-size: 14px; }
+@media (max-width: 900px) {
+  .sv-intro { grid-template-columns: 1fr; gap: 28px; margin: 8px auto 48px; }
+  .sv-intro-tallkol { justify-self: start; max-width: none; padding-top: 22px; border-top: 1px solid rgba(10,10,10,0.14); }
+  .sv-intro-stor-tall { font-size: clamp(26px, 7.4vw, 34px); }
+}
+
+/* ═══ Chatboten, ekte, i siden ═══ */
+.chat-sek { position: relative; z-index: 2; background: #fff; padding: 20px 24px 120px; }
+.chat-wrap {
+  max-width: 1290px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+  gap: 48px 96px;
+  align-items: center;
+}
+.chat-tekst h2 {
+  margin: 0 0 20px;
+  max-width: 14ch;
+  font-size: clamp(32px, 3.4vw, 50px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: #0a0a0a;
+}
+.chat-tekst p { margin: 0 0 16px; max-width: 44ch; font-size: 17.5px; line-height: 1.6; color: rgba(10,10,10,0.74); }
+.chat-tekst .chat-note { font-size: 15px; color: rgba(10,10,10,0.5); }
+.chat-live { min-width: 0; }
+@media (max-width: 900px) {
+  .chat-sek { padding: 8px 16px 72px; }
+  .chat-wrap { grid-template-columns: 1fr; gap: 28px; }
+  .chat-tekst h2 { font-size: clamp(28px, 8vw, 36px); max-width: none; }
+  .chat-tekst p { font-size: 16.5px; }
+}

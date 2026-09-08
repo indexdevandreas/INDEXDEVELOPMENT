@@ -311,7 +311,10 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
     <div class="sv-intro-tekstkol">
       <h2 class="sv-intro-h">Du rekker ikke telefonen. Kunden ringer nestemann.</h2>
       <p class="sv-intro-tekst">Jeg lager telefonsvareren som svarer for deg mens du står i jobb, chatboten som svarer på nettsiden, og selve nettsiden. Her er de fire tingene.</p>
-      <p class="sv-intro-tall"><strong>82 %</strong> ringer en konkurrent når ingen svarer. <a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a></p>
+    </div>
+    <div class="sv-intro-tallkol">
+      <p class="sv-intro-stor-tall"><strong>82 %</strong> ringer en konkurrent når ingen svarer.</p>
+      <p class="sv-intro-kilde"><a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a></p>
     </div>
   </div>
 
@@ -417,7 +420,7 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
 
     <div class="mg-text">
       <h2 class="pf-head mg-head">Du snakker med<br>den som bygger.</h2>
-      <p class="mg-lead">Det er meg du snakker med, og meg som bygger. Nettside, chatbot, telefonsvarer eller et system: jeg tegner, koder og drifter det selv, og du får fast pris skriftlig før noe settes i gang. Jeg tar telefonen etter fire på hverdager, og svarer på e-post samme kveld.</p>
+      <p class="mg-lead">Det er meg du snakker med, og meg som bygger. Nettside, chatbot, telefonsvarer eller et system: jeg setter det opp, koder det og drifter det selv, og du får fast pris skriftlig før noe settes i gang. Jeg tar telefonen etter fire på hverdager, og svarer på e-post samme kveld.</p>
       <p class="mg-sign">Andreas Melheim <span aria-hidden="true">·</span> Index Development, Drammen</p>
       <div class="mg-foot">
         <a class="pf-link mg-link" href="om-meg.html">Mer om meg <span class="pf-link-arrow">→</span></a>
@@ -447,25 +450,17 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
 </section>
 
 <!-- ───── CHATBOTEN ─────
-     Var et panel med ✓-liste og «24/7» stort. Nå tre setninger og
-     en knapp som åpner den samme chatboten som ligger nede til høyre. -->
-<!-- ───── CHATBOTEN ─────
-     Mørkt panel i samme stil som kortene: teksten til venstre, en ekte
-     samtale på norsk til høyre, og knappen som åpner den samme
-     chatboten som ligger nede til høyre. -->
-<section class="chatp-sek">
-  <div class="chatp">
-    <div class="chatp-tekst">
-      <h2>Chatboten snakker norsk, og kjenner bedriften din.</h2>
-      <p>Den er satt opp med dine tekster, dine priser og dine åpningstider, ikke en generell assistent på engelsk. Den svarer hele døgnet, og samler navn og nummer når noen vil bli kontaktet, så du kan følge opp dagen etter.</p>
-      <p class="chatp-handling"><button class="chatp-knapp" type="button" data-open-chat>Prøv den her</button><span class="chatp-note">Den nede til høyre er den samme.</span></p>
+     Ingen tegnet samtale. Selve chatboten (chatbot-widget.js) legges
+     inn her via [data-chat-inline] — samme kode, samme svar som den
+     nede til høyre. Det er den man får prøve. -->
+<section class="chat-sek">
+  <div class="chat-wrap">
+    <div class="chat-tekst">
+      <h2>Prøv chatboten her.</h2>
+      <p>Dette er den samme chatboten du får på din egen side, bare satt opp med mine tekster i stedet for dine. Spør den om pris, hvor lang tid ting tar, eller hva den kan svare på.</p>
+      <p class="chat-note">Den svarer på norsk, hele døgnet, og samler navn og nummer når noen vil bli kontaktet.</p>
     </div>
-    <div class="chatp-samtale" aria-label="Eksempel på samtale med chatboten">
-      <div class="chatp-kunde">Har dere ledig time på lørdag?</div>
-      <div class="chatp-bot">Ja, vi har åpent 10–14 på lørdager. Vil du at jeg setter deg opp, trenger jeg navn og nummer.</div>
-      <div class="chatp-kunde">Kari, 91 23 45 67. Gjerne kl. 11.</div>
-      <div class="chatp-bot">Da har jeg notert lørdag kl. 11, Kari. Du får en bekreftelse på SMS.</div>
-    </div>
+    <div class="chat-live" data-chat-inline></div>
   </div>
 </section>
 
