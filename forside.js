@@ -57,7 +57,6 @@
     '.sv-tall',
     '.sv-intro',
     '.sv-sms',
-    '.chat-wrap',
     '.pf-cards',
     '.s2-grid',
     '.cv3d',
