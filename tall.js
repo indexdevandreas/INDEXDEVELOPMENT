@@ -12,7 +12,7 @@
 (function () {
 
   var SELEKTORER = [
-    '.sv-tall-num strong', // forsiden: 82 %, 78 % (hva som skjer når ingen svarer)
+    '.sv-intro-stor-tall strong', // forsiden: 82 % (prosenten ligger i <span>, den røres ikke)
     '.pf-val',           // forsiden: 0 maler, 100/100, 24/7
     '.s2-num',           // forsiden: 0 kr, 5 dager, 0 mnd
     '.nk-stat',          // forsiden: <1 sek
