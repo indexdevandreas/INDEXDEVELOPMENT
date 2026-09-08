@@ -923,7 +923,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   min-width: 0;
 }
@@ -951,6 +951,8 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
 .sv-list li:last-child { border-bottom: 1px solid rgba(10,10,10,0.14); }
 .sv-dark .sv-list li { border-color: rgba(255,255,255,0.14); }
 
+/* Etikett og liste henger sammen øverst; bare pilen går i bunnen. */
+.sv-side .sv-go { margin-top: auto; }
 .sv-go {
   width: 44px; height: 44px;
   border-radius: 50%;
