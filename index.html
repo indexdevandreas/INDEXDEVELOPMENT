@@ -308,9 +308,19 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
        Bare det en person ville sagt. Tallet står i setningen, med
        kilden bak. -->
   <div class="sv-intro">
-    <p class="sv-intro-stor">Du står i en jobb. Telefonen ringer, og du rekker den ikke. Den som ringte prøver sjelden igjen. De ringer nestemann på lista, og du får aldri vite at jobben fantes.</p>
-    <p class="sv-intro-tekst">Det er ikke bare en følelse. I en undersøkelse blant tusen forbrukere svarte <strong>82 prosent</strong> at de ringer en konkurrent hvis bedriften ikke svarer. <span class="sv-intro-kilde">(<a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a>)</span></p>
-    <p class="sv-intro-tekst">Det er den kunden jeg vil hjelpe deg å beholde. Her er de fire tingene jeg lager.</p>
+    <div class="sv-intro-tekstkol">
+      <p class="sv-intro-stor">Du står i en jobb. Telefonen ringer, og du rekker den ikke. Den som ringte prøver sjelden igjen. De ringer nestemann på lista, og du får aldri vite at jobben fantes.</p>
+      <p class="sv-intro-tekst">Det er ikke bare en følelse. I en undersøkelse blant tusen forbrukere svarte <strong>82 prosent</strong> at de ringer en konkurrent hvis bedriften ikke svarer. <span class="sv-intro-kilde">(<a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a>)</span></p>
+      <p class="sv-intro-tekst">Det er den kunden jeg vil hjelpe deg å beholde. Her er de fire tingene jeg lager.</p>
+    </div>
+    <!-- Slik ser det ut for den som ringte: anropet gikk ubesvart,
+         meldingen kom i ditt navn, og svaret kom tilbake. -->
+    <div class="sv-demo" aria-label="Eksempel på SMS-utveksling">
+      <div class="sv-demo-inn"><span class="sv-demo-ikon" aria-hidden="true">✆</span><span>Ubesvart anrop</span><span class="sv-demo-tid">14:32</span></div>
+      <div class="sv-demo-ut">Så anropet ditt, ringer deg opp igjen. Hva gjelder det?</div>
+      <div class="sv-demo-svar">Lekkasje under kjøkkenvasken 🙏</div>
+      <p class="sv-demo-note">Meldingen går ut automatisk, i ditt navn. Svaret får du på SMS og e-post.</p>
+    </div>
   </div>
 
   <!-- Fire paneler som stabler seg når man ruller. Hvert panel ligger i
@@ -444,25 +454,26 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
   </div>
 </section>
 
-<!-- ───── DU BETALER ETTERPÅ ─────
-     Var tre kort med store tall (0 kr / 5 dager / 0 mnd). Nå én
-     tekstblokk som sier det samme, i vanlige setninger. -->
-<section class="enkelt">
-  <div class="enkelt-inner">
-    <h2>Du betaler når du har sett resultatet.</h2>
-    <p>Nettsiden får du et ferdig utkast av på fem dager, uten å ha betalt noe. Chatboten ser du ferdig først, og betaler når du sier ja. Driftsavtalen for nettsiden har ingen bindingstid: koden er din, og du kan si opp eller flytte siden når du vil.</p>
-    <p>Lurer du på hva driften dekker, hvor lang tid ting tar, eller hva som skjer om du vil slutte? <a href="sporsmal.html">Svarene står her.</a> Prisene <a href="priser.html">står her</a>.</p>
-  </div>
-</section>
-
 <!-- ───── CHATBOTEN ─────
      Var et panel med ✓-liste og «24/7» stort. Nå tre setninger og
      en knapp som åpner den samme chatboten som ligger nede til høyre. -->
-<section class="enkelt enkelt-chat">
-  <div class="enkelt-inner">
-    <h2>Chatboten snakker norsk, og kjenner bedriften din.</h2>
-    <p>Den er satt opp med dine tekster, dine priser og dine åpningstider, ikke en generell assistent på engelsk. Den svarer hele døgnet, og samler navn og nummer når noen vil bli kontaktet, så du kan følge opp dagen etter.</p>
-    <p class="enkelt-handling"><button class="enkelt-knapp" type="button" data-open-chat>Prøv den her</button><span class="enkelt-note">Den nede til høyre er den samme.</span></p>
+<!-- ───── CHATBOTEN ─────
+     Mørkt panel i samme stil som kortene: teksten til venstre, en ekte
+     samtale på norsk til høyre, og knappen som åpner den samme
+     chatboten som ligger nede til høyre. -->
+<section class="chatp-sek">
+  <div class="chatp">
+    <div class="chatp-tekst">
+      <h2>Chatboten snakker norsk, og kjenner bedriften din.</h2>
+      <p>Den er satt opp med dine tekster, dine priser og dine åpningstider, ikke en generell assistent på engelsk. Den svarer hele døgnet, og samler navn og nummer når noen vil bli kontaktet, så du kan følge opp dagen etter.</p>
+      <p class="chatp-handling"><button class="chatp-knapp" type="button" data-open-chat>Prøv den her</button><span class="chatp-note">Den nede til høyre er den samme.</span></p>
+    </div>
+    <div class="chatp-samtale" aria-label="Eksempel på samtale med chatboten">
+      <div class="chatp-kunde">Har dere ledig time på lørdag?</div>
+      <div class="chatp-bot">Ja, vi har åpent 10–14 på lørdager. Vil du at jeg setter deg opp, trenger jeg navn og nummer.</div>
+      <div class="chatp-kunde">Kari, 91 23 45 67. Gjerne kl. 11.</div>
+      <div class="chatp-bot">Da har jeg notert lørdag kl. 11, Kari. Du får en bekreftelse på SMS.</div>
+    </div>
   </div>
 </section>
 
