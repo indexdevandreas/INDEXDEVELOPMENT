@@ -54,6 +54,7 @@
   /* Grupper som skal animeres inn, med forskyvning mellom barna */
   var GROUPS = [
     '.platform-top',
+    '.poeng-wrap',
     '.sv-tall',
     '.sv-intro',
     '.sv-sms',
