@@ -888,6 +888,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   display: flex;
   flex-direction: column;
   min-width: 0;
+  justify-content: flex-end;
 }
 .sv-num {
   font-family: 'Geist Mono', ui-monospace, monospace;
