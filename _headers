@@ -13,3 +13,79 @@
   X-Robots-Tag: noindex
 /hanshaugerud/*
   X-Robots-Tag: noindex
+
+# CSS og JS: alltid sjekk mot serveren (ETag → 304 når uendret).
+# Uten dette lå stilarkene fire timer i nettleserens cache, og en ny
+# index.html sto uten stil til cachen gikk ut. Én linje per fil, fordi
+# det er det Pages garantert forstår.
+/ai-agenter.css
+  Cache-Control: public, max-age=0, must-revalidate
+/ai-agenter.js
+  Cache-Control: public, max-age=0, must-revalidate
+/api-integrasjoner.css
+  Cache-Control: public, max-age=0, must-revalidate
+/blogg.css
+  Cache-Control: public, max-age=0, must-revalidate
+/booking-systemer.css
+  Cache-Control: public, max-age=0, must-revalidate
+/chatbot-widget.css
+  Cache-Control: public, max-age=0, must-revalidate
+/chatbot-widget.js
+  Cache-Control: public, max-age=0, must-revalidate
+/cookies.css
+  Cache-Control: public, max-age=0, must-revalidate
+/drift.css
+  Cache-Control: public, max-age=0, must-revalidate
+/drift.js
+  Cache-Control: public, max-age=0, must-revalidate
+/forside-3d.js
+  Cache-Control: public, max-age=0, must-revalidate
+/forside.css
+  Cache-Control: public, max-age=0, must-revalidate
+/forside.js
+  Cache-Control: public, max-age=0, must-revalidate
+/fps.css
+  Cache-Control: public, max-age=0, must-revalidate
+/fps.js
+  Cache-Control: public, max-age=0, must-revalidate
+/hjemmeside.css
+  Cache-Control: public, max-age=0, must-revalidate
+/hjemmeside.js
+  Cache-Control: public, max-age=0, must-revalidate
+/kom-i-gang.css
+  Cache-Control: public, max-age=0, must-revalidate
+/kom-i-gang.js
+  Cache-Control: public, max-age=0, must-revalidate
+/kontakt.css
+  Cache-Control: public, max-age=0, must-revalidate
+/legal.css
+  Cache-Control: public, max-age=0, must-revalidate
+/liv.js
+  Cache-Control: public, max-age=0, must-revalidate
+/nav-scroll-tracker.js
+  Cache-Control: public, max-age=0, must-revalidate
+/om-meg.css
+  Cache-Control: public, max-age=0, must-revalidate
+/priser.css
+  Cache-Control: public, max-age=0, must-revalidate
+/samtykke.css
+  Cache-Control: public, max-age=0, must-revalidate
+/samtykke.js
+  Cache-Control: public, max-age=0, must-revalidate
+/sider.css
+  Cache-Control: public, max-age=0, must-revalidate
+/sokemotoroptimalisering.css
+  Cache-Control: public, max-age=0, must-revalidate
+/subpage.js
+  Cache-Control: public, max-age=0, must-revalidate
+/svarer.css
+  Cache-Control: public, max-age=0, must-revalidate
+/systemutvikling.css
+  Cache-Control: public, max-age=0, must-revalidate
+/tall.js
+  Cache-Control: public, max-age=0, must-revalidate
+/tjenester.css
+  Cache-Control: public, max-age=0, must-revalidate
+/webdesign.css
+  Cache-Control: public, max-age=0, must-revalidate
+
