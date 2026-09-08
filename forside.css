@@ -2519,3 +2519,8 @@ a.sv-go { text-decoration: none; color: inherit; }
   .sv-sms { justify-self: start; width: 100%; }
   .sv-lead-in { font-size: 20px; margin-bottom: 18px; }
 }
+
+/* Inngangen uten meldingsskjermen: én kolonne, luft, så kortene. */
+.sv-intro { grid-template-columns: minmax(0, 1fr); margin: 64px auto 72px; }
+.sv-intro-h { max-width: 18ch; }
+@media (max-width: 900px) { .sv-intro { margin: 8px auto 44px; } }
