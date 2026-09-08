@@ -55,6 +55,8 @@
   var GROUPS = [
     '.platform-top',
     '.sv-tall',
+    '.sv-intro',
+    '.enkelt-inner',
     '.pf-cards',
     '.s2-grid',
     '.cv3d',
