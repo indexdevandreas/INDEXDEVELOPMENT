@@ -309,18 +309,22 @@ try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion: 
        kilden bak. -->
   <div class="sv-intro">
     <div class="sv-intro-tekstkol">
-      <h2 class="sv-intro-h">Du rekker ikke telefonen.<br>Kunden ringer nestemann.</h2>
-      <p class="sv-intro-tall"><strong>82 %</strong> ringer en konkurrent når ingen svarer. <span class="sv-intro-kilde"><a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a></span></p>
+      <h2 class="sv-intro-h">Du rekker ikke telefonen. Kunden ringer nestemann.</h2>
+      <p class="sv-intro-tekst">Jeg lager telefonsvareren som svarer for deg mens du står i jobb, chatboten som svarer på nettsiden, og selve nettsiden.</p>
+      <p class="sv-intro-tall"><strong>82 %</strong> ringer en konkurrent når ingen svarer. <a href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever" rel="noopener" target="_blank">CallRail, 2025</a></p>
     </div>
-    <!-- Slik ser det ut for den som ringte: anropet gikk ubesvart,
-         meldingen kom i ditt navn, og svaret kom tilbake. -->
-    <div class="sv-demo" aria-label="Eksempel på SMS-utveksling">
-      <div class="sv-demo-inn"><span class="sv-demo-ikon" aria-hidden="true">✆</span><span>Ubesvart anrop</span><span class="sv-demo-tid">14:32</span></div>
-      <div class="sv-demo-ut">Så anropet ditt, ringer deg opp igjen. Hva gjelder det?</div>
-      <div class="sv-demo-svar">Lekkasje under kjøkkenvasken 🙏</div>
-      <p class="sv-demo-note">Meldingen går ut automatisk, i ditt navn. Svaret får du på SMS og e-post.</p>
-    </div>
+    <!-- Slik ser det ut for den som ringte: som en meldingsskjerm -->
+    <figure class="sv-sms" aria-label="Eksempel på SMS-utveksling">
+      <div class="sv-sms-skjerm">
+        <p class="sv-sms-tid">I dag 14:32</p>
+        <div class="sv-sms-ut">Så anropet ditt, ringer deg opp igjen. Hva gjelder det?</div>
+        <div class="sv-sms-inn">Lekkasje under kjøkkenvasken 🙏</div>
+      </div>
+      <figcaption>Meldingen går ut automatisk, i ditt navn. Svaret får du på SMS og e-post.</figcaption>
+    </figure>
   </div>
+
+  <h2 class="sv-lead-in">Dette lager jeg</h2>
 
   <!-- Fire paneler som stabler seg når man ruller. Hvert panel ligger i
        en sticky .sv-slot (forside.css) og legger seg oppå det forrige,

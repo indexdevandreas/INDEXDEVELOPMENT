@@ -56,7 +56,7 @@
     '.platform-top',
     '.sv-tall',
     '.sv-intro',
-    '.sv-demo',
+    '.sv-sms',
     '.chatp',
     '.chatp-samtale',
     '.pf-cards',

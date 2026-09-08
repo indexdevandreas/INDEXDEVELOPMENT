@@ -2446,3 +2446,76 @@ a.sv-go { text-decoration: none; color: inherit; }
 }
 .sv-intro-tall strong { font-weight: 600; color: #0a0a0a; }
 .sv-intro-tall .sv-intro-kilde { margin-left: 6px; }
+
+/* ═══ Inngangen, luftig ═══ */
+.sv-intro {
+  margin: 72px auto 120px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px 96px;
+}
+.sv-intro-h { max-width: 20ch; font-size: clamp(32px, 3.4vw, 50px); }
+.sv-intro-tekst { max-width: 44ch; margin-top: 22px; }
+.sv-intro-tall {
+  margin: 34px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(10,10,10,0.14);
+  max-width: 44ch;
+  font-size: 15px;
+  color: rgba(10,10,10,0.55);
+}
+.sv-intro-tall strong { color: #0a0a0a; font-weight: 600; }
+.sv-intro-tall a { color: inherit; text-decoration: underline; text-underline-offset: 2px; margin-left: 4px; }
+
+/* Meldingsskjermen */
+.sv-sms { margin: 0; justify-self: end; width: min(400px, 100%); }
+.sv-sms-skjerm {
+  padding: 26px 22px 24px;
+  border-radius: 28px;
+  background: #f4f4f1;
+  border: 1px solid rgba(10,10,10,0.06);
+  box-shadow: 0 30px 60px -36px rgba(10,10,10,0.3);
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+.sv-sms-tid {
+  justify-self: center;
+  margin: 0 0 6px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(10,10,10,0.45);
+}
+.sv-sms-ut, .sv-sms-inn {
+  max-width: 86%;
+  padding: 13px 17px;
+  border-radius: 22px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.sv-sms-ut { justify-self: end; background: #0a84ff; color: #fff; border-bottom-right-radius: 6px; }
+.sv-sms-inn { background: #fff; color: #0a0a0a; border: 1px solid rgba(10,10,10,0.12); border-bottom-left-radius: 6px; }
+.sv-sms figcaption {
+  margin: 14px 4px 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.5);
+  max-width: 40ch;
+}
+
+/* Liten overskrift over kortene */
+.sv-lead-in {
+  max-width: 1290px;
+  margin: 0 auto 26px;
+  padding: 0 24px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+}
+@media (max-width: 900px) {
+  .sv-intro { margin: 8px auto 64px; gap: 36px; grid-template-columns: 1fr; }
+  .sv-intro-h { font-size: clamp(28px, 8vw, 36px); max-width: none; }
+  .sv-sms { justify-self: start; width: 100%; }
+  .sv-lead-in { font-size: 20px; margin-bottom: 18px; }
+}
