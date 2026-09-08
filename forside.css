@@ -2591,3 +2591,13 @@ a.sv-go { text-decoration: none; color: inherit; }
   .poeng-wrap h2 { font-size: clamp(28px, 8vw, 34px); }
   .poeng-tekst p { font-size: 16.5px; margin-bottom: 16px; }
 }
+
+/* Setningen som er hele poenget, i eierens egne ord — større enn resten. */
+.poeng-stor {
+  font-size: clamp(21px, 1.9vw, 27px) !important;
+  line-height: 1.4 !important;
+  color: #0a0a0a !important;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px !important;
+}
+@media (max-width: 900px) { .poeng-stor { font-size: 19px !important; } }
