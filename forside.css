@@ -841,8 +841,11 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   gap: 32px 72px;
   /* Fast høyde, ikke min-height: panelene skal være nøyaktig like
-     store i bunken. 62vh + 104px topp får plass i alt over ~700px. */
-  height: clamp(460px, 62vh, 580px);
+     store i bunken. Lavere enn før (var 62vh): uten skyggetallet ble
+     øvre halvdel bare tom flate. Tittel og tekst står øverst, listen
+     øverst til høyre på linje med tittelen, pil og «Se priser»
+     nederst. */
+  height: clamp(360px, 46vh, 440px);
   padding: 44px 52px 48px;
   border-radius: 24px;
   background: #f1f1ef;
@@ -888,7 +891,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   display: flex;
   flex-direction: column;
   min-width: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .sv-num {
   font-family: 'Geist Mono', ui-monospace, monospace;
@@ -920,7 +923,7 @@ html.splash-on .hero-photo img { animation-delay: 0.75s, 1.95s; }
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-start;
   min-width: 0;
 }
