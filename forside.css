@@ -2548,59 +2548,199 @@ a.sv-go { text-decoration: none; color: inherit; }
 .sv-intro { grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); gap: 48px 72px; }
 .sv-intro-tallkol { max-width: 22ch; }
 .sv-intro-stor-tall { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.22; }
+/* På mobil må hele oppsettet settes på nytt her: regelen over står uten
+   media query og vant ellers over mobil-reglene lenger opp, så
+   minmax(280px) klemte tekstkolonnen ned til noen få tegn i bredden.
+   Én kolonne: overskrift, brødtekst, så tallet under en skillestrek. */
 @media (max-width: 900px) {
-  .sv-intro-tallkol { max-width: none; }
+  .sv-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin: 8px auto 48px;
+    padding: 0 20px;
+    align-items: start;
+  }
+  .sv-intro-h { max-width: none; font-size: clamp(27px, 7.6vw, 36px); }
+  .sv-intro-tekst { max-width: none; margin-top: 16px; font-size: 16.5px; }
+  .sv-intro-tallkol {
+    max-width: none;
+    justify-self: start;
+    padding-top: 22px;
+    border-top: 1px solid rgba(10,10,10,0.14);
+  }
+  .sv-intro-stor-tall { font-size: clamp(21px, 5.6vw, 26px); line-height: 1.3; }
+  .sv-intro-tallkol .sv-intro-kilde { margin-top: 10px; }
 }
 
 
-/* ═══ «Hele poenget mitt» ═══
-   Mørkt, avrundet panel på hvit flate — samme språk som tjeneste-
-   kortene. Én kolonne, venstrejustert. Var en beige flate med
-   overskrift til venstre og tekst til høyre: en farge siden ikke har
-   ellers, og samme oppsett som alt annet. */
-.poeng-sek {
+/* ═══ DØGNÅPENT ═══
+   Rolig. Hvit flate, sort tekst, ingen streker, ingen understreking,
+   ingen glød. Tredje runde: den svarte flaten med limestreker og ord
+   som fløy inn ble for mye trykk. Det eneste som beveger seg er de tre
+   dørene, og det er nok.
+
+   Ordene i overskriften deles fortsatt i spans av forside.js (--pp går
+   0 → 1 mens seksjonen ruller inn), men de tones bare inn — ingen
+   rotasjon, ingen uskarphet. Uten JS står alt ferdig. */
+.maal {
   position: relative;
   z-index: 2;
   background: #fff;
-  padding: 20px 24px 110px;
+  color: #0a0a0a;
+  padding: 96px 24px 120px;
 }
-.poeng-panel {
-  max-width: 1290px;
-  margin: 0 auto;
-  padding: 72px 64px 76px;
-  border-radius: 28px;
-  background: #0d0d0d;
-  color: #fff;
+.maal-wrap { max-width: 1290px; margin: 0 auto; }
+
+.maal-h {
+  margin: 0;
+  max-width: 19ch;
+  font-size: clamp(32px, 4.6vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  color: #0a0a0a;
 }
-.poeng-h {
-  margin: 0 0 34px;
+.maal-linje { display: block; }
+/* På PC brakk linja etter «også», som leste som et bittelite ord alene:
+   «Alle får svar — også / når du står i en jobb.» Nå brekker den ved
+   tankestreken. På telefon får den brekke der den vil. */
+@media (min-width: 901px) { .maal-nb { white-space: nowrap; } }
+
+/* Ordene: bare en myk inntoning, ord for ord */
+.maal-w {
+  --k: 1;
+  display: inline-block;
+  opacity: calc(0.18 + var(--k) * 0.82);
+  transform: translate3d(0, calc((1 - var(--k)) * 0.12em), 0);
+}
+.maal.is-live .maal-w {
+  --k: clamp(0, calc((var(--pp, 0) * (var(--n, 12) + 3) - var(--i, 0)) / 2), 1);
+  will-change: transform, opacity;
+}
+
+/* ── De tre dørene ──
+   Lys grå rom med teksten, sort dørblad foran hengslet i venstre kant.
+   Når døra kommer inn i bildet får den .is-open fra forside.js, og
+   bladet svinger 86° mot betrakteren med forsinkelse --d per dør.
+   Standard er ÅPEN: bare når JS har satt .is-live på seksjonen og døra
+   ennå ikke har .is-open, står bladet lukket. */
+.dorer {
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.dor {
+  position: relative;
+  border-radius: 20px;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+.dor-rom {
+  position: relative;
+  z-index: 1;
+  min-height: 420px;
+  padding: 28px 28px 30px;
+  border-radius: 20px;
+  background: #f4f4f1;
+  color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.dor-nr {
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--lime);
+  letter-spacing: 0.14em;
+  color: rgba(10,10,10,0.5);
 }
-.poeng-stor {
-  margin: 0;
-  max-width: 22ch;
-  font-size: clamp(30px, 3.6vw, 54px);
+/* Rommet leses ovenfra: først NÅR (de søker / skriver / ringer — samme
+   tre verb som i overskriften), nederst HVA som tar imot. DOM-
+   rekkefølgen er nr, h3, nar, p av hensyn til overskriftsnivåene —
+   order flytter bare det visuelle. */
+.dor-nar {
+  order: 1;
+  margin: 18px 0 0;
+  font-size: clamp(26px, 2.3vw, 34px);
   font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.dor-h { order: 2; margin: auto 0 0; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.dor-p { order: 3; margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: rgba(10,10,10,0.68); }
+
+.dor-blad {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 24px 26px 26px;
+  border-radius: 20px;
+  background: #0f0f0f;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  transform-origin: 0 50%;
+  transform: rotateY(-86deg);   /* standard: åpen */
+  backface-visibility: hidden;
+  box-shadow: 18px 0 40px -16px rgba(10,10,10,0.35);
+  /* Sakte: 2,2 s med lang, myk utrulling, og 0,3 s mellom hver dør.
+     1,15 s var for kvikt — en dør som svinger opp skal ha tyngde. */
+  transition: transform 2.2s cubic-bezier(0.16, 0.7, 0.12, 1) var(--d, 0s);
+  will-change: transform;
 }
-.poeng-under {
-  margin: 30px 0 0;
-  max-width: 46ch;
-  font-size: 17.5px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.62);
+.dor-blad-nr {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.5);
 }
+.dor-blad-navn {
+  margin-top: auto;
+  font-size: clamp(22px, 1.9vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.maal.is-live .dor:not(.is-open) .dor-blad { transform: rotateY(0deg); }
+@media (hover: hover) {
+  .dor.is-open:hover .dor-blad { transform: rotateY(-96deg); transition-delay: 0s; transition-duration: 1.2s; }
+}
+
+/* Hvorfor jeg bygger dette. Sist, i mindre grad enn dørene. */
+.maal-under {
+  margin: 64px 0 0;
+  max-width: 58ch;
+  font-size: 17px;
+  line-height: 1.62;
+  color: rgba(10,10,10,0.62);
+}
+
 @media (max-width: 900px) {
-  .poeng-sek { padding: 8px 16px 72px; }
-  .poeng-panel { padding: 40px 26px 44px; border-radius: 22px; }
-  .poeng-h { margin-bottom: 24px; font-size: 11px; }
-  .poeng-stor { font-size: clamp(26px, 7.6vw, 34px); max-width: none; }
-  .poeng-under { font-size: 16px; margin-top: 24px; }
+  .maal { padding: 64px 20px 80px; }
+  .maal-h { max-width: none; font-size: clamp(30px, 8.4vw, 42px); line-height: 1.1; }
+  .maal-linje + .maal-linje { margin-top: 0.3em; }
+  .dorer { margin-top: 40px; grid-template-columns: 1fr; gap: 16px; }
+  .dor-rom { min-height: 280px; padding: 24px 24px 26px; }
+  .dor-h { margin-top: 36px; }
+  .dor-blad { padding: 22px 22px 24px; }
+  .maal-under { margin-top: 44px; max-width: none; font-size: 16.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maal-w { --k: 1 !important; transform: none; }
+  .dor-blad { transform: rotateY(-86deg) !important; transition: none; }
+}
+
+/* Under stabelen: veien til det som ikke er en av de tre dørene */
+.sv-ellers {
+  max-width: 1290px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(10,10,10,0.55);
+}
+.sv-ellers a { color: #0a0a0a; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) { .sv-ellers { margin-top: 28px; padding: 0 20px; font-size: 15px; } }
 }

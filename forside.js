@@ -54,7 +54,6 @@
   /* Grupper som skal animeres inn, med forskyvning mellom barna */
   var GROUPS = [
     '.platform-top',
-    '.poeng-panel',
     '.sv-tall',
     '.sv-intro',
     '.sv-sms',
@@ -577,6 +576,102 @@
       if (en[0].boundingClientRect.bottom < 0 && qp !== 1) {
         qp = 1;
         wrap.style.setProperty('--qp', '1');
+      }
+    }, { rootMargin: '30% 0px' }).observe(wrap);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', rolig(measure));
+    window.addEventListener('load', measure);
+    measure();
+  })();
+
+  /* ═══ 3f. Målet: ordene flyr inn ett for ett ═══
+     Samme mekanikk som sitatet over — ett tall (--pp) fra rulling, og
+     CSS-en regner ut resten — men her flyr ordene inn skjevt og
+     uskarpe, og limestrekene tegner seg når de har landet.
+
+     Ordene deles her og ikke i HTML-en, så teksten står som én lesbar
+     setning for skjermlesere og søkemotorer. Splittingen går gjennom
+     barna til hver linje og deler bare tekstnodene, så eventuelle
+     <span> rundt uttrykk i overskriften overlever. */
+  (function () {
+    var sec = document.querySelector('.maal');
+    var wrap = sec && sec.querySelector('[data-maal]');
+    var head = wrap && wrap.querySelector('.maal-h');
+    if (!sec || !head || reduce) return;
+
+    var n = 0;
+    function delOpp(vert) {
+      var barn = [].slice.call(vert.childNodes);
+      barn.forEach(function (node) {
+        if (node.nodeType === 1) { delOpp(node); return; }
+        if (node.nodeType !== 3 || !node.textContent.trim()) return;
+        var frag = document.createDocumentFragment();
+        node.textContent.trim().split(/\s+/).forEach(function (ord, j) {
+          if (j > 0) frag.appendChild(document.createTextNode(' '));
+          var sp = document.createElement('span');
+          sp.className = 'maal-w';
+          sp.style.setProperty('--i', n);
+          /* Annethvert ord vipper hver sin vei, ellers ser innflygingen
+             ut som ett skjevt tekstblokk i stedet for løse ord. */
+          sp.style.setProperty('--dir', n % 2 ? 1 : -1);
+          sp.textContent = ord;
+          frag.appendChild(sp);
+          n++;
+        });
+        /* Mellomrommet mellom et ord og et element ligger i
+           tekstnoden og forsvinner i trim() over. */
+        if (/\s$/.test(node.textContent)) frag.appendChild(document.createTextNode(' '));
+        if (/^\s/.test(node.textContent)) frag.insertBefore(document.createTextNode(' '), frag.firstChild);
+        vert.replaceChild(frag, node);
+      });
+    }
+    [].forEach.call(head.querySelectorAll('.maal-linje'), delOpp);
+    wrap.style.setProperty('--n', n);
+    sec.classList.add('is-live');
+
+    /* Dørene: hver åpner seg (.is-open) når nesten halve døra er i
+       bildet, og lukker seg igjen bare om man ruller tilbake OVER den —
+       da får den åpne seg på nytt neste gang. Ruller man forbi nedover
+       står den åpen, så teksten aldri gjemmer seg mens man leser. */
+    var dorer = wrap.querySelectorAll('.dor');
+    if (dorer.length) {
+      var dorIO = new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('is-open');
+          else if (e.boundingClientRect.top > 0) e.target.classList.remove('is-open');
+        });
+      }, { threshold: 0.45 });
+      [].forEach.call(dorer, function (d) { dorIO.observe(d); });
+    }
+
+    var start = 0, travel = 1, inView = false, ticking = false, pp = -1;
+    function measure() {
+      var vh = window.innerHeight || 1;
+      var wrapTop = wrap.getBoundingClientRect().top + window.scrollY;
+      /* Bølgen starter idet overskriften kommer inn nedenfra og er
+         ferdig godt før den er ute igjen, så setningen står rolig og
+         lesbar mens den faktisk er midt i bildet. */
+      start = wrapTop - vh * 0.95;
+      travel = vh * 0.62;
+      pp = -1; frame();
+    }
+    function frame() {
+      ticking = false;
+      var p = (window.scrollY - start) / travel;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      if (p === pp) return;
+      pp = p;
+      wrap.style.setProperty('--pp', p.toFixed(4));
+    }
+    function onScroll() { if (inView && !ticking) { ticking = true; requestAnimationFrame(frame); } }
+    new IntersectionObserver(function (en) {
+      inView = en[0].isIntersecting;
+      if (inView) { onScroll(); return; }
+      /* Gått ut over skjermen: la teksten stå ferdig, ellers fryser den
+         halvveis for den som ruller forbi i ett drag. */
+      if (en[0].boundingClientRect.bottom < 0 && pp !== 1) {
+        pp = 1;
+        wrap.style.setProperty('--pp', '1');
       }
     }, { rootMargin: '30% 0px' }).observe(wrap);
     window.addEventListener('scroll', onScroll, { passive: true });
